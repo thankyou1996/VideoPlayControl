@@ -7,6 +7,7 @@ namespace VideoPlayControl
 {
     public class SDK_JCSDK
     {
+
         #region 初始化
         /// <summary>
         /// 初始化 连接端口(默认-1)
@@ -31,8 +32,7 @@ namespace VideoPlayControl
         //释放SDK
         [DllImport(ProgConstants.c_strCloundSeeSDKFilePath)]
         public static extern void JCSDK_ReleaseSDK();
-
-
+        
         /// <summary>
         /// 连接云服务器
         /// </summary>

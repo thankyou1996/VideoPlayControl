@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll_Libyary\CommonMethod.dll</HintPath>
+    </Reference>
     <Reference Include="PublicClassCurrency, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll_Libyary\PublicClassCurrency.dll</HintPath>
@@ -41,6 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum_SDKState.cs" />
+    <Compile Include="Enum_VideoPlayState.cs" />
+    <Compile Include="Enum_VideoPTZControl.cs" />
+    <Compile Include="ProgParameter.cs" />
+    <Compile Include="SDKState.cs" />
     <Compile Include="SDK_JCSDK.cs" />
     <Compile Include="ProgConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,6 +66,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dll_Libyary\CommonMethod.dll" />
+    <Content Include="dll_Libyary\CommonMethod.XML" />
     <Content Include="dll_Libyary\PublicClassCurrency.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.xml" />
   </ItemGroup>
