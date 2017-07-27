@@ -19,5 +19,13 @@ namespace VideoPlayControl
         {
             
         }
+
+        /// <summary>
+        /// 中维(云视通)设备初始化
+        /// </summary>
+        public void Init_ZW()
+        {
+
+        }
     }
 }

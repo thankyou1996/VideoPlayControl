@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PublicClassCurrency</name>
+    </assembly>
+    <members>
+        <member name="T:PublicClassCurrency.CameraInfo">
+            <summary>
+            摄像头信息
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strDVSNumber">
+            <summary>
+            视频设备编号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.DVSNumber">
+            <summary>
+            视频设备编号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.intChannel">
+            <summary>
+            摄像头通道号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.Channel">
+            <summary>
+            摄像头通道号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strDVSAddress">
+            <summary>
+            DSV地址/唯一码
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.DVSAddress">
+            <summary>
+            DSV地址/唯一码
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strDVSType">
+            <summary>
+            DVS类型
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.DVSType">
+            <summary>
+            DVS类型
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strCameraName">
+            <summary>
+            摄像头名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.CameraName">
+            <summary>
+            摄像头名称
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.VideoInfo">
+            <summary>
+            摄像机信息
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strDVSNumber">
+            <summary>
+            摄像机编号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSNumber">
+            <summary>
+            摄像机编号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strHostID">
+            <summary>
+            主机编号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.HostID">
+            <summary>
+            主机编号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strDVSType">
+            <summary>
+            DVS类型
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSType">
+            <summary>
+            DVS类型
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strDVSName">
+            <summary>
+            DVS名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSName">
+            <summary>
+            DVS名称
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strDVSAddress">
+            <summary>
+            DSV地址/唯一码
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSAddress">
+            <summary>
+            DSV地址/唯一码
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intDVSChannelNum">
+            <summary>
+            通道号数量
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSChannelNum">
+            <summary>
+            通道号数量
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strUserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strPassword">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intNetworkState">
+            <summary>
+            网络状态 1在线 0离线 -1状态未明
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.NetworkState">
+            <summary>
+            网络状态 1在线 0离线 -1状态未明
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.dicCameras">
+            <summary>
+            摄像头信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.Cameras">
+            <summary>
+            摄像头信息
+            </summary>
+        </member>
+        <member name="M:PublicClassCurrency.VideoInfo.SetCameraInfo(System.Int32,System.String)">
+            <summary>
+            设置摄像头信息
+            </summary>
+            <param name="intChannel"></param>
+            <param name="strCameraName"></param>
+        </member>
+        <member name="M:PublicClassCurrency.VideoInfo.ExistCamera(PublicClassCurrency.CameraInfo)">
+            <summary>
+            是否存在摄像头信息
+            </summary>
+            <param name="cameraInfo"></param>
+        </member>
+        <member name="M:PublicClassCurrency.VideoInfo.ExistCameraInfo">
+            <summary>
+            是否存在摄像头
+            </summary>
+        </member>
+    </members>
+</doc>
