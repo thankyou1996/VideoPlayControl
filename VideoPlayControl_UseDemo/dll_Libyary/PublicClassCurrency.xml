@@ -192,12 +192,12 @@
             是否存在摄像头
             </summary>
         </member>
-        <member name="T:PublicClassCurrency.VideoTypeEnum">
+        <member name="T:PublicClassCurrency.Enum_VideoType">
             <summary>
             设备类型
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.VideoTypeEnum.CloundSee">
+        <member name="F:PublicClassCurrency.Enum_VideoType.CloundSee">
             <summary>
             云视通
             </summary>

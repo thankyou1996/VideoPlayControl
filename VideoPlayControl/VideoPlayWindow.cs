@@ -10,16 +10,19 @@ using System.Runtime.InteropServices;
 
 namespace VideoPlayControl
 {
-    public partial class VideoPlayMain : UserControl
+    public partial class VideoPlayWindow : UserControl
     {
         /// <summary>
         /// 当前视频信息
         /// </summary>
         public VideoInfo CurrentVideoInfo;
 
+        /// <summary>
+        /// 当前视频播放状态
+        /// </summary>
         Enum_VideoPlayState VideoPlayState = Enum_VideoPlayState.VideoInfoNull;
 
-        public VideoPlayMain()
+        public VideoPlayWindow()
         {
             InitializeComponent();
         }
@@ -37,10 +40,63 @@ namespace VideoPlayControl
         public void Init_VideoInfo(VideoInfo videoInfo)
         {
             CurrentVideoInfo = videoInfo;
-            VideoPlayState = Enum_VideoPlayState.VideoInfoInit;
+            if (VideoPlayState == Enum_VideoPlayState.VideoInfoNull)
+            {
+                VideoPlayState = Enum_VideoPlayState.VideoInfoInit;
+            }
         }
 
 
+
+        #region 委托事件
+
+        #region SDK状态改变事件回调
+        public delegate void SDKStateChangedCallBackDelegate(object sender, Enum_VideoType videoType, Enum_SDKState sdkState);
+
+        public event SDKStateChangedCallBackDelegate SDKStateChangedCallBackEvent;
+        /// <summary>
+        /// SDK事件回调
+        /// </summary>
+        /// <param name="etType"></param>
+        /// <param name="strTag"></param>
+        private void SDKStateChangedCallBack(Enum_VideoType videoType, Enum_SDKState sdkState)
+        {
+            if (SDKStateChangedCallBackEvent != null)
+            {
+                SDKStateChangedCallBackEvent(this, videoType, sdkState);
+            }
+        }
+
+        #endregion
+
+        #region SDK事件回调
+        /// <summary>
+        /// SDK事件回调委托
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="etType"></param>
+        /// <param name="strTag"></param>
+        public delegate void SDKEventCallBackDelegate(object sender, Enum_SDKEventType etType,string strTag);
+
+        /// <summary>
+        /// SDK事件回调事件
+        /// </summary>
+        public event SDKEventCallBackDelegate SDKEventCallBackEvent;
+
+        /// <summary>
+        /// SDK事件回调
+        /// </summary>
+        /// <param name="etType"></param>
+        /// <param name="strTag"></param>
+        private void SDKEventCallBack(Enum_SDKEventType etType,string strTag)
+        {
+            if (SDKEventCallBackEvent != null)
+            {
+                SDKEventCallBackEvent(this, etType, strTag);
+            }
+        }
+        #endregion
+        #endregion
 
         #region CloundSeeSDK 云视通
 
@@ -65,25 +121,34 @@ namespace VideoPlayControl
         /// </summary>
         public void CloundSee_SDKInit(int intLocStartPort = -1, string strTempFileDicPath = "")
         {
-            ProgParameter.intCloundSee_intLocStartPort = intLocStartPort;
-            if (string.IsNullOrEmpty(strTempFileDicPath.Trim()))
+            if (SDKState.CloundSeeSDKState != Enum_SDKState.SDK_Init)
             {
-                ProgParameter.strCloundSee_TempDicPath = ProgConstants.ro_strCloundSee_TempDicPath;
-            }
-            else
-            {
-                ProgParameter.strCloundSee_TempDicPath = strTempFileDicPath;
-            }
+                // 不属于初始化状态
+                ProgParameter.intCloundSee_intLocStartPort = intLocStartPort;
+                if (string.IsNullOrEmpty(strTempFileDicPath.Trim()))
+                {
+                    ProgParameter.strCloundSee_TempDicPath = ProgConstants.ro_strCloundSee_TempDicPath;
+                    
+                }
+                else
+                {
+                    ProgParameter.strCloundSee_TempDicPath = strTempFileDicPath;
+                }
 
-            //初始化
-            if (SDK_JCSDK.JCSDK_InitSDK(ProgParameter.intCloundSee_intLocStartPort, ProgParameter.strCloundSee_TempDicPath))
-            {
-                SDKState.CloundSeeSDKState = Enum_SDKState.SDK_Init;
+                //初始化
+                if (SDK_JCSDK.JCSDK_InitSDK(ProgParameter.intCloundSee_intLocStartPort, ProgParameter.strCloundSee_TempDicPath))
+                {
+                    SDKState.CloundSeeSDKState = Enum_SDKState.SDK_Init;
+                    SDKStateChangedCallBack(Enum_VideoType.CloundSee, SDKState.CloundSeeSDKState);
+                }
+                else
+                {
+                    SDKState.CloundSeeSDKState = Enum_SDKState.SDK_InitFail;
+                    SDKStateChangedCallBack(Enum_VideoType.CloundSee, SDKState.CloundSeeSDKState);
+                    return;
+                }
             }
-            else
-            {
-                SDKState.CloundSeeSDKState = Enum_SDKState.SDK_InitFail;
-            }
+            
 
             CloundSee_VideoLPRECTChanged();
             CloundSee_InitSDKCallBack();
@@ -93,7 +158,7 @@ namespace VideoPlayControl
         /// <summary>
         //  云视通_初始化SDK回调
         /// </summary>
-        private void CloundSee_InitSDKCallBack()
+        public void CloundSee_InitSDKCallBack()
         {
             gEventCallback = new SDK_JCSDK.JCEventCallback_t(CloundSee_JCEventCallback);
             SDK_JCSDK.JCSDK_RegisterCallback(gEventCallback, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
@@ -111,12 +176,33 @@ namespace VideoPlayControl
         {
             if (etType == SDK_JCSDK.JCEventType.JCET_ConnectOK)
             {
+                CloundSee_EventCallBack(etType, "连接成功，开始播放视频");
                 SDK_JCSDK.JCSDK_EnableDecoder(intCloundSee_ConnID, true);
                 VideoPlayState = Enum_VideoPlayState.InPlayState;
                 SDK_JCSDK.JCSDK_SetVideoPreview(intCloundSee_ConnID, intptrPlayMain, intptrCloundSee_PlayRect);
             }
+            else
+            {
+                CloundSee_EventCallBack(etType);
+            }
         }
 
+
+        private void CloundSee_EventCallBack(SDK_JCSDK.JCEventType etType, string strTag="")
+        {
+            Enum_SDKEventType videoEvType = Enum_SDKEventType.Unrecognized;
+            switch (etType)
+            {
+                case SDK_JCSDK.JCEventType.JCET_ConnectOK:
+                    videoEvType = Enum_SDKEventType.ConnectOK;
+                break;
+
+                default:
+                    strTag = Convert.ToString(etType);
+                    break;
+            }
+            SDKEventCallBack(videoEvType, strTag);
+        }
         #endregion
 
         #region 事件
@@ -145,7 +231,15 @@ namespace VideoPlayControl
         }
 
         /// <summary>
-        /// 
+        /// 关闭视频播放
+        /// </summary>
+        public void CloundSee_VideoClose()
+        {
+            SDK_JCSDK.JCSDK_Disconnect(intCloundSee_ConnID);
+        }
+
+        /// <summary>
+        /// 云台控制
         /// </summary>
         private void CloundSee_PTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
         {
@@ -184,28 +278,44 @@ namespace VideoPlayControl
             Marshal.StructureToPtr(rectMain, intptrCloundSee_PlayRect, true);
         }
         #endregion
-
-
-
+        
         #endregion
-
-
-
-        #region 视频播放
+        
+        #region 基本事件
 
         /// <summary>
         /// 视频播放
         /// </summary>
         public void VideoPlay()
         {
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+            {
+                //处于播放状态，释放
+                VideoClose();
+            }
+
             switch (CurrentVideoInfo.VideoType)
             {
-                case VideoTypeEnum.CloundSee:
+                case Enum_VideoType.CloundSee:
                     CloundSee_VideoPlay();
                     break;
             }
         }
-        
+
+        /// <summary>
+        /// 关闭视频播放
+        /// </summary>
+        public void VideoClose()
+        {
+            switch (CurrentVideoInfo.VideoType)
+            {
+                case Enum_VideoType.CloundSee:
+                    CloundSee_VideoClose();
+                    break;
+            }
+            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+        }
+
         /// <summary>
         /// 云台控制
         /// </summary>
@@ -215,12 +325,12 @@ namespace VideoPlayControl
         {
             switch (CurrentVideoInfo.VideoType)
             {
-                case VideoTypeEnum.CloundSee:
+                case Enum_VideoType.CloundSee:
                     CloundSee_PTZControl(PTZControl, bolStart);
                     break;
             }
         }
-
+        
 
         #endregion
 
@@ -235,25 +345,26 @@ namespace VideoPlayControl
             VideoPlayWindows_Move();
         }
         #endregion
-
-
-        #region VideoPlayWindows控件
+        
+        #region VideoPlayWindows事件
         public void VideoPlayWindows_Move()
         {
             if (CurrentVideoInfo != null)
             {
                 switch (CurrentVideoInfo.VideoType)
                 {
-                    case VideoTypeEnum.CloundSee:
+                    case Enum_VideoType.CloundSee:
                         CloundSee_VideoLPRECTChanged();
-                        SDK_JCSDK.JCSDK_SetVideoPreview(intCloundSee_ConnID, intptrPlayMain, intptrCloundSee_PlayRect);
+                        if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+                        {
+                            SDK_JCSDK.JCSDK_SetVideoPreview(intCloundSee_ConnID, intptrPlayMain, intptrCloundSee_PlayRect);
+                        }
                         break;
                 }
             }
         }
 
         #endregion
-
-
+        
     }
 }

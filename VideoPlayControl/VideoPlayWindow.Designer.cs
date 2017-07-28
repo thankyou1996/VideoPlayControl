@@ -1,6 +1,6 @@
 ﻿namespace VideoPlayControl
 {
-    partial class VideoPlayMain
+    partial class VideoPlayWindow
     {
         /// <summary> 
         /// 必需的设计器变量。

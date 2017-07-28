@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum_SDKState.cs" />
+    <Compile Include="Enum_SDKEventType.cs" />
     <Compile Include="Enum_VideoPlayState.cs" />
     <Compile Include="Enum_VideoPTZControl.cs" />
     <Compile Include="ProgParameter.cs" />
@@ -59,10 +60,19 @@
     <Compile Include="VideoPlayWindow.Designer.cs">
       <DependentUpon>VideoPlayWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoPTZControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoPTZControl.Designer.cs">
+      <DependentUpon>VideoPTZControl.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="VideoPlayWindow.resx">
       <DependentUpon>VideoPlayWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoPTZControl.resx">
+      <DependentUpon>VideoPTZControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
