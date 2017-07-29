@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,8 +34,7 @@ namespace VideoPlayControl_UseDemo
         /// </summary>
         List<VideoPlayWindow> lstVideoPlayWindow = new List<VideoPlayWindow>();
         #endregion
-
-
+        
         public FrmMain()
         {
             InitializeComponent();
@@ -100,9 +100,16 @@ namespace VideoPlayControl_UseDemo
             cmbPlayVideoWindowSet.SelectedValue = 4;
             cmbPlayVideoWindowSet.SelectedIndexChanged += cmbPlayVideoWindowSet_SelectedIndexChanged;
             #endregion
+
+            for (int i = 1; i < 256; i++)
+            {
+                cmbPreset.Items.Add(i.ToString().PadLeft(2, '0'));
+            }
+            cmbPreset.SelectedIndex = 0;
             dgvReocrd.MultiSelect = false;
             videoWindowTest.SDKEventCallBackEvent += VideoPlayControl;
             videoWindowTest.SDKStateChangedCallBackEvent += VideoPlayControl;
+            videoPTZControl1.PTZControlEvent += PTZControlEvent;
         }
         
         #endregion
@@ -111,7 +118,18 @@ namespace VideoPlayControl_UseDemo
         public void VideoPlayControl(object sender, Enum_SDKEventType evType, string strTag)
         {
             VideoPlayWindow v = (VideoPlayWindow)sender;
-            AddRecord(strTag + evType.ToString(),v.Name + "_SDK回调事件" );
+            AddRecord(strTag + "_" + evType.ToString(), v.Name + "_SDK回调事件");
+            this.BeginInvoke(new EventHandler(delegate
+            {
+                if (evType == Enum_SDKEventType.ConnectOK)
+                {
+                    int intPresetCall = 5;
+                    //int intLocalChannel = Convert.ToInt32(txtChannel.Text.Trim());
+                    //JCSDK.JCSDK_PresetCall(intLocalChannel, intPresetCall);
+                    videoWindowTest.SetPresetPosi(intPresetCall);
+                }
+            }));
+            
         }
 
         public void VideoPlayControl(object sender, Enum_VideoType videoType, Enum_SDKState sdkState)
@@ -143,6 +161,10 @@ namespace VideoPlayControl_UseDemo
             }
         }
 
+        private void PTZControlEvent(Enum_VideoPTZControl PTZControlCmd,bool bolStart)
+        {
+            videoWindowTest.VideoPTZControl(PTZControlCmd, bolStart);
+        }
         #endregion
 
         #region 公用事件
@@ -249,7 +271,6 @@ namespace VideoPlayControl_UseDemo
             cmbOperAtVideo.DataSource = dtOperAtVideo;
         }
         
-
         /// <summary>
         /// 添加事件记录
         /// </summary>
@@ -273,15 +294,40 @@ namespace VideoPlayControl_UseDemo
 
         }
 
+
         public void PlayVideo(VideoPlayWindow videoPlayWindow ,VideoInfo videoInfo)
         {
             videoPlayWindow.CloundSee_SDKInit();
             videoPlayWindow.Init_VideoInfo(videoInfo);
             videoPlayWindow.VideoPlay();
         }
+
+        public void PlayVideo(VideoPlayWindow videoPlayWindow, VideoInfo videoInfo, VideoPlaySetting videoPlaySet)
+        {
+            videoPlayWindow.CloundSee_SDKInit();
+            videoPlayWindow.Init_VideoInfo(videoInfo, videoPlaySet);
+            videoPlayWindow.VideoPlay();
+        }
+        public string GetVideoTapeDicPath()
+        {
+            StringBuilder sbRecDicPath = new StringBuilder();
+            //sbRecDicPath.Append(ProgConstants.strCurrentSDK_RecDicPath);  //默认路径
+            //sbRecDicPath.Append("\\" + txtCouldID.Text.Trim());           //云视通号码
+            if (!Directory.Exists(sbRecDicPath.ToString()))
+            {
+                //文件夹不存在，创建文件夹
+                Directory.CreateDirectory(sbRecDicPath.ToString());
+            }
+            StringBuilder sbRecFilePath = new StringBuilder();
+            sbRecFilePath.Append(sbRecDicPath.ToString());
+            sbRecFilePath.Append("\\" + DateTime.Now.ToString("yyyyMMddHHmmss"));     //时间
+            sbRecFilePath.Append("_" + txtChannel.Text.Trim());                     //通道号
+            sbRecFilePath.Append(".mp4");
+            return sbRecFilePath.ToString();
+        }
+
         #endregion
-
-
+        
         private void btnVideoPly_Click(object sender, EventArgs e)
         {
             VideoInfo videoInfo = new VideoInfo();
@@ -304,18 +350,25 @@ namespace VideoPlayControl_UseDemo
             camerasInfo.Channel = intChannel;
             camerasInfo.CameraName = "通道"+ intChannel;
             videoInfo.Cameras[intChannel] = camerasInfo;
+
+            VideoPlaySetting videoPlaySet = new VideoPlaySetting();
+            videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
+            videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
             int intVideoIndex = Convert.ToInt32(cmbOperAtVideo.SelectedValue);
+            if (chkPresetEanble.Checked)
+            {
+                videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
+            }
             if (intVideoIndex == 0)
             {
-                PlayVideo(videoWindowTest, videoInfo);
+                PlayVideo(videoWindowTest, videoInfo, videoPlaySet);
             }
             else
             {
-                PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], videoInfo);
+                PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], videoInfo, videoPlaySet);
             }
         }
         
-
         private void FrmMain_Move(object sender, EventArgs e)
         {
             videoWindowTest.VideoPlayWindows_Move();
@@ -333,6 +386,20 @@ namespace VideoPlayControl_UseDemo
             {
                 lstVideoPlayWindow[intVideoIndex - 1].VideoClose();
             }
+        }
+
+        private void videoPTZControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int intPresetCall = Convert.ToInt32(cmbPreset.Text);
+            //int intLocalChannel = Convert.ToInt32(txtChannel.Text.Trim());
+            //JCSDK.JCSDK_PresetCall(intLocalChannel, intPresetCall);
+            videoWindowTest.CloundSee_SetPresetPosi(intPresetCall);
         }
     }
 }

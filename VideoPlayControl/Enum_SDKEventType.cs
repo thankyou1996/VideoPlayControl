@@ -14,6 +14,22 @@ namespace VideoPlayControl
         /// <summary>
         /// 连接成功
         /// </summary>
-        ConnectOK
+        ConnectOK,
+
+        /// <summary>
+        /// 连接超时
+        /// </summary>
+        ConnectTimeOut,
+
+        /// <summary>
+        /// 连接正常断开
+        /// </summary>
+        DisconnectOK,
+
+        /// <summary>
+        /// 连接异常断开
+        /// </summary>
+        ConnectAbnormally
+
     }
 }

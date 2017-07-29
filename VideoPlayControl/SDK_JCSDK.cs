@@ -229,17 +229,55 @@ namespace VideoPlayControl
         }
         public enum JCEventType
         {
-            //连接部分 Connect part
-            JCET_Connected, //未使用 unused
+            /// <summary>
+            /// 连接部分 Connect part
+            /// </summary>
+            JCET_Connected,
+
+            /// <summary>
+            /// 未使用 unused
+            /// </summary>
             JCET_ConnectOK,	//连接成功  Connect successfully
-            JCET_UserAccessError, //用户验证失败 Fail to user validation
-            JCET_NoChannel,		//主控通道未开启  Master channel closed
-            JCET_ConTypeError,	//连接类型错误 Connection type error
-            JCET_ConCountLimit,	//超过主控连接最大数 excess Max. connection quantity of master
-            JCET_ConTimeout,	//连接超时 Connection timeout
-            JCET_DisconOK, //断开连接成功 Disconnected successfully
-            JCET_ConAbout, //连接异常断开 Connection abnormally disconnected
-            JCET_ServiceStop,	//主控断开连接 Master disconnected
+
+            /// <summary>
+            /// 用户验证失败 Fail to user validation
+            /// </summary>
+            JCET_UserAccessError,
+
+            /// <summary>
+            /// 主控通道未开启  Master channel closed
+            /// </summary>
+            JCET_NoChannel,
+
+            /// <summary>
+            /// 连接类型错误 Connection type error
+            /// </summary>
+            JCET_ConTypeError,
+
+            /// <summary>
+            /// 超过主控连接最大数 excess Max. connection quantity of master
+            /// </summary>
+            JCET_ConCountLimit,
+
+            /// <summary>
+            /// 连接超时 Connection timeout
+            /// </summary>
+            JCET_ConTimeout,
+
+            /// <summary>
+            /// 断开连接成功 Disconnected successfully
+            /// </summary>
+            JCET_DisconOK,
+
+            /// <summary>
+            /// 连接异常断开 Connection abnormally disconnected
+            /// </summary>
+            JCET_ConAbout,
+
+            /// <summary>
+            /// 主控断开连接 Master disconnected
+            /// </summary>
+            JCET_ServiceStop,	
 
             //远程录像相关 about remote record 
             JCET_GetFileListOK,		//获取远程录像成功 Get remote record successfully

@@ -50,10 +50,16 @@
     <Compile Include="Enum_VideoPlayState.cs" />
     <Compile Include="Enum_VideoPTZControl.cs" />
     <Compile Include="ProgParameter.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SDKState.cs" />
     <Compile Include="SDK_JCSDK.cs" />
     <Compile Include="ProgConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VideoPlaySetting.cs" />
     <Compile Include="VideoPlayWindow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -68,6 +74,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="VideoPlayWindow.resx">
       <DependentUpon>VideoPlayWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,6 +90,14 @@
     <Content Include="dll_Libyary\CommonMethod.XML" />
     <Content Include="dll_Libyary\PublicClassCurrency.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.xml" />
+    <Content Include="PTZIcon\PTZ_Down.png" />
+    <Content Include="PTZIcon\PTZ_Left.png" />
+    <Content Include="PTZIcon\PTZ_LowerLeft.png" />
+    <Content Include="PTZIcon\PTZ_LowerRight.png" />
+    <Content Include="PTZIcon\PTZ_Right.png" />
+    <Content Include="PTZIcon\PTZ_Up.png" />
+    <Content Include="PTZIcon\PTZ_UpperLeft.png" />
+    <Content Include="PTZIcon\PTZ_UpperRight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
