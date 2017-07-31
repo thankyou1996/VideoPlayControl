@@ -30,9 +30,11 @@
         {
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
+            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
+            this.button1 = new System.Windows.Forms.Button();
+            this.chkPresetEanble = new System.Windows.Forms.CheckBox();
             this.chkMonitorEnable = new System.Windows.Forms.CheckBox();
             this.chkVideoRecordEnable = new System.Windows.Forms.CheckBox();
-            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
             this.cmbDVSAddress = new System.Windows.Forms.ComboBox();
             this.cmbOperAtVideo = new System.Windows.Forms.ComboBox();
             this.cmbPreset = new System.Windows.Forms.ComboBox();
@@ -65,8 +67,9 @@
             this.dgvReocrd_Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ssrTip = new System.Windows.Forms.StatusStrip();
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
-            this.chkPresetEanble = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.chkSDKStateCallback = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.pnlBottom_Left.SuspendLayout();
@@ -90,12 +93,12 @@
             // 
             // grpVideoInfo
             // 
-            this.grpVideoInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.grpVideoInfo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.grpVideoInfo.Controls.Add(this.videoPTZControl1);
             this.grpVideoInfo.Controls.Add(this.button1);
             this.grpVideoInfo.Controls.Add(this.chkPresetEanble);
             this.grpVideoInfo.Controls.Add(this.chkMonitorEnable);
             this.grpVideoInfo.Controls.Add(this.chkVideoRecordEnable);
-            this.grpVideoInfo.Controls.Add(this.videoPTZControl1);
             this.grpVideoInfo.Controls.Add(this.cmbDVSAddress);
             this.grpVideoInfo.Controls.Add(this.cmbOperAtVideo);
             this.grpVideoInfo.Controls.Add(this.cmbPreset);
@@ -120,6 +123,34 @@
             this.grpVideoInfo.TabStop = false;
             this.grpVideoInfo.Text = "主机信息";
             // 
+            // videoPTZControl1
+            // 
+            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
+            this.videoPTZControl1.Location = new System.Drawing.Point(412, 35);
+            this.videoPTZControl1.Name = "videoPTZControl1";
+            this.videoPTZControl1.Size = new System.Drawing.Size(90, 90);
+            this.videoPTZControl1.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(227, 110);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // chkPresetEanble
+            // 
+            this.chkPresetEanble.AutoSize = true;
+            this.chkPresetEanble.Location = new System.Drawing.Point(221, 63);
+            this.chkPresetEanble.Name = "chkPresetEanble";
+            this.chkPresetEanble.Size = new System.Drawing.Size(84, 16);
+            this.chkPresetEanble.TabIndex = 7;
+            this.chkPresetEanble.Text = "预置点设置";
+            this.chkPresetEanble.UseVisualStyleBackColor = true;
+            // 
             // chkMonitorEnable
             // 
             this.chkMonitorEnable.AutoSize = true;
@@ -139,14 +170,6 @@
             this.chkVideoRecordEnable.TabIndex = 6;
             this.chkVideoRecordEnable.Text = "录像使能";
             this.chkVideoRecordEnable.UseVisualStyleBackColor = true;
-            // 
-            // videoPTZControl1
-            // 
-            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
-            this.videoPTZControl1.Location = new System.Drawing.Point(370, 6);
-            this.videoPTZControl1.Name = "videoPTZControl1";
-            this.videoPTZControl1.Size = new System.Drawing.Size(132, 127);
-            this.videoPTZControl1.TabIndex = 5;
             // 
             // cmbDVSAddress
             // 
@@ -320,6 +343,9 @@
             // 
             // grp_PTZControl
             // 
+            this.grp_PTZControl.Controls.Add(this.checkBox3);
+            this.grp_PTZControl.Controls.Add(this.checkBox2);
+            this.grp_PTZControl.Controls.Add(this.chkSDKStateCallback);
             this.grp_PTZControl.Controls.Add(this.cmbPlayVideoWindowSet);
             this.grp_PTZControl.Controls.Add(this.label8);
             this.grp_PTZControl.Dock = System.Windows.Forms.DockStyle.Right;
@@ -462,25 +488,41 @@
             this.tsslblPrompt.Size = new System.Drawing.Size(32, 17);
             this.tsslblPrompt.Text = "提示";
             // 
-            // chkPresetEanble
+            // chkSDKStateCallback
             // 
-            this.chkPresetEanble.AutoSize = true;
-            this.chkPresetEanble.Location = new System.Drawing.Point(221, 63);
-            this.chkPresetEanble.Name = "chkPresetEanble";
-            this.chkPresetEanble.Size = new System.Drawing.Size(84, 16);
-            this.chkPresetEanble.TabIndex = 7;
-            this.chkPresetEanble.Text = "预置点设置";
-            this.chkPresetEanble.UseVisualStyleBackColor = true;
+            this.chkSDKStateCallback.AutoSize = true;
+            this.chkSDKStateCallback.Checked = true;
+            this.chkSDKStateCallback.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSDKStateCallback.Location = new System.Drawing.Point(6, 40);
+            this.chkSDKStateCallback.Name = "chkSDKStateCallback";
+            this.chkSDKStateCallback.Size = new System.Drawing.Size(114, 16);
+            this.chkSDKStateCallback.TabIndex = 30;
+            this.chkSDKStateCallback.Text = "SDK状态回调显示";
+            this.chkSDKStateCallback.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // checkBox2
             // 
-            this.button1.Location = new System.Drawing.Point(227, 110);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(6, 60);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(114, 16);
+            this.checkBox2.TabIndex = 30;
+            this.checkBox2.Text = "SDK回调事件显示";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.Location = new System.Drawing.Point(6, 82);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(144, 16);
+            this.checkBox3.TabIndex = 30;
+            this.checkBox3.Text = "视频播放事件回调显示";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
@@ -547,11 +589,14 @@
         private System.Windows.Forms.ComboBox cmbOperAtVideo;
         private System.Windows.Forms.ComboBox cmbDVSAddress;
         private System.Windows.Forms.Button btnVideoPlayClose;
-        private VideoPlayControl.VideoPTZControl videoPTZControl1;
         private System.Windows.Forms.CheckBox chkVideoRecordEnable;
         private System.Windows.Forms.CheckBox chkMonitorEnable;
         private System.Windows.Forms.CheckBox chkPresetEanble;
         private System.Windows.Forms.Button button1;
+        private VideoPlayControl.VideoPTZControl videoPTZControl1;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox chkSDKStateCallback;
     }
 }
 

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace VideoPlayControl
 {
+    /// <summary>
+    /// SDK事件类型枚举
+    /// </summary>
     public enum Enum_SDKEventType
     {
         /// <summary>

@@ -12,6 +12,9 @@ using System.Threading;
 
 namespace VideoPlayControl
 {
+    /// <summary>
+    /// 视频播放窗口
+    /// </summary>
     public partial class VideoPlayWindow : UserControl
     {
         /// <summary>
@@ -27,13 +30,17 @@ namespace VideoPlayControl
         /// <summary>
         /// 当前视频播放状态
         /// </summary>
-        Enum_VideoPlayState VideoPlayState = Enum_VideoPlayState.VideoInfoNull;
+        public Enum_VideoPlayState VideoPlayState = Enum_VideoPlayState.VideoInfoNull;
 
-        VideoPlaySetting CurrentVideoPlaySet = new VideoPlaySetting();
+        /// <summary>
+        /// 当前播放设置
+        /// </summary>
+        public VideoPlaySetting CurrentVideoPlaySet = new VideoPlaySetting();
 
         public VideoPlayWindow()
         {
             InitializeComponent();
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.InitEnd);
         }
 
         /// <summary>
@@ -44,6 +51,7 @@ namespace VideoPlayControl
         private void VideoPlayMain_Load(object sender, EventArgs e)
         {
             intptrPlayMain = picPlayMain.Handle;
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.LoadEnd);
         }
 
         public void Init_VideoInfo(VideoInfo videoInfo)
@@ -59,6 +67,12 @@ namespace VideoPlayControl
             {
                 VideoPlayState = Enum_VideoPlayState.VideoInfoInit;
             }
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.SetVideoInfo);
+            if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
+            {
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoTypeNotExists);
+            }
+
         }
 
         public void Init_VideoInfo(VideoInfo videoInfo, VideoPlaySetting videoPlaySet)
@@ -75,9 +89,29 @@ namespace VideoPlayControl
             {
                 VideoPlayState = Enum_VideoPlayState.VideoInfoInit;
             }
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.SetVideoInfo);
+            if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
+            {
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoTypeNotExists);
+            }
         }
 
-
+        public void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
+        {
+            CurrentVideoInfo = videoInfo;
+            CurrentCameraInfo = cameraInfo;
+            CurrentVideoPlaySet = videoPlaySet;
+            if (VideoPlayState == Enum_VideoPlayState.VideoInfoNull)
+            {
+                VideoPlayState = Enum_VideoPlayState.VideoInfoInit;
+            }
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.SetVideoInfo);
+            if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
+            {
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoTypeNotExists);
+            }
+        }
+        
         #region 委托事件
 
         #region SDK状态改变事件回调
@@ -126,6 +160,27 @@ namespace VideoPlayControl
             }
         }
         #endregion
+
+        #region 视频播放事件回调
+        /// <summary>
+        /// 视频播放事件回调_委托
+        /// </summary>
+        /// <param name="eventType"></param>
+        /// <param name="strTag"></param>
+        public delegate void VideoPlayEventCallBackDelegate(object sender,Enum_VideoPlayEventType eventType,string strTag);
+
+        public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
+
+        private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType, string strTag = "")
+        {
+            if (VideoPlayEventCallBackEvent != null)
+            {
+                VideoPlayEventCallBackEvent(this, eventType, strTag);
+            }
+        }
+
+        #endregion
+
         #endregion
 
         #region CloundSeeSDK 云视通
@@ -210,6 +265,7 @@ namespace VideoPlayControl
                     strTag = "[" + CurrentVideoInfo.DVSAddress + "]连接成功,开始播放视频";
                     CloundSee_VideoPreview(false);
                     VideoPlayState = Enum_VideoPlayState.InPlayState;
+                    VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
                     break;
 
                 case SDK_JCSDK.JCEventType.JCET_ConTimeout: //连接成功
@@ -244,7 +300,6 @@ namespace VideoPlayControl
         private void CloundSee_VideoPlay()
         {
             bool bolCouldID = !CommonMethod.Verification.isIP(CurrentVideoInfo.DVSAddress);
-
             intCloundSee_ConnID = SDK_JCSDK.JCSDK_Connect(CurrentVideoInfo.DVSAddress,
                                     CurrentVideoInfo.DVSConnectPort,
                                     CurrentCameraInfo.Channel,
@@ -269,7 +324,14 @@ namespace VideoPlayControl
                 }
                 if (CurrentVideoPlaySet.VideoMonitorEnable)
                 {
-                    ColundSee_VideoMonitorStart();
+                    CloundSee_VideoMonitorStart();
+                }
+                if (CurrentVideoPlaySet.PreSetPosi != -1)
+                {
+                    this.BeginInvoke(new EventHandler(delegate
+                    {
+                        CloundSee_SetPresetPosi(CurrentVideoPlaySet.PreSetPosi);
+                    }));
                 }
             }
         }
@@ -322,7 +384,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 监听使能
         /// </summary>
-        public void ColundSee_VideoMonitorStart()
+        public void CloundSee_VideoMonitorStart()
         {
             SDK_JCSDK.JCSDK_SetAudioPreview(intCloundSee_ConnID, intptrPlayMain);
         }
@@ -336,7 +398,7 @@ namespace VideoPlayControl
         }
 
         /// <summary>
-        /// 设置预置点位置
+        /// 设置预置点位置（仅在主线程中调用有效）
         /// </summary>
         /// <param name="intPreSetPosi"></param>
         public void CloundSee_SetPresetPosi(int intPreSetPosi)
@@ -400,7 +462,7 @@ namespace VideoPlayControl
                 //处于播放状态，释放
                 VideoClose();
             }
-
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.RequestVideo);
             switch (CurrentVideoInfo.VideoType)
             {
                 case Enum_VideoType.CloundSee:
@@ -437,6 +499,7 @@ namespace VideoPlayControl
         /// </summary>
         public void VideoClose()
         {
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
             switch (CurrentVideoInfo.VideoType)
             {
                 case Enum_VideoType.CloundSee:

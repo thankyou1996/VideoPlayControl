@@ -5,7 +5,7 @@ using System.Text;
 namespace VideoPlayControl
 {
     /// <summary>
-    /// 
+    /// SDK状态枚举
     /// </summary>
     public enum Enum_SDKState
     {

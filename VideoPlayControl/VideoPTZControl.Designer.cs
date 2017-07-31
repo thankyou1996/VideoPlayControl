@@ -73,17 +73,17 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpMain.Size = new System.Drawing.Size(144, 144);
+            this.tlpMain.Size = new System.Drawing.Size(90, 90);
             this.tlpMain.TabIndex = 0;
             // 
             // picLowerRight
             // 
             this.picLowerRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picLowerRight.Image = ((System.Drawing.Image)(resources.GetObject("picLowerRight.Image")));
-            this.picLowerRight.Location = new System.Drawing.Point(96, 96);
+            this.picLowerRight.Location = new System.Drawing.Point(60, 60);
             this.picLowerRight.Margin = new System.Windows.Forms.Padding(0);
             this.picLowerRight.Name = "picLowerRight";
-            this.picLowerRight.Size = new System.Drawing.Size(48, 48);
+            this.picLowerRight.Size = new System.Drawing.Size(30, 30);
             this.picLowerRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLowerRight.TabIndex = 9;
             this.picLowerRight.TabStop = false;
@@ -92,10 +92,10 @@
             // 
             this.picDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picDown.Image = ((System.Drawing.Image)(resources.GetObject("picDown.Image")));
-            this.picDown.Location = new System.Drawing.Point(48, 96);
+            this.picDown.Location = new System.Drawing.Point(30, 60);
             this.picDown.Margin = new System.Windows.Forms.Padding(0);
             this.picDown.Name = "picDown";
-            this.picDown.Size = new System.Drawing.Size(48, 48);
+            this.picDown.Size = new System.Drawing.Size(30, 30);
             this.picDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picDown.TabIndex = 8;
             this.picDown.TabStop = false;
@@ -104,10 +104,10 @@
             // 
             this.picLowerLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picLowerLeft.Image = ((System.Drawing.Image)(resources.GetObject("picLowerLeft.Image")));
-            this.picLowerLeft.Location = new System.Drawing.Point(0, 96);
+            this.picLowerLeft.Location = new System.Drawing.Point(0, 60);
             this.picLowerLeft.Margin = new System.Windows.Forms.Padding(0);
             this.picLowerLeft.Name = "picLowerLeft";
-            this.picLowerLeft.Size = new System.Drawing.Size(48, 48);
+            this.picLowerLeft.Size = new System.Drawing.Size(30, 30);
             this.picLowerLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLowerLeft.TabIndex = 7;
             this.picLowerLeft.TabStop = false;
@@ -116,10 +116,10 @@
             // 
             this.picRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picRight.Image = ((System.Drawing.Image)(resources.GetObject("picRight.Image")));
-            this.picRight.Location = new System.Drawing.Point(96, 48);
+            this.picRight.Location = new System.Drawing.Point(60, 30);
             this.picRight.Margin = new System.Windows.Forms.Padding(0);
             this.picRight.Name = "picRight";
-            this.picRight.Size = new System.Drawing.Size(48, 48);
+            this.picRight.Size = new System.Drawing.Size(30, 30);
             this.picRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picRight.TabIndex = 6;
             this.picRight.TabStop = false;
@@ -127,10 +127,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox5.Location = new System.Drawing.Point(48, 48);
+            this.pictureBox5.Location = new System.Drawing.Point(30, 30);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 5;
             this.pictureBox5.TabStop = false;
@@ -139,10 +139,10 @@
             // 
             this.picLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picLeft.Image = ((System.Drawing.Image)(resources.GetObject("picLeft.Image")));
-            this.picLeft.Location = new System.Drawing.Point(0, 48);
+            this.picLeft.Location = new System.Drawing.Point(0, 30);
             this.picLeft.Margin = new System.Windows.Forms.Padding(0);
             this.picLeft.Name = "picLeft";
-            this.picLeft.Size = new System.Drawing.Size(48, 48);
+            this.picLeft.Size = new System.Drawing.Size(30, 30);
             this.picLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLeft.TabIndex = 4;
             this.picLeft.TabStop = false;
@@ -151,10 +151,10 @@
             // 
             this.picUpperRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picUpperRight.Image = ((System.Drawing.Image)(resources.GetObject("picUpperRight.Image")));
-            this.picUpperRight.Location = new System.Drawing.Point(96, 0);
+            this.picUpperRight.Location = new System.Drawing.Point(60, 0);
             this.picUpperRight.Margin = new System.Windows.Forms.Padding(0);
             this.picUpperRight.Name = "picUpperRight";
-            this.picUpperRight.Size = new System.Drawing.Size(48, 48);
+            this.picUpperRight.Size = new System.Drawing.Size(30, 30);
             this.picUpperRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picUpperRight.TabIndex = 3;
             this.picUpperRight.TabStop = false;
@@ -163,10 +163,10 @@
             // 
             this.picUp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picUp.Image = ((System.Drawing.Image)(resources.GetObject("picUp.Image")));
-            this.picUp.Location = new System.Drawing.Point(48, 0);
+            this.picUp.Location = new System.Drawing.Point(30, 0);
             this.picUp.Margin = new System.Windows.Forms.Padding(0);
             this.picUp.Name = "picUp";
-            this.picUp.Size = new System.Drawing.Size(48, 48);
+            this.picUp.Size = new System.Drawing.Size(30, 30);
             this.picUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picUp.TabIndex = 2;
             this.picUp.TabStop = false;
@@ -179,7 +179,7 @@
             this.picUpperLeft.Location = new System.Drawing.Point(0, 0);
             this.picUpperLeft.Margin = new System.Windows.Forms.Padding(0);
             this.picUpperLeft.Name = "picUpperLeft";
-            this.picUpperLeft.Size = new System.Drawing.Size(48, 48);
+            this.picUpperLeft.Size = new System.Drawing.Size(30, 30);
             this.picUpperLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picUpperLeft.TabIndex = 1;
             this.picUpperLeft.TabStop = false;
@@ -191,7 +191,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tlpMain);
             this.Name = "VideoPTZControl";
-            this.Size = new System.Drawing.Size(144, 144);
+            this.Size = new System.Drawing.Size(90, 90);
             this.Load += new System.EventHandler(this.VideoPTZControl_Load);
             this.tlpMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLowerRight)).EndInit();

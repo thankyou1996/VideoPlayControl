@@ -64,6 +64,11 @@
             摄像机信息
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.VideoInfo.VideoType">
+            <summary>
+            视频设备类型
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.VideoInfo.strDVSNumber">
             <summary>
             摄像机编号
@@ -197,9 +202,14 @@
             设备类型
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.Unrecognized">
+            <summary>
+            未识别
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.Enum_VideoType.CloundSee">
             <summary>
-            云视通
+            云视通主机
             </summary>
         </member>
     </members>

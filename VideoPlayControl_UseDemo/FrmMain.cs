@@ -28,13 +28,13 @@ namespace VideoPlayControl_UseDemo
         /// 当前窗口数量
         /// </summary>
         public int intCurrentPicNum = 9;
-        
+
         /// <summary>
         /// 播放窗口List对象
         /// </summary>
         List<VideoPlayWindow> lstVideoPlayWindow = new List<VideoPlayWindow>();
         #endregion
-        
+
         public FrmMain()
         {
             InitializeComponent();
@@ -107,36 +107,33 @@ namespace VideoPlayControl_UseDemo
             }
             cmbPreset.SelectedIndex = 0;
             dgvReocrd.MultiSelect = false;
-            videoWindowTest.SDKEventCallBackEvent += VideoPlayControl;
-            videoWindowTest.SDKStateChangedCallBackEvent += VideoPlayControl;
+            videoWindowTest.SDKEventCallBackEvent += SDKEventCallBackEvent;
+            videoWindowTest.SDKStateChangedCallBackEvent += SDKStateChangedCallBackEvent;
+            videoWindowTest.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
             videoPTZControl1.PTZControlEvent += PTZControlEvent;
         }
-        
+
         #endregion
 
         #region 控件事件
-        public void VideoPlayControl(object sender, Enum_SDKEventType evType, string strTag)
+        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType, string strTag)
         {
             VideoPlayWindow v = (VideoPlayWindow)sender;
             AddRecord(strTag + "_" + evType.ToString(), v.Name + "_SDK回调事件");
-            this.BeginInvoke(new EventHandler(delegate
-            {
-                if (evType == Enum_SDKEventType.ConnectOK)
-                {
-                    int intPresetCall = 5;
-                    //int intLocalChannel = Convert.ToInt32(txtChannel.Text.Trim());
-                    //JCSDK.JCSDK_PresetCall(intLocalChannel, intPresetCall);
-                    videoWindowTest.SetPresetPosi(intPresetCall);
-                }
-            }));
-            
         }
 
-        public void VideoPlayControl(object sender, Enum_VideoType videoType, Enum_SDKState sdkState)
+        public void SDKStateChangedCallBackEvent(object sender, Enum_VideoType videoType, Enum_SDKState sdkState)
         {
             VideoPlayWindow v = (VideoPlayWindow)sender;
-            AddRecord(videoType.ToString() + "_" + sdkState.ToString() , v.Name + "_SDK状态");
+            AddRecord(videoType.ToString() + "_" + sdkState.ToString(), v.Name + "_SDK状态");
         }
+
+        public void VideoPlayEventCallBack(object sender, Enum_VideoPlayEventType eventType,string strTag)
+        {
+            VideoPlayWindow v = (VideoPlayWindow)sender;
+            AddRecord(v.CurrentVideoInfo.DVSAddress + "_" + eventType.ToString(), "VideoEvent");
+        }
+
         /// <summary>
         /// 播放页面选中项改变
         /// </summary>
@@ -242,8 +239,8 @@ namespace VideoPlayControl_UseDemo
                     tlpPlayVIdeoWindows.Controls.Add(grp);
                     tlpPlayVIdeoWindows.SetRow(grp, row);
                     tlpPlayVIdeoWindows.SetColumn(grp, col);
-                    videoPlayWindow.SDKEventCallBackEvent += VideoPlayControl;
-                    videoPlayWindow.SDKStateChangedCallBackEvent += VideoPlayControl;
+                    videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
+                    videoPlayWindow.SDKStateChangedCallBackEvent += SDKStateChangedCallBackEvent;
                     lstVideoPlayWindow.Add(videoPlayWindow);
                     i++;
                 }
@@ -390,7 +387,7 @@ namespace VideoPlayControl_UseDemo
 
         private void videoPTZControl1_Load(object sender, EventArgs e)
         {
-
+            
         }
         
 

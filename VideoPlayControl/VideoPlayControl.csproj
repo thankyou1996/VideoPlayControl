@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\VideoPlayControl.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\VideoPlayControl.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -47,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Enum_SDKState.cs" />
     <Compile Include="Enum_SDKEventType.cs" />
+    <Compile Include="Enum_VideoPlayEventType.cs" />
     <Compile Include="Enum_VideoPlayState.cs" />
     <Compile Include="Enum_VideoPTZControl.cs" />
     <Compile Include="ProgParameter.cs" />
