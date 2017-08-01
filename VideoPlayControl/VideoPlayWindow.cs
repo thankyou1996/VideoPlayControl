@@ -238,7 +238,7 @@ namespace VideoPlayControl
         }
 
         /// <summary>
-        //  云视通_注册SDK回调
+        ///  云视通_注册SDK回调
         /// </summary>
         public void CloundSee_InitSDKCallBack()
         {

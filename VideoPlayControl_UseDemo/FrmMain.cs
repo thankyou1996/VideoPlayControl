@@ -393,10 +393,33 @@ namespace VideoPlayControl_UseDemo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int intPresetCall = Convert.ToInt32(cmbPreset.Text);
-            //int intLocalChannel = Convert.ToInt32(txtChannel.Text.Trim());
-            //JCSDK.JCSDK_PresetCall(intLocalChannel, intPresetCall);
-            videoWindowTest.CloundSee_SetPresetPosi(intPresetCall);
+            VideoInfo videoInfo = new VideoInfo();
+            //videoInfo.VideoType = (Enum_VideoType)cmbVideoType.SelectedValue;
+            int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
+            switch (intVideoType)
+            {
+                case 1:
+                    videoInfo.VideoType = Enum_VideoType.CloundSee;
+                    break;
+            }
+
+            videoInfo.DVSAddress = cmbDVSAddress.Text;
+            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
+            videoInfo.UserName = txtUserName.Text;
+            videoInfo.Password = txtPassword.Text;
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            CameraInfo camerasInfo = new CameraInfo();
+            for (int i = 0; i < 16; i++)
+            {
+                camerasInfo = new CameraInfo();
+                //int intChannel = Convert.ToInt32(txtChannel.Text);
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "通道" + i;
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            
+
+            videoChannelList1.Init_SetVideoInfo(videoInfo);
         }
     }
 }

@@ -54,6 +54,9 @@
             this.pnlBottom_Left = new System.Windows.Forms.Panel();
             this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
             this.grp_PTZControl = new System.Windows.Forms.GroupBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chkSDKStateCallback = new System.Windows.Forms.CheckBox();
             this.cmbPlayVideoWindowSet = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -67,9 +70,7 @@
             this.dgvReocrd_Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ssrTip = new System.Windows.Forms.StatusStrip();
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
-            this.chkSDKStateCallback = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.videoChannelList1 = new VideoPlayControl.VideoChannelList();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.pnlBottom_Left.SuspendLayout();
@@ -88,7 +89,7 @@
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBottom.Location = new System.Drawing.Point(0, 379);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(909, 136);
+            this.pnlBottom.Size = new System.Drawing.Size(1041, 136);
             this.pnlBottom.TabIndex = 0;
             // 
             // grpVideoInfo
@@ -118,7 +119,7 @@
             this.grpVideoInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpVideoInfo.Location = new System.Drawing.Point(219, 0);
             this.grpVideoInfo.Name = "grpVideoInfo";
-            this.grpVideoInfo.Size = new System.Drawing.Size(508, 136);
+            this.grpVideoInfo.Size = new System.Drawing.Size(640, 136);
             this.grpVideoInfo.TabIndex = 5;
             this.grpVideoInfo.TabStop = false;
             this.grpVideoInfo.Text = "主机信息";
@@ -126,18 +127,18 @@
             // videoPTZControl1
             // 
             this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
-            this.videoPTZControl1.Location = new System.Drawing.Point(412, 35);
+            this.videoPTZControl1.Location = new System.Drawing.Point(364, 14);
             this.videoPTZControl1.Name = "videoPTZControl1";
             this.videoPTZControl1.Size = new System.Drawing.Size(90, 90);
             this.videoPTZControl1.TabIndex = 9;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(227, 110);
+            this.button1.Location = new System.Drawing.Point(223, 109);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
+            this.button1.Text = "测试按钮";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -349,12 +350,48 @@
             this.grp_PTZControl.Controls.Add(this.cmbPlayVideoWindowSet);
             this.grp_PTZControl.Controls.Add(this.label8);
             this.grp_PTZControl.Dock = System.Windows.Forms.DockStyle.Right;
-            this.grp_PTZControl.Location = new System.Drawing.Point(727, 0);
+            this.grp_PTZControl.Location = new System.Drawing.Point(859, 0);
             this.grp_PTZControl.Name = "grp_PTZControl";
             this.grp_PTZControl.Size = new System.Drawing.Size(182, 136);
             this.grp_PTZControl.TabIndex = 6;
             this.grp_PTZControl.TabStop = false;
             this.grp_PTZControl.Text = "云台控制";
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.Location = new System.Drawing.Point(6, 82);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(144, 16);
+            this.checkBox3.TabIndex = 30;
+            this.checkBox3.Text = "视频播放事件回调显示";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(6, 60);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(114, 16);
+            this.checkBox2.TabIndex = 30;
+            this.checkBox2.Text = "SDK回调事件显示";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // chkSDKStateCallback
+            // 
+            this.chkSDKStateCallback.AutoSize = true;
+            this.chkSDKStateCallback.Checked = true;
+            this.chkSDKStateCallback.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSDKStateCallback.Location = new System.Drawing.Point(6, 40);
+            this.chkSDKStateCallback.Name = "chkSDKStateCallback";
+            this.chkSDKStateCallback.Size = new System.Drawing.Size(114, 16);
+            this.chkSDKStateCallback.TabIndex = 30;
+            this.chkSDKStateCallback.Text = "SDK状态回调显示";
+            this.chkSDKStateCallback.UseVisualStyleBackColor = true;
             // 
             // cmbPlayVideoWindowSet
             // 
@@ -381,7 +418,7 @@
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.splitter1.Location = new System.Drawing.Point(0, 376);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(909, 3);
+            this.splitter1.Size = new System.Drawing.Size(1041, 3);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
@@ -393,7 +430,7 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(909, 376);
+            this.pnlMain.Size = new System.Drawing.Size(1041, 376);
             this.pnlMain.TabIndex = 2;
             // 
             // tlpPlayVIdeoWindows
@@ -408,13 +445,13 @@
             this.tlpPlayVIdeoWindows.RowCount = 1;
             this.tlpPlayVIdeoWindows.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpPlayVIdeoWindows.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 376F));
-            this.tlpPlayVIdeoWindows.Size = new System.Drawing.Size(580, 376);
+            this.tlpPlayVIdeoWindows.Size = new System.Drawing.Size(712, 376);
             this.tlpPlayVIdeoWindows.TabIndex = 9;
             // 
             // splitter2
             // 
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Location = new System.Drawing.Point(580, 0);
+            this.splitter2.Location = new System.Drawing.Point(712, 0);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(3, 376);
             this.splitter2.TabIndex = 8;
@@ -422,9 +459,10 @@
             // 
             // pnlRight
             // 
+            this.pnlRight.Controls.Add(this.videoChannelList1);
             this.pnlRight.Controls.Add(this.dgvReocrd);
             this.pnlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlRight.Location = new System.Drawing.Point(583, 0);
+            this.pnlRight.Location = new System.Drawing.Point(715, 0);
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Size = new System.Drawing.Size(326, 376);
             this.pnlRight.TabIndex = 7;
@@ -478,7 +516,7 @@
             this.tsslblPrompt});
             this.ssrTip.Location = new System.Drawing.Point(0, 515);
             this.ssrTip.Name = "ssrTip";
-            this.ssrTip.Size = new System.Drawing.Size(909, 22);
+            this.ssrTip.Size = new System.Drawing.Size(1041, 22);
             this.ssrTip.TabIndex = 7;
             this.ssrTip.Text = "statusStrip1";
             // 
@@ -488,47 +526,18 @@
             this.tsslblPrompt.Size = new System.Drawing.Size(32, 17);
             this.tsslblPrompt.Text = "提示";
             // 
-            // chkSDKStateCallback
+            // videoChannelList1
             // 
-            this.chkSDKStateCallback.AutoSize = true;
-            this.chkSDKStateCallback.Checked = true;
-            this.chkSDKStateCallback.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkSDKStateCallback.Location = new System.Drawing.Point(6, 40);
-            this.chkSDKStateCallback.Name = "chkSDKStateCallback";
-            this.chkSDKStateCallback.Size = new System.Drawing.Size(114, 16);
-            this.chkSDKStateCallback.TabIndex = 30;
-            this.chkSDKStateCallback.Text = "SDK状态回调显示";
-            this.chkSDKStateCallback.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(6, 60);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(114, 16);
-            this.checkBox2.TabIndex = 30;
-            this.checkBox2.Text = "SDK回调事件显示";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(6, 82);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(144, 16);
-            this.checkBox3.TabIndex = 30;
-            this.checkBox3.Text = "视频播放事件回调显示";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.videoChannelList1.Location = new System.Drawing.Point(0, 3);
+            this.videoChannelList1.Name = "videoChannelList1";
+            this.videoChannelList1.Size = new System.Drawing.Size(323, 367);
+            this.videoChannelList1.TabIndex = 10;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 537);
+            this.ClientSize = new System.Drawing.Size(1041, 537);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlBottom);
@@ -597,6 +606,7 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox chkSDKStateCallback;
+        private VideoPlayControl.VideoChannelList videoChannelList1;
     }
 }
 
