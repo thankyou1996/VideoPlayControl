@@ -17,6 +17,10 @@ namespace VideoPlayControl_UseDemo
         {
             InitializeComponent();
         }
+        private void FrmTest_Load(object sender, EventArgs e)
+        {
+            videoChannelList1.ButtonChannel_ClickEvent += T;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -35,10 +39,18 @@ namespace VideoPlayControl_UseDemo
                 camerasInfo = new CameraInfo();
                 //int intChannel = Convert.ToInt32(txtChannel.Text);
                 camerasInfo.Channel = i;
-                camerasInfo.CameraName = "通道" + i;
+                camerasInfo.CameraName = "视频播放11" + i;
                 videoInfo.Cameras[i] = camerasInfo;
             }
             videoChannelList1.Init_SetVideoInfo(videoInfo);
+        }
+
+
+        public void T(object sender,CameraInfo cameraInfo)
+        {
+            Button btn = (Button)sender;
+            btn.BackColor = Color.Red;
+            MessageBox.Show(cameraInfo.CameraName);
         }
     }
 }

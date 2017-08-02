@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.ttip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // pnlMain
@@ -57,5 +59,6 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.ToolTip ttip;
     }
 }

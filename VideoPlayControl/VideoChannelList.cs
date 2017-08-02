@@ -46,6 +46,21 @@ namespace VideoPlayControl
         int intbtnHeight = 30;
         #endregion
 
+        #region 事件委托
+        public delegate void ButtonChannel_ClickDelegate(object sender, CameraInfo cameraInfo);
+
+        public event ButtonChannel_ClickDelegate ButtonChannel_ClickEvent;
+
+        private void ButtonChannel_Click(object sender,CameraInfo cameraInfo)
+        {
+            if (ButtonChannel_ClickEvent != null)
+            {
+                ButtonChannel_ClickEvent(sender, cameraInfo);
+            }
+        }
+
+        #endregion 
+
 
         /// <summary>
         /// 视频通道列表名称
@@ -95,11 +110,9 @@ namespace VideoPlayControl
         public void Init_ControlInit()
         {
             lstbtns = new List<Button>();
-
         }
         #endregion
-
-
+        
         /// <summary>
         /// 设置摄像头信息按钮
         /// </summary>
@@ -112,6 +125,7 @@ namespace VideoPlayControl
                 lstbtns[i].Dispose();
             }
             lstbtns.Clear();
+            ttip.RemoveAll();
             foreach (KeyValuePair<int, CameraInfo> kv in CurrentVideoInfo.Cameras)
             {
                 //1(x:2 y:27)  2(x:66 y=27)
@@ -126,7 +140,7 @@ namespace VideoPlayControl
                 btn.Tag = kv.Value;
                 btn.Click += btnCameraInfo_Click;
                 lstbtns.Add(btn);
-
+                ttip.SetToolTip(btn, kv.Value.CameraName);
                 intCol++;
                 if (intCol >= 2)
                 {
@@ -136,24 +150,19 @@ namespace VideoPlayControl
             }
         }
         
+
+        /// <summary>
+        /// 按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCameraInfo_Click(object sender, EventArgs e)
         {
-            foreach (Button b in lstbtns)
-            {
-                b.BackColor = Control.DefaultBackColor;
-            }
             Button btn = (Button)sender;
-            btn.BackColor = Color.Red;
-            //CurrentCameraInfo = (CameraInfo)btn.Tag;
-            //VideoPlaySetting videoPlaySet = new VideoPlaySetting();
-            //videoPlaySet.VideoMonitorEnable = true;
-            //if (videoPlayWindow.CurrentVideoInfo != null)
-            //{
-            //    videoPlayWindow.VideoClose();
-            //}
-            //videoPlayWindow.Init_VideoInfo(CurrentVideoInfos[strCurrentVideoID], CurrentCameraInfo, videoPlaySet);
-            //videoPlayWindow.VideoPlay();
+            CameraInfo camerInfo = (CameraInfo)btn.Tag;
+            ButtonChannel_Click(sender, camerInfo);
         }
+        
 
     }
 }

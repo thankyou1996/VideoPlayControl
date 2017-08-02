@@ -36,7 +36,7 @@
             // 
             this.videoChannelList1.Location = new System.Drawing.Point(12, 12);
             this.videoChannelList1.Name = "videoChannelList1";
-            this.videoChannelList1.Size = new System.Drawing.Size(418, 95);
+            this.videoChannelList1.Size = new System.Drawing.Size(149, 293);
             this.videoChannelList1.TabIndex = 0;
             // 
             // button1
@@ -58,6 +58,7 @@
             this.Controls.Add(this.videoChannelList1);
             this.Name = "FrmTest";
             this.Text = "FrmTest";
+            this.Load += new System.EventHandler(this.FrmTest_Load);
             this.ResumeLayout(false);
 
         }

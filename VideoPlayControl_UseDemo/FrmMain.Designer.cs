@@ -64,13 +64,37 @@
             this.tlpPlayVIdeoWindows = new System.Windows.Forms.TableLayoutPanel();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.pnlRight = new System.Windows.Forms.Panel();
+            this.videoChannelList = new VideoPlayControl.VideoChannelList();
             this.dgvReocrd = new System.Windows.Forms.DataGridView();
             this.dgvReocrd_Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvReocrd_Tag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvReocrd_Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ssrTip = new System.Windows.Forms.StatusStrip();
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
-            this.videoChannelList1 = new VideoPlayControl.VideoChannelList();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.pageVideoInfo = new System.Windows.Forms.TabPage();
+            this.pageEventRecord = new System.Windows.Forms.TabPage();
+            this.videoPTZControl2 = new VideoPlayControl.VideoPTZControl();
+            this.button2 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.pnlBottom_Left.SuspendLayout();
@@ -79,6 +103,9 @@
             this.pnlRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReocrd)).BeginInit();
             this.ssrTip.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.pageVideoInfo.SuspendLayout();
+            this.pageEventRecord.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBottom
@@ -459,13 +486,20 @@
             // 
             // pnlRight
             // 
-            this.pnlRight.Controls.Add(this.videoChannelList1);
-            this.pnlRight.Controls.Add(this.dgvReocrd);
+            this.pnlRight.Controls.Add(this.tabControl);
             this.pnlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlRight.Location = new System.Drawing.Point(715, 0);
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Size = new System.Drawing.Size(326, 376);
             this.pnlRight.TabIndex = 7;
+            // 
+            // videoChannelList
+            // 
+            this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Right;
+            this.videoChannelList.Location = new System.Drawing.Point(166, 3);
+            this.videoChannelList.Name = "videoChannelList";
+            this.videoChannelList.Size = new System.Drawing.Size(149, 344);
+            this.videoChannelList.TabIndex = 10;
             // 
             // dgvReocrd
             // 
@@ -478,12 +512,12 @@
             this.dgvReocrd_Tag,
             this.dgvReocrd_Content});
             this.dgvReocrd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvReocrd.Location = new System.Drawing.Point(0, 0);
+            this.dgvReocrd.Location = new System.Drawing.Point(3, 3);
             this.dgvReocrd.Name = "dgvReocrd";
             this.dgvReocrd.ReadOnly = true;
             this.dgvReocrd.RowHeadersVisible = false;
             this.dgvReocrd.RowTemplate.Height = 23;
-            this.dgvReocrd.Size = new System.Drawing.Size(326, 376);
+            this.dgvReocrd.Size = new System.Drawing.Size(312, 344);
             this.dgvReocrd.TabIndex = 1;
             // 
             // dgvReocrd_Time
@@ -526,12 +560,257 @@
             this.tsslblPrompt.Size = new System.Drawing.Size(32, 17);
             this.tsslblPrompt.Text = "提示";
             // 
-            // videoChannelList1
+            // tabControl
             // 
-            this.videoChannelList1.Location = new System.Drawing.Point(0, 3);
-            this.videoChannelList1.Name = "videoChannelList1";
-            this.videoChannelList1.Size = new System.Drawing.Size(323, 367);
-            this.videoChannelList1.TabIndex = 10;
+            this.tabControl.Controls.Add(this.pageVideoInfo);
+            this.tabControl.Controls.Add(this.pageEventRecord);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(326, 376);
+            this.tabControl.TabIndex = 0;
+            // 
+            // pageVideoInfo
+            // 
+            this.pageVideoInfo.Controls.Add(this.comboBox3);
+            this.pageVideoInfo.Controls.Add(this.comboBox4);
+            this.pageVideoInfo.Controls.Add(this.label1);
+            this.pageVideoInfo.Controls.Add(this.label9);
+            this.pageVideoInfo.Controls.Add(this.label10);
+            this.pageVideoInfo.Controls.Add(this.label11);
+            this.pageVideoInfo.Controls.Add(this.textBox1);
+            this.pageVideoInfo.Controls.Add(this.label12);
+            this.pageVideoInfo.Controls.Add(this.textBox2);
+            this.pageVideoInfo.Controls.Add(this.label13);
+            this.pageVideoInfo.Controls.Add(this.textBox3);
+            this.pageVideoInfo.Controls.Add(this.textBox4);
+            this.pageVideoInfo.Controls.Add(this.videoPTZControl2);
+            this.pageVideoInfo.Controls.Add(this.button2);
+            this.pageVideoInfo.Controls.Add(this.checkBox1);
+            this.pageVideoInfo.Controls.Add(this.checkBox4);
+            this.pageVideoInfo.Controls.Add(this.checkBox5);
+            this.pageVideoInfo.Controls.Add(this.comboBox1);
+            this.pageVideoInfo.Controls.Add(this.comboBox2);
+            this.pageVideoInfo.Controls.Add(this.button3);
+            this.pageVideoInfo.Controls.Add(this.button4);
+            this.pageVideoInfo.Controls.Add(this.videoChannelList);
+            this.pageVideoInfo.Location = new System.Drawing.Point(4, 22);
+            this.pageVideoInfo.Name = "pageVideoInfo";
+            this.pageVideoInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.pageVideoInfo.Size = new System.Drawing.Size(318, 350);
+            this.pageVideoInfo.TabIndex = 0;
+            this.pageVideoInfo.Text = "视频设备信息";
+            this.pageVideoInfo.UseVisualStyleBackColor = true;
+            // 
+            // pageEventRecord
+            // 
+            this.pageEventRecord.Controls.Add(this.dgvReocrd);
+            this.pageEventRecord.Location = new System.Drawing.Point(4, 22);
+            this.pageEventRecord.Name = "pageEventRecord";
+            this.pageEventRecord.Padding = new System.Windows.Forms.Padding(3);
+            this.pageEventRecord.Size = new System.Drawing.Size(318, 350);
+            this.pageEventRecord.TabIndex = 1;
+            this.pageEventRecord.Text = "事件记录";
+            this.pageEventRecord.UseVisualStyleBackColor = true;
+            // 
+            // videoPTZControl2
+            // 
+            this.videoPTZControl2.BackColor = System.Drawing.Color.Transparent;
+            this.videoPTZControl2.Location = new System.Drawing.Point(107, 286);
+            this.videoPTZControl2.Name = "videoPTZControl2";
+            this.videoPTZControl2.Size = new System.Drawing.Size(57, 60);
+            this.videoPTZControl2.TabIndex = 19;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(5, 260);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "测试按钮";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(3, 214);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(84, 16);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.Text = "预置点设置";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(74, 234);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(72, 16);
+            this.checkBox4.TabIndex = 15;
+            this.checkBox4.Text = "音频使能";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(5, 234);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(72, 16);
+            this.checkBox5.TabIndex = 16;
+            this.checkBox5.Text = "录像使能";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(3, 166);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(140, 20);
+            this.comboBox1.TabIndex = 14;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(94, 212);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(49, 20);
+            this.comboBox2.TabIndex = 13;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(80, 186);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(63, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "关闭";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(3, 186);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(63, 23);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "播放";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "X5014851",
+            "X6937816",
+            "X7438372",
+            "X5796224",
+            "X4659975",
+            "X6227077",
+            "X6944415",
+            "X7325728",
+            "X12041891",
+            "X7635198"});
+            this.comboBox3.Location = new System.Drawing.Point(73, 39);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(89, 20);
+            this.comboBox3.TabIndex = 31;
+            this.comboBox3.Text = "X5014851";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(73, 16);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(89, 20);
+            this.comboBox4.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 144);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "密    码:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 12);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "设备类型:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 66);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 12);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "连接端口:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 117);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 12);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "用 户 名:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(73, 139);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(87, 21);
+            this.textBox1.TabIndex = 26;
+            this.textBox1.Text = "12345";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(8, 42);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(59, 12);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "设备地址:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(73, 63);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(54, 21);
+            this.textBox2.TabIndex = 27;
+            this.textBox2.Text = "9010";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 87);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 12);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "通道数量:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(73, 114);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(87, 21);
+            this.textBox3.TabIndex = 28;
+            this.textBox3.Text = "admin";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(80, 84);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(31, 21);
+            this.textBox4.TabIndex = 29;
+            this.textBox4.Text = "01";
             // 
             // FrmMain
             // 
@@ -557,6 +836,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReocrd)).EndInit();
             this.ssrTip.ResumeLayout(false);
             this.ssrTip.PerformLayout();
+            this.tabControl.ResumeLayout(false);
+            this.pageVideoInfo.ResumeLayout(false);
+            this.pageVideoInfo.PerformLayout();
+            this.pageEventRecord.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -606,7 +889,31 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox chkSDKStateCallback;
-        private VideoPlayControl.VideoChannelList videoChannelList1;
+        private VideoPlayControl.VideoChannelList videoChannelList;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage pageVideoInfo;
+        private System.Windows.Forms.TabPage pageEventRecord;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private VideoPlayControl.VideoPTZControl videoPTZControl2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 

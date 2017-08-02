@@ -43,6 +43,9 @@ namespace VideoPlayControl
             VideoPlayEventCallBack(Enum_VideoPlayEventType.InitEnd);
         }
 
+
+
+
         /// <summary>
         /// 播放窗口句柄
         /// </summary>

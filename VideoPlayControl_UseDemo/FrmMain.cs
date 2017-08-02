@@ -417,9 +417,8 @@ namespace VideoPlayControl_UseDemo
                 camerasInfo.CameraName = "通道" + i;
                 videoInfo.Cameras[i] = camerasInfo;
             }
-            
 
-            videoChannelList1.Init_SetVideoInfo(videoInfo);
+            videoChannelList.Init_SetVideoInfo(videoInfo);
         }
     }
 }
