@@ -48,6 +48,7 @@ namespace VideoPlayControl_UseDemo
 
         public void T(object sender,CameraInfo cameraInfo)
         {
+            videoChannelList1.ButtonListBackColorReset();
             Button btn = (Button)sender;
             btn.BackColor = Color.Red;
             MessageBox.Show(cameraInfo.CameraName);

@@ -33,6 +33,12 @@ namespace VideoPlayControl_UseDemo
         /// 播放窗口List对象
         /// </summary>
         List<VideoPlayWindow> lstVideoPlayWindow = new List<VideoPlayWindow>();
+
+
+        Dictionary<string, VideoInfo> dicVideoInfos ;
+
+        string intCurrentVideoID = "";
+
         #endregion
 
         public FrmMain()
@@ -55,6 +61,7 @@ namespace VideoPlayControl_UseDemo
 
         public void Init_ControlInit()
         {
+            dicVideoInfos = new Dictionary<string, VideoInfo>();
             DataRow dr;
             #region 设备类型赋值
             DataTable dtSource = new DataTable();
@@ -111,6 +118,7 @@ namespace VideoPlayControl_UseDemo
             videoWindowTest.SDKStateChangedCallBackEvent += SDKStateChangedCallBackEvent;
             videoWindowTest.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
             videoPTZControl1.PTZControlEvent += PTZControlEvent;
+            videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
         }
 
         #endregion
@@ -305,6 +313,12 @@ namespace VideoPlayControl_UseDemo
             videoPlayWindow.Init_VideoInfo(videoInfo, videoPlaySet);
             videoPlayWindow.VideoPlay();
         }
+        public void PlayVideo(VideoPlayWindow videoPlayWindow, VideoInfo videoInfo,CameraInfo camerInfo, VideoPlaySetting videoPlaySet)
+        {
+            videoPlayWindow.CloundSee_SDKInit();
+            videoPlayWindow.Init_VideoInfo(videoInfo, camerInfo,videoPlaySet);
+            videoPlayWindow.VideoPlay();
+        }
         public string GetVideoTapeDicPath()
         {
             StringBuilder sbRecDicPath = new StringBuilder();
@@ -323,47 +337,21 @@ namespace VideoPlayControl_UseDemo
             return sbRecFilePath.ToString();
         }
 
+
+        public void VideoListRefresh()
+        {
+            cmbVideoList.Items.Clear();
+            foreach (KeyValuePair<string, VideoInfo> kv in dicVideoInfos)
+            {
+                cmbVideoList.Items.Add(kv.Key);
+            }
+        }
+
         #endregion
-        
+
         private void btnVideoPly_Click(object sender, EventArgs e)
         {
-            VideoInfo videoInfo = new VideoInfo();
-            //videoInfo.VideoType = (Enum_VideoType)cmbVideoType.SelectedValue;
-            int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
-            switch (intVideoType)
-            {
-                case 1:
-                    videoInfo.VideoType = Enum_VideoType.CloundSee;
-                    break;
-            }
-
-            videoInfo.DVSAddress = cmbDVSAddress.Text;
-            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
-            videoInfo.UserName = txtUserName.Text;
-            videoInfo.Password = txtPassword.Text;
-            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
-            CameraInfo camerasInfo = new CameraInfo();
-            int intChannel = Convert.ToInt32(txtChannel.Text);
-            camerasInfo.Channel = intChannel;
-            camerasInfo.CameraName = "通道"+ intChannel;
-            videoInfo.Cameras[intChannel] = camerasInfo;
-
-            VideoPlaySetting videoPlaySet = new VideoPlaySetting();
-            videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
-            videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
-            int intVideoIndex = Convert.ToInt32(cmbOperAtVideo.SelectedValue);
-            if (chkPresetEanble.Checked)
-            {
-                videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
-            }
-            if (intVideoIndex == 0)
-            {
-                PlayVideo(videoWindowTest, videoInfo, videoPlaySet);
-            }
-            else
-            {
-                PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], videoInfo, videoPlaySet);
-            }
+            
         }
         
         private void FrmMain_Move(object sender, EventArgs e)
@@ -384,11 +372,7 @@ namespace VideoPlayControl_UseDemo
                 lstVideoPlayWindow[intVideoIndex - 1].VideoClose();
             }
         }
-
-        private void videoPTZControl1_Load(object sender, EventArgs e)
-        {
-            
-        }
+        
         
 
         private void button1_Click(object sender, EventArgs e)
@@ -419,6 +403,147 @@ namespace VideoPlayControl_UseDemo
             }
 
             videoChannelList.Init_SetVideoInfo(videoInfo);
+        }
+
+
+        public void TEST()
+        {
+            VideoInfo videoInfo = new VideoInfo();
+            //videoInfo.VideoType = (Enum_VideoType)cmbVideoType.SelectedValue;
+            int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
+            switch (intVideoType)
+            {
+                case 1:
+                    videoInfo.VideoType = Enum_VideoType.CloundSee;
+                    break;
+            }
+
+            videoInfo.DVSAddress = cmbDVSAddress.Text;
+            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
+            videoInfo.UserName = txtUserName.Text;
+            videoInfo.Password = txtPassword.Text;
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            CameraInfo camerasInfo = new CameraInfo();
+            int intChannel = Convert.ToInt32(txtChannel.Text);
+            camerasInfo.Channel = intChannel;
+            camerasInfo.CameraName = "通道" + intChannel;
+            videoInfo.Cameras[intChannel] = camerasInfo;
+
+            VideoPlaySetting videoPlaySet = new VideoPlaySetting();
+            videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
+            videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
+            int intVideoIndex = Convert.ToInt32(cmbOperAtVideo.SelectedValue);
+            if (chkPresetEanble.Checked)
+            {
+                videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
+            }
+            if (intVideoIndex == 0)
+            {
+                PlayVideo(videoWindowTest, videoInfo, videoPlaySet);
+            }
+            else
+            {
+                PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], videoInfo, videoPlaySet);
+            }
+        }
+        
+        private void btnAddList_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = new VideoInfo();
+            //videoInfo.VideoType = (Enum_VideoType)cmbVideoType.SelectedValue;
+            int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
+            switch (intVideoType)
+            {
+                case 1:
+                    videoInfo.VideoType = Enum_VideoType.CloundSee;
+                    break;
+            }
+            videoInfo.DVSNumber = txtVideoID.Text.ToString();
+            videoInfo.DVSAddress = cmbDVSAddress.Text;
+            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
+            videoInfo.UserName = txtUserName.Text;
+            videoInfo.Password = txtPassword.Text;
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            int intChannelNum = Convert.ToInt32(txtChannel.Text);
+            videoInfo.DVSChannelNum = intChannelNum;
+            CameraInfo camerasInfo = new CameraInfo();
+            for (int i = 0; i < intChannelNum; i++)
+            {
+                camerasInfo = new CameraInfo();
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "摄像机" + (i + 1);
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            if (!dicVideoInfos.ContainsKey(videoInfo.DVSNumber))
+            {
+                //不存在 列表不刷新
+                dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+                VideoListRefresh();
+            }
+            else
+            {
+                dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            }
+        }
+
+        private void cmbVideoList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            intCurrentVideoID = cmbVideoList.Text;
+            if (string.IsNullOrEmpty(intCurrentVideoID) || !dicVideoInfos.ContainsKey(intCurrentVideoID))
+            {
+                ReSetVideoInfo();
+                videoChannelList.Init_SetVideoInfo(null);
+                return;
+            }
+            SetVideoInfo(intCurrentVideoID);
+            //txtcu
+        }
+
+        public void SetVideoInfo(string strVideoID)
+        {
+            if (dicVideoInfos.ContainsKey(strVideoID))
+            {
+                txtCurrentDVSType.Text = dicVideoInfos[strVideoID].VideoType.ToString();
+                txtCurrentDVSAddress.Text = dicVideoInfos[strVideoID].DVSAddress;
+                txtCurrentDVSPort.Text = dicVideoInfos[strVideoID].DVSConnectPort.ToString();
+                txtCurrentUserName.Text = dicVideoInfos[strVideoID].UserName;
+                txtCurrentDVSPwd.Text = dicVideoInfos[strVideoID].Password;
+                txtCurrentChannelNum.Text = dicVideoInfos[strVideoID].DVSChannelNum.ToString();
+                videoChannelList.Init_SetVideoInfo(dicVideoInfos[strVideoID]);
+            }
+        }
+        public void ReSetVideoInfo()
+        {
+            txtCurrentDVSType.Text = "";
+            txtCurrentDVSAddress.Text = "";
+            txtCurrentDVSPort.Text = "";
+            txtCurrentUserName.Text = "";
+            txtCurrentDVSPwd.Text = "";
+            txtCurrentChannelNum.Text = "";
+        }
+
+
+        public void VideoChannelListButton_Click(object sender, CameraInfo cameraInfo)
+        {
+            videoChannelList.ButtonListBackColorReset();
+            Button btn = (Button)sender;
+            btn.BackColor = Color.Red;
+            VideoPlaySetting videoPlaySet = new VideoPlaySetting();
+            int intVideoIndex = Convert.ToInt32(cmbOperAtVideo.SelectedValue);
+            //播放
+            if (chkPresetEanble.Checked)
+            {
+                videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
+            }
+            if (intVideoIndex == 0)
+            {
+                //测试界面
+                PlayVideo(videoWindowTest, dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
+            }
+            else
+            {
+                PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
+            }
         }
     }
 }

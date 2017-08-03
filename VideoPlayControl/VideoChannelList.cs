@@ -83,6 +83,7 @@ namespace VideoPlayControl
         {
             CurrentVideoInfo = videoInfo;
             SetVideoInfoCameraInfo();
+            
         }
 
         #region 初始化
@@ -112,7 +113,20 @@ namespace VideoPlayControl
             lstbtns = new List<Button>();
         }
         #endregion
-        
+
+        #region 公用事件
+        /// <summary>
+        /// 按钮背景颜色重置
+        /// </summary>
+        public void ButtonListBackColorReset()
+        {
+            foreach (Button btn in lstbtns)
+            {
+                btn.BackColor = Control.DefaultBackColor;
+            }
+        }
+        #endregion
+
         /// <summary>
         /// 设置摄像头信息按钮
         /// </summary>
@@ -126,26 +140,29 @@ namespace VideoPlayControl
             }
             lstbtns.Clear();
             ttip.RemoveAll();
-            foreach (KeyValuePair<int, CameraInfo> kv in CurrentVideoInfo.Cameras)
+            if (CurrentVideoInfo != null)
             {
-                //1(x:2 y:27)  2(x:66 y=27)
-                //3(x:2,y:63)  4(x:66 y=63)
-                Button btn = new Button();
-                btn.Name = "btn" + kv.Value.Channel.ToString();
-                btn.Location = new System.Drawing.Point(intbtnStartX + (intbtnWidth * intCol), intbtnStartY + (intbtnHeight * intRow));
-                btn.Size = new System.Drawing.Size(intbtnWidth, intbtnHeight);
-                btn.Text = "通道" + kv.Value.Channel.ToString();
-                btn.BackColor = Control.DefaultBackColor;
-                pnlMain.Controls.Add(btn);
-                btn.Tag = kv.Value;
-                btn.Click += btnCameraInfo_Click;
-                lstbtns.Add(btn);
-                ttip.SetToolTip(btn, kv.Value.CameraName);
-                intCol++;
-                if (intCol >= 2)
+                foreach (KeyValuePair<int, CameraInfo> kv in CurrentVideoInfo.Cameras)
                 {
-                    intCol = 0;
-                    intRow++;
+                    //1(x:2 y:27)  2(x:66 y=27)
+                    //3(x:2,y:63)  4(x:66 y=63)
+                    Button btn = new Button();
+                    btn.Name = "btn" + kv.Value.Channel.ToString();
+                    btn.Location = new System.Drawing.Point(intbtnStartX + (intbtnWidth * intCol), intbtnStartY + (intbtnHeight * intRow));
+                    btn.Size = new System.Drawing.Size(intbtnWidth, intbtnHeight);
+                    btn.Text = "通道" + kv.Value.Channel.ToString();
+                    btn.BackColor = Control.DefaultBackColor;
+                    pnlMain.Controls.Add(btn);
+                    btn.Tag = kv.Value;
+                    btn.Click += btnCameraInfo_Click;
+                    lstbtns.Add(btn);
+                    ttip.SetToolTip(btn, kv.Value.CameraName);
+                    intCol++;
+                    if (intCol >= 2)
+                    {
+                        intCol = 0;
+                        intRow++;
+                    }
                 }
             }
         }
@@ -162,7 +179,5 @@ namespace VideoPlayControl
             CameraInfo camerInfo = (CameraInfo)btn.Tag;
             ButtonChannel_Click(sender, camerInfo);
         }
-        
-
     }
 }
