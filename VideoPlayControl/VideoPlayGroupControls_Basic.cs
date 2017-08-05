@@ -52,7 +52,7 @@ namespace VideoPlayControl
         /// </summary>
         /// <param name="strPreViewPwdVerify"></param>
         /// <returns></returns>
-        public delegate bool PreViewPwdVerifyDelegate(string strPreViewPwdVerify);
+        public delegate bool PreViewPwdVerifyDelegate(object sender,string strPreViewPwdVerify);
 
         /// <summary>
         /// 视频预览密码验证事件
@@ -64,11 +64,11 @@ namespace VideoPlayControl
         /// </summary>
         /// <param name="strPreViewPwdVerify"></param>
         /// <returns></returns>
-        public bool PreViewPwdVerify(string strPreViewPwdVerify)
+        public bool PreViewPwdVerify(string strVideoID)
         {
             if (PreViewPwdVerifyEvent != null)
             {
-                return PreViewPwdVerifyEvent(strPreViewPwdVerify);
+                return PreViewPwdVerifyEvent(this, strVideoID);
             }
             return false;
         }
@@ -78,12 +78,6 @@ namespace VideoPlayControl
         public void Init_VideoInfoSet(Dictionary<string, VideoInfo> dicVideoInfos)
         {
             dicCurrentVideoInfos = dicVideoInfos;
-
-            //for(int i=0;i<10;i++)
-            //{
-            //    cmbVideoList.Items.Add(i);
-
-            //}
             Init();
         }
 
@@ -237,7 +231,7 @@ namespace VideoPlayControl
                 if (bolPreViewPwdVerify&&(!string.IsNullOrEmpty(dicCurrentVideoInfos[strCurrentVideoID].PreviewPwd)))
                 {
                     //触发验证事件
-                    if (PreViewPwdVerify(dicCurrentVideoInfos[strCurrentVideoID].PreviewPwd))
+                    if (!PreViewPwdVerify(strCurrentVideoID))
                     {
                         //密码验证不通过
                         pnlRight_Main.Enabled = false;

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VideoPlayControl;
 
 namespace VideoPlayControl_UseDemo
 {
@@ -48,6 +49,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSConnectPort = 9010;
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";
+            videoInfo.PreviewPwd = "123456";
             videoInfo.Cameras = new Dictionary<int, CameraInfo>();
             videoInfo.DVSChannelNum = 5;
             camerasInfo = new CameraInfo();
@@ -68,6 +70,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSConnectPort = 9010;
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";
+            videoInfo.PreviewPwd = "12345";
             videoInfo.Cameras = new Dictionary<int, CameraInfo>();
             videoInfo.DVSChannelNum = 5;
             camerasInfo = new CameraInfo();
@@ -88,6 +91,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSConnectPort = 9010;
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";
+            videoInfo.PreviewPwd = "123456";
             videoInfo.Cameras = new Dictionary<int, CameraInfo>();
             videoInfo.DVSChannelNum = 5;
             camerasInfo = new CameraInfo();
@@ -99,8 +103,20 @@ namespace VideoPlayControl_UseDemo
                 videoInfo.Cameras[i] = camerasInfo;
             }
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
-
+            videoPlayGroupControls_Basic1.bolPreViewPwdVerify = true;
+            videoPlayGroupControls_Basic1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_Basic1.Init_VideoInfoSet(dicVideoInfos);
+        }
+
+
+        public bool PreViewPwdVerify(object sender, string strVideoID)
+        {
+            VideoPlayGroupControls_Basic v = (VideoPlayGroupControls_Basic)sender;
+            if (v.dicCurrentVideoInfos[strVideoID].PreviewPwd == "123456")
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
