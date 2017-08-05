@@ -118,5 +118,15 @@ namespace VideoPlayControl_UseDemo
             }
             return false;
         }
+
+        private void Frn_VideoPlayGroupControl_Basic_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            videoPlayGroupControls_Basic1.ControlClose();
+        }
+
+        private void Frn_VideoPlayGroupControl_Basic_Move(object sender, EventArgs e)
+        {
+            videoPlayGroupControls_Basic1.ControlMove();
+        }
     }
 }

@@ -47,7 +47,9 @@
             this.Controls.Add(this.videoPlayGroupControls_Basic1);
             this.Name = "Frn_VideoPlayGroupControl_Basic";
             this.Text = "视频播放控件组_基本";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frn_VideoPlayGroupControl_Basic_FormClosing);
             this.Load += new System.EventHandler(this.Frn_VideoPlayGroupControl_Basic_Load);
+            this.Move += new System.EventHandler(this.Frn_VideoPlayGroupControl_Basic_Move);
             this.ResumeLayout(false);
 
         }

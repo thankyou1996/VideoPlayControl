@@ -15,12 +15,35 @@ namespace VideoPlayControl
         /// 当前视频信息
         /// </summary>
         public Dictionary<string, PublicClassCurrency.VideoInfo> dicCurrentVideoInfos = new Dictionary<string, VideoInfo>();
+        
+        /// <summary>
+        /// 当前播放视频设备ID 
+        /// </summary>
+        public string strCurrentVideoID = "";
+        
+        /// <summary>
+        /// 当前播放摄像头
+        /// </summary>
         public CameraInfo CurrentCameraInfo;
 
-        public string strCurrentVideoID = "";
+        /// <summary>
+        ///  是否显示 SDL状态改变事件
+        /// </summary>
         public bool bolDisPlaySDKState = false;
+
+        /// <summary>
+        /// 是否显示 SDK回调事件
+        /// </summary>
         public bool bolDisplaySDKEvent = false;
+
+        /// <summary>
+        /// 是否显示 视频播放状态
+        /// </summary>
         public bool bolDisplayVideoEvent = true;
+
+        /// <summary>
+        /// 是否需要密码验证
+        /// </summary>
         public bool bolPreViewPwdVerify = false;
 
         /// <summary>
@@ -75,6 +98,10 @@ namespace VideoPlayControl
 
         #endregion
 
+        /// <summary>
+        /// 初始化_视频信息设置
+        /// </summary>
+        /// <param name="dicVideoInfos"></param>
         public void Init_VideoInfoSet(Dictionary<string, VideoInfo> dicVideoInfos)
         {
             dicCurrentVideoInfos = dicVideoInfos;
@@ -125,6 +152,13 @@ namespace VideoPlayControl
 
         #endregion
 
+        #region 控件回调事件
+        /// <summary>
+        /// SDK事件回调
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="evType"></param>
+        /// <param name="strTag"></param>
         public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType, string strTag)
         {
             if (bolDisplaySDKEvent)
@@ -135,6 +169,12 @@ namespace VideoPlayControl
 
         }
 
+        /// <summary>
+        /// SDK状态改变回调
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="videoType"></param>
+        /// <param name="sdkState"></param>
         public void SDKStateChangedCallBackEvent(object sender, Enum_VideoType videoType, Enum_SDKState sdkState)
         {
             if (bolDisPlaySDKState)
@@ -145,6 +185,12 @@ namespace VideoPlayControl
 
         }
 
+        /// <summary>
+        /// 视频播放事件回调
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="evType"></param>
+        /// <param name="strTag"></param>
         public void VideoPlayEventCallBackEvent(object sender, Enum_VideoPlayEventType evType, string strTag)
         {
             if (bolDisplayVideoEvent)
@@ -199,6 +245,11 @@ namespace VideoPlayControl
             videoPlayWindow.VideoPTZControl(PTZControlCmd, bolStart);
         }
 
+        /// <summary>
+        /// 视频通道点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="cameraInfo"></param>
         public void VideoChannelListButton_Click(object sender, CameraInfo cameraInfo)
         {
             videoChannelList.ButtonListBackColorReset();
@@ -214,12 +265,20 @@ namespace VideoPlayControl
             videoPlayWindow.VideoPlay();
         }
 
+        #endregion
+
+        #region 控件事件
+
+        /// <summary>
+        /// 视频设备列表_选中项改变事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbVideolist_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 ComboBoxItem cmbItem = (ComboBoxItem)cmbVideoList.SelectedItem;
-                //CurrentVideoInfo = (PublicClassCurrency.VideoInfo)cmbItem.ItemValue;
                 strCurrentVideoID = Convert.ToString(cmbItem.ItemValue);
                 //SetVideoInfoCameraInfo(CurrentVideoInfos[strCurrentVideoID]);
                 videoChannelList.Init_SetVideoInfo(dicCurrentVideoInfos[strCurrentVideoID]);
@@ -227,10 +286,8 @@ namespace VideoPlayControl
                 {
                     videoPlayWindow.VideoClose();
                 }
-
-                if (bolPreViewPwdVerify&&(!string.IsNullOrEmpty(dicCurrentVideoInfos[strCurrentVideoID].PreviewPwd)))
+                if (bolPreViewPwdVerify && (!string.IsNullOrEmpty(dicCurrentVideoInfos[strCurrentVideoID].PreviewPwd)))
                 {
-                    //触发验证事件
                     if (!PreViewPwdVerify(strCurrentVideoID))
                     {
                         //密码验证不通过
@@ -238,7 +295,7 @@ namespace VideoPlayControl
                         return;
                     }
                 }
-                dicCurrentVideoInfos[strCurrentVideoID].PreviewPwd = "";    //仅第一次验证
+                dicCurrentVideoInfos[strCurrentVideoID].PreviewPwd = "";
                 pnlRight_Main.Enabled = true;
                 VideoChannelListButton_Click(videoChannelList.lstbtns[0], (CameraInfo)videoChannelList.lstbtns[0].Tag);
             }
@@ -246,12 +303,14 @@ namespace VideoPlayControl
             {
                 MessageBox.Show(ex.ToString());
             }
-        }
-        public void DisplayRecord(string strDisplayInfo)
-        {
-            tslblPrompt.Text = strDisplayInfo;
+
         }
 
+        /// <summary>
+        /// 预置点列表_选中项改变事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbPreset_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (videoPlayWindow.VideoPlayState == Enum_VideoPlayState.InPlayState)
@@ -260,6 +319,38 @@ namespace VideoPlayControl
                 videoPlayWindow.SetPresetPosi(intPreset);
             }
         }
+
+        #endregion
+
+        #region 公用事件
+        /// <summary>
+        /// 显示提示信息
+        /// </summary>
+        /// <param name="strDisplayInfo"></param>
+        public void DisplayRecord(string strDisplayInfo)
+        {
+            tslblPrompt.Text = strDisplayInfo;
+        }
+
+        /// <summary>
+        /// 控件移动事件
+        /// </summary>
+        public void ControlMove()
+        {
+            videoPlayWindow.VideoPlayWindows_Move();
+        }
+
+        /// <summary>
+        /// 控件关闭事件
+        /// </summary>
+        public void ControlClose()
+        {
+            videoPlayWindow.VideoClose();
+        }
+        #endregion
+
+
+
     }
     /// <summary>
     /// 170120 ComboBox Item
