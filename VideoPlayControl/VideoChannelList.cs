@@ -23,7 +23,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 按钮列表
         /// </summary>
-        List<Button> lstbtns;
+        public List<Button> lstbtns;
 
         /// <summary>
         /// 初始按钮位置 X
