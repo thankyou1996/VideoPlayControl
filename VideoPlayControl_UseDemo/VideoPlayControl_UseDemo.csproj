@@ -65,6 +65,12 @@
     <Compile Include="FrmTest.Designer.cs">
       <DependentUpon>FrmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frn_VideoPlayGroupControl_Basic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frn_VideoPlayGroupControl_Basic.Designer.cs">
+      <DependentUpon>Frn_VideoPlayGroupControl_Basic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMain.resx">
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTest.resx">
       <DependentUpon>FrmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frn_VideoPlayGroupControl_Basic.resx">
+      <DependentUpon>Frn_VideoPlayGroupControl_Basic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

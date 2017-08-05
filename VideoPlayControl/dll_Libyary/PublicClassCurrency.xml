@@ -159,6 +159,26 @@
             密码
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strPreviewPwd">
+            <summary>
+            用户预览密码
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.PreviewPwd">
+            <summary>
+            用户预览密码
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intVideoPlayTime_Minute">
+            <summary>
+            视频播放时间限制_分 0代表无限制
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoPlayTime_Minute">
+            <summary>
+            视频播放时间限制_分 0代表无限制
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.VideoInfo.intNetworkState">
             <summary>
             网络状态 1在线 0离线 -1状态未明

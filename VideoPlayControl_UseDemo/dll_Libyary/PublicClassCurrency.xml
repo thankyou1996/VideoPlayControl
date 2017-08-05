@@ -64,6 +64,11 @@
             摄像机信息
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.VideoInfo.VideoType">
+            <summary>
+            视频设备类型
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.VideoInfo.strDVSNumber">
             <summary>
             摄像机编号
@@ -154,6 +159,26 @@
             密码
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strPreviewPwd">
+            <summary>
+            用户预览密码
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.PreviewPwd">
+            <summary>
+            用户预览密码
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intVideoPlayTime_Minute">
+            <summary>
+            视频播放时间限制_分 0代表无限制
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoPlayTime_Minute">
+            <summary>
+            视频播放时间限制_分 0代表无限制
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.VideoInfo.intNetworkState">
             <summary>
             网络状态 1在线 0离线 -1状态未明
@@ -197,9 +222,14 @@
             设备类型
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.Unrecognized">
+            <summary>
+            未识别
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.Enum_VideoType.CloundSee">
             <summary>
-            云视通
+            云视通主机
             </summary>
         </member>
     </members>
