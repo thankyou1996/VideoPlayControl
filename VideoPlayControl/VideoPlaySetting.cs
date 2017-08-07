@@ -23,6 +23,19 @@ namespace VideoPlayControl
         }
 
         /// <summary>
+        /// 视频录像文件地址
+        /// </summary>
+        private string strVideoRecordFilePath = "";
+
+        /// <summary>
+        /// 视频录像文件地址
+        /// </summary>
+        public string VideoRecordFilePath
+        {
+            get { return strVideoRecordFilePath; }
+            set { strVideoRecordFilePath = value; }
+        }
+        /// <summary>
         /// 音频使能
         /// </summary>
         private bool bolVideoMonitorEnable = false;

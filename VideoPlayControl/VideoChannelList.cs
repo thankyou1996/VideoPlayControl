@@ -68,11 +68,13 @@ namespace VideoPlayControl
         public VideoChannelList()
         {
             InitializeComponent();
+            intbtnWidth = (this.pnlMain.Width - 1) / 2;
+            lstbtns = new List<Button>();
         }
 
         private void VideoChannelList_Load(object sender, EventArgs e)
         {
-            Init();
+            
         }
 
         /// <summary>
@@ -92,25 +94,8 @@ namespace VideoPlayControl
         /// </summary>
         public void Init()
         {
-            Init_SetButtonPara();
-            Init_ControlInit();
+           
 
-        }
-
-        /// <summary>
-        /// 初始化设置按钮
-        /// </summary>
-        public void Init_SetButtonPara()
-        {
-            intbtnWidth = (this.pnlMain.Width - 1) / 2;
-        }
-
-        /// <summary>
-        /// 初始化_控件初始化
-        /// </summary>
-        public void Init_ControlInit()
-        {
-            lstbtns = new List<Button>();
         }
         #endregion
 

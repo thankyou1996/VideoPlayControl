@@ -11,16 +11,17 @@ namespace VideoPlayControl
 {
     public partial class VideoPlayGroupControls_Basic : UserControl
     {
+        #region 全局变量
         /// <summary>
         /// 当前视频信息
         /// </summary>
         public Dictionary<string, PublicClassCurrency.VideoInfo> dicCurrentVideoInfos = new Dictionary<string, VideoInfo>();
-        
+
         /// <summary>
         /// 当前播放视频设备ID 
         /// </summary>
         public string strCurrentVideoID = "";
-        
+
         /// <summary>
         /// 当前播放摄像头
         /// </summary>
@@ -45,6 +46,13 @@ namespace VideoPlayControl
         /// 是否需要密码验证
         /// </summary>
         public bool bolPreViewPwdVerify = false;
+
+        /// <summary>
+        /// 视频播放设置
+        /// </summary>
+        public VideoPlaySetting videoPlaySet = new VideoPlaySetting();
+        #endregion
+
 
         /// <summary>
         /// 播放视频控件组_基本
@@ -127,6 +135,7 @@ namespace VideoPlayControl
             videoPlayWindow.CloundSee_SDKInit();
             videoPTZControl.PTZControlEvent += VideoPTZControl;
 
+            cmbVideoList.Items.Clear();
             if (dicCurrentVideoInfos.Count > 0)
             {
                 ComboBoxItem cmbItem;
@@ -138,7 +147,8 @@ namespace VideoPlayControl
                 cmbVideoList.SelectedIndexChanged += cmbVideolist_SelectedIndexChanged;
                 cmbVideoList.SelectedIndex = 0;
             }
-            
+
+            cmbPreset.Items.Clear();
             for (int i = 1; i < 256; i++)
             {
                 cmbPreset.Items.Add(i.ToString().PadLeft(2, '0'));
@@ -254,7 +264,6 @@ namespace VideoPlayControl
             videoChannelList.ButtonListBackColorReset();
             Button btn = (Button)sender;
             btn.BackColor = Color.Red;
-            VideoPlaySetting videoPlaySet = new VideoPlaySetting();
             if (videoPlayWindow.CurrentVideoInfo != null)
             {
                 videoPlayWindow.VideoClose();

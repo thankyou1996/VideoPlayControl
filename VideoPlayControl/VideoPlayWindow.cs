@@ -324,7 +324,7 @@ namespace VideoPlayControl
             {
                 if (CurrentVideoPlaySet.VideoRecordEnable)
                 {
-                    CloundSee_VideoRecordStart("");
+                    CloundSee_VideoRecordStart(CurrentVideoPlaySet.VideoRecordFilePath);
                 }
                 if (CurrentVideoPlaySet.VideoMonitorEnable)
                 {
@@ -360,7 +360,7 @@ namespace VideoPlayControl
                 //不存在路径 使用默认路径 
                 //默认路径格式 [当前工作路径/CloundSeeRecFile/云视通号码/时间(yyyyMMddHHmmss)_通道号(01).mp4]
                 StringBuilder sbRecDicPath = new StringBuilder();
-                sbRecDicPath.Append(ProgConstants.ro_strCloundSee_RecDicPath);    //默认路径
+                sbRecDicPath.Append(ProgConstants.strCloundSee_RecDicPath);    //默认路径
                 sbRecDicPath.Append("\\" + CurrentVideoInfo.DVSAddress);    //云视通号码
                 if (!Directory.Exists(sbRecDicPath.ToString()))
                 {
@@ -373,6 +373,11 @@ namespace VideoPlayControl
                 sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));   //通道号
                 sbRecFilePath.Append(".mp4");
                 strRecFilePath = sbRecFilePath.ToString();
+            }
+            else if (!strRecFilePath.EndsWith(".mp4"))
+            {
+                //后缀名错误
+
             }
             SDK_JCSDK.JCSDK_StartRec(intCloundSee_ConnID, strRecFilePath);
         }

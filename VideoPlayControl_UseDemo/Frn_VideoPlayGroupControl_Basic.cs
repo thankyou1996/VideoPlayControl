@@ -22,6 +22,7 @@ namespace VideoPlayControl_UseDemo
         private void Frn_VideoPlayGroupControl_Basic_Load(object sender, EventArgs e)
         {
             Test();
+            
         }
 
         public void Test()

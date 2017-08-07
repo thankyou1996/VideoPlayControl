@@ -35,7 +35,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 云视通默认录像文件存放地址
         /// </summary>
-        public static readonly string ro_strCloundSee_RecDicPath = Environment.CurrentDirectory + "\\CloundSeeRecFile";
+        public static string strCloundSee_RecDicPath = Environment.CurrentDirectory + "\\CloundSeeRecFile";
         #endregion
 
         #endregion
