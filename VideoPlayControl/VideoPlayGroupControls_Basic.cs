@@ -89,11 +89,7 @@ namespace VideoPlayControl
         /// <returns></returns>
         public bool PreViewPwdVerify(string strVideoID)
         {
-            if (PreViewPwdVerifyEvent != null)
-            {
-                return PreViewPwdVerifyEvent(this, strVideoID);
-            }
-            return false;
+            return PreViewPwdVerifyEvent(this, strVideoID);
         }
 
         #endregion
@@ -223,6 +219,9 @@ namespace VideoPlayControl
                         break;
                     case Enum_VideoPlayEventType.VideoPlay:
                         sbDisplayInfo.Append("正在播放视频");
+                        break;
+                    case Enum_VideoPlayEventType.RequestVideoTimeout:
+                        sbDisplayInfo.Append("请求视频信息超时");
                         break;
 
                     default:

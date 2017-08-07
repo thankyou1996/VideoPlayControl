@@ -271,9 +271,10 @@ namespace VideoPlayControl
                     VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
                     break;
 
-                case SDK_JCSDK.JCEventType.JCET_ConTimeout: //连接成功
+                case SDK_JCSDK.JCEventType.JCET_ConTimeout: //连接超时
                     videoEvType = Enum_SDKEventType.ConnectTimeOut;
                     strTag = "[" + CurrentVideoInfo.DVSAddress + "]连接超时";
+                    VideoPlayEventCallBack(Enum_VideoPlayEventType.RequestVideoTimeout);
                     break;
 
                 case SDK_JCSDK.JCEventType.JCET_DisconOK:   //连接断开

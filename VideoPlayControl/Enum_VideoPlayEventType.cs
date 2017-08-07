@@ -43,7 +43,12 @@ namespace VideoPlayControl
         /// <summary>
         /// 正在播放视频
         /// </summary>
-        VideoPlay
+        VideoPlay,
+
+        /// <summary>
+        /// 请求视频信息超时
+        /// </summary>
+        RequestVideoTimeout
 
         
     }
