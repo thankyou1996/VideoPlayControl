@@ -131,12 +131,12 @@ namespace VideoPlayControl_UseDemo
             videoPlayGroupControls_Basic1.ControlMove();
         }
 
+
         private void btnVideoPlay_Click(object sender, EventArgs e)
         {
             string strVideoID = txtVideoID.Text;
             int strCameraID = Convert.ToInt32(txtCameraID.Text);
             videoPlayGroupControls_Basic1.VideoPlay(strVideoID, strCameraID);
-
         }
     }
 }

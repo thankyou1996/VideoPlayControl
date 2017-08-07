@@ -207,11 +207,20 @@ namespace VideoPlayControl
             if (bolDisplayVideoEvent)
             {
                 StringBuilder sbDisplayInfo = new StringBuilder();
-                sbDisplayInfo.Append("[" + dicCurrentVideoInfos[strCurrentVideoID].DVSNumber + "_");
-                sbDisplayInfo.Append(dicCurrentVideoInfos[strCurrentVideoID].DVSName + "_");
-                sbDisplayInfo.Append(CurrentCameraInfo.Channel + "_");
-                sbDisplayInfo.Append(CurrentCameraInfo.CameraName + "]");
-
+                sbDisplayInfo.Append("[");
+                if (dicCurrentVideoInfos != null && dicCurrentVideoInfos.ContainsKey(strCurrentVideoID))
+                {
+                    sbDisplayInfo.Append(dicCurrentVideoInfos[strCurrentVideoID].DVSNumber + "_");
+                    sbDisplayInfo.Append(dicCurrentVideoInfos[strCurrentVideoID].DVSName);
+                }
+                
+                if (CurrentCameraInfo != null)
+                {
+                    sbDisplayInfo.Append("_");
+                    sbDisplayInfo.Append(CurrentCameraInfo.Channel + "_");
+                    sbDisplayInfo.Append(CurrentCameraInfo.CameraName );
+                }
+                sbDisplayInfo.Append("]");
                 switch (evType)
                 {
                     case Enum_VideoPlayEventType.InitEnd:
@@ -375,21 +384,47 @@ namespace VideoPlayControl
         /// <param name="strVideoID"></param>
         /// <param name="intChannel"></param>
         /// <returns></returns>
-        public int VideoPlay(string strVideoID, int intChannel)
+        public int VideoPlay(string strVideoID="", int intChannel=-1)
         {
-
+            int intResult = 1;
             if (!dicCurrentVideoInfos.ContainsKey(strVideoID))
             {
                 //不存在视频设备
-                return -1;
+                intResult = - 1;
             }
-            if (!dicCurrentVideoInfos[strVideoID].Cameras.ContainsKey(intChannel))
+            else if (!dicCurrentVideoInfos[strVideoID].Cameras.ContainsKey(intChannel))
             {
                 //不存在通道号
-                return -2;
+                intResult = - 2;
             }
-            videoChannelList.Init_SetVideoInfo(dicCurrentVideoInfos[strVideoID]);
-            return 1;
+            if (!string.IsNullOrEmpty(strVideoID))
+            {
+                for (int i = 0; i < cmbVideoList.Items.Count; i++)
+                {
+                    if (((ComboBoxItem)cmbVideoList.Items[i]).ItemValue.ToString() == strVideoID)
+                    {
+                        cmbVideoList.SelectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            if (intChannel == -1)
+            {
+                VideoChannelListButton_Click(videoChannelList.lstbtns[0], (CameraInfo)videoChannelList.lstbtns[0].Tag);
+            }
+            else
+            {
+                foreach (Button btn in videoChannelList.lstbtns)
+                {
+                    CameraInfo c = (CameraInfo)btn.Tag;
+                    if (c.Channel == intChannel)
+                    {
+                        VideoChannelListButton_Click(btn, c);
+                    }
+                }
+            }
+
+            return intResult;
         }
         #endregion
 
