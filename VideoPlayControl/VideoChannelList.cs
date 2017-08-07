@@ -119,6 +119,7 @@ namespace VideoPlayControl
         {
             int intCol = 0;
             int intRow = 0;
+            intbtnWidth = (this.pnlMain.Width - 1) / 2;
             for (int i = lstbtns.Count - 1; i >= 0; i--)
             {
                 lstbtns[i].Dispose();

@@ -21,6 +21,7 @@ namespace VideoPlayControl_UseDemo
 
         private void Frn_VideoPlayGroupControl_Basic_Load(object sender, EventArgs e)
         {
+            videoPlayGroupControls_Basic1.bolAutoPlayVideo = false;
             Test();
             
         }
@@ -67,7 +68,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.VideoType = Enum_VideoType.CloundSee;
             videoInfo.DVSNumber = "000102";
             videoInfo.DVSName = "000102视频";
-            videoInfo.DVSAddress = "X6937816";
+            videoInfo.DVSAddress = "X6944415";
             videoInfo.DVSConnectPort = 9010;
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";
@@ -104,7 +105,7 @@ namespace VideoPlayControl_UseDemo
                 videoInfo.Cameras[i] = camerasInfo;
             }
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
-            videoPlayGroupControls_Basic1.bolPreViewPwdVerify = true;
+            videoPlayGroupControls_Basic1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_Basic1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_Basic1.Init_VideoInfoSet(dicVideoInfos);
         }
@@ -128,6 +129,14 @@ namespace VideoPlayControl_UseDemo
         private void Frn_VideoPlayGroupControl_Basic_Move(object sender, EventArgs e)
         {
             videoPlayGroupControls_Basic1.ControlMove();
+        }
+
+        private void btnVideoPlay_Click(object sender, EventArgs e)
+        {
+            string strVideoID = txtVideoID.Text;
+            int strCameraID = Convert.ToInt32(txtCameraID.Text);
+            videoPlayGroupControls_Basic1.VideoPlay(strVideoID, strCameraID);
+
         }
     }
 }

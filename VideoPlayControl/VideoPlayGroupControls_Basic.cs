@@ -51,6 +51,11 @@ namespace VideoPlayControl
         /// 视频播放设置
         /// </summary>
         public VideoPlaySetting videoPlaySet = new VideoPlaySetting();
+
+        /// <summary>
+        /// 自动播放视频
+        /// </summary>
+        public bool bolAutoPlayVideo = true;
         #endregion
 
 
@@ -305,7 +310,10 @@ namespace VideoPlayControl
                 }
                 dicCurrentVideoInfos[strCurrentVideoID].PreviewPwd = "";
                 pnlRight_Main.Enabled = true;
-                VideoChannelListButton_Click(videoChannelList.lstbtns[0], (CameraInfo)videoChannelList.lstbtns[0].Tag);
+                if (bolAutoPlayVideo)
+                {
+                    VideoChannelListButton_Click(videoChannelList.lstbtns[0], (CameraInfo)videoChannelList.lstbtns[0].Tag);
+                }
             }
             catch (Exception ex)
             {
@@ -327,6 +335,8 @@ namespace VideoPlayControl
                 videoPlayWindow.SetPresetPosi(intPreset);
             }
         }
+
+
 
         #endregion
 
@@ -354,6 +364,32 @@ namespace VideoPlayControl
         public void ControlClose()
         {
             videoPlayWindow.VideoClose();
+        }
+
+        /// <summary>
+        ///  播放视频
+        ///  1 正常播放
+        ///  -1 不存在视频设备
+        ///  -2 不存在通道号
+        /// </summary>
+        /// <param name="strVideoID"></param>
+        /// <param name="intChannel"></param>
+        /// <returns></returns>
+        public int VideoPlay(string strVideoID, int intChannel)
+        {
+
+            if (!dicCurrentVideoInfos.ContainsKey(strVideoID))
+            {
+                //不存在视频设备
+                return -1;
+            }
+            if (!dicCurrentVideoInfos[strVideoID].Cameras.ContainsKey(intChannel))
+            {
+                //不存在通道号
+                return -2;
+            }
+            videoChannelList.Init_SetVideoInfo(dicCurrentVideoInfos[strVideoID]);
+            return 1;
         }
         #endregion
 

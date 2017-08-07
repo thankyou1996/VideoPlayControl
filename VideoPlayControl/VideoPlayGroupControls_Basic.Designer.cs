@@ -39,8 +39,8 @@
             this.pblRight_Bottom = new System.Windows.Forms.Panel();
             this.pblRight_Bottom_Main = new System.Windows.Forms.Panel();
             this.pblRight_Bottom_Top = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.cmbPreset = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlRight_Top = new System.Windows.Forms.Panel();
             this.cmbVideoList = new System.Windows.Forms.ComboBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -101,9 +101,9 @@
             // 
             this.videoPTZControl.BackColor = System.Drawing.Color.Transparent;
             this.videoPTZControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoPTZControl.Location = new System.Drawing.Point(8, 8);
+            this.videoPTZControl.Location = new System.Drawing.Point(0, 0);
             this.videoPTZControl.Name = "videoPTZControl";
-            this.videoPTZControl.Size = new System.Drawing.Size(84, 75);
+            this.videoPTZControl.Size = new System.Drawing.Size(100, 100);
             this.videoPTZControl.TabIndex = 2;
             // 
             // pnlRight
@@ -140,40 +140,41 @@
             // 
             this.pblRight_Bottom_Main.Controls.Add(this.videoPTZControl);
             this.pblRight_Bottom_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pblRight_Bottom_Main.Location = new System.Drawing.Point(0, 32);
+            this.pblRight_Bottom_Main.Location = new System.Drawing.Point(0, 23);
             this.pblRight_Bottom_Main.Name = "pblRight_Bottom_Main";
-            this.pblRight_Bottom_Main.Padding = new System.Windows.Forms.Padding(8);
-            this.pblRight_Bottom_Main.Size = new System.Drawing.Size(100, 91);
+            this.pblRight_Bottom_Main.Size = new System.Drawing.Size(100, 100);
             this.pblRight_Bottom_Main.TabIndex = 7;
             // 
             // pblRight_Bottom_Top
             // 
-            this.pblRight_Bottom_Top.Controls.Add(this.label1);
             this.pblRight_Bottom_Top.Controls.Add(this.cmbPreset);
+            this.pblRight_Bottom_Top.Controls.Add(this.label1);
             this.pblRight_Bottom_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.pblRight_Bottom_Top.Location = new System.Drawing.Point(0, 0);
             this.pblRight_Bottom_Top.Name = "pblRight_Bottom_Top";
-            this.pblRight_Bottom_Top.Size = new System.Drawing.Size(100, 32);
+            this.pblRight_Bottom_Top.Size = new System.Drawing.Size(100, 23);
             this.pblRight_Bottom_Top.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "预置点";
             // 
             // cmbPreset
             // 
+            this.cmbPreset.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbPreset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPreset.FormattingEnabled = true;
-            this.cmbPreset.Location = new System.Drawing.Point(50, 7);
+            this.cmbPreset.Location = new System.Drawing.Point(41, 0);
             this.cmbPreset.Name = "cmbPreset";
-            this.cmbPreset.Size = new System.Drawing.Size(49, 20);
+            this.cmbPreset.Size = new System.Drawing.Size(59, 20);
             this.cmbPreset.TabIndex = 3;
             this.cmbPreset.SelectedIndexChanged += new System.EventHandler(this.cmbPreset_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 23);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "预置点";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlRight_Top
             // 
@@ -223,7 +224,6 @@
             this.pblRight_Bottom.ResumeLayout(false);
             this.pblRight_Bottom_Main.ResumeLayout(false);
             this.pblRight_Bottom_Top.ResumeLayout(false);
-            this.pblRight_Bottom_Top.PerformLayout();
             this.pnlRight_Top.ResumeLayout(false);
             this.ResumeLayout(false);
 
