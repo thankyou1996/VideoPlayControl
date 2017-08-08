@@ -376,7 +376,20 @@ namespace VideoPlayControl
             }
             else if (!strRecFilePath.EndsWith(".mp4"))
             {
-                //后缀名错误
+                //后缀名错误或者只指定文件夹
+                if (!Directory.Exists(strRecFilePath.ToString()))
+                {
+                    //文件夹不存在，创建文件夹
+                    Directory.CreateDirectory(strRecFilePath.ToString());
+                }
+                StringBuilder sbRecFilePath = new StringBuilder();
+                sbRecFilePath.Append(strRecFilePath);
+                sbRecFilePath.Append("\\"+CurrentVideoInfo.DVSNumber);                             //视频设备编号
+                sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));   //通道号
+                sbRecFilePath.Append("_" + DateTime.Now.ToString("yyyyMMddHHmmss"));                //时间
+                sbRecFilePath.Append("_" +"91.mp4");                                                //分类后缀及文件格式
+                
+                strRecFilePath = sbRecFilePath.ToString();
 
             }
             SDK_JCSDK.JCSDK_StartRec(intCloundSee_ConnID, strRecFilePath);

@@ -6,6 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using PublicClassCurrency;
+using System.IO;
 
 namespace VideoPlayControl
 {
@@ -408,9 +409,11 @@ namespace VideoPlayControl
                     }
                 }
             }
+            bool bolFlag = true;
             if (intChannel == -1)
             {
                 VideoChannelListButton_Click(videoChannelList.lstbtns[0], (CameraInfo)videoChannelList.lstbtns[0].Tag);
+                bolFlag = false;
             }
             else
             {
@@ -420,10 +423,17 @@ namespace VideoPlayControl
                     if (c.Channel == intChannel)
                     {
                         VideoChannelListButton_Click(btn, c);
+                        bolFlag = false;
+                        break;
                     }
                 }
             }
-
+            if (bolFlag)
+            {
+                //无选中通道播放第一通道
+                VideoChannelListButton_Click(videoChannelList.lstbtns[0], (CameraInfo)videoChannelList.lstbtns[0].Tag);
+            }
+            //Directory.CreateDirectory
             return intResult;
         }
         #endregion

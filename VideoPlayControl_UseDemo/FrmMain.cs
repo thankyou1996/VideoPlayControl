@@ -119,6 +119,7 @@ namespace VideoPlayControl_UseDemo
             videoWindowTest.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
             videoPTZControl1.PTZControlEvent += PTZControlEvent;
             videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
+            
         }
 
         #endregion

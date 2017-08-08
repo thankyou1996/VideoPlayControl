@@ -87,6 +87,12 @@
     <Compile Include="VideoPTZControl.Designer.cs">
       <DependentUpon>VideoPTZControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoRecordList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoRecordList.Designer.cs">
+      <DependentUpon>VideoRecordList.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VideoPTZControl.resx">
       <DependentUpon>VideoPTZControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoRecordList.resx">
+      <DependentUpon>VideoRecordList.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
