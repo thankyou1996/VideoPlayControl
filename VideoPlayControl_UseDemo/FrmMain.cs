@@ -108,7 +108,7 @@ namespace VideoPlayControl_UseDemo
             cmbPlayVideoWindowSet.SelectedIndexChanged += cmbPlayVideoWindowSet_SelectedIndexChanged;
             #endregion
 
-            for (int i = 1; i < 256; i++)
+            for (int i = 0; i < 256; i++)
             {
                 cmbPreset.Items.Add(i.ToString().PadLeft(2, '0'));
             }

@@ -105,6 +105,7 @@ namespace VideoPlayControl
         {
             return PreViewPwdVerifyEvent(this, strVideoID);
         }
+        
 
         #endregion
 
@@ -159,7 +160,10 @@ namespace VideoPlayControl
             {
                 cmbPreset.Items.Add(i.ToString().PadLeft(2, '0'));
             }
-            cmbPreset.SelectedIndex = 0;
+            if (videoPlaySet.PreSetPosi > 0)
+            {
+                cmbPreset.SelectedIndex = videoPlaySet.PreSetPosi - 1;
+            }
         }
 
         #endregion
@@ -178,7 +182,6 @@ namespace VideoPlayControl
                 VideoPlayWindow v = (VideoPlayWindow)sender;
                 DisplayRecord(strTag);
             }
-
         }
 
         /// <summary>
@@ -284,7 +287,7 @@ namespace VideoPlayControl
                 videoPlayWindow.VideoClose();
             }
             CurrentCameraInfo = cameraInfo;
-            videoPlayWindow.Init_VideoInfo(dicCurrentVideoInfos[strCurrentVideoID], cameraInfo, videoPlaySet);
+            videoPlayWindow.Init_VideoInfo(dicCurrentVideoInfos[strCurrentVideoID], CurrentCameraInfo, videoPlaySet);
             videoPlayWindow.VideoPlay();
         }
 
@@ -345,7 +348,7 @@ namespace VideoPlayControl
                 videoPlayWindow.SetPresetPosi(intPreset);
             }
         }
-
+         
 
 
         #endregion
@@ -357,7 +360,10 @@ namespace VideoPlayControl
         /// <param name="strDisplayInfo"></param>
         public void DisplayRecord(string strDisplayInfo)
         {
-            tslblPrompt.Text = strDisplayInfo;
+            this.BeginInvoke(new EventHandler(delegate
+            {
+                tslblPrompt.Text = strDisplayInfo;
+            }));
         }
 
         /// <summary>

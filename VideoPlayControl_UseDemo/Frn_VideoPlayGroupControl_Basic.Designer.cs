@@ -28,25 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.videoPlayGroupControls_Basic1 = new VideoPlayControl.VideoPlayGroupControls_Basic();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.videoPlayGroupControls_Basic1 = new VideoPlayControl.VideoPlayGroupControls_Basic();
             this.pnlRight = new System.Windows.Forms.Panel();
-            this.btnVideoPlay = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtCameraID = new System.Windows.Forms.TextBox();
             this.txtVideoID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCameraID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnVideoPlay = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // videoPlayGroupControls_Basic1
-            // 
-            this.videoPlayGroupControls_Basic1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoPlayGroupControls_Basic1.Location = new System.Drawing.Point(0, 0);
-            this.videoPlayGroupControls_Basic1.Name = "videoPlayGroupControls_Basic1";
-            this.videoPlayGroupControls_Basic1.Size = new System.Drawing.Size(706, 472);
-            this.videoPlayGroupControls_Basic1.TabIndex = 0;
             // 
             // pnlMain
             // 
@@ -56,6 +48,14 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(706, 472);
             this.pnlMain.TabIndex = 1;
+            // 
+            // videoPlayGroupControls_Basic1
+            // 
+            this.videoPlayGroupControls_Basic1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPlayGroupControls_Basic1.Location = new System.Drawing.Point(0, 0);
+            this.videoPlayGroupControls_Basic1.Name = "videoPlayGroupControls_Basic1";
+            this.videoPlayGroupControls_Basic1.Size = new System.Drawing.Size(706, 472);
+            this.videoPlayGroupControls_Basic1.TabIndex = 0;
             // 
             // pnlRight
             // 
@@ -70,24 +70,13 @@
             this.pnlRight.Size = new System.Drawing.Size(134, 472);
             this.pnlRight.TabIndex = 2;
             // 
-            // btnVideoPlay
+            // txtCameraID
             // 
-            this.btnVideoPlay.Location = new System.Drawing.Point(47, 60);
-            this.btnVideoPlay.Name = "btnVideoPlay";
-            this.btnVideoPlay.Size = new System.Drawing.Size(75, 23);
-            this.btnVideoPlay.TabIndex = 0;
-            this.btnVideoPlay.Text = "播放";
-            this.btnVideoPlay.UseVisualStyleBackColor = true;
-            this.btnVideoPlay.Click += new System.EventHandler(this.btnVideoPlay_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "VideoID";
+            this.txtCameraID.Location = new System.Drawing.Point(69, 33);
+            this.txtCameraID.Name = "txtCameraID";
+            this.txtCameraID.Size = new System.Drawing.Size(53, 21);
+            this.txtCameraID.TabIndex = 2;
+            this.txtCameraID.Text = "01";
             // 
             // txtVideoID
             // 
@@ -106,13 +95,24 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "CameraID";
             // 
-            // txtCameraID
+            // label1
             // 
-            this.txtCameraID.Location = new System.Drawing.Point(69, 33);
-            this.txtCameraID.Name = "txtCameraID";
-            this.txtCameraID.Size = new System.Drawing.Size(53, 21);
-            this.txtCameraID.TabIndex = 2;
-            this.txtCameraID.Text = "01";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "VideoID";
+            // 
+            // btnVideoPlay
+            // 
+            this.btnVideoPlay.Location = new System.Drawing.Point(47, 60);
+            this.btnVideoPlay.Name = "btnVideoPlay";
+            this.btnVideoPlay.Size = new System.Drawing.Size(75, 23);
+            this.btnVideoPlay.TabIndex = 0;
+            this.btnVideoPlay.Text = "播放";
+            this.btnVideoPlay.UseVisualStyleBackColor = true;
+            this.btnVideoPlay.Click += new System.EventHandler(this.btnVideoPlay_Click);
             // 
             // Frn_VideoPlayGroupControl_Basic
             // 

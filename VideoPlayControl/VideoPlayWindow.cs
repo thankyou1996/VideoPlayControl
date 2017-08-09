@@ -335,6 +335,11 @@ namespace VideoPlayControl
                     this.BeginInvoke(new EventHandler(delegate
                     {
                         CloundSee_SetPresetPosi(CurrentVideoPlaySet.PreSetPosi);
+                        if (CurrentVideoPlaySet.FirstInForcePreSetPosi)
+                        {
+                            //仅首次生效
+                            CurrentVideoPlaySet.PreSetPosi = -1;
+                        }
                     }));
                 }
             }

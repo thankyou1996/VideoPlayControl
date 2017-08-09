@@ -9,7 +9,6 @@ namespace VideoPlayControl
     /// </summary>
     public class ProgParameter
     {
-
         #region CloundSee(云视通相关参数)
         /// <summary>
         /// 云视通初始化端口
@@ -21,6 +20,5 @@ namespace VideoPlayControl
         /// </summary>
         public static string strCloundSee_TempDicPath = ProgConstants.ro_strCloundSee_TempDicPath;
         #endregion
-
     }
 }

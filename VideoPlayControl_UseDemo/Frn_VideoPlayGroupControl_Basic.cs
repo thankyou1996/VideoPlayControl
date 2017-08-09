@@ -22,8 +22,10 @@ namespace VideoPlayControl_UseDemo
         private void Frn_VideoPlayGroupControl_Basic_Load(object sender, EventArgs e)
         {
             videoPlayGroupControls_Basic1.bolAutoPlayVideo = false;
+            videoPlayGroupControls_Basic1.videoPlaySet.VideoRecordEnable = true;
+            videoPlayGroupControls_Basic1.videoPlaySet.VideoMonitorEnable = true;
+            //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
             Test();
-            
         }
 
         public void Test()
@@ -138,5 +140,6 @@ namespace VideoPlayControl_UseDemo
             int strCameraID = Convert.ToInt32(txtCameraID.Text);
             videoPlayGroupControls_Basic1.VideoPlay(strVideoID, strCameraID);
         }
+        
     }
 }

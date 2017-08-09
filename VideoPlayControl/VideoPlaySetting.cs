@@ -65,5 +65,18 @@ namespace VideoPlayControl
             get { return intPreSetPosi; }
             set { intPreSetPosi = value; }
         }
+
+        /// <summary>
+        /// 预置点设置仅首次生效
+        /// </summary>
+        public bool bolFirstInForcePreSetPosi = false;
+        /// <summary>
+        /// 预置点设置仅首次生效
+        /// </summary>
+        public bool FirstInForcePreSetPosi
+        {
+            get { return bolFirstInForcePreSetPosi; }
+            set { bolFirstInForcePreSetPosi = value; }
+        }
     }
 }
