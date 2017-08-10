@@ -19,6 +19,8 @@ namespace VideoPlayControl
         /// </summary>
         VideoInfoInit=1,
         
+        
+
         /// <summary>
         /// 处于播放状态
         /// </summary>

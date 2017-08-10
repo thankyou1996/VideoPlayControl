@@ -123,10 +123,25 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strCloundSeeSDKFilePath)]
         public static extern void JCSDK_PresetCall(int nLacolChannel, int nLinkID);
 
-
+        /// <summary>
+        /// 设备是否在线
+        /// </summary>
+        /// <param name="strCloundID">云视通号码</param>
+        /// <param name="intTimeOut">超时时间</param>
+        /// <returns>在线返回正数 不在线返回0 查询失败返回负数</returns>
         [DllImport(ProgConstants.c_strCloundSeeSDKFilePath)]
-        //public static extern void JCSDK_RegisterCallback(JCEventCallback_t funEventCallback, JCDataCallback_t funDataCallback, JCRawDataCallback_t funRawDataCallback, JCLanSearchDeviceCallback_t funLanSearchDeviceCallback);
-        //public static extern void JCSDK_RegisterCallback(JCEventCallback_t funEventCallback, JCDataCallback_t funDataCallback, JCDownloadDataCallback_t funDownloadDataCallback, JCRawDataCallback_t funRawDataCallback, JCLanSearchDeviceCallback_t funLanSearchDeviceCallback);
+        public static extern int JCSDK_GetYstOnlineStatus(string strCloundID, int intTimeOut);
+        
+
+        /// <summary>
+        /// 回调事件设置
+        /// </summary>
+        /// <param name="funEventCallback"></param>
+        /// <param name="funDataCallback"></param>
+        /// <param name="funDownloadDataCallback"></param>
+        /// <param name="funRawDataCallback"></param>
+        /// <param name="funLanSearchDeviceCallback"></param>
+        [DllImport(ProgConstants.c_strCloundSeeSDKFilePath)]
         public static extern void JCSDK_RegisterCallback(JCEventCallback_t funEventCallback, IntPtr funDataCallback, IntPtr funDownloadDataCallback, IntPtr funRawDataCallback, IntPtr funLanSearchDeviceCallback);
 
 

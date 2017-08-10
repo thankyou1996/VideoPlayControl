@@ -251,7 +251,9 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.RequestVideoTimeout:
                         sbDisplayInfo.Append("请求视频信息超时");
                         break;
-
+                    case Enum_VideoPlayEventType.VideoDeviceNotOnline:
+                        sbDisplayInfo.Append("当前设备不在线");
+                        break;
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;

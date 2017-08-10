@@ -48,8 +48,12 @@ namespace VideoPlayControl
         /// <summary>
         /// 请求视频信息超时
         /// </summary>
-        RequestVideoTimeout
+        RequestVideoTimeout,
 
-        
+        /// <summary>
+        /// 视频设备不在线
+        /// 不在线属于状态,在这里定位为事件方便记录显示
+        /// </summary>
+        VideoDeviceNotOnline
     }
 }

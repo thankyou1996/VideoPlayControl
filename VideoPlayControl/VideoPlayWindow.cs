@@ -176,6 +176,18 @@ namespace VideoPlayControl
 
         private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType, string strTag = "")
         {
+            switch (eventType)      //部分特殊处理
+            {
+                case Enum_VideoPlayEventType.RequestVideoTimeout:
+                    if (CurrentVideoPlaySet.AutoReconn)
+                    {
+                        this.BeginInvoke(new EventHandler(delegate {
+                            VideoClose();
+                            VideoPlay();
+                        }));
+                    }
+                    break;
+            }
             if (VideoPlayEventCallBackEvent != null)
             {
                 VideoPlayEventCallBackEvent(this, eventType, strTag);
@@ -304,13 +316,23 @@ namespace VideoPlayControl
         private void CloundSee_VideoPlay()
         {
             bool bolCouldID = !CommonMethod.Verification.isIP(CurrentVideoInfo.DVSAddress);
-            intCloundSee_ConnID = SDK_JCSDK.JCSDK_Connect(CurrentVideoInfo.DVSAddress,
+            CurrentVideoInfo.NetworkState = SDK_JCSDK.JCSDK_GetYstOnlineStatus(CurrentVideoInfo.DVSAddress, 1);
+            if (CurrentVideoInfo.NetworkState > 0)
+            {
+                intCloundSee_ConnID = SDK_JCSDK.JCSDK_Connect(CurrentVideoInfo.DVSAddress,
                                     CurrentVideoInfo.DVSConnectPort,
                                     CurrentCameraInfo.Channel,
                                     CurrentVideoInfo.UserName,
                                     CurrentVideoInfo.Password,
                                     bolCouldID,
                                     "");
+            }
+            else
+            {
+                //生成网络状态状态异常事件
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoDeviceNotOnline);
+                CurrentVideoPlaySet.AutoReconn = false;
+            }
         }
 
         /// <summary>

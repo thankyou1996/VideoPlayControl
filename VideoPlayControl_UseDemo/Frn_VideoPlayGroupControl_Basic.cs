@@ -24,6 +24,8 @@ namespace VideoPlayControl_UseDemo
             videoPlayGroupControls_Basic1.bolAutoPlayVideo = false;
             videoPlayGroupControls_Basic1.videoPlaySet.VideoRecordEnable = true;
             videoPlayGroupControls_Basic1.videoPlaySet.VideoMonitorEnable = true;
+            videoPlayGroupControls_Basic1.bolDisplaySDKEvent = true;
+            videoPlayGroupControls_Basic1.bolDisPlaySDKState = true;
             //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
             Test();
         }
@@ -49,7 +51,8 @@ namespace VideoPlayControl_UseDemo
             videoInfo.VideoType = Enum_VideoType.CloundSee;
             videoInfo.DVSNumber = "000101";
             videoInfo.DVSName = "000101视频";
-            videoInfo.DVSAddress = "X5014851";
+            //videoInfo.DVSAddress = "X5014851";
+            videoInfo.DVSAddress = "X11772312";
             videoInfo.DVSConnectPort = 9010;
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";
@@ -70,7 +73,8 @@ namespace VideoPlayControl_UseDemo
             videoInfo.VideoType = Enum_VideoType.CloundSee;
             videoInfo.DVSNumber = "000102";
             videoInfo.DVSName = "000102视频";
-            videoInfo.DVSAddress = "X6944415";
+            //videoInfo.DVSAddress = "X7656498";
+            videoInfo.DVSAddress = "X7634727";
             videoInfo.DVSConnectPort = 9010;
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";
@@ -91,7 +95,8 @@ namespace VideoPlayControl_UseDemo
             videoInfo.VideoType = Enum_VideoType.CloundSee;
             videoInfo.DVSNumber = "000103";
             videoInfo.DVSName = "000103视频";
-            videoInfo.DVSAddress = "X7438372";
+            //videoInfo.DVSAddress = "X6392641";
+            videoInfo.DVSAddress = "X7591643";
             videoInfo.DVSConnectPort = 9010;
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";
@@ -107,6 +112,29 @@ namespace VideoPlayControl_UseDemo
                 videoInfo.Cameras[i] = camerasInfo;
             }
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+
+            videoInfo = new VideoInfo();
+            videoInfo.VideoType = Enum_VideoType.CloundSee;
+            videoInfo.DVSNumber = "000104";
+            videoInfo.DVSName = "000104视频";
+            //videoInfo.DVSAddress = "X12042037";
+            videoInfo.DVSAddress = "X6392641";
+            videoInfo.DVSConnectPort = 9010;
+            videoInfo.UserName = "admin";
+            videoInfo.Password = "12345";
+            videoInfo.PreviewPwd = "12345";
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            videoInfo.DVSChannelNum = 5;
+            camerasInfo = new CameraInfo();
+            for (int i = 0; i < videoInfo.DVSChannelNum; i++)
+            {
+                camerasInfo = new CameraInfo();
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "摄像机" + (i + 1);
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+
             videoPlayGroupControls_Basic1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_Basic1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_Basic1.Init_VideoInfoSet(dicVideoInfos);

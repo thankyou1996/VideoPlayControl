@@ -10,6 +10,20 @@ namespace VideoPlayControl
     public class VideoPlaySetting
     {
         /// <summary>
+        /// 自动重连
+        /// </summary>
+        private bool bolAutoReconn = true;
+
+        /// <summary>
+        /// 自动重连
+        /// </summary>
+        public bool AutoReconn
+        {
+            get { return bolAutoReconn; }
+            set { bolAutoReconn = value; }
+        }
+
+        /// <summary>
         /// 视频录像使能
         /// </summary>
         private bool bolVideoRecordEnable = false;
