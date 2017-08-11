@@ -59,13 +59,13 @@
             this.videoPlayWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoPlayWindow.Location = new System.Drawing.Point(3, 0);
             this.videoPlayWindow.Name = "videoPlayWindow";
-            this.videoPlayWindow.Size = new System.Drawing.Size(394, 298);
+            this.videoPlayWindow.Size = new System.Drawing.Size(394, 276);
             this.videoPlayWindow.TabIndex = 1;
             // 
             // pnlMain
             // 
-            this.pnlMain.Controls.Add(this.ssPrompt);
             this.pnlMain.Controls.Add(this.videoPlayWindow);
+            this.pnlMain.Controls.Add(this.ssPrompt);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
