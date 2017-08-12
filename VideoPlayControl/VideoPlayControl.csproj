@@ -68,6 +68,12 @@
     <Compile Include="VideoChannelList.Designer.cs">
       <DependentUpon>VideoChannelList.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoPlayGroupControls_Basic_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoPlayGroupControls_Basic_1.Designer.cs">
+      <DependentUpon>VideoPlayGroupControls_Basic_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="VideoPlayGroupControls_Basic.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VideoChannelList.resx">
       <DependentUpon>VideoChannelList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoPlayGroupControls_Basic_1.resx">
+      <DependentUpon>VideoPlayGroupControls_Basic_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VideoPlayGroupControls_Basic.resx">
       <DependentUpon>VideoPlayGroupControls_Basic.cs</DependentUpon>

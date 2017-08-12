@@ -131,7 +131,16 @@ namespace VideoPlayControl
         /// <returns>在线返回正数 不在线返回0 查询失败返回负数</returns>
         [DllImport(ProgConstants.c_strCloundSeeSDKFilePath)]
         public static extern int JCSDK_GetYstOnlineStatus(string strCloundID, int intTimeOut);
-        
+
+        /// <summary>
+        /// 远程设置
+        /// </summary>
+        /// <param name="nLinkID"></param>
+        /// <param name="intLanguage"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strCloundSeeSDKFilePath)]
+        public static extern bool JCSDK_RemoteConfig(int nLinkID, int intLanguage);
+
 
         /// <summary>
         /// 回调事件设置
@@ -242,6 +251,10 @@ namespace VideoPlayControl
             JCPCT_Custom3,		//自定义功能3(具体功能由设备决定)
             JCPCT_Custom4,		//自定义功能4(具体功能由设备决定)
         }
+
+        /// <summary>
+        /// 云视通事件类型
+        /// </summary>
         public enum JCEventType
         {
             /// <summary>

@@ -10,7 +10,7 @@ using System.IO;
 
 namespace VideoPlayControl
 {
-    public partial class VideoPlayGroupControls_Basic : UserControl
+    public partial class VideoPlayGroupControls_Basic_1 : UserControl
     {
         #region 全局变量
         /// <summary>
@@ -63,7 +63,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 播放视频控件组_基本
         /// </summary>
-        public VideoPlayGroupControls_Basic()
+        public VideoPlayGroupControls_Basic_1()
         {
             InitializeComponent();
         }
@@ -71,7 +71,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 播放视频控件组_基本
         /// </summary>
-        public VideoPlayGroupControls_Basic(Dictionary<string, VideoInfo> dicVideoInfos)
+        public VideoPlayGroupControls_Basic_1(Dictionary<string, VideoInfo> dicVideoInfos)
         {
             InitializeComponent();
             dicCurrentVideoInfos = dicVideoInfos;
@@ -140,7 +140,7 @@ namespace VideoPlayControl
             videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBackEvent;
             videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
             videoPlayWindow.CloundSee_SDKInit();
-            videoPTZControl.PTZControlEvent += VideoPTZControl;
+            videoPTZControl1.PTZControlEvent += VideoPTZControl;
 
             cmbVideoList.Items.Clear();
             if (dicCurrentVideoInfos.Count > 0)
@@ -254,9 +254,6 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.VideoDeviceNotOnline:
                         sbDisplayInfo.Append("当前设备不在线");
                         break;
-                    case Enum_VideoPlayEventType.UserAccessError:
-                        sbDisplayInfo.Append("");
-                        break;
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;
@@ -337,7 +334,6 @@ namespace VideoPlayControl
             {
                 throw ex;
             }
-
         }
 
         /// <summary>
@@ -450,60 +446,7 @@ namespace VideoPlayControl
         #endregion
 
 
-
-    }
-    /// <summary>
-    /// 170120 ComboBox Item
-    /// value 表示键 display表示显示的值
-    /// </summary>
-    public class ComboBoxItem
-    {
-        /// <summary>
-        /// ComboBox控件Item
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="display"></param>
-        public ComboBoxItem(object value, string display)
-        {
-            this.ItemValue = value;
-            this.ItemDisplay = display;
-        }
-
-        /// <summary>
-        /// Item 键
-        /// </summary>
-        object itemValue;
-
-        /// <summary>
-        /// Item 键
-        /// </summary>
-        public object ItemValue
-        {
-            get { return itemValue; }
-            set { itemValue = value; }
-        }
-
-        /// <summary>
-        /// Item 值
-        /// </summary>
-        string itemDisplay;
-        /// <summary>
-        /// Item 值
-        /// </summary>
-        public string ItemDisplay
-        {
-            get { return itemDisplay; }
-            set { itemDisplay = value; }
-        }
-
-        /// <summary>
-        /// 重写 ToString() 方法
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return ItemDisplay;
-        }
+        
     }
 
 }

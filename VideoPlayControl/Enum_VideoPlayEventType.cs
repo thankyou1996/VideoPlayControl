@@ -54,6 +54,11 @@ namespace VideoPlayControl
         /// 视频设备不在线
         /// 不在线属于状态,在这里定位为事件方便记录显示
         /// </summary>
-        VideoDeviceNotOnline
+        VideoDeviceNotOnline,
+
+        /// <summary>
+        /// 用户信息验证失败
+        /// </summary>
+        UserAccessError
     }
 }

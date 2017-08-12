@@ -204,7 +204,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 云视通_当前连接ID
         /// </summary>
-        int intCloundSee_ConnID = -1;
+        public int intCloundSee_ConnID = -1;
 
 
         IntPtr intptrCloundSee_PlayRect = IntPtr.Zero;
@@ -299,6 +299,11 @@ namespace VideoPlayControl
                     strTag = "[" + CurrentVideoInfo.DVSAddress + "]连接异常断开";
                     break;
 
+                case SDK_JCSDK.JCEventType.JCET_UserAccessError:
+                    videoEvType = Enum_SDKEventType.UserAccessError;
+                    strTag = "[" + CurrentVideoInfo.DVSAddress + "]用户密码错误";
+                    VideoPlayEventCallBack(Enum_VideoPlayEventType.UserAccessError);
+                    break;
                 default:
                     strTag = etType.ToString();
                     break;
@@ -610,5 +615,10 @@ namespace VideoPlayControl
             }
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SDK_JCSDK.JCSDK_RemoteConfig(intCloundSee_ConnID, 0);
+        }
     }
 }

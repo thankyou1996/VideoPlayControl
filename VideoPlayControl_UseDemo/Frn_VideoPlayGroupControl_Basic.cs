@@ -52,7 +52,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSNumber = "000101";
             videoInfo.DVSName = "000101视频";
             //videoInfo.DVSAddress = "X5014851";
-            videoInfo.DVSAddress = "X11953533";
+            videoInfo.DVSAddress = "X5014851";
             videoInfo.DVSConnectPort = 9010;
             videoInfo.UserName = "admin";
             videoInfo.Password = "";
@@ -74,7 +74,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSNumber = "000102";
             videoInfo.DVSName = "000102视频";
             //videoInfo.DVSAddress = "X7656498";
-            videoInfo.DVSAddress = "X2229259";
+            videoInfo.DVSAddress = "X11895656";
             videoInfo.DVSConnectPort = 9010;
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";

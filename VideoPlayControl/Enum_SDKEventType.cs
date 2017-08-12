@@ -32,7 +32,12 @@ namespace VideoPlayControl
         /// <summary>
         /// 连接异常断开
         /// </summary>
-        ConnectAbnormally
+        ConnectAbnormally,
+
+        /// <summary>
+        /// 用户验证失败
+        /// </summary>
+        UserAccessError
 
     }
 }
