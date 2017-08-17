@@ -175,12 +175,12 @@ namespace VideoPlayControl
         /// <param name="sender"></param>
         /// <param name="evType"></param>
         /// <param name="strTag"></param>
-        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType, string strTag)
+        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType)
         {
             if (bolDisplaySDKEvent)
             {
                 VideoPlayWindow v = (VideoPlayWindow)sender;
-                DisplayRecord(strTag);
+                DisplayRecord(evType.ToString());
             }
         }
 
@@ -190,12 +190,12 @@ namespace VideoPlayControl
         /// <param name="sender"></param>
         /// <param name="videoType"></param>
         /// <param name="sdkState"></param>
-        public void SDKStateChangedCallBackEvent(object sender, Enum_VideoType videoType, Enum_SDKState sdkState)
+        public void SDKStateChangedCallBackEvent(object sender, Enum_SDKState sdkState)
         {
             if (bolDisPlaySDKState)
             {
                 VideoPlayWindow v = (VideoPlayWindow)sender;
-                DisplayRecord(videoType.ToString() + "_" + sdkState.ToString() + v.Name + "_SDK状态");
+                DisplayRecord(sdkState.ToString());
             }
 
         }
@@ -206,7 +206,7 @@ namespace VideoPlayControl
         /// <param name="sender"></param>
         /// <param name="evType"></param>
         /// <param name="strTag"></param>
-        public void VideoPlayEventCallBackEvent(object sender, Enum_VideoPlayEventType evType, string strTag)
+        public void VideoPlayEventCallBackEvent(object sender, Enum_VideoPlayEventType evType)
         {
             if (bolDisplayVideoEvent)
             {
@@ -242,8 +242,14 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.VideoClose:
                         sbDisplayInfo.Append("关闭视频");
                         break;
-                    case Enum_VideoPlayEventType.RequestVideo:
-                        sbDisplayInfo.Append("请求视频信息");
+                    case Enum_VideoPlayEventType.RequestConn:
+                        sbDisplayInfo.Append("请求视频连接");
+                        break;
+                    case Enum_VideoPlayEventType.ConnSuccess:
+                        sbDisplayInfo.Append("连接成功,请求视频信息");
+                        break;
+                    case Enum_VideoPlayEventType.ConnFailed:
+                        sbDisplayInfo.Append("连接失败");
                         break;
                     case Enum_VideoPlayEventType.VideoPlay:
                         sbDisplayInfo.Append("正在播放视频");
@@ -255,12 +261,14 @@ namespace VideoPlayControl
                         sbDisplayInfo.Append("当前设备不在线");
                         break;
                     case Enum_VideoPlayEventType.UserAccessError:
-                        sbDisplayInfo.Append("");
+                        sbDisplayInfo.Append("用户信息验证失败");
                         break;
+                    
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;
                 }
+                sbDisplayInfo.Append("[" + videoPlayWindow.intConnCount + "]");
                 DisplayRecord(sbDisplayInfo.ToString());
             }
 

@@ -7,7 +7,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VideoPlayControl;
 
@@ -55,8 +54,10 @@ namespace VideoPlayControl_UseDemo
 
         public void Init()
         {
+            
             Init_ControlInit();
             PlayWindowSet(4);
+            videoWindowTest.CloundSee_SDKInit();
         }
 
         public void Init_ControlInit()
@@ -111,8 +112,10 @@ namespace VideoPlayControl_UseDemo
             for (int i = 0; i < 256; i++)
             {
                 cmbPreset.Items.Add(i.ToString().PadLeft(2, '0'));
+                cmbOperAtPreset.Items.Add(i.ToString().PadLeft(2, '0'));
             }
             cmbPreset.SelectedIndex = 0;
+            cmbOperAtPreset.SelectedIndex = 0;
             dgvReocrd.MultiSelect = false;
             videoWindowTest.SDKEventCallBackEvent += SDKEventCallBackEvent;
             videoWindowTest.SDKStateChangedCallBackEvent += SDKStateChangedCallBackEvent;
@@ -125,19 +128,19 @@ namespace VideoPlayControl_UseDemo
         #endregion
 
         #region 控件事件
-        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType, string strTag)
+        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType)
         {
             VideoPlayWindow v = (VideoPlayWindow)sender;
-            AddRecord(strTag + "_" + evType.ToString(), v.Name + "_SDK回调事件");
+            AddRecord(evType.ToString(), "SDKEventCallBack");
         }
 
-        public void SDKStateChangedCallBackEvent(object sender, Enum_VideoType videoType, Enum_SDKState sdkState)
+        public void SDKStateChangedCallBackEvent(object sender,Enum_SDKState sdkState)
         {
             VideoPlayWindow v = (VideoPlayWindow)sender;
-            AddRecord(videoType.ToString() + "_" + sdkState.ToString(), v.Name + "_SDK状态");
+            AddRecord(sdkState.ToString(), "SDKState");
         }
 
-        public void VideoPlayEventCallBack(object sender, Enum_VideoPlayEventType eventType,string strTag)
+        public void VideoPlayEventCallBack(object sender, Enum_VideoPlayEventType eventType)
         {
             VideoPlayWindow v = (VideoPlayWindow)sender;
             AddRecord(v.CurrentVideoInfo.DVSAddress + "_" + eventType.ToString(), "VideoEvent");
@@ -169,7 +172,17 @@ namespace VideoPlayControl_UseDemo
 
         private void PTZControlEvent(Enum_VideoPTZControl PTZControlCmd,bool bolStart)
         {
-            videoWindowTest.VideoPTZControl(PTZControlCmd, bolStart);
+            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
+            if (intVideoIndex == 0)
+            {
+                //测试界面
+                videoWindowTest.VideoPTZControl(PTZControlCmd, bolStart);
+            }
+            else
+            {
+                lstVideoPlayWindow[intVideoIndex - 1].VideoPTZControl(PTZControlCmd, bolStart);
+            }
+            
         }
         #endregion
 
@@ -250,6 +263,7 @@ namespace VideoPlayControl_UseDemo
                     tlpPlayVIdeoWindows.SetColumn(grp, col);
                     videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
                     videoPlayWindow.SDKStateChangedCallBackEvent += SDKStateChangedCallBackEvent;
+                    videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
                     lstVideoPlayWindow.Add(videoPlayWindow);
                     i++;
                 }
@@ -272,9 +286,12 @@ namespace VideoPlayControl_UseDemo
                 dr["display"] = "主画面" + i;
                 dtOperAtVideo.Rows.Add(dr);
             }
-            cmbOperAtVideo.ValueMember = "value";
-            cmbOperAtVideo.DisplayMember = "display";
-            cmbOperAtVideo.DataSource = dtOperAtVideo;
+            cmbOperAtWindows.ValueMember = "value";
+            cmbOperAtWindows.DisplayMember = "display";
+            cmbOperAtWindows.DataSource = dtOperAtVideo;
+            cmbPlayWindows.ValueMember = "value";
+            cmbPlayWindows.DisplayMember = "display";
+            cmbPlayWindows.DataSource = dtOperAtVideo;
         }
         
         /// <summary>
@@ -363,7 +380,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnVideoPlayClose_Click(object sender, EventArgs e)
         {
-            int intVideoIndex = Convert.ToInt32(cmbOperAtVideo.SelectedValue);
+            int intVideoIndex = Convert.ToInt32(cmbOperAtWindows.SelectedValue);
             if (intVideoIndex == 0)
             {
                 videoWindowTest.VideoClose();
@@ -379,7 +396,6 @@ namespace VideoPlayControl_UseDemo
         private void button1_Click(object sender, EventArgs e)
         {
             VideoInfo videoInfo = new VideoInfo();
-            //videoInfo.VideoType = (Enum_VideoType)cmbVideoType.SelectedValue;
             int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
             switch (intVideoType)
             {
@@ -394,16 +410,16 @@ namespace VideoPlayControl_UseDemo
             videoInfo.Password = txtPassword.Text;
             videoInfo.Cameras = new Dictionary<int, CameraInfo>();
             CameraInfo camerasInfo = new CameraInfo();
-            for (int i = 0; i < 16; i++)
+            for (int i = 1; i < 2; i++)
             {
                 camerasInfo = new CameraInfo();
-                //int intChannel = Convert.ToInt32(txtChannel.Text);
                 camerasInfo.Channel = i;
                 camerasInfo.CameraName = "通道" + i;
                 videoInfo.Cameras[i] = camerasInfo;
             }
-
-            videoChannelList.Init_SetVideoInfo(videoInfo);
+            videoWindowTest.Init_VideoInfo(videoInfo);
+            videoWindowTest.VideoPlay();
+            //videoChannelList.Init_SetVideoInfo(videoInfo);
         }
 
 
@@ -433,7 +449,7 @@ namespace VideoPlayControl_UseDemo
             VideoPlaySetting videoPlaySet = new VideoPlaySetting();
             videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
             videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
-            int intVideoIndex = Convert.ToInt32(cmbOperAtVideo.SelectedValue);
+            int intVideoIndex = Convert.ToInt32(cmbOperAtWindows.SelectedValue);
             if (chkPresetEanble.Checked)
             {
                 videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
@@ -530,7 +546,7 @@ namespace VideoPlayControl_UseDemo
             Button btn = (Button)sender;
             btn.BackColor = Color.Red;
             VideoPlaySetting videoPlaySet = new VideoPlaySetting();
-            int intVideoIndex = Convert.ToInt32(cmbOperAtVideo.SelectedValue);
+            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
             //播放
             if (chkPresetEanble.Checked)
             {
@@ -544,6 +560,22 @@ namespace VideoPlayControl_UseDemo
             else
             {
                 PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
+            }
+        }
+
+        private void cmbOperAtPreset_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int intVideoIndex = Convert.ToInt32(cmbOperAtWindows.SelectedValue);
+            int intPresetPosi = int.Parse(cmbOperAtPreset.Text.ToString());
+            //播放
+            if (intVideoIndex == 0)
+            {
+                //测试界面
+                videoWindowTest.SetPresetPosi(intPresetPosi);
+            }
+            else
+            {
+                lstVideoPlayWindow[intVideoIndex - 1].SetPresetPosi(intPresetPosi);
             }
         }
     }

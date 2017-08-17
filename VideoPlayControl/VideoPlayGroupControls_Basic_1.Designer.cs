@@ -36,28 +36,28 @@
             this.pnlRight = new System.Windows.Forms.Panel();
             this.pnlRight_Main = new System.Windows.Forms.Panel();
             this.pblRight_Bottom = new System.Windows.Forms.Panel();
-            this.pnlRight_Top = new System.Windows.Forms.Panel();
-            this.cmbVideoList = new System.Windows.Forms.ComboBox();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbPreset = new System.Windows.Forms.ComboBox();
-            this.pblRight_Bottom_Main = new System.Windows.Forms.Panel();
-            this.pblRight_Bottom_PTZControl = new System.Windows.Forms.Panel();
-            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pblRight_Bottom_PTZControl = new System.Windows.Forms.Panel();
+            this.pblRight_Bottom_Main = new System.Windows.Forms.Panel();
+            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
+            this.cmbPreset = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pnlRight_Top = new System.Windows.Forms.Panel();
+            this.cmbVideoList = new System.Windows.Forms.ComboBox();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlMain.SuspendLayout();
             this.ssPrompt.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.pnlRight_Main.SuspendLayout();
             this.pblRight_Bottom.SuspendLayout();
-            this.pnlRight_Top.SuspendLayout();
-            this.pblRight_Bottom_Main.SuspendLayout();
-            this.pblRight_Bottom_PTZControl.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.pblRight_Bottom_PTZControl.SuspendLayout();
+            this.pblRight_Bottom_Main.SuspendLayout();
+            this.pnlRight_Top.SuspendLayout();
             this.SuspendLayout();
             // 
             // videoPlayWindow
@@ -132,82 +132,6 @@
             this.pblRight_Bottom.Size = new System.Drawing.Size(126, 162);
             this.pblRight_Bottom.TabIndex = 6;
             // 
-            // pnlRight_Top
-            // 
-            this.pnlRight_Top.Controls.Add(this.cmbVideoList);
-            this.pnlRight_Top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlRight_Top.Location = new System.Drawing.Point(0, 0);
-            this.pnlRight_Top.Name = "pnlRight_Top";
-            this.pnlRight_Top.Padding = new System.Windows.Forms.Padding(3);
-            this.pnlRight_Top.Size = new System.Drawing.Size(126, 24);
-            this.pnlRight_Top.TabIndex = 5;
-            // 
-            // cmbVideoList
-            // 
-            this.cmbVideoList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbVideoList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbVideoList.FormattingEnabled = true;
-            this.cmbVideoList.Location = new System.Drawing.Point(3, 3);
-            this.cmbVideoList.Name = "cmbVideoList";
-            this.cmbVideoList.Size = new System.Drawing.Size(120, 20);
-            this.cmbVideoList.TabIndex = 3;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(544, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 298);
-            this.splitter1.TabIndex = 5;
-            this.splitter1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "预置点";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cmbPreset
-            // 
-            this.cmbPreset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPreset.FormattingEnabled = true;
-            this.cmbPreset.Location = new System.Drawing.Point(50, 0);
-            this.cmbPreset.Name = "cmbPreset";
-            this.cmbPreset.Size = new System.Drawing.Size(56, 20);
-            this.cmbPreset.TabIndex = 3;
-            this.cmbPreset.SelectedIndexChanged += new System.EventHandler(this.cmbPreset_SelectedIndexChanged);
-            // 
-            // pblRight_Bottom_Main
-            // 
-            this.pblRight_Bottom_Main.Controls.Add(this.videoPTZControl1);
-            this.pblRight_Bottom_Main.Location = new System.Drawing.Point(5, 26);
-            this.pblRight_Bottom_Main.Name = "pblRight_Bottom_Main";
-            this.pblRight_Bottom_Main.Size = new System.Drawing.Size(100, 100);
-            this.pblRight_Bottom_Main.TabIndex = 7;
-            // 
-            // pblRight_Bottom_PTZControl
-            // 
-            this.pblRight_Bottom_PTZControl.Controls.Add(this.pblRight_Bottom_Main);
-            this.pblRight_Bottom_PTZControl.Controls.Add(this.cmbPreset);
-            this.pblRight_Bottom_PTZControl.Controls.Add(this.label1);
-            this.pblRight_Bottom_PTZControl.Location = new System.Drawing.Point(0, 6);
-            this.pblRight_Bottom_PTZControl.Name = "pblRight_Bottom_PTZControl";
-            this.pblRight_Bottom_PTZControl.Size = new System.Drawing.Size(112, 135);
-            this.pblRight_Bottom_PTZControl.TabIndex = 7;
-            // 
-            // videoPTZControl1
-            // 
-            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
-            this.videoPTZControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoPTZControl1.Location = new System.Drawing.Point(0, 0);
-            this.videoPTZControl1.Name = "videoPTZControl1";
-            this.videoPTZControl1.Size = new System.Drawing.Size(100, 100);
-            this.videoPTZControl1.TabIndex = 0;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -241,6 +165,53 @@
             this.tabPage2.Text = "云台控制";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // pblRight_Bottom_PTZControl
+            // 
+            this.pblRight_Bottom_PTZControl.Controls.Add(this.pblRight_Bottom_Main);
+            this.pblRight_Bottom_PTZControl.Controls.Add(this.cmbPreset);
+            this.pblRight_Bottom_PTZControl.Controls.Add(this.label1);
+            this.pblRight_Bottom_PTZControl.Location = new System.Drawing.Point(0, 6);
+            this.pblRight_Bottom_PTZControl.Name = "pblRight_Bottom_PTZControl";
+            this.pblRight_Bottom_PTZControl.Size = new System.Drawing.Size(112, 135);
+            this.pblRight_Bottom_PTZControl.TabIndex = 7;
+            // 
+            // pblRight_Bottom_Main
+            // 
+            this.pblRight_Bottom_Main.Controls.Add(this.videoPTZControl1);
+            this.pblRight_Bottom_Main.Location = new System.Drawing.Point(5, 26);
+            this.pblRight_Bottom_Main.Name = "pblRight_Bottom_Main";
+            this.pblRight_Bottom_Main.Size = new System.Drawing.Size(100, 100);
+            this.pblRight_Bottom_Main.TabIndex = 7;
+            // 
+            // videoPTZControl1
+            // 
+            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
+            this.videoPTZControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPTZControl1.Location = new System.Drawing.Point(0, 0);
+            this.videoPTZControl1.Name = "videoPTZControl1";
+            this.videoPTZControl1.Size = new System.Drawing.Size(100, 100);
+            this.videoPTZControl1.TabIndex = 0;
+            // 
+            // cmbPreset
+            // 
+            this.cmbPreset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPreset.FormattingEnabled = true;
+            this.cmbPreset.Location = new System.Drawing.Point(50, 0);
+            this.cmbPreset.Name = "cmbPreset";
+            this.cmbPreset.Size = new System.Drawing.Size(56, 20);
+            this.cmbPreset.TabIndex = 3;
+            this.cmbPreset.SelectedIndexChanged += new System.EventHandler(this.cmbPreset_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "预置点";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -249,6 +220,35 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "对讲面板";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // pnlRight_Top
+            // 
+            this.pnlRight_Top.Controls.Add(this.cmbVideoList);
+            this.pnlRight_Top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlRight_Top.Location = new System.Drawing.Point(0, 0);
+            this.pnlRight_Top.Name = "pnlRight_Top";
+            this.pnlRight_Top.Padding = new System.Windows.Forms.Padding(3);
+            this.pnlRight_Top.Size = new System.Drawing.Size(126, 24);
+            this.pnlRight_Top.TabIndex = 5;
+            // 
+            // cmbVideoList
+            // 
+            this.cmbVideoList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbVideoList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVideoList.FormattingEnabled = true;
+            this.cmbVideoList.Location = new System.Drawing.Point(3, 3);
+            this.cmbVideoList.Name = "cmbVideoList";
+            this.cmbVideoList.Size = new System.Drawing.Size(120, 20);
+            this.cmbVideoList.TabIndex = 3;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter1.Location = new System.Drawing.Point(544, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 298);
+            this.splitter1.TabIndex = 5;
+            this.splitter1.TabStop = false;
             // 
             // VideoPlayGroupControls_Basic_1
             // 
@@ -267,12 +267,12 @@
             this.pnlRight.ResumeLayout(false);
             this.pnlRight_Main.ResumeLayout(false);
             this.pblRight_Bottom.ResumeLayout(false);
-            this.pnlRight_Top.ResumeLayout(false);
-            this.pblRight_Bottom_Main.ResumeLayout(false);
-            this.pblRight_Bottom_PTZControl.ResumeLayout(false);
-            this.pblRight_Bottom_PTZControl.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.pblRight_Bottom_PTZControl.ResumeLayout(false);
+            this.pblRight_Bottom_PTZControl.PerformLayout();
+            this.pblRight_Bottom_Main.ResumeLayout(false);
+            this.pnlRight_Top.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

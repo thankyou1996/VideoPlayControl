@@ -34,11 +34,21 @@ namespace VideoPlayControl
         /// 关闭视频信息
         /// </summary>
         VideoClose,
+        
+        /// <summary>
+        /// 请求视频连接
+        /// </summary>
+        RequestConn,
 
         /// <summary>
-        /// 请求视频信息
+        /// 连接成功
         /// </summary>
-        RequestVideo,
+        ConnSuccess,
+
+        /// <summary>
+        /// 连接失败
+        /// </summary>
+        ConnFailed,
 
         /// <summary>
         /// 正在播放视频

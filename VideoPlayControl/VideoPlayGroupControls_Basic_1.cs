@@ -175,12 +175,12 @@ namespace VideoPlayControl
         /// <param name="sender"></param>
         /// <param name="evType"></param>
         /// <param name="strTag"></param>
-        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType, string strTag)
+        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType)
         {
             if (bolDisplaySDKEvent)
             {
                 VideoPlayWindow v = (VideoPlayWindow)sender;
-                DisplayRecord(strTag);
+                DisplayRecord(evType.ToString());
             }
         }
 
@@ -190,12 +190,12 @@ namespace VideoPlayControl
         /// <param name="sender"></param>
         /// <param name="videoType"></param>
         /// <param name="sdkState"></param>
-        public void SDKStateChangedCallBackEvent(object sender, Enum_VideoType videoType, Enum_SDKState sdkState)
+        public void SDKStateChangedCallBackEvent(object sender, Enum_SDKState sdkState)
         {
             if (bolDisPlaySDKState)
             {
                 VideoPlayWindow v = (VideoPlayWindow)sender;
-                DisplayRecord(videoType.ToString() + "_" + sdkState.ToString() + v.Name + "_SDK状态");
+                DisplayRecord(sdkState.ToString());
             }
 
         }
@@ -206,7 +206,7 @@ namespace VideoPlayControl
         /// <param name="sender"></param>
         /// <param name="evType"></param>
         /// <param name="strTag"></param>
-        public void VideoPlayEventCallBackEvent(object sender, Enum_VideoPlayEventType evType, string strTag)
+        public void VideoPlayEventCallBackEvent(object sender, Enum_VideoPlayEventType evType)
         {
             if (bolDisplayVideoEvent)
             {
@@ -242,7 +242,7 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.VideoClose:
                         sbDisplayInfo.Append("关闭视频");
                         break;
-                    case Enum_VideoPlayEventType.RequestVideo:
+                    case Enum_VideoPlayEventType.RequestConn:
                         sbDisplayInfo.Append("请求视频信息");
                         break;
                     case Enum_VideoPlayEventType.VideoPlay:

@@ -6,7 +6,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VideoPlayControl;
 
@@ -24,8 +23,8 @@ namespace VideoPlayControl_UseDemo
             videoPlayGroupControls_Basic1.bolAutoPlayVideo = false;
             videoPlayGroupControls_Basic1.videoPlaySet.VideoRecordEnable = true;
             videoPlayGroupControls_Basic1.videoPlaySet.VideoMonitorEnable = true;
-            videoPlayGroupControls_Basic1.bolDisplaySDKEvent = true;
-            videoPlayGroupControls_Basic1.bolDisPlaySDKState = true;
+            //videoPlayGroupControls_Basic1.bolDisplaySDKEvent = true;
+            //videoPlayGroupControls_Basic1.bolDisPlaySDKState = true;
             //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
             Test();
         }
@@ -52,7 +51,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSNumber = "000101";
             videoInfo.DVSName = "000101视频";
             //videoInfo.DVSAddress = "X5014851";
-            videoInfo.DVSAddress = "X5014851";
+            videoInfo.DVSAddress = "X5015077";
             videoInfo.DVSConnectPort = 9010;
             videoInfo.UserName = "admin";
             videoInfo.Password = "";
@@ -74,8 +73,8 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSNumber = "000102";
             videoInfo.DVSName = "000102视频";
             //videoInfo.DVSAddress = "X7656498";
-            videoInfo.DVSAddress = "X11895656";
-            videoInfo.DVSConnectPort = 9010;
+            videoInfo.DVSAddress = "220.162.13.122";
+            videoInfo.DVSConnectPort = 9101;
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";
             videoInfo.PreviewPwd = "12345";
@@ -96,7 +95,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSNumber = "000103";
             videoInfo.DVSName = "000103视频";
             //videoInfo.DVSAddress = "X6392641";
-            videoInfo.DVSAddress = "X11644417";
+            videoInfo.DVSAddress = "X7591643";
             videoInfo.DVSConnectPort = 9010;
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";

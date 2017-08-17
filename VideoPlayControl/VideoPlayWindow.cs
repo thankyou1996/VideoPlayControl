@@ -36,6 +36,10 @@ namespace VideoPlayControl
         /// 当前播放设置
         /// </summary>
         public VideoPlaySetting CurrentVideoPlaySet = new VideoPlaySetting();
+        /// <summary>
+        /// 当前连接次数
+        /// </summary>
+        public int intConnCount;
 
         public VideoPlayWindow()
         {
@@ -59,6 +63,7 @@ namespace VideoPlayControl
 
         public void Init_VideoInfo(VideoInfo videoInfo)
         {
+            intConnCount = 0;
             CurrentVideoInfo = videoInfo;
             //.Net2.0 无法获取首个对象 通过循环获取
             foreach (KeyValuePair<int, CameraInfo> kv in CurrentVideoInfo.Cameras)
@@ -80,6 +85,7 @@ namespace VideoPlayControl
 
         public void Init_VideoInfo(VideoInfo videoInfo, VideoPlaySetting videoPlaySet)
         {
+            intConnCount = 0;
             CurrentVideoInfo = videoInfo;
             //.Net2.0 无法获取首个对象 通过循环获取
             foreach (KeyValuePair<int, CameraInfo> kv in CurrentVideoInfo.Cameras)
@@ -101,6 +107,7 @@ namespace VideoPlayControl
 
         public void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
         {
+            intConnCount = 0;
             CurrentVideoInfo = videoInfo;
             CurrentCameraInfo = cameraInfo;
             CurrentVideoPlaySet = videoPlaySet;
@@ -118,19 +125,18 @@ namespace VideoPlayControl
         #region 委托事件
 
         #region SDK状态改变事件回调
-        public delegate void SDKStateChangedCallBackDelegate(object sender, Enum_VideoType videoType, Enum_SDKState sdkState);
+        public delegate void SDKStateChangedCallBackDelegate(object sender,Enum_SDKState sdkState);
 
         public event SDKStateChangedCallBackDelegate SDKStateChangedCallBackEvent;
         /// <summary>
         /// SDK事件回调
         /// </summary>
-        /// <param name="etType"></param>
-        /// <param name="strTag"></param>
-        private void SDKStateChangedCallBack(Enum_VideoType videoType, Enum_SDKState sdkState)
+        /// <param name="sdkState"></param>
+        private void SDKStateChangedCallBack(Enum_SDKState sdkState)
         {
             if (SDKStateChangedCallBackEvent != null)
             {
-                SDKStateChangedCallBackEvent(this, videoType, sdkState);
+                SDKStateChangedCallBackEvent(this,sdkState);
             }
         }
 
@@ -142,8 +148,7 @@ namespace VideoPlayControl
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="etType"></param>
-        /// <param name="strTag"></param>
-        public delegate void SDKEventCallBackDelegate(object sender, Enum_SDKEventType etType, string strTag);
+        public delegate void SDKEventCallBackDelegate(object sender, Enum_SDKEventType etType);
 
         /// <summary>
         /// SDK事件回调事件
@@ -155,11 +160,11 @@ namespace VideoPlayControl
         /// </summary>
         /// <param name="etType"></param>
         /// <param name="strTag"></param>
-        private void SDKEventCallBack(Enum_SDKEventType etType, string strTag)
+        private void SDKEventCallBack(Enum_SDKEventType etType)
         {
             if (SDKEventCallBackEvent != null)
             {
-                SDKEventCallBackEvent(this, etType, strTag);
+                SDKEventCallBackEvent(this, etType);
             }
         }
         #endregion
@@ -170,15 +175,16 @@ namespace VideoPlayControl
         /// </summary>
         /// <param name="eventType"></param>
         /// <param name="strTag"></param>
-        public delegate void VideoPlayEventCallBackDelegate(object sender,Enum_VideoPlayEventType eventType,string strTag);
+        public delegate void VideoPlayEventCallBackDelegate(object sender,Enum_VideoPlayEventType eventType);
 
         public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
 
-        private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType, string strTag = "")
+        private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType)
         {
             switch (eventType)      //部分特殊处理
             {
                 case Enum_VideoPlayEventType.RequestVideoTimeout:
+                    
                     if (CurrentVideoPlaySet.AutoReconn)
                     {
                         this.BeginInvoke(new EventHandler(delegate {
@@ -190,7 +196,7 @@ namespace VideoPlayControl
             }
             if (VideoPlayEventCallBackEvent != null)
             {
-                VideoPlayEventCallBackEvent(this, eventType, strTag);
+                VideoPlayEventCallBackEvent(this, eventType);
             }
         }
 
@@ -239,12 +245,12 @@ namespace VideoPlayControl
                 if (SDK_JCSDK.JCSDK_InitSDK(ProgParameter.intCloundSee_intLocStartPort, ProgParameter.strCloundSee_TempDicPath))
                 {
                     SDKState.CloundSeeSDKState = Enum_SDKState.SDK_Init;
-                    SDKStateChangedCallBack(Enum_VideoType.CloundSee, SDKState.CloundSeeSDKState);
+                    SDKStateChangedCallBack(SDKState.CloundSeeSDKState);
                 }
                 else
                 {
                     SDKState.CloundSeeSDKState = Enum_SDKState.SDK_InitFail;
-                    SDKStateChangedCallBack(Enum_VideoType.CloundSee, SDKState.CloundSeeSDKState);
+                    SDKStateChangedCallBack(SDKState.CloundSeeSDKState);
                     return;
                 }
             }
@@ -277,6 +283,7 @@ namespace VideoPlayControl
             {
                 case SDK_JCSDK.JCEventType.JCET_ConnectOK:  //连接成功
                     videoEvType = Enum_SDKEventType.ConnectOK;
+                    CurrentVideoInfo.NetworkState = 1;          //置为在线
                     strTag = "[" + CurrentVideoInfo.DVSAddress + "]连接成功,开始播放视频";
                     CloundSee_VideoPreview(false);
                     VideoPlayState = Enum_VideoPlayState.InPlayState;
@@ -308,9 +315,9 @@ namespace VideoPlayControl
                     strTag = etType.ToString();
                     break;
             }
-            SDKEventCallBack(videoEvType, strTag);
+            SDKEventCallBack(videoEvType);
         }
-        
+
         #endregion
 
         #region 基本事件
@@ -321,7 +328,22 @@ namespace VideoPlayControl
         private void CloundSee_VideoPlay()
         {
             bool bolCouldID = !CommonMethod.Verification.isIP(CurrentVideoInfo.DVSAddress);
-            CurrentVideoInfo.NetworkState = SDK_JCSDK.JCSDK_GetYstOnlineStatus(CurrentVideoInfo.DVSAddress, 1);
+
+            if (bolCouldID)
+            {
+                //使用云视通号
+                CurrentVideoInfo.NetworkState = SDK_JCSDK.JCSDK_GetYstOnlineStatus(CurrentVideoInfo.DVSAddress, 1);
+            }
+            else
+            {
+                //使IP地址 状态置为 未明
+                CurrentVideoInfo.NetworkState = -1;
+            }
+            
+            if (intCloundSee_ConnID != -1)
+            {
+                SDK_JCSDK.JCSDK_Disconnect(intCloundSee_ConnID);
+            }
             if (CurrentVideoInfo.NetworkState > 0)
             {
                 intCloundSee_ConnID = SDK_JCSDK.JCSDK_Connect(CurrentVideoInfo.DVSAddress,
@@ -331,6 +353,12 @@ namespace VideoPlayControl
                                     CurrentVideoInfo.Password,
                                     bolCouldID,
                                     "");
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
+                if (intCloundSee_ConnID == -1)
+                {
+                    //连接失败
+                    VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
+                }
             }
             else
             {
@@ -377,9 +405,12 @@ namespace VideoPlayControl
         /// </summary>
         public void CloundSee_VideoClose()
         {
-            CloundSee_VideoRecordStop();
-            CloundSee_VideoMonitorStop();
-            SDK_JCSDK.JCSDK_Disconnect(intCloundSee_ConnID);
+            if (intCloundSee_ConnID != -1)
+            {
+                CloundSee_VideoRecordStop();
+                CloundSee_VideoMonitorStop();
+                SDK_JCSDK.JCSDK_Disconnect(intCloundSee_ConnID);
+            }
         }
 
         /// <summary>
@@ -516,7 +547,8 @@ namespace VideoPlayControl
                 //处于播放状态，释放
                 VideoClose();
             }
-            VideoPlayEventCallBack(Enum_VideoPlayEventType.RequestVideo);
+            intConnCount++;
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.RequestConn);
             switch (CurrentVideoInfo.VideoType)
             {
                 case Enum_VideoType.CloundSee:
@@ -540,12 +572,16 @@ namespace VideoPlayControl
 
         public void SetPresetPosi(int intPresetPosi)
         {
-            switch (CurrentVideoInfo.VideoType)
+            if (VideoPlayState==Enum_VideoPlayState.InPlayState)
             {
-                case Enum_VideoType.CloundSee:
-                    CloundSee_SetPresetPosi(intPresetPosi);
-                    break;
+                switch (CurrentVideoInfo.VideoType)
+                {
+                    case Enum_VideoType.CloundSee:
+                        CloundSee_SetPresetPosi(intPresetPosi);
+                        break;
+                }
             }
+            
         }
 
         /// <summary>

@@ -19,17 +19,15 @@ namespace VideoPlayControl
         /// </summary>
         VideoInfoInit=1,
         
-        
-
         /// <summary>
         /// 处于播放状态
         /// </summary>
         InPlayState=2,
-
+        
         /// <summary>
         /// 未处于播放状态
         /// </summary>
-        NotInPlayState=-1
+        NotInPlayState =-1
 
     }
 }
