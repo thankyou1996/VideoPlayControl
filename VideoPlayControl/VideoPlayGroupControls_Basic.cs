@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using PublicClassCurrency;
 using System.IO;
+using System.Threading;
 
 namespace VideoPlayControl
 {
@@ -76,10 +77,15 @@ namespace VideoPlayControl
             InitializeComponent();
             dicCurrentVideoInfos = dicVideoInfos;
         }
-
+        int intx = 0;
         private void VideoPlayGroupControls_Basic_Load(object sender, EventArgs e)
         {
             //Init();
+            intx = Thread.CurrentThread.ManagedThreadId;
+            videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
+            videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBackEvent;
+            videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
+            videoPTZControl.PTZControlEvent += VideoPTZControl;
         }
 
         
@@ -135,13 +141,6 @@ namespace VideoPlayControl
         /// </summary>
         public void Init_ControlInit()
         {
-            videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
-            videoPlayWindow.SDKStateChangedCallBackEvent += SDKStateChangedCallBackEvent;
-            videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBackEvent;
-            videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
-            videoPlayWindow.CloundSee_SDKInit();
-            videoPTZControl.PTZControlEvent += VideoPTZControl;
-
             cmbVideoList.Items.Clear();
             if (dicCurrentVideoInfos.Count > 0)
             {
@@ -269,6 +268,7 @@ namespace VideoPlayControl
                         break;
                 }
                 sbDisplayInfo.Append("[" + videoPlayWindow.intConnCount + "]");
+                
                 DisplayRecord(sbDisplayInfo.ToString());
             }
 
@@ -300,6 +300,7 @@ namespace VideoPlayControl
                 videoPlayWindow.VideoClose();
             }
             CurrentCameraInfo = cameraInfo;
+            //if(videoPlayWindow.)
             videoPlayWindow.Init_VideoInfo(dicCurrentVideoInfos[strCurrentVideoID], CurrentCameraInfo, videoPlaySet);
             videoPlayWindow.VideoPlay();
         }

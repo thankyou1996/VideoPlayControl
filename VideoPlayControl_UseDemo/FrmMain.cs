@@ -47,6 +47,8 @@ namespace VideoPlayControl_UseDemo
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            SDKState.SDKStateChangeEvent += SDKStateChange;
+            SDKState.CloundSee_SDKInit();
             Init();
         }
 
@@ -57,7 +59,6 @@ namespace VideoPlayControl_UseDemo
             
             Init_ControlInit();
             PlayWindowSet(4);
-            videoWindowTest.CloundSee_SDKInit();
         }
 
         public void Init_ControlInit()
@@ -68,10 +69,17 @@ namespace VideoPlayControl_UseDemo
             DataTable dtSource = new DataTable();
             dtSource.Columns.Add("value");
             dtSource.Columns.Add("display");
+           
             dr = dtSource.NewRow();
-            dr["value"] = "1";
-            dr["display"] = "云视通";
+            dr["value"] = Convert.ToInt32(Enum_VideoType.IPCWA);
+            dr["display"] =  Enum_VideoType.IPCWA.ToString();
             dtSource.Rows.Add(dr);
+
+            dr = dtSource.NewRow();
+            dr["value"] = Convert.ToInt32(Enum_VideoType.CloundSee);
+            dr["display"] = Enum_VideoType.CloundSee.ToString();
+            dtSource.Rows.Add(dr);
+
             cmbVideoType.ValueMember = "value";
             cmbVideoType.DisplayMember = "display";
             cmbVideoType.DataSource = dtSource;
@@ -118,13 +126,16 @@ namespace VideoPlayControl_UseDemo
             cmbOperAtPreset.SelectedIndex = 0;
             dgvReocrd.MultiSelect = false;
             videoWindowTest.SDKEventCallBackEvent += SDKEventCallBackEvent;
-            videoWindowTest.SDKStateChangedCallBackEvent += SDKStateChangedCallBackEvent;
             videoWindowTest.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
             videoPTZControl1.PTZControlEvent += PTZControlEvent;
             videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
             
         }
 
+        public void SDKStateChange(Enum_VideoType sdkType, Enum_SDKState sdkState)
+        {
+            AddRecord(sdkType.ToString() + "[" + sdkState.ToString() + "]", "SDKState");
+        }
         #endregion
 
         #region 控件事件
@@ -262,7 +273,6 @@ namespace VideoPlayControl_UseDemo
                     tlpPlayVIdeoWindows.SetRow(grp, row);
                     tlpPlayVIdeoWindows.SetColumn(grp, col);
                     videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
-                    videoPlayWindow.SDKStateChangedCallBackEvent += SDKStateChangedCallBackEvent;
                     videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
                     lstVideoPlayWindow.Add(videoPlayWindow);
                     i++;
@@ -320,20 +330,17 @@ namespace VideoPlayControl_UseDemo
 
         public void PlayVideo(VideoPlayWindow videoPlayWindow ,VideoInfo videoInfo)
         {
-            videoPlayWindow.CloundSee_SDKInit();
             videoPlayWindow.Init_VideoInfo(videoInfo);
             videoPlayWindow.VideoPlay();
         }
 
         public void PlayVideo(VideoPlayWindow videoPlayWindow, VideoInfo videoInfo, VideoPlaySetting videoPlaySet)
         {
-            videoPlayWindow.CloundSee_SDKInit();
             videoPlayWindow.Init_VideoInfo(videoInfo, videoPlaySet);
             videoPlayWindow.VideoPlay();
         }
         public void PlayVideo(VideoPlayWindow videoPlayWindow, VideoInfo videoInfo,CameraInfo camerInfo, VideoPlaySetting videoPlaySet)
         {
-            videoPlayWindow.CloundSee_SDKInit();
             videoPlayWindow.Init_VideoInfo(videoInfo, camerInfo,videoPlaySet);
             videoPlayWindow.VideoPlay();
         }
@@ -396,14 +403,15 @@ namespace VideoPlayControl_UseDemo
         private void button1_Click(object sender, EventArgs e)
         {
             VideoInfo videoInfo = new VideoInfo();
-            int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
-            switch (intVideoType)
-            {
-                case 1:
-                    videoInfo.VideoType = Enum_VideoType.CloundSee;
-                    break;
-            }
-
+            //int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
+            //switch (intVideoType)
+            //{
+            //    case 1:
+            //        videoInfo.VideoType = Enum_VideoType.CloundSee;
+            //        break;
+            //}
+            //Enum_VideoType ee = (Enum_VideoType)Convert.ToInt32(cmbVideoType.SelectedValue);
+            videoInfo.VideoType = (Enum_VideoType)Convert.ToInt32(cmbVideoType.SelectedValue);
             videoInfo.DVSAddress = cmbDVSAddress.Text;
             videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
             videoInfo.UserName = txtUserName.Text;
@@ -468,13 +476,14 @@ namespace VideoPlayControl_UseDemo
         {
             VideoInfo videoInfo = new VideoInfo();
             //videoInfo.VideoType = (Enum_VideoType)cmbVideoType.SelectedValue;
-            int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
-            switch (intVideoType)
-            {
-                case 1:
-                    videoInfo.VideoType = Enum_VideoType.CloundSee;
-                    break;
-            }
+            //int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
+            //switch (intVideoType)
+            //{
+            //    case 1:
+            //        videoInfo.VideoType = Enum_VideoType.CloundSee;
+            //        break;
+            //}
+            videoInfo.VideoType = (Enum_VideoType)Convert.ToInt32(cmbVideoType.SelectedValue);
             videoInfo.DVSNumber = txtVideoID.Text.ToString();
             videoInfo.DVSAddress = cmbDVSAddress.Text;
             videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
@@ -554,11 +563,21 @@ namespace VideoPlayControl_UseDemo
             }
             if (intVideoIndex == 0)
             {
+                if (videoWindowTest.VideoPlayState == Enum_VideoPlayState.InPlayState)
+                {
+                    //处于播放状态
+                    videoWindowTest.VideoClose();
+                }
                 //测试界面
                 PlayVideo(videoWindowTest, dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
             }
             else
             {
+                if (videoWindowTest.VideoPlayState == Enum_VideoPlayState.InPlayState)
+                {
+                    //处于播放状态
+                    videoWindowTest.VideoClose();
+                }
                 PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
             }
         }
@@ -577,6 +596,11 @@ namespace VideoPlayControl_UseDemo
             {
                 lstVideoPlayWindow[intVideoIndex - 1].SetPresetPosi(intPresetPosi);
             }
+        }
+
+        private void btnTestClose_Click(object sender, EventArgs e)
+        {
+            videoWindowTest.VideoClose();
         }
     }
 }

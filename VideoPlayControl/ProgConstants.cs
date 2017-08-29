@@ -20,7 +20,7 @@ namespace VideoPlayControl
 
         #region SDK默认参数
 
-        #region CloundSee
+        #region CloundSee 云视通
 
         /// <summary>
         /// 云视通默认初始化 端口
@@ -36,6 +36,13 @@ namespace VideoPlayControl
         /// 云视通默认录像文件存放地址
         /// </summary>
         public static string strCloundSee_RecDicPath = Environment.CurrentDirectory + "\\CloundSeeRecFile";
+        #endregion
+
+        #region IPCWA 深圳普顺达
+        /// <summary>
+        /// 普顺达默认录像文件存放地址
+        /// </summary>
+        public static string strIPCWA_RecDicPath = Environment.CurrentDirectory + "\\IPCWARecFile";
         #endregion
 
         #endregion

@@ -75,16 +75,18 @@
             // 
             // ssPrompt
             // 
+            this.ssPrompt.AutoSize = false;
             this.ssPrompt.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblPrompt});
             this.ssPrompt.Location = new System.Drawing.Point(3, 276);
             this.ssPrompt.Name = "ssPrompt";
             this.ssPrompt.Size = new System.Drawing.Size(394, 22);
+            this.ssPrompt.SizingGrip = false;
             this.ssPrompt.TabIndex = 4;
-            this.ssPrompt.Text = "statusStrip1";
             // 
             // tslblPrompt
             // 
+            this.tslblPrompt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tslblPrompt.Name = "tslblPrompt";
             this.tslblPrompt.Size = new System.Drawing.Size(32, 17);
             this.tslblPrompt.Text = "提示";
@@ -216,7 +218,6 @@
             this.Size = new System.Drawing.Size(500, 298);
             this.Load += new System.EventHandler(this.VideoPlayGroupControls_Basic_Load);
             this.pnlMain.ResumeLayout(false);
-            this.pnlMain.PerformLayout();
             this.ssPrompt.ResumeLayout(false);
             this.ssPrompt.PerformLayout();
             this.pnlRight.ResumeLayout(false);

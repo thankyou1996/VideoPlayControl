@@ -21,16 +21,28 @@ namespace VideoPlayControl
             picDown.Tag = Enum_VideoPTZControl.PTZControl_Down;
             picLeft.Tag = Enum_VideoPTZControl.PTZControl_Left;
             picRight.Tag = Enum_VideoPTZControl.PTZControl_Right;
+            picLeftUp.Tag = Enum_VideoPTZControl.PTZControl_LeftUp;
+            picRightUp.Tag = Enum_VideoPTZControl.PTZControl_RightUp;
+            picLeftDown.Tag = Enum_VideoPTZControl.PTZControl_LeftDown;
+            picRightDown.Tag = Enum_VideoPTZControl.PTZControl_RightDown;
 
             picUp.MouseDown += picPTZControl_MouseDown;
             picDown.MouseDown += picPTZControl_MouseDown;
             picLeft.MouseDown += picPTZControl_MouseDown;
             picRight.MouseDown += picPTZControl_MouseDown;
+            picLeftUp.MouseDown += picPTZControl_MouseDown;
+            picRightUp.MouseDown += picPTZControl_MouseDown;
+            picLeftDown.MouseDown += picPTZControl_MouseDown;
+            picRightDown.MouseDown += picPTZControl_MouseDown;
 
             picUp.MouseUp += picPTZControl_MouseUp;
             picDown.MouseUp += picPTZControl_MouseUp;
             picLeft.MouseUp += picPTZControl_MouseUp;
             picRight.MouseUp += picPTZControl_MouseUp;
+            picLeftUp.MouseUp += picPTZControl_MouseUp;
+            picRightUp.MouseUp += picPTZControl_MouseUp;
+            picLeftDown.MouseUp += picPTZControl_MouseUp;
+            picRightDown.MouseUp += picPTZControl_MouseUp;
 
         }
 

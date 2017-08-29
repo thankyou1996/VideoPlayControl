@@ -17,6 +17,8 @@ namespace VideoPlayControl
     /// </summary>
     public partial class VideoPlayWindow : UserControl
     {
+        int intx =0;
+
         /// <summary>
         /// 当前视频视频设备信息
         /// </summary>
@@ -59,12 +61,16 @@ namespace VideoPlayControl
         {
             intptrPlayMain = picPlayMain.Handle;
             VideoPlayEventCallBack(Enum_VideoPlayEventType.LoadEnd);
+            
+
+
         }
 
         public void Init_VideoInfo(VideoInfo videoInfo)
         {
             intConnCount = 0;
             CurrentVideoInfo = videoInfo;
+            Init_SetVideoInfo();
             //.Net2.0 无法获取首个对象 通过循环获取
             foreach (KeyValuePair<int, CameraInfo> kv in CurrentVideoInfo.Cameras)
             {
@@ -80,13 +86,13 @@ namespace VideoPlayControl
             {
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoTypeNotExists);
             }
-
         }
 
         public void Init_VideoInfo(VideoInfo videoInfo, VideoPlaySetting videoPlaySet)
         {
             intConnCount = 0;
             CurrentVideoInfo = videoInfo;
+            Init_SetVideoInfo();
             //.Net2.0 无法获取首个对象 通过循环获取
             foreach (KeyValuePair<int, CameraInfo> kv in CurrentVideoInfo.Cameras)
             {
@@ -103,12 +109,24 @@ namespace VideoPlayControl
             {
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoTypeNotExists);
             }
+            
         }
 
         public void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
         {
-            intConnCount = 0;
             CurrentVideoInfo = videoInfo;
+            if (CurrentVideoInfo.VideoType == Enum_VideoType.IPCWA)
+            {
+                //普顺达设备特殊 单独控件
+                picPlayMain.Visible = false;
+                axIPCWAMian.Visible = true;
+            }
+            else
+            {
+                picPlayMain.Visible = true;
+                axIPCWAMian.Visible = false;
+            }
+            intConnCount = 0;
             CurrentCameraInfo = cameraInfo;
             CurrentVideoPlaySet = videoPlaySet;
             if (VideoPlayState == Enum_VideoPlayState.VideoInfoNull)
@@ -120,28 +138,36 @@ namespace VideoPlayControl
             {
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoTypeNotExists);
             }
-        }
-        
-        #region 委托事件
-
-        #region SDK状态改变事件回调
-        public delegate void SDKStateChangedCallBackDelegate(object sender,Enum_SDKState sdkState);
-
-        public event SDKStateChangedCallBackDelegate SDKStateChangedCallBackEvent;
-        /// <summary>
-        /// SDK事件回调
-        /// </summary>
-        /// <param name="sdkState"></param>
-        private void SDKStateChangedCallBack(Enum_SDKState sdkState)
-        {
-            if (SDKStateChangedCallBackEvent != null)
+            if (CurrentVideoInfo.VideoType == Enum_VideoType.CloundSee)
             {
-                SDKStateChangedCallBackEvent(this,sdkState);
+                CloundSee_VideoLPRECTChanged();
+                CloundSee_InitSDKCallBack();
             }
         }
 
-        #endregion
+        private void Init_SetVideoInfo()
+        {
+            if (CurrentVideoInfo.VideoType == Enum_VideoType.IPCWA)
+            {
+                //普顺达设备特殊 单独控件
+                picPlayMain.Visible = false;
+                axIPCWAMian.Visible = true;
+            }
+            else
+            {
+                picPlayMain.Visible = true;
+                axIPCWAMian.Visible = false;
+            }
+            if (CurrentVideoInfo.VideoType == Enum_VideoType.CloundSee)
+            {
+                CloundSee_VideoLPRECTChanged();
+                CloundSee_InitSDKCallBack();
+            }
+        }
 
+
+        #region 委托事件
+        
         #region SDK事件回调
         /// <summary>
         /// SDK事件回调委托
@@ -175,16 +201,22 @@ namespace VideoPlayControl
         /// </summary>
         /// <param name="eventType"></param>
         /// <param name="strTag"></param>
-        public delegate void VideoPlayEventCallBackDelegate(object sender,Enum_VideoPlayEventType eventType);
+        public delegate void VideoPlayEventCallBackDelegate(object sender, Enum_VideoPlayEventType eventType);
 
+        /// <summary>
+        /// 视频播放事件回调_事件
+        /// </summary>
         public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
 
+        /// <summary>
+        /// 视频播放事件回调
+        /// </summary>
         private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType)
         {
             switch (eventType)      //部分特殊处理
             {
                 case Enum_VideoPlayEventType.RequestVideoTimeout:
-                    
+
                     if (CurrentVideoPlaySet.AutoReconn)
                     {
                         this.BeginInvoke(new EventHandler(delegate {
@@ -225,7 +257,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 初始化SDK_云视通
         /// </summary>
-        public void CloundSee_SDKInit(int intLocStartPort = -1, string strTempFileDicPath = "")
+        public void CloundSee_SDKInit1(int intLocStartPort = -1, string strTempFileDicPath = "")
         {
             if (SDKState.CloundSeeSDKState != Enum_SDKState.SDK_Init)
             {
@@ -234,7 +266,6 @@ namespace VideoPlayControl
                 if (string.IsNullOrEmpty(strTempFileDicPath.Trim()))
                 {
                     ProgParameter.strCloundSee_TempDicPath = ProgConstants.ro_strCloundSee_TempDicPath;
-
                 }
                 else
                 {
@@ -245,17 +276,14 @@ namespace VideoPlayControl
                 if (SDK_JCSDK.JCSDK_InitSDK(ProgParameter.intCloundSee_intLocStartPort, ProgParameter.strCloundSee_TempDicPath))
                 {
                     SDKState.CloundSeeSDKState = Enum_SDKState.SDK_Init;
-                    SDKStateChangedCallBack(SDKState.CloundSeeSDKState);
                 }
                 else
                 {
                     SDKState.CloundSeeSDKState = Enum_SDKState.SDK_InitFail;
-                    SDKStateChangedCallBack(SDKState.CloundSeeSDKState);
                     return;
                 }
             }
-            CloundSee_VideoLPRECTChanged();
-            CloundSee_InitSDKCallBack();
+            
         }
 
         /// <summary>
@@ -339,7 +367,7 @@ namespace VideoPlayControl
                 //使IP地址 状态置为 未明
                 CurrentVideoInfo.NetworkState = -1;
             }
-            
+
             if (intCloundSee_ConnID != -1)
             {
                 SDK_JCSDK.JCSDK_Disconnect(intCloundSee_ConnID);
@@ -353,7 +381,7 @@ namespace VideoPlayControl
                                     CurrentVideoInfo.Password,
                                     bolCouldID,
                                     "");
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
+                //VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
                 if (intCloundSee_ConnID == -1)
                 {
                     //连接失败
@@ -371,21 +399,21 @@ namespace VideoPlayControl
         /// <summary>
         /// 视频预览
         /// </summary>
-        private void CloundSee_VideoPreview(bool bolOnlySetPreview=true)
+        private void CloundSee_VideoPreview(bool bolOnlySetPreview = true)
         {
             SDK_JCSDK.JCSDK_EnableDecoder(intCloundSee_ConnID, true);
             SDK_JCSDK.JCSDK_SetVideoPreview(intCloundSee_ConnID, intptrPlayMain, intptrCloundSee_PlayRect);
             if (!bolOnlySetPreview)
             {
-                if (CurrentVideoPlaySet.VideoRecordEnable)
+                if (CurrentVideoPlaySet.VideoRecordEnable)      //录像使能
                 {
                     CloundSee_VideoRecordStart(CurrentVideoPlaySet.VideoRecordFilePath);
                 }
-                if (CurrentVideoPlaySet.VideoMonitorEnable)
+                if (CurrentVideoPlaySet.VideoMonitorEnable)     //音频使能
                 {
                     CloundSee_VideoMonitorStart();
                 }
-                if (CurrentVideoPlaySet.PreSetPosi != -1)
+                if (CurrentVideoPlaySet.PreSetPosi != -1)        //预置点
                 {
                     this.BeginInvoke(new EventHandler(delegate
                     {
@@ -403,7 +431,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 关闭视频播放
         /// </summary>
-        public void CloundSee_VideoClose()
+        private void CloundSee_VideoClose()
         {
             if (intCloundSee_ConnID != -1)
             {
@@ -447,11 +475,11 @@ namespace VideoPlayControl
                 }
                 StringBuilder sbRecFilePath = new StringBuilder();
                 sbRecFilePath.Append(strRecFilePath);
-                sbRecFilePath.Append("\\"+CurrentVideoInfo.DVSNumber);                             //视频设备编号
+                sbRecFilePath.Append("\\" + CurrentVideoInfo.DVSNumber);                             //视频设备编号
                 sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));   //通道号
                 sbRecFilePath.Append("_" + DateTime.Now.ToString("yyyyMMddHHmmss"));                //时间
-                sbRecFilePath.Append("_" +"91.mp4");                                                //分类后缀及文件格式
-                
+                sbRecFilePath.Append("_" + "91.mp4");                                                //分类后缀及文件格式
+
                 strRecFilePath = sbRecFilePath.ToString();
 
             }
@@ -498,7 +526,7 @@ namespace VideoPlayControl
         {
             SDK_JCSDK.JCPTZCmdType CloundSee_PTZControl = SDK_JCSDK.JCPTZCmdType.JCPCT_Up;
             //云台控制类型改变
-            switch (PTZControl)
+            switch (PTZControl) //云视通仅 上下
             {
                 case Enum_VideoPTZControl.PTZControl_Up:
                     CloundSee_PTZControl = SDK_JCSDK.JCPTZCmdType.JCPCT_Up;
@@ -532,9 +560,91 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
+
         #endregion
-        
+
+        #region IPCWA 普顺达
+        /// <summary>
+        /// 视频播放
+        /// </summary>
+        private void IPCWA_VideoPlay()
+        {
+            axIPCWAMian.DeviceUID = CurrentVideoInfo.DVSAddress;
+            axIPCWAMian.ViewPWD = CurrentVideoInfo.Password;
+            if (axIPCWAMian.Start() >= 0)
+            {
+                axIPCWAMian.SetVideoQuality(5);
+                VideoPlayState = Enum_VideoPlayState.InPlayState;
+                if (!Directory.Exists(ProgConstants.strIPCWA_RecDicPath))
+                {
+                    Directory.CreateDirectory(ProgConstants.strIPCWA_RecDicPath);
+                }
+                VideoPlayState = Enum_VideoPlayState.InPlayState;
+                if (CurrentVideoPlaySet.VideoRecordEnable)
+                {
+                    //录像
+                    axIPCWAMian.RecFilePath = CurrentVideoPlaySet.VideoRecordFilePath;
+                    axIPCWAMian.Record();
+                }
+                
+            }
+            else
+            {
+                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.RequestVideoTimeout);
+            }
+        }
+
+        /// <summary>
+        /// 视频关闭
+        /// </summary>
+        private void IPCWA_VideoClose()
+        {
+            axIPCWAMian.Stop();
+            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+            //axIPCWAMian.
+            //axIPCWAMian.Dispose();
+        }
+        /// <summary>
+        /// 云台控制
+        /// </summary>
+        private void IPCWA_PTZControl(Enum_VideoPTZControl PTZControl)
+        {
+            switch (PTZControl)
+            {
+                case Enum_VideoPTZControl.PTZControl_Up:
+                    axIPCWAMian.PtzControl(1);
+                    break;
+                case Enum_VideoPTZControl.PTZControl_Down:
+                    axIPCWAMian.PtzControl(2);
+                    break;
+                case Enum_VideoPTZControl.PTZControl_Left:
+                    axIPCWAMian.PtzControl(3);
+                    break;
+                case Enum_VideoPTZControl.PTZControl_Right:
+                    axIPCWAMian.PtzControl(6);
+                    break;
+                case Enum_VideoPTZControl.PTZControl_LeftUp:
+                    axIPCWAMian.PtzControl(4);
+                    break;
+                case Enum_VideoPTZControl.PTZControl_LeftDown:
+                    axIPCWAMian.PtzControl(5);
+                    break;
+                case Enum_VideoPTZControl.PTZControl_RightUp:
+                    axIPCWAMian.PtzControl(7);
+                    break;
+                case Enum_VideoPTZControl.PTZControl_RightDown:
+                    axIPCWAMian.PtzControl(8);
+                    break;
+
+
+
+            }
+            //axIPCWAMian.PtzControl()
+        }
+
+        #endregion
+
         #region 基本事件
 
         /// <summary>
@@ -548,11 +658,14 @@ namespace VideoPlayControl
                 VideoClose();
             }
             intConnCount++;
-            VideoPlayEventCallBack(Enum_VideoPlayEventType.RequestConn);
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
             switch (CurrentVideoInfo.VideoType)
             {
-                case Enum_VideoType.CloundSee:
+                case Enum_VideoType.CloundSee:  //云视通设备
                     CloundSee_VideoPlay();
+                    break;
+                case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
+                    IPCWA_VideoPlay();
                     break;
             }
         }
@@ -595,6 +708,9 @@ namespace VideoPlayControl
                 case Enum_VideoType.CloundSee:
                     CloundSee_VideoClose();
                     break;
+                case Enum_VideoType.IPCWA:
+                    IPCWA_VideoClose();
+                    break;
             }
             VideoPlayState = Enum_VideoPlayState.NotInPlayState;
         }
@@ -613,11 +729,17 @@ namespace VideoPlayControl
                     case Enum_VideoType.CloundSee:
                         CloundSee_PTZControl(PTZControl, bolStart);
                         break;
+                    case Enum_VideoType.IPCWA:
+                        IPCWA_PTZControl(PTZControl);
+                        break;
                 }
             }
-                
         }
-        
+
+        public void Dispose()
+        {
+            axIPCWAMian.Dispose();
+        }
 
         #endregion
 
@@ -652,9 +774,6 @@ namespace VideoPlayControl
         }
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SDK_JCSDK.JCSDK_RemoteConfig(intCloundSee_ConnID, 0);
-        }
+
     }
 }

@@ -13,62 +13,62 @@ namespace VideoPlayControl
         /// <summary>
         /// 控件初始化完成
         /// </summary>
-        InitEnd,
+        InitEnd = 1,
 
         /// <summary>
         /// 控件加载完成
         /// </summary>
-        LoadEnd,
+        LoadEnd = 2,
 
         /// <summary>
         /// 设置视频播放信息
         /// </summary>
-        SetVideoInfo,
+        SetVideoInfo = 3,
 
         /// <summary>
         /// 视频类型不存在
         /// </summary>
-        VideoTypeNotExists,
+        VideoTypeNotExists = 4,
 
         /// <summary>
         /// 关闭视频信息
         /// </summary>
-        VideoClose,
-        
+        VideoClose = 5,
+
         /// <summary>
         /// 请求视频连接
         /// </summary>
-        RequestConn,
+        RequestConn = 6,
 
         /// <summary>
         /// 连接成功
         /// </summary>
-        ConnSuccess,
+        ConnSuccess = 7,
 
         /// <summary>
         /// 连接失败
         /// </summary>
-        ConnFailed,
+        ConnFailed = 8,
 
         /// <summary>
         /// 正在播放视频
         /// </summary>
-        VideoPlay,
+        VideoPlay = 9,
 
         /// <summary>
         /// 请求视频信息超时
         /// </summary>
-        RequestVideoTimeout,
+        RequestVideoTimeout = 10,
 
         /// <summary>
         /// 视频设备不在线
         /// 不在线属于状态,在这里定位为事件方便记录显示
         /// </summary>
-        VideoDeviceNotOnline,
+        VideoDeviceNotOnline = 11,
 
         /// <summary>
         /// 用户信息验证失败
         /// </summary>
-        UserAccessError
+        UserAccessError = 12
     }
 }

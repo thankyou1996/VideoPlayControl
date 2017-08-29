@@ -136,10 +136,8 @@ namespace VideoPlayControl
         public void Init_ControlInit()
         {
             videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
-            videoPlayWindow.SDKStateChangedCallBackEvent += SDKStateChangedCallBackEvent;
             videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBackEvent;
             videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
-            videoPlayWindow.CloundSee_SDKInit();
             videoPTZControl1.PTZControlEvent += VideoPTZControl;
 
             cmbVideoList.Items.Clear();
