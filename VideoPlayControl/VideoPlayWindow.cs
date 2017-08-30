@@ -475,10 +475,10 @@ namespace VideoPlayControl
                 }
                 StringBuilder sbRecFilePath = new StringBuilder();
                 sbRecFilePath.Append(strRecFilePath);
-                sbRecFilePath.Append("\\" + CurrentVideoInfo.DVSNumber);                             //视频设备编号
-                sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));   //通道号
-                sbRecFilePath.Append("_" + DateTime.Now.ToString("yyyyMMddHHmmss"));                //时间
-                sbRecFilePath.Append("_" + "91.mp4");                                                //分类后缀及文件格式
+                sbRecFilePath.Append("\\" + CurrentVideoInfo.DVSNumber);                                //视频设备编号
+                sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));       //通道号
+                sbRecFilePath.Append("_" + DateTime.Now.ToString("yyyyMMddHHmmss"));                    //时间
+                sbRecFilePath.Append("_" + "91.mp4");                                                   //分类后缀及文件格式
 
                 strRecFilePath = sbRecFilePath.ToString();
 
@@ -583,10 +583,8 @@ namespace VideoPlayControl
                 if (CurrentVideoPlaySet.VideoRecordEnable)
                 {
                     //录像
-                    axIPCWAMian.RecFilePath = CurrentVideoPlaySet.VideoRecordFilePath;
-                    axIPCWAMian.Record();
+                    IPCWA_VideoRecord(CurrentVideoPlaySet.VideoRecordFilePath);
                 }
-                
             }
             else
             {
@@ -595,6 +593,48 @@ namespace VideoPlayControl
             }
         }
 
+        private void IPCWA_VideoRecord(string strRecFilePath)
+        {
+            if (string.IsNullOrEmpty(strRecFilePath))
+            {
+                //不存在路径 使用默认路径 
+                //默认路径格式 [当前工作路径/CloundSeeRecFile/云视通号码/时间(yyyyMMddHHmmss)_通道号(01).mp4]
+                StringBuilder sbRecDicPath = new StringBuilder();
+                sbRecDicPath.Append(ProgConstants.strIPCWA_RecDicPath);    //默认路径
+                sbRecDicPath.Append("\\" + CurrentVideoInfo.DVSAddress);    //云视通号码
+                if (!Directory.Exists(sbRecDicPath.ToString()))
+                {
+                    //文件夹不存在，创建文件夹
+                    Directory.CreateDirectory(sbRecDicPath.ToString());
+                }
+                StringBuilder sbRecFilePath = new StringBuilder();
+                sbRecFilePath.Append(sbRecDicPath.ToString());
+                sbRecFilePath.Append("\\" + DateTime.Now.ToString("yyyyMMddHHmmss"));     //时间
+                sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));   //通道号
+                sbRecFilePath.Append(".avi");
+                strRecFilePath = sbRecFilePath.ToString();
+            }
+            else if (!strRecFilePath.EndsWith(".avi"))
+            {
+                //后缀名错误或者只指定文件夹
+                if (!Directory.Exists(strRecFilePath.ToString()))
+                {
+                    //文件夹不存在，创建文件夹
+                    Directory.CreateDirectory(strRecFilePath.ToString());
+                }
+                StringBuilder sbRecFilePath = new StringBuilder();
+                sbRecFilePath.Append(strRecFilePath);
+                sbRecFilePath.Append("\\" + CurrentVideoInfo.DVSNumber);                                //视频设备编号
+                sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));       //通道号
+                sbRecFilePath.Append("_" + DateTime.Now.ToString("yyyyMMddHHmmss"));                    //时间
+                sbRecFilePath.Append("_" + "71.avi");                                                   //分类后缀及文件格式
+
+                strRecFilePath = sbRecFilePath.ToString();
+            }
+            axIPCWAMian.RecFilePath = strRecFilePath;
+            axIPCWAMian.Record();
+        }
+        
         /// <summary>
         /// 视频关闭
         /// </summary>
@@ -605,6 +645,7 @@ namespace VideoPlayControl
             //axIPCWAMian.
             //axIPCWAMian.Dispose();
         }
+
         /// <summary>
         /// 云台控制
         /// </summary>
@@ -702,17 +743,20 @@ namespace VideoPlayControl
         /// </summary>
         public void VideoClose()
         {
-            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
-            switch (CurrentVideoInfo.VideoType)
+            if (VideoPlayState != Enum_VideoPlayState.VideoInfoNull)
             {
-                case Enum_VideoType.CloundSee:
-                    CloundSee_VideoClose();
-                    break;
-                case Enum_VideoType.IPCWA:
-                    IPCWA_VideoClose();
-                    break;
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
+                switch (CurrentVideoInfo.VideoType)
+                {
+                    case Enum_VideoType.CloundSee:
+                        CloundSee_VideoClose();
+                        break;
+                    case Enum_VideoType.IPCWA:
+                        IPCWA_VideoClose();
+                        break;
+                }
+                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
             }
-            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
         }
 
         /// <summary>

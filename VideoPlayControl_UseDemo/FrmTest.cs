@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -51,6 +50,31 @@ namespace VideoPlayControl_UseDemo
             Button btn = (Button)sender;
             btn.BackColor = Color.Red;
             MessageBox.Show(cameraInfo.CameraName);
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            label1.Text = "Leave";
+        }
+
+        private void textBox1_AcceptsTabChanged(object sender, EventArgs e)
+        {
+            label1.Text = "AcceptsTabChanged";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            label1.Text = "TextChanged";
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            label1.Text = "KeyPress";
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            label1.Text = "Enter";
         }
     }
 }

@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>VideoPlayControl_UseDemo</RootNamespace>
     <AssemblyName>VideoPlayControl_UseDemo</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />

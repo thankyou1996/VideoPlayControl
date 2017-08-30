@@ -102,7 +102,10 @@ namespace VideoPlayControl
 
             foreach (string s in strsReocrdFilePath)
             {
-                if (s.ToLower().EndsWith(".mp4"))
+                if (
+                    s.ToLower().EndsWith(".mp4")||
+                    s.ToLower().EndsWith(".avi")
+                    )
                 {
                     lststrResult.Add(s);
                 }

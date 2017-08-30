@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using VideoPlayControl;
@@ -561,6 +560,8 @@ namespace VideoPlayControl_UseDemo
             {
                 videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
             }
+            videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
+            videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
             if (intVideoIndex == 0)
             {
                 if (videoWindowTest.VideoPlayState == Enum_VideoPlayState.InPlayState)

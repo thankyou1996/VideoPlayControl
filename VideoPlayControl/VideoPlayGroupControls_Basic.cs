@@ -457,9 +457,6 @@ namespace VideoPlayControl
             return intResult;
         }
         #endregion
-
-
-
     }
     /// <summary>
     /// 170120 ComboBox Item

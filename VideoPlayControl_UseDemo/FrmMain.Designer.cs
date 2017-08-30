@@ -423,6 +423,8 @@
             // chkVideoRecordEnable
             // 
             this.chkVideoRecordEnable.AutoSize = true;
+            this.chkVideoRecordEnable.Checked = true;
+            this.chkVideoRecordEnable.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkVideoRecordEnable.Location = new System.Drawing.Point(3, 46);
             this.chkVideoRecordEnable.Name = "chkVideoRecordEnable";
             this.chkVideoRecordEnable.Size = new System.Drawing.Size(72, 16);
