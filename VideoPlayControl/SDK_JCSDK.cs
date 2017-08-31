@@ -5,9 +5,11 @@ using System.Text;
 
 namespace VideoPlayControl
 {
+    /// <summary>
+    /// 云视通SDK
+    /// </summary>
     public class SDK_JCSDK
     {
-
         #region 初始化
         /// <summary>
         /// 初始化 连接端口(默认-1)
@@ -27,9 +29,10 @@ namespace VideoPlayControl
         public static extern bool JCSDK_InitSDK(int nLocStartPort, string strTempFilePath);
 
         #endregion
-
         
-        //释放SDK
+        /// <summary>
+        /// 释放SDK
+        /// </summary>
         [DllImport(ProgConstants.c_strCloundSeeSDKFilePath)]
         public static extern void JCSDK_ReleaseSDK();
         

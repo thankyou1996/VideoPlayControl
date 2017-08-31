@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Enum_SDKState.cs" />
     <Compile Include="Enum_SDKEventType.cs" />
+    <Compile Include="Enum_SDKStateEventType.cs" />
     <Compile Include="Enum_VideoPlayEventType.cs" />
     <Compile Include="Enum_VideoPlayState.cs" />
     <Compile Include="Enum_VideoPTZControl.cs" />

@@ -393,7 +393,7 @@ namespace VideoPlayControl
         /// </summary>
         public void ControlClose()
         {
-            videoPlayWindow.VideoClose();
+            videoPlayWindow.VideoPlayWindows_Close();
         }
 
         /// <summary>
