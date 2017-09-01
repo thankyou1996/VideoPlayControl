@@ -392,14 +392,7 @@ namespace VideoPlayControl
             videoPlayWindow.VideoPlayWindows_Move();
         }
 
-        /// <summary>
-        /// 控件关闭事件
-        /// </summary>
-        public void ControlClose()
-        {
-            videoPlayWindow.VideoPlayWindows_Close();
-        }
-
+        
         /// <summary>
         ///  播放视频
         ///  1 正常播放
@@ -461,6 +454,18 @@ namespace VideoPlayControl
             return intResult;
         }
         #endregion
+        #region 控件外部事件
+        /// <summary>
+        /// 控件关闭事件
+        /// </summary>
+        public void ControlClose()
+        {
+            videoPlayWindow.VideoPlayWindows_Close();
+        }
+
+        #endregion
+
+
     }
     /// <summary>
     /// 170120 ComboBox Item
