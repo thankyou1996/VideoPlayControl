@@ -174,11 +174,15 @@ namespace VideoPlayControl
         /// <param name="sender"></param>
         /// <param name="evType"></param>
         /// <param name="strTag"></param>
-        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType)
+        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType,string strTag)
         {
             if (bolDisplaySDKEvent)
             {
                 VideoPlayWindow v = (VideoPlayWindow)sender;
+                if (!string.IsNullOrEmpty(strTag))
+                {
+                    DisplayRecord(evType.ToString() + "[" + strTag + "]");
+                }
                 DisplayRecord(evType.ToString());
             }
         }

@@ -152,10 +152,17 @@ namespace VideoPlayControl_UseDemo
             AddRecord(sdkState.ToString(), "SDKState");
         }
 
-        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType)
+        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType,string strTag)
         {
             VideoPlayWindow v = (VideoPlayWindow)sender;
-            AddRecord(evType.ToString(), "SDKEventCallBack");
+            if (!string.IsNullOrEmpty(strTag))
+            {
+                AddRecord(evType.ToString() + "[" + strTag + "]", "SDKEventCallBack");
+            }
+            else
+            {
+                AddRecord(evType.ToString(), "SDKEventCallBack");
+            }
         }
 
         
@@ -535,6 +542,8 @@ namespace VideoPlayControl_UseDemo
             {
                 dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
             }
+            
+
         }
 
         private void cmbVideoList_SelectedIndexChanged(object sender, EventArgs e)
@@ -600,10 +609,10 @@ namespace VideoPlayControl_UseDemo
             }
             else
             {
-                if (videoWindowTest.VideoPlayState == Enum_VideoPlayState.InPlayState)
+                if (lstVideoPlayWindow[intVideoIndex - 1].VideoPlayState == Enum_VideoPlayState.InPlayState)
                 {
                     //处于播放状态
-                    videoWindowTest.VideoClose();
+                    lstVideoPlayWindow[intVideoIndex - 1].VideoClose();
                 }
                 PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
             }

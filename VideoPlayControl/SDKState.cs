@@ -134,7 +134,7 @@ namespace VideoPlayControl
 
         #endregion
 
-
+        #region  普顺达 IPCWA
         /// <summary>
         /// 普顺达SDK 
         /// </summary>
@@ -151,7 +151,12 @@ namespace VideoPlayControl
                 SDKStateChange(PublicClassCurrency.Enum_VideoType.IPCWA, s_IPCWASDKState);
             }
         }
+        #endregion
 
+        public static void VideoSDKRelease()
+        {
+            ColundSee_SDKRelease(); //云视通SDK 
+        }
     }
 
 
