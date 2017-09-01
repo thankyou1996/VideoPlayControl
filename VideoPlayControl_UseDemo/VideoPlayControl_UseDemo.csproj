@@ -64,6 +64,12 @@
     <Compile Include="FrmTest.Designer.cs">
       <DependentUpon>FrmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_VideoPlayWindows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_VideoPlayWindows.Designer.cs">
+      <DependentUpon>Frm_VideoPlayWindows.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_VideoRecordListTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTest.resx">
       <DependentUpon>FrmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_VideoPlayWindows.resx">
+      <DependentUpon>Frm_VideoPlayWindows.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_VideoRecordListTest.resx">
       <DependentUpon>Frm_VideoRecordListTest.cs</DependentUpon>

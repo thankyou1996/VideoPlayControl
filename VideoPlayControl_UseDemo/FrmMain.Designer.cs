@@ -38,7 +38,6 @@
             this.cmbOperAtPreset = new System.Windows.Forms.ComboBox();
             this.cmbOperAtWindows = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
             this.btnVideoPlayClose = new System.Windows.Forms.Button();
             this.btnTestPlay = new System.Windows.Forms.Button();
             this.cmbDVSAddress = new System.Windows.Forms.ComboBox();
@@ -55,7 +54,6 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtChannel = new System.Windows.Forms.TextBox();
             this.pnlBottom_Left = new System.Windows.Forms.Panel();
-            this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
             this.chkMonitorEnable = new System.Windows.Forms.CheckBox();
             this.chkVideoRecordEnable = new System.Windows.Forms.CheckBox();
             this.cmbPreset = new System.Windows.Forms.ComboBox();
@@ -67,7 +65,6 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pageVideoInfo = new System.Windows.Forms.TabPage();
             this.pnlVideoInfo_Right = new System.Windows.Forms.Panel();
-            this.videoChannelList = new VideoPlayControl.VideoChannelList();
             this.pnlVideoInfo_Right_Top = new System.Windows.Forms.Panel();
             this.cmbPlayWindows = new System.Windows.Forms.ComboBox();
             this.chkPresetEanble = new System.Windows.Forms.CheckBox();
@@ -101,6 +98,10 @@
             this.cmbPlayVideoWindowSet = new System.Windows.Forms.ComboBox();
             this.ssrTip = new System.Windows.Forms.StatusStrip();
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
+            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
+            this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
+            this.videoChannelList = new VideoPlayControl.VideoChannelList();
+            this.btnWindowPlay = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.grp_ControlTarget.SuspendLayout();
@@ -132,6 +133,7 @@
             // grpVideoInfo
             // 
             this.grpVideoInfo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.grpVideoInfo.Controls.Add(this.btnWindowPlay);
             this.grpVideoInfo.Controls.Add(this.btnTestClose);
             this.grpVideoInfo.Controls.Add(this.btnAddList);
             this.grpVideoInfo.Controls.Add(this.label14);
@@ -162,7 +164,7 @@
             // 
             this.btnTestClose.Location = new System.Drawing.Point(211, 107);
             this.btnTestClose.Name = "btnTestClose";
-            this.btnTestClose.Size = new System.Drawing.Size(75, 23);
+            this.btnTestClose.Size = new System.Drawing.Size(63, 23);
             this.btnTestClose.TabIndex = 12;
             this.btnTestClose.Text = "测试关闭";
             this.btnTestClose.UseVisualStyleBackColor = true;
@@ -172,7 +174,7 @@
             // 
             this.btnAddList.Location = new System.Drawing.Point(211, 13);
             this.btnAddList.Name = "btnAddList";
-            this.btnAddList.Size = new System.Drawing.Size(75, 23);
+            this.btnAddList.Size = new System.Drawing.Size(63, 23);
             this.btnAddList.TabIndex = 11;
             this.btnAddList.Text = "添加";
             this.btnAddList.UseVisualStyleBackColor = true;
@@ -241,14 +243,6 @@
             this.label8.TabIndex = 28;
             this.label8.Text = "画面:";
             // 
-            // videoPTZControl1
-            // 
-            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
-            this.videoPTZControl1.Location = new System.Drawing.Point(0, 33);
-            this.videoPTZControl1.Name = "videoPTZControl1";
-            this.videoPTZControl1.Size = new System.Drawing.Size(81, 78);
-            this.videoPTZControl1.TabIndex = 9;
-            // 
             // btnVideoPlayClose
             // 
             this.btnVideoPlayClose.Location = new System.Drawing.Point(112, 87);
@@ -263,7 +257,7 @@
             // 
             this.btnTestPlay.Location = new System.Drawing.Point(211, 81);
             this.btnTestPlay.Name = "btnTestPlay";
-            this.btnTestPlay.Size = new System.Drawing.Size(75, 23);
+            this.btnTestPlay.Size = new System.Drawing.Size(63, 23);
             this.btnTestPlay.TabIndex = 8;
             this.btnTestPlay.Text = "测试播放";
             this.btnTestPlay.UseVisualStyleBackColor = true;
@@ -404,14 +398,6 @@
             this.pnlBottom_Left.Size = new System.Drawing.Size(219, 136);
             this.pnlBottom_Left.TabIndex = 7;
             // 
-            // videoWindowTest
-            // 
-            this.videoWindowTest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoWindowTest.Location = new System.Drawing.Point(0, 0);
-            this.videoWindowTest.Name = "videoWindowTest";
-            this.videoWindowTest.Size = new System.Drawing.Size(219, 136);
-            this.videoWindowTest.TabIndex = 0;
-            // 
             // chkMonitorEnable
             // 
             this.chkMonitorEnable.AutoSize = true;
@@ -542,14 +528,6 @@
             this.pnlVideoInfo_Right.Name = "pnlVideoInfo_Right";
             this.pnlVideoInfo_Right.Size = new System.Drawing.Size(119, 506);
             this.pnlVideoInfo_Right.TabIndex = 34;
-            // 
-            // videoChannelList
-            // 
-            this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoChannelList.Location = new System.Drawing.Point(0, 87);
-            this.videoChannelList.Name = "videoChannelList";
-            this.videoChannelList.Size = new System.Drawing.Size(119, 419);
-            this.videoChannelList.TabIndex = 10;
             // 
             // pnlVideoInfo_Right_Top
             // 
@@ -870,6 +848,40 @@
             this.tsslblPrompt.Size = new System.Drawing.Size(32, 17);
             this.tsslblPrompt.Text = "提示";
             // 
+            // videoPTZControl1
+            // 
+            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
+            this.videoPTZControl1.Location = new System.Drawing.Point(0, 33);
+            this.videoPTZControl1.Name = "videoPTZControl1";
+            this.videoPTZControl1.Size = new System.Drawing.Size(81, 78);
+            this.videoPTZControl1.TabIndex = 9;
+            // 
+            // videoWindowTest
+            // 
+            this.videoWindowTest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoWindowTest.Location = new System.Drawing.Point(0, 0);
+            this.videoWindowTest.Name = "videoWindowTest";
+            this.videoWindowTest.Size = new System.Drawing.Size(219, 136);
+            this.videoWindowTest.TabIndex = 0;
+            // 
+            // videoChannelList
+            // 
+            this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoChannelList.Location = new System.Drawing.Point(0, 87);
+            this.videoChannelList.Name = "videoChannelList";
+            this.videoChannelList.Size = new System.Drawing.Size(119, 419);
+            this.videoChannelList.TabIndex = 10;
+            // 
+            // btnWindowPlay
+            // 
+            this.btnWindowPlay.Location = new System.Drawing.Point(280, 81);
+            this.btnWindowPlay.Name = "btnWindowPlay";
+            this.btnWindowPlay.Size = new System.Drawing.Size(71, 23);
+            this.btnWindowPlay.TabIndex = 13;
+            this.btnWindowPlay.Text = "窗口播放";
+            this.btnWindowPlay.UseVisualStyleBackColor = true;
+            this.btnWindowPlay.Click += new System.EventHandler(this.btnWindowPlay_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -987,6 +999,7 @@
         private System.Windows.Forms.Button btnCloundSeeSDKInit;
         private System.Windows.Forms.Button btnCloundSeeSDKRelease;
         private System.Windows.Forms.GroupBox grpCloundSeeSDKState;
+        private System.Windows.Forms.Button btnWindowPlay;
     }
 }
 

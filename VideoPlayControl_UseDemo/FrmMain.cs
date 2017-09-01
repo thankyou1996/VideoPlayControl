@@ -639,6 +639,26 @@ namespace VideoPlayControl_UseDemo
             videoWindowTest.VideoClose();
         }
 
-        
+        private void btnWindowPlay_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = new VideoInfo();
+            videoInfo.VideoType = (Enum_VideoType)Convert.ToInt32(cmbVideoType.SelectedValue);
+            videoInfo.DVSAddress = cmbDVSAddress.Text;
+            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
+            videoInfo.UserName = txtUserName.Text;
+            videoInfo.Password = txtPassword.Text;
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            CameraInfo camerasInfo = new CameraInfo();
+            for (int i = 1; i < 2; i++)
+            {
+                camerasInfo = new CameraInfo();
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "通道" + i;
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            Frm_VideoPlayWindows frmVideoWindows = new Frm_VideoPlayWindows(videoInfo);
+            frmVideoWindows.Show();
+            //videoChannelList.Init_SetVideoInfo(videoInfo);
+        }
     }
 }
