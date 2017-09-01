@@ -36,7 +36,7 @@
             this.videoPlayWindow1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoPlayWindow1.Location = new System.Drawing.Point(0, 0);
             this.videoPlayWindow1.Name = "videoPlayWindow1";
-            this.videoPlayWindow1.Size = new System.Drawing.Size(572, 290);
+            this.videoPlayWindow1.Size = new System.Drawing.Size(487, 290);
             this.videoPlayWindow1.TabIndex = 0;
             this.videoPlayWindow1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.videoPlayWindow1_MouseDoubleClick);
             // 
@@ -44,7 +44,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 290);
+            this.ClientSize = new System.Drawing.Size(487, 290);
             this.Controls.Add(this.videoPlayWindow1);
             this.Name = "Frm_VideoPlayWindows";
             this.Text = "Frm_VideoPlayWindows";

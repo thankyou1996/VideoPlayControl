@@ -34,15 +34,17 @@
             // 
             // videoRecordList1
             // 
+            this.videoRecordList1.AutoScroll = true;
+            this.videoRecordList1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.videoRecordList1.Dock = System.Windows.Forms.DockStyle.Top;
             this.videoRecordList1.Location = new System.Drawing.Point(0, 0);
             this.videoRecordList1.Name = "videoRecordList1";
-            this.videoRecordList1.Size = new System.Drawing.Size(827, 214);
+            this.videoRecordList1.Size = new System.Drawing.Size(374, 232);
             this.videoRecordList1.TabIndex = 1;
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(22, 232);
+            this.btnLoad.Location = new System.Drawing.Point(0, 233);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 2;
@@ -54,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 262);
+            this.ClientSize = new System.Drawing.Size(374, 259);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.videoRecordList1);
             this.Name = "Frm_VideoRecordListTest";

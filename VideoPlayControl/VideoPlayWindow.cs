@@ -48,15 +48,13 @@ namespace VideoPlayControl
         /// 播放窗口句柄
         /// </summary>
         IntPtr intptrPlayMain = IntPtr.Zero;
-
-
+        
         public VideoPlayWindow()
         {
             InitializeComponent();
             VideoPlayEventCallBack(Enum_VideoPlayEventType.InitEnd);
         }
-
-
+        
         #region 委托事件
 
         #region SDK事件回调
@@ -201,17 +199,17 @@ namespace VideoPlayControl
         public void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
         {
             CurrentVideoInfo = videoInfo;
-            if (CurrentVideoInfo.VideoType == Enum_VideoType.IPCWA)
-            {
-                //普顺达设备特殊 单独控件
-                picPlayMain.Visible = false;
-                axRASPlayerOCX1.Visible = true;
-            }
-            else
-            {
-                picPlayMain.Visible = true;
-                axRASPlayerOCX1.Visible = false;
-            }
+            //if (CurrentVideoInfo.VideoType == Enum_VideoType.IPCWA)
+            //{
+            //    //普顺达设备特殊 单独控件
+            //    picPlayMain.Visible = false;
+            //    axRASPlayerOCX1.Visible = true;
+            //}
+            //else
+            //{
+            //    picPlayMain.Visible = true;
+            //    axRASPlayerOCX1.Visible = false;
+            //}
             intConnCount = 0;
             CurrentCameraInfo = cameraInfo;
             CurrentVideoPlaySet = videoPlaySet;
@@ -233,17 +231,17 @@ namespace VideoPlayControl
 
         private void Init_SetVideoInfo()
         {
-            if (CurrentVideoInfo.VideoType == Enum_VideoType.IPCWA)
-            {
-                //普顺达设备特殊 单独控件
-                picPlayMain.Visible = false;
-                axRASPlayerOCX1.Visible = true;
-            }
-            else
-            {
-                picPlayMain.Visible = true;
-                axRASPlayerOCX1.Visible = false;
-            }
+            //if (CurrentVideoInfo.VideoType == Enum_VideoType.IPCWA)
+            //{
+            //    //普顺达设备特殊 单独控件
+            //    picPlayMain.Visible = false;
+            //    axRASPlayerOCX1.Visible = true;
+            //}
+            //else
+            //{
+            //    picPlayMain.Visible = true;
+            //    axRASPlayerOCX1.Visible = false;
+            //}
             if (CurrentVideoInfo.VideoType == Enum_VideoType.CloundSee)
             {
                 CloundSee_VideoLPRECTChanged();
@@ -587,11 +585,11 @@ namespace VideoPlayControl
             intptrCloundSee_PlayRect = Marshal.AllocHGlobal(Marshal.SizeOf(rectMain));
             Marshal.StructureToPtr(rectMain, intptrCloundSee_PlayRect, true);
         }
-
+        
         #endregion
-
+        
         #endregion
-
+        
         #region IPCWA 普顺达
         /// <summary>
         /// 视频播放
@@ -599,31 +597,28 @@ namespace VideoPlayControl
         private void IPCWA_VideoPlay()
         {
             
-            axRASPlayerOCX1.DeviceUID = CurrentVideoInfo.DVSAddress;
-            axRASPlayerOCX1.ViewPWD = CurrentVideoInfo.Password;
-            if (axRASPlayerOCX1.Start() >= 0)
-            {
-                axRASPlayerOCX1.DeviceUID = CurrentVideoInfo.DVSAddress;
-                axRASPlayerOCX1.ViewPWD = CurrentVideoInfo.Password;
-                axRASPlayerOCX1.SetVideoQuality(5);
-                axRASPlayerOCX1.Start();
-                VideoPlayState = Enum_VideoPlayState.InPlayState;
-                if (!Directory.Exists(ProgConstants.strIPCWA_RecDicPath))
-                {
-                    Directory.CreateDirectory(ProgConstants.strIPCWA_RecDicPath);
-                }
-                VideoPlayState = Enum_VideoPlayState.InPlayState;
-                if (CurrentVideoPlaySet.VideoRecordEnable)
-                {
-                    //录像
-                    IPCWA_VideoRecord(CurrentVideoPlaySet.VideoRecordFilePath);
-                }
-            }
-            else
-            {
-                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.RequestVideoTimeout);
-            }
+            //axRASPlayerOCX1.DeviceUID = CurrentVideoInfo.DVSAddress;
+            //axRASPlayerOCX1.ViewPWD = CurrentVideoInfo.Password;
+            //if (axRASPlayerOCX1.Start() >= 0)
+            //{
+            //    axRASPlayerOCX1.SetVideoQuality(5);
+            //    VideoPlayState = Enum_VideoPlayState.InPlayState;
+            //    if (!Directory.Exists(ProgConstants.strIPCWA_RecDicPath))
+            //    {
+            //        Directory.CreateDirectory(ProgConstants.strIPCWA_RecDicPath);
+            //    }
+            //    VideoPlayState = Enum_VideoPlayState.InPlayState;
+            //    if (CurrentVideoPlaySet.VideoRecordEnable)
+            //    {
+            //        //录像
+            //        IPCWA_VideoRecord(CurrentVideoPlaySet.VideoRecordFilePath);
+            //    }
+            //}
+            //else
+            //{
+            //    VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+            //    VideoPlayEventCallBack(Enum_VideoPlayEventType.RequestVideoTimeout);
+            //}
         }
 
         private void IPCWA_VideoRecord(string strRecFilePath)
@@ -664,8 +659,8 @@ namespace VideoPlayControl
 
                 strRecFilePath = sbRecFilePath.ToString();
             }
-            axRASPlayerOCX1.RecFilePath = strRecFilePath;
-            axRASPlayerOCX1.Record();
+            //axRASPlayerOCX1.RecFilePath = strRecFilePath;
+            //axRASPlayerOCX1.Record();
         }
 
         /// <summary>
@@ -673,10 +668,10 @@ namespace VideoPlayControl
         /// </summary>
         private void IPCWA_VideoClose()
         {
-            axRASPlayerOCX1.Stop();
-            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-            //axIPCWAMian.
-            //axIPCWAMian.Dispose();
+            //axRASPlayerOCX1.Stop();
+            //VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+            ////axIPCWAMian.
+            ////axIPCWAMian.Dispose();
         }
 
         /// <summary>
@@ -684,37 +679,37 @@ namespace VideoPlayControl
         /// </summary>
         private void IPCWA_PTZControl(Enum_VideoPTZControl PTZControl)
         {
-            switch (PTZControl)
-            {
-                case Enum_VideoPTZControl.PTZControl_Up:
-                    axRASPlayerOCX1.PtzControl(1);
-                    break;
-                case Enum_VideoPTZControl.PTZControl_Down:
-                    axRASPlayerOCX1.PtzControl(2);
-                    break;
-                case Enum_VideoPTZControl.PTZControl_Left:
-                    axRASPlayerOCX1.PtzControl(3);
-                    break;
-                case Enum_VideoPTZControl.PTZControl_Right:
-                    axRASPlayerOCX1.PtzControl(6);
-                    break;
-                case Enum_VideoPTZControl.PTZControl_LeftUp:
-                    axRASPlayerOCX1.PtzControl(4);
-                    break;
-                case Enum_VideoPTZControl.PTZControl_LeftDown:
-                    axRASPlayerOCX1.PtzControl(5);
-                    break;
-                case Enum_VideoPTZControl.PTZControl_RightUp:
-                    axRASPlayerOCX1.PtzControl(7);
-                    break;
-                case Enum_VideoPTZControl.PTZControl_RightDown:
-                    axRASPlayerOCX1.PtzControl(8);
-                    break;
-            }
+            //switch (PTZControl)
+            //{
+            //    case Enum_VideoPTZControl.PTZControl_Up:
+            //        axRASPlayerOCX1.PtzControl(1);
+            //        break;
+            //    case Enum_VideoPTZControl.PTZControl_Down:
+            //        axRASPlayerOCX1.PtzControl(2);
+            //        break;
+            //    case Enum_VideoPTZControl.PTZControl_Left:
+            //        axRASPlayerOCX1.PtzControl(3);
+            //        break;
+            //    case Enum_VideoPTZControl.PTZControl_Right:
+            //        axRASPlayerOCX1.PtzControl(6);
+            //        break;
+            //    case Enum_VideoPTZControl.PTZControl_LeftUp:
+            //        axRASPlayerOCX1.PtzControl(4);
+            //        break;
+            //    case Enum_VideoPTZControl.PTZControl_LeftDown:
+            //        axRASPlayerOCX1.PtzControl(5);
+            //        break;
+            //    case Enum_VideoPTZControl.PTZControl_RightUp:
+            //        axRASPlayerOCX1.PtzControl(7);
+            //        break;
+            //    case Enum_VideoPTZControl.PTZControl_RightDown:
+            //        axRASPlayerOCX1.PtzControl(8);
+            //        break;
+            //}
         }
 
         #endregion
-
+        
         #region 基本事件
 
         /// <summary>
@@ -815,11 +810,11 @@ namespace VideoPlayControl
 
         public void Dispose()
         {
-            axRASPlayerOCX1.Dispose();
+            //axRASPlayerOCX1.Dispose();
         }
 
         #endregion
-
+        
         #region 控件事件
         private void VideoPlayMain_Move(object sender, EventArgs e)
         {
@@ -862,32 +857,11 @@ namespace VideoPlayControl
         {
             VideoClose();
             SDKState.SDKEventStateEvent -= SDKStateChangeEvent;
-            axRASPlayerOCX1.Dispose();
+            //axRASPlayerOCX1.Dispose();
         }
+
         #endregion
-
-        private void VideoPlayWindow_SizeChanged(object sender, EventArgs e)
-        {
-            //axRASPlayerOCX1.Width = this.Width;
-            //axRASPlayerOCX1.Height = this.Height;
-            ////axRASPlayerOCX1.Location = new Point(0, 0);
-
-            axRASPlayerOCX1.Width = this.Width - 15;
-            axRASPlayerOCX1.Width = picPlayMain.Width;
-            axRASPlayerOCX1.Height = this.Height - 15;
-            axRASPlayerOCX1.Height = picPlayMain.Height;
-            axRASPlayerOCX1.Visible = false;
-            axRASPlayerOCX1.Visible = true;
-            //if (VideoPlayState == Enum_VideoPlayState.InPlayState)
-            //{
-            //    axRASPlayerOCX1.Start();
-            //}
-            //this.ResumeLayout();
-        }
-
-        private void picPlayMain_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            
-        }
+        
     }
+
 }
