@@ -304,5 +304,10 @@
             普顺达设备 SK835
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.Ezviz">
+            <summary>
+            萤石云
+            </summary>
+        </member>
     </members>
 </doc>

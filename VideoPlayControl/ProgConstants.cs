@@ -45,6 +45,24 @@ namespace VideoPlayControl
         public static string strIPCWA_RecDicPath = Environment.CurrentDirectory + "\\IPCWARecFile";
         #endregion
 
+        #region Ezviz 萤石云
+        /// <summary>
+        /// 开放平台认证中心地址
+        /// </summary>
+        public const string c_strEzviz_AuthAddr_Default = "https://auth.ys7.com";
+
+        /// <summary>
+        /// 开放平台后台地址
+        /// </summary>
+        public const string c_strEzviz_PlatForm_Default = "https://open.ys7.com";
+
+        /// <summary>
+        /// AppKey
+        /// </summary>
+        public const string c_strEzviz_AppID_Default = "5b97c1d157474f96b8d4c75b936a0057";
+
+        #endregion
+
         #endregion
 
     }

@@ -57,7 +57,7 @@ namespace VideoPlayControl
         /// </summary>
         private static void SDKEventCallBack(PublicClassCurrency.Enum_VideoType sdkType, Enum_SDKStateEventType sdkStateEvent)
         {
-            if (SDKStateChangeEvent != null)
+            if (SDKEventStateEvent != null)
             {
                 SDKEventStateEvent(sdkType, sdkStateEvent);
             }
@@ -153,6 +153,56 @@ namespace VideoPlayControl
         }
         #endregion
 
+        #region 萤石云EzvieSDK 
+        /// <summary>
+        /// 萤石云SDK状态
+        /// </summary>
+        private static Enum_SDKState s_EzvizSDKState = Enum_SDKState.SDK_Null;
+        /// <summary>
+        /// 萤石云SDK状态
+        /// </summary>
+        public static Enum_SDKState EzvizSDKState
+        {
+            get { return s_EzvizSDKState; }
+            set
+            {
+                s_EzvizSDKState = value;
+                SDKStateChange(Enum_VideoType.Ezviz, s_EzvizSDKState);
+            }
+        }
+
+
+        /// <summary>
+        /// 萤石云_初始化SDK
+        /// </summary>
+        public static void Ezvie_SDKInit(int intLocStartPort = -1, string strTempFileDicPath = "")
+        {
+            if (EzvizSDKState != Enum_SDKState.SDK_Init)
+            {
+                if (SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID) == 0)
+                {
+                    EzvizSDKState = Enum_SDKState.SDK_Init;
+                }
+                else
+                {
+                    EzvizSDKState = Enum_SDKState.SDK_InitFail;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// 萤石云_SDK释放
+        /// </summary>
+        public static void Ezvie_SDKRelease()
+        {
+            SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseStart);
+            SDK_EzvizSDK.OpenSDK_FiniLib();
+            SDKState.EzvizSDKState = Enum_SDKState.SDK_Release;
+            SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseEnd);
+        }
+
+        #endregion
         public static void VideoSDKRelease()
         {
             ColundSee_SDKRelease(); //云视通SDK 

@@ -374,17 +374,19 @@ namespace VideoPlayControl
                 int Temp_NetworkState = SDK_JCSDK.JCSDK_GetYstOnlineStatus(CurrentVideoInfo.DVSAddress, 1);
                 if (Temp_NetworkState > 0)
                 {
+                    //设备在线
                     CurrentVideoInfo.NetworkState = 1;
                 }
-                else if (Temp_NetworkState == -1)
+                else if (Temp_NetworkState == -1 || Temp_NetworkState == 0)
                 {
+                    //离线
                     CurrentVideoInfo.NetworkState = 0;
                 }
                 else
                 {
+                    //状态为明
                     CurrentVideoInfo.NetworkState = -1;
                 }
-                
             }
             else
             {
@@ -709,7 +711,43 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
+
+        #region Ezviz 萤石云
+
+        #region 全局变量
+        int intEzivz_UserID = 1;
+        private string strEzivz_SessionID = "";
+
+        #endregion
+
+        private void Ezviz_VideoPlay()
+        {
+            SDK_EzvizSDK.OpenSDK_MessageHandler openSDK_MessageHandler = new SDK_EzvizSDK.OpenSDK_MessageHandler(pOpenSDK_MessageHandler);
+            int Temp_intSessiongLength = 0;
+            IntPtr Temp_intptrSessiongID = IntPtr.Zero;
+            int intResult = SDK_EzvizSDK.OpenSDK_AllocSessionEx(openSDK_MessageHandler, intEzivz_UserID, out Temp_intptrSessiongID, out Temp_intSessiongLength);
+            if (intResult == 0)
+            {
+                //连接成功
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
+
+            }
+            else
+            {
+                //连接失败
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
+            }
+            strEzivz_SessionID = Marshal.PtrToStringAnsi(Temp_intptrSessiongID);
+            
+        }
+        private void pOpenSDK_MessageHandler(string szSessionId, uint iMsgType, uint iErrorCode, string pMessageInfo, int pUser)
+        {
+            string x = "1";
+            //MessageBox.Show(x);
+        }
+
+        #endregion
+
         #region 基本事件
 
         /// <summary>
@@ -731,6 +769,9 @@ namespace VideoPlayControl
                     break;
                 case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
                     IPCWA_VideoPlay();
+                    break;
+                case Enum_VideoType.Ezviz:
+                    Ezviz_VideoPlay();          //萤石云设备
                     break;
             }
         }

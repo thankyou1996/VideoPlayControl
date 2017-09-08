@@ -69,6 +69,12 @@ namespace VideoPlayControl_UseDemo
             dtSource.Columns.Add("value");
             dtSource.Columns.Add("display");
 
+            //dr = dtSource.NewRow();
+            //dr["value"] = Convert.ToInt32(Enum_VideoType.Ezviz);
+            //dr["display"] = Enum_VideoType.Ezviz.ToString();
+            //dtSource.Rows.Add(dr);
+
+
             dr = dtSource.NewRow();
             dr["value"] = Convert.ToInt32(Enum_VideoType.CloundSee);
             dr["display"] = Enum_VideoType.CloundSee.ToString();
@@ -78,6 +84,7 @@ namespace VideoPlayControl_UseDemo
             dr["value"] = Convert.ToInt32(Enum_VideoType.IPCWA);
             dr["display"] =  Enum_VideoType.IPCWA.ToString();
             dtSource.Rows.Add(dr);
+
 
             
 
@@ -220,6 +227,7 @@ namespace VideoPlayControl_UseDemo
         private void btnCloundSeeSDKRelease_Click(object sender, EventArgs e)
         {
             SDKState.ColundSee_SDKRelease();
+            SDKState.CloundSee_SDKInit();
         }
         #endregion
 
@@ -659,6 +667,12 @@ namespace VideoPlayControl_UseDemo
             Frm_VideoPlayWindows frmVideoWindows = new Frm_VideoPlayWindows(videoInfo);
             frmVideoWindows.Show();
             //videoChannelList.Init_SetVideoInfo(videoInfo);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            SDKState.ColundSee_SDKRelease();
+            SDKState.CloundSee_SDKInit();
         }
     }
 }

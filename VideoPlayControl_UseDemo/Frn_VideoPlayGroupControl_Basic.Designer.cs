@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.videoPlayGroupControls_Basic1 = new VideoPlayControl.VideoPlayGroupControls_Basic();
             this.pnlRight = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtCameraID = new System.Windows.Forms.TextBox();
             this.txtVideoID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVideoPlay = new System.Windows.Forms.Button();
+            this.videoPlayGroupControls_Basic1 = new VideoPlayControl.VideoPlayGroupControls_Basic();
+            this.btnSDKReInit = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.SuspendLayout();
@@ -49,16 +51,10 @@
             this.pnlMain.Size = new System.Drawing.Size(706, 472);
             this.pnlMain.TabIndex = 1;
             // 
-            // videoPlayGroupControls_Basic1
-            // 
-            this.videoPlayGroupControls_Basic1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoPlayGroupControls_Basic1.Location = new System.Drawing.Point(0, 0);
-            this.videoPlayGroupControls_Basic1.Name = "videoPlayGroupControls_Basic1";
-            this.videoPlayGroupControls_Basic1.Size = new System.Drawing.Size(706, 472);
-            this.videoPlayGroupControls_Basic1.TabIndex = 0;
-            // 
             // pnlRight
             // 
+            this.pnlRight.Controls.Add(this.btnSDKReInit);
+            this.pnlRight.Controls.Add(this.button1);
             this.pnlRight.Controls.Add(this.txtCameraID);
             this.pnlRight.Controls.Add(this.txtVideoID);
             this.pnlRight.Controls.Add(this.label2);
@@ -69,6 +65,16 @@
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Size = new System.Drawing.Size(134, 472);
             this.pnlRight.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(47, 108);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "ReInit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtCameraID
             // 
@@ -114,6 +120,24 @@
             this.btnVideoPlay.UseVisualStyleBackColor = true;
             this.btnVideoPlay.Click += new System.EventHandler(this.btnVideoPlay_Click);
             // 
+            // videoPlayGroupControls_Basic1
+            // 
+            this.videoPlayGroupControls_Basic1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPlayGroupControls_Basic1.Location = new System.Drawing.Point(0, 0);
+            this.videoPlayGroupControls_Basic1.Name = "videoPlayGroupControls_Basic1";
+            this.videoPlayGroupControls_Basic1.Size = new System.Drawing.Size(706, 472);
+            this.videoPlayGroupControls_Basic1.TabIndex = 0;
+            // 
+            // btnSDKReInit
+            // 
+            this.btnSDKReInit.Location = new System.Drawing.Point(30, 168);
+            this.btnSDKReInit.Name = "btnSDKReInit";
+            this.btnSDKReInit.Size = new System.Drawing.Size(92, 23);
+            this.btnSDKReInit.TabIndex = 3;
+            this.btnSDKReInit.Text = "SDKReInit";
+            this.btnSDKReInit.UseVisualStyleBackColor = true;
+            this.btnSDKReInit.Click += new System.EventHandler(this.btnSDKReInit_Click);
+            // 
             // Frn_VideoPlayGroupControl_Basic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -143,5 +167,7 @@
         private System.Windows.Forms.TextBox txtVideoID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSDKReInit;
     }
 }

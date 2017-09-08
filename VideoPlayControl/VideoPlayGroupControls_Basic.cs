@@ -30,7 +30,7 @@ namespace VideoPlayControl
         public CameraInfo CurrentCameraInfo;
 
         /// <summary>
-        ///  是否显示 SDL状态改变事件
+        ///  是否显示 SDK状态改变事件
         /// </summary>
         public bool bolDisPlaySDKState = false;
 
@@ -144,13 +144,14 @@ namespace VideoPlayControl
             cmbVideoList.Items.Clear();
             if (dicCurrentVideoInfos.Count > 0)
             {
+                cmbVideoList.SelectedIndexChanged -= cmbVideolist_SelectedIndexChanged;     //取消事件（防止出现重复注册情况）
                 ComboBoxItem cmbItem;
                 foreach (KeyValuePair<string, PublicClassCurrency.VideoInfo> kv in dicCurrentVideoInfos)
                 {
                     cmbItem = new ComboBoxItem(kv.Key, kv.Value.DVSName);
                     cmbVideoList.Items.Add(cmbItem);
                 }
-                cmbVideoList.SelectedIndexChanged += cmbVideolist_SelectedIndexChanged;
+                cmbVideoList.SelectedIndexChanged += cmbVideolist_SelectedIndexChanged;     //注册事件
                 cmbVideoList.SelectedIndex = 0;
             }
 
@@ -350,7 +351,6 @@ namespace VideoPlayControl
             {
                 throw ex;
             }
-
         }
 
         /// <summary>
@@ -366,9 +366,7 @@ namespace VideoPlayControl
                 videoPlayWindow.SetPresetPosi(intPreset);
             }
         }
-         
-
-
+        
         #endregion
 
         #region 公用事件
@@ -454,6 +452,7 @@ namespace VideoPlayControl
             return intResult;
         }
         #endregion
+
         #region 控件外部事件
         /// <summary>
         /// 控件关闭事件
@@ -464,8 +463,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-
-
+        
     }
     /// <summary>
     /// 170120 ComboBox Item

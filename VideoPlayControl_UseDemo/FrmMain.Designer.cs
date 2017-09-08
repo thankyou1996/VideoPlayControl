@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
+            this.btnWindowPlay = new System.Windows.Forms.Button();
             this.btnTestClose = new System.Windows.Forms.Button();
             this.btnAddList = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -98,10 +100,10 @@
             this.cmbPlayVideoWindowSet = new System.Windows.Forms.ComboBox();
             this.ssrTip = new System.Windows.Forms.StatusStrip();
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
             this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
             this.videoChannelList = new VideoPlayControl.VideoChannelList();
-            this.btnWindowPlay = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.grp_ControlTarget.SuspendLayout();
@@ -159,6 +161,16 @@
             this.grpVideoInfo.TabIndex = 5;
             this.grpVideoInfo.TabStop = false;
             this.grpVideoInfo.Text = "主机信息";
+            // 
+            // btnWindowPlay
+            // 
+            this.btnWindowPlay.Location = new System.Drawing.Point(280, 81);
+            this.btnWindowPlay.Name = "btnWindowPlay";
+            this.btnWindowPlay.Size = new System.Drawing.Size(71, 23);
+            this.btnWindowPlay.TabIndex = 13;
+            this.btnWindowPlay.Text = "窗口播放";
+            this.btnWindowPlay.UseVisualStyleBackColor = true;
+            this.btnWindowPlay.Click += new System.EventHandler(this.btnWindowPlay_Click);
             // 
             // btnTestClose
             // 
@@ -848,6 +860,11 @@
             this.tsslblPrompt.Size = new System.Drawing.Size(32, 17);
             this.tsslblPrompt.Text = "提示";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 30000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // videoPTZControl1
             // 
             this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
@@ -871,16 +888,6 @@
             this.videoChannelList.Name = "videoChannelList";
             this.videoChannelList.Size = new System.Drawing.Size(119, 419);
             this.videoChannelList.TabIndex = 10;
-            // 
-            // btnWindowPlay
-            // 
-            this.btnWindowPlay.Location = new System.Drawing.Point(280, 81);
-            this.btnWindowPlay.Name = "btnWindowPlay";
-            this.btnWindowPlay.Size = new System.Drawing.Size(71, 23);
-            this.btnWindowPlay.TabIndex = 13;
-            this.btnWindowPlay.Text = "窗口播放";
-            this.btnWindowPlay.UseVisualStyleBackColor = true;
-            this.btnWindowPlay.Click += new System.EventHandler(this.btnWindowPlay_Click);
             // 
             // FrmMain
             // 
@@ -1000,6 +1007,7 @@
         private System.Windows.Forms.Button btnCloundSeeSDKRelease;
         private System.Windows.Forms.GroupBox grpCloundSeeSDKState;
         private System.Windows.Forms.Button btnWindowPlay;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
