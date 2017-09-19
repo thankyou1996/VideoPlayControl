@@ -15,7 +15,15 @@ namespace VideoPlayControl
         /// </summary>
         public const string c_strCloundSeeSDKFilePath = "\\JCSDK\\JCSDK.dll";
 
+        /// <summary>
+        /// 萤石云  SDK（旧版本）
+        /// </summary>
+        public const string c_strEzvizSDKOldSDKFilePath = "\\ezviz_Old\\OpenNetStream.dll";
 
+        /// <summary>
+        /// 萤石云SDK 
+        /// </summary>
+        public const string c_strEzvizSDKFilePath = "\\Ezviz\\OpenNetStream.dll";
         #endregion
 
         #region SDK默认参数
@@ -61,6 +69,10 @@ namespace VideoPlayControl
         /// </summary>
         public const string c_strEzviz_AppID_Default = "5b97c1d157474f96b8d4c75b936a0057";
 
+        /// <summary>
+        /// 萤石云默认录像文件存放地址
+        /// </summary>
+        public static string strEzviz_RecDicPath = Environment.CurrentDirectory + "\\EzvizRecFile";
         #endregion
 
         #endregion

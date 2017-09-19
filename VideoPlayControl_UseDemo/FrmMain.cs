@@ -48,6 +48,7 @@ namespace VideoPlayControl_UseDemo
         {
             SDKState.SDKStateChangeEvent += SDKStateChange;
             SDKState.CloundSee_SDKInit();
+            SDKState.Ezvie_SDKInit();
             Init();
         }
 
@@ -57,7 +58,8 @@ namespace VideoPlayControl_UseDemo
         {
             
             Init_ControlInit();
-            PlayWindowSet(4);
+            PlayWindowSet(1);
+            CommonMethod.LogWrite.strLogFilePath = Application.StartupPath + "\\UserData\\OperAtLog";
         }
 
         public void Init_ControlInit()
@@ -69,10 +71,10 @@ namespace VideoPlayControl_UseDemo
             dtSource.Columns.Add("value");
             dtSource.Columns.Add("display");
 
-            //dr = dtSource.NewRow();
-            //dr["value"] = Convert.ToInt32(Enum_VideoType.Ezviz);
-            //dr["display"] = Enum_VideoType.Ezviz.ToString();
-            //dtSource.Rows.Add(dr);
+            dr = dtSource.NewRow();
+            dr["value"] = Convert.ToInt32(Enum_VideoType.Ezviz);
+            dr["display"] = Enum_VideoType.Ezviz.ToString();
+            dtSource.Rows.Add(dr);
 
 
             dr = dtSource.NewRow();
@@ -146,7 +148,10 @@ namespace VideoPlayControl_UseDemo
             switch (sdkType)
             {
                 case Enum_VideoType.CloundSee:
-                    grpCloundSeeSDKState.Text = "云视通SDK状态:" + sdkState.ToString();
+                    //grpCloundSeeSDKState.Text = "云视通SDK状态:" + sdkState.ToString();
+                    break;
+                case Enum_VideoType.Ezviz:
+                    //grpEzvizSeeSDKState.Text = "萤石云SDK状态:" + sdkState.ToString();
                     break;
             }
         }
@@ -227,7 +232,6 @@ namespace VideoPlayControl_UseDemo
         private void btnCloundSeeSDKRelease_Click(object sender, EventArgs e)
         {
             SDKState.ColundSee_SDKRelease();
-            SDKState.CloundSee_SDKInit();
         }
         #endregion
 
@@ -354,6 +358,7 @@ namespace VideoPlayControl_UseDemo
             //string Temp_strEventTag = strEventTag.PadRight(10, ' ');
             //sbEventDisplay.Append(Temp_strEventTag);
             //sbEventDisplay.Append(strEvnetContent);
+            CommonMethod.LogWrite.WriteEventLog(strEventTag, strEvnetContent);
             this.BeginInvoke(new EventHandler(delegate
             {
                 int index = this.dgvReocrd.Rows.Add();
@@ -363,8 +368,9 @@ namespace VideoPlayControl_UseDemo
 
                 dgvReocrd.Rows[dgvReocrd.RowCount - 1].Selected = true;
                 dgvReocrd.FirstDisplayedScrollingRowIndex = dgvReocrd.RowCount - 1;
+                
             }));
-
+            
         }
 
 
@@ -440,35 +446,7 @@ namespace VideoPlayControl_UseDemo
         
         
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            VideoInfo videoInfo = new VideoInfo();
-            //int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
-            //switch (intVideoType)
-            //{
-            //    case 1:
-            //        videoInfo.VideoType = Enum_VideoType.CloundSee;
-            //        break;
-            //}
-            //Enum_VideoType ee = (Enum_VideoType)Convert.ToInt32(cmbVideoType.SelectedValue);
-            videoInfo.VideoType = (Enum_VideoType)Convert.ToInt32(cmbVideoType.SelectedValue);
-            videoInfo.DVSAddress = cmbDVSAddress.Text;
-            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
-            videoInfo.UserName = txtUserName.Text;
-            videoInfo.Password = txtPassword.Text;
-            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
-            CameraInfo camerasInfo = new CameraInfo();
-            for (int i = 1; i < 2; i++)
-            {
-                camerasInfo = new CameraInfo();
-                camerasInfo.Channel = i;
-                camerasInfo.CameraName = "通道" + i;
-                videoInfo.Cameras[i] = camerasInfo;
-            }
-            videoWindowTest.Init_VideoInfo(videoInfo);
-            videoWindowTest.VideoPlay();
-            //videoChannelList.Init_SetVideoInfo(videoInfo);
-        }
+        
 
 
         public void TEST()
@@ -550,8 +528,6 @@ namespace VideoPlayControl_UseDemo
             {
                 dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
             }
-            
-
         }
 
         private void cmbVideoList_SelectedIndexChanged(object sender, EventArgs e)
@@ -642,12 +618,30 @@ namespace VideoPlayControl_UseDemo
             }
         }
 
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            lstVideoPlayWindow[0].Init_VideoInfo(GetVideoInfo());
+            lstVideoPlayWindow[0].VideoPlay();
+        }
+
         private void btnTestClose_Click(object sender, EventArgs e)
         {
-            videoWindowTest.VideoClose();
+            lstVideoPlayWindow[0].VideoClose();
+            //videoWindowTest.VideoClose();
+            //SDKState.Ezvie_SDKRelease();
         }
 
         private void btnWindowPlay_Click(object sender, EventArgs e)
+        {
+            SDKState.Ezvie_SDKInit();
+            Frm_VideoPlayWindows frmVideoWindows = new Frm_VideoPlayWindows(GetVideoInfo());
+            frmVideoWindows.Show();
+        }
+
+
+        public VideoInfo GetVideoInfo()
         {
             VideoInfo videoInfo = new VideoInfo();
             videoInfo.VideoType = (Enum_VideoType)Convert.ToInt32(cmbVideoType.SelectedValue);
@@ -662,17 +656,55 @@ namespace VideoPlayControl_UseDemo
                 camerasInfo = new CameraInfo();
                 camerasInfo.Channel = i;
                 camerasInfo.CameraName = "通道" + i;
+                if (cmbDVSAddress.Text == "721283866")
+                {
+                    camerasInfo.CameraUniqueCode = "be74ee024b654e078ff5e7014af00e4f";
+                }
+                else if (cmbDVSAddress.Text == "720274352")
+                {
+                    camerasInfo.CameraUniqueCode = "864eb2adf3964fe38b85661f32145526";
+                }
                 videoInfo.Cameras[i] = camerasInfo;
             }
-            Frm_VideoPlayWindows frmVideoWindows = new Frm_VideoPlayWindows(videoInfo);
-            frmVideoWindows.Show();
-            //videoChannelList.Init_SetVideoInfo(videoInfo);
+            return videoInfo;
         }
+
+
+
+        int intTempCount = 0;
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            SDKState.ColundSee_SDKRelease();
-            SDKState.CloundSee_SDKInit();
+            timer1.Enabled = false;
+            intTempCount++;
+            button1_Click(null, null);
+            label17.Text = intTempCount.ToString();
+            CommonMethod.LogWrite.WriteEventLog("EzvieTestRecord", "TagTag:"+intTempCount.ToString());
+            CommonMethod.LogWrite.WriteEventLog("EzvieTestRecord", lstVideoPlayWindow[0].VideoPlayState.ToString());
+            timer1.Enabled = true;
+            //SDKState.ColundSee_SDKRelease();
+            //SDKState.CloundSee_SDKInit();
+        }
+        
+
+        /// <summary>
+        /// 萤石云SDK初始化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEzvizSDKInit_Click(object sender, EventArgs e)
+        {
+            SDKState.Ezvie_SDKInit();
+        }
+
+        /// <summary>
+        /// 萤石云SDK释放
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEzvizSDKRelease_Click(object sender, EventArgs e)
+        {
+            SDKState.Ezvie_SDKRelease();
         }
     }
 }

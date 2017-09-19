@@ -179,7 +179,7 @@ namespace VideoPlayControl
         {
             if (EzvizSDKState != Enum_SDKState.SDK_Init)
             {
-                if (SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID) == 0)
+                if (SDK_EzvizSDK_Old.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID) == 0)
                 {
                     EzvizSDKState = Enum_SDKState.SDK_Init;
                 }
@@ -197,7 +197,7 @@ namespace VideoPlayControl
         public static void Ezvie_SDKRelease()
         {
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseStart);
-            SDK_EzvizSDK.OpenSDK_FiniLib();
+            SDK_EzvizSDK_Old.OpenSDK_FiniLib();
             SDKState.EzvizSDKState = Enum_SDKState.SDK_Release;
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseEnd);
         }
@@ -206,6 +206,7 @@ namespace VideoPlayControl
         public static void VideoSDKRelease()
         {
             ColundSee_SDKRelease(); //云视通SDK 
+            Ezvie_SDKRelease();     //萤石云SDK 
         }
     }
 

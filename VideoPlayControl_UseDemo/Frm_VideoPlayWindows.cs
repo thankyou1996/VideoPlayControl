@@ -20,12 +20,12 @@ namespace VideoPlayControl_UseDemo
         {
             InitializeComponent();
             videoPlayWindow1.Init_VideoInfo(videoInfo);
-            videoPlayWindow1.VideoPlay();
+            
         }
 
         private void Frm_VideoPlayWindows_Load(object sender, EventArgs e)
         {
-            
+            videoPlayWindow1.VideoPlay();
         }
         private void Frm_VideoPlayWindows_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -40,6 +40,11 @@ namespace VideoPlayControl_UseDemo
         private void videoPlayWindow1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             MessageBox.Show("1");
+        }
+
+        private void videoPlayWindow1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

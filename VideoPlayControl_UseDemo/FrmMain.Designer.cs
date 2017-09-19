@@ -40,6 +40,7 @@
             this.cmbOperAtPreset = new System.Windows.Forms.ComboBox();
             this.cmbOperAtWindows = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
             this.btnVideoPlayClose = new System.Windows.Forms.Button();
             this.btnTestPlay = new System.Windows.Forms.Button();
             this.cmbDVSAddress = new System.Windows.Forms.ComboBox();
@@ -56,6 +57,7 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtChannel = new System.Windows.Forms.TextBox();
             this.pnlBottom_Left = new System.Windows.Forms.Panel();
+            this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
             this.chkMonitorEnable = new System.Windows.Forms.CheckBox();
             this.chkVideoRecordEnable = new System.Windows.Forms.CheckBox();
             this.cmbPreset = new System.Windows.Forms.ComboBox();
@@ -67,6 +69,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pageVideoInfo = new System.Windows.Forms.TabPage();
             this.pnlVideoInfo_Right = new System.Windows.Forms.Panel();
+            this.videoChannelList = new VideoPlayControl.VideoChannelList();
             this.pnlVideoInfo_Right_Top = new System.Windows.Forms.Panel();
             this.cmbPlayWindows = new System.Windows.Forms.ComboBox();
             this.chkPresetEanble = new System.Windows.Forms.CheckBox();
@@ -101,9 +104,10 @@
             this.ssrTip = new System.Windows.Forms.StatusStrip();
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
-            this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
-            this.videoChannelList = new VideoPlayControl.VideoChannelList();
+            this.label17 = new System.Windows.Forms.Label();
+            this.grpEzvizSDKState = new System.Windows.Forms.GroupBox();
+            this.btnEzvizSDKInit = new System.Windows.Forms.Button();
+            this.btnEzvizSDKRelease = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.grp_ControlTarget.SuspendLayout();
@@ -120,6 +124,7 @@
             this.pageSetting.SuspendLayout();
             this.grpCloundSeeSDKState.SuspendLayout();
             this.ssrTip.SuspendLayout();
+            this.grpEzvizSDKState.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBottom
@@ -255,6 +260,14 @@
             this.label8.TabIndex = 28;
             this.label8.Text = "画面:";
             // 
+            // videoPTZControl1
+            // 
+            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
+            this.videoPTZControl1.Location = new System.Drawing.Point(0, 33);
+            this.videoPTZControl1.Name = "videoPTZControl1";
+            this.videoPTZControl1.Size = new System.Drawing.Size(81, 78);
+            this.videoPTZControl1.TabIndex = 9;
+            // 
             // btnVideoPlayClose
             // 
             this.btnVideoPlayClose.Location = new System.Drawing.Point(112, 87);
@@ -291,12 +304,14 @@
             "X6944415",
             "X7325728",
             "X12041891",
-            "X7635198"});
+            "X7635198",
+            "721283866",
+            "720274352"});
             this.cmbDVSAddress.Location = new System.Drawing.Point(67, 60);
             this.cmbDVSAddress.Name = "cmbDVSAddress";
             this.cmbDVSAddress.Size = new System.Drawing.Size(141, 20);
             this.cmbDVSAddress.TabIndex = 4;
-            this.cmbDVSAddress.Text = "X5014851";
+            this.cmbDVSAddress.Text = "720274352";
             // 
             // cmbVideoType
             // 
@@ -409,6 +424,14 @@
             this.pnlBottom_Left.Name = "pnlBottom_Left";
             this.pnlBottom_Left.Size = new System.Drawing.Size(219, 136);
             this.pnlBottom_Left.TabIndex = 7;
+            // 
+            // videoWindowTest
+            // 
+            this.videoWindowTest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoWindowTest.Location = new System.Drawing.Point(0, 0);
+            this.videoWindowTest.Name = "videoWindowTest";
+            this.videoWindowTest.Size = new System.Drawing.Size(219, 136);
+            this.videoWindowTest.TabIndex = 0;
             // 
             // chkMonitorEnable
             // 
@@ -540,6 +563,14 @@
             this.pnlVideoInfo_Right.Name = "pnlVideoInfo_Right";
             this.pnlVideoInfo_Right.Size = new System.Drawing.Size(119, 506);
             this.pnlVideoInfo_Right.TabIndex = 34;
+            // 
+            // videoChannelList
+            // 
+            this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoChannelList.Location = new System.Drawing.Point(0, 87);
+            this.videoChannelList.Name = "videoChannelList";
+            this.videoChannelList.Size = new System.Drawing.Size(119, 419);
+            this.videoChannelList.TabIndex = 10;
             // 
             // pnlVideoInfo_Right_Top
             // 
@@ -784,6 +815,8 @@
             // 
             // pageSetting
             // 
+            this.pageSetting.Controls.Add(this.label17);
+            this.pageSetting.Controls.Add(this.grpEzvizSDKState);
             this.pageSetting.Controls.Add(this.grpCloundSeeSDKState);
             this.pageSetting.Controls.Add(this.label16);
             this.pageSetting.Controls.Add(this.cmbPlayVideoWindowSet);
@@ -865,29 +898,45 @@
             this.timer1.Interval = 30000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // videoPTZControl1
+            // label17
             // 
-            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
-            this.videoPTZControl1.Location = new System.Drawing.Point(0, 33);
-            this.videoPTZControl1.Name = "videoPTZControl1";
-            this.videoPTZControl1.Size = new System.Drawing.Size(81, 78);
-            this.videoPTZControl1.TabIndex = 9;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(201, 9);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(47, 12);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "label17";
             // 
-            // videoWindowTest
+            // grpEzvizSDKState
             // 
-            this.videoWindowTest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoWindowTest.Location = new System.Drawing.Point(0, 0);
-            this.videoWindowTest.Name = "videoWindowTest";
-            this.videoWindowTest.Size = new System.Drawing.Size(219, 136);
-            this.videoWindowTest.TabIndex = 0;
+            this.grpEzvizSDKState.Controls.Add(this.btnEzvizSDKInit);
+            this.grpEzvizSDKState.Controls.Add(this.btnEzvizSDKRelease);
+            this.grpEzvizSDKState.Location = new System.Drawing.Point(5, 85);
+            this.grpEzvizSDKState.Name = "grpEzvizSDKState";
+            this.grpEzvizSDKState.Size = new System.Drawing.Size(200, 48);
+            this.grpEzvizSDKState.TabIndex = 33;
+            this.grpEzvizSDKState.TabStop = false;
+            this.grpEzvizSDKState.Text = "云视通SDK状态";
             // 
-            // videoChannelList
+            // btnEzvizSDKInit
             // 
-            this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoChannelList.Location = new System.Drawing.Point(0, 87);
-            this.videoChannelList.Name = "videoChannelList";
-            this.videoChannelList.Size = new System.Drawing.Size(119, 419);
-            this.videoChannelList.TabIndex = 10;
+            this.btnEzvizSDKInit.Location = new System.Drawing.Point(7, 20);
+            this.btnEzvizSDKInit.Name = "btnEzvizSDKInit";
+            this.btnEzvizSDKInit.Size = new System.Drawing.Size(79, 23);
+            this.btnEzvizSDKInit.TabIndex = 32;
+            this.btnEzvizSDKInit.Text = "SDK初始化";
+            this.btnEzvizSDKInit.UseVisualStyleBackColor = true;
+            this.btnEzvizSDKInit.Click += new System.EventHandler(this.btnEzvizSDKInit_Click);
+            // 
+            // btnEzvizSDKRelease
+            // 
+            this.btnEzvizSDKRelease.Location = new System.Drawing.Point(115, 19);
+            this.btnEzvizSDKRelease.Name = "btnEzvizSDKRelease";
+            this.btnEzvizSDKRelease.Size = new System.Drawing.Size(79, 23);
+            this.btnEzvizSDKRelease.TabIndex = 32;
+            this.btnEzvizSDKRelease.Text = "SDK释放";
+            this.btnEzvizSDKRelease.UseVisualStyleBackColor = true;
+            this.btnEzvizSDKRelease.Click += new System.EventHandler(this.btnEzvizSDKRelease_Click);
             // 
             // FrmMain
             // 
@@ -926,6 +975,7 @@
             this.grpCloundSeeSDKState.ResumeLayout(false);
             this.ssrTip.ResumeLayout(false);
             this.ssrTip.PerformLayout();
+            this.grpEzvizSDKState.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1008,6 +1058,10 @@
         private System.Windows.Forms.GroupBox grpCloundSeeSDKState;
         private System.Windows.Forms.Button btnWindowPlay;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.GroupBox grpEzvizSDKState;
+        private System.Windows.Forms.Button btnEzvizSDKInit;
+        private System.Windows.Forms.Button btnEzvizSDKRelease;
     }
 }
 

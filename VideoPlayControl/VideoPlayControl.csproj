@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VideoPlayControl</RootNamespace>
     <AssemblyName>VideoPlayControl</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -23,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\VideoPlayControl.xml</DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\VideoPlayControl.xml</DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxInterop.RASPLAYEROCXLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -73,6 +75,7 @@
     </Compile>
     <Compile Include="SDKState.cs" />
     <Compile Include="SDK_EzvizSDK.cs" />
+    <Compile Include="SDK_EzvizSDK_Old.cs" />
     <Compile Include="SDK_JCSDK.cs" />
     <Compile Include="ProgConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

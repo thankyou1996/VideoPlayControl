@@ -59,6 +59,16 @@
             摄像头名称
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strCameraUniqueCode">
+            <summary>
+            设备头唯一码
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.CameraUniqueCode">
+            <summary>
+            设备头唯一码
+            </summary>
+        </member>
         <member name="T:PublicClassCurrency.EventRecordID">
             <summary>
             事件记录ID

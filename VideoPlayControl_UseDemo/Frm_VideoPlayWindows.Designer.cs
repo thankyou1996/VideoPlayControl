@@ -38,6 +38,7 @@
             this.videoPlayWindow1.Name = "videoPlayWindow1";
             this.videoPlayWindow1.Size = new System.Drawing.Size(487, 290);
             this.videoPlayWindow1.TabIndex = 0;
+            this.videoPlayWindow1.Load += new System.EventHandler(this.videoPlayWindow1_Load);
             this.videoPlayWindow1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.videoPlayWindow1_MouseDoubleClick);
             // 
             // Frm_VideoPlayWindows

@@ -34,6 +34,9 @@ namespace VideoPlayControl
         /// 萤石云 APPID
         /// </summary>
         public static string strEzviz__AppID = ProgConstants.c_strEzviz_AppID_Default;
+
+        public static string strEzviz_AccessToken = "at.5j07kiyc3ixa9uab0uzxgnr5deb9q6on-2kp29nb0kp-14jrndo-39tijbcvm";
+        
         #endregion
     }
 }
