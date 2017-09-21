@@ -67,7 +67,12 @@ namespace VideoPlayControl
         /// <summary>
         /// AppKey
         /// </summary>
-        public const string c_strEzviz_AppID_Default = "5b97c1d157474f96b8d4c75b936a0057";
+        public const string c_strEzviz_AppID_Default = "1acd8ddc451f48a4b8b4666716e8f9ce";
+
+        /// <summary>
+        /// AppSecret
+        /// </summary>
+        public const string c_strEzviz_AppSecret_Default = "518335cd3421f16a4b4e88164225c432";
 
         /// <summary>
         /// 萤石云默认录像文件存放地址

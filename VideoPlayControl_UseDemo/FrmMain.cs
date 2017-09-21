@@ -33,7 +33,7 @@ namespace VideoPlayControl_UseDemo
         List<VideoPlayWindow> lstVideoPlayWindow = new List<VideoPlayWindow>();
 
 
-        Dictionary<string, VideoInfo> dicVideoInfos ;
+        Dictionary<string, VideoInfo> dicVideoInfos;
 
         string intCurrentVideoID = "";
 
@@ -49,6 +49,7 @@ namespace VideoPlayControl_UseDemo
             SDKState.SDKStateChangeEvent += SDKStateChange;
             SDKState.CloundSee_SDKInit();
             SDKState.Ezvie_SDKInit();
+            SDK_EzvizSDK.GetAccessToken();
             Init();
         }
 
@@ -56,7 +57,7 @@ namespace VideoPlayControl_UseDemo
 
         public void Init()
         {
-            
+
             Init_ControlInit();
             PlayWindowSet(1);
             CommonMethod.LogWrite.strLogFilePath = Application.StartupPath + "\\UserData\\OperAtLog";
@@ -84,11 +85,11 @@ namespace VideoPlayControl_UseDemo
 
             dr = dtSource.NewRow();
             dr["value"] = Convert.ToInt32(Enum_VideoType.IPCWA);
-            dr["display"] =  Enum_VideoType.IPCWA.ToString();
+            dr["display"] = Enum_VideoType.IPCWA.ToString();
             dtSource.Rows.Add(dr);
 
 
-            
+
 
             cmbVideoType.ValueMember = "value";
             cmbVideoType.DisplayMember = "display";
@@ -139,7 +140,7 @@ namespace VideoPlayControl_UseDemo
             videoWindowTest.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
             videoPTZControl1.PTZControlEvent += PTZControlEvent;
             videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
-            
+
         }
 
         public void SDKStateChange(Enum_VideoType sdkType, Enum_SDKState sdkState)
@@ -155,6 +156,14 @@ namespace VideoPlayControl_UseDemo
                     break;
             }
         }
+        #endregion
+
+        #region 测试数据
+        public void Ezviz_TestData()
+        {
+
+        }
+
         #endregion
 
         #region 控件事件
@@ -636,6 +645,7 @@ namespace VideoPlayControl_UseDemo
         private void btnWindowPlay_Click(object sender, EventArgs e)
         {
             SDKState.Ezvie_SDKInit();
+            SDK_EzvizSDK.GetAccessToken();
             Frm_VideoPlayWindows frmVideoWindows = new Frm_VideoPlayWindows(GetVideoInfo());
             frmVideoWindows.Show();
         }
@@ -695,6 +705,7 @@ namespace VideoPlayControl_UseDemo
         private void btnEzvizSDKInit_Click(object sender, EventArgs e)
         {
             SDKState.Ezvie_SDKInit();
+            SDK_EzvizSDK.GetAccessToken();
         }
 
         /// <summary>

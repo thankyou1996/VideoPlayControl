@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VideoPlayControl</RootNamespace>
     <AssemblyName>VideoPlayControl</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -50,6 +50,10 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>dll_Libyary\IPCWA\Interop.RASPLAYEROCXLib.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll_Libyary\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PublicClassCurrency, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll_Libyary\PublicClassCurrency.dll</HintPath>
@@ -84,6 +88,12 @@
     </Compile>
     <Compile Include="VideoChannelList.Designer.cs">
       <DependentUpon>VideoChannelList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VideoPlayGroupControl_ExtendedControl .cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoPlayGroupControl_ExtendedControl .Designer.cs">
+      <DependentUpon>VideoPlayGroupControl_ExtendedControl .cs</DependentUpon>
     </Compile>
     <Compile Include="VideoPlayGroupControls_Basic_1.cs">
       <SubType>UserControl</SubType>
@@ -125,6 +135,9 @@
     <EmbeddedResource Include="VideoChannelList.resx">
       <DependentUpon>VideoChannelList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VideoPlayGroupControl_ExtendedControl .resx">
+      <DependentUpon>VideoPlayGroupControl_ExtendedControl .cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VideoPlayGroupControls_Basic_1.resx">
       <DependentUpon>VideoPlayGroupControls_Basic_1.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +173,7 @@
     <Content Include="dll_Libyary\JCSDK\nvcsdk.dll" />
     <Content Include="dll_Libyary\JCSDK\PTZDlg.dll" />
     <Content Include="dll_Libyary\JCSDK\ssleay32.dll" />
+    <Content Include="dll_Libyary\Newtonsoft.Json.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.xml" />
     <Content Include="PTZIcon\PTZ_Down.png" />

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using PublicClassCurrency;
 using System.IO;
+using System.Threading;
 
 namespace VideoPlayControl
 {
@@ -29,7 +30,7 @@ namespace VideoPlayControl
         public CameraInfo CurrentCameraInfo;
 
         /// <summary>
-        ///  是否显示 SDL状态改变事件
+        ///  是否显示 SDK状态改变事件
         /// </summary>
         public bool bolDisPlaySDKState = false;
 
@@ -76,20 +77,22 @@ namespace VideoPlayControl
             InitializeComponent();
             dicCurrentVideoInfos = dicVideoInfos;
         }
-
         private void VideoPlayGroupControls_Basic_Load(object sender, EventArgs e)
         {
-            //Init();
+            videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
+            videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBackEvent;
+            videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
+            videoPTZControl.PTZControlEvent += VideoPTZControl;
         }
 
-        
+
         #region 事件委托
         /// <summary>
         /// 视频预览密码验证委托
         /// </summary>
         /// <param name="strPreViewPwdVerify"></param>
         /// <returns></returns>
-        public delegate bool PreViewPwdVerifyDelegate(object sender,string strPreViewPwdVerify);
+        public delegate bool PreViewPwdVerifyDelegate(object sender, string strPreViewPwdVerify);
 
         /// <summary>
         /// 视频预览密码验证事件
@@ -105,7 +108,7 @@ namespace VideoPlayControl
         {
             return PreViewPwdVerifyEvent(this, strVideoID);
         }
-        
+
 
         #endregion
 
@@ -135,21 +138,17 @@ namespace VideoPlayControl
         /// </summary>
         public void Init_ControlInit()
         {
-            videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
-            videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBackEvent;
-            videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
-            videoPTZControl1.PTZControlEvent += VideoPTZControl;
-
             cmbVideoList.Items.Clear();
             if (dicCurrentVideoInfos.Count > 0)
             {
+                cmbVideoList.SelectedIndexChanged -= cmbVideolist_SelectedIndexChanged;     //取消事件（防止出现重复注册情况）
                 ComboBoxItem cmbItem;
                 foreach (KeyValuePair<string, PublicClassCurrency.VideoInfo> kv in dicCurrentVideoInfos)
                 {
                     cmbItem = new ComboBoxItem(kv.Key, kv.Value.DVSName);
                     cmbVideoList.Items.Add(cmbItem);
                 }
-                cmbVideoList.SelectedIndexChanged += cmbVideolist_SelectedIndexChanged;
+                cmbVideoList.SelectedIndexChanged += cmbVideolist_SelectedIndexChanged;     //注册事件
                 cmbVideoList.SelectedIndex = 0;
             }
 
@@ -219,12 +218,12 @@ namespace VideoPlayControl
                     sbDisplayInfo.Append(dicCurrentVideoInfos[strCurrentVideoID].DVSNumber + "_");
                     sbDisplayInfo.Append(dicCurrentVideoInfos[strCurrentVideoID].DVSName);
                 }
-                
+
                 if (CurrentCameraInfo != null)
                 {
                     sbDisplayInfo.Append("_");
                     sbDisplayInfo.Append(CurrentCameraInfo.Channel + "_");
-                    sbDisplayInfo.Append(CurrentCameraInfo.CameraName );
+                    sbDisplayInfo.Append(CurrentCameraInfo.CameraName);
                 }
                 sbDisplayInfo.Append("]");
                 switch (evType)
@@ -245,7 +244,13 @@ namespace VideoPlayControl
                         sbDisplayInfo.Append("关闭视频");
                         break;
                     case Enum_VideoPlayEventType.RequestConn:
-                        sbDisplayInfo.Append("请求视频信息");
+                        sbDisplayInfo.Append("请求视频连接");
+                        break;
+                    case Enum_VideoPlayEventType.ConnSuccess:
+                        sbDisplayInfo.Append("连接成功,请求视频信息");
+                        break;
+                    case Enum_VideoPlayEventType.ConnFailed:
+                        sbDisplayInfo.Append("连接失败");
                         break;
                     case Enum_VideoPlayEventType.VideoPlay:
                         sbDisplayInfo.Append("正在播放视频");
@@ -256,10 +261,16 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.VideoDeviceNotOnline:
                         sbDisplayInfo.Append("当前设备不在线");
                         break;
+                    case Enum_VideoPlayEventType.UserAccessError:
+                        sbDisplayInfo.Append("用户信息验证失败");
+                        break;
+
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;
                 }
+                sbDisplayInfo.Append("[" + videoPlayWindow.intConnCount + "]");
+
                 DisplayRecord(sbDisplayInfo.ToString());
             }
 
@@ -291,6 +302,7 @@ namespace VideoPlayControl
                 videoPlayWindow.VideoClose();
             }
             CurrentCameraInfo = cameraInfo;
+            //if(videoPlayWindow.)
             videoPlayWindow.Init_VideoInfo(dicCurrentVideoInfos[strCurrentVideoID], CurrentCameraInfo, videoPlaySet);
             videoPlayWindow.VideoPlay();
         }
@@ -351,8 +363,6 @@ namespace VideoPlayControl
                 videoPlayWindow.SetPresetPosi(intPreset);
             }
         }
-         
-
 
         #endregion
 
@@ -377,13 +387,6 @@ namespace VideoPlayControl
             videoPlayWindow.VideoPlayWindows_Move();
         }
 
-        /// <summary>
-        /// 控件关闭事件
-        /// </summary>
-        public void ControlClose()
-        {
-            videoPlayWindow.VideoClose();
-        }
 
         /// <summary>
         ///  播放视频
@@ -394,18 +397,18 @@ namespace VideoPlayControl
         /// <param name="strVideoID"></param>
         /// <param name="intChannel"></param>
         /// <returns></returns>
-        public int VideoPlay(string strVideoID="", int intChannel=-1)
+        public int VideoPlay(string strVideoID = "", int intChannel = -1)
         {
             int intResult = 1;
             if (!dicCurrentVideoInfos.ContainsKey(strVideoID))
             {
                 //不存在视频设备
-                intResult = - 1;
+                intResult = -1;
             }
             else if (!dicCurrentVideoInfos[strVideoID].Cameras.ContainsKey(intChannel))
             {
                 //不存在通道号
-                intResult = - 2;
+                intResult = -2;
             }
             if (!string.IsNullOrEmpty(strVideoID))
             {
@@ -447,8 +450,17 @@ namespace VideoPlayControl
         }
         #endregion
 
+        #region 控件外部事件
+        /// <summary>
+        /// 控件关闭事件
+        /// </summary>
+        public void ControlClose()
+        {
+            videoPlayWindow.VideoPlayWindows_Close();
+        }
 
-        
+        #endregion
+
     }
 
 }

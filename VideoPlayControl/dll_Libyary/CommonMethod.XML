@@ -29,6 +29,22 @@
             <param name="textBox">TextBox</param>
             <param name="watermark">水印文字</param>
         </member>
+        <member name="M:CommonMethod.Common.CmdTelnet(System.Net.IPAddress,System.Int32,System.Int32)">
+            <summary>
+            Telnet命令
+            </summary>
+            <param name="ip"></param>
+            <param name="intPort"></param>
+            <param name="intMillisecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common.CmdPing(System.Net.IPAddress,System.Int32)">
+            <summary>
+            Ping命令
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
         <member name="T:CommonMethod.CommonObject">
             <summary>
             公用对象
@@ -124,6 +140,27 @@
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
+        </member>
+        <member name="T:CommonMethod.Common_Web">
+            <summary>
+            公用方法_Web
+            </summary>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HttpPost(System.String,System.String)">
+            <summary>
+            HttpPost请求
+            </summary>
+            <param name="Url"></param>
+            <param name="postDataStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HttpGet(System.String,System.String)">
+            <summary>
+            HttpGet请求
+            </summary>
+            <param name="Url"></param>
+            <param name="postDataStr"></param>
+            <returns></returns>
         </member>
         <member name="T:CommonMethod.ConvertClass">
             <summary>
@@ -256,6 +293,16 @@
         <member name="T:CommonMethod.LogWrite">
             <summary>
             日志记录
+            </summary>
+        </member>
+        <member name="F:CommonMethod.LogWrite.strExlogFilePath">
+            <summary>
+            异常日志路径
+            </summary>
+        </member>
+        <member name="F:CommonMethod.LogWrite.strLogFilePath">
+            <summary>
+            日志记录文件
             </summary>
         </member>
         <member name="M:CommonMethod.LogWrite.WritExceptionLog(System.String,System.Exception)">

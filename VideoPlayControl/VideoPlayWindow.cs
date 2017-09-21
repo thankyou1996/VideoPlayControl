@@ -10,6 +10,8 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Threading;
 using static VideoPlayControl.SDK_EzvizSDK_Old;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace VideoPlayControl
 {
@@ -108,7 +110,8 @@ namespace VideoPlayControl
                 case Enum_VideoPlayEventType.RequestVideoTimeout:
                     if (CurrentVideoPlaySet.AutoReconn)
                     {
-                        this.BeginInvoke(new EventHandler(delegate {
+                        this.BeginInvoke(new EventHandler(delegate
+                        {
                             VideoClose();
                             VideoPlay();
                         }));
@@ -239,26 +242,35 @@ namespace VideoPlayControl
             }
             if (CurrentVideoInfo.VideoType == Enum_VideoType.Ezviz)
             {
-                //SDK_EzvizSDK.OpenSDK_MessageHandler openSDK_MessageHandler = new SDK_EzvizSDK.OpenSDK_MessageHandler(Ezvie_EventCallback);
-                //SDK_EzvizSDK.OpenSDK_DataCallBack RealPlayCallBack = new SDK_EzvizSDK.OpenSDK_DataCallBack(Ezviz_DataCallBack);
-                int Temp_intSessiongLength = 0;
-                Temp_intptrSessiongID = IntPtr.Zero;
-                openSDK_MessageHandler = new SDK_EzvizSDK_Old.OpenSDK_MessageHandler(Ezvie_EventCallback_Old);
-                int intResult = SDK_EzvizSDK_Old.OpenSDK_AllocSession_Old(openSDK_MessageHandler, intEzivz_UserID, out Temp_intptrSessiongID, out Temp_intSessiongLength);
-                if (intResult == 0)
-                {
-                    //连接成功
-                    VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
-                }
-                else
-                {
-                    //连接失败
-                    VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
-                }
-                strEzivz_SessionID = Marshal.PtrToStringAnsi(Temp_intptrSessiongID);
-                RealPlayCallBack = new SDK_EzvizSDK_Old.OpenSDK_DataCallBack(Ezviz_DataCallBack_Old);
-                intResult = SDK_EzvizSDK_Old.OpenSDK_SetDataCallBack(strEzivz_SessionID, RealPlayCallBack, "");
+                #region 旧代码
+                //    //SDK_EzvizSDK.OpenSDK_MessageHandler openSDK_MessageHandler = new SDK_EzvizSDK.OpenSDK_MessageHandler(Ezvie_EventCallback);
+                //    //SDK_EzvizSDK.OpenSDK_DataCallBack RealPlayCallBack = new SDK_EzvizSDK.OpenSDK_DataCallBack(Ezviz_DataCallBack);
+                //    int Temp_intSessiongLength = 0;
+                //    Temp_intptrSessiongID = IntPtr.Zero;
+                //    openSDK_MessageHandler = new SDK_EzvizSDK_Old.OpenSDK_MessageHandler(Ezvie_EventCallback_Old);
+                //    int intResult = SDK_EzvizSDK_Old.OpenSDK_AllocSession_Old(openSDK_MessageHandler, intEzivz_UserID, out Temp_intptrSessiongID, out Temp_intSessiongLength);
+                //    if (intResult == 0)
+                //    {
+                //        //连接成功
+                //        VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
+                //    }
+                //    else
+                //    {
+                //        //连接失败
+                //        VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
+                //    }
+                //    strEzivz_SessionID = Marshal.PtrToStringAnsi(Temp_intptrSessiongID);
+                //    RealPlayCallBack = new SDK_EzvizSDK_Old.OpenSDK_DataCallBack(Ezviz_DataCallBack_Old);
+                //    intResult = SDK_EzvizSDK_Old.OpenSDK_SetDataCallBack(strEzivz_SessionID, RealPlayCallBack, "");
+                #endregion
+
+                #region 新代码
+                //ezviz
+
+                #endregion
             }
+
+
         }
 
 
@@ -267,9 +279,9 @@ namespace VideoPlayControl
         #region CloundSeeSDK 云视通
 
         #region 全局变量
-        /// <summary>
-        /// 云视通_当前连接ID
-        /// </summary>
+            /// <summary>
+            /// 云视通_当前连接ID
+            /// </summary>
         public int intCloundSee_ConnID = -1;
 
 
@@ -365,7 +377,7 @@ namespace VideoPlayControl
             }
             if (videoEvType == Enum_SDKEventType.Unrecognized)
             {
-                strTag= strTag = etType.ToString();
+                strTag = strTag = etType.ToString();
             }
             SDKEventCallBack(videoEvType, strTag);
         }
@@ -434,6 +446,7 @@ namespace VideoPlayControl
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoDeviceNotOnline);
                 CurrentVideoPlaySet.AutoReconn = false;
             }
+
         }
 
         /// <summary>
@@ -773,12 +786,12 @@ namespace VideoPlayControl
         {
             SDK_EzvizSDK_Old.OpenSDK_FreeSession(strEzivz_SessionID);
             SDK_EzvizSDK_Old.OpenSDK_StopRealPlay_Old(strEzivz_SessionID);
-            
+
             //SDKState.Ezvie_SDKRelease();
             Ezviz_GenerateRecord_Old();
         }
 
-        private  void Ezvie_EventCallback_Old(string szSessionId, EzvizMeesageType iMsgType, uint iErrorCode, string pMessageInfo, int pUser)
+        private void Ezvie_EventCallback_Old(string szSessionId, EzvizMeesageType iMsgType, uint iErrorCode, string pMessageInfo, int pUser)
         {
             string strTag = "";
             Enum_SDKEventType videoEvType = Enum_SDKEventType.Unrecognized;
@@ -786,7 +799,7 @@ namespace VideoPlayControl
             {
                 case EzvizMeesageType.INS_PLAY_EXCEPTION:
 
-                break;
+                    break;
 
                 case EzvizMeesageType.INS_PLAY_RECONNECT:
                     VideoPlayState = Enum_VideoPlayState.InPlayState;
@@ -867,7 +880,7 @@ namespace VideoPlayControl
             }
             SDKEventCallBack(videoEvType, strTag);
         }
-        
+
 
         FileStream aFile;
         List<byte> lstb = new List<byte>();
@@ -875,7 +888,7 @@ namespace VideoPlayControl
         {
             byte[] managedArray = new byte[dataLen];
             Marshal.Copy(dateContent, managedArray, 0, dataLen);
-            lstb.AddRange(managedArray);  
+            lstb.AddRange(managedArray);
         }
 
         private void Ezviz_GenerateRecord_Old(string strRecFilePath = "")
@@ -942,12 +955,14 @@ namespace VideoPlayControl
         /// </summary>
         string strEzvizUserID = "123456789";
 
+        public static SDK_EzvizSDK.MsgHandler msgHandler;
         #endregion
 
         #region 基本事件
+
+
         public int Ezviz_VideoPlay()
         {
-            IntPtr intptrUserID=MAR
             return 1;
         }
         #endregion
@@ -1001,7 +1016,7 @@ namespace VideoPlayControl
         /// <param name="intPresetPosi"></param>
         public void SetPresetPosi(int intPresetPosi)
         {
-            if (VideoPlayState==Enum_VideoPlayState.InPlayState)
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState)
             {
                 switch (CurrentVideoInfo.VideoType)
                 {
@@ -1010,7 +1025,7 @@ namespace VideoPlayControl
                         break;
                 }
             }
-            
+
         }
 
         /// <summary>
@@ -1042,7 +1057,7 @@ namespace VideoPlayControl
         /// </summary>
         /// <param name="PTZControl"></param>
         /// <param name="bolStart"></param>
-        public void VideoPTZControl(Enum_VideoPTZControl PTZControl,bool bolStart)
+        public void VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
         {
             if (VideoPlayState != Enum_VideoPlayState.VideoInfoNull)
             {
@@ -1064,7 +1079,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
+
         #region 控件事件
         private void VideoPlayMain_Move(object sender, EventArgs e)
         {
@@ -1076,7 +1091,7 @@ namespace VideoPlayControl
             VideoPlayWindows_Move();
         }
         #endregion
-        
+
         #region VideoPlayWindows事件
         public void VideoPlayWindows_Move()
         {
@@ -1111,7 +1126,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
+
     }
 
 }

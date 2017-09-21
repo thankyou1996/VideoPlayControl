@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.videoPlayWindow = new VideoPlayControl.VideoPlayWindow();
+            this.cmsVideoWindow = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmi_CloundSeeSetWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.ssPrompt = new System.Windows.Forms.StatusStrip();
             this.tslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
@@ -44,6 +47,7 @@
             this.pnlRight_Top = new System.Windows.Forms.Panel();
             this.cmbVideoList = new System.Windows.Forms.ComboBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.cmsVideoWindow.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.ssPrompt.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -56,11 +60,26 @@
             // 
             // videoPlayWindow
             // 
+            this.videoPlayWindow.ContextMenuStrip = this.cmsVideoWindow;
             this.videoPlayWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoPlayWindow.Location = new System.Drawing.Point(3, 0);
             this.videoPlayWindow.Name = "videoPlayWindow";
-            this.videoPlayWindow.Size = new System.Drawing.Size(394, 276);
+            this.videoPlayWindow.Size = new System.Drawing.Size(379, 276);
             this.videoPlayWindow.TabIndex = 1;
+            // 
+            // cmsVideoWindow
+            // 
+            this.cmsVideoWindow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_CloundSeeSetWindows});
+            this.cmsVideoWindow.Name = "cmsVideoWindow";
+            this.cmsVideoWindow.Size = new System.Drawing.Size(125, 26);
+            // 
+            // tsmi_CloundSeeSetWindows
+            // 
+            this.tsmi_CloundSeeSetWindows.Name = "tsmi_CloundSeeSetWindows";
+            this.tsmi_CloundSeeSetWindows.Size = new System.Drawing.Size(124, 22);
+            this.tsmi_CloundSeeSetWindows.Text = "远程设置";
+            this.tsmi_CloundSeeSetWindows.Click += new System.EventHandler(this.tsmi_CloundSeeSetWindows_Click);
             // 
             // pnlMain
             // 
@@ -70,7 +89,7 @@
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnlMain.Size = new System.Drawing.Size(397, 298);
+            this.pnlMain.Size = new System.Drawing.Size(382, 298);
             this.pnlMain.TabIndex = 3;
             // 
             // ssPrompt
@@ -80,7 +99,7 @@
             this.tslblPrompt});
             this.ssPrompt.Location = new System.Drawing.Point(3, 276);
             this.ssPrompt.Name = "ssPrompt";
-            this.ssPrompt.Size = new System.Drawing.Size(394, 22);
+            this.ssPrompt.Size = new System.Drawing.Size(379, 22);
             this.ssPrompt.SizingGrip = false;
             this.ssPrompt.TabIndex = 4;
             // 
@@ -96,7 +115,7 @@
             this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoChannelList.Location = new System.Drawing.Point(0, 0);
             this.videoChannelList.Name = "videoChannelList";
-            this.videoChannelList.Size = new System.Drawing.Size(100, 151);
+            this.videoChannelList.Size = new System.Drawing.Size(115, 151);
             this.videoChannelList.TabIndex = 0;
             // 
             // videoPTZControl
@@ -105,7 +124,7 @@
             this.videoPTZControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoPTZControl.Location = new System.Drawing.Point(0, 0);
             this.videoPTZControl.Name = "videoPTZControl";
-            this.videoPTZControl.Size = new System.Drawing.Size(100, 100);
+            this.videoPTZControl.Size = new System.Drawing.Size(115, 100);
             this.videoPTZControl.TabIndex = 2;
             // 
             // pnlRight
@@ -114,9 +133,9 @@
             this.pnlRight.Controls.Add(this.pblRight_Bottom);
             this.pnlRight.Controls.Add(this.pnlRight_Top);
             this.pnlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlRight.Location = new System.Drawing.Point(400, 0);
+            this.pnlRight.Location = new System.Drawing.Point(385, 0);
             this.pnlRight.Name = "pnlRight";
-            this.pnlRight.Size = new System.Drawing.Size(100, 298);
+            this.pnlRight.Size = new System.Drawing.Size(115, 298);
             this.pnlRight.TabIndex = 4;
             // 
             // pnlRight_Main
@@ -125,7 +144,7 @@
             this.pnlRight_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRight_Main.Location = new System.Drawing.Point(0, 24);
             this.pnlRight_Main.Name = "pnlRight_Main";
-            this.pnlRight_Main.Size = new System.Drawing.Size(100, 151);
+            this.pnlRight_Main.Size = new System.Drawing.Size(115, 151);
             this.pnlRight_Main.TabIndex = 5;
             // 
             // pblRight_Bottom
@@ -135,7 +154,7 @@
             this.pblRight_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pblRight_Bottom.Location = new System.Drawing.Point(0, 175);
             this.pblRight_Bottom.Name = "pblRight_Bottom";
-            this.pblRight_Bottom.Size = new System.Drawing.Size(100, 123);
+            this.pblRight_Bottom.Size = new System.Drawing.Size(115, 123);
             this.pblRight_Bottom.TabIndex = 6;
             // 
             // pblRight_Bottom_Main
@@ -144,7 +163,7 @@
             this.pblRight_Bottom_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pblRight_Bottom_Main.Location = new System.Drawing.Point(0, 23);
             this.pblRight_Bottom_Main.Name = "pblRight_Bottom_Main";
-            this.pblRight_Bottom_Main.Size = new System.Drawing.Size(100, 100);
+            this.pblRight_Bottom_Main.Size = new System.Drawing.Size(115, 100);
             this.pblRight_Bottom_Main.TabIndex = 7;
             // 
             // pblRight_Bottom_Top
@@ -154,7 +173,7 @@
             this.pblRight_Bottom_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.pblRight_Bottom_Top.Location = new System.Drawing.Point(0, 0);
             this.pblRight_Bottom_Top.Name = "pblRight_Bottom_Top";
-            this.pblRight_Bottom_Top.Size = new System.Drawing.Size(100, 23);
+            this.pblRight_Bottom_Top.Size = new System.Drawing.Size(115, 23);
             this.pblRight_Bottom_Top.TabIndex = 7;
             // 
             // cmbPreset
@@ -164,7 +183,7 @@
             this.cmbPreset.FormattingEnabled = true;
             this.cmbPreset.Location = new System.Drawing.Point(41, 0);
             this.cmbPreset.Name = "cmbPreset";
-            this.cmbPreset.Size = new System.Drawing.Size(59, 20);
+            this.cmbPreset.Size = new System.Drawing.Size(74, 20);
             this.cmbPreset.TabIndex = 3;
             this.cmbPreset.SelectedIndexChanged += new System.EventHandler(this.cmbPreset_SelectedIndexChanged);
             // 
@@ -185,7 +204,7 @@
             this.pnlRight_Top.Location = new System.Drawing.Point(0, 0);
             this.pnlRight_Top.Name = "pnlRight_Top";
             this.pnlRight_Top.Padding = new System.Windows.Forms.Padding(3);
-            this.pnlRight_Top.Size = new System.Drawing.Size(100, 24);
+            this.pnlRight_Top.Size = new System.Drawing.Size(115, 24);
             this.pnlRight_Top.TabIndex = 5;
             // 
             // cmbVideoList
@@ -195,13 +214,13 @@
             this.cmbVideoList.FormattingEnabled = true;
             this.cmbVideoList.Location = new System.Drawing.Point(3, 3);
             this.cmbVideoList.Name = "cmbVideoList";
-            this.cmbVideoList.Size = new System.Drawing.Size(94, 20);
+            this.cmbVideoList.Size = new System.Drawing.Size(109, 20);
             this.cmbVideoList.TabIndex = 3;
             // 
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(397, 0);
+            this.splitter1.Location = new System.Drawing.Point(382, 0);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 298);
             this.splitter1.TabIndex = 5;
@@ -217,6 +236,7 @@
             this.Name = "VideoPlayGroupControls_Basic";
             this.Size = new System.Drawing.Size(500, 298);
             this.Load += new System.EventHandler(this.VideoPlayGroupControls_Basic_Load);
+            this.cmsVideoWindow.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.ssPrompt.ResumeLayout(false);
             this.ssPrompt.PerformLayout();
@@ -247,5 +267,7 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.StatusStrip ssPrompt;
         private System.Windows.Forms.ToolStripStatusLabel tslblPrompt;
+        private System.Windows.Forms.ContextMenuStrip cmsVideoWindow;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_CloundSeeSetWindows;
     }
 }

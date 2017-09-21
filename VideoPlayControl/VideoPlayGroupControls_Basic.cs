@@ -77,11 +77,8 @@ namespace VideoPlayControl
             InitializeComponent();
             dicCurrentVideoInfos = dicVideoInfos;
         }
-        int intx = 0;
         private void VideoPlayGroupControls_Basic_Load(object sender, EventArgs e)
         {
-            //Init();
-            intx = Thread.CurrentThread.ManagedThreadId;
             videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
             videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBackEvent;
             videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
@@ -463,7 +460,18 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
+
+        private void tsmi_CloundSeeSetWindows_Click(object sender, EventArgs e)
+        {
+            if (dicCurrentVideoInfos.ContainsKey(strCurrentVideoID))
+            {
+                if (dicCurrentVideoInfos[strCurrentVideoID].VideoType == Enum_VideoType.CloundSee)
+                {
+                    //云视通 远程设置窗口
+                    SDK_JCSDK.JCSDK_RemoteConfig(videoPlayWindow.intCloundSee_ConnID, 0);
+                }
+            }
+        }
     }
     /// <summary>
     /// 170120 ComboBox Item

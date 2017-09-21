@@ -175,13 +175,14 @@ namespace VideoPlayControl
         /// <summary>
         /// 萤石云_初始化SDK
         /// </summary>
-        public static void Ezvie_SDKInit(int intLocStartPort = -1, string strTempFileDicPath = "")
+        public static void Ezvie_SDKInit_Old()
         {
             if (EzvizSDKState != Enum_SDKState.SDK_Init)
             {
                 if (SDK_EzvizSDK_Old.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID) == 0)
                 {
                     EzvizSDKState = Enum_SDKState.SDK_Init;
+                    
                 }
                 else
                 {
@@ -194,7 +195,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 萤石云_SDK释放
         /// </summary>
-        public static void Ezvie_SDKRelease()
+        public static void Ezvie_SDKRelease_Old()
         {
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseStart);
             SDK_EzvizSDK_Old.OpenSDK_FiniLib();
@@ -202,7 +203,46 @@ namespace VideoPlayControl
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseEnd);
         }
 
+
+        /// <summary>
+        /// 萤石云_初始化SDK
+        /// 初始化完成后需要获取Token
+        /// </summary>
+        public static Enum_SDKState Ezvie_SDKInit()
+        {
+            //int intResult=
+            SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitStart);
+            if (EzvizSDKState != Enum_SDKState.SDK_Init)
+            {
+                if (SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID) == 0)
+                {
+                    EzvizSDKState = Enum_SDKState.SDK_Init;
+                }
+                else
+                {
+                    EzvizSDKState = Enum_SDKState.SDK_InitFail;
+                }
+            }
+            SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitEnd);
+            return EzvizSDKState;
+        }
+        
+        /// <summary>
+        /// 萤石云_SDK释放
+        /// </summary>
+        public static Enum_SDKState Ezvie_SDKRelease()
+        {
+            SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseStart);
+            SDK_EzvizSDK.OpenSDK_FiniLib();
+            EzvizSDKState = Enum_SDKState.SDK_Release;
+            SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseEnd);
+            return EzvizSDKState;
+
+
+        }
+
         #endregion
+
         public static void VideoSDKRelease()
         {
             ColundSee_SDKRelease(); //云视通SDK 
