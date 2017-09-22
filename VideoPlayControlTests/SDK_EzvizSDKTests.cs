@@ -9,6 +9,8 @@ using System.Net;
 using System.IO;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.Threading;
 
 namespace VideoPlayControl.Tests
 {
@@ -79,9 +81,9 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void GetAccessTokenTest()
         {
-            //SDKState.Ezvie_SDKInit();
+            //SDKState.Ezviz_SDKInit();
             int intInitResult = SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID);
-            GetTokenResult result = SDK_EzvizSDK.GetAccessToken();
+            JsonRequestResult result = SDK_EzvizSDK.GetAccessToken();
             SDK_EzvizSDK.OpenSDK_FiniLib();
             Assert.AreEqual(200, (int)result);
         }
@@ -90,13 +92,192 @@ namespace VideoPlayControl.Tests
         public void OpenSDK_Data_GetDevListTest()
         {
             SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID);
-            GetTokenResult result = SDK_EzvizSDK.GetAccessToken();
+            JsonRequestResult result = SDK_EzvizSDK.GetAccessToken();
             IntPtr intptrMessage;
             int intLenght;
             int intResult = SDK_EzvizSDK.OpenSDK_Data_GetDevList(ProgParameter.strEzviz_AccessToken, 0, 50, out intptrMessage, out intLenght);
             string strDevInfoJosn = Marshal.PtrToStringAnsi(intptrMessage);
             SDK_EzvizSDK.OpenSDK_FiniLib();
             Assert.AreEqual("1", strDevInfoJosn);
+        }
+
+        [TestMethod()]
+        public void OpenSDK_AllocSessionTest()
+        {
+            SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID);
+            JsonRequestResult result = SDK_EzvizSDK.GetAccessToken();
+            string strSession;
+            IntPtr intptrSession = IntPtr.Zero;
+            int intLenght = 0;
+            SDK_EzvizSDK.MsgHandler m = new SDK_EzvizSDK.MsgHandler(MsgHandler);
+            int intResult = SDK_EzvizSDK.OpenSDK_AllocSession(m, IntPtr.Zero, ref intptrSession, ref intLenght, false, uint.MaxValue);
+            strSession = Marshal.PtrToStringAnsi(intptrSession);
+            intResult = SDK_EzvizSDK.OpenSDK_FreeSession(intptrSession);
+            SDK_EzvizSDK.OpenSDK_FiniLib();
+            Assert.AreEqual("1", strSession);
+        }
+
+        [TestMethod()]
+        public void OpenSDK_AllocSessionExTest()
+        {
+            SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID);
+            //GetTokenResult result = SDK_EzvizSDK.GetAccessToken();
+            string strSession;
+            IntPtr intptrSession = IntPtr.Zero;
+            int intLenght = 0;
+            SDK_EzvizSDK.MsgHandler m = new SDK_EzvizSDK.MsgHandler(MsgHandler);
+            int intResult = SDK_EzvizSDK.OpenSDK_AllocSessionEx(m, IntPtr.Zero, out intptrSession, out intLenght);
+            strSession = Marshal.PtrToStringAnsi(intptrSession);
+            intResult = SDK_EzvizSDK.OpenSDK_FreeSession(strSession);
+            SDK_EzvizSDK.OpenSDK_FiniLib();
+            Assert.AreEqual("1", strSession);
+        }
+
+
+
+        public void MsgHandler(IntPtr SID, EzvizMeesageType MsgType, uint Error, string Info, string strUser)
+        {
+            switch (MsgType)
+            {
+                case EzvizMeesageType.INS_PLAY_START:
+
+                    break;
+                case EzvizMeesageType.INS_PLAY_EXCEPTION:
+
+                    break;
+            }
+            //MessageBox.Show(MsgType.ToString());
+        }
+
+        [TestMethod()]
+        public void OpenSDK_StartRealPlayExTest()
+        {
+            int intResult = 0;
+            intResult = SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID);
+            JsonRequestResult result = SDK_EzvizSDK.GetAccessToken();
+            IntPtr intptrToken = Marshal.StringToHGlobalAnsi(ProgParameter.strEzviz_AccessToken);
+            intResult = SDK_EzvizSDK.OpenSDK_SetAccessToken(intptrToken);
+            IntPtr intptrSession = IntPtr.Zero;
+            int intLenght = 0;
+            PictureBox pic = new PictureBox();
+            SDK_EzvizSDK.MsgHandler m = new SDK_EzvizSDK.MsgHandler(MsgHandler);
+            intResult = SDK_EzvizSDK.OpenSDK_AllocSessionEx(m, IntPtr.Zero, out intptrSession, out intLenght);
+            intResult = SDK_EzvizSDK.OpenSDK_SetVideoLevel(intptrSession, 1, 1);
+            SDK_EzvizSDK.DataCallBack callback = new SDK_EzvizSDK.DataCallBack(DataCallBack);
+            IntPtr inptrUser = Marshal.StringToHGlobalAnsi("10086");
+            intResult = SDK_EzvizSDK.OpenSDK_SetDataCallBack(intptrSession, callback, inptrUser);
+            IntPtr ii = Marshal.StringToHGlobalAnsi("756217913");
+            intResult = SDK_EzvizSDK.OpenSDK_StartRealPlayEx(intptrSession, IntPtr.Zero, ii, 1, null);
+            int intErrorCode = 0;
+            string strErrorDesc = "";
+            if (intResult == -1)
+            {
+                //错误码
+                intErrorCode = SDK_EzvizSDK.OpenSDK_GetLastErrorCode();
+                IntPtr i = SDK_EzvizSDK.OpenSDK_GetLastErrorDesc();
+                strErrorDesc = Marshal.PtrToStringAnsi(i);
+            }
+            Thread.Sleep(3000);
+            intResult = SDK_EzvizSDK.OpenSDK_StopRealPlayEx(intptrSession);
+            intResult = SDK_EzvizSDK.OpenSDK_FreeSession(intptrSession);
+            SDK_EzvizSDK.OpenSDK_FiniLib();
+            Assert.AreEqual("1", intErrorCode);
+        }
+
+        [TestMethod()]
+        public void OpenSDK_StartRealPlayTest()
+        {
+            SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID);
+            JsonRequestResult result = SDK_EzvizSDK.GetAccessToken();
+            string strSession;
+            IntPtr intptrSession = IntPtr.Zero;
+            int intLenght = 0;
+            PictureBox pic = new PictureBox();
+            SDK_EzvizSDK.MsgHandler m = new SDK_EzvizSDK.MsgHandler(MsgHandler);
+            int intResult = SDK_EzvizSDK.OpenSDK_AllocSession(m, IntPtr.Zero, ref intptrSession, ref intLenght, false, uint.MaxValue);
+            strSession = Marshal.PtrToStringAnsi(intptrSession);
+            intResult = SDK_EzvizSDK.OpenSDK_StartRealPlay(intptrSession, pic.Handle, "7e1c18bad66544408b38d1711552e320", ProgParameter.strEzviz_AccessToken, 0, null, ProgParameter.strEzviz__AppID, 0);
+            Thread.Sleep(5000);
+            intResult = SDK_EzvizSDK.OpenSDK_StopRealPlayEx(intptrSession);
+            Thread.Sleep(5000);
+            intResult = SDK_EzvizSDK.OpenSDK_FreeSession(strSession);
+            SDK_EzvizSDK.OpenSDK_FiniLib();
+            Assert.AreEqual("1", strSession);
+        }
+
+        public void DataCallBack(DataType enType, IntPtr pData, int iLen, IntPtr pUser)
+        {
+            string x = Marshal.PtrToStringAnsi(pUser);
+        }
+
+        [TestMethod()]
+        public void OpenSDK_StartRealPlay_OldTest()
+        {
+            SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID);
+            JsonRequestResult result = SDK_EzvizSDK.GetAccessToken();
+            string strSession;
+            IntPtr intptrSession = IntPtr.Zero;
+            int intLenght = 0;
+            PictureBox pic = new PictureBox();
+            SDK_EzvizSDK.MsgHandler m = new SDK_EzvizSDK.MsgHandler(MsgHandler);
+            int intResult = SDK_EzvizSDK.OpenSDK_AllocSession(m, IntPtr.Zero, ref intptrSession, ref intLenght, false, uint.MaxValue);
+            strSession = Marshal.PtrToStringAnsi(intptrSession);
+            intResult = SDK_EzvizSDK.OpenSDK_StartRealPlay_Old(intptrSession, pic.Handle, "6e1c18bad66544408b38d1711552e320", ProgParameter.strEzviz_AccessToken, 0, null, ProgParameter.strEzviz__AppID);
+            //Thread.Sleep(5000);
+            intResult = SDK_EzvizSDK.OpenSDK_StopRealPlayEx(intptrSession);
+            //Thread.Sleep(5000);
+            intResult = SDK_EzvizSDK.OpenSDK_FreeSession(strSession);
+            SDK_EzvizSDK.OpenSDK_FiniLib();
+            Assert.AreEqual("1", strSession);
+        }
+
+        [TestMethod()]
+        public void OpenSDK_Data_GetDeviceInfoTest()
+        {
+            int intResult = 0;
+            intResult = TestInit();
+            IntPtr intptrSession = IntPtr.Zero;
+            int intLenght = 0;
+            SDK_EzvizSDK.MsgHandler m = new SDK_EzvizSDK.MsgHandler(MsgHandler);
+            intResult = SDK_EzvizSDK.OpenSDK_AllocSessionEx(m, IntPtr.Zero, out intptrSession, out intLenght);
+            SDK_EzvizSDK.DataCallBack callback = new SDK_EzvizSDK.DataCallBack(DataCallBack);
+            IntPtr intptrToken = Marshal.StringToHGlobalAnsi(ProgParameter.strEzviz_AccessToken);
+            IntPtr intptrDevSerial = Marshal.StringToHGlobalAnsi("756217914");
+            IntPtr intptrDevInfo = IntPtr.Zero;
+            int intLength;
+            intResult = SDK_EzvizSDK.OpenSDK_Data_GetDeviceInfo(intptrToken, intptrDevSerial, out intptrDevInfo, out intLength);
+            string strResult = Marshal.PtrToStringAnsi(intptrDevInfo);
+            intResult = TestRelease(intptrSession);
+
+            Assert.AreEqual("1", strResult);
+        }
+
+        public int TestInit()
+        {
+            int intResult = 0;
+            intResult = SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID);
+            JsonRequestResult result = SDK_EzvizSDK.GetAccessToken();
+            IntPtr intptrToken = Marshal.StringToHGlobalAnsi(ProgParameter.strEzviz_AccessToken);
+            intResult = SDK_EzvizSDK.OpenSDK_SetAccessToken(intptrToken);
+            return intResult;
+        }
+
+        public int TestRelease(IntPtr intptrSession)
+        {
+            int intResult = 0;
+            intResult = SDK_EzvizSDK.OpenSDK_StopRealPlayEx(intptrSession);
+            intResult = SDK_EzvizSDK.OpenSDK_FreeSession(intptrSession);
+            intResult = SDK_EzvizSDK.OpenSDK_FiniLib();
+            return intResult;
+        }
+
+        [TestMethod()]
+        public void GetDevOnlineStateTest()
+        {
+            TestInit();
+            int intResult = SDK_EzvizSDK.GetDevOnlineState("756217914", 1);
+            SDK_EzvizSDK.OpenSDK_FiniLib();
+            Assert.AreEqual(1, intResult);
         }
     }
 }

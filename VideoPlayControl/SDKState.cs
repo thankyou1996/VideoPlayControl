@@ -65,6 +65,33 @@ namespace VideoPlayControl
 
         #endregion
 
+        #region SDK事件回调
+        /// <summary>
+        /// SDK事件回调委托
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="etType"></param>
+        public delegate void SDKEventCallBackDelegate(Enum_VideoType videoType, Enum_SDKEventType etType, string strtTag);
+
+        /// <summary>
+        /// SDK事件回调事件
+        /// </summary>
+        public static event SDKEventCallBackDelegate SDKEventCallBackEvent;
+
+        /// <summary>
+        /// SDK事件回调
+        /// </summary>
+        /// <param name="etType"></param>
+        /// <param name="strTag"></param>
+        private static void SDKEventCallBack(Enum_VideoType videoType, Enum_SDKEventType etType, string strTag = "")
+        {
+            if (SDKEventCallBackEvent != null)
+            {
+                SDKEventCallBackEvent(videoType,etType, strTag);
+            }
+        }
+        #endregion
+
         #endregion
 
 
@@ -153,7 +180,7 @@ namespace VideoPlayControl
         }
         #endregion
 
-        #region 萤石云EzvieSDK 
+        #region 萤石云EzvizSDK 
         /// <summary>
         /// 萤石云SDK状态
         /// </summary>
@@ -175,7 +202,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 萤石云_初始化SDK
         /// </summary>
-        public static void Ezvie_SDKInit_Old()
+        public static void Ezviz_SDKInit_Old()
         {
             if (EzvizSDKState != Enum_SDKState.SDK_Init)
             {
@@ -195,7 +222,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 萤石云_SDK释放
         /// </summary>
-        public static void Ezvie_SDKRelease_Old()
+        public static void Ezviz_SDKRelease_Old()
         {
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseStart);
             SDK_EzvizSDK_Old.OpenSDK_FiniLib();
@@ -208,7 +235,7 @@ namespace VideoPlayControl
         /// 萤石云_初始化SDK
         /// 初始化完成后需要获取Token
         /// </summary>
-        public static Enum_SDKState Ezvie_SDKInit()
+        public static Enum_SDKState Ezviz_SDKInit()
         {
             //int intResult=
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitStart);
@@ -230,7 +257,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 萤石云_SDK释放
         /// </summary>
-        public static Enum_SDKState Ezvie_SDKRelease()
+        public static Enum_SDKState Ezviz_SDKRelease()
         {
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseStart);
             SDK_EzvizSDK.OpenSDK_FiniLib();
@@ -241,12 +268,113 @@ namespace VideoPlayControl
 
         }
 
+
+        /// <summary>
+        /// 消息事件回调
+        /// </summary>
+        /// <param name="intptrSessionId"></param>
+        /// <param name="iMsgType"></param>
+        /// <param name="iErrorCode"></param>
+        /// <param name="pMessageInfo"></param>
+        /// <param name="pUser"></param>
+        public static void Ezviz_MsgCallback(IntPtr intptrSessionId, EzvizMeesageType iMsgType, uint iErrorCode, string pMessageInfo, string pUser)
+        {
+            string strTag = "";
+            Enum_SDKEventType videoEvType = Enum_SDKEventType.Unrecognized;
+            switch (iMsgType)
+            {
+                case EzvizMeesageType.INS_PLAY_EXCEPTION:
+
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_RECONNECT:
+                    //VideoPlayState = Enum_VideoPlayState.InPlayState;
+
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_RECONNECT_EXCEPTION:
+
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_START:
+                    //VideoPlayState = Enum_VideoPlayState.InPlayState;
+                    //CurrentVideoInfo.NetworkState = 1;          //置为在线
+                    //VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_STOP:
+                    //VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_ARCHIVE_END:
+                    //VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+
+                    break;
+
+                case EzvizMeesageType.INS_VOICETALK_START:
+
+                    break;
+
+                case EzvizMeesageType.INS_VOICETALK_STOP:
+
+                    break;
+
+                case EzvizMeesageType.INS_VOICETALK_EXCEPTION:
+
+                    break;
+
+                case EzvizMeesageType.INS_PTZ_EXCEPTION:
+
+                    break;
+
+                case EzvizMeesageType.INS_RECORD_FILE:
+
+                    break;
+
+                case EzvizMeesageType.INS_RECORD_SEARCH_END:
+
+                    break;
+
+                case EzvizMeesageType.INS_RECORD_SEARCH_FAILED:
+
+                    break;
+
+                case EzvizMeesageType.INS_DEFENSE_SUCCESS:
+
+                    break;
+
+                case EzvizMeesageType.INS_DEFENSE_FAILED:
+
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_ARCHIVE_EXCEPTION:
+
+                    break;
+
+                case EzvizMeesageType.INS_PTZCTRL_SUCCESS:
+
+                    break;
+
+                case EzvizMeesageType.INS_PTZCTRL_FAILED:
+
+                    break;
+            }
+            if (videoEvType == Enum_SDKEventType.Unrecognized)
+            {
+                strTag = strTag = iMsgType.ToString();
+            }
+            SDKEventCallBack(Enum_VideoType.Ezviz, videoEvType, strTag);
+        }
+
         #endregion
 
+
+        
         public static void VideoSDKRelease()
         {
             ColundSee_SDKRelease(); //云视通SDK 
-            Ezvie_SDKRelease();     //萤石云SDK 
+            Ezviz_SDKRelease();     //萤石云SDK 
         }
     }
 
