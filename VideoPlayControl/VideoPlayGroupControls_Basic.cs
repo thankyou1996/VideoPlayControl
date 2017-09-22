@@ -176,7 +176,6 @@ namespace VideoPlayControl
         {
             if (bolDisplaySDKEvent)
             {
-                VideoPlayWindow v = (VideoPlayWindow)sender;
                 if (!string.IsNullOrEmpty(strTag))
                 {
                     DisplayRecord(evType.ToString() + "[" + strTag + "]");

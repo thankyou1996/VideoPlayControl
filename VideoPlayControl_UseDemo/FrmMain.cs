@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using VideoPlayControl;
@@ -47,9 +48,12 @@ namespace VideoPlayControl_UseDemo
         private void FrmMain_Load(object sender, EventArgs e)
         {
             SDKState.SDKStateChangeEvent += SDKStateChange;
+            SDKState.SDKEventCallBackEvent += SDKEventCallBack;
             SDKState.CloundSee_SDKInit();
             SDKState.Ezvie_SDKInit();
             SDK_EzvizSDK.GetAccessToken();
+            IntPtr intptrToken = Marshal.StringToHGlobalAnsi(ProgParameter.strEzviz_AccessToken);
+            SDK_EzvizSDK.OpenSDK_SetAccessToken(intptrToken);
             Init();
         }
 
@@ -149,18 +153,94 @@ namespace VideoPlayControl_UseDemo
             switch (sdkType)
             {
                 case Enum_VideoType.CloundSee:
-                    //grpCloundSeeSDKState.Text = "云视通SDK状态:" + sdkState.ToString();
+                    grpCloundSeeSDKState.Text = "云视通SDK状态:" + sdkState.ToString();
                     break;
                 case Enum_VideoType.Ezviz:
-                    //grpEzvizSeeSDKState.Text = "萤石云SDK状态:" + sdkState.ToString();
+                    grpEzvizSDKState.Text = "萤石云SDK状态:" + sdkState.ToString();
                     break;
             }
+        }
+
+        public void SDKEventCallBack(Enum_VideoType videoType, Enum_SDKEventType etType, string strtTag)
+        {
+            AddRecord(videoType.ToString() + "[" + strtTag + "]"+ etType.ToString(), "SDKEventCallBack");
         }
         #endregion
 
         #region 测试数据
         public void Ezviz_TestData()
         {
+            //"cameraId":"7e1c18bad66544408b38d1711552e320","cameraName":"视频1@DVR(756217914)",
+            //"cameraNo":1,"defence":0,"deviceId":"649b48f4d02d42df8486a17be911d49e756217914",
+            //"deviceName":"测试1_DVR_756217914","deviceSerial":"756217914","isEncrypt":0,"isShared":"0",
+            //"picUrl":"https://i.ys7.com/assets/imgs/public/homeDevice.jpeg","status":1,"videoLevel":0},
+            VideoInfo videoInfo = new VideoInfo();
+            videoInfo.VideoType = Enum_VideoType.Ezviz;
+            
+            videoInfo.DVSNumber = "萤石云测试1";
+            videoInfo.DVSAddress = "756217913";
+            videoInfo.DVSConnectPort = 0;
+            videoInfo.UserName = "";
+            videoInfo.Password = "";
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            int intChannelNum = 9;
+            videoInfo.DVSChannelNum = intChannelNum;
+            CameraInfo camerasInfo = new CameraInfo();
+            for (int i = 0; i < intChannelNum; i++)
+            {
+                camerasInfo = new CameraInfo();
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "摄像机" + (i + 1);
+                switch (i)
+                {
+                    case 0:
+                        camerasInfo.CameraUniqueCode = "7e1c18bad66544408b38d1711552e320";
+                        break;
+
+                    case 1:
+                        camerasInfo.CameraUniqueCode = "d6ee65642d2e4a1a8af5ea6abf5dcae2";
+                        break;
+
+                    case 2:
+                        camerasInfo.CameraUniqueCode = "ba749979770548dd87587bed55788224";
+                        break;
+
+                    case 3:
+                        camerasInfo.CameraUniqueCode = "f148f52961f740d68c64977c19fcd3fb";
+                        break;
+
+                    case 4:
+                        camerasInfo.CameraUniqueCode = "33af536cb403408f86d4c7f4e5b47690";
+                        break;
+
+                    case 5:
+                        camerasInfo.CameraUniqueCode = "d38b8d7b885a4e9bade97a738dfbc87f";
+                        break;
+
+                    case 6:
+                        camerasInfo.CameraUniqueCode = "5eb2a6ef219248959ba28a5f23a4ae69";
+                        break;
+
+                    case 7:
+                        camerasInfo.CameraUniqueCode = "6fb4d4f576214eccadc6003b09d614d2";
+                        break;
+
+                    case 8:
+                        camerasInfo.CameraUniqueCode = "c78025dc89af4b43a44b0572855e6e3d";
+                        break;
+                }
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            if (!dicVideoInfos.ContainsKey(videoInfo.DVSNumber))
+            {
+                //不存在 列表不刷新
+                dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+                VideoListRefresh();
+            }
+            else
+            {
+                dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            }
 
         }
 
@@ -175,7 +255,6 @@ namespace VideoPlayControl_UseDemo
 
         public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType,string strTag)
         {
-            VideoPlayWindow v = (VideoPlayWindow)sender;
             if (!string.IsNullOrEmpty(strTag))
             {
                 AddRecord(evType.ToString() + "[" + strTag + "]", "SDKEventCallBack");
@@ -399,6 +478,7 @@ namespace VideoPlayControl_UseDemo
             videoPlayWindow.Init_VideoInfo(videoInfo, camerInfo,videoPlaySet);
             videoPlayWindow.VideoPlay();
         }
+
         public string GetVideoTapeDicPath()
         {
             StringBuilder sbRecDicPath = new StringBuilder();
@@ -683,18 +763,7 @@ namespace VideoPlayControl_UseDemo
 
         int intTempCount = 0;
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            timer1.Enabled = false;
-            intTempCount++;
-            button1_Click(null, null);
-            label17.Text = intTempCount.ToString();
-            CommonMethod.LogWrite.WriteEventLog("EzvieTestRecord", "TagTag:"+intTempCount.ToString());
-            CommonMethod.LogWrite.WriteEventLog("EzvieTestRecord", lstVideoPlayWindow[0].VideoPlayState.ToString());
-            timer1.Enabled = true;
-            //SDKState.ColundSee_SDKRelease();
-            //SDKState.CloundSee_SDKInit();
-        }
+       
         
 
         /// <summary>
@@ -716,6 +785,44 @@ namespace VideoPlayControl_UseDemo
         private void btnEzvizSDKRelease_Click(object sender, EventArgs e)
         {
             SDKState.Ezvie_SDKRelease();
+        }
+
+        private void btnEzvizTestData_Click(object sender, EventArgs e)
+        {
+            Ezviz_TestData();
+            cmbVideoList.SelectedIndex = 0;
+            //bolTestMode = true;
+            //timer1.Enabled = true;
+        }
+
+        int Temp_i = 1;
+        int Temp_ii = 0;
+        bool bolTestMode = false;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+
+            if (Temp_i >= 5)
+            {
+                Temp_i = 1;
+            }
+            VideoChannelListButton_Click(videoChannelList.lstbtns[Temp_i], (CameraInfo)videoChannelList.lstbtns[Temp_i].Tag);
+            Temp_i++;
+            Temp_ii++;
+            label17.Text = Temp_ii.ToString();
+            if (bolTestMode)
+            {
+                timer1.Enabled = true;
+            }
+            
+            //SDKState.ColundSee_SDKRelease();
+            //SDKState.CloundSee_SDKInit();
+        }
+
+        private void btnStopTest_Click(object sender, EventArgs e)
+        {
+            bolTestMode = false;
+            timer1.Enabled = false;
         }
     }
 }

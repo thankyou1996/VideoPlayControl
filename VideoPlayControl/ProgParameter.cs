@@ -43,7 +43,7 @@ namespace VideoPlayControl
         /// </summary>
         public static string strEzviz_AppSecret = ProgConstants.c_strEzviz_AppSecret_Default;
 
-        public static string strEzviz_AccessToken = "at.5j07kiyc3ixa9uab0uzxgnr5deb9q6on-2kp29nb0kp-14jrndo-39tijbcvm";
+        public static string strEzviz_AccessToken = "at.do2lz6k485mc38pr3n8t74vv2gm10uqm-8kx8l74m7b-04p6ip5-so5iigvth";
         
         #endregion
     }

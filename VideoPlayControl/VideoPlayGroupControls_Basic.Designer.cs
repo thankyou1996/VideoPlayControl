@@ -66,6 +66,7 @@
             this.videoPlayWindow.Name = "videoPlayWindow";
             this.videoPlayWindow.Size = new System.Drawing.Size(379, 276);
             this.videoPlayWindow.TabIndex = 1;
+            this.videoPlayWindow.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
             // 
             // cmsVideoWindow
             // 

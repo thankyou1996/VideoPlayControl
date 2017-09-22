@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using VideoPlayControl;
@@ -26,6 +27,10 @@ namespace VideoPlayControl_UseDemo
             //videoPlayGroupControls_Basic1.bolDisPlaySDKState = true;
             //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
             SDKState.CloundSee_SDKInit();
+            SDKState.Ezvie_SDKInit();
+            SDK_EzvizSDK.GetAccessToken();
+            IntPtr intptrToken = Marshal.StringToHGlobalAnsi(ProgParameter.strEzviz_AccessToken);
+            SDK_EzvizSDK.OpenSDK_SetAccessToken(intptrToken);
             Test();
         }
 
@@ -47,18 +52,18 @@ namespace VideoPlayControl_UseDemo
 
             VideoInfo videoInfo = new VideoInfo();
             CameraInfo camerasInfo = new CameraInfo();
-            videoInfo.VideoType = Enum_VideoType.CloundSee;
+            videoInfo.VideoType = Enum_VideoType.Ezviz;
             videoInfo.DVSNumber = "000101";
             videoInfo.DVSName = "000101视频";
             //videoInfo.DVSAddress = "X5014851";
-            videoInfo.DVSAddress = "X5014851";
+            videoInfo.DVSAddress = "756217914";
             videoInfo.DVSConnectPort = 9101;
             videoInfo.UserName = "admin";
             videoInfo.Password = "123";
             videoInfo.PreviewPwd = "";
-            videoInfo.DVSType = "sk8504ZW";
+            videoInfo.DVSType = "SK8504YS";
             videoInfo.Cameras = new Dictionary<int, CameraInfo>();
-            videoInfo.DVSChannelNum = 8;
+            videoInfo.DVSChannelNum = 9;
             camerasInfo = new CameraInfo();
             for (int i = 1; i < videoInfo.DVSChannelNum; i++)
             {
@@ -74,7 +79,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSNumber = "000102";
             videoInfo.DVSName = "000102视频";
             //videoInfo.DVSAddress = "X7656498";
-            videoInfo.DVSAddress = "X7438372";
+            videoInfo.DVSAddress = "X15987";
             videoInfo.DVSConnectPort = 9101;
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";
