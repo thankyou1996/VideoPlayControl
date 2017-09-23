@@ -141,6 +141,27 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="T:CommonMethod.Common_Web">
+            <summary>
+            公用方法_Web
+            </summary>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HttpPost(System.String,System.String)">
+            <summary>
+            HttpPost请求
+            </summary>
+            <param name="Url"></param>
+            <param name="postDataStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HttpGet(System.String,System.String)">
+            <summary>
+            HttpGet请求
+            </summary>
+            <param name="Url"></param>
+            <param name="postDataStr"></param>
+            <returns></returns>
+        </member>
         <member name="T:CommonMethod.ConvertClass">
             <summary>
             转换

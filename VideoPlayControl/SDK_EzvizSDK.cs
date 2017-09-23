@@ -250,7 +250,6 @@ namespace VideoPlayControl
                         break;
                     }
                 }
-
             }
 
             return intResult;

@@ -69,6 +69,11 @@ namespace VideoPlayControl
         /// <summary>
         /// 用户信息验证失败
         /// </summary>
-        UserAccessError = 12
+        UserAccessError = 12,
+
+        /// <summary>
+        /// 视频异常
+        /// </summary>
+        VideoPlayException = 13,
     }
 }

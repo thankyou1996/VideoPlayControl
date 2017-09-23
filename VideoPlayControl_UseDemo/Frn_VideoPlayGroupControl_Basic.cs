@@ -20,6 +20,8 @@ namespace VideoPlayControl_UseDemo
 
         private void Frn_VideoPlayGroupControl_Basic_Load(object sender, EventArgs e)
         {
+            VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
+            VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             videoPlayGroupControls_Basic1.bolAutoPlayVideo = true;
             //videoPlayGroupControls_Basic1.videoPlaySet.VideoRecordEnable = true;
             videoPlayGroupControls_Basic1.videoPlaySet.VideoMonitorEnable = true;
@@ -28,9 +30,6 @@ namespace VideoPlayControl_UseDemo
             //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
-            SDK_EzvizSDK.GetAccessToken();
-            IntPtr intptrToken = Marshal.StringToHGlobalAnsi(ProgParameter.strEzviz_AccessToken);
-            SDK_EzvizSDK.OpenSDK_SetAccessToken(intptrToken);
             Test();
         }
 
@@ -56,10 +55,11 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSNumber = "000101";
             videoInfo.DVSName = "000101视频";
             //videoInfo.DVSAddress = "X5014851";
-            videoInfo.DVSAddress = "756217914";
+            //videoInfo.DVSAddress = "756217914";
+            videoInfo.DVSAddress = "532446995";
             videoInfo.DVSConnectPort = 9101;
             videoInfo.UserName = "admin";
-            videoInfo.Password = "123";
+            videoInfo.Password = "";
             videoInfo.PreviewPwd = "";
             videoInfo.DVSType = "SK8504YS";
             videoInfo.Cameras = new Dictionary<int, CameraInfo>();

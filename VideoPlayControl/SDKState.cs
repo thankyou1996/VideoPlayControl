@@ -1,6 +1,7 @@
 ﻿using PublicClassCurrency;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace VideoPlayControl
@@ -64,34 +65,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-
-        #region SDK事件回调
-        /// <summary>
-        /// SDK事件回调委托
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="etType"></param>
-        public delegate void SDKEventCallBackDelegate(Enum_VideoType videoType, Enum_SDKEventType etType, string strtTag);
-
-        /// <summary>
-        /// SDK事件回调事件
-        /// </summary>
-        public static event SDKEventCallBackDelegate SDKEventCallBackEvent;
-
-        /// <summary>
-        /// SDK事件回调
-        /// </summary>
-        /// <param name="etType"></param>
-        /// <param name="strTag"></param>
-        private static void SDKEventCallBack(Enum_VideoType videoType, Enum_SDKEventType etType, string strTag = "")
-        {
-            if (SDKEventCallBackEvent != null)
-            {
-                SDKEventCallBackEvent(videoType,etType, strTag);
-            }
-        }
-        #endregion
-
+        
         #endregion
 
 
@@ -244,6 +218,9 @@ namespace VideoPlayControl
                 if (SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID) == 0)
                 {
                     EzvizSDKState = Enum_SDKState.SDK_Init;
+                    SDK_EzvizSDK.GetAccessToken();
+                    IntPtr intptrToken = Marshal.StringToHGlobalAnsi(ProgParameter.strEzviz_AccessToken);
+                    SDK_EzvizSDK.OpenSDK_SetAccessToken(intptrToken);
                 }
                 else
                 {
@@ -267,105 +244,7 @@ namespace VideoPlayControl
 
 
         }
-
-
-        /// <summary>
-        /// 消息事件回调
-        /// </summary>
-        /// <param name="intptrSessionId"></param>
-        /// <param name="iMsgType"></param>
-        /// <param name="iErrorCode"></param>
-        /// <param name="pMessageInfo"></param>
-        /// <param name="pUser"></param>
-        public static void Ezviz_MsgCallback(IntPtr intptrSessionId, EzvizMeesageType iMsgType, uint iErrorCode, string pMessageInfo, string pUser)
-        {
-            string strTag = "";
-            Enum_SDKEventType videoEvType = Enum_SDKEventType.Unrecognized;
-            switch (iMsgType)
-            {
-                case EzvizMeesageType.INS_PLAY_EXCEPTION:
-
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_RECONNECT:
-                    //VideoPlayState = Enum_VideoPlayState.InPlayState;
-
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_RECONNECT_EXCEPTION:
-
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_START:
-                    //VideoPlayState = Enum_VideoPlayState.InPlayState;
-                    //CurrentVideoInfo.NetworkState = 1;          //置为在线
-                    //VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_STOP:
-                    //VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_ARCHIVE_END:
-                    //VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-
-                    break;
-
-                case EzvizMeesageType.INS_VOICETALK_START:
-
-                    break;
-
-                case EzvizMeesageType.INS_VOICETALK_STOP:
-
-                    break;
-
-                case EzvizMeesageType.INS_VOICETALK_EXCEPTION:
-
-                    break;
-
-                case EzvizMeesageType.INS_PTZ_EXCEPTION:
-
-                    break;
-
-                case EzvizMeesageType.INS_RECORD_FILE:
-
-                    break;
-
-                case EzvizMeesageType.INS_RECORD_SEARCH_END:
-
-                    break;
-
-                case EzvizMeesageType.INS_RECORD_SEARCH_FAILED:
-
-                    break;
-
-                case EzvizMeesageType.INS_DEFENSE_SUCCESS:
-
-                    break;
-
-                case EzvizMeesageType.INS_DEFENSE_FAILED:
-
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_ARCHIVE_EXCEPTION:
-
-                    break;
-
-                case EzvizMeesageType.INS_PTZCTRL_SUCCESS:
-
-                    break;
-
-                case EzvizMeesageType.INS_PTZCTRL_FAILED:
-
-                    break;
-            }
-            if (videoEvType == Enum_SDKEventType.Unrecognized)
-            {
-                strTag = strTag = iMsgType.ToString();
-            }
-            SDKEventCallBack(Enum_VideoType.Ezviz, videoEvType, strTag);
-        }
+        
 
         #endregion
 

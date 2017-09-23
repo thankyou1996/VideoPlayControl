@@ -44,12 +44,12 @@ namespace VideoPlayControl
             set
             {
                 videoPlayState = value;
-                switch (videoPlayState)
-                {
-                    case Enum_VideoPlayState.InPlayState:
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
-                        break;
-                }
+                //switch (videoPlayState)
+                //{
+                //    case Enum_VideoPlayState.InPlayState:
+                //        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+                //        break;
+                //}
             }
         }
         /// <summary>
@@ -967,10 +967,11 @@ namespace VideoPlayControl
         #region 全局变量 
 
         IntPtr intptrSessionID = IntPtr.Zero;
-        static SDK_EzvizSDK.MsgHandler callBack = new SDK_EzvizSDK.MsgHandler(SDKState.Ezviz_MsgCallback);
-        static SDK_EzvizSDK.DataCallBack Ezviz_DataCallBack = new SDK_EzvizSDK.DataCallBack(Ezviz_DataCallBackEvent);
-        static Dictionary<string, List<byte>> Ezviz_TempVideoRecord = new Dictionary<string, List<byte>>();
+        SDK_EzvizSDK.MsgHandler callBack;
+        SDK_EzvizSDK.DataCallBack Ezviz_DataCallBack;
         List<byte> lstb = new List<byte>();
+        GCHandle Ezviz_gchMsgBack;
+        GCHandle Ezviz_gchVideoRecord;
         #endregion
 
         #region 基本事件
@@ -989,27 +990,138 @@ namespace VideoPlayControl
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoDeviceNotOnline);
                 return;
             }
+            callBack = new SDK_EzvizSDK.MsgHandler(Ezviz_MsgCallback);
+            Ezviz_gchMsgBack = GCHandle.Alloc(callBack);
             intResult = SDK_EzvizSDK.OpenSDK_AllocSessionEx(callBack, IntPtr.Zero, out intptrSessionID, out intLenght);
             if (CurrentVideoPlaySet.VideoRecordEnable)
             {
                 //录像启用
-                IntPtr intptrUser = Marshal.StringToHGlobalAnsi(CurrentVideoInfo.DVSAddress + "_" + CurrentCameraInfo.Channel);
+                IntPtr intptrUser = IntPtr.Zero;
+                Ezviz_DataCallBack = new SDK_EzvizSDK.DataCallBack(Ezviz_DataCallBackEvent);
+                Ezviz_gchVideoRecord = GCHandle.Alloc(Ezviz_DataCallBack);
                 intResult = SDK_EzvizSDK.OpenSDK_SetDataCallBack(intptrSessionID, Ezviz_DataCallBack, intptrUser);
+                
             }
             IntPtr intptrdevSerial = Marshal.StringToHGlobalAnsi(CurrentVideoInfo.DVSAddress);
-            intResult = SDK_EzvizSDK.OpenSDK_StartRealPlayEx(intptrSessionID, intptrPlayMain, intptrdevSerial, CurrentCameraInfo.Channel, null);
+            intResult = SDK_EzvizSDK.OpenSDK_StartRealPlayEx(intptrSessionID, intptrPlayMain, intptrdevSerial, CurrentCameraInfo.Channel, CurrentVideoInfo.Password);
             //intResult = SDK_EzvizSDK.OpenSDK_StartRealPlay(intptrSessionID, intptrPlayMain, CurrentCameraInfo.CameraUniqueCode, ProgParameter.strEzviz_AccessToken, 2, null, ProgParameter.strEzviz__AppID, 0);
             if (intResult == 0)
             {
-                VideoPlayState = Enum_VideoPlayState.InPlayState;
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
             }
             else
             {
-                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
             }
         }
-        
+
+        /// <summary>
+        /// 消息事件回调
+        /// </summary>
+        /// <param name="intptrSessionId"></param>
+        /// <param name="iMsgType"></param>
+        /// <param name="iErrorCode"></param>
+        /// <param name="pMessageInfo"></param>
+        /// <param name="pUser"></param>
+        public void Ezviz_MsgCallback(IntPtr intptrSessionId, EzvizMeesageType iMsgType, uint iErrorCode, string pMessageInfo, string pUser)
+        {
+            string strTag = "";
+            Enum_SDKEventType videoEvType = Enum_SDKEventType.Unrecognized;
+            switch (iMsgType)
+            {
+                case EzvizMeesageType.INS_PLAY_EXCEPTION:
+                    if (iErrorCode == 2012)
+                    {
+                        //密码错误 ，自己测试验证，非官方确认
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.UserAccessError);
+                    }
+                    else
+                    {
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+                    }
+                    
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_RECONNECT:
+                    VideoPlayState = Enum_VideoPlayState.InPlayState;
+
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_RECONNECT_EXCEPTION:
+
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_START:
+                    VideoPlayState = Enum_VideoPlayState.InPlayState;
+                    CurrentVideoInfo.NetworkState = 1;          //置为在线
+                    VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_STOP:
+                    VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+                    VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_ARCHIVE_END:
+                    //VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+
+                    break;
+
+                case EzvizMeesageType.INS_VOICETALK_START:
+
+                    break;
+
+                case EzvizMeesageType.INS_VOICETALK_STOP:
+
+                    break;
+
+                case EzvizMeesageType.INS_VOICETALK_EXCEPTION:
+
+                    break;
+
+                case EzvizMeesageType.INS_PTZ_EXCEPTION:
+
+                    break;
+
+                case EzvizMeesageType.INS_RECORD_FILE:
+
+                    break;
+
+                case EzvizMeesageType.INS_RECORD_SEARCH_END:
+
+                    break;
+
+                case EzvizMeesageType.INS_RECORD_SEARCH_FAILED:
+
+                    break;
+
+                case EzvizMeesageType.INS_DEFENSE_SUCCESS:
+
+                    break;
+
+                case EzvizMeesageType.INS_DEFENSE_FAILED:
+
+                    break;
+
+                case EzvizMeesageType.INS_PLAY_ARCHIVE_EXCEPTION:
+
+                    break;
+
+                case EzvizMeesageType.INS_PTZCTRL_SUCCESS:
+
+                    break;
+
+                case EzvizMeesageType.INS_PTZCTRL_FAILED:
+
+                    break;
+            }
+            if (videoEvType == Enum_SDKEventType.Unrecognized)
+            {
+                strTag = strTag = iMsgType.ToString();
+            }
+            SDKEventCallBack(videoEvType, strTag);
+        }
+
         /// <summary>
         /// 萤石数据回调
         /// </summary>
@@ -1017,20 +1129,12 @@ namespace VideoPlayControl
         /// <param name="pData"></param>
         /// <param name="iLen"></param>
         /// <param name="pUser"></param>
-        public static void Ezviz_DataCallBackEvent(DataType enType, IntPtr pData, int iLen, IntPtr pUser)
+        public void Ezviz_DataCallBackEvent(DataType enType, IntPtr pData, int iLen, IntPtr pUser)
         {
             byte[] managedArray = new byte[iLen];
             Marshal.Copy(pData, managedArray, 0, iLen);
             string strUser = Marshal.PtrToStringAnsi(pUser);
-            if (Ezviz_TempVideoRecord.ContainsKey(strUser))
-            {
-                Ezviz_TempVideoRecord[strUser].AddRange(managedArray);
-            }
-            else
-            {
-                Ezviz_TempVideoRecord[strUser] = new List<byte>();
-                Ezviz_TempVideoRecord[strUser].AddRange(managedArray);
-            }
+            lstb.AddRange(managedArray);
         }
 
         /// <summary>
@@ -1040,18 +1144,15 @@ namespace VideoPlayControl
         {
             SDK_EzvizSDK.OpenSDK_FreeSession(intptrSessionID.ToString());
             SDK_EzvizSDK.OpenSDK_StopRealPlayEx(intptrSessionID);
+            Ezviz_gchMsgBack.Free();
             if (CurrentVideoPlaySet.VideoRecordEnable)
             {
                 Ezviz_GenerateRecord();
+                Ezviz_gchVideoRecord.Free();
             }
             else
             {
-                //未开启录像 如果存在数据则清空数据
-                string Temp_strKey = CurrentVideoInfo.DVSAddress + "_" + CurrentCameraInfo.Channel;
-                if (Ezviz_TempVideoRecord.ContainsKey(Temp_strKey))
-                {
-                    Ezviz_TempVideoRecord[Temp_strKey] = new List<byte>();
-                }
+                lstb = new List<byte>();
             }
             
         }
@@ -1062,7 +1163,7 @@ namespace VideoPlayControl
         /// <param name="strRecFilePath"></param>
         private void Ezviz_GenerateRecord(string strRecFilePath = "")
         {
-            if (Ezviz_TempVideoRecord.ContainsKey(CurrentVideoInfo.DVSAddress + "_" + CurrentCameraInfo.Channel) && Ezviz_TempVideoRecord[CurrentVideoInfo.DVSAddress + "_" + CurrentCameraInfo.Channel.ToString()].Count > 0)
+            if (lstb.Count > 0)
             {
                 if (string.IsNullOrEmpty(strRecFilePath))
                 {
@@ -1099,15 +1200,15 @@ namespace VideoPlayControl
                     sbRecFilePath.Append("_" + "91.mp4");                                                   //分类后缀及文件格式
                     strRecFilePath = sbRecFilePath.ToString();
                 }
-                byte[] Temp_b = Ezviz_TempVideoRecord[CurrentVideoInfo.DVSAddress + "_" + CurrentCameraInfo.Channel].ToArray();
+                byte[] Temp_b = lstb.ToArray();
                 using (FileStream f = File.OpenWrite(strRecFilePath))
                 {
                     f.Write(Temp_b, 0, Temp_b.Length);
                 }
-                Ezviz_TempVideoRecord[CurrentVideoInfo.DVSAddress + "_" + CurrentCameraInfo.Channel] = new List<byte>();
+                lstb = new List<byte>();
             }
         }
-
+        
         #endregion
 
         #endregion

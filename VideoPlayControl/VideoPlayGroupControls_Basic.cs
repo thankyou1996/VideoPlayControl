@@ -263,7 +263,9 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.UserAccessError:
                         sbDisplayInfo.Append("用户信息验证失败");
                         break;
-                    
+                    case Enum_VideoPlayEventType.VideoPlayException:
+                        sbDisplayInfo.Append("视频播放异常");
+                        break;
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;
@@ -372,10 +374,15 @@ namespace VideoPlayControl
         /// <param name="strDisplayInfo"></param>
         public void DisplayRecord(string strDisplayInfo)
         {
-            this.BeginInvoke(new EventHandler(delegate
+            if (!this.IsDisposed)
             {
-                tslblPrompt.Text = strDisplayInfo;
-            }));
+                //当前控件未被释放
+                this.BeginInvoke(new EventHandler(delegate
+                {
+                    tslblPrompt.Text = strDisplayInfo;
+                }));
+            }
+            
         }
 
         /// <summary>

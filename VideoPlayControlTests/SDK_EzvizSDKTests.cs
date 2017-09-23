@@ -14,9 +14,14 @@ using System.Threading;
 
 namespace VideoPlayControl.Tests
 {
+    
+
     [TestClass()]
     public class SDK_EzvizSDKTests
     {
+        #region 测试全局变量
+        DateTime timStartTime;
+        #endregion
         [TestMethod()]
         public void OpenSDK_HttpSendWithWaitTest()
         {
@@ -139,19 +144,30 @@ namespace VideoPlayControl.Tests
         {
             switch (MsgType)
             {
-                case EzvizMeesageType.INS_PLAY_START:
+                case EzvizMeesageType.INS_PLAY_EXCEPTION:
+                    int intErrorCode = 0;
+                    string strErrorDesc = "";
+                    //错误码
+                    intErrorCode = SDK_EzvizSDK.OpenSDK_GetLastErrorCode();
+                    IntPtr i = SDK_EzvizSDK.OpenSDK_GetLastErrorDesc();
+                    strErrorDesc = Marshal.PtrToStringAnsi(i);
+                    MessageBox.Show(intErrorCode + "_" + strErrorDesc);
 
                     break;
-                case EzvizMeesageType.INS_PLAY_EXCEPTION:
-
+                case EzvizMeesageType.INS_PLAY_START:
+                    DateTime tim = DateTime.Now;
+                    TimeSpan tims = tim - timStartTime;
+                    MessageBox.Show(tims.ToString());
                     break;
             }
-            //MessageBox.Show(MsgType.ToString());
+            MessageBox.Show(MsgType.ToString());
         }
 
         [TestMethod()]
         public void OpenSDK_StartRealPlayExTest()
         {
+            VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
+            VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             int intResult = 0;
             intResult = SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID);
             JsonRequestResult result = SDK_EzvizSDK.GetAccessToken();
@@ -161,27 +177,29 @@ namespace VideoPlayControl.Tests
             int intLenght = 0;
             PictureBox pic = new PictureBox();
             SDK_EzvizSDK.MsgHandler m = new SDK_EzvizSDK.MsgHandler(MsgHandler);
+            timStartTime = DateTime.Now;
             intResult = SDK_EzvizSDK.OpenSDK_AllocSessionEx(m, IntPtr.Zero, out intptrSession, out intLenght);
-            intResult = SDK_EzvizSDK.OpenSDK_SetVideoLevel(intptrSession, 1, 1);
+            //intResult = SDK_EzvizSDK.OpenSDK_SetVideoLevel(intptrSession, 1, 1);
             SDK_EzvizSDK.DataCallBack callback = new SDK_EzvizSDK.DataCallBack(DataCallBack);
-            IntPtr inptrUser = Marshal.StringToHGlobalAnsi("10086");
-            intResult = SDK_EzvizSDK.OpenSDK_SetDataCallBack(intptrSession, callback, inptrUser);
-            IntPtr ii = Marshal.StringToHGlobalAnsi("756217913");
-            intResult = SDK_EzvizSDK.OpenSDK_StartRealPlayEx(intptrSession, IntPtr.Zero, ii, 1, null);
-            int intErrorCode = 0;
-            string strErrorDesc = "";
-            if (intResult == -1)
-            {
-                //错误码
-                intErrorCode = SDK_EzvizSDK.OpenSDK_GetLastErrorCode();
-                IntPtr i = SDK_EzvizSDK.OpenSDK_GetLastErrorDesc();
-                strErrorDesc = Marshal.PtrToStringAnsi(i);
-            }
-            Thread.Sleep(3000);
+            //IntPtr inptrUser = Marshal.StringToHGlobalAnsi("10086");
+            //intResult = SDK_EzvizSDK.OpenSDK_SetDataCallBack(intptrSession, callback, inptrUser);
+            intResult = SDK_EzvizSDK.GetDevOnlineState("797085722", 1);
+            IntPtr ii = Marshal.StringToHGlobalAnsi("797085722");
+            intResult = SDK_EzvizSDK.OpenSDK_StartRealPlayEx(intptrSession, IntPtr.Zero, ii, 1, "CHZUVA");
+            //int intErrorCode = 0;
+            //string strErrorDesc = "";
+            //if (intResult == -1)
+            //{
+            //    //错误码
+            //    intErrorCode = SDK_EzvizSDK.OpenSDK_GetLastErrorCode();
+            //    IntPtr i = SDK_EzvizSDK.OpenSDK_GetLastErrorDesc();
+            //    strErrorDesc = Marshal.PtrToStringAnsi(i);
+            //}
+            Delay_Millisecond(10000);
             intResult = SDK_EzvizSDK.OpenSDK_StopRealPlayEx(intptrSession);
             intResult = SDK_EzvizSDK.OpenSDK_FreeSession(intptrSession);
             SDK_EzvizSDK.OpenSDK_FiniLib();
-            Assert.AreEqual("1", intErrorCode);
+            Assert.AreEqual("1", intResult);
         }
 
         [TestMethod()]
@@ -197,9 +215,9 @@ namespace VideoPlayControl.Tests
             int intResult = SDK_EzvizSDK.OpenSDK_AllocSession(m, IntPtr.Zero, ref intptrSession, ref intLenght, false, uint.MaxValue);
             strSession = Marshal.PtrToStringAnsi(intptrSession);
             intResult = SDK_EzvizSDK.OpenSDK_StartRealPlay(intptrSession, pic.Handle, "7e1c18bad66544408b38d1711552e320", ProgParameter.strEzviz_AccessToken, 0, null, ProgParameter.strEzviz__AppID, 0);
-            Thread.Sleep(5000);
+            Delay_Millisecond(10000); 
             intResult = SDK_EzvizSDK.OpenSDK_StopRealPlayEx(intptrSession);
-            Thread.Sleep(5000);
+            Delay_Millisecond(10000);
             intResult = SDK_EzvizSDK.OpenSDK_FreeSession(strSession);
             SDK_EzvizSDK.OpenSDK_FiniLib();
             Assert.AreEqual("1", strSession);
@@ -213,8 +231,12 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void OpenSDK_StartRealPlay_OldTest()
         {
+            VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
+            VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
+            
             SDK_EzvizSDK.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID);
             JsonRequestResult result = SDK_EzvizSDK.GetAccessToken();
+            timStartTime = DateTime.Now;
             string strSession;
             IntPtr intptrSession = IntPtr.Zero;
             int intLenght = 0;
@@ -222,9 +244,9 @@ namespace VideoPlayControl.Tests
             SDK_EzvizSDK.MsgHandler m = new SDK_EzvizSDK.MsgHandler(MsgHandler);
             int intResult = SDK_EzvizSDK.OpenSDK_AllocSession(m, IntPtr.Zero, ref intptrSession, ref intLenght, false, uint.MaxValue);
             strSession = Marshal.PtrToStringAnsi(intptrSession);
-            intResult = SDK_EzvizSDK.OpenSDK_StartRealPlay_Old(intptrSession, pic.Handle, "6e1c18bad66544408b38d1711552e320", ProgParameter.strEzviz_AccessToken, 0, null, ProgParameter.strEzviz__AppID);
-            //Thread.Sleep(5000);
-            intResult = SDK_EzvizSDK.OpenSDK_StopRealPlayEx(intptrSession);
+            intResult = SDK_EzvizSDK.OpenSDK_StartRealPlay_Old(intptrSession, pic.Handle, "667ed52a9d834fdfa3692ba0a39b94a5", ProgParameter.strEzviz_AccessToken, 0, null, ProgParameter.strEzviz__AppID);
+            Delay_Millisecond(10000);
+            intResult = SDK_EzvizSDK.OpenSDK_StopRealPlay(intptrSession,0);
             //Thread.Sleep(5000);
             intResult = SDK_EzvizSDK.OpenSDK_FreeSession(strSession);
             SDK_EzvizSDK.OpenSDK_FiniLib();
@@ -269,6 +291,17 @@ namespace VideoPlayControl.Tests
             intResult = SDK_EzvizSDK.OpenSDK_FreeSession(intptrSession);
             intResult = SDK_EzvizSDK.OpenSDK_FiniLib();
             return intResult;
+        }
+
+
+        public static void Delay_Millisecond(int Millisecond)
+        {
+            DateTime current = DateTime.Now;
+            while (current.AddMilliseconds(Millisecond) > DateTime.Now)
+            {
+                Application.DoEvents();
+            }
+            return;
         }
 
         [TestMethod()]
