@@ -76,5 +76,11 @@ namespace VideoPlayControl_UseDemo
         {
             label1.Text = "Enter";
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Frn_VideoPlayGroupControl_Basic f = new Frn_VideoPlayGroupControl_Basic();
+            f.Show();
+        }
     }
 }

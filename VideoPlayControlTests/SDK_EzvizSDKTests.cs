@@ -140,7 +140,7 @@ namespace VideoPlayControl.Tests
 
 
 
-        public void MsgHandler(IntPtr SID, EzvizMeesageType MsgType, uint Error, string Info, string strUser)
+        public void MsgHandler(IntPtr SID, EzvizMeesageType MsgType, uint Error, string Info, IntPtr iUser)
         {
             switch (MsgType)
             {

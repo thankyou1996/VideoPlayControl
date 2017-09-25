@@ -96,7 +96,7 @@ namespace VideoPlayControl
         /// <param name="Info"></param>
         /// <param name="pUser"></param>
         /// <returns></returns>
-        public delegate void MsgHandler(IntPtr SID, EzvizMeesageType MsgType, uint Error, string Info, string strUser);
+        public delegate void MsgHandler(IntPtr SID, EzvizMeesageType MsgType, uint Error, string Info, IntPtr iUser);
 
         /// <summary>
         /// 销毁SDK 操作句柄

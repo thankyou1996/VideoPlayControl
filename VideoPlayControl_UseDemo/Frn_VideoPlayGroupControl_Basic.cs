@@ -23,8 +23,9 @@ namespace VideoPlayControl_UseDemo
             VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
             VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             videoPlayGroupControls_Basic1.bolAutoPlayVideo = true;
-            //videoPlayGroupControls_Basic1.videoPlaySet.VideoRecordEnable = true;
+            videoPlayGroupControls_Basic1.videoPlaySet.VideoRecordEnable = true;
             videoPlayGroupControls_Basic1.videoPlaySet.VideoMonitorEnable = true;
+            videoPlayGroupControls_Basic1.videoPlaySet.VideoRecordFilePath = "C:\\SHIKE_Video\\4603\\20170925094530";
             //videoPlayGroupControls_Basic1.bolDisplaySDKEvent = true;
             //videoPlayGroupControls_Basic1.bolDisPlaySDKState = true;
             //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
@@ -55,15 +56,16 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSNumber = "000101";
             videoInfo.DVSName = "000101视频";
             //videoInfo.DVSAddress = "X5014851";
-            //videoInfo.DVSAddress = "756217914";
-            videoInfo.DVSAddress = "532446995";
+            videoInfo.DVSAddress = "720274352";
+            //videoInfo.DVSAddress = "532446995";
+            //videoInfo.DVSAddress = "797085722";
             videoInfo.DVSConnectPort = 9101;
             videoInfo.UserName = "admin";
-            videoInfo.Password = "";
+            videoInfo.Password = "CHZUVE";
             videoInfo.PreviewPwd = "";
             videoInfo.DVSType = "SK8504YS";
             videoInfo.Cameras = new Dictionary<int, CameraInfo>();
-            videoInfo.DVSChannelNum = 9;
+            videoInfo.DVSChannelNum = 16;
             camerasInfo = new CameraInfo();
             for (int i = 1; i < videoInfo.DVSChannelNum; i++)
             {
