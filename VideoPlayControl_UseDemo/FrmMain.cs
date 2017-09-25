@@ -47,8 +47,8 @@ namespace VideoPlayControl_UseDemo
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
-            VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
+            //VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
+            //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             SDKState.SDKStateChangeEvent += SDKStateChange;
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
@@ -863,7 +863,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnEzvizTestData_Click(object sender, EventArgs e)
         {
-            Ezviz_TestData1();
+            Ezviz_TestData();
             cmbVideoList.SelectedIndex = 0;
             //bolTestMode = true;
             //timer1.Enabled = true;

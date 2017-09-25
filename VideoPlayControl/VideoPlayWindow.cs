@@ -1207,10 +1207,11 @@ namespace VideoPlayControl
                     }
                     StringBuilder sbRecFilePath = new StringBuilder();
                     sbRecFilePath.Append(strRecFilePath);
+                    //路径格式 [传入的路径/摄像机编号_通道号（BCD 向左补足2位)_时间(yyyyMMddHHmmss)_13(固定码 萤石13).mp4]
                     sbRecFilePath.Append("\\" + CurrentVideoInfo.DVSNumber);                                //视频设备编号
                     sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));       //通道号
                     sbRecFilePath.Append("_" + DateTime.Now.ToString("yyyyMMddHHmmss"));                    //时间
-                    sbRecFilePath.Append("_" + "91.mp4");                                                   //分类后缀及文件格式
+                    sbRecFilePath.Append("_" + "13.mp4");                                                   //分类后缀及文件格式
                     strRecFilePath = sbRecFilePath.ToString();
                 }
                 byte[] Temp_b = lstb.ToArray();
@@ -1385,5 +1386,4 @@ namespace VideoPlayControl
         #endregion
 
     }
-
 }
