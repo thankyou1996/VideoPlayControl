@@ -44,6 +44,10 @@ namespace VideoPlayControl
         /// 默认按钮高度 30
         /// </summary>
         int intbtnHeight = 30;
+
+        public Color clrDefaultColor = Control.DefaultBackColor;
+
+        public Color clrSelectedColor = Color.Red;
         #endregion
 
         #region 事件委托
@@ -107,7 +111,7 @@ namespace VideoPlayControl
         {
             foreach (Button btn in lstbtns)
             {
-                btn.BackColor = Control.DefaultBackColor;
+                btn.BackColor = clrDefaultColor;
             }
         }
         #endregion
