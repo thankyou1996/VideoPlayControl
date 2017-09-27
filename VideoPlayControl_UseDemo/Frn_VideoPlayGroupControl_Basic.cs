@@ -175,7 +175,7 @@ namespace VideoPlayControl_UseDemo
             string strVideoID = txtVideoID.Text;
             int strCameraID = Convert.ToInt32(txtCameraID.Text);
             videoPlayGroupControls_Basic1.VideoPlay(strVideoID, strCameraID);
-            videoPlayGroupControls_Basic1.bolAutoPlayVideo = true;
+            videoPlayGroupControls_Basic1.bolAutoPlayVideo = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -190,6 +190,116 @@ namespace VideoPlayControl_UseDemo
         {
             SDKState.ColundSee_SDKRelease();
             SDKState.CloundSee_SDKInit();
+        }
+
+        private void btnTestData1_Click(object sender, EventArgs e)
+        {
+            TestData1();
+        }
+        /// <summary>
+        /// 萤石数据
+        /// </summary>
+        public void TestData1()
+        {
+            Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
+            VideoInfo videoInfo = new VideoInfo();
+            CameraInfo camerasInfo = new CameraInfo();
+            videoInfo.VideoType = Enum_VideoType.Ezviz;
+            videoInfo.DVSNumber = "000101";
+            videoInfo.DVSName = "000101视频";
+            videoInfo.DVSAddress = "756217914";
+            videoInfo.DVSConnectPort = 9101;
+            videoInfo.UserName = "admin";
+            videoInfo.Password = "";
+            videoInfo.PreviewPwd = "";
+            videoInfo.DVSType = "SK85016YS";
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            videoInfo.DVSChannelNum = 16;
+            camerasInfo = new CameraInfo();
+            for (int i = 1; i < videoInfo.DVSChannelNum; i++)
+            {
+                camerasInfo = new CameraInfo();
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "摄像机" + (i + 1);
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            videoPlayGroupControls_Basic1.Init_VideoInfoSet(dicVideoInfos);
+            videoPlayGroupControls_Basic1.VideoPlay("000101", 5);
+        }
+
+        private void btnTestData2_Click(object sender, EventArgs e)
+        {
+            TestData2();
+        }
+
+        /// <summary>
+        /// 云视通数据
+        /// </summary>
+        public void TestData2()
+        {
+            Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
+            VideoInfo videoInfo = new VideoInfo();
+            CameraInfo camerasInfo = new CameraInfo();
+            videoInfo.VideoType = Enum_VideoType.CloundSee;
+            videoInfo.DVSNumber = "000201";
+            videoInfo.DVSName = "000201视频";
+            videoInfo.DVSAddress = "X5014851";
+            videoInfo.DVSConnectPort = 9101;
+            videoInfo.UserName = "admin";
+            videoInfo.Password = "";
+            videoInfo.PreviewPwd = "";
+            videoInfo.DVSType = "SK8516ZW";
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            videoInfo.DVSChannelNum = 16;
+            camerasInfo = new CameraInfo();
+            for (int i = 1; i < videoInfo.DVSChannelNum; i++)
+            {
+                camerasInfo = new CameraInfo();
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "摄像机" + (i + 1);
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            videoPlayGroupControls_Basic1.Init_VideoInfoSet(dicVideoInfos);
+            videoPlayGroupControls_Basic1.VideoPlay("000201", 2);
+        }
+
+        private void btnTestData3_Click(object sender, EventArgs e)
+        {
+            TestData3();
+        }
+
+        /// <summary>
+        /// 萤石数据
+        /// </summary>
+        public void TestData3()
+        {
+            Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
+            VideoInfo videoInfo = new VideoInfo();
+            CameraInfo camerasInfo = new CameraInfo();
+            videoInfo.VideoType = Enum_VideoType.Ezviz;
+            videoInfo.DVSNumber = "000301";
+            videoInfo.DVSName = "000301视频";
+            videoInfo.DVSAddress = "720274352";
+            videoInfo.DVSConnectPort = 9101;
+            videoInfo.UserName = "admin";
+            videoInfo.Password = "";
+            videoInfo.PreviewPwd = "";
+            videoInfo.DVSType = "SK85016YS";
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            videoInfo.DVSChannelNum = 16;
+            camerasInfo = new CameraInfo();
+            for (int i = 1; i < videoInfo.DVSChannelNum; i++)
+            {
+                camerasInfo = new CameraInfo();
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "摄像机" + (i + 1);
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            videoPlayGroupControls_Basic1.Init_VideoInfoSet(dicVideoInfos);
+            videoPlayGroupControls_Basic1.VideoPlay("000301", 1);
         }
     }
 }
