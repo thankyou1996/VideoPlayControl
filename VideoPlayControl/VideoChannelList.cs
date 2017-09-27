@@ -45,6 +45,8 @@ namespace VideoPlayControl
         /// </summary>
         public int intbtnHeight = 30;
 
+        public int intColumn = 2;
+
         public Color clrDefaultColor = Control.DefaultBackColor;
 
         public Color clrSelectedColor = Color.Red;
@@ -74,7 +76,7 @@ namespace VideoPlayControl
         public VideoChannelList()
         {
             InitializeComponent();
-            intbtnWidth = (this.pnlMain.Width - 1) / 2;
+            //intbtnWidth = (this.pnlMain.Width - 1) / 2;
             lstbtns = new List<Button>();
         }
 
@@ -168,7 +170,7 @@ namespace VideoPlayControl
                     lstbtns.Add(btn);
                     ttip.SetToolTip(btn, kv.Value.CameraName);
                     intCol++;
-                    if (intCol >= 2)
+                    if (intCol >= intColumn)
                     {
                         intCol = 0;
                         intRow++;
@@ -180,8 +182,8 @@ namespace VideoPlayControl
 
         public void CalculationToButonWidth()
         {
-            int Temp_intRowCount = CurrentVideoInfo.Cameras.Count / 2;
-            if (CurrentVideoInfo.Cameras.Count % 2 != 0)
+            int Temp_intRowCount = CurrentVideoInfo.Cameras.Count / intColumn;
+            if (CurrentVideoInfo.Cameras.Count % intColumn != 0)
             {   
                 //存在余数 
                 Temp_intRowCount++;
@@ -189,11 +191,11 @@ namespace VideoPlayControl
             if ((Temp_intRowCount * intbtnHeight) > pnlMain.Height)
             {
                 //预留滚动条
-                intbtnWidth = (this.pnlMain.Width - 21) / 2;
+                intbtnWidth = (this.pnlMain.Width - 21) / intColumn;
             }
             else
             {
-                intbtnWidth = (this.pnlMain.Width - 1) / 2;
+                intbtnWidth = (this.pnlMain.Width - 1) / intColumn;
             }
             
         }

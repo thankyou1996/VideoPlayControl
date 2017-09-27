@@ -40,6 +40,7 @@ namespace VideoPlayControl_UseDemo
                 camerasInfo.CameraName = "视频播放11" + i;
                 videoInfo.Cameras[i] = camerasInfo;
             }
+            videoChannelList1.intColumn = 4;
             videoChannelList1.Init_SetVideoInfo(videoInfo);
         }
 
