@@ -159,7 +159,8 @@ namespace VideoPlayControl
                     btn.Name = "btn" + kv.Value.Channel.ToString();
                     btn.Location = new System.Drawing.Point(intbtnStartX + (intbtnWidth * intCol), intbtnStartY + (intbtnHeight * intRow));
                     btn.Size = new System.Drawing.Size(intbtnWidth, intbtnHeight);
-                    btn.Text = "通道" + kv.Value.Channel.ToString();
+                    //btn.Text = "通道" + kv.Value.Channel.ToString();
+                    btn.Text = kv.Value.CameraName.ToString();
                     btn.BackColor = Control.DefaultBackColor;
                     pnlMain.Controls.Add(btn);
                     btn.Tag = kv.Value;

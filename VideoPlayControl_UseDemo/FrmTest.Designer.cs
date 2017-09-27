@@ -90,7 +90,7 @@
             this.videoChannelList1.ClrBackColor = System.Drawing.SystemColors.Highlight;
             this.videoChannelList1.Location = new System.Drawing.Point(31, 12);
             this.videoChannelList1.Name = "videoChannelList1";
-            this.videoChannelList1.Size = new System.Drawing.Size(209, 101);
+            this.videoChannelList1.Size = new System.Drawing.Size(129, 101);
             this.videoChannelList1.TabIndex = 6;
             // 
             // FrmTest
