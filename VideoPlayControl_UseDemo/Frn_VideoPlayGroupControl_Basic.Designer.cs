@@ -29,15 +29,18 @@
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.videoPlayGroupControls_Basic1 = new VideoPlayControl.VideoPlayGroupControls_Basic();
             this.pnlRight = new System.Windows.Forms.Panel();
+            this.btnSDKReInit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txtCameraID = new System.Windows.Forms.TextBox();
             this.txtVideoID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVideoPlay = new System.Windows.Forms.Button();
-            this.videoPlayGroupControls_Basic1 = new VideoPlayControl.VideoPlayGroupControls_Basic();
-            this.btnSDKReInit = new System.Windows.Forms.Button();
+            this.btnTestData1 = new System.Windows.Forms.Button();
+            this.btnTestData2 = new System.Windows.Forms.Button();
+            this.btnTestData3 = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.SuspendLayout();
@@ -51,8 +54,19 @@
             this.pnlMain.Size = new System.Drawing.Size(706, 472);
             this.pnlMain.TabIndex = 1;
             // 
+            // videoPlayGroupControls_Basic1
+            // 
+            this.videoPlayGroupControls_Basic1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPlayGroupControls_Basic1.Location = new System.Drawing.Point(0, 0);
+            this.videoPlayGroupControls_Basic1.Name = "videoPlayGroupControls_Basic1";
+            this.videoPlayGroupControls_Basic1.Size = new System.Drawing.Size(706, 472);
+            this.videoPlayGroupControls_Basic1.TabIndex = 0;
+            // 
             // pnlRight
             // 
+            this.pnlRight.Controls.Add(this.btnTestData3);
+            this.pnlRight.Controls.Add(this.btnTestData2);
+            this.pnlRight.Controls.Add(this.btnTestData1);
             this.pnlRight.Controls.Add(this.btnSDKReInit);
             this.pnlRight.Controls.Add(this.button1);
             this.pnlRight.Controls.Add(this.txtCameraID);
@@ -65,6 +79,16 @@
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Size = new System.Drawing.Size(134, 472);
             this.pnlRight.TabIndex = 2;
+            // 
+            // btnSDKReInit
+            // 
+            this.btnSDKReInit.Location = new System.Drawing.Point(30, 137);
+            this.btnSDKReInit.Name = "btnSDKReInit";
+            this.btnSDKReInit.Size = new System.Drawing.Size(92, 23);
+            this.btnSDKReInit.TabIndex = 3;
+            this.btnSDKReInit.Text = "SDKReInit";
+            this.btnSDKReInit.UseVisualStyleBackColor = true;
+            this.btnSDKReInit.Click += new System.EventHandler(this.btnSDKReInit_Click);
             // 
             // button1
             // 
@@ -120,23 +144,35 @@
             this.btnVideoPlay.UseVisualStyleBackColor = true;
             this.btnVideoPlay.Click += new System.EventHandler(this.btnVideoPlay_Click);
             // 
-            // videoPlayGroupControls_Basic1
+            // btnTestData1
             // 
-            this.videoPlayGroupControls_Basic1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoPlayGroupControls_Basic1.Location = new System.Drawing.Point(0, 0);
-            this.videoPlayGroupControls_Basic1.Name = "videoPlayGroupControls_Basic1";
-            this.videoPlayGroupControls_Basic1.Size = new System.Drawing.Size(706, 472);
-            this.videoPlayGroupControls_Basic1.TabIndex = 0;
+            this.btnTestData1.Location = new System.Drawing.Point(47, 166);
+            this.btnTestData1.Name = "btnTestData1";
+            this.btnTestData1.Size = new System.Drawing.Size(75, 23);
+            this.btnTestData1.TabIndex = 4;
+            this.btnTestData1.Text = "测试数据1";
+            this.btnTestData1.UseVisualStyleBackColor = true;
+            this.btnTestData1.Click += new System.EventHandler(this.btnTestData1_Click);
             // 
-            // btnSDKReInit
+            // btnTestData2
             // 
-            this.btnSDKReInit.Location = new System.Drawing.Point(30, 168);
-            this.btnSDKReInit.Name = "btnSDKReInit";
-            this.btnSDKReInit.Size = new System.Drawing.Size(92, 23);
-            this.btnSDKReInit.TabIndex = 3;
-            this.btnSDKReInit.Text = "SDKReInit";
-            this.btnSDKReInit.UseVisualStyleBackColor = true;
-            this.btnSDKReInit.Click += new System.EventHandler(this.btnSDKReInit_Click);
+            this.btnTestData2.Location = new System.Drawing.Point(47, 195);
+            this.btnTestData2.Name = "btnTestData2";
+            this.btnTestData2.Size = new System.Drawing.Size(75, 23);
+            this.btnTestData2.TabIndex = 4;
+            this.btnTestData2.Text = "测试数据2";
+            this.btnTestData2.UseVisualStyleBackColor = true;
+            this.btnTestData2.Click += new System.EventHandler(this.btnTestData2_Click);
+            // 
+            // btnTestData3
+            // 
+            this.btnTestData3.Location = new System.Drawing.Point(47, 224);
+            this.btnTestData3.Name = "btnTestData3";
+            this.btnTestData3.Size = new System.Drawing.Size(75, 23);
+            this.btnTestData3.TabIndex = 4;
+            this.btnTestData3.Text = "测试数据3";
+            this.btnTestData3.UseVisualStyleBackColor = true;
+            this.btnTestData3.Click += new System.EventHandler(this.btnTestData3_Click);
             // 
             // Frn_VideoPlayGroupControl_Basic
             // 
@@ -169,5 +205,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSDKReInit;
+        private System.Windows.Forms.Button btnTestData3;
+        private System.Windows.Forms.Button btnTestData2;
+        private System.Windows.Forms.Button btnTestData1;
     }
 }
