@@ -38,16 +38,18 @@ namespace VideoPlayControl
         /// <summary>
         /// 默认按钮宽度 60
         /// </summary>
-        int intbtnWidth = 60;
+        public int intbtnWidth = 60;
 
         /// <summary>
         /// 默认按钮高度 30
         /// </summary>
-        int intbtnHeight = 30;
+        public int intbtnHeight = 30;
 
         public Color clrDefaultColor = Control.DefaultBackColor;
 
         public Color clrSelectedColor = Color.Red;
+
+        private Color clrBackColor = SystemColors.ControlDark;
         #endregion
 
         #region 事件委托
@@ -114,6 +116,23 @@ namespace VideoPlayControl
                 btn.BackColor = clrDefaultColor;
             }
         }
+
+        /// <summary>
+        /// 获取选中按钮数量
+        /// </summary>
+        /// <returns></returns>
+        public int GetSelectedButtonCount()
+        {
+            int intResult = 0;
+            foreach (Button btn in lstbtns)
+            {
+                if (btn.BackColor == clrSelectedColor)
+                {
+                    intResult++;
+                }
+            }
+            return intResult;
+        }
         #endregion
 
         /// <summary>
@@ -123,7 +142,7 @@ namespace VideoPlayControl
         {
             int intCol = 0;
             int intRow = 0;
-            intbtnWidth = (this.pnlMain.Width - 1) / 2;
+            CalculationToButonWidth();
             for (int i = lstbtns.Count - 1; i >= 0; i--)
             {
                 lstbtns[i].Dispose();
@@ -156,7 +175,27 @@ namespace VideoPlayControl
                 }
             }
         }
-        
+
+
+        public void CalculationToButonWidth()
+        {
+            int Temp_intRowCount = CurrentVideoInfo.Cameras.Count / 2;
+            if (CurrentVideoInfo.Cameras.Count % 2 != 0)
+            {   
+                //存在余数 
+                Temp_intRowCount++;
+            }
+            if ((Temp_intRowCount * intbtnHeight) > pnlMain.Height)
+            {
+                //预留滚动条
+                intbtnWidth = (this.pnlMain.Width - 21) / 2;
+            }
+            else
+            {
+                intbtnWidth = (this.pnlMain.Width - 1) / 2;
+            }
+            
+        }
 
         /// <summary>
         /// 按钮事件
@@ -169,5 +208,19 @@ namespace VideoPlayControl
             CameraInfo camerInfo = (CameraInfo)btn.Tag;
             ButtonChannel_Click(sender, camerInfo);
         }
+
+        #region 自动以属性
+        [Description("主体背景颜色"), Category("自定义属性")]
+        public Color ClrBackColor
+        {
+            get { return clrBackColor; }
+            set
+            {
+                clrBackColor = value;
+                pnlMain.BackColor = clrBackColor;
+            }
+        }
+
+        #endregion
     }
 }
