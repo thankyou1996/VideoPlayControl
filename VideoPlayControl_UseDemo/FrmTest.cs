@@ -18,6 +18,7 @@ namespace VideoPlayControl_UseDemo
         private void FrmTest_Load(object sender, EventArgs e)
         {
             videoChannelList1.ButtonChannel_ClickEvent += T;
+            videoChannelList1.ClrChannelButtonSelectedColor = Color.Green;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,7 +41,8 @@ namespace VideoPlayControl_UseDemo
                 camerasInfo.CameraName = "视频播放11" + i;
                 videoInfo.Cameras[i] = camerasInfo;
             }
-            videoChannelList1.intColumn = 4;
+            videoChannelList1.ChannelButtonColumn = 4;
+            videoChannelList1.bolAutoSetBtnSize = true;
             videoChannelList1.Init_SetVideoInfo(videoInfo);
         }
 
@@ -49,7 +51,7 @@ namespace VideoPlayControl_UseDemo
         {
             videoChannelList1.ButtonListBackColorReset();
             Button btn = (Button)sender;
-            btn.BackColor = Color.Red;
+            btn.BackColor = SystemColors.ActiveCaption;
             MessageBox.Show(cameraInfo.CameraName);
         }
 

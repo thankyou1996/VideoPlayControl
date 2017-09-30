@@ -166,7 +166,22 @@ namespace VideoPlayControl
         /// <param name="intptrSessinoID"></param>
         /// <returns></returns>
         [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
-        public static extern int OpenSDK_StopRealPlayEx(IntPtr intptrSessinoID);
+        public static extern int OpenSDK_StopRealPlayEx(IntPtr intptrSessionID);
+
+        /// <summary>
+        /// 云台控制（异步接口）
+        /// </summary>
+        /// <param name="intptrSessionID"></param>
+        /// <param name="intptrDevSerial"></param>
+        /// <param name="intChannel"></param>
+        /// <param name="enCommand"></param>
+        /// <param name="enAction"></param>
+        /// <param name="iSpeed"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
+        public static extern int OpenSDK_PTZCtrlEx(IntPtr intptrSessionID, IntPtr intptrDevSerial, int intChannel, PTZCommand enCommand, PTZAction enAction, int iSpeed);
+
+
 
 
         /// <summary>
@@ -255,166 +270,196 @@ namespace VideoPlayControl
             return intResult;
         }
         #endregion
+
+        /// <summary>
+        /// Token 请求结果
+        /// </summary>
+        public enum JsonRequestResult
+        {
+            /// <summary>
+            /// 请求成功
+            /// </summary>
+            RequestSuccess = 200,
+
+            /// <summary>
+            /// 请求异常
+            /// </summary>
+            RequestException = -1,
+
+            /// <summary>
+            /// 参数错误
+            /// </summary>
+            ParameterError = 10001,
+
+            /// <summary>
+            /// AppKey 异常 (AppKey冻结)
+            /// </summary>
+            AppKeyException = 10005,
+
+            /// <summary>
+            /// AppKey 不存在
+            /// </summary>
+            AppKeyNotExist = 10017,
+
+            /// <summary>
+            /// 参数不匹配
+            /// </summary>
+            ParameterMismatch = 10030,
+
+            /// <summary>
+            /// 接口异常
+            /// </summary>
+            InterFaceException = 49999
+
+        }
+
+        /// <summary>
+        /// 消息类型枚举
+        /// </summary>
+        public enum EzvizMeesageType
+        {
+            /// <summary>
+            /// 播放异常，通常是设备断线或网络异常造成
+            /// </summary>
+            INS_PLAY_EXCEPTION,
+
+            /// <summary>
+            /// 重连，实时流播放时内部会自动重连
+            /// </summary>
+            INS_PLAY_RECONNECT,
+
+            /// <summary>
+            /// 重连异常
+            /// </summary>
+            INS_PLAY_RECONNECT_EXCEPTION,
+
+            /// <summary>
+            /// 播放开始
+            /// </summary>
+            INS_PLAY_START,
+
+            /// <summary>
+            /// 播放终止
+            /// </summary>
+            INS_PLAY_STOP,
+
+            /// <summary>
+            /// 播放结束，回放结束时会有此消息
+            /// </summary>
+            INS_PLAY_ARCHIVE_END,
+
+            /// <summary>
+            /// 语音对讲开始
+            /// </summary>
+            INS_VOICETALK_START,
+
+            /// <summary>
+            /// 语音对讲停止
+            /// </summary>
+            INS_VOICETALK_STOP,
+
+            /// <summary>
+            /// 语音对讲异常
+            /// </summary>
+            INS_VOICETALK_EXCEPTION,
+
+            /// <summary>
+            /// 云台控制异常
+            /// </summary>
+            INS_PTZ_EXCEPTION,
+
+            /// <summary>
+            /// 查询的录像文件(录像搜索结果)
+            /// </summary>
+            INS_RECORD_FILE,
+
+            /// <summary>
+            /// 录像查询结束（暂不使用）
+            /// </summary>
+            INS_RECORD_SEARCH_END,
+
+            /// <summary>
+            /// 录像查询失败
+            /// </summary>
+            INS_RECORD_SEARCH_FAILED,
+
+            /// <summary>
+            /// 布防成功
+            /// </summary>
+            INS_DEFENSE_SUCCESS,
+
+            /// <summary>
+            /// 布防失败
+            /// </summary>
+            INS_DEFENSE_FAILED,
+
+            /// <summary>
+            /// 回放异常结束，可能是接收数据超时
+            /// </summary>
+            INS_PLAY_ARCHIVE_EXCEPTION,
+
+            /// <summary>
+            /// 云台控制命令发送成功
+            /// </summary>
+            INS_PTZCTRL_SUCCESS,
+
+            /// <summary>
+            /// 云台控制失败
+            /// </summary>
+            INS_PTZCTRL_FAILED
+        }
+
+        /// <summary>
+        /// 音视频流数据类型
+        /// </summary>
+        public enum DataType
+        {
+            /// <summary>
+            /// 流头
+            /// </summary>
+            NET_DVR_SYAHEAD,
+
+            /// <summary>
+            /// 流数据
+            /// </summary>
+            NET_DVR_STREAMADATA,
+
+            /// <summary>
+            /// 结束标记
+            /// </summary>
+            NET_DVR_RECV_END,
+        }
+
+        /// <summary>
+        /// 云台动作
+        /// </summary>
+        public enum PTZAction
+        {
+            START,
+            STOP
+        }
+
+        public enum PTZCommand
+        {
+            UP,
+            DOWN,
+            LEFT,
+            RIGHT,
+            UPLEFT,
+            DOWNLEFT,
+            UPRIGHT,
+            DOWNRIGHT,
+            ZOOMMIN,
+            ZOOMOUT,
+            FOCUSNEAR,
+            FOCUSFAR,
+            IRISSSTARTUP,
+            IRISSTOPDOWN,
+            LIGHT,
+            WIPER,
+            AUTO
+        }
     }
 
-    /// <summary>
-    /// Token 请求结果
-    /// </summary>
-    public enum JsonRequestResult
-    {
-        /// <summary>
-        /// 请求成功
-        /// </summary>
-        RequestSuccess = 200,
-
-        /// <summary>
-        /// 请求异常
-        /// </summary>
-        RequestException = -1,
-
-        /// <summary>
-        /// 参数错误
-        /// </summary>
-        ParameterError = 10001,
-
-        /// <summary>
-        /// AppKey 异常 (AppKey冻结)
-        /// </summary>
-        AppKeyException = 10005,
-
-        /// <summary>
-        /// AppKey 不存在
-        /// </summary>
-        AppKeyNotExist = 10017,
-
-        /// <summary>
-        /// 参数不匹配
-        /// </summary>
-        ParameterMismatch = 10030,
-
-        /// <summary>
-        /// 接口异常
-        /// </summary>
-        InterFaceException = 49999
-
-    }
-
-    /// <summary>
-    /// 消息类型枚举
-    /// </summary>
-    public enum EzvizMeesageType
-    {
-        /// <summary>
-        /// 播放异常，通常是设备断线或网络异常造成
-        /// </summary>
-        INS_PLAY_EXCEPTION,
-
-        /// <summary>
-        /// 重连，实时流播放时内部会自动重连
-        /// </summary>
-        INS_PLAY_RECONNECT,
-
-        /// <summary>
-        /// 重连异常
-        /// </summary>
-        INS_PLAY_RECONNECT_EXCEPTION,
-
-        /// <summary>
-        /// 播放开始
-        /// </summary>
-        INS_PLAY_START,
-
-        /// <summary>
-        /// 播放终止
-        /// </summary>
-        INS_PLAY_STOP,
-
-        /// <summary>
-        /// 播放结束，回放结束时会有此消息
-        /// </summary>
-        INS_PLAY_ARCHIVE_END,
-
-        /// <summary>
-        /// 语音对讲开始
-        /// </summary>
-        INS_VOICETALK_START,
-
-        /// <summary>
-        /// 语音对讲停止
-        /// </summary>
-        INS_VOICETALK_STOP,
-
-        /// <summary>
-        /// 语音对讲异常
-        /// </summary>
-        INS_VOICETALK_EXCEPTION,
-
-        /// <summary>
-        /// 云台控制异常
-        /// </summary>
-        INS_PTZ_EXCEPTION,
-
-        /// <summary>
-        /// 查询的录像文件(录像搜索结果)
-        /// </summary>
-        INS_RECORD_FILE,
-
-        /// <summary>
-        /// 录像查询结束（暂不使用）
-        /// </summary>
-        INS_RECORD_SEARCH_END,
-
-        /// <summary>
-        /// 录像查询失败
-        /// </summary>
-        INS_RECORD_SEARCH_FAILED,
-
-        /// <summary>
-        /// 布防成功
-        /// </summary>
-        INS_DEFENSE_SUCCESS,
-
-        /// <summary>
-        /// 布防失败
-        /// </summary>
-        INS_DEFENSE_FAILED,
-
-        /// <summary>
-        /// 回放异常结束，可能是接收数据超时
-        /// </summary>
-        INS_PLAY_ARCHIVE_EXCEPTION,
-
-        /// <summary>
-        /// 云台控制命令发送成功
-        /// </summary>
-        INS_PTZCTRL_SUCCESS,
-
-        /// <summary>
-        /// 云台控制失败
-        /// </summary>
-        INS_PTZCTRL_FAILED
-    }
-
-    /// <summary>
-    /// 音视频流数据类型
-    /// </summary>
-    public enum DataType
-    {
-        /// <summary>
-        /// 流头
-        /// </summary>
-        NET_DVR_SYAHEAD,
-
-        /// <summary>
-        /// 流数据
-        /// </summary>
-        NET_DVR_STREAMADATA,
-
-        /// <summary>
-        /// 结束标记
-        /// </summary>
-        NET_DVR_RECV_END,
-    }
-
-
+    
 }

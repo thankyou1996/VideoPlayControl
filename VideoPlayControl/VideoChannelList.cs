@@ -35,25 +35,121 @@ namespace VideoPlayControl
         /// </summary>
         int intbtnStartY = 1;
 
+
+
+        
+
+       
+
+        
+
+        
+
+        
+        #endregion
+        #region 控件自定义属性
+        /// <summary>
+        /// Main背景颜色
+        /// </summary>
+        private Color clrBackColor = SystemColors.ControlDark;
+        [Description("主体背景颜色"), Category("自定义属性")]
+        public Color ClrBackColor
+        {
+            get { return clrBackColor; }
+            set
+            {
+                clrBackColor = value;
+                pnlMain.BackColor = clrBackColor;
+            }
+        }
+
+        /// <summary>
+        /// 通道按钮默认背景颜色
+        /// </summary>
+        private Color clrChannelButtonDefaultColor = Control.DefaultBackColor;
+        [Description("通道按钮选中背景颜色"), Category("自定义属性")]
+        public Color ClrChannelButtonDefaultColor
+        {
+            get { return clrChannelButtonDefaultColor; }
+            set
+            {
+                clrChannelButtonDefaultColor = value;
+            }
+        }
+        /// <summary>
+        /// 通道按选中背景颜色
+        /// </summary>
+        private Color clrChannelButonSelectedColor = Color.Red;
+        [Description("通道按钮选中背景颜色"), Category("自定义属性")]
+        public Color ClrChannelButtonSelectedColor
+        {
+            get { return clrChannelButonSelectedColor; }
+            set
+            {
+                clrChannelButonSelectedColor = value;
+            }
+        }
+
+        /// <summary>
+        /// 通道按钮列数
+        /// </summary>
+        private int intChannelButtonColumn = 2;
+        [Description("通道按钮列数"), Category("自定义属性")]
+        public int ChannelButtonColumn
+        {
+            get { return intChannelButtonColumn; }
+            set
+            {
+                intChannelButtonColumn = value;
+            }
+        }
+
+
         /// <summary>
         /// 默认按钮宽度 60
         /// </summary>
-        public int intbtnWidth = 60;
+        private int intChannelButtonWidth = 60;
+        [Description("通道按钮宽度"), Category("自定义属性")]
+        public int ChannelButtonWidth
+        {
+            get { return intChannelButtonWidth; }
+            set
+            {
+                intChannelButtonWidth = value;
+            }
+        }
+
 
         /// <summary>
         /// 默认按钮高度 30
         /// </summary>
-        public int intbtnHeight = 30;
+        private int intChannelButtonHeight = 30;
+        [Description("通道按钮高度"), Category("自定义属性")]
+        public int ChannelButtonHeight
+        {
+            get { return intChannelButtonHeight; }
+            set
+            {
+                intChannelButtonHeight = value;
+            }
+        }
 
-        public int intColumn = 2;
 
-        public Color clrDefaultColor = Control.DefaultBackColor;
 
-        public Color clrSelectedColor = Color.Red;
-
-        private Color clrBackColor = SystemColors.ControlDark;
+        /// <summary>
+        /// 自动适应按钮尺寸
+        /// </summary>
+        public bool bolAutoSetBtnSize = false;
+        [Description("通道按钮高度"), Category("自定义属性")]
+        public bool AutoSetChannelButtonSize
+        {
+            get { return bolAutoSetBtnSize; }
+            set
+            {
+                bolAutoSetBtnSize = value;
+            }
+        }
         #endregion
-
         #region 事件委托
         public delegate void ButtonChannel_ClickDelegate(object sender, CameraInfo cameraInfo);
 
@@ -76,7 +172,6 @@ namespace VideoPlayControl
         public VideoChannelList()
         {
             InitializeComponent();
-            //intbtnWidth = (this.pnlMain.Width - 1) / 2;
             lstbtns = new List<Button>();
         }
 
@@ -115,7 +210,7 @@ namespace VideoPlayControl
         {
             foreach (Button btn in lstbtns)
             {
-                btn.BackColor = clrDefaultColor;
+                btn.BackColor = clrChannelButtonDefaultColor;
             }
         }
 
@@ -128,7 +223,7 @@ namespace VideoPlayControl
             int intResult = 0;
             foreach (Button btn in lstbtns)
             {
-                if (btn.BackColor == clrSelectedColor)
+                if (btn.BackColor == clrChannelButonSelectedColor)
                 {
                     intResult++;
                 }
@@ -144,7 +239,7 @@ namespace VideoPlayControl
         {
             int intCol = 0;
             int intRow = 0;
-            CalculationToButonWidth();
+            CalculationToButonSize();
             for (int i = lstbtns.Count - 1; i >= 0; i--)
             {
                 lstbtns[i].Dispose();
@@ -159,8 +254,8 @@ namespace VideoPlayControl
                     //3(x:2,y:63)  4(x:66 y=63)
                     Button btn = new Button();
                     btn.Name = "btn" + kv.Value.Channel.ToString();
-                    btn.Location = new System.Drawing.Point(intbtnStartX + (intbtnWidth * intCol), intbtnStartY + (intbtnHeight * intRow));
-                    btn.Size = new System.Drawing.Size(intbtnWidth, intbtnHeight);
+                    btn.Location = new System.Drawing.Point(intbtnStartX + (intChannelButtonWidth * intCol), intbtnStartY + (intChannelButtonHeight * intRow));
+                    btn.Size = new System.Drawing.Size(intChannelButtonWidth, intChannelButtonHeight);
                     //btn.Text = "通道" + kv.Value.Channel.ToString();
                     btn.Text = kv.Value.CameraName.ToString();
                     btn.BackColor = Control.DefaultBackColor;
@@ -170,7 +265,7 @@ namespace VideoPlayControl
                     lstbtns.Add(btn);
                     ttip.SetToolTip(btn, kv.Value.CameraName);
                     intCol++;
-                    if (intCol >= intColumn)
+                    if (intCol >= intChannelButtonColumn)
                     {
                         intCol = 0;
                         intRow++;
@@ -180,24 +275,35 @@ namespace VideoPlayControl
         }
 
 
-        public void CalculationToButonWidth()
+        public void CalculationToButonSize()
         {
-            int Temp_intRowCount = CurrentVideoInfo.Cameras.Count / intColumn;
-            if (CurrentVideoInfo.Cameras.Count % intColumn != 0)
-            {   
+            int Temp_intRowCount = CurrentVideoInfo.Cameras.Count / intChannelButtonColumn;
+            if (CurrentVideoInfo.Cameras.Count % intChannelButtonColumn != 0)
+            {
                 //存在余数 
                 Temp_intRowCount++;
             }
-            if ((Temp_intRowCount * intbtnHeight) > pnlMain.Height)
+            #region 宽度
+            if ((!bolAutoSetBtnSize)&&(Temp_intRowCount * intChannelButtonHeight) > pnlMain.Height)
             {
                 //预留滚动条
-                intbtnWidth = (this.pnlMain.Width - 21) / intColumn;
+                intChannelButtonWidth = (this.pnlMain.Width - 21) / intChannelButtonColumn;
             }
             else
             {
-                intbtnWidth = (this.pnlMain.Width - 1) / intColumn;
+                intChannelButtonWidth = (this.pnlMain.Width - 1) / intChannelButtonColumn;
             }
-            
+            #endregion
+
+            #region 高度
+            if (bolAutoSetBtnSize)
+            {
+                //自动设置高度
+                intChannelButtonHeight = (this.pnlMain.Height / Temp_intRowCount - 1);
+            }
+
+            #endregion
+
         }
 
         /// <summary>
@@ -212,18 +318,6 @@ namespace VideoPlayControl
             ButtonChannel_Click(sender, camerInfo);
         }
 
-        #region 自动以属性
-        [Description("主体背景颜色"), Category("自定义属性")]
-        public Color ClrBackColor
-        {
-            get { return clrBackColor; }
-            set
-            {
-                clrBackColor = value;
-                pnlMain.BackColor = clrBackColor;
-            }
-        }
-
-        #endregion
+        
     }
 }
