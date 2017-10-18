@@ -176,6 +176,15 @@
     <Content Include="dll_Libyary\Newtonsoft.Json.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.xml" />
+    <Content Include="ImageFile\PTZImage\PTZ_Up.png" />
+    <Content Include="ImageFile\PTZImage\PTZ_Down.png" />
+    <Content Include="ImageFile\PTZImage\PTZ_Right.png" />
+    <Content Include="ImageFile\PTZImage\PTZ_UpperRight.png" />
+    <Content Include="ImageFile\PTZImage\PTZ_LowerRight.png" />
+    <Content Include="ImageFile\PTZImage\PTZ_Left.png" />
+    <Content Include="ImageFile\PTZImage\PTZ_UpperLeft.png" />
+    <Content Include="ImageFile\PTZImage\PTZ_LowerLeft.png" />
+    <Content Include="ImageFile\PTZImage\PTZ_Center.png" />
     <Content Include="PTZIcon\PTZ_Down.png" />
     <Content Include="PTZIcon\PTZ_Left.png" />
     <Content Include="PTZIcon\PTZ_LowerLeft.png" />

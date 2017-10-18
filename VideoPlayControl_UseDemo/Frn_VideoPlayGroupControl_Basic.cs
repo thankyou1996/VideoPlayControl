@@ -52,14 +52,14 @@ namespace VideoPlayControl_UseDemo
 
             VideoInfo videoInfo = new VideoInfo();
             CameraInfo camerasInfo = new CameraInfo();
-            videoInfo.VideoType = Enum_VideoType.Ezviz;
+            videoInfo.VideoType = Enum_VideoType.CloundSee;
             videoInfo.DVSNumber = "000101";
             videoInfo.DVSName = "000101视频";
-            //videoInfo.DVSAddress = "X5014851";
+            videoInfo.DVSAddress = "X5014851";
             //videoInfo.DVSAddress = "720274352";
             //videoInfo.DVSAddress = "532446995";
             //videoInfo.DVSAddress = "797085722";
-            videoInfo.DVSAddress = "607669776";
+            //videoInfo.DVSAddress = "607669776";
             videoInfo.DVSConnectPort = 9101;
             videoInfo.UserName = "admin";
             videoInfo.Password = "JHESSY";

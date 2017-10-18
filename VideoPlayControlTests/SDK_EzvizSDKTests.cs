@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Threading;
+using static VideoPlayControl.SDK_EzvizSDK;
 
 namespace VideoPlayControl.Tests
 {

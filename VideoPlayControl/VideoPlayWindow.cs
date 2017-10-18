@@ -598,7 +598,7 @@ namespace VideoPlayControl
         /// </summary>
         private void CloundSee_PTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
         {
-            SDK_JCSDK.JCPTZCmdType CloundSee_PTZControl = SDK_JCSDK.JCPTZCmdType.JCPCT_Up;
+            SDK_JCSDK.JCPTZCmdType CloundSee_PTZControl = SDK_JCSDK.JCPTZCmdType.JCPCT_Auto;
             //云台控制类型改变
             switch (PTZControl) //云视通仅 上下
             {
@@ -615,7 +615,11 @@ namespace VideoPlayControl
                     CloundSee_PTZControl = SDK_JCSDK.JCPTZCmdType.JCPCT_Right;
                     break;
             }
-            SDK_JCSDK.JCSDK_SendPTZCommand(intCloundSee_ConnID, CloundSee_PTZControl, bolStart);
+            if (CloundSee_PTZControl != SDK_JCSDK.JCPTZCmdType.JCPCT_Auto)
+            {
+                SDK_JCSDK.JCSDK_SendPTZCommand(intCloundSee_ConnID, CloundSee_PTZControl, bolStart);
+            }
+            
         }
 
         /// <summary>

@@ -34,6 +34,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.videoChannelList1 = new VideoPlayControl.VideoChannelList();
+            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
             this.SuspendLayout();
             // 
             // button1
@@ -87,17 +88,32 @@
             // 
             // videoChannelList1
             // 
+            this.videoChannelList1.AutoSetChannelButtonSize = false;
+            this.videoChannelList1.ChannelButtonColumn = 2;
+            this.videoChannelList1.ChannelButtonHeight = 30;
+            this.videoChannelList1.ChannelButtonWidth = 60;
             this.videoChannelList1.ClrBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.videoChannelList1.ClrChannelButtonDefaultColor = System.Drawing.SystemColors.Control;
+            this.videoChannelList1.ClrChannelButtonSelectedColor = System.Drawing.Color.Red;
             this.videoChannelList1.Location = new System.Drawing.Point(31, 12);
             this.videoChannelList1.Name = "videoChannelList1";
             this.videoChannelList1.Size = new System.Drawing.Size(194, 181);
             this.videoChannelList1.TabIndex = 6;
+            // 
+            // videoPTZControl1
+            // 
+            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
+            this.videoPTZControl1.Location = new System.Drawing.Point(170, 225);
+            this.videoPTZControl1.Name = "videoPTZControl1";
+            this.videoPTZControl1.Size = new System.Drawing.Size(72, 72);
+            this.videoPTZControl1.TabIndex = 7;
             // 
             // FrmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 371);
+            this.Controls.Add(this.videoPTZControl1);
             this.Controls.Add(this.videoChannelList1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
@@ -119,5 +135,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button2;
         private VideoPlayControl.VideoChannelList videoChannelList1;
+        private VideoPlayControl.VideoPTZControl videoPTZControl1;
     }
 }
