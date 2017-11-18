@@ -30,13 +30,13 @@
         {
             this.tabExtended = new System.Windows.Forms.TabControl();
             this.tabPTZCobtrol = new System.Windows.Forms.TabPage();
-            this.tabIntercom = new System.Windows.Forms.TabPage();
             this.pblRight_Bottom = new System.Windows.Forms.Panel();
             this.pblRight_Bottom_Main = new System.Windows.Forms.Panel();
             this.videoPTZControl = new VideoPlayControl.VideoPTZControl();
             this.pblRight_Bottom_Top = new System.Windows.Forms.Panel();
             this.cmbPreset = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabIntercom = new System.Windows.Forms.TabPage();
             this.tabSpecial = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.tabExtended.SuspendLayout();
@@ -69,16 +69,6 @@
             this.tabPTZCobtrol.TabIndex = 0;
             this.tabPTZCobtrol.Text = "云台控制";
             this.tabPTZCobtrol.UseVisualStyleBackColor = true;
-            // 
-            // tabIntercom
-            // 
-            this.tabIntercom.Location = new System.Drawing.Point(4, 22);
-            this.tabIntercom.Name = "tabIntercom";
-            this.tabIntercom.Padding = new System.Windows.Forms.Padding(3);
-            this.tabIntercom.Size = new System.Drawing.Size(242, 224);
-            this.tabIntercom.TabIndex = 1;
-            this.tabIntercom.Text = "对讲面板";
-            this.tabIntercom.UseVisualStyleBackColor = true;
             // 
             // pblRight_Bottom
             // 
@@ -137,6 +127,16 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "预置点";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabIntercom
+            // 
+            this.tabIntercom.Location = new System.Drawing.Point(4, 22);
+            this.tabIntercom.Name = "tabIntercom";
+            this.tabIntercom.Padding = new System.Windows.Forms.Padding(3);
+            this.tabIntercom.Size = new System.Drawing.Size(242, 224);
+            this.tabIntercom.TabIndex = 1;
+            this.tabIntercom.Text = "对讲面板";
+            this.tabIntercom.UseVisualStyleBackColor = true;
             // 
             // tabSpecial
             // 
