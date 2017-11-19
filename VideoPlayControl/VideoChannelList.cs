@@ -151,15 +151,15 @@ namespace VideoPlayControl
         }
         #endregion
         #region 事件委托
-        public delegate void ButtonChannel_ClickDelegate(object sender, CameraInfo cameraInfo);
+        public delegate void ButtonChannel_ClickDelegate(object sender, Button btnChannel);
 
         public event ButtonChannel_ClickDelegate ButtonChannel_ClickEvent;
 
-        private void ButtonChannel_Click(object sender,CameraInfo cameraInfo)
+        private void ButtonChannel_Click(Button btnChannel)
         {
             if (ButtonChannel_ClickEvent != null)
             {
-                ButtonChannel_ClickEvent(sender, cameraInfo);
+                ButtonChannel_ClickEvent(this, btnChannel);
             }
         }
 
@@ -315,7 +315,7 @@ namespace VideoPlayControl
         {
             Button btn = (Button)sender;
             CameraInfo camerInfo = (CameraInfo)btn.Tag;
-            ButtonChannel_Click(sender, camerInfo);
+            ButtonChannel_Click(btn);
         }
 
         
