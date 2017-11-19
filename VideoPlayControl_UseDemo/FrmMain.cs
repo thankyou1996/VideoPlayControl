@@ -730,11 +730,12 @@ namespace VideoPlayControl_UseDemo
         }
 
 
-        public void VideoChannelListButton_Click(object sender, CameraInfo cameraInfo)
+        public void VideoChannelListButton_Click(object sender, Button btnChannel)
         {
+            CameraInfo cameraInfo = (CameraInfo)btnChannel.Tag;
             videoChannelList.ButtonListBackColorReset();
-            Button btn = (Button)sender;
-            btn.BackColor = Color.Red;
+            //Button btn = (Button)sender;
+            btnChannel.BackColor = Color.Red;
             VideoPlaySetting videoPlaySet = new VideoPlaySetting();
             int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
             //播放
@@ -880,7 +881,7 @@ namespace VideoPlayControl_UseDemo
             {
                 Temp_i = 1;
             }
-            VideoChannelListButton_Click(videoChannelList.lstbtns[Temp_i], (CameraInfo)videoChannelList.lstbtns[Temp_i].Tag);
+            VideoChannelListButton_Click(videoChannelList.lstbtns[Temp_i], (videoChannelList.lstbtns[Temp_i]));
             Temp_i++;
             Temp_ii++;
             label17.Text = Temp_ii.ToString();

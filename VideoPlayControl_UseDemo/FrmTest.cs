@@ -47,12 +47,12 @@ namespace VideoPlayControl_UseDemo
         }
 
 
-        public void T(object sender,CameraInfo cameraInfo)
+        public void T(object sender, Button btnChannel)
         {
-            videoChannelList1.ButtonListBackColorReset();
-            Button btn = (Button)sender;
-            btn.BackColor = SystemColors.ActiveCaption;
-            MessageBox.Show(cameraInfo.CameraName);
+            //videoChannelList1.ButtonListBackColorReset();
+            //Button btn = (Button)sender;
+            //btn.BackColor = SystemColors.ActiveCaption;
+            //MessageBox.Show(cameraInfo.CameraName);
         }
 
         private void textBox1_Leave(object sender, EventArgs e)

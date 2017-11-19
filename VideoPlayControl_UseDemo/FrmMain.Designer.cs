@@ -335,7 +335,7 @@
             this.cmbDVSAddress.Name = "cmbDVSAddress";
             this.cmbDVSAddress.Size = new System.Drawing.Size(141, 20);
             this.cmbDVSAddress.TabIndex = 4;
-            this.cmbDVSAddress.Text = "720274352";
+            this.cmbDVSAddress.Text = "819953945";
             // 
             // cmbVideoType
             // 

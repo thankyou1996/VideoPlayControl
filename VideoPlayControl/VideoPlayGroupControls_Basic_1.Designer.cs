@@ -37,26 +37,26 @@
             this.pnlRight = new System.Windows.Forms.Panel();
             this.pnlRight_Main = new System.Windows.Forms.Panel();
             this.pblRight_Bottom = new System.Windows.Forms.Panel();
-            this.pblRight_Bottom_Main = new System.Windows.Forms.Panel();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pblRight_Bottom_Top = new System.Windows.Forms.Panel();
             this.cmbPreset = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pblRight_Bottom_Main = new System.Windows.Forms.Panel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlRight_Top = new System.Windows.Forms.Panel();
             this.cmbVideoList = new System.Windows.Forms.ComboBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlMain.SuspendLayout();
             this.ssPrompt.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.pnlRight_Main.SuspendLayout();
             this.pblRight_Bottom.SuspendLayout();
-            this.pblRight_Bottom_Main.SuspendLayout();
-            this.pblRight_Bottom_Top.SuspendLayout();
-            this.pnlRight_Top.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.pblRight_Bottom_Top.SuspendLayout();
+            this.pblRight_Bottom_Main.SuspendLayout();
+            this.pnlRight_Top.SuspendLayout();
             this.SuspendLayout();
             // 
             // videoPlayWindow
@@ -66,6 +66,7 @@
             this.videoPlayWindow.Name = "videoPlayWindow";
             this.videoPlayWindow.Size = new System.Drawing.Size(450, 276);
             this.videoPlayWindow.TabIndex = 1;
+            this.videoPlayWindow.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
             // 
             // pnlMain
             // 
@@ -98,6 +99,13 @@
             // 
             // videoChannelList
             // 
+            this.videoChannelList.AutoSetChannelButtonSize = false;
+            this.videoChannelList.ChannelButtonColumn = 2;
+            this.videoChannelList.ChannelButtonHeight = 30;
+            this.videoChannelList.ChannelButtonWidth = 60;
+            this.videoChannelList.ClrBackColor = System.Drawing.SystemColors.ControlDark;
+            this.videoChannelList.ClrChannelButtonDefaultColor = System.Drawing.SystemColors.Control;
+            this.videoChannelList.ClrChannelButtonSelectedColor = System.Drawing.Color.Red;
             this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoChannelList.Location = new System.Drawing.Point(0, 0);
             this.videoChannelList.Name = "videoChannelList";
@@ -141,13 +149,27 @@
             this.pblRight_Bottom.Size = new System.Drawing.Size(159, 123);
             this.pblRight_Bottom.TabIndex = 6;
             // 
-            // pblRight_Bottom_Main
+            // tabControl
             // 
-            this.pblRight_Bottom_Main.Controls.Add(this.videoPTZControl);
-            this.pblRight_Bottom_Main.Location = new System.Drawing.Point(6, 35);
-            this.pblRight_Bottom_Main.Name = "pblRight_Bottom_Main";
-            this.pblRight_Bottom_Main.Size = new System.Drawing.Size(100, 100);
-            this.pblRight_Bottom_Main.TabIndex = 7;
+            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Location = new System.Drawing.Point(6, 6);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(153, 114);
+            this.tabControl.TabIndex = 8;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.pblRight_Bottom_Top);
+            this.tabPage1.Controls.Add(this.pblRight_Bottom_Main);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(145, 88);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // pblRight_Bottom_Top
             // 
@@ -176,6 +198,24 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "预置点";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pblRight_Bottom_Main
+            // 
+            this.pblRight_Bottom_Main.Controls.Add(this.videoPTZControl);
+            this.pblRight_Bottom_Main.Location = new System.Drawing.Point(6, 35);
+            this.pblRight_Bottom_Main.Name = "pblRight_Bottom_Main";
+            this.pblRight_Bottom_Main.Size = new System.Drawing.Size(100, 100);
+            this.pblRight_Bottom_Main.TabIndex = 7;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(145, 88);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // pnlRight_Top
             // 
@@ -206,38 +246,6 @@
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tabPage1);
-            this.tabControl.Controls.Add(this.tabPage2);
-            this.tabControl.Location = new System.Drawing.Point(6, 6);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(153, 114);
-            this.tabControl.TabIndex = 8;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.pblRight_Bottom_Top);
-            this.tabPage1.Controls.Add(this.pblRight_Bottom_Main);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(145, 88);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // VideoPlayGroupControls_Basic_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -254,11 +262,11 @@
             this.pnlRight.ResumeLayout(false);
             this.pnlRight_Main.ResumeLayout(false);
             this.pblRight_Bottom.ResumeLayout(false);
-            this.pblRight_Bottom_Main.ResumeLayout(false);
-            this.pblRight_Bottom_Top.ResumeLayout(false);
-            this.pnlRight_Top.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.pblRight_Bottom_Top.ResumeLayout(false);
+            this.pblRight_Bottom_Main.ResumeLayout(false);
+            this.pnlRight_Top.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -293,16 +293,15 @@ namespace VideoPlayControl
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="cameraInfo"></param>
-        public void VideoChannelListButton_Click(object sender, CameraInfo cameraInfo)
+        public void VideoChannelListButton_Click(object sender, Button btn)
         {
             videoChannelList.ButtonListBackColorReset();
-            Button btn = (Button)sender;
             btn.BackColor = Color.Red;
             if (videoPlayWindow.CurrentVideoInfo != null)
             {
                 videoPlayWindow.VideoClose();
             }
-            CurrentCameraInfo = cameraInfo;
+            CurrentCameraInfo = (CameraInfo)btn.Tag;
             //if(videoPlayWindow.)
             videoPlayWindow.Init_VideoInfo(dicCurrentVideoInfos[strCurrentVideoID], CurrentCameraInfo, videoPlaySet);
             videoPlayWindow.VideoPlay();
@@ -342,7 +341,7 @@ namespace VideoPlayControl
                 pnlRight_Main.Enabled = true;
                 if (bolAutoPlayVideo)
                 {
-                    VideoChannelListButton_Click(videoChannelList.lstbtns[0], (CameraInfo)videoChannelList.lstbtns[0].Tag);
+                    VideoChannelListButton_Click(videoChannelList.lstbtns[0], videoChannelList.lstbtns[0]);
                 }
             }
             catch (Exception ex)
@@ -430,7 +429,7 @@ namespace VideoPlayControl
             bool bolFlag = true;
             if (intChannel == -1)
             {
-                VideoChannelListButton_Click(videoChannelList.lstbtns[0], (CameraInfo)videoChannelList.lstbtns[0].Tag);
+                VideoChannelListButton_Click(videoChannelList, videoChannelList.lstbtns[0]);
                 bolFlag = false;
             }
             else
@@ -440,7 +439,7 @@ namespace VideoPlayControl
                     CameraInfo c = (CameraInfo)btn.Tag;
                     if (c.Channel == intChannel)
                     {
-                        VideoChannelListButton_Click(btn, c);
+                        VideoChannelListButton_Click(videoChannelList, btn);
                         bolFlag = false;
                         break;
                     }
@@ -449,7 +448,7 @@ namespace VideoPlayControl
             if (bolFlag)
             {
                 //无选中通道播放第一通道
-                VideoChannelListButton_Click(videoChannelList.lstbtns[0], (CameraInfo)videoChannelList.lstbtns[0].Tag);
+                VideoChannelListButton_Click(videoChannelList, videoChannelList.lstbtns[0]);
             }
             //Directory.CreateDirectory
             return intResult;

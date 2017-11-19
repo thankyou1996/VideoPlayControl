@@ -67,12 +67,14 @@ namespace VideoPlayControl
         /// <summary>
         /// AppKey
         /// </summary>
-        public const string c_strEzviz_AppID_Default = "1acd8ddc451f48a4b8b4666716e8f9ce";
+        //public const string c_strEzviz_AppID_Default = "1acd8ddc451f48a4b8b4666716e8f9ce";
+        public const string c_strEzviz_AppID_Default = "5b97c1d157474f96b8d4c75b936a0057";//少春
 
-        /// <summary>
-        /// AppSecret
-        /// </summary>
-        public const string c_strEzviz_AppSecret_Default = "518335cd3421f16a4b4e88164225c432";
+        ///// <summary>
+        ///// AppSecret
+        ///// </summary>
+        //public const string c_strEzviz_AppSecret_Default = "518335cd3421f16a4b4e88164225c432";
+        public const string c_strEzviz_AppSecret_Default = "4318d0cc4c43ca156052ba688bc9006a";  //少春
 
         /// <summary>
         /// 萤石云默认录像文件存放地址
