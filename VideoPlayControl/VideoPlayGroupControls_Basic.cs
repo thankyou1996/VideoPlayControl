@@ -375,11 +375,21 @@ namespace VideoPlayControl
         {
             if (!this.IsDisposed)
             {
-                //当前控件未被释放
-                this.BeginInvoke(new EventHandler(delegate
+                try
                 {
-                    tslblPrompt.Text = strDisplayInfo;
-                }));
+                    //当前控件未被释放
+                    this.BeginInvoke(new EventHandler(delegate
+                    {
+                        tslblPrompt.Text = strDisplayInfo;
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    //关闭窗口时关闭视频，萤石设备出现异常
+                    string strTag = this.IsDisposed.ToString();
+                    CommonMethod.LogWrite.WritExceptionLog("VideoPlayControl_DisplayRecord_[" + strDisplayInfo + "][IsDisposed:" + strTag + "]", ex);
+                }
+                
             }
             
         }

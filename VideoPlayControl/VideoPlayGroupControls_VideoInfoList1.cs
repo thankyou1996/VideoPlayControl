@@ -13,7 +13,17 @@ namespace VideoPlayControl
     {
 
         #region 事件
-        //public delegate VideoChannelClicked()
+        public delegate void VideoChannelClickDelegate(object sender,Button btn);
+
+        public event VideoChannelClickDelegate VideoChannelClickEvent;
+
+        private void VideoChannelClick(object sender, Button btn)
+        {
+            if (VideoChannelClickEvent != null)
+            {
+                VideoChannelClickEvent(this, btn);
+            }
+        }
 
 
         #endregion
@@ -23,22 +33,28 @@ namespace VideoPlayControl
         /// </summary>
         public Dictionary<string, PublicClassCurrency.VideoInfo> dicCurrentVideoInfos = new Dictionary<string, VideoInfo>();
 
-        string strCurrentVideoID = "";
+        public string CurrentVideoID = "";
         public VideoPlayGroupControls_VideoInfoList1()
         {
             InitializeComponent();
+            videoChannelList1.ChannelButtonColumn = 4;
+            videoChannelList1.bolAutoSetBtnSize = true;
+            videoChannelList1.ButtonChannel_ClickEvent += VideoChannelClick;
         }
         private void VideoPlayGroupControls_VideoInfoList1_Load(object sender, EventArgs e)
         {
-            videoChannelList1.ChannelButtonColumn = 4;
-            videoChannelList1.bolAutoSetBtnSize = true;
+            //videoChannelList1.ChannelButtonColumn = 4;
+            //videoChannelList1.bolAutoSetBtnSize = true;
+            //videoChannelList1.ButtonChannel_ClickEvent += VideoChannelClick;
         }
         public void Init_SetVideoListInfo(Dictionary<string ,VideoInfo> videoInfoList)
         {
+            cmbVideoList.SelectedIndexChanged -= cmbVideolist_SelectedIndexChanged;     //取消事件（防止出现重复注册情况）
+            cmbVideoList.Items.Clear();
             dicCurrentVideoInfos = videoInfoList;
             if (dicCurrentVideoInfos.Count > 0)
             {
-                cmbVideoList.SelectedIndexChanged -= cmbVideolist_SelectedIndexChanged;     //取消事件（防止出现重复注册情况）
+                
                 ComboBoxItem cmbItem;
                 foreach (KeyValuePair<string, PublicClassCurrency.VideoInfo> kv in dicCurrentVideoInfos)
                 {
@@ -63,6 +79,7 @@ namespace VideoPlayControl
             txtVideoName.Text = v.DVSName;
             txtVideAddress.Text = v.DVSAddress;
             videoChannelList1.Init_SetVideoInfo(v);
+            
         }
 
 
@@ -77,8 +94,8 @@ namespace VideoPlayControl
             try
             {
                 ComboBoxItem cmbItem = (ComboBoxItem)cmbVideoList.SelectedItem;
-                strCurrentVideoID = Convert.ToString(cmbItem.ItemValue);
-                DisplayVideoInfo(dicCurrentVideoInfos[strCurrentVideoID]);
+                CurrentVideoID = Convert.ToString(cmbItem.ItemValue);
+                DisplayVideoInfo(dicCurrentVideoInfos[CurrentVideoID]);
             }
             catch (Exception ex)
             {

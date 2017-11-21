@@ -20,7 +20,7 @@ namespace VideoPlayControl_UseDemo
 
         private void FrmVideoInfoList_Load(object sender, EventArgs e)
         {
-            Test();
+            
         }
 
         public void Test()
@@ -133,6 +133,18 @@ namespace VideoPlayControl_UseDemo
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
 
             videoPlayGroupControls_VideoInfoList11.Init_SetVideoListInfo(dicVideoInfos);
+        }
+
+        public void ChannelClick(object sneder,Button btn)
+        {
+            CameraInfo c = (CameraInfo)btn.Tag;
+            MessageBox.Show(c.CameraName);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Test();
+            videoPlayGroupControls_VideoInfoList11.VideoChannelClickEvent += ChannelClick;
         }
     }
 }
