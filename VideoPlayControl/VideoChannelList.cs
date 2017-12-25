@@ -162,7 +162,20 @@ namespace VideoPlayControl
                 ButtonChannel_ClickEvent(this, btnChannel);
             }
         }
-
+        public void TEST()
+        {
+            if (ButtonChannel_ClickEvent != null)
+            {
+                Delegate[] dels = ButtonChannel_ClickEvent.GetInvocationList();
+                foreach (Delegate d in dels)
+                {
+                    object delObj = d.GetType().GetProperty("Method").GetValue(d, null);
+                    string funcName = (string)delObj.GetType().GetProperty("Name").GetValue(delObj, null);
+                    //Debug.Print(funcName);
+                    ButtonChannel_ClickEvent -= d as ButtonChannel_ClickDelegate;
+                }
+            }
+        }
         #endregion 
 
 

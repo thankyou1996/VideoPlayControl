@@ -69,6 +69,29 @@
             设备头唯一码
             </summary>
         </member>
+        <member name="T:PublicClassCurrency.Enum_CordinateSystem">
+            <summary>
+            坐标系统
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_CordinateSystem.WGS_84">
+            <summary>
+            大地坐标系统
+            GPS坐标
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_CordinateSystem.GCJ_02">
+            <summary>
+            火星坐标
+            高德地图，腾讯地图
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_CordinateSystem.BD_09">
+            <summary>
+            百度坐标
+            百度地图
+            </summary>
+        </member>
         <member name="T:PublicClassCurrency.EventRecordID">
             <summary>
             事件记录ID
@@ -122,6 +145,82 @@
         <member name="P:PublicClassCurrency.EventRecordID.EventContent">
             <summary>
             事件内容
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.MapPointInfo">
+            <summary>
+            地图点信息
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapPointInfo.dblLon">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapPointInfo.dblLat">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapPointInfo.intMapLevel">
+            <summary>
+            地图等级
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapPointInfo.cordinateSyatem">
+            <summary>
+            坐标系统
+            </summary>
+        </member>
+        <!-- 对于成员“M:PublicClassCurrency.MapPointInfo.WGSToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)”忽略有格式错误的 XML 注释 -->
+        <member name="M:PublicClassCurrency.MapPointInfo.WGSToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            WGS-84 转换 BD-09
+            </summary>
+            <param name="wgsLon"></param>
+            <param name="wgsLat"></param>
+            <param name="lng"></param>
+            <param name="lat"></param>
+        </member>
+        <member name="M:PublicClassCurrency.MapPointInfo.GCJToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            GCJ-02 转换 BD-09
+            </summary>
+            <param name="gcjLon"></param>
+            <param name="gcjLat"></param>
+            <param name="lng"></param>
+            <param name="lat"></param>
+        </member>
+        <member name="M:PublicClassCurrency.MapPointInfo.GCJToWGS_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+             GCJ-02 转换 WGS-84
+            </summary>
+            <param name="gcjLon"></param>
+            <param name="gcjLat"></param>
+            <param name="wgsLon"></param>
+            <param name="wgsLat"></param>
+        </member>
+        <member name="M:PublicClassCurrency.MapPointInfo.BDToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+              BD-09 转换 GCJ-02
+            </summary>
+            <param name="bdLon"></param>
+            <param name="bdLat"></param>
+            <param name="gcjLon"></param>
+            <param name="gcjLat"></param>
+        </member>
+        <member name="M:PublicClassCurrency.MapPointInfo.BDToWGS_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            BD-09 转换 WGS-84
+            </summary>
+            <param name="bdLon"></param>
+            <param name="bdLat"></param>
+            <param name="wgsLon"></param>
+            <param name="wgsLat"></param>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_SerialDeviceType.SK_016">
+            <summary>
+            时刻 016 刷卡器
             </summary>
         </member>
         <member name="T:PublicClassCurrency.VideoInfo">
@@ -317,6 +416,11 @@
         <member name="F:PublicClassCurrency.Enum_VideoType.Ezviz">
             <summary>
             萤石云
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.SKVideo">
+            <summary>
+            时刻视频
             </summary>
         </member>
     </members>

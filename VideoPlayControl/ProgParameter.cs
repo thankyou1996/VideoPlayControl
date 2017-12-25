@@ -44,7 +44,40 @@ namespace VideoPlayControl
         public static string strEzviz_AppSecret = ProgConstants.c_strEzviz_AppSecret_Default;
 
         public static string strEzviz_AccessToken = "at.do2lz6k485mc38pr3n8t74vv2gm10uqm-8kx8l74m7b-04p6ip5-so5iigvth";
-        
+
+        #endregion
+
+        #region 时刻视频SDK相关参数
+        /// <summary>
+        /// 时刻视频_控制端口
+        /// </summary>
+        public static UInt16 uintSKVideo_ControlPort = 47624;
+
+        /// <summary>
+        /// 时刻视频_视频端口
+        /// </summary>
+        public static UInt16 uintSKVideo_VideoPort = 47724;
+
+        /// <summary>
+        /// 时刻视频_音频端口
+        /// </summary>
+        public static UInt16 uintSKVideo_AudioPort = 47824;
+        /// <summary>
+        /// 时刻视频_码流端口
+        /// </summary>
+        public static UInt16 uintSKVideo_AVPort = 47924;
+
+        /// <summary>
+        /// 服务器IP
+        /// </summary>
+        public static string strSKVideo_ServerIP = "121.41.87.203";
+
+        /// <summary>
+        /// 客户端ID
+        /// </summary>
+        public static string strSKVideo_ClientUGID = "xhcs1";
+
+
         #endregion
     }
 }

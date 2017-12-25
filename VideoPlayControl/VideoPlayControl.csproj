@@ -83,6 +83,7 @@
     <Compile Include="SDK_JCSDK.cs" />
     <Compile Include="ProgConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SDK_SKVideoSDK.cs" />
     <Compile Include="VideoChannelList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,6 +186,18 @@
     <Content Include="dll_Libyary\Newtonsoft.Json.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.xml" />
+    <Content Include="dll_Libyary\SKVideoSDK\avcodec-57.dll" />
+    <Content Include="dll_Libyary\SKVideoSDK\avutil-55.dll" />
+    <Content Include="dll_Libyary\SKVideoSDK\hi_h264dec_w.dll" />
+    <Content Include="dll_Libyary\SKVideoSDK\import.h" />
+    <Content Include="dll_Libyary\SKVideoSDK\lib_VoiceEngine_dll32.dll" />
+    <Content Include="dll_Libyary\SKVideoSDK\lib_VoiceEngine_dll64.dll" />
+    <Content Include="dll_Libyary\SKVideoSDK\ShiKeVideoTestClient.exe" />
+    <Content Include="dll_Libyary\SKVideoSDK\ShiKeVideoTestServer.exe" />
+    <Content Include="dll_Libyary\SKVideoSDK\sk_8604_api.h" />
+    <Content Include="dll_Libyary\SKVideoSDK\swscale-4.dll" />
+    <Content Include="dll_Libyary\SKVideoSDK\VLC_SDK.dll" />
+    <Content Include="dll_Libyary\SKVideoSDK\zlib1.dll" />
     <Content Include="ImageFile\PTZImage\PTZ_Up.png" />
     <Content Include="ImageFile\PTZImage\PTZ_Down.png" />
     <Content Include="ImageFile\PTZImage\PTZ_Right.png" />
@@ -202,6 +215,10 @@
     <Content Include="PTZIcon\PTZ_Up.png" />
     <Content Include="PTZIcon\PTZ_UpperLeft.png" />
     <Content Include="PTZIcon\PTZ_UpperRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dll_Libyary\SKVideoSDK\release_clean.bat" />
+    <None Include="dll_Libyary\SKVideoSDK\VLC_SDK.lib" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

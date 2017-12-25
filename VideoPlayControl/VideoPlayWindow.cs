@@ -1166,7 +1166,6 @@ namespace VideoPlayControl
                 {
                     Ezviz_gchVideoRecord.Free();
                 }
-                
             }
             else
             {
@@ -1266,6 +1265,17 @@ namespace VideoPlayControl
             }
             IntPtr intptrdevSerial = Marshal.StringToHGlobalAnsi(CurrentVideoInfo.DVSAddress);
             SDK_EzvizSDK.OpenSDK_PTZCtrlEx(intptrSessionID, intptrdevSerial, CurrentCameraInfo.Channel, ptzCommand, ptzAction, 3);
+        }
+        #endregion
+
+        #endregion
+
+        #region SKVideo 时刻视频
+
+        #region  基本事件
+        private void SKVideo_VideoPlay()
+        {
+
         }
         #endregion
 

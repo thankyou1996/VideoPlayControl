@@ -244,12 +244,54 @@ namespace VideoPlayControl
 
 
         }
-        
+
+
+        #endregion
+
+        #region 时刻视频设备 SKVideoSDK
+
+        /// <summary>
+        /// 萤石云SDK状态
+        /// </summary>
+        private static Enum_SDKState s_SKVideoSDKState = Enum_SDKState.SDK_Null;
+
+        public static Enum_SDKState SKVideoSDKState
+        {
+            get { return s_SKVideoSDKState; }
+            set
+            {
+                s_SKVideoSDKState = value;
+                SDKStateChange(Enum_VideoType.Ezviz, s_SKVideoSDKState);
+            }
+        }
+
+        /// <summary>
+        /// 时刻视频设备初始化
+        /// </summary>
+        /// <param name="intAvPort"></param>
+        /// <param name="strClientGUID"></param>
+        /// <param name="strServerIP"></param>
+        /// <param name="uintControlPort"></param>
+        /// <param name="uintVideoPort"></param>
+        /// <param name="uintAudioPort"></param>
+        /// <param name="strRecordDic"></param>
+        /// <returns></returns>
+        public static Enum_SDKState SKVideoSDKInit(UInt16 intAvPort, string strClientGUID, string strServerIP, UInt16 uintControlPort, UInt16 uintVideoPort, UInt16 uintAudioPort, string strRecordDic)
+        {
+            SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitStart);
+
+            SDK_SKVideoSDK.p_sdkc_set_server_av_port(intAvPort);   //设置码流端口
+            SDK_SKVideoSDK.p_sdkc_init_client(strClientGUID, strServerIP, uintControlPort, uintVideoPort, uintAudioPort, strRecordDic);//初始化
+            SDK_SKVideoSDK.p_sdkc_disable_hw_render(); //关闭客户端软解码
+            SKVideoSDKState = Enum_SDKState.SDK_Init;
+            SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitEnd);
+            return SKVideoSDKState;
+
+        }
 
         #endregion
 
 
-        
         public static void VideoSDKRelease()
         {
             ColundSee_SDKRelease(); //云视通SDK 

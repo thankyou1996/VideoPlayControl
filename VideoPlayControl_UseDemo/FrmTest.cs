@@ -44,6 +44,7 @@ namespace VideoPlayControl_UseDemo
             videoChannelList1.ChannelButtonColumn = 4;
             videoChannelList1.bolAutoSetBtnSize = true;
             videoChannelList1.Init_SetVideoInfo(videoInfo);
+            //videoChannelList1.ButtonChannel_ClickEvent += T;
         }
 
 
@@ -51,8 +52,8 @@ namespace VideoPlayControl_UseDemo
         {
             //videoChannelList1.ButtonListBackColorReset();
             //Button btn = (Button)sender;
-            //btn.BackColor = SystemColors.ActiveCaption;
-            //MessageBox.Show(cameraInfo.CameraName);
+            btnChannel.BackColor = SystemColors.ActiveCaption;
+            MessageBox.Show(btnChannel.Text);
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
@@ -84,6 +85,21 @@ namespace VideoPlayControl_UseDemo
         {
             Frn_VideoPlayGroupControl_Basic f = new Frn_VideoPlayGroupControl_Basic();
             f.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            videoChannelList1.TEST();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            videoChannelList1.ButtonChannel_ClickEvent += T;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            videoChannelList1.ButtonChannel_ClickEvent -= T;
         }
     }
 }

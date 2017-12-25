@@ -18,9 +18,9 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new Frn_VideoPlayGroupControl_Basic());
             //Application.Run(new Frn_VideoPlayGroupControl_Basic());
             //Application.Run(new Frm_VideoRecordListTest());
-            //Application.Run(new FrmTest());
+            Application.Run(new FrmTest());
             //Application.Run(new Frn_VideoPlayGroupControl_Basic());
-            Application.Run(new FrmVideoInfoList());
+            //Application.Run(new FrmVideoInfoList());
 
         }
     }

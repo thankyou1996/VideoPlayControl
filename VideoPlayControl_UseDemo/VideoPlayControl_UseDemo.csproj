@@ -39,7 +39,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll_Libyary\CommonMethod.dll</HintPath>
     </Reference>
-    <Reference Include="PublicClassCurrency">
+    <Reference Include="PublicClassCurrency, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\VideoPlayControl\dll_Libyary\PublicClassCurrency.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -138,12 +139,6 @@
       <Project>{8410BDF8-2F6C-4BD1-A602-037DD86072F2}</Project>
       <Name>VideoPlayControl</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="dll_Libyary\CommonMethod.dll" />
-    <Content Include="dll_Libyary\CommonMethod.XML" />
-    <Content Include="dll_Libyary\PublicClassCurrency.dll" />
-    <Content Include="dll_Libyary\PublicClassCurrency.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

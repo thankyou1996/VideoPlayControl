@@ -52,6 +52,8 @@ namespace VideoPlayControl_UseDemo
             SDKState.SDKStateChangeEvent += SDKStateChange;
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
+            SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, ProgParameter.strSKVideo_ServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
+             //SKVideoSDKInit
             Init();
         }
 
@@ -318,6 +320,42 @@ namespace VideoPlayControl_UseDemo
 
         }
 
+        public VideoInfo SKVideo_TestData()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.SKVideo;
+            v.DVSAddress = "61-573551920B39-3036";
+            v.DVSChannelNum = 16;
+            v.DVSConnectPort = 81;
+            v.DVSName = "8604双网口测试";
+            v.DVSNumber = "999401";
+            v.DVSType = "SK8616";
+            v.HostID = "9994";
+            v.Password = "sk123456";
+            v.UserName = "admin";
+            v.NetworkState = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i + 1);
+                c.Channel = i;
+                c.DVSAddress = "61-573551920B39-3036";
+                c.DVSType = "SK8616";
+                c.DVSNumber= "999401";
+                v.Cameras[c.Channel] = c;
+            }
+            for (int i = 8; i < 16; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i + 1);
+                c.Channel = i;
+                c.DVSAddress = "61-573551920B39-3036";
+                c.DVSType = "SK8616";
+                c.DVSNumber = "999401";
+                v.Cameras[c.Channel] = c;
+            }
+            return v;
+        }
         #endregion
 
         #region 控件事件

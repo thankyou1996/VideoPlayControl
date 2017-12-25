@@ -9,6 +9,7 @@ namespace VideoPlayControl
 {
     public class SDK_EzvizSDK
     {
+        
         /// <summary>
         /// SDK初始化
         /// </summary>
@@ -266,7 +267,6 @@ namespace VideoPlayControl
                     }
                 }
             }
-
             return intResult;
         }
         #endregion
