@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VideoPlayControl
+namespace VideoPlayControl_UseDemo
 {
-    public partial class VideoPlayGroupControl_ExtendedControl : UserControl
+    public partial class FrmExtendedControlTest : Form
     {
-        public VideoPlayGroupControl_ExtendedControl()
+        public FrmExtendedControlTest()
         {
             InitializeComponent();
         }

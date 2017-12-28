@@ -175,6 +175,10 @@ namespace VideoPlayControl
 
         public void Init_VideoInfo(VideoInfo videoInfo)
         {
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+            {
+                VideoClose();
+            }
             intConnCount = 0;
             CurrentVideoInfo = videoInfo;
             Init_SetVideoInfo();
@@ -197,6 +201,10 @@ namespace VideoPlayControl
 
         public void Init_VideoInfo(VideoInfo videoInfo, VideoPlaySetting videoPlaySet)
         {
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+            {
+                VideoClose();
+            }
             intConnCount = 0;
             CurrentVideoInfo = videoInfo;
             Init_SetVideoInfo();
@@ -220,6 +228,10 @@ namespace VideoPlayControl
 
         public void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
         {
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+            {
+                VideoClose();
+            }
             CurrentVideoInfo = videoInfo;
             Init_SetVideoInfo();
             intConnCount = 0;
@@ -244,6 +256,10 @@ namespace VideoPlayControl
 
         private void Init_SetVideoInfo()
         {
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+            {
+                VideoClose();
+            }
             //if (CurrentVideoInfo.VideoType == Enum_VideoType.IPCWA)
             //{
             //    //普顺达设备特殊 单独控件
@@ -343,7 +359,6 @@ namespace VideoPlayControl
                     return;
                 }
             }
-
         }
 
         /// <summary>
@@ -1008,7 +1023,7 @@ namespace VideoPlayControl
                 intResult = SDK_EzvizSDK.OpenSDK_SetDataCallBack(intptrSessionID, Ezviz_DataCallBack, iUser);
             }
             IntPtr intptrdevSerial = Marshal.StringToHGlobalAnsi(CurrentVideoInfo.DVSAddress);
-            intResult = SDK_EzvizSDK.OpenSDK_SetVideoLevel(intptrSessionID, CurrentCameraInfo.Channel, 0);
+            //intResult = SDK_EzvizSDK.OpenSDK_SetVideoLevel(intptrSessionID, CurrentCameraInfo.Channel, 0);
             intResult = SDK_EzvizSDK.OpenSDK_StartRealPlayEx(intptrSessionID, intptrPlayMain, intptrdevSerial, CurrentCameraInfo.Channel, CurrentVideoInfo.Password);
             //intResult = SDK_EzvizSDK.OpenSDK_StartRealPlay(intptrSessionID, intptrPlayMain, CurrentCameraInfo.CameraUniqueCode, ProgParameter.strEzviz_AccessToken, 2, null, ProgParameter.strEzviz__AppID, 0);
             if (intResult == 0)
@@ -1275,7 +1290,28 @@ namespace VideoPlayControl
         #region  基本事件
         private void SKVideo_VideoPlay()
         {
+            string strRecordPath = "";
+            int intVideoRecordEnable = 0;
+            if (CurrentVideoPlaySet.VideoRecordEnable)
+            {
+                strRecordPath = CurrentVideoPlaySet.VideoRecordFilePath;
+                intVideoRecordEnable = 1;
+            }
+            SDK_SKVideoSDK.p_sdkc_start_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, intptrPlayMain, intVideoRecordEnable, 15, 5, strRecordPath);
+            if (CurrentVideoPlaySet.PerVideoRecord)
+            {
+                SDK_SKVideoSDK.p_sdkc_get_revideo_data(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, CurrentVideoPlaySet.PreVideoRecordFilePath);
+            }
+            VideoPlayState = Enum_VideoPlayState.InPlayState;
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+        }
 
+
+        private void SKVideo_VideoClose()
+        {
+            SDK_SKVideoSDK.p_sdkc_stop_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, intptrPlayMain);
+            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
         }
         #endregion
 
@@ -1305,6 +1341,9 @@ namespace VideoPlayControl
                     break;
                 case Enum_VideoType.Ezviz:
                     Ezviz_VideoPlay();          //萤石云设备
+                    break;
+                case Enum_VideoType.SKVideo:
+                    SKVideo_VideoPlay();        //时刻视频设备
                     break;
             }
         }
@@ -1358,6 +1397,9 @@ namespace VideoPlayControl
                         break;
                     case Enum_VideoType.Ezviz:
                         Ezviz_VideoClose();
+                        break;
+                    case Enum_VideoType.SKVideo:
+                        SKVideo_VideoClose();
                         break;
                 }
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;

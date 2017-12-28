@@ -64,7 +64,7 @@
             this.videoPlayWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoPlayWindow.Location = new System.Drawing.Point(3, 0);
             this.videoPlayWindow.Name = "videoPlayWindow";
-            this.videoPlayWindow.Size = new System.Drawing.Size(450, 276);
+            this.videoPlayWindow.Size = new System.Drawing.Size(414, 276);
             this.videoPlayWindow.TabIndex = 1;
             this.videoPlayWindow.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
             // 
@@ -76,7 +76,7 @@
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnlMain.Size = new System.Drawing.Size(453, 298);
+            this.pnlMain.Size = new System.Drawing.Size(417, 298);
             this.pnlMain.TabIndex = 3;
             // 
             // ssPrompt
@@ -86,7 +86,7 @@
             this.tslblPrompt});
             this.ssPrompt.Location = new System.Drawing.Point(3, 276);
             this.ssPrompt.Name = "ssPrompt";
-            this.ssPrompt.Size = new System.Drawing.Size(450, 22);
+            this.ssPrompt.Size = new System.Drawing.Size(414, 22);
             this.ssPrompt.SizingGrip = false;
             this.ssPrompt.TabIndex = 4;
             // 
@@ -126,7 +126,7 @@
             this.pnlRight.Controls.Add(this.pblRight_Bottom);
             this.pnlRight.Controls.Add(this.pnlRight_Top);
             this.pnlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlRight.Location = new System.Drawing.Point(456, 0);
+            this.pnlRight.Location = new System.Drawing.Point(420, 0);
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Size = new System.Drawing.Size(159, 298);
             this.pnlRight.TabIndex = 4;
@@ -240,7 +240,7 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(453, 0);
+            this.splitter1.Location = new System.Drawing.Point(417, 0);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 298);
             this.splitter1.TabIndex = 5;
@@ -254,7 +254,7 @@
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlRight);
             this.Name = "VideoPlayGroupControls_Basic_1";
-            this.Size = new System.Drawing.Size(615, 298);
+            this.Size = new System.Drawing.Size(579, 298);
             this.Load += new System.EventHandler(this.VideoPlayGroupControls_Basic_Load);
             this.pnlMain.ResumeLayout(false);
             this.ssPrompt.ResumeLayout(false);

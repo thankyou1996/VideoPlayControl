@@ -6,6 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using PublicClassCurrency;
+using static CommonMethod.CommonObject;
 
 namespace VideoPlayControl
 {

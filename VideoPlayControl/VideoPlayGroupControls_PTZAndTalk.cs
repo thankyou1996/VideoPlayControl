@@ -12,13 +12,13 @@ using static CommonMethod.CommonObject;
 
 namespace VideoPlayControl
 {
-    public partial class VideoPlayGroupControls_Basic_1 : UserControl
+    public partial class VideoPlayGroupControls_PTZAndTalk : UserControl
     {
         #region 全局变量
         /// <summary>
         /// 当前视频信息
         /// </summary>
-        public Dictionary<string, PublicClassCurrency.VideoInfo> dicCurrentVideoInfos = new Dictionary<string, VideoInfo>();
+        public Dictionary<string, VideoInfo> dicCurrentVideoInfos = new Dictionary<string, VideoInfo>();
 
         /// <summary>
         /// 当前播放视频设备ID 
@@ -61,11 +61,12 @@ namespace VideoPlayControl
         public bool bolAutoPlayVideo = true;
         #endregion
 
+        string strTalkVideoNum = "";
 
         /// <summary>
         /// 播放视频控件组_基本
         /// </summary>
-        public VideoPlayGroupControls_Basic_1()
+        public VideoPlayGroupControls_PTZAndTalk()
         {
             InitializeComponent();
         }
@@ -73,7 +74,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 播放视频控件组_基本
         /// </summary>
-        public VideoPlayGroupControls_Basic_1(Dictionary<string, VideoInfo> dicVideoInfos)
+        public VideoPlayGroupControls_PTZAndTalk(Dictionary<string, VideoInfo> dicVideoInfos)
         {
             InitializeComponent();
             dicCurrentVideoInfos = dicVideoInfos;
@@ -86,14 +87,14 @@ namespace VideoPlayControl
             videoPTZControl.PTZControlEvent += VideoPTZControl;
         }
 
-
+        
         #region 事件委托
         /// <summary>
         /// 视频预览密码验证委托
         /// </summary>
         /// <param name="strPreViewPwdVerify"></param>
         /// <returns></returns>
-        public delegate bool PreViewPwdVerifyDelegate(object sender, string strPreViewPwdVerify);
+        public delegate bool PreViewPwdVerifyDelegate(object sender,string strPreViewPwdVerify);
 
         /// <summary>
         /// 视频预览密码验证事件
@@ -109,7 +110,7 @@ namespace VideoPlayControl
         {
             return PreViewPwdVerifyEvent(this, strVideoID);
         }
-
+        
 
         #endregion
 
@@ -130,7 +131,7 @@ namespace VideoPlayControl
         /// </summary>
         public void Init()
         {
-            Init_ControlInit();
+            Init_ControlInit1();
         }
 
 
@@ -164,6 +165,56 @@ namespace VideoPlayControl
             }
         }
 
+        public void Init_ControlInit1()
+        {
+            cmbVideoList.Items.Clear();
+            cmbVideoList.Items.Clear();
+            strTalkVideoNum = "";
+            
+            cmbVideoList.SelectedIndexChanged -= cmbVideolist_SelectedIndexChanged;     //取消事件（防止出现重复注册情况）
+            ComboBoxItem cmbItem;
+            ComboBoxItem cmbTalkItem;
+            foreach (VideoInfo v in dicCurrentVideoInfos.Values)
+            {
+                if (v.IntercomEnable)
+                {
+                    cmbTalkItem = new ComboBoxItem(v.DVSNumber, v.DVSName);
+                    cmbTalkDeviceList.Items.Add(cmbTalkItem);
+                }
+                if (v.OnlyIntercom)
+                {
+                    continue;
+                }
+                cmbItem = new ComboBoxItem(v.DVSNumber, v.DVSName);
+                cmbVideoList.Items.Add(cmbItem);
+                    
+            }
+            if (cmbVideoList.Items.Count > 0)
+            {
+                cmbVideoList.SelectedIndexChanged += cmbVideolist_SelectedIndexChanged;     //注册事件
+                cmbVideoList.SelectedIndex = 0;
+            }
+            if (cmbTalkDeviceList.Items.Count > 0)
+            {
+                pageTalk.Parent = tabToolbar;
+                cmbTalkDeviceList.SelectedIndex = 0;
+            }
+            else
+            {
+                pageTalk.Parent = null;
+            }
+
+            cmbPreset.Items.Clear();
+            for (int i = 1; i < 256; i++)
+            {
+                cmbPreset.Items.Add(i.ToString().PadLeft(2, '0'));
+            }
+            if (videoPlaySet.PreSetPosi > 0)
+            {
+                cmbPreset.SelectedIndex = videoPlaySet.PreSetPosi - 1;
+            }
+        }
+
         #endregion
 
         #region 控件回调事件
@@ -173,11 +224,10 @@ namespace VideoPlayControl
         /// <param name="sender"></param>
         /// <param name="evType"></param>
         /// <param name="strTag"></param>
-        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType, string strTag)
+        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType,string strTag)
         {
             if (bolDisplaySDKEvent)
             {
-                VideoPlayWindow v = (VideoPlayWindow)sender;
                 if (!string.IsNullOrEmpty(strTag))
                 {
                     DisplayRecord(evType.ToString() + "[" + strTag + "]");
@@ -219,12 +269,12 @@ namespace VideoPlayControl
                     sbDisplayInfo.Append(dicCurrentVideoInfos[strCurrentVideoID].DVSNumber + "_");
                     sbDisplayInfo.Append(dicCurrentVideoInfos[strCurrentVideoID].DVSName);
                 }
-
+                
                 if (CurrentCameraInfo != null)
                 {
                     sbDisplayInfo.Append("_");
                     sbDisplayInfo.Append(CurrentCameraInfo.Channel + "_");
-                    sbDisplayInfo.Append(CurrentCameraInfo.CameraName);
+                    sbDisplayInfo.Append(CurrentCameraInfo.CameraName );
                 }
                 sbDisplayInfo.Append("]");
                 switch (evType)
@@ -265,13 +315,15 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.UserAccessError:
                         sbDisplayInfo.Append("用户信息验证失败");
                         break;
-
+                    case Enum_VideoPlayEventType.VideoPlayException:
+                        sbDisplayInfo.Append("视频播放异常");
+                        break;
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;
                 }
                 sbDisplayInfo.Append("[" + videoPlayWindow.intConnCount + "]");
-
+                
                 DisplayRecord(sbDisplayInfo.ToString());
             }
 
@@ -341,7 +393,7 @@ namespace VideoPlayControl
                 pnlRight_Main.Enabled = true;
                 if (bolAutoPlayVideo)
                 {
-                    VideoChannelListButton_Click(videoChannelList, videoChannelList.lstbtns[0]);
+                    VideoChannelListButton_Click(videoChannelList.lstbtns[0], videoChannelList.lstbtns[0]);
                 }
             }
             catch (Exception ex)
@@ -363,7 +415,7 @@ namespace VideoPlayControl
                 videoPlayWindow.SetPresetPosi(intPreset);
             }
         }
-
+        
         #endregion
 
         #region 公用事件
@@ -373,10 +425,25 @@ namespace VideoPlayControl
         /// <param name="strDisplayInfo"></param>
         public void DisplayRecord(string strDisplayInfo)
         {
-            this.BeginInvoke(new EventHandler(delegate
+            if (!this.IsDisposed)
             {
-                tslblPrompt.Text = strDisplayInfo;
-            }));
+                try
+                {
+                    //当前控件未被释放
+                    this.BeginInvoke(new EventHandler(delegate
+                    {
+                        tslblPrompt.Text = strDisplayInfo;
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    //关闭窗口时关闭视频，萤石设备出现异常
+                    string strTag = this.IsDisposed.ToString();
+                    CommonMethod.LogWrite.WritExceptionLog("VideoPlayControl_DisplayRecord_[" + strDisplayInfo + "][IsDisposed:" + strTag + "]", ex);
+                }
+                
+            }
+            
         }
 
         /// <summary>
@@ -387,7 +454,7 @@ namespace VideoPlayControl
             videoPlayWindow.VideoPlayWindows_Move();
         }
 
-
+        
         /// <summary>
         ///  播放视频
         ///  1 正常播放
@@ -397,18 +464,18 @@ namespace VideoPlayControl
         /// <param name="strVideoID"></param>
         /// <param name="intChannel"></param>
         /// <returns></returns>
-        public int VideoPlay(string strVideoID = "", int intChannel = -1)
+        public int VideoPlay(string strVideoID="", int intChannel=-1)
         {
             int intResult = 1;
             if (!dicCurrentVideoInfos.ContainsKey(strVideoID))
             {
                 //不存在视频设备
-                intResult = -1;
+                intResult = - 1;
             }
             else if (!dicCurrentVideoInfos[strVideoID].Cameras.ContainsKey(intChannel))
             {
                 //不存在通道号
-                intResult = -2;
+                intResult = - 2;
             }
             if (!string.IsNullOrEmpty(strVideoID))
             {
@@ -461,6 +528,214 @@ namespace VideoPlayControl
 
         #endregion
 
+        private void tsmi_CloundSeeSetWindows_Click(object sender, EventArgs e)
+        {
+            if (dicCurrentVideoInfos.ContainsKey(strCurrentVideoID))
+            {
+                if (dicCurrentVideoInfos[strCurrentVideoID].VideoType == Enum_VideoType.CloundSee)
+                {
+                    //云视通 远程设置窗口
+                    SDK_JCSDK.JCSDK_RemoteConfig(videoPlayWindow.intCloundSee_ConnID, 0);
+                }
+            }
+        }
+        
+        /// <summary>
+        /// 对讲状态
+        /// 0.未处于对讲状态
+        /// 1.对讲  2.喊话 3.侦听
+        /// </summary>
+        public int intTlakStatus = 0;
+        /// <summary>
+        /// 对讲状态
+        /// 0.未处于对讲状态
+        /// 1.对讲  2.喊话 3.侦听
+        /// </summary>
+        public int TlakStatus
+        {
+            get { return intTlakStatus; }
+            set
+            {
+                intTlakStatus = value;
+                switch (intTlakStatus)
+                {
+                    case 0:
+                        btnTalk.Enabled = true;
+                        btnTalk.Text = "开始对讲";
+                        btnShot.Enabled = true;
+                        btnShot.Text = "开始喊话";
+                        btnMonitor.Enabled = true;
+                        btnMonitor.Text = "开始侦听";
+                        break;
+                    case 1:
+                        btnTalk.Enabled = true;
+                        btnTalk.Text = "停止对讲";
+                        btnShot.Enabled = false;
+                        btnShot.Text = "开始喊话";
+                        btnMonitor.Enabled = false;
+                        btnMonitor.Text = "开始侦听";
+                        break;
+                    case 2:
+                        btnTalk.Enabled = false;
+                        btnTalk.Text = "开始对讲";
+                        btnShot.Enabled = true;
+                        btnShot.Text = "停止喊话";
+                        btnMonitor.Enabled = false;
+                        btnMonitor.Text = "开始侦听";
+                        break;
+                    case 3:
+                        btnTalk.Enabled = false;
+                        btnTalk.Text = "开始对讲";
+                        btnShot.Enabled = false;
+                        btnShot.Text = "开始喊话";
+                        btnMonitor.Enabled = true;
+                        btnMonitor.Text = "停止侦听";
+                        break;
+                }
+            }
+        }
+
+        private void btnTalk_Click(object sender, EventArgs e)
+        {
+            if (TlakStatus != 0)
+            {
+                StopTalk();
+            }
+            else
+            {
+                Talk(ProgConstants.c_intSKVideoTalkMode_Talk);
+            }
+        }
+        private void btnShot_Click(object sender, EventArgs e)
+        {
+            if (TlakStatus != 0)
+            {
+                StopTalk();
+            }
+            else
+            {
+                Talk(ProgConstants.c_intSKVideoTalkMode_Shout);
+            }
+        }
+
+        private void btnMonitor_Click(object sender, EventArgs e)
+        {
+            if (TlakStatus != 0)
+            {
+                StopTalk();
+            }
+            else
+            {
+                Talk(ProgConstants.c_intSKVideoTalkMode_Monitor);
+            }
+        }
+
+        public void Talk(int intTalkMode)
+        {
+            if (TlakStatus!=0)
+            {
+                StopTalk();
+            }
+            if (!string.IsNullOrEmpty(strTalkVideoNum))
+            {
+                if (dicCurrentVideoInfos.ContainsKey(strTalkVideoNum))
+                {
+                    VideoInfo v = dicCurrentVideoInfos[strTalkVideoNum];
+                    if (v.DVSType.StartsWith("SK"))
+                    {
+                        SDK_SKVideoSDK.st_multi_talk talkChannel = new SDK_SKVideoSDK.st_multi_talk();
+                        talkChannel.channel_1 = 1;
+                        SDK_SKVideoSDK.p_sdkc_start_multi_talk(v.DVSAddress, ref talkChannel, intTalkMode, 1, 15, 10, "");
+                        TlakStatus = intTalkMode;
+                    }
+                }
+            }
+        }
+
+        public void StopTalk() 
+        {
+            if (!string.IsNullOrEmpty(strTalkVideoNum))
+            {
+                if (dicCurrentVideoInfos.ContainsKey(strTalkVideoNum))
+                {
+                    VideoInfo v = dicCurrentVideoInfos[strTalkVideoNum];
+                    if (v.DVSType.StartsWith("SK"))
+                    {
+                        SDK_SKVideoSDK.p_sdkc_stop_talk(v.DVSAddress);
+                        TlakStatus = 0;
+                    }
+                }
+            }
+        }
+
+
+        private void cmbTalkDeviceList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ComboBoxItem cmbItem = (ComboBoxItem)cmbTalkDeviceList.SelectedItem;
+                strTalkVideoNum = Convert.ToString(cmbItem.ItemValue);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        
     }
+    ///// <summary>
+    ///// 170120 ComboBox Item
+    ///// value 表示键 display表示显示的值
+    ///// </summary>
+    //public class ComboBoxItem
+    //{
+    //    /// <summary>
+    //    /// ComboBox控件Item
+    //    /// </summary>
+    //    /// <param name="value"></param>
+    //    /// <param name="display"></param>
+    //    public ComboBoxItem(object value, string display)
+    //    {
+    //        this.ItemValue = value;
+    //        this.ItemDisplay = display;
+    //    }
+
+    //    /// <summary>
+    //    /// Item 键
+    //    /// </summary>
+    //    object itemValue;
+
+    //    /// <summary>
+    //    /// Item 键
+    //    /// </summary>
+    //    public object ItemValue
+    //    {
+    //        get { return itemValue; }
+    //        set { itemValue = value; }
+    //    }
+
+    //    /// <summary>
+    //    /// Item 值
+    //    /// </summary>
+    //    string itemDisplay;
+    //    /// <summary>
+    //    /// Item 值
+    //    /// </summary>
+    //    public string ItemDisplay
+    //    {
+    //        get { return itemDisplay; }
+    //        set { itemDisplay = value; }
+    //    }
+
+    //    /// <summary>
+    //    /// 重写 ToString() 方法
+    //    /// </summary>
+    //    /// <returns></returns>
+    //    public override string ToString()
+    //    {
+    //        return ItemDisplay;
+    //    }
+    //}
 
 }

@@ -31,7 +31,8 @@ namespace VideoPlayControl_UseDemo
             //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
-            Test();
+            SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, ProgParameter.strSKVideo_ServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
+            SetTestData_ZWVideoAndSKTalk();
         }
 
         public void Test()
@@ -147,6 +148,64 @@ namespace VideoPlayControl_UseDemo
             videoPlayGroupControls_Basic1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_Basic1.Init_VideoInfoSet(dicVideoInfos);
         }
+
+        #region 测试数据
+
+        public void SetTestData_ZWVideoAndSKTalk()
+        {
+            Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
+            VideoInfo videoInfo = new VideoInfo();
+            CameraInfo camerasInfo = new CameraInfo();
+            videoInfo.VideoType = Enum_VideoType.CloundSee;
+            videoInfo.DVSNumber = "000101";
+            videoInfo.DVSName = "ZW视频";
+            videoInfo.DVSAddress = "X5014851";
+            videoInfo.DVSConnectPort = 9101;
+            videoInfo.UserName = "admin";
+            videoInfo.Password = "JHESSY";
+            videoInfo.PreviewPwd = "";
+            videoInfo.DVSType = "SK8501ZW";
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            videoInfo.DVSChannelNum = 8;
+            camerasInfo = new CameraInfo();
+            for (int i = 1; i < videoInfo.DVSChannelNum; i++)
+            {
+                camerasInfo = new CameraInfo();
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "摄像机" + (i + 1);
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+
+
+            videoInfo = new VideoInfo();
+            videoInfo.VideoType = Enum_VideoType.SKVideo;
+            videoInfo.DVSNumber = "000102";
+            videoInfo.DVSName = "SK519V";
+            videoInfo.DVSType = "SK519V";
+            videoInfo.DVSAddress = "71-00F51F012D0C-2830";
+            videoInfo.DVSConnectPort = 9101;
+            videoInfo.UserName = "admin";
+            videoInfo.Password = "12345";
+            videoInfo.PreviewPwd = "";
+            videoInfo.IntercomEnable = true;
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            videoInfo.DVSChannelNum = 16;
+            camerasInfo = new CameraInfo();
+            for (int i = 1; i < videoInfo.DVSChannelNum; i++)
+            {
+                camerasInfo = new CameraInfo();
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "摄像机" + (i + 1);
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            videoPlayGroupControls_Basic1.bolPreViewPwdVerify = false;
+            videoPlayGroupControls_Basic1.PreViewPwdVerifyEvent += PreViewPwdVerify;
+            videoPlayGroupControls_Basic1.Init_VideoInfoSet(dicVideoInfos);
+        }
+
+        #endregion
 
 
         public bool PreViewPwdVerify(object sender, string strVideoID)

@@ -127,9 +127,25 @@ namespace VideoPlayControl
         public static extern int p_sdkc_start_multi_talk(string guid, ref st_multi_talk channel, int mode, int enable_record, int max_mbyte, int max_min, string rec_file_path);
 
 
+        /// <summary>
+        /// 开始播放视频
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <param name="channel"></param>
+        /// <param name="handle"></param>
+        /// <param name="enable_record"></param>
+        /// <param name="max_mbyte"></param>
+        /// <param name="max_min"></param>
+        /// <param name="rec_file_path"></param>
         [DllImport("\\SKVideoSDK\\VLC_SDK.DLL")]//channel 从0开始
         public static extern void p_sdkc_start_rt_video(string guid, int channel, IntPtr handle, int enable_record, int max_mbyte, int max_min, string rec_file_path);
 
+        /// <summary>
+        /// 停止播放视频
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <param name="channel"></param>
+        /// <param name="handle"></param>
         [DllImport("\\SKVideoSDK\\VLC_SDK.DLL")]
         public static extern void p_sdkc_stop_rt_video(string guid, int channel, IntPtr handle);
         [DllImport("\\SKVideoSDK\\VLC_SDK.DLL")]
@@ -137,8 +153,14 @@ namespace VideoPlayControl
 
         [DllImport("\\SKVideoSDK\\VLC_SDK.DLL")]
         public static extern int p_sdkc_stop_talk(string guid);
+
+        /// <summary>
+        /// 客户端SDK在线状态
+        /// 0，客户端不在线，1，客户端在线
+        /// </summary>
+        /// <returns></returns>
         [DllImport("\\SKVideoSDK\\VLC_SDK.DLL")]
-        public static extern int p_sdkc_get_online();// 0，客户端不在线，1，客户端在线
+        public static extern int p_sdkc_get_online();
         [DllImport("\\SKVideoSDK\\VLC_SDK.DLL")]
         public static extern int p_sdkc_disable_hw_render();//151201 软件解
         [DllImport("\\SKVideoSDK\\VLC_SDK.DLL")]

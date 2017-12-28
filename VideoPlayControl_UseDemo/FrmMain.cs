@@ -92,7 +92,10 @@ namespace VideoPlayControl_UseDemo
             dr["display"] = Enum_VideoType.IPCWA.ToString();
             dtSource.Rows.Add(dr);
 
-
+            dr = dtSource.NewRow();
+            dr["value"] = Convert.ToInt32(Enum_VideoType.SKVideo);
+            dr["display"] = Enum_VideoType.SKVideo.ToString();
+            dtSource.Rows.Add(dr);
 
 
             cmbVideoType.ValueMember = "value";
@@ -157,6 +160,9 @@ namespace VideoPlayControl_UseDemo
                     break;
                 case Enum_VideoType.Ezviz:
                     grpEzvizSDKState.Text = "萤石云SDK状态:" + sdkState.ToString();
+                    break;
+                case Enum_VideoType.SKVideo:
+                    grpSKSDKStatus.Text = "时刻SDK状态:" + sdkState.ToString();
                     break;
             }
         }
@@ -324,11 +330,11 @@ namespace VideoPlayControl_UseDemo
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.SKVideo;
-            v.DVSAddress = "61-573551920B39-3036";
+            v.DVSAddress = "61-573539920B39-3036";
             v.DVSChannelNum = 16;
             v.DVSConnectPort = 81;
             v.DVSName = "8604双网口测试";
-            v.DVSNumber = "999401";
+            v.DVSNumber = "770701";
             v.DVSType = "SK8616";
             v.HostID = "9994";
             v.Password = "sk123456";
@@ -676,6 +682,7 @@ namespace VideoPlayControl_UseDemo
             VideoPlaySetting videoPlaySet = new VideoPlaySetting();
             videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
             videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
+            videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
             int intVideoIndex = Convert.ToInt32(cmbOperAtWindows.SelectedValue);
             if (chkPresetEanble.Checked)
             {
@@ -783,6 +790,24 @@ namespace VideoPlayControl_UseDemo
             }
             videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
             videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
+            videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
+            if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
+            {
+                string strTimeValue = DateTime.Now.ToString("yyyyMMddHHmmss");
+                StringBuilder sbVideoRecordPath = new StringBuilder();
+                sbVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
+                sbVideoRecordPath.Append(strTimeValue + "\\");
+                sbVideoRecordPath.Append(intCurrentVideoID + "_");
+                sbVideoRecordPath.Append(cameraInfo.Channel.ToString().PadLeft(2, '0') + "_");
+                sbVideoRecordPath.Append(strTimeValue + "_81.H264");
+                videoPlaySet.VideoRecordFilePath = sbVideoRecordPath.ToString();
+
+                StringBuilder sbPreVideoRecordPath = new StringBuilder();
+                sbPreVideoRecordPath.Append("http://121.41.87.203:8008/SK_VideoRecord/");
+                sbPreVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
+                sbPreVideoRecordPath.Append(strTimeValue + "\\");
+                videoPlaySet.PreVideoRecordFilePath = sbPreVideoRecordPath.ToString();
+            }
             if (intVideoIndex == 0)
             {
                 if (videoWindowTest.VideoPlayState == Enum_VideoPlayState.InPlayState)
@@ -794,7 +819,7 @@ namespace VideoPlayControl_UseDemo
                 PlayVideo(videoWindowTest, dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
             }
             else
-            {
+            { 
                 if (lstVideoPlayWindow[intVideoIndex - 1].VideoPlayState == Enum_VideoPlayState.InPlayState)
                 {
                     //处于播放状态
@@ -936,6 +961,20 @@ namespace VideoPlayControl_UseDemo
         {
             bolTestMode = false;
             timer1.Enabled = false;
+        }
+
+        private void btnSKTestData_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = SKVideo_TestData();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+
+        private void btnGetSKSDKStatus_Click(object sender, EventArgs e)
+        {
+            string strResult = SDKState.GetSKSDKClientOlineStatus() == 1 ? "在线" : "离线";
+            MessageBox.Show(strResult);
         }
     }
 }

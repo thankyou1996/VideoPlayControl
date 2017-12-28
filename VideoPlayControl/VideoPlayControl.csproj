@@ -90,6 +90,12 @@
     <Compile Include="VideoChannelList.Designer.cs">
       <DependentUpon>VideoChannelList.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoPlayGroupControls_PTZAndTalk.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoPlayGroupControls_PTZAndTalk.Designer.cs">
+      <DependentUpon>VideoPlayGroupControls_PTZAndTalk.cs</DependentUpon>
+    </Compile>
     <Compile Include="VideoPlayGroupControls_VideoInfoList1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -133,6 +139,12 @@
     <Compile Include="VideoRecordList.Designer.cs">
       <DependentUpon>VideoRecordList.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoTalkControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoTalkControl.Designer.cs">
+      <DependentUpon>VideoTalkControl.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -141,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VideoChannelList.resx">
       <DependentUpon>VideoChannelList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoPlayGroupControls_PTZAndTalk.resx">
+      <DependentUpon>VideoPlayGroupControls_PTZAndTalk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VideoPlayGroupControls_VideoInfoList1.resx">
       <DependentUpon>VideoPlayGroupControls_VideoInfoList1.cs</DependentUpon>
@@ -162,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VideoRecordList.resx">
       <DependentUpon>VideoRecordList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoTalkControl.resx">
+      <DependentUpon>VideoTalkControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

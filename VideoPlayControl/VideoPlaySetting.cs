@@ -36,6 +36,8 @@ namespace VideoPlayControl
             set { bolVideoRecordEnable = value; }
         }
 
+       
+        
         /// <summary>
         /// 视频录像文件地址
         /// </summary>
@@ -49,6 +51,35 @@ namespace VideoPlayControl
             get { return strVideoRecordFilePath; }
             set { strVideoRecordFilePath = value; }
         }
+
+        /// <summary>
+        /// 预录像使能
+        /// </summary>
+        private bool bolPreVideoRecord = false;
+
+        /// <summary>
+        /// 预录像使能
+        /// </summary>
+        public bool PerVideoRecord
+        {
+            get { return bolPreVideoRecord; }
+            set { bolPreVideoRecord = value; }
+        }
+
+        /// <summary>
+        /// 预录像文件地址
+        /// </summary>
+        private string strPreVideoRecordFilePath = "";
+
+        /// <summary>
+        /// 预录像文件地址
+        /// </summary>
+        public string PreVideoRecordFilePath
+        {
+            get { return strPreVideoRecordFilePath; }
+            set { strPreVideoRecordFilePath = value; }
+        }
+        
         /// <summary>
         /// 音频使能
         /// </summary>

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using PublicClassCurrency;
 using System.IO;
 using System.Threading;
+using static CommonMethod.CommonObject;
 
 namespace VideoPlayControl
 {
@@ -17,7 +18,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 当前视频信息
         /// </summary>
-        public Dictionary<string, PublicClassCurrency.VideoInfo> dicCurrentVideoInfos = new Dictionary<string, VideoInfo>();
+        public Dictionary<string, VideoInfo> dicCurrentVideoInfos = new Dictionary<string, VideoInfo>();
 
         /// <summary>
         /// 当前播放视频设备ID 
@@ -487,59 +488,7 @@ namespace VideoPlayControl
                 }
             }
         }
-    }
-    /// <summary>
-    /// 170120 ComboBox Item
-    /// value 表示键 display表示显示的值
-    /// </summary>
-    public class ComboBoxItem
-    {
-        /// <summary>
-        /// ComboBox控件Item
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="display"></param>
-        public ComboBoxItem(object value, string display)
-        {
-            this.ItemValue = value;
-            this.ItemDisplay = display;
-        }
-
-        /// <summary>
-        /// Item 键
-        /// </summary>
-        object itemValue;
-
-        /// <summary>
-        /// Item 键
-        /// </summary>
-        public object ItemValue
-        {
-            get { return itemValue; }
-            set { itemValue = value; }
-        }
-
-        /// <summary>
-        /// Item 值
-        /// </summary>
-        string itemDisplay;
-        /// <summary>
-        /// Item 值
-        /// </summary>
-        public string ItemDisplay
-        {
-            get { return itemDisplay; }
-            set { itemDisplay = value; }
-        }
-
-        /// <summary>
-        /// 重写 ToString() 方法
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return ItemDisplay;
-        }
+        
     }
 
 }

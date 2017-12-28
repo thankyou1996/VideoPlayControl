@@ -375,6 +375,26 @@
             摄像头信息
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.VideoInfo.bolIntercomEnable">
+            <summary>
+            对讲使能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.IntercomEnable">
+            <summary>
+            对讲使能
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.bolOnlyIntercom">
+            <summary>
+            仅作为对讲设备
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.OnlyIntercom">
+            <summary>
+            仅作为对讲设备
+            </summary>
+        </member>
         <member name="M:PublicClassCurrency.VideoInfo.SetCameraInfo(System.Int32,System.String)">
             <summary>
             设置摄像头信息

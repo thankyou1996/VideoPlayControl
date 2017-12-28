@@ -84,5 +84,25 @@ namespace VideoPlayControl
 
         #endregion
 
+        #region 程序常量
+
+        #region 时刻视频设备
+        /// <summary>
+        /// 对讲模式
+        /// </summary>
+        public const int c_intSKVideoTalkMode_Talk = 1;
+
+        /// <summary>
+        /// 监听模式
+        /// </summary>
+        public const int c_intSKVideoTalkMode_Monitor = 3;
+
+        /// <summary>
+        /// 喊话模式
+        /// </summary>
+        public const int c_intSKVideoTalkMode_Shout = 2;
+        #endregion
+
+        #endregion
     }
 }

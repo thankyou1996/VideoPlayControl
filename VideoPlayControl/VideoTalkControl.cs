@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace VideoPlayControl
 {
-    public partial class VideoPlayGroupControl_ExtendedControl : UserControl
+    public partial class VideoTalkControl : UserControl
     {
-        public VideoPlayGroupControl_ExtendedControl()
+        public VideoTalkControl()
         {
             InitializeComponent();
         }

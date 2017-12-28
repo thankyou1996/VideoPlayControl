@@ -286,9 +286,17 @@ namespace VideoPlayControl
             SKVideoSDKState = Enum_SDKState.SDK_Init;
             SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitEnd);
             return SKVideoSDKState;
-
         }
 
+        /// <summary>
+        /// 获取客户端SDK网络状态
+        /// 0，客户端不在线，1，客户端在线
+        /// </summary>
+        /// <returns></returns>
+        public static int GetSKSDKClientOlineStatus()
+        {
+            return SDK_SKVideoSDK.p_sdkc_get_online();
+        }
         #endregion
 
 
