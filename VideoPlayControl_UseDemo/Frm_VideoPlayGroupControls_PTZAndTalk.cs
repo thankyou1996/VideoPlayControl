@@ -33,6 +33,8 @@ namespace VideoPlayControl_UseDemo
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
             SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, ProgParameter.strSKVideo_ServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
+            //SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, "192.168.2.10", ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
+
             SetTestData_ZWVideoAndSKTalk();
         }
 
@@ -69,6 +71,8 @@ namespace VideoPlayControl_UseDemo
             videoInfo.DVSNumber = "000102";
             videoInfo.DVSName = "SK519V";
             videoInfo.DVSType = "SK519V";
+            //videoInfo.DVSAddress = "61-B5513D572279-4E54";
+            //videoInfo.DVSAddress = "61-3E477829FE12-4EF4";
             videoInfo.DVSAddress = "71-00F51F012D0C-2830";
             videoInfo.DVSConnectPort = 9101;
             videoInfo.UserName = "admin";
