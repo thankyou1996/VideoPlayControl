@@ -80,10 +80,12 @@
     <Compile Include="SDKState.cs" />
     <Compile Include="SDK_EzvizSDK.cs" />
     <Compile Include="SDK_EzvizSDK_Old.cs" />
+    <Compile Include="SDK_HuaMai.cs" />
     <Compile Include="SDK_JCSDK.cs" />
     <Compile Include="ProgConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SDK_SKVideoSDK.cs" />
+    <Compile Include="UTF8Marsgaler.cs" />
     <Compile Include="VideoChannelList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,22 +187,73 @@
   <ItemGroup>
     <Content Include="dll_Libyary\CommonMethod.dll" />
     <Content Include="dll_Libyary\CommonMethod.XML" />
+    <Content Include="dll_Libyary\HuaMai\avcodec-54.dll" />
+    <Content Include="dll_Libyary\HuaMai\avformat-54.dll" />
+    <Content Include="dll_Libyary\HuaMai\avutil-51.dll" />
+    <Content Include="dll_Libyary\HuaMai\bas.dll" />
+    <Content Include="dll_Libyary\HuaMai\bitmap.dll" />
+    <Content Include="dll_Libyary\HuaMai\codec.dll" />
+    <Content Include="dll_Libyary\HuaMai\demo.exe" />
+    <Content Include="dll_Libyary\HuaMai\device.dll" />
+    <Content Include="dll_Libyary\HuaMai\hmsdk.dll" />
+    <Content Include="dll_Libyary\HuaMai\HW_H265dec_Win32D.dll" />
+    <Content Include="dll_Libyary\HuaMai\json.dll" />
+    <Content Include="dll_Libyary\HuaMai\libfaac.dll" />
+    <Content Include="dll_Libyary\HuaMai\libnat.dll" />
+    <Content Include="dll_Libyary\HuaMai\libspeex.dll" />
+    <Content Include="dll_Libyary\HuaMai\libspeexdsp.dll" />
+    <Content Include="dll_Libyary\HuaMai\log.dll" />
+    <Content Include="dll_Libyary\HuaMai\nat.dll" />
+    <Content Include="dll_Libyary\HuaMai\nat2.dll" />
+    <Content Include="dll_Libyary\HuaMai\net.dll" />
+    <Content Include="dll_Libyary\HuaMai\server.dll" />
+    <Content Include="dll_Libyary\HuaMai\swscale-2.dll" />
+    <Content Include="dll_Libyary\HuaMai\utility.dll" />
+    <Content Include="dll_Libyary\HuaMai\xml.dll" />
     <Content Include="dll_Libyary\IPCWA\AxInterop.RASPLAYEROCXLib.dll" />
     <Content Include="dll_Libyary\IPCWA\Interop.RASPLAYEROCXLib.dll" />
-    <Content Include="dll_Libyary\JCSDK\demo.exe" />
-    <Content Include="dll_Libyary\JCSDK\ieshims.dll" />
-    <Content Include="dll_Libyary\JCSDK\IPCamCfg.dll" />
-    <Content Include="dll_Libyary\JCSDK\JADEC.dll" />
-    <Content Include="dll_Libyary\JCSDK\jcsdk.dll" />
-    <Content Include="dll_Libyary\JCSDK\JDEC04.dll" />
-    <Content Include="dll_Libyary\JCSDK\JDEC05.dll" />
-    <Content Include="dll_Libyary\JCSDK\Jmp4pkg.dll" />
-    <Content Include="dll_Libyary\JCSDK\JvClient.dll" />
-    <Content Include="dll_Libyary\JCSDK\JVSDKP.dll" />
-    <Content Include="dll_Libyary\JCSDK\libeay32.dll" />
-    <Content Include="dll_Libyary\JCSDK\nvcsdk.dll" />
-    <Content Include="dll_Libyary\JCSDK\PTZDlg.dll" />
-    <Content Include="dll_Libyary\JCSDK\ssleay32.dll" />
+    <Content Include="dll_Libyary\JCSDK\demo.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\ieshims.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\IPCamCfg.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\JADEC.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\jcsdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\JDEC04.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\JDEC05.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\Jmp4pkg.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\JvClient.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\JVSDKP.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\libeay32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\nvcsdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\PTZDlg.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll_Libyary\JCSDK\ssleay32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="dll_Libyary\Newtonsoft.Json.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.xml" />

@@ -13,7 +13,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 中维(云视通)SDK
         /// </summary>
-        public const string c_strCloundSeeSDKFilePath = "\\JCSDK\\JCSDK.dll";
+        public const string c_strCloundSeeSDKFilePath = "\\dll_Libyary\\JCSDK\\JCSDK.dll";
 
         /// <summary>
         /// 萤石云  SDK（旧版本）
@@ -24,6 +24,13 @@ namespace VideoPlayControl
         /// 萤石云SDK 
         /// </summary>
         public const string c_strEzvizSDKFilePath = "\\Ezviz\\OpenNetStream.dll";
+
+        /// <summary>
+        /// 华迈SDK
+        /// </summary>
+        //public const string c_strHuaMaiSDKFilePath = "\\hmsdk.dll";
+
+        public const string c_strHuaMaiSDKFilePath = "\\dll_Libyary\\HuaMai\\hmsdk.dll";
         #endregion
 
         #region SDK默认参数

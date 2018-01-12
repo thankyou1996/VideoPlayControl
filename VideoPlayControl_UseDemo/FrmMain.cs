@@ -53,7 +53,25 @@ namespace VideoPlayControl_UseDemo
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
             SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, ProgParameter.strSKVideo_ServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
-             //SKVideoSDKInit
+            //SKVideoSDKInit
+            MessageBox.Show(SDK_HuaMai.hm_sdk_init().ToString());
+            //SDK_HuaMai._LOGIN_SERVER_INFO loginInfo = new SDK_HuaMai._LOGIN_SERVER_INFO();
+            //loginInfo.ip = "123.54.5.122";
+            //loginInfo.port = 10091;
+            //loginInfo.user = "商丘市视频联网报警中心";
+            //loginInfo.password = "2299578";
+            //loginInfo.plat_type = "pc";
+            //loginInfo.hard_ver = "Pentium4";
+            //loginInfo.soft_ver = "v1.1.0.1789";
+            //loginInfo.keep_time = 11;
+            //IntPtr intptrServerInfo;
+            //int intErrlog = 0;
+            //string strErrlog = "";
+            //UInt32 uiErrlogLength = 0;
+            //int nSizeInfoLength = Marshal.SizeOf(loginInfo);
+            //IntPtr i = Marshal.AllocHGlobal(nSizeInfoLength);
+            //Marshal.StructureToPtr(loginInfo, i, false);
+            //UInt32 iResult = SDK_HuaMai.hm_server_connect(ref i, out intptrServerInfo, out strErrlog, 0);
             Init();
         }
 
