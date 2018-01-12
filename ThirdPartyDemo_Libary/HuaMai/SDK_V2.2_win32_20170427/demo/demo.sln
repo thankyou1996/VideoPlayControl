@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hmsdk_demo", "remote_device_demo\hmsdk_demo.vcxproj", "{93534FEF-F42B-4963-90E0-0CFE7550BE9B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "remote_playback_demo", "remote_playback_demo\remote_playback_demo.vcxproj", "{F9439576-B678-40E7-85E8-28A49634D272}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93534FEF-F42B-4963-90E0-0CFE7550BE9B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{93534FEF-F42B-4963-90E0-0CFE7550BE9B}.Debug|Win32.Build.0 = Debug|Win32
+		{93534FEF-F42B-4963-90E0-0CFE7550BE9B}.Release|Win32.ActiveCfg = Release|Win32
+		{93534FEF-F42B-4963-90E0-0CFE7550BE9B}.Release|Win32.Build.0 = Release|Win32
+		{F9439576-B678-40E7-85E8-28A49634D272}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F9439576-B678-40E7-85E8-28A49634D272}.Debug|Win32.Build.0 = Debug|Win32
+		{F9439576-B678-40E7-85E8-28A49634D272}.Release|Win32.ActiveCfg = Release|Win32
+		{F9439576-B678-40E7-85E8-28A49634D272}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D8EA3A2-4D88-4325-B9C4-9145DAD7700B}
+	EndGlobalSection
+EndGlobal
