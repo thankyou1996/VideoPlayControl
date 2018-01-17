@@ -254,8 +254,6 @@ namespace VideoPlayControl
             EzvizSDKState = Enum_SDKState.SDK_Release;
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseEnd);
             return EzvizSDKState;
-
-
         }
 
 
@@ -264,7 +262,7 @@ namespace VideoPlayControl
         #region 时刻视频设备 SKVideoSDK
 
         /// <summary>
-        /// 萤石云SDK状态
+        /// 时刻视频SDK状态
         /// </summary>
         private static Enum_SDKState s_SKVideoSDKState = Enum_SDKState.SDK_Null;
 
@@ -337,10 +335,17 @@ namespace VideoPlayControl
         /// <returns></returns>
         public static Enum_SDKState HuaMai_Init()
         {
+            SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitStart);
             UInt32 iResult = 0;
-            UInt32 Temp_iResult = 0;
+            UInt32 Temp_iResult = 0;            
             #region 基本信息初始化
             Temp_iResult = SDK_HuaMai.hm_sdk_init();
+            if (Temp_iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
+            {
+                SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitException);
+                HuaMaiSDKState = Enum_SDKState.SDK_InitFail;
+                return HuaMaiSDKState;
+            }
             SDK_HuaMai._LOGIN_SERVER_INFO loginInfo = new SDK_HuaMai._LOGIN_SERVER_INFO();
             loginInfo.ip = ProgConstants.c_strHuaMaiSDK_LoginInfo_IP;
             loginInfo.port = ProgConstants.c_strHuaMaiSDK_LoginInfo_Port;
@@ -352,11 +357,36 @@ namespace VideoPlayControl
             IntPtr iServerInfo = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(SDK_HuaMai._LOGIN_SERVER_INFO)));
             Marshal.StructureToPtr(loginInfo, iServerInfo, false);
             Temp_iResult = SDK_HuaMai.hm_server_connect(iServerInfo, ref ProgParameter.HuaMai_iServer, 0, 0);
+            if (Temp_iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
+            {
+                SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKConnectException);
+                HuaMaiSDKState = Enum_SDKState.SDK_InitFail;
+                return HuaMaiSDKState;
+            }
             #endregion
             Temp_iResult = SDK_HuaMai.hm_server_get_device_list(ProgParameter.HuaMai_iServer);
+            if (Temp_iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
+            {
+                SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitException);
+                HuaMaiSDKState = Enum_SDKState.SDK_InitFail;
+                return HuaMaiSDKState;
+            }
             Temp_iResult = SDK_HuaMai.hm_server_get_transfer_info(ProgParameter.HuaMai_iServer);
+            if (Temp_iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
+            {
+                SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitException);
+                HuaMaiSDKState = Enum_SDKState.SDK_InitFail;
+                return HuaMaiSDKState;
+            }
             Temp_iResult = SDK_HuaMai.hm_server_get_tree(ProgParameter.HuaMai_iServer, ref ProgParameter.HuaMai_iTree);
+            if (Temp_iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
+            {
+                SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitException);
+                HuaMaiSDKState = Enum_SDKState.SDK_InitFail;
+                return HuaMaiSDKState;
+            }
             HuaMaiSDKState = Enum_SDKState.SDK_Init;
+            SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitEnd);
             return HuaMaiSDKState;
         }
 
@@ -366,10 +396,12 @@ namespace VideoPlayControl
         /// <returns></returns>
         public static Enum_SDKState Huamai_Release()
         {
+            SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseStart);
             UInt32 Temp_iResult = 0;
             Temp_iResult = SDK_HuaMai.hm_server_release_tree(ProgParameter.HuaMai_iServer);
             Temp_iResult = SDK_HuaMai.hm_server_disconnect(ProgParameter.HuaMai_iServer);
             HuaMaiSDKState = Enum_SDKState.SDK_Release;
+            SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseEnd);
             return HuaMaiSDKState;
         }
         
@@ -379,6 +411,7 @@ namespace VideoPlayControl
         {
             ColundSee_SDKRelease(); //云视通SDK 
             Ezviz_SDKRelease();     //萤石云SDK 
+            Huamai_Release();
         }
     }
 

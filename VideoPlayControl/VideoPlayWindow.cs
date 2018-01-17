@@ -1384,9 +1384,10 @@ namespace VideoPlayControl
             disp_op.pq = SDK_HuaMai.PIC_QUALITY.HME_PQ_HIGHT;
             //IntPtr iWnd = pictureBox1.Handle;
             iPort = IntPtr.Zero;
-            iResult = SDK_HuaMai.hm_video_display_open_port(picPlayMain.Handle, ref disp_op, ref iPort);
+            iResult = SDK_HuaMai.hm_video_display_open_port(this.Handle, ref disp_op, ref iPort);
             iResult = SDK_HuaMai.hm_video_display_start(iPort, 0, 0, 25);
-            //回调触发播放事件
+            VideoPlayState = Enum_VideoPlayState.InPlayState;
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
         }
         /// <summary>
         /// 华迈视频_视频关闭
@@ -1473,7 +1474,7 @@ namespace VideoPlayControl
                 case Enum_VideoType.SKVideo:
                     SKVideo_VideoPlay();        //时刻视频设备
                     break;
-                case Enum_VideoType.HuaMaiVideo:
+                case Enum_VideoType.HuaMaiVideo://华迈设备
                     HuaMaiVideo_VideoPlay();
                     break;
             }
