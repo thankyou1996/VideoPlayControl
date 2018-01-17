@@ -11,6 +11,19 @@ namespace VideoPlayControl
     /// </summary>
     public static class SDKState
     {
+
+        #region 关于SDK状态描述
+        /*****************
+         * SDK状态改变模式
+         *  触发流程：
+         *  1.调用SDK释放方法
+         *  2.SDK状态值改变
+         *  3.触发SDK状态改变回调
+         * ***************/
+
+
+
+        #endregion
         #region 委托事件
 
         #region SDK状态改变
@@ -299,6 +312,68 @@ namespace VideoPlayControl
         }
         #endregion
 
+        #region 华迈云SDK
+        /// <summary>
+        /// 华迈云SDK状态
+        /// </summary>
+        private static Enum_SDKState s_HuaMaiSDKState = Enum_SDKState.SDK_Null;
+
+        /// <summary>
+        /// 华迈云SDK状态
+        /// </summary>
+        public static Enum_SDKState HuaMaiSDKState
+        {
+            get { return s_HuaMaiSDKState; }
+            set
+            {
+                s_HuaMaiSDKState = value;
+                SDKStateChange(Enum_VideoType.Ezviz, s_HuaMaiSDKState);
+            }
+        }
+
+        /// <summary>
+        /// 华迈平台初始化
+        /// </summary>
+        /// <returns></returns>
+        public static Enum_SDKState HuaMai_Init()
+        {
+            UInt32 iResult = 0;
+            UInt32 Temp_iResult = 0;
+            #region 基本信息初始化
+            Temp_iResult = SDK_HuaMai.hm_sdk_init();
+            SDK_HuaMai._LOGIN_SERVER_INFO loginInfo = new SDK_HuaMai._LOGIN_SERVER_INFO();
+            loginInfo.ip = ProgConstants.c_strHuaMaiSDK_LoginInfo_IP;
+            loginInfo.port = ProgConstants.c_strHuaMaiSDK_LoginInfo_Port;
+            loginInfo.user = ProgParameter.strHuaMaiLoginInfo_LoginName;
+            loginInfo.password = ProgParameter.strHuaMaiLoginInfo_LoginPwd;
+            loginInfo.plat_type = "pc";
+            loginInfo.hard_ver = "Pentium4";
+            loginInfo.soft_ver = "v1.1.0.1789";
+            IntPtr iServerInfo = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(SDK_HuaMai._LOGIN_SERVER_INFO)));
+            Marshal.StructureToPtr(loginInfo, iServerInfo, false);
+            Temp_iResult = SDK_HuaMai.hm_server_connect(iServerInfo, ref ProgParameter.HuaMai_iServer, 0, 0);
+            #endregion
+            Temp_iResult = SDK_HuaMai.hm_server_get_device_list(ProgParameter.HuaMai_iServer);
+            Temp_iResult = SDK_HuaMai.hm_server_get_transfer_info(ProgParameter.HuaMai_iServer);
+            Temp_iResult = SDK_HuaMai.hm_server_get_tree(ProgParameter.HuaMai_iServer, ref ProgParameter.HuaMai_iTree);
+            HuaMaiSDKState = Enum_SDKState.SDK_Init;
+            return HuaMaiSDKState;
+        }
+
+        /// <summary>
+        /// 华迈平台释放
+        /// </summary>
+        /// <returns></returns>
+        public static Enum_SDKState Huamai_Release()
+        {
+            UInt32 Temp_iResult = 0;
+            Temp_iResult = SDK_HuaMai.hm_server_release_tree(ProgParameter.HuaMai_iServer);
+            Temp_iResult = SDK_HuaMai.hm_server_disconnect(ProgParameter.HuaMai_iServer);
+            HuaMaiSDKState = Enum_SDKState.SDK_Release;
+            return HuaMaiSDKState;
+        }
+        
+        #endregion
 
         public static void VideoSDKRelease()
         {

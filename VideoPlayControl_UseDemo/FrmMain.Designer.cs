@@ -31,19 +31,24 @@
             this.components = new System.ComponentModel.Container();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.PageTestData = new System.Windows.Forms.TabPage();
+            this.btnEzvizTestData = new System.Windows.Forms.Button();
+            this.btnSKTestData = new System.Windows.Forms.Button();
+            this.PageOther = new System.Windows.Forms.TabPage();
             this.btnStartTalk = new System.Windows.Forms.Button();
             this.btnStopTest = new System.Windows.Forms.Button();
-            this.btnSKTestData = new System.Windows.Forms.Button();
-            this.btnEzvizTestData = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cmbOperAtPreset = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbOperAtWindows = new System.Windows.Forms.ComboBox();
+            this.btnVideoPlayClose = new System.Windows.Forms.Button();
+            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
             this.btnWindowPlay = new System.Windows.Forms.Button();
             this.btnTestClose = new System.Windows.Forms.Button();
             this.btnAddList = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.cmbOperAtPreset = new System.Windows.Forms.ComboBox();
-            this.cmbOperAtWindows = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnVideoPlayClose = new System.Windows.Forms.Button();
             this.btnTestPlay = new System.Windows.Forms.Button();
             this.cmbDVSAddress = new System.Windows.Forms.ComboBox();
             this.cmbVideoType = new System.Windows.Forms.ComboBox();
@@ -59,6 +64,7 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtChannel = new System.Windows.Forms.TextBox();
             this.pnlBottom_Left = new System.Windows.Forms.Panel();
+            this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
             this.chkMonitorEnable = new System.Windows.Forms.CheckBox();
             this.chkVideoRecordEnable = new System.Windows.Forms.CheckBox();
             this.cmbPreset = new System.Windows.Forms.ComboBox();
@@ -70,9 +76,11 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pageVideoInfo = new System.Windows.Forms.TabPage();
             this.pnlVideoInfo_Right = new System.Windows.Forms.Panel();
+            this.videoChannelList = new VideoPlayControl.VideoChannelList();
             this.pnlVideoInfo_Right_Top = new System.Windows.Forms.Panel();
             this.cmbPlayWindows = new System.Windows.Forms.ComboBox();
             this.chkPresetEanble = new System.Windows.Forms.CheckBox();
+            this.chkProVideoRecord = new System.Windows.Forms.CheckBox();
             this.txtCurrentDVSAddress = new System.Windows.Forms.TextBox();
             this.txtCurrentDVSType = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -97,6 +105,9 @@
             this.chkSDKStateCallback = new System.Windows.Forms.CheckBox();
             this.pageSetting = new System.Windows.Forms.TabPage();
             this.label17 = new System.Windows.Forms.Label();
+            this.grpHuaMaiSDKStatus = new System.Windows.Forms.GroupBox();
+            this.btnHuaMaiSDKInit = new System.Windows.Forms.Button();
+            this.btnHuaMaiSDKRelease = new System.Windows.Forms.Button();
             this.grpSKSDKStatus = new System.Windows.Forms.GroupBox();
             this.btnSKSDKInit = new System.Windows.Forms.Button();
             this.btnGetSKSDKStatus = new System.Windows.Forms.Button();
@@ -112,16 +123,13 @@
             this.ssrTip = new System.Windows.Forms.StatusStrip();
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
-            this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
-            this.videoChannelList = new VideoPlayControl.VideoChannelList();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.PageTestData = new System.Windows.Forms.TabPage();
-            this.PageOther = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.chkProVideoRecord = new System.Windows.Forms.CheckBox();
+            this.btnHuaMaiTestData = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.PageTestData.SuspendLayout();
+            this.PageOther.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.pnlBottom_Left.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -133,14 +141,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReocrd)).BeginInit();
             this.pnlEventRecord_Top.SuspendLayout();
             this.pageSetting.SuspendLayout();
+            this.grpHuaMaiSDKStatus.SuspendLayout();
             this.grpSKSDKStatus.SuspendLayout();
             this.grpEzvizSDKState.SuspendLayout();
             this.grpCloundSeeSDKState.SuspendLayout();
             this.ssrTip.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.PageTestData.SuspendLayout();
-            this.PageOther.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBottom
@@ -183,6 +188,62 @@
             this.grpVideoInfo.TabStop = false;
             this.grpVideoInfo.Text = "主机信息";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.PageTestData);
+            this.tabControl1.Controls.Add(this.PageOther);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(277, 13);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(264, 117);
+            this.tabControl1.TabIndex = 35;
+            // 
+            // PageTestData
+            // 
+            this.PageTestData.Controls.Add(this.btnHuaMaiTestData);
+            this.PageTestData.Controls.Add(this.btnEzvizTestData);
+            this.PageTestData.Controls.Add(this.btnSKTestData);
+            this.PageTestData.Location = new System.Drawing.Point(4, 22);
+            this.PageTestData.Name = "PageTestData";
+            this.PageTestData.Padding = new System.Windows.Forms.Padding(3);
+            this.PageTestData.Size = new System.Drawing.Size(256, 91);
+            this.PageTestData.TabIndex = 0;
+            this.PageTestData.Text = "测试数据";
+            this.PageTestData.UseVisualStyleBackColor = true;
+            // 
+            // btnEzvizTestData
+            // 
+            this.btnEzvizTestData.Location = new System.Drawing.Point(3, 3);
+            this.btnEzvizTestData.Name = "btnEzvizTestData";
+            this.btnEzvizTestData.Size = new System.Drawing.Size(74, 22);
+            this.btnEzvizTestData.TabIndex = 14;
+            this.btnEzvizTestData.Text = "萤石数据";
+            this.btnEzvizTestData.UseVisualStyleBackColor = true;
+            this.btnEzvizTestData.Click += new System.EventHandler(this.btnEzvizTestData_Click);
+            // 
+            // btnSKTestData
+            // 
+            this.btnSKTestData.Location = new System.Drawing.Point(83, 3);
+            this.btnSKTestData.Name = "btnSKTestData";
+            this.btnSKTestData.Size = new System.Drawing.Size(74, 22);
+            this.btnSKTestData.TabIndex = 14;
+            this.btnSKTestData.Text = "时刻数据";
+            this.btnSKTestData.UseVisualStyleBackColor = true;
+            this.btnSKTestData.Click += new System.EventHandler(this.btnSKTestData_Click);
+            // 
+            // PageOther
+            // 
+            this.PageOther.Controls.Add(this.btnStartTalk);
+            this.PageOther.Controls.Add(this.btnStopTest);
+            this.PageOther.Location = new System.Drawing.Point(4, 22);
+            this.PageOther.Name = "PageOther";
+            this.PageOther.Padding = new System.Windows.Forms.Padding(3);
+            this.PageOther.Size = new System.Drawing.Size(256, 91);
+            this.PageOther.TabIndex = 1;
+            this.PageOther.Text = "其他";
+            this.PageOther.UseVisualStyleBackColor = true;
+            // 
             // btnStartTalk
             // 
             this.btnStartTalk.Location = new System.Drawing.Point(9, 28);
@@ -202,25 +263,77 @@
             this.btnStopTest.UseVisualStyleBackColor = true;
             this.btnStopTest.Click += new System.EventHandler(this.btnStopTest_Click);
             // 
-            // btnSKTestData
+            // tabPage1
             // 
-            this.btnSKTestData.Location = new System.Drawing.Point(83, 3);
-            this.btnSKTestData.Name = "btnSKTestData";
-            this.btnSKTestData.Size = new System.Drawing.Size(74, 22);
-            this.btnSKTestData.TabIndex = 14;
-            this.btnSKTestData.Text = "时刻数据";
-            this.btnSKTestData.UseVisualStyleBackColor = true;
-            this.btnSKTestData.Click += new System.EventHandler(this.btnSKTestData_Click);
+            this.tabPage1.Controls.Add(this.label15);
+            this.tabPage1.Controls.Add(this.cmbOperAtPreset);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.cmbOperAtWindows);
+            this.tabPage1.Controls.Add(this.btnVideoPlayClose);
+            this.tabPage1.Controls.Add(this.videoPTZControl1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(256, 91);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btnEzvizTestData
+            // label15
             // 
-            this.btnEzvizTestData.Location = new System.Drawing.Point(3, 3);
-            this.btnEzvizTestData.Name = "btnEzvizTestData";
-            this.btnEzvizTestData.Size = new System.Drawing.Size(74, 22);
-            this.btnEzvizTestData.TabIndex = 14;
-            this.btnEzvizTestData.Text = "萤石数据";
-            this.btnEzvizTestData.UseVisualStyleBackColor = true;
-            this.btnEzvizTestData.Click += new System.EventHandler(this.btnEzvizTestData_Click);
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(82, 30);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 12);
+            this.label15.TabIndex = 31;
+            this.label15.Text = "预置点";
+            // 
+            // cmbOperAtPreset
+            // 
+            this.cmbOperAtPreset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOperAtPreset.FormattingEnabled = true;
+            this.cmbOperAtPreset.Location = new System.Drawing.Point(129, 27);
+            this.cmbOperAtPreset.Name = "cmbOperAtPreset";
+            this.cmbOperAtPreset.Size = new System.Drawing.Size(49, 20);
+            this.cmbOperAtPreset.TabIndex = 30;
+            this.cmbOperAtPreset.SelectedIndexChanged += new System.EventHandler(this.cmbOperAtPreset_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(82, 9);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 12);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "画面:";
+            // 
+            // cmbOperAtWindows
+            // 
+            this.cmbOperAtWindows.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOperAtWindows.FormattingEnabled = true;
+            this.cmbOperAtWindows.Location = new System.Drawing.Point(129, 5);
+            this.cmbOperAtWindows.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbOperAtWindows.Name = "cmbOperAtWindows";
+            this.cmbOperAtWindows.Size = new System.Drawing.Size(125, 20);
+            this.cmbOperAtWindows.TabIndex = 29;
+            // 
+            // btnVideoPlayClose
+            // 
+            this.btnVideoPlayClose.Location = new System.Drawing.Point(190, 61);
+            this.btnVideoPlayClose.Name = "btnVideoPlayClose";
+            this.btnVideoPlayClose.Size = new System.Drawing.Size(63, 23);
+            this.btnVideoPlayClose.TabIndex = 0;
+            this.btnVideoPlayClose.Text = "关闭视频";
+            this.btnVideoPlayClose.UseVisualStyleBackColor = true;
+            this.btnVideoPlayClose.Click += new System.EventHandler(this.btnVideoPlayClose_Click);
+            // 
+            // videoPTZControl1
+            // 
+            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
+            this.videoPTZControl1.Location = new System.Drawing.Point(3, 6);
+            this.videoPTZControl1.Name = "videoPTZControl1";
+            this.videoPTZControl1.Size = new System.Drawing.Size(81, 78);
+            this.videoPTZControl1.TabIndex = 9;
             // 
             // btnWindowPlay
             // 
@@ -260,55 +373,6 @@
             this.label14.Size = new System.Drawing.Size(59, 12);
             this.label14.TabIndex = 10;
             this.label14.Text = "设备编号:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(82, 30);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 12);
-            this.label15.TabIndex = 31;
-            this.label15.Text = "预置点";
-            // 
-            // cmbOperAtPreset
-            // 
-            this.cmbOperAtPreset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbOperAtPreset.FormattingEnabled = true;
-            this.cmbOperAtPreset.Location = new System.Drawing.Point(129, 27);
-            this.cmbOperAtPreset.Name = "cmbOperAtPreset";
-            this.cmbOperAtPreset.Size = new System.Drawing.Size(49, 20);
-            this.cmbOperAtPreset.TabIndex = 30;
-            this.cmbOperAtPreset.SelectedIndexChanged += new System.EventHandler(this.cmbOperAtPreset_SelectedIndexChanged);
-            // 
-            // cmbOperAtWindows
-            // 
-            this.cmbOperAtWindows.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbOperAtWindows.FormattingEnabled = true;
-            this.cmbOperAtWindows.Location = new System.Drawing.Point(129, 5);
-            this.cmbOperAtWindows.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbOperAtWindows.Name = "cmbOperAtWindows";
-            this.cmbOperAtWindows.Size = new System.Drawing.Size(125, 20);
-            this.cmbOperAtWindows.TabIndex = 29;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(82, 9);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 12);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "画面:";
-            // 
-            // btnVideoPlayClose
-            // 
-            this.btnVideoPlayClose.Location = new System.Drawing.Point(190, 61);
-            this.btnVideoPlayClose.Name = "btnVideoPlayClose";
-            this.btnVideoPlayClose.Size = new System.Drawing.Size(63, 23);
-            this.btnVideoPlayClose.TabIndex = 0;
-            this.btnVideoPlayClose.Text = "关闭视频";
-            this.btnVideoPlayClose.UseVisualStyleBackColor = true;
-            this.btnVideoPlayClose.Click += new System.EventHandler(this.btnVideoPlayClose_Click);
             // 
             // btnTestPlay
             // 
@@ -457,6 +521,15 @@
             this.pnlBottom_Left.Size = new System.Drawing.Size(219, 136);
             this.pnlBottom_Left.TabIndex = 7;
             // 
+            // videoWindowTest
+            // 
+            this.videoWindowTest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoWindowTest.Location = new System.Drawing.Point(0, 0);
+            this.videoWindowTest.Name = "videoWindowTest";
+            this.videoWindowTest.Size = new System.Drawing.Size(219, 136);
+            this.videoWindowTest.TabIndex = 0;
+            this.videoWindowTest.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
+            // 
             // chkMonitorEnable
             // 
             this.chkMonitorEnable.AutoSize = true;
@@ -588,6 +661,21 @@
             this.pnlVideoInfo_Right.Size = new System.Drawing.Size(119, 506);
             this.pnlVideoInfo_Right.TabIndex = 34;
             // 
+            // videoChannelList
+            // 
+            this.videoChannelList.AutoSetChannelButtonSize = false;
+            this.videoChannelList.ChannelButtonColumn = 1;
+            this.videoChannelList.ChannelButtonHeight = 30;
+            this.videoChannelList.ChannelButtonWidth = 60;
+            this.videoChannelList.ClrBackColor = System.Drawing.SystemColors.ControlDark;
+            this.videoChannelList.ClrChannelButtonDefaultColor = System.Drawing.SystemColors.Control;
+            this.videoChannelList.ClrChannelButtonSelectedColor = System.Drawing.Color.Red;
+            this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoChannelList.Location = new System.Drawing.Point(0, 103);
+            this.videoChannelList.Name = "videoChannelList";
+            this.videoChannelList.Size = new System.Drawing.Size(119, 403);
+            this.videoChannelList.TabIndex = 10;
+            // 
             // pnlVideoInfo_Right_Top
             // 
             this.pnlVideoInfo_Right_Top.Controls.Add(this.cmbPlayWindows);
@@ -621,6 +709,18 @@
             this.chkPresetEanble.TabIndex = 7;
             this.chkPresetEanble.Text = "预置点";
             this.chkPresetEanble.UseVisualStyleBackColor = true;
+            // 
+            // chkProVideoRecord
+            // 
+            this.chkProVideoRecord.AutoSize = true;
+            this.chkProVideoRecord.Checked = true;
+            this.chkProVideoRecord.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkProVideoRecord.Location = new System.Drawing.Point(3, 84);
+            this.chkProVideoRecord.Name = "chkProVideoRecord";
+            this.chkProVideoRecord.Size = new System.Drawing.Size(84, 16);
+            this.chkProVideoRecord.TabIndex = 6;
+            this.chkProVideoRecord.Text = "预录像使能";
+            this.chkProVideoRecord.UseVisualStyleBackColor = true;
             // 
             // txtCurrentDVSAddress
             // 
@@ -833,6 +933,7 @@
             // pageSetting
             // 
             this.pageSetting.Controls.Add(this.label17);
+            this.pageSetting.Controls.Add(this.grpHuaMaiSDKStatus);
             this.pageSetting.Controls.Add(this.grpSKSDKStatus);
             this.pageSetting.Controls.Add(this.grpEzvizSDKState);
             this.pageSetting.Controls.Add(this.grpCloundSeeSDKState);
@@ -854,6 +955,37 @@
             this.label17.TabIndex = 34;
             this.label17.Text = "label17";
             // 
+            // grpHuaMaiSDKStatus
+            // 
+            this.grpHuaMaiSDKStatus.Controls.Add(this.btnHuaMaiSDKInit);
+            this.grpHuaMaiSDKStatus.Controls.Add(this.btnHuaMaiSDKRelease);
+            this.grpHuaMaiSDKStatus.Location = new System.Drawing.Point(5, 193);
+            this.grpHuaMaiSDKStatus.Name = "grpHuaMaiSDKStatus";
+            this.grpHuaMaiSDKStatus.Size = new System.Drawing.Size(200, 48);
+            this.grpHuaMaiSDKStatus.TabIndex = 33;
+            this.grpHuaMaiSDKStatus.TabStop = false;
+            this.grpHuaMaiSDKStatus.Text = "时刻SDK状态";
+            // 
+            // btnHuaMaiSDKInit
+            // 
+            this.btnHuaMaiSDKInit.Location = new System.Drawing.Point(7, 19);
+            this.btnHuaMaiSDKInit.Name = "btnHuaMaiSDKInit";
+            this.btnHuaMaiSDKInit.Size = new System.Drawing.Size(79, 23);
+            this.btnHuaMaiSDKInit.TabIndex = 32;
+            this.btnHuaMaiSDKInit.Text = "SDK初始化";
+            this.btnHuaMaiSDKInit.UseVisualStyleBackColor = true;
+            this.btnHuaMaiSDKInit.Click += new System.EventHandler(this.btnHuaMaiSDKInit_Click);
+            // 
+            // btnHuaMaiSDKRelease
+            // 
+            this.btnHuaMaiSDKRelease.Location = new System.Drawing.Point(115, 19);
+            this.btnHuaMaiSDKRelease.Name = "btnHuaMaiSDKRelease";
+            this.btnHuaMaiSDKRelease.Size = new System.Drawing.Size(79, 23);
+            this.btnHuaMaiSDKRelease.TabIndex = 32;
+            this.btnHuaMaiSDKRelease.Text = "SDK释放";
+            this.btnHuaMaiSDKRelease.UseVisualStyleBackColor = true;
+            this.btnHuaMaiSDKRelease.Click += new System.EventHandler(this.btnHuaMaiSDKRelease_Click);
+            // 
             // grpSKSDKStatus
             // 
             this.grpSKSDKStatus.Controls.Add(this.btnSKSDKInit);
@@ -874,6 +1006,7 @@
             this.btnSKSDKInit.TabIndex = 32;
             this.btnSKSDKInit.Text = "SDK初始化";
             this.btnSKSDKInit.UseVisualStyleBackColor = true;
+            this.btnSKSDKInit.Click += new System.EventHandler(this.btnSKSDKInit_Click);
             // 
             // btnGetSKSDKStatus
             // 
@@ -893,6 +1026,7 @@
             this.btnSKSDKUninit.TabIndex = 32;
             this.btnSKSDKUninit.Text = "SDK释放";
             this.btnSKSDKUninit.UseVisualStyleBackColor = true;
+            this.btnSKSDKUninit.Click += new System.EventHandler(this.btnSKSDKUninit_Click);
             // 
             // grpEzvizSDKState
             // 
@@ -996,99 +1130,15 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // videoPTZControl1
+            // btnHuaMaiTestData
             // 
-            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
-            this.videoPTZControl1.Location = new System.Drawing.Point(3, 6);
-            this.videoPTZControl1.Name = "videoPTZControl1";
-            this.videoPTZControl1.Size = new System.Drawing.Size(81, 78);
-            this.videoPTZControl1.TabIndex = 9;
-            // 
-            // videoWindowTest
-            // 
-            this.videoWindowTest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoWindowTest.Location = new System.Drawing.Point(0, 0);
-            this.videoWindowTest.Name = "videoWindowTest";
-            this.videoWindowTest.Size = new System.Drawing.Size(219, 136);
-            this.videoWindowTest.TabIndex = 0;
-            this.videoWindowTest.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
-            // 
-            // videoChannelList
-            // 
-            this.videoChannelList.AutoSetChannelButtonSize = false;
-            this.videoChannelList.ChannelButtonColumn = 1;
-            this.videoChannelList.ChannelButtonHeight = 30;
-            this.videoChannelList.ChannelButtonWidth = 60;
-            this.videoChannelList.ClrBackColor = System.Drawing.SystemColors.ControlDark;
-            this.videoChannelList.ClrChannelButtonDefaultColor = System.Drawing.SystemColors.Control;
-            this.videoChannelList.ClrChannelButtonSelectedColor = System.Drawing.Color.Red;
-            this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoChannelList.Location = new System.Drawing.Point(0, 103);
-            this.videoChannelList.Name = "videoChannelList";
-            this.videoChannelList.Size = new System.Drawing.Size(119, 403);
-            this.videoChannelList.TabIndex = 10;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.PageTestData);
-            this.tabControl1.Controls.Add(this.PageOther);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(277, 13);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(264, 117);
-            this.tabControl1.TabIndex = 35;
-            // 
-            // PageTestData
-            // 
-            this.PageTestData.Controls.Add(this.btnEzvizTestData);
-            this.PageTestData.Controls.Add(this.btnSKTestData);
-            this.PageTestData.Location = new System.Drawing.Point(4, 22);
-            this.PageTestData.Name = "PageTestData";
-            this.PageTestData.Padding = new System.Windows.Forms.Padding(3);
-            this.PageTestData.Size = new System.Drawing.Size(163, 74);
-            this.PageTestData.TabIndex = 0;
-            this.PageTestData.Text = "测试数据";
-            this.PageTestData.UseVisualStyleBackColor = true;
-            // 
-            // PageOther
-            // 
-            this.PageOther.Controls.Add(this.btnStartTalk);
-            this.PageOther.Controls.Add(this.btnStopTest);
-            this.PageOther.Location = new System.Drawing.Point(4, 22);
-            this.PageOther.Name = "PageOther";
-            this.PageOther.Padding = new System.Windows.Forms.Padding(3);
-            this.PageOther.Size = new System.Drawing.Size(163, 74);
-            this.PageOther.TabIndex = 1;
-            this.PageOther.Text = "其他";
-            this.PageOther.UseVisualStyleBackColor = true;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label15);
-            this.tabPage1.Controls.Add(this.cmbOperAtPreset);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.cmbOperAtWindows);
-            this.tabPage1.Controls.Add(this.btnVideoPlayClose);
-            this.tabPage1.Controls.Add(this.videoPTZControl1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(256, 91);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // chkProVideoRecord
-            // 
-            this.chkProVideoRecord.AutoSize = true;
-            this.chkProVideoRecord.Checked = true;
-            this.chkProVideoRecord.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkProVideoRecord.Location = new System.Drawing.Point(3, 84);
-            this.chkProVideoRecord.Name = "chkProVideoRecord";
-            this.chkProVideoRecord.Size = new System.Drawing.Size(84, 16);
-            this.chkProVideoRecord.TabIndex = 6;
-            this.chkProVideoRecord.Text = "预录像使能";
-            this.chkProVideoRecord.UseVisualStyleBackColor = true;
+            this.btnHuaMaiTestData.Location = new System.Drawing.Point(163, 3);
+            this.btnHuaMaiTestData.Name = "btnHuaMaiTestData";
+            this.btnHuaMaiTestData.Size = new System.Drawing.Size(75, 23);
+            this.btnHuaMaiTestData.TabIndex = 15;
+            this.btnHuaMaiTestData.Text = "华迈数据";
+            this.btnHuaMaiTestData.UseVisualStyleBackColor = true;
+            this.btnHuaMaiTestData.Click += new System.EventHandler(this.btnHuaMaiTestData_Click);
             // 
             // FrmMain
             // 
@@ -1102,11 +1152,17 @@
             this.Controls.Add(this.ssrTip);
             this.Name = "FrmMain";
             this.Text = "主窗体";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.Move += new System.EventHandler(this.FrmMain_Move);
             this.pnlBottom.ResumeLayout(false);
             this.grpVideoInfo.ResumeLayout(false);
             this.grpVideoInfo.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.PageTestData.ResumeLayout(false);
+            this.PageOther.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.pnlBottom_Left.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlRight.ResumeLayout(false);
@@ -1122,16 +1178,12 @@
             this.pnlEventRecord_Top.PerformLayout();
             this.pageSetting.ResumeLayout(false);
             this.pageSetting.PerformLayout();
+            this.grpHuaMaiSDKStatus.ResumeLayout(false);
             this.grpSKSDKStatus.ResumeLayout(false);
             this.grpEzvizSDKState.ResumeLayout(false);
             this.grpCloundSeeSDKState.ResumeLayout(false);
             this.ssrTip.ResumeLayout(false);
             this.ssrTip.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.PageTestData.ResumeLayout(false);
-            this.PageOther.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1230,6 +1282,10 @@
         private System.Windows.Forms.TabPage PageOther;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.CheckBox chkProVideoRecord;
+        private System.Windows.Forms.GroupBox grpHuaMaiSDKStatus;
+        private System.Windows.Forms.Button btnHuaMaiSDKInit;
+        private System.Windows.Forms.Button btnHuaMaiSDKRelease;
+        private System.Windows.Forms.Button btnHuaMaiTestData;
     }
 }
 

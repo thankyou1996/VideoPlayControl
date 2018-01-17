@@ -33,9 +33,10 @@ namespace VideoPlayControl_UseDemo
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
             SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, ProgParameter.strSKVideo_ServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
+            SDKState.HuaMai_Init();
             //SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, "192.168.2.10", ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
 
-            SetTestData_ZWVideoAndSKTalk();
+            HuaMaiVideo_TestData();
         }
 
         #region 测试数据
@@ -115,6 +116,37 @@ namespace VideoPlayControl_UseDemo
             }
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
 
+            videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
+            videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
+            videoPlayGroupControls_PTZAndTalk1.Init_VideoInfoSet(dicVideoInfos);
+        }
+
+        public void HuaMaiVideo_TestData()
+        {
+            Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.HuaMaiVideo;
+            v.DVSAddress = "E322213C04245";
+            v.DVSChannelNum = 4;
+            v.DVSConnectPort = 81;
+            v.DVSName = "华迈云测试";
+            v.DVSNumber = "000501";
+            v.DVSType = "SK8605HM";
+            v.HostID = "0005";
+            v.UserName = "admin";
+            v.Password = "sk123456";
+            v.NetworkState = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i + 1);
+                c.Channel = i;
+                c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8605HM";
+                c.DVSNumber = "000501";
+                v.Cameras[c.Channel] = c;
+            }
+            dicVideoInfos[v.DVSNumber] = v;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_PTZAndTalk1.Init_VideoInfoSet(dicVideoInfos);

@@ -75,5 +75,15 @@ namespace VideoPlayControl
         /// 视频异常
         /// </summary>
         VideoPlayException = 13,
+
+        /// <summary>
+        /// 设备不存在
+        /// </summary>
+        DeviceNotExist = 14,
+
+        /// <summary>
+        /// 设备登录异常
+        /// </summary>
+        DevLoginException = 15
     }
 }

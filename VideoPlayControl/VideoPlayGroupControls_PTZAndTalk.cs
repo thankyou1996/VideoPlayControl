@@ -318,6 +318,12 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.VideoPlayException:
                         sbDisplayInfo.Append("视频播放异常");
                         break;
+                    case Enum_VideoPlayEventType.DevLoginException:
+                        sbDisplayInfo.Append("设备登录异常");
+                        break;
+                    case Enum_VideoPlayEventType.DeviceNotExist:
+                        sbDisplayInfo.Append("设备不存在");
+                        break;
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;
@@ -326,7 +332,6 @@ namespace VideoPlayControl
                 
                 DisplayRecord(sbDisplayInfo.ToString());
             }
-
         }
 
 

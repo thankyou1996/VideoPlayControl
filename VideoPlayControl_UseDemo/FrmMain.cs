@@ -53,25 +53,7 @@ namespace VideoPlayControl_UseDemo
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
             SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, ProgParameter.strSKVideo_ServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
-            //SKVideoSDKInit
-            MessageBox.Show(SDK_HuaMai.hm_sdk_init().ToString());
-            //SDK_HuaMai._LOGIN_SERVER_INFO loginInfo = new SDK_HuaMai._LOGIN_SERVER_INFO();
-            //loginInfo.ip = "123.54.5.122";
-            //loginInfo.port = 10091;
-            //loginInfo.user = "商丘市视频联网报警中心";
-            //loginInfo.password = "2299578";
-            //loginInfo.plat_type = "pc";
-            //loginInfo.hard_ver = "Pentium4";
-            //loginInfo.soft_ver = "v1.1.0.1789";
-            //loginInfo.keep_time = 11;
-            //IntPtr intptrServerInfo;
-            //int intErrlog = 0;
-            //string strErrlog = "";
-            //UInt32 uiErrlogLength = 0;
-            //int nSizeInfoLength = Marshal.SizeOf(loginInfo);
-            //IntPtr i = Marshal.AllocHGlobal(nSizeInfoLength);
-            //Marshal.StructureToPtr(loginInfo, i, false);
-            //UInt32 iResult = SDK_HuaMai.hm_server_connect(ref i, out intptrServerInfo, out strErrlog, 0);
+            SDKState.HuaMai_Init();
             Init();
         }
 
@@ -168,30 +150,605 @@ namespace VideoPlayControl_UseDemo
 
         }
 
-        public void SDKStateChange(Enum_VideoType sdkType, Enum_SDKState sdkState)
-        {
-            AddRecord(sdkType.ToString() + "[" + sdkState.ToString() + "]", "SDKState");
-            switch (sdkType)
-            {
-                case Enum_VideoType.CloundSee:
-                    grpCloundSeeSDKState.Text = "云视通SDK状态:" + sdkState.ToString();
-                    break;
-                case Enum_VideoType.Ezviz:
-                    grpEzvizSDKState.Text = "萤石云SDK状态:" + sdkState.ToString();
-                    break;
-                case Enum_VideoType.SKVideo:
-                    grpSKSDKStatus.Text = "时刻SDK状态:" + sdkState.ToString();
-                    break;
-            }
-        }
 
         public void SDKEventCallBack(Enum_VideoType videoType, Enum_SDKEventType etType, string strtTag)
         {
-            AddRecord(videoType.ToString() + "[" + strtTag + "]"+ etType.ToString(), "SDKEventCallBack");
+            AddRecord(videoType.ToString() + "[" + strtTag + "]" + etType.ToString(), "SDKEventCallBack");
         }
         #endregion
 
-        #region 测试数据
+
+        #region 控件事件
+        public void SDKStateChangedCallBackEvent(object sender, Enum_SDKState sdkState)
+        {
+            VideoPlayWindow v = (VideoPlayWindow)sender;
+            AddRecord(sdkState.ToString(), "SDKState");
+        }
+
+        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType, string strTag)
+        {
+            if (!string.IsNullOrEmpty(strTag))
+            {
+                AddRecord(evType.ToString() + "[" + strTag + "]", "SDKEventCallBack");
+            }
+            else
+            {
+                AddRecord(evType.ToString(), "SDKEventCallBack");
+            }
+        }
+
+
+        public void VideoPlayEventCallBack(object sender, Enum_VideoPlayEventType eventType)
+        {
+            VideoPlayWindow v = (VideoPlayWindow)sender;
+            AddRecord(v.CurrentVideoInfo.DVSAddress + "_" + eventType.ToString(), "VideoEvent");
+        }
+
+        /// <summary>
+        /// 播放页面选中项改变
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbPlayVideoWindowSet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                int Temp_intPicNumber = Convert.ToInt32(cmbPlayVideoWindowSet.SelectedValue.ToString());
+                if (intCurrentPicNum == Temp_intPicNumber)
+                {
+                    return;
+                }
+                //ReleaseVideo_All(); //释放所有信息
+                PlayWindowSet(Temp_intPicNumber);
+            }
+            catch
+            {
+                //取值异常不做处理
+            }
+        }
+
+        private void PTZControlEvent(Enum_VideoPTZControl PTZControlCmd, bool bolStart)
+        {
+            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
+            if (intVideoIndex == 0)
+            {
+                //测试界面
+                videoWindowTest.VideoPTZControl(PTZControlCmd, bolStart);
+            }
+            else
+            {
+                lstVideoPlayWindow[intVideoIndex - 1].VideoPTZControl(PTZControlCmd, bolStart);
+            }
+
+        }
+
+
+
+        #endregion
+
+        #region 公用事件
+
+        /// <summary>
+        /// 播放窗口设置
+        /// </summary>
+        public void PlayWindowSet(int intPicNumberSet)
+        {
+            intCurrentPicNum = intPicNumberSet;
+            switch (intCurrentPicNum)
+            {
+                case 1:
+                    intCurrentRow = 1;
+                    intCurrentCol = 1;
+                    break;
+                case 4:
+                    intCurrentRow = 2;
+                    intCurrentCol = 2;
+                    break;
+                case 9:
+                    intCurrentRow = 3;
+                    intCurrentCol = 3;
+                    break;
+                case 16:
+                    intCurrentRow = 4;
+                    intCurrentCol = 4;
+                    break;
+            }
+            tlpPlayVIdeoWindows.RowCount = intCurrentRow;
+            tlpPlayVIdeoWindows.ColumnCount = intCurrentCol;
+            tlpPlayVIdeoWindows.SuspendLayout();
+            #region 移除旧控件 信息
+            foreach (VideoPlayWindow v in lstVideoPlayWindow)
+            {
+                v.VideoPlayWindows_Close();
+            }
+            lstVideoPlayWindow.Clear();
+
+            tlpPlayVIdeoWindows.RowStyles.Clear();
+            tlpPlayVIdeoWindows.ColumnStyles.Clear();
+            tlpPlayVIdeoWindows.Controls.Clear();
+            #endregion
+
+            for (int row = 0; row < intCurrentRow; row++)
+            {
+                tlpPlayVIdeoWindows.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            }
+            for (int col = 0; col < intCurrentCol; col++)
+            {
+                tlpPlayVIdeoWindows.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            }
+
+            int i = 0;
+            for (int row = 0; row < intCurrentRow; row++)
+            {
+                for (int col = 0; col < intCurrentCol; col++)
+                {
+
+                    GroupBox grp = new GroupBox();
+                    grp.Name = "grp_" + i;
+                    grp.Text = "设备名称";
+                    grp.Size = new Size(100, 100);
+                    grp.Dock = DockStyle.Fill;
+                    grp.BackColor = Color.White;
+                    grp.Margin = new Padding(0);
+                    string strgrpTag = row.ToString() + "_" + col.ToString();
+                    grp.Tag = strgrpTag;
+
+                    VideoPlayWindow videoPlayWindow = new VideoPlayWindow();
+
+                    videoPlayWindow.Name = "Video_" + i;
+                    videoPlayWindow.Size = new Size(100, 100);
+                    videoPlayWindow.Dock = DockStyle.Fill;
+                    videoPlayWindow.BackColor = Color.Black;
+                    videoPlayWindow.Margin = new Padding(1);
+                    grp.Controls.Add(videoPlayWindow);
+
+                    tlpPlayVIdeoWindows.Controls.Add(grp);
+                    tlpPlayVIdeoWindows.SetRow(grp, row);
+                    tlpPlayVIdeoWindows.SetColumn(grp, col);
+                    videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
+                    videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
+                    lstVideoPlayWindow.Add(videoPlayWindow);
+                    i++;
+                }
+            }
+            tlpPlayVIdeoWindows.ResumeLayout();
+
+
+            DataTable dtOperAtVideo = new DataTable();
+            dtOperAtVideo.Columns.Add("value");
+            dtOperAtVideo.Columns.Add("display");
+            DataRow dr = dtOperAtVideo.NewRow();
+            dr["value"] = 0;
+            dr["display"] = "测试画面";
+            dtOperAtVideo.Rows.Add(dr);
+            i = 0;
+            for (i = 1; i <= intPicNumberSet; i++)
+            {
+                dr = dtOperAtVideo.NewRow();
+                dr["value"] = i;
+                dr["display"] = "主画面" + i;
+                dtOperAtVideo.Rows.Add(dr);
+            }
+            cmbOperAtWindows.ValueMember = "value";
+            cmbOperAtWindows.DisplayMember = "display";
+            cmbOperAtWindows.DataSource = dtOperAtVideo;
+            cmbPlayWindows.ValueMember = "value";
+            cmbPlayWindows.DisplayMember = "display";
+            cmbPlayWindows.DataSource = dtOperAtVideo;
+        }
+
+        /// <summary>
+        /// 添加事件记录
+        /// </summary>
+        public void AddRecord(string strEvnetContent, string strEventTag = "")
+        {
+            //StringBuilder sbEventDisplay = new StringBuilder();
+            //sbEventDisplay.Append(DateTime.Now.ToString("HH:mm:ss")+" | ");
+            //string Temp_strEventTag = strEventTag.PadRight(10, ' ');
+            //sbEventDisplay.Append(Temp_strEventTag);
+            //sbEventDisplay.Append(strEvnetContent);
+            CommonMethod.LogWrite.WriteEventLog(strEventTag, strEvnetContent);
+            this.BeginInvoke(new EventHandler(delegate
+            {
+                int index = this.dgvReocrd.Rows.Add();
+                this.dgvReocrd.Rows[index].Cells[0].Value = DateTime.Now.ToString("HH:mm:ss:fff");
+                this.dgvReocrd.Rows[index].Cells[1].Value = strEventTag;
+                this.dgvReocrd.Rows[index].Cells[2].Value = strEvnetContent;
+
+                dgvReocrd.Rows[dgvReocrd.RowCount - 1].Selected = true;
+                dgvReocrd.FirstDisplayedScrollingRowIndex = dgvReocrd.RowCount - 1;
+
+            }));
+
+        }
+
+
+        public void PlayVideo(VideoPlayWindow videoPlayWindow, VideoInfo videoInfo)
+        {
+            videoPlayWindow.Init_VideoInfo(videoInfo);
+            videoPlayWindow.VideoPlay();
+        }
+
+        public void PlayVideo(VideoPlayWindow videoPlayWindow, VideoInfo videoInfo, VideoPlaySetting videoPlaySet)
+        {
+            videoPlayWindow.Init_VideoInfo(videoInfo, videoPlaySet);
+            videoPlayWindow.VideoPlay();
+        }
+        public void PlayVideo(VideoPlayWindow videoPlayWindow, VideoInfo videoInfo, CameraInfo camerInfo, VideoPlaySetting videoPlaySet)
+        {
+            videoPlayWindow.Init_VideoInfo(videoInfo, camerInfo, videoPlaySet);
+            videoPlayWindow.VideoPlay();
+        }
+
+        public string GetVideoTapeDicPath()
+        {
+            StringBuilder sbRecDicPath = new StringBuilder();
+            //sbRecDicPath.Append(ProgConstants.strCurrentSDK_RecDicPath);  //默认路径
+            //sbRecDicPath.Append("\\" + txtCouldID.Text.Trim());           //云视通号码
+            if (!Directory.Exists(sbRecDicPath.ToString()))
+            {
+                //文件夹不存在，创建文件夹
+                Directory.CreateDirectory(sbRecDicPath.ToString());
+            }
+            StringBuilder sbRecFilePath = new StringBuilder();
+            sbRecFilePath.Append(sbRecDicPath.ToString());
+            sbRecFilePath.Append("\\" + DateTime.Now.ToString("yyyyMMddHHmmss"));     //时间
+            sbRecFilePath.Append("_" + txtChannel.Text.Trim());                     //通道号
+            sbRecFilePath.Append(".mp4");
+            return sbRecFilePath.ToString();
+        }
+
+
+        public void VideoListRefresh()
+        {
+            cmbVideoList.Items.Clear();
+            foreach (KeyValuePair<string, VideoInfo> kv in dicVideoInfos)
+            {
+                cmbVideoList.Items.Add(kv.Key);
+            }
+        }
+
+        #endregion
+
+        private void btnVideoPly_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmMain_Move(object sender, EventArgs e)
+        {
+            videoWindowTest.VideoPlayWindows_Move();
+            //videoPlayMain2.VideoPlayWindows_Move();
+        }
+
+        private void btnVideoPlayClose_Click(object sender, EventArgs e)
+        {
+            int intVideoIndex = Convert.ToInt32(cmbOperAtWindows.SelectedValue);
+            if (intVideoIndex == 0)
+            {
+                videoWindowTest.VideoClose();
+            }
+            else
+            {
+                lstVideoPlayWindow[intVideoIndex - 1].VideoClose();
+            }
+        }
+
+
+
+
+
+
+        public void TEST()
+        {
+            VideoInfo videoInfo = new VideoInfo();
+            //videoInfo.VideoType = (Enum_VideoType)cmbVideoType.SelectedValue;
+            int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
+            switch (intVideoType)
+            {
+                case 1:
+                    videoInfo.VideoType = Enum_VideoType.CloundSee;
+                    break;
+            }
+
+            videoInfo.DVSAddress = cmbDVSAddress.Text;
+            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
+            videoInfo.UserName = txtUserName.Text;
+            videoInfo.Password = txtPassword.Text;
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            CameraInfo camerasInfo = new CameraInfo();
+            int intChannel = Convert.ToInt32(txtChannel.Text);
+            camerasInfo.Channel = intChannel;
+            camerasInfo.CameraName = "通道" + intChannel;
+            videoInfo.Cameras[intChannel] = camerasInfo;
+
+            VideoPlaySetting videoPlaySet = new VideoPlaySetting();
+            videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
+            videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
+            videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
+            int intVideoIndex = Convert.ToInt32(cmbOperAtWindows.SelectedValue);
+            if (chkPresetEanble.Checked)
+            {
+                videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
+            }
+            if (intVideoIndex == 0)
+            {
+                PlayVideo(videoWindowTest, videoInfo, videoPlaySet);
+            }
+            else
+            {
+                PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], videoInfo, videoPlaySet);
+            }
+        }
+
+        private void btnAddList_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = new VideoInfo();
+            //videoInfo.VideoType = (Enum_VideoType)cmbVideoType.SelectedValue;
+            //int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
+            //switch (intVideoType)
+            //{
+            //    case 1:
+            //        videoInfo.VideoType = Enum_VideoType.CloundSee;
+            //        break;
+            //}
+            videoInfo.VideoType = (Enum_VideoType)Convert.ToInt32(cmbVideoType.SelectedValue);
+            videoInfo.DVSNumber = txtVideoID.Text.ToString();
+            videoInfo.DVSAddress = cmbDVSAddress.Text;
+            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
+            videoInfo.UserName = txtUserName.Text;
+            videoInfo.Password = txtPassword.Text;
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            int intChannelNum = Convert.ToInt32(txtChannel.Text);
+            videoInfo.DVSChannelNum = intChannelNum;
+            CameraInfo camerasInfo = new CameraInfo();
+            for (int i = 0; i < intChannelNum; i++)
+            {
+                camerasInfo = new CameraInfo();
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "摄像机" + (i + 1);
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            if (!dicVideoInfos.ContainsKey(videoInfo.DVSNumber))
+            {
+                //不存在 列表不刷新
+                dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+                VideoListRefresh();
+            }
+            else
+            {
+                dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            }
+        }
+
+        private void cmbVideoList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            intCurrentVideoID = cmbVideoList.Text;
+            if (string.IsNullOrEmpty(intCurrentVideoID) || !dicVideoInfos.ContainsKey(intCurrentVideoID))
+            {
+                ReSetVideoInfo();
+                videoChannelList.Init_SetVideoInfo(null);
+                return;
+            }
+            SetVideoInfo(intCurrentVideoID);
+            //txtcu
+        }
+
+        public void SetVideoInfo(string strVideoID)
+        {
+            if (dicVideoInfos.ContainsKey(strVideoID))
+            {
+                txtCurrentDVSType.Text = dicVideoInfos[strVideoID].VideoType.ToString();
+                txtCurrentDVSAddress.Text = dicVideoInfos[strVideoID].DVSAddress;
+                txtCurrentDVSPort.Text = dicVideoInfos[strVideoID].DVSConnectPort.ToString();
+                txtCurrentUserName.Text = dicVideoInfos[strVideoID].UserName;
+                txtCurrentDVSPwd.Text = dicVideoInfos[strVideoID].Password;
+                txtCurrentChannelNum.Text = dicVideoInfos[strVideoID].DVSChannelNum.ToString();
+                videoChannelList.Init_SetVideoInfo(dicVideoInfos[strVideoID]);
+            }
+        }
+        public void ReSetVideoInfo()
+        {
+            txtCurrentDVSType.Text = "";
+            txtCurrentDVSAddress.Text = "";
+            txtCurrentDVSPort.Text = "";
+            txtCurrentUserName.Text = "";
+            txtCurrentDVSPwd.Text = "";
+            txtCurrentChannelNum.Text = "";
+        }
+
+
+        public void VideoChannelListButton_Click(object sender, Button btnChannel)
+        {
+            CameraInfo cameraInfo = (CameraInfo)btnChannel.Tag;
+            videoChannelList.ButtonListBackColorReset();
+            //Button btn = (Button)sender;
+            btnChannel.BackColor = Color.Red;
+            VideoPlaySetting videoPlaySet = new VideoPlaySetting();
+            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
+            //播放
+            if (chkPresetEanble.Checked)
+            {
+                videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
+            }
+            videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
+            videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
+            videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
+            if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
+            {
+                string strTimeValue = DateTime.Now.ToString("yyyyMMddHHmmss");
+                StringBuilder sbVideoRecordPath = new StringBuilder();
+                sbVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
+                sbVideoRecordPath.Append(strTimeValue + "\\");
+                sbVideoRecordPath.Append(intCurrentVideoID + "_");
+                sbVideoRecordPath.Append(cameraInfo.Channel.ToString().PadLeft(2, '0') + "_");
+                sbVideoRecordPath.Append(strTimeValue + "_81.H264");
+                videoPlaySet.VideoRecordFilePath = sbVideoRecordPath.ToString();
+
+                StringBuilder sbPreVideoRecordPath = new StringBuilder();
+                sbPreVideoRecordPath.Append("http://121.41.87.203:8008/SK_VideoRecord/");
+                sbPreVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
+                sbPreVideoRecordPath.Append(strTimeValue + "\\");
+                videoPlaySet.PreVideoRecordFilePath = sbPreVideoRecordPath.ToString();
+            }
+            if (intVideoIndex == 0)
+            {
+                if (videoWindowTest.VideoPlayState == Enum_VideoPlayState.InPlayState)
+                {
+                    //处于播放状态
+                    videoWindowTest.VideoClose();
+                }
+                //测试界面
+                PlayVideo(videoWindowTest, dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
+            }
+            else
+            {
+                if (lstVideoPlayWindow[intVideoIndex - 1].VideoPlayState == Enum_VideoPlayState.InPlayState)
+                {
+                    //处于播放状态
+                    lstVideoPlayWindow[intVideoIndex - 1].VideoClose();
+                }
+                PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
+            }
+        }
+
+        private void cmbOperAtPreset_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int intVideoIndex = Convert.ToInt32(cmbOperAtWindows.SelectedValue);
+            int intPresetPosi = int.Parse(cmbOperAtPreset.Text.ToString());
+            //播放
+            if (intVideoIndex == 0)
+            {
+                //测试界面
+                videoWindowTest.SetPresetPosi(intPresetPosi);
+            }
+            else
+            {
+                lstVideoPlayWindow[intVideoIndex - 1].SetPresetPosi(intPresetPosi);
+            }
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            lstVideoPlayWindow[0].Init_VideoInfo(GetVideoInfo());
+            lstVideoPlayWindow[0].VideoPlay();
+        }
+
+        private void btnTestClose_Click(object sender, EventArgs e)
+        {
+            lstVideoPlayWindow[0].VideoClose();
+            //videoWindowTest.VideoClose();
+            //SDKState.Ezviz_SDKRelease();
+        }
+
+        private void btnWindowPlay_Click(object sender, EventArgs e)
+        {
+            SDKState.Ezviz_SDKInit();
+            SDK_EzvizSDK.GetAccessToken();
+            Frm_VideoPlayWindows frmVideoWindows = new Frm_VideoPlayWindows(GetVideoInfo());
+            frmVideoWindows.Show();
+        }
+
+
+        public VideoInfo GetVideoInfo()
+        {
+            VideoInfo videoInfo = new VideoInfo();
+            videoInfo.VideoType = (Enum_VideoType)Convert.ToInt32(cmbVideoType.SelectedValue);
+            videoInfo.DVSAddress = cmbDVSAddress.Text;
+            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
+            videoInfo.UserName = txtUserName.Text;
+            videoInfo.Password = txtPassword.Text;
+            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
+            CameraInfo camerasInfo = new CameraInfo();
+            for (int i = 1; i < 2; i++)
+            {
+                camerasInfo = new CameraInfo();
+                camerasInfo.Channel = i;
+                camerasInfo.CameraName = "通道" + i;
+                if (cmbDVSAddress.Text == "721283866")
+                {
+                    camerasInfo.CameraUniqueCode = "be74ee024b654e078ff5e7014af00e4f";
+                }
+                else if (cmbDVSAddress.Text == "720274352")
+                {
+                    camerasInfo.CameraUniqueCode = "864eb2adf3964fe38b85661f32145526";
+                }
+                videoInfo.Cameras[i] = camerasInfo;
+            }
+            return videoInfo;
+        }
+
+
+
+        int intTempCount = 0;
+
+
+
+
+
+
+        int Temp_i = 1;
+        int Temp_ii = 0;
+        bool bolTestMode = false;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+
+            if (Temp_i >= 5)
+            {
+                Temp_i = 1;
+            }
+            VideoChannelListButton_Click(videoChannelList.lstbtns[Temp_i], (videoChannelList.lstbtns[Temp_i]));
+            Temp_i++;
+            Temp_ii++;
+            label17.Text = Temp_ii.ToString();
+            if (bolTestMode)
+            {
+                timer1.Enabled = true;
+            }
+
+            //SDKState.ColundSee_SDKRelease();
+            //SDKState.CloundSee_SDKInit();
+        }
+
+        private void btnStopTest_Click(object sender, EventArgs e)
+        {
+            bolTestMode = false;
+            timer1.Enabled = false;
+        }
+
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SDKState.Huamai_Release();
+        }
+        #region 测试数据相关
+        private void btnEzvizTestData_Click(object sender, EventArgs e)
+        {
+            Ezviz_TestData();
+            cmbVideoList.SelectedIndex = 0;
+            //bolTestMode = true;
+            //timer1.Enabled = true;
+        }
+
+        private void btnSKTestData_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = SKVideo_TestData();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+        private void btnHuaMaiTestData_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = HuaMaiVideo_TestData();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+
         public void Ezviz_TestData()
         {
             //"cameraId":"7e1c18bad66544408b38d1711552e320","cameraName":"视频1@DVR(756217914)",
@@ -200,7 +757,7 @@ namespace VideoPlayControl_UseDemo
             //"picUrl":"https://i.ys7.com/assets/imgs/public/homeDevice.jpeg","status":1,"videoLevel":0},
             VideoInfo videoInfo = new VideoInfo();
             videoInfo.VideoType = Enum_VideoType.Ezviz;
-            
+
             videoInfo.DVSNumber = "萤石云测试1";
             videoInfo.DVSAddress = "756217914";
             videoInfo.DVSConnectPort = 0;
@@ -365,7 +922,7 @@ namespace VideoPlayControl_UseDemo
                 c.Channel = i;
                 c.DVSAddress = "61-573551920B39-3036";
                 c.DVSType = "SK8616";
-                c.DVSNumber= "999401";
+                c.DVSNumber = "999401";
                 v.Cameras[c.Channel] = c;
             }
             for (int i = 8; i < 16; i++)
@@ -380,74 +937,58 @@ namespace VideoPlayControl_UseDemo
             }
             return v;
         }
+
+        public VideoInfo HuaMaiVideo_TestData()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.HuaMaiVideo;
+            v.DVSAddress = "2B9B617805185";
+            v.DVSChannelNum = 4;
+            v.DVSConnectPort = 81;
+            v.DVSName = "华迈云测试";
+            v.DVSNumber = "000501";
+            v.DVSType = "SK8605HM";
+            v.HostID = "0005";
+            v.UserName = "admin";
+            v.Password = "sk123456";
+            v.NetworkState = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i + 1);
+                c.Channel = i;
+                c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8605HM";
+                c.DVSNumber = "000501";
+                v.Cameras[c.Channel] = c;
+            }
+            return v;
+        }
         #endregion
 
-        #region 控件事件
-        public void SDKStateChangedCallBackEvent(object sender, Enum_SDKState sdkState)
-        {
-            VideoPlayWindow v = (VideoPlayWindow)sender;
-            AddRecord(sdkState.ToString(), "SDKState");
-        }
+        #region SDK状态相关事件
 
-        public void SDKEventCallBackEvent(object sender, Enum_SDKEventType evType,string strTag)
-        {
-            if (!string.IsNullOrEmpty(strTag))
-            {
-                AddRecord(evType.ToString() + "[" + strTag + "]", "SDKEventCallBack");
-            }
-            else
-            {
-                AddRecord(evType.ToString(), "SDKEventCallBack");
-            }
-        }
 
-        
-        public void VideoPlayEventCallBack(object sender, Enum_VideoPlayEventType eventType)
+        public void SDKStateChange(Enum_VideoType sdkType, Enum_SDKState sdkState)
         {
-            VideoPlayWindow v = (VideoPlayWindow)sender;
-            AddRecord(v.CurrentVideoInfo.DVSAddress + "_" + eventType.ToString(), "VideoEvent");
-        }
-
-        /// <summary>
-        /// 播放页面选中项改变
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cmbPlayVideoWindowSet_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            try
+            AddRecord(sdkType.ToString() + "[" + sdkState.ToString() + "]", "SDKState");
+            switch (sdkType)
             {
-                int Temp_intPicNumber = Convert.ToInt32(cmbPlayVideoWindowSet.SelectedValue.ToString());
-                if (intCurrentPicNum == Temp_intPicNumber)
-                {
-                    return;
-                }
-                //ReleaseVideo_All(); //释放所有信息
-                PlayWindowSet(Temp_intPicNumber);
-            }
-            catch
-            {
-                //取值异常不做处理
+                case Enum_VideoType.CloundSee:
+                    grpCloundSeeSDKState.Text = "云视通SDK状态:" + sdkState.ToString();
+                    break;
+                case Enum_VideoType.Ezviz:
+                    grpEzvizSDKState.Text = "萤石云SDK状态:" + sdkState.ToString();
+                    break;
+                case Enum_VideoType.SKVideo:
+                    grpSKSDKStatus.Text = "时刻SDK状态:" + sdkState.ToString();
+                    break;
+                case Enum_VideoType.HuaMaiVideo:
+                    grpHuaMaiSDKStatus.Text = "华迈SDK状态:" + sdkState.ToString();
+                    break;
             }
         }
 
-        private void PTZControlEvent(Enum_VideoPTZControl PTZControlCmd,bool bolStart)
-        {
-            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
-            if (intVideoIndex == 0)
-            {
-                //测试界面
-                videoWindowTest.VideoPTZControl(PTZControlCmd, bolStart);
-            }
-            else
-            {
-                lstVideoPlayWindow[intVideoIndex - 1].VideoPTZControl(PTZControlCmd, bolStart);
-            }
-            
-        }
-
-        #region 按钮事件
         private void btnCloundSeeSDKInit_Click(object sender, EventArgs e)
         {
             SDKState.CloundSee_SDKInit();
@@ -457,470 +998,7 @@ namespace VideoPlayControl_UseDemo
         {
             SDKState.ColundSee_SDKRelease();
         }
-        #endregion
 
-        #endregion
-
-        #region 公用事件
-
-        /// <summary>
-        /// 播放窗口设置
-        /// </summary>
-        public void PlayWindowSet(int intPicNumberSet)
-        {
-            intCurrentPicNum = intPicNumberSet;
-            switch (intCurrentPicNum)
-            {
-                case 1:
-                    intCurrentRow = 1;
-                    intCurrentCol = 1;
-                    break;
-                case 4:
-                    intCurrentRow = 2;
-                    intCurrentCol = 2;
-                    break;
-                case 9:
-                    intCurrentRow = 3;
-                    intCurrentCol = 3;
-                    break;
-                case 16:
-                    intCurrentRow = 4;
-                    intCurrentCol = 4;
-                    break;
-            }
-            tlpPlayVIdeoWindows.RowCount = intCurrentRow;
-            tlpPlayVIdeoWindows.ColumnCount = intCurrentCol;
-            tlpPlayVIdeoWindows.SuspendLayout();
-            #region 移除旧控件 信息
-            foreach (VideoPlayWindow v in lstVideoPlayWindow)
-            {
-                v.VideoPlayWindows_Close();
-            }
-            lstVideoPlayWindow.Clear();
-
-            tlpPlayVIdeoWindows.RowStyles.Clear();
-            tlpPlayVIdeoWindows.ColumnStyles.Clear();
-            tlpPlayVIdeoWindows.Controls.Clear();
-            #endregion
-
-            for (int row = 0; row < intCurrentRow; row++)
-            {
-                tlpPlayVIdeoWindows.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            }
-            for (int col = 0; col < intCurrentCol; col++)
-            {
-                tlpPlayVIdeoWindows.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            }
-
-            int i = 0;
-            for (int row = 0; row < intCurrentRow; row++)
-            {
-                for (int col = 0; col < intCurrentCol; col++)
-                {
-
-                    GroupBox grp = new GroupBox();
-                    grp.Name = "grp_" + i;
-                    grp.Text = "设备名称";
-                    grp.Size = new Size(100, 100);
-                    grp.Dock = DockStyle.Fill;
-                    grp.BackColor = Color.White;
-                    grp.Margin = new Padding(0);
-                    string strgrpTag = row.ToString() + "_" + col.ToString();
-                    grp.Tag = strgrpTag;
-
-                    VideoPlayWindow videoPlayWindow = new VideoPlayWindow();
-
-                    videoPlayWindow.Name = "Video_" + i;
-                    videoPlayWindow.Size = new Size(100, 100);
-                    videoPlayWindow.Dock = DockStyle.Fill;
-                    videoPlayWindow.BackColor = Color.Black;
-                    videoPlayWindow.Margin = new Padding(1);
-                    grp.Controls.Add(videoPlayWindow);
-
-                    tlpPlayVIdeoWindows.Controls.Add(grp);
-                    tlpPlayVIdeoWindows.SetRow(grp, row);
-                    tlpPlayVIdeoWindows.SetColumn(grp, col);
-                    videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
-                    videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
-                    lstVideoPlayWindow.Add(videoPlayWindow);
-                    i++;
-                }
-            }
-            tlpPlayVIdeoWindows.ResumeLayout();
-
-
-            DataTable dtOperAtVideo = new DataTable();
-            dtOperAtVideo.Columns.Add("value");
-            dtOperAtVideo.Columns.Add("display");
-            DataRow dr = dtOperAtVideo.NewRow();
-            dr["value"] = 0;
-            dr["display"] = "测试画面";
-            dtOperAtVideo.Rows.Add(dr);
-            i = 0;
-            for (i = 1; i <= intPicNumberSet; i++)
-            {
-                dr = dtOperAtVideo.NewRow();
-                dr["value"] = i;
-                dr["display"] = "主画面" + i;
-                dtOperAtVideo.Rows.Add(dr);
-            }
-            cmbOperAtWindows.ValueMember = "value";
-            cmbOperAtWindows.DisplayMember = "display";
-            cmbOperAtWindows.DataSource = dtOperAtVideo;
-            cmbPlayWindows.ValueMember = "value";
-            cmbPlayWindows.DisplayMember = "display";
-            cmbPlayWindows.DataSource = dtOperAtVideo;
-        }
-        
-        /// <summary>
-        /// 添加事件记录
-        /// </summary>
-        public void AddRecord(string strEvnetContent, string strEventTag = "")
-        {
-            //StringBuilder sbEventDisplay = new StringBuilder();
-            //sbEventDisplay.Append(DateTime.Now.ToString("HH:mm:ss")+" | ");
-            //string Temp_strEventTag = strEventTag.PadRight(10, ' ');
-            //sbEventDisplay.Append(Temp_strEventTag);
-            //sbEventDisplay.Append(strEvnetContent);
-            CommonMethod.LogWrite.WriteEventLog(strEventTag, strEvnetContent);
-            this.BeginInvoke(new EventHandler(delegate
-            {
-                int index = this.dgvReocrd.Rows.Add();
-                this.dgvReocrd.Rows[index].Cells[0].Value = DateTime.Now.ToString("HH:mm:ss:fff");
-                this.dgvReocrd.Rows[index].Cells[1].Value = strEventTag;
-                this.dgvReocrd.Rows[index].Cells[2].Value = strEvnetContent;
-
-                dgvReocrd.Rows[dgvReocrd.RowCount - 1].Selected = true;
-                dgvReocrd.FirstDisplayedScrollingRowIndex = dgvReocrd.RowCount - 1;
-                
-            }));
-            
-        }
-
-
-        public void PlayVideo(VideoPlayWindow videoPlayWindow ,VideoInfo videoInfo)
-        {
-            videoPlayWindow.Init_VideoInfo(videoInfo);
-            videoPlayWindow.VideoPlay();
-        }
-
-        public void PlayVideo(VideoPlayWindow videoPlayWindow, VideoInfo videoInfo, VideoPlaySetting videoPlaySet)
-        {
-            videoPlayWindow.Init_VideoInfo(videoInfo, videoPlaySet);
-            videoPlayWindow.VideoPlay();
-        }
-        public void PlayVideo(VideoPlayWindow videoPlayWindow, VideoInfo videoInfo,CameraInfo camerInfo, VideoPlaySetting videoPlaySet)
-        {
-            videoPlayWindow.Init_VideoInfo(videoInfo, camerInfo,videoPlaySet);
-            videoPlayWindow.VideoPlay();
-        }
-
-        public string GetVideoTapeDicPath()
-        {
-            StringBuilder sbRecDicPath = new StringBuilder();
-            //sbRecDicPath.Append(ProgConstants.strCurrentSDK_RecDicPath);  //默认路径
-            //sbRecDicPath.Append("\\" + txtCouldID.Text.Trim());           //云视通号码
-            if (!Directory.Exists(sbRecDicPath.ToString()))
-            {
-                //文件夹不存在，创建文件夹
-                Directory.CreateDirectory(sbRecDicPath.ToString());
-            }
-            StringBuilder sbRecFilePath = new StringBuilder();
-            sbRecFilePath.Append(sbRecDicPath.ToString());
-            sbRecFilePath.Append("\\" + DateTime.Now.ToString("yyyyMMddHHmmss"));     //时间
-            sbRecFilePath.Append("_" + txtChannel.Text.Trim());                     //通道号
-            sbRecFilePath.Append(".mp4");
-            return sbRecFilePath.ToString();
-        }
-
-
-        public void VideoListRefresh()
-        {
-            cmbVideoList.Items.Clear();
-            foreach (KeyValuePair<string, VideoInfo> kv in dicVideoInfos)
-            {
-                cmbVideoList.Items.Add(kv.Key);
-            }
-        }
-
-        #endregion
-
-        private void btnVideoPly_Click(object sender, EventArgs e)
-        {
-            
-        }
-        
-        private void FrmMain_Move(object sender, EventArgs e)
-        {
-            videoWindowTest.VideoPlayWindows_Move();
-            //videoPlayMain2.VideoPlayWindows_Move();
-        }
-
-        private void btnVideoPlayClose_Click(object sender, EventArgs e)
-        {
-            int intVideoIndex = Convert.ToInt32(cmbOperAtWindows.SelectedValue);
-            if (intVideoIndex == 0)
-            {
-                videoWindowTest.VideoClose();
-            }
-            else
-            {
-                lstVideoPlayWindow[intVideoIndex - 1].VideoClose();
-            }
-        }
-        
-        
-
-        
-
-
-        public void TEST()
-        {
-            VideoInfo videoInfo = new VideoInfo();
-            //videoInfo.VideoType = (Enum_VideoType)cmbVideoType.SelectedValue;
-            int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
-            switch (intVideoType)
-            {
-                case 1:
-                    videoInfo.VideoType = Enum_VideoType.CloundSee;
-                    break;
-            }
-
-            videoInfo.DVSAddress = cmbDVSAddress.Text;
-            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
-            videoInfo.UserName = txtUserName.Text;
-            videoInfo.Password = txtPassword.Text;
-            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
-            CameraInfo camerasInfo = new CameraInfo();
-            int intChannel = Convert.ToInt32(txtChannel.Text);
-            camerasInfo.Channel = intChannel;
-            camerasInfo.CameraName = "通道" + intChannel;
-            videoInfo.Cameras[intChannel] = camerasInfo;
-
-            VideoPlaySetting videoPlaySet = new VideoPlaySetting();
-            videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
-            videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
-            videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
-            int intVideoIndex = Convert.ToInt32(cmbOperAtWindows.SelectedValue);
-            if (chkPresetEanble.Checked)
-            {
-                videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
-            }
-            if (intVideoIndex == 0)
-            {
-                PlayVideo(videoWindowTest, videoInfo, videoPlaySet);
-            }
-            else
-            {
-                PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], videoInfo, videoPlaySet);
-            }
-        }
-        
-        private void btnAddList_Click(object sender, EventArgs e)
-        {
-            VideoInfo videoInfo = new VideoInfo();
-            //videoInfo.VideoType = (Enum_VideoType)cmbVideoType.SelectedValue;
-            //int intVideoType = Convert.ToInt32(cmbVideoType.SelectedValue);
-            //switch (intVideoType)
-            //{
-            //    case 1:
-            //        videoInfo.VideoType = Enum_VideoType.CloundSee;
-            //        break;
-            //}
-            videoInfo.VideoType = (Enum_VideoType)Convert.ToInt32(cmbVideoType.SelectedValue);
-            videoInfo.DVSNumber = txtVideoID.Text.ToString();
-            videoInfo.DVSAddress = cmbDVSAddress.Text;
-            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
-            videoInfo.UserName = txtUserName.Text;
-            videoInfo.Password = txtPassword.Text;
-            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
-            int intChannelNum = Convert.ToInt32(txtChannel.Text);
-            videoInfo.DVSChannelNum = intChannelNum;
-            CameraInfo camerasInfo = new CameraInfo();
-            for (int i = 0; i < intChannelNum; i++)
-            {
-                camerasInfo = new CameraInfo();
-                camerasInfo.Channel = i;
-                camerasInfo.CameraName = "摄像机" + (i + 1);
-                videoInfo.Cameras[i] = camerasInfo;
-            }
-            if (!dicVideoInfos.ContainsKey(videoInfo.DVSNumber))
-            {
-                //不存在 列表不刷新
-                dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
-                VideoListRefresh();
-            }
-            else
-            {
-                dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
-            }
-        }
-
-        private void cmbVideoList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            intCurrentVideoID = cmbVideoList.Text;
-            if (string.IsNullOrEmpty(intCurrentVideoID) || !dicVideoInfos.ContainsKey(intCurrentVideoID))
-            {
-                ReSetVideoInfo();
-                videoChannelList.Init_SetVideoInfo(null);
-                return;
-            }
-            SetVideoInfo(intCurrentVideoID);
-            //txtcu
-        }
-
-        public void SetVideoInfo(string strVideoID)
-        {
-            if (dicVideoInfos.ContainsKey(strVideoID))
-            {
-                txtCurrentDVSType.Text = dicVideoInfos[strVideoID].VideoType.ToString();
-                txtCurrentDVSAddress.Text = dicVideoInfos[strVideoID].DVSAddress;
-                txtCurrentDVSPort.Text = dicVideoInfos[strVideoID].DVSConnectPort.ToString();
-                txtCurrentUserName.Text = dicVideoInfos[strVideoID].UserName;
-                txtCurrentDVSPwd.Text = dicVideoInfos[strVideoID].Password;
-                txtCurrentChannelNum.Text = dicVideoInfos[strVideoID].DVSChannelNum.ToString();
-                videoChannelList.Init_SetVideoInfo(dicVideoInfos[strVideoID]);
-            }
-        }
-        public void ReSetVideoInfo()
-        {
-            txtCurrentDVSType.Text = "";
-            txtCurrentDVSAddress.Text = "";
-            txtCurrentDVSPort.Text = "";
-            txtCurrentUserName.Text = "";
-            txtCurrentDVSPwd.Text = "";
-            txtCurrentChannelNum.Text = "";
-        }
-
-
-        public void VideoChannelListButton_Click(object sender, Button btnChannel)
-        {
-            CameraInfo cameraInfo = (CameraInfo)btnChannel.Tag;
-            videoChannelList.ButtonListBackColorReset();
-            //Button btn = (Button)sender;
-            btnChannel.BackColor = Color.Red;
-            VideoPlaySetting videoPlaySet = new VideoPlaySetting();
-            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
-            //播放
-            if (chkPresetEanble.Checked)
-            {
-                videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
-            }
-            videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
-            videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
-            videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
-            if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
-            {
-                string strTimeValue = DateTime.Now.ToString("yyyyMMddHHmmss");
-                StringBuilder sbVideoRecordPath = new StringBuilder();
-                sbVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
-                sbVideoRecordPath.Append(strTimeValue + "\\");
-                sbVideoRecordPath.Append(intCurrentVideoID + "_");
-                sbVideoRecordPath.Append(cameraInfo.Channel.ToString().PadLeft(2, '0') + "_");
-                sbVideoRecordPath.Append(strTimeValue + "_81.H264");
-                videoPlaySet.VideoRecordFilePath = sbVideoRecordPath.ToString();
-
-                StringBuilder sbPreVideoRecordPath = new StringBuilder();
-                sbPreVideoRecordPath.Append("http://121.41.87.203:8008/SK_VideoRecord/");
-                sbPreVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
-                sbPreVideoRecordPath.Append(strTimeValue + "\\");
-                videoPlaySet.PreVideoRecordFilePath = sbPreVideoRecordPath.ToString();
-            }
-            if (intVideoIndex == 0)
-            {
-                if (videoWindowTest.VideoPlayState == Enum_VideoPlayState.InPlayState)
-                {
-                    //处于播放状态
-                    videoWindowTest.VideoClose();
-                }
-                //测试界面
-                PlayVideo(videoWindowTest, dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
-            }
-            else
-            { 
-                if (lstVideoPlayWindow[intVideoIndex - 1].VideoPlayState == Enum_VideoPlayState.InPlayState)
-                {
-                    //处于播放状态
-                    lstVideoPlayWindow[intVideoIndex - 1].VideoClose();
-                }
-                PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
-            }
-        }
-
-        private void cmbOperAtPreset_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int intVideoIndex = Convert.ToInt32(cmbOperAtWindows.SelectedValue);
-            int intPresetPosi = int.Parse(cmbOperAtPreset.Text.ToString());
-            //播放
-            if (intVideoIndex == 0)
-            {
-                //测试界面
-                videoWindowTest.SetPresetPosi(intPresetPosi);
-            }
-            else
-            {
-                lstVideoPlayWindow[intVideoIndex - 1].SetPresetPosi(intPresetPosi);
-            }
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            lstVideoPlayWindow[0].Init_VideoInfo(GetVideoInfo());
-            lstVideoPlayWindow[0].VideoPlay();
-        }
-
-        private void btnTestClose_Click(object sender, EventArgs e)
-        {
-            lstVideoPlayWindow[0].VideoClose();
-            //videoWindowTest.VideoClose();
-            //SDKState.Ezviz_SDKRelease();
-        }
-
-        private void btnWindowPlay_Click(object sender, EventArgs e)
-        {
-            SDKState.Ezviz_SDKInit();
-            SDK_EzvizSDK.GetAccessToken();
-            Frm_VideoPlayWindows frmVideoWindows = new Frm_VideoPlayWindows(GetVideoInfo());
-            frmVideoWindows.Show();
-        }
-
-
-        public VideoInfo GetVideoInfo()
-        {
-            VideoInfo videoInfo = new VideoInfo();
-            videoInfo.VideoType = (Enum_VideoType)Convert.ToInt32(cmbVideoType.SelectedValue);
-            videoInfo.DVSAddress = cmbDVSAddress.Text;
-            videoInfo.DVSConnectPort = Convert.ToInt32(txtContactPort.Text);
-            videoInfo.UserName = txtUserName.Text;
-            videoInfo.Password = txtPassword.Text;
-            videoInfo.Cameras = new Dictionary<int, CameraInfo>();
-            CameraInfo camerasInfo = new CameraInfo();
-            for (int i = 1; i < 2; i++)
-            {
-                camerasInfo = new CameraInfo();
-                camerasInfo.Channel = i;
-                camerasInfo.CameraName = "通道" + i;
-                if (cmbDVSAddress.Text == "721283866")
-                {
-                    camerasInfo.CameraUniqueCode = "be74ee024b654e078ff5e7014af00e4f";
-                }
-                else if (cmbDVSAddress.Text == "720274352")
-                {
-                    camerasInfo.CameraUniqueCode = "864eb2adf3964fe38b85661f32145526";
-                }
-                videoInfo.Cameras[i] = camerasInfo;
-            }
-            return videoInfo;
-        }
-
-
-
-        int intTempCount = 0;
-
-       
-        
 
         /// <summary>
         /// 萤石云SDK初始化
@@ -943,50 +1021,14 @@ namespace VideoPlayControl_UseDemo
             SDKState.Ezviz_SDKRelease();
         }
 
-        private void btnEzvizTestData_Click(object sender, EventArgs e)
+        private void btnSKSDKInit_Click(object sender, EventArgs e)
         {
-            Ezviz_TestData();
-            cmbVideoList.SelectedIndex = 0;
-            //bolTestMode = true;
-            //timer1.Enabled = true;
+
         }
 
-        int Temp_i = 1;
-        int Temp_ii = 0;
-        bool bolTestMode = false;
-        private void timer1_Tick(object sender, EventArgs e)
+        private void btnSKSDKUninit_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
 
-            if (Temp_i >= 5)
-            {
-                Temp_i = 1;
-            }
-            VideoChannelListButton_Click(videoChannelList.lstbtns[Temp_i], (videoChannelList.lstbtns[Temp_i]));
-            Temp_i++;
-            Temp_ii++;
-            label17.Text = Temp_ii.ToString();
-            if (bolTestMode)
-            {
-                timer1.Enabled = true;
-            }
-            
-            //SDKState.ColundSee_SDKRelease();
-            //SDKState.CloundSee_SDKInit();
-        }
-
-        private void btnStopTest_Click(object sender, EventArgs e)
-        {
-            bolTestMode = false;
-            timer1.Enabled = false;
-        }
-
-        private void btnSKTestData_Click(object sender, EventArgs e)
-        {
-            VideoInfo videoInfo = SKVideo_TestData();
-            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
-            VideoListRefresh();
-            cmbVideoList.SelectedIndex = 0;
         }
 
         private void btnGetSKSDKStatus_Click(object sender, EventArgs e)
@@ -994,5 +1036,19 @@ namespace VideoPlayControl_UseDemo
             string strResult = SDKState.GetSKSDKClientOlineStatus() == 1 ? "在线" : "离线";
             MessageBox.Show(strResult);
         }
+
+        private void btnHuaMaiSDKInit_Click(object sender, EventArgs e)
+        {
+            SDKState.HuaMai_Init();
+        }
+
+        private void btnHuaMaiSDKRelease_Click(object sender, EventArgs e)
+        {
+            SDKState.Huamai_Release();
+        }
+
+        #endregion
+
+        
     }
 }

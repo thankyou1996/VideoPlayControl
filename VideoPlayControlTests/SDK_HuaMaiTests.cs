@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using static VideoPlayControl.SDK_HuaMai;
+using System.Windows.Forms;
+using System.Threading;
 
 namespace VideoPlayControl.Tests
 {
@@ -70,7 +72,14 @@ namespace VideoPlayControl.Tests
                 //{
                 //    Temp_b[i] = 0; 
                 //}
-                //loginInfo.user = u.GetString(u.GetBytes("商丘市视频联网报警中心"));
+                //loginInfo.user = Encoding.UTF8.GetString(Encoding.Unicode.GetBytes("商丘市视频联网报警中心"));   //成功
+                //loginInfo.password = "2299579";
+
+
+                loginInfo.user = "test1996";        //成功
+                loginInfo.password = "123456";
+
+                //loginInfo.user = u.GetString(Encoding.Unicode.GetBytes("商丘市视频联网报警中心"));
                 //loginInfo.user = u.GetString(u.GetBytes("鍟嗕笜甯傝棰戣仈缃戞姤璀︿腑蹇"));
                 //loginInfo.user = u.GetString(b);
                 //b = e.GetBytes("2299579");
@@ -79,9 +88,8 @@ namespace VideoPlayControl.Tests
                 //loginInfo.password = "2299579";
                 //loginInfo.user = u.GetString(u.GetBytes());
                 //loginInfo.user = Marshal.StringToHGlobalAnsi(u.GetString(Temp_b));
-                //loginInfo.password = "2299579";
                 //loginInfo.user = "hongdongcheng";
-                loginInfo.password = "123456";
+                //loginInfo.password = "123456";
                 loginInfo.plat_type = "pc";
                 loginInfo.hard_ver = "Pentium4";
                 loginInfo.soft_ver = "v1.1.0.1789";
@@ -105,7 +113,7 @@ namespace VideoPlayControl.Tests
                 ////le = Marshal.SizeOf(typeof(_LOGIN_SERVER_INFO));
                 le = Marshal.SizeOf(typeof(_LOGIN_SERVER_INFO));
                 iResult = SDK_HuaMai.hm_server_connect(iServerInfo, ref intptrServerInfo, 0, 0);
-                iResult = SDK_HuaMai.hm_server_disconnect(intptrServerInfo);
+                SDK_HuaMai.hm_server_disconnect(intptrServerInfo);
 
             }
             catch (Exception ex)
@@ -222,6 +230,45 @@ namespace VideoPlayControl.Tests
                 iResult = SDK_HuaMai.hm_server_get_device_list(intptrServerInfo);
 
                 Temp_iResult = SDK_HuaMai.hm_server_disconnect(intptrServerInfo);
+            }
+            catch (Exception ex)
+            {
+                iResult = 999999;
+            }
+            finally
+            {
+                Temp_iResult = SDK_HuaMai.hm_sdk_uninit();
+            }
+            Assert.AreEqual(Convert.ToUInt32(0), iResult);
+        }
+
+        [TestMethod()]
+        public void hm_server_get_user_infoTest()
+        {
+            UInt32 iResult = 0;
+            UInt32 Temp_iResult = 0;
+            try
+            {
+                IntPtr i;
+                Temp_iResult = SDK_HuaMai.hm_sdk_init();
+                _LOGIN_SERVER_INFO loginInfo = new _LOGIN_SERVER_INFO();
+                loginInfo.ip = "huamaiyun.com";
+                loginInfo.port = 80;
+                loginInfo.user = "test1996";
+                loginInfo.password = "123456";
+                loginInfo.plat_type = "pc";
+                loginInfo.hard_ver = "Pentium4";
+                loginInfo.soft_ver = "v1.1.0.1789";
+                IntPtr iServerInfo = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(_LOGIN_SERVER_INFO)));
+                Marshal.StructureToPtr(loginInfo, iServerInfo, false);
+                IntPtr intptrServerInfo = IntPtr.Zero;
+                Temp_iResult = SDK_HuaMai.hm_server_connect(iServerInfo, ref intptrServerInfo, 0, 0);
+                Temp_iResult = SDK_HuaMai.hm_server_get_device_list(intptrServerInfo);
+                _USER_INFO userInfo = new _USER_INFO();
+                IntPtr iUserInfo = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(_USER_INFO)));
+                int intLength = Marshal.SizeOf(typeof(_USER_INFO));
+                iResult = SDK_HuaMai.hm_server_get_user_info(intptrServerInfo, ref iUserInfo);
+                Temp_iResult = SDK_HuaMai.hm_server_disconnect(intptrServer);
             }
             catch (Exception ex)
             {
@@ -362,7 +409,12 @@ namespace VideoPlayControl.Tests
         IntPtr intptrTree = IntPtr.Zero;
         IntPtr iRootNode = IntPtr.Zero;
         IntPtr iNode = IntPtr.Zero;
+        IntPtr iDev = IntPtr.Zero;
+        IntPtr iOpenVideo = IntPtr.Zero;
+        OPEN_VIDEO_RES videoRes;
         int intCount = 0;
+        IntPtr iPort = IntPtr.Zero;
+        Form FrmPlay = new Form();
         #endregion
 
         public void Init()
@@ -396,6 +448,94 @@ namespace VideoPlayControl.Tests
             UInt32 Temp_iResult = 0;
             Temp_iResult = SDK_HuaMai.hm_server_get_child_at(iNodo, intindex, ref iNode);
             return Temp_iResult == 0;
+        }
+
+        private void OnRecvRealTimeVideo(IntPtr iUser, IntPtr iFrmae, UInt32 err)
+        {
+            if (err != Convert.ToUInt32(0))
+            {
+                return;
+            }
+            var result = Marshal.PtrToStructure(iFrmae, typeof(_FRAME_DATA));
+            _FRAME_DATA A = (_FRAME_DATA)result;
+            _RAW_FRAME_TYPE xx = (_RAW_FRAME_TYPE)A.frame_info.stream_type;
+            switch (xx)
+            {
+                case _RAW_FRAME_TYPE.HME_RFT_P:
+                case _RAW_FRAME_TYPE.HME_RFT_I:
+                case _RAW_FRAME_TYPE.HME_RFT_H265_P:
+                case _RAW_FRAME_TYPE.HME_RFT_H265_I:
+                    //SDK_HuaMai.hm_video_display_input_data(iPort, A.frame_stream, A.frame_len, true);
+                    break;
+                default:
+                    //不做操作
+                    break;
+            }
+        }
+
+        public bool LoginDev()
+        {
+            UInt32 iResult = 0;
+            _CONNECT_INFO config = new _CONNECT_INFO();
+            config.ct = CLIENT_TYPE.CT_PC;
+            config.cp = CONNECT_PRI.CPI_DEF;
+            config.cm = CONNECT_MODE.CM_DEF;
+            iResult = SDK_HuaMai.hm_pu_login_ex(iNode, ref config, ref iDev);
+            if (iResult == Convert.ToUInt32(0))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool OpenRealVideo()
+        {
+            UInt32 iResult = 0;
+            _OPEN_VIDEO_PARAM para = new _OPEN_VIDEO_PARAM();
+            para.channel = 0;
+            para.cs_type = CODE_STREAM.HMS_CS_MAJOR;
+            IntPtr iUserData = Marshal.StringToHGlobalAnsi("hongdongcheng");
+            para.data = iUserData;
+            para.vs_type = VIDEO_STREAM.HMS_VS_REAL;
+            para.cb_data = new SDK_HuaMai.cb_pu_data(OnRecvRealTimeVideo);
+            iResult = SDK_HuaMai.hm_pu_open_video(iDev, ref para, ref iOpenVideo);
+            if (iResult == Convert.ToUInt32(0))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool StartOpenVideo()
+        {
+            UInt32 iResult = 0;
+            videoRes = new OPEN_VIDEO_RES();
+            iResult = SDK_HuaMai.hm_pu_start_video(iOpenVideo, ref videoRes);
+            if (Convert.ToUInt32(0) == iResult)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool DisplayOpenPort()
+        {
+            UInt32 iResult = 0;
+            FrmPlay.MinimizeBox = false;
+            FrmPlay.MaximizeBox = false;
+            FrmPlay.StartPosition = FormStartPosition.CenterScreen;
+            FrmPlay.Width = 640;
+            FrmPlay.Height = 300;
+            //FrmPlay.Show();
+            DISPLAY_OPTION disp_op = new DISPLAY_OPTION();
+            disp_op.dm = DISPLAY_MODE.HME_DM_DX;
+            disp_op.pq = PIC_QUALITY.HME_PQ_HIGHT;
+            iResult = SDK_HuaMai.hm_video_display_open_port(FrmPlay.Handle, ref disp_op, ref iPort);
+            if (Convert.ToUInt32(0) == iResult)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void Release()
@@ -528,7 +668,7 @@ namespace VideoPlayControl.Tests
 
                 string strSN = "E322213C04245";
                 IntPtr iDevSN = Marshal.StringToHGlobalAnsi(strSN);
-                IntPtr iNode = SDK_HuaMai.hm_server_find_device_by_sn(intptrTree, iDevSN);
+                //IntPtr iNode = SDK_HuaMai.hm_server_find_device_by_sn(intptrTree, iDevSN);
 
                 if (iNode == IntPtr.Zero)
                 {
@@ -556,12 +696,15 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void hm_server_find_device_by_snTest()
         {
+            UInt32 iResult = 0;
             Init();
             string strDevSN = "E322213C04245";
+            //string strDevSN = "E3235433C04245";
             IntPtr iDevSN = Marshal.StringToHGlobalUni(strDevSN);
-            IntPtr iNode = SDK_HuaMai.hm_server_find_device_by_sn(intptrTree, iDevSN);
+            IntPtr iNode = IntPtr.Zero;
+            iResult = SDK_HuaMai.hm_server_find_device_by_sn(intptrTree, strDevSN, ref iNode);
             Release();
-            Assert.AreEqual(IntPtr.Zero, iNode);
+            Assert.AreEqual(Convert.ToUInt32(0), iResult);
         }
 
         [TestMethod()]
@@ -586,7 +729,7 @@ namespace VideoPlayControl.Tests
             UInt32 iResult = 0;
             string strDevName = "";
             Init();
-            if (!GetNode_ByIndex(iRootNode, 6))
+            if (!GetNode_ByIndex(iRootNode, 9))
             {
                 Release();
                 Assert.Fail();
@@ -607,7 +750,7 @@ namespace VideoPlayControl.Tests
             UInt32 iResult = 0;
             string strDevSN = "";
             Init();
-            if (!GetNode_ByIndex(iRootNode, 3))
+            if (!GetNode_ByIndex(iRootNode, 9))
             {
                 Release();
                 Assert.Fail();
@@ -667,9 +810,263 @@ namespace VideoPlayControl.Tests
             _CONNECT_INFO config = new _CONNECT_INFO();
             config.ct = CLIENT_TYPE.CT_PC;
             config.cp = CONNECT_PRI.CPI_DEF;
-            iResult = SDK_HuaMai.hm_pu_login_ex(iNode, ref iDev);
+            config.cm = CONNECT_MODE.CM_DEF;
+            iResult = SDK_HuaMai.hm_pu_login_ex(iNode, ref config, ref iDev);
             Release();
             Assert.AreEqual(Convert.ToUInt32(0), iResult);
         }
+
+        [TestMethod()]
+        public void hm_pu_logutTest()
+        {
+            UInt32 iResult = 0;
+            Init();
+            if (!GetNode_ByIndex(iRootNode, 3))
+            {
+                Release();
+                Assert.Fail();
+            }
+            IntPtr iDev = IntPtr.Zero;
+            _CONNECT_INFO config = new _CONNECT_INFO();
+            config.ct = CLIENT_TYPE.CT_PC;
+            config.cp = CONNECT_PRI.CPI_DEF;
+            config.cm = CONNECT_MODE.CM_DEF;
+            iResult = SDK_HuaMai.hm_pu_login_ex(iNode, ref config, ref iDev);
+            iResult = SDK_HuaMai.hm_pu_logout(iDev);
+            Release();
+            Assert.AreEqual(Convert.ToUInt32(0), iResult);
+        }
+
+        [TestMethod()]
+        public void hm_pu_open_videoTest()
+        {
+            UInt32 iResult = 0;
+            UInt32 Temp_iResult = 0;
+            Init();
+            if (!GetNode_ByIndex(iRootNode, 3))
+            {
+                Release();
+                Assert.Fail();
+            }
+            IntPtr iDev = IntPtr.Zero;
+            _CONNECT_INFO config = new _CONNECT_INFO();
+            config.ct = CLIENT_TYPE.CT_PC;
+            config.cp = CONNECT_PRI.CPI_DEF;
+            config.cm = CONNECT_MODE.CM_DEF;
+            Temp_iResult = SDK_HuaMai.hm_pu_login_ex(iNode, ref config, ref iDev);
+            _OPEN_VIDEO_PARAM para = new _OPEN_VIDEO_PARAM();
+            para.channel = 0;
+            para.cs_type = CODE_STREAM.HMS_CS_MAJOR;
+            IntPtr iUserData = Marshal.StringToHGlobalAnsi("hongdongcheng");
+            para.data = iUserData;
+            para.vs_type = VIDEO_STREAM.HMS_VS_REAL;
+            //para.cb_data =  OnRecvRealTimeVideo;
+            IntPtr iOpenVideo = IntPtr.Zero;
+            iResult = SDK_HuaMai.hm_pu_open_video(iDev, ref para, ref iOpenVideo);
+            Release();
+            Assert.AreEqual(Convert.ToUInt32(0), iResult);
+        }
+
+        [TestMethod()]
+        public void hm_pu_start_videoTest()
+        {
+            UInt32 iResult = 0;
+            Init();
+            if (!GetNode_ByIndex(iRootNode, 3))
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!LoginDev())
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!OpenRealVideo())
+            {
+                Release();
+                Assert.Fail();
+            }
+            videoRes = new OPEN_VIDEO_RES();
+            iResult = SDK_HuaMai.hm_pu_start_video(iOpenVideo, ref videoRes);
+            Thread.Sleep(100000);
+            Release();
+            Assert.AreEqual(Convert.ToUInt32(0), iResult);
+        }
+
+        [TestMethod()]
+        public void hm_video_display_open_portTest()
+        {
+            UInt32 iResult = 0;
+            UInt32 Temp_iResult = 0;
+            Init();
+            if (!GetNode_ByIndex(iRootNode, 3))
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!LoginDev())
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!OpenRealVideo())
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!StartOpenVideo())
+            {
+                Release();
+                Assert.Fail();
+            }
+            FrmPlay.MinimizeBox = false;
+            FrmPlay.MaximizeBox = false;
+            FrmPlay.StartPosition = FormStartPosition.CenterScreen;
+            FrmPlay.Width = 640;
+            FrmPlay.Height = 300;
+            FrmPlay.Show();
+            DISPLAY_OPTION disp_op = new DISPLAY_OPTION();
+            disp_op.dm = DISPLAY_MODE.HME_DM_DX;
+            disp_op.pq = PIC_QUALITY.HME_PQ_HIGHT;
+            iResult = SDK_HuaMai.hm_video_display_open_port(FrmPlay.Handle, ref disp_op, ref iPort);
+            Thread.Sleep(10000);
+            Temp_iResult = hm_video_display_stop(iPort);
+            Release();
+            Assert.AreEqual(Convert.ToUInt32(0), iResult);
+        }
+
+        [TestMethod()]
+        public void hm_video_display_stopTest()
+        {
+            UInt32 iResult = 0;
+            UInt32 Temp_iResult = 0;
+            Init();
+            if (!GetNode_ByIndex(iRootNode, 3))
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!LoginDev())
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!OpenRealVideo())
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!StartOpenVideo())
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!DisplayOpenPort())
+            {
+                Release();
+                Assert.Fail();
+            }
+            Temp_iResult = hm_video_display_start(iPort, 300, 300, 25);
+            iResult = hm_video_display_stop(iPort);
+            Thread.Sleep(10000);
+            Release();
+            Assert.AreEqual(Convert.ToUInt32(0), iResult);
+        }
+
+        [TestMethod()]
+        public void hm_video_display_close_portTest()
+        {
+            UInt32 iResult = 0;
+            UInt32 Temp_iResult = 0;
+            Init();
+            if (!GetNode_ByIndex(iRootNode, 3))
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!LoginDev())
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!OpenRealVideo())
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!StartOpenVideo())
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!DisplayOpenPort())
+            {
+                Release();
+                Assert.Fail();
+            }
+            Temp_iResult = hm_video_display_start(iPort, 300, 300, 25);
+            Temp_iResult = hm_video_display_stop(iPort);
+            iResult = hm_video_display_close_port(iPort);
+            Release();
+            Assert.AreEqual(Convert.ToUInt32(0), iResult);
+        }
+
+        [TestMethod()]
+        public void hm_pu_stop_videoTest()
+        {
+            UInt32 iResult = 0;
+            Init();
+            if (!GetNode_ByIndex(iRootNode, 3))
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!LoginDev())
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!OpenRealVideo())
+            {
+                Release();
+                Assert.Fail();
+            }
+            videoRes = new OPEN_VIDEO_RES();
+            iResult = SDK_HuaMai.hm_pu_start_video(iOpenVideo, ref videoRes);
+            iResult = SDK_HuaMai.hm_pu_stop_video(iOpenVideo);
+            Release();
+            Assert.AreEqual(Convert.ToUInt32(0), iResult);
+        }
+
+        [TestMethod()]
+        public void hm_pu_close_videoTest()
+        {
+            UInt32 iResult = 0;
+            Init();
+            if (!GetNode_ByIndex(iRootNode, 3))
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!LoginDev())
+            {
+                Release();
+                Assert.Fail();
+            }
+            if (!OpenRealVideo())
+            {
+                Release();
+                Assert.Fail();
+            }
+            videoRes = new OPEN_VIDEO_RES();
+            iResult = SDK_HuaMai.hm_pu_start_video(iOpenVideo, ref videoRes);
+            iResult = SDK_HuaMai.hm_pu_stop_video(iOpenVideo);
+            iResult = SDK_HuaMai.hm_pu_close_video(iOpenVideo);
+            Release();
+            Assert.AreEqual(Convert.ToUInt32(0), iResult);
+        }
+
+        
     }
 }

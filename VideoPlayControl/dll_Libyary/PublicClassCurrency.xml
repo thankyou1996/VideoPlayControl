@@ -147,6 +147,52 @@
             事件内容
             </summary>
         </member>
+        <member name="T:PublicClassCurrency.MapMarkerPointInfo">
+            <summary>
+            地图标注点信息
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerName">
+            <summary>
+            标注点名称
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerDisplayValue">
+            <summary>
+            标注点显示信息
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerDisplayTag">
+            <summary>
+            标注点标签
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerIconFilePath">
+            <summary>
+            标注点Icon路径
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerIconWidth">
+            <summary>
+            标注点Icon 宽度
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerIconHeight">
+            <summary>
+            标注点Icon 高度
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerFirstDisplayMapLevel">
+            <summary>
+            标注点首次显示地图等级
+            0表示未设置
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerPoint">
+            <summary>
+            地图点信息
+            </summary>
+        </member>
         <member name="T:PublicClassCurrency.MapPointInfo">
             <summary>
             地图点信息
@@ -441,6 +487,11 @@
         <member name="F:PublicClassCurrency.Enum_VideoType.SKVideo">
             <summary>
             时刻视频
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.HuaMaiVideo">
+            <summary>
+            华迈云视频类型
             </summary>
         </member>
     </members>

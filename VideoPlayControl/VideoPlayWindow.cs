@@ -154,8 +154,9 @@ namespace VideoPlayControl
             SDKState.SDKEventStateEvent += SDKStateChangeEvent;
             intptrPlayMain = picPlayMain.Handle;
             VideoPlayEventCallBack(Enum_VideoPlayEventType.LoadEnd);
+            s = picPlayMain.Size;
         }
-
+        Size s;
         public void SDKStateChangeEvent(Enum_VideoType sdkType, Enum_SDKStateEventType sdkStateEvent)
         {
             switch (sdkType)
@@ -1243,7 +1244,7 @@ namespace VideoPlayControl
         }
 
         /// <summary>
-        /// 萤石云
+        /// 萤石云云台控制
         /// </summary>
         /// <param name="PTZControl"></param>
         /// <param name="bolStart"></param>
@@ -1317,6 +1318,133 @@ namespace VideoPlayControl
 
         #endregion
 
+
+        #region HuaMaiVideo  华迈视频
+
+        #region 全局变量
+        IntPtr iNode = IntPtr.Zero;
+        IntPtr iDev = IntPtr.Zero;
+        IntPtr iPort = IntPtr.Zero;
+        IntPtr iOpenVideo = IntPtr.Zero;
+        #endregion
+        #region 基本事件
+        /// <summary>
+        /// 华迈视频_视频播放
+        /// </summary>
+        private void HuaMaiVideo_VideoPlay()
+        {
+            UInt32 iResult = 0;
+            iResult = SDK_HuaMai.hm_server_find_device_by_sn(ProgParameter.HuaMai_iTree, CurrentVideoInfo.DVSAddress, ref iNode);
+            if (iResult != ProgConstants.c_iHuaMaiSDK_Result_Success
+                || iNode == IntPtr.Zero)
+            {
+                //查询不到设备
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.DeviceNotExist);
+                return;
+            }
+            
+            SDK_HuaMai._CONNECT_INFO config = new SDK_HuaMai._CONNECT_INFO();
+            config.ct = SDK_HuaMai.CLIENT_TYPE.CT_PC;
+            config.cp = SDK_HuaMai.CONNECT_PRI.CPI_DEF;
+            config.cm = SDK_HuaMai.CONNECT_MODE.CM_DEF;
+            iResult = SDK_HuaMai.hm_pu_login_ex(iNode, ref config, ref iDev);
+            if (iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
+            {
+                //登录设备失败
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.DevLoginException);
+                return;
+            }
+
+            SDK_HuaMai._OPEN_VIDEO_PARAM para = new SDK_HuaMai._OPEN_VIDEO_PARAM();
+            para.channel = Convert.ToUInt32(CurrentCameraInfo.Channel);
+            para.cs_type = SDK_HuaMai.CODE_STREAM.HMS_CS_MAJOR;
+            IntPtr iUserData = Marshal.StringToHGlobalAnsi("123");
+            para.data = iUserData;
+            para.vs_type = SDK_HuaMai.VIDEO_STREAM.HMS_VS_REAL;
+            para.cb_data = new SDK_HuaMai.cb_pu_data(HuaMaiVideo_OnRecvRealTimeVideo);
+            para.iWnd = picPlayMain.Handle;
+            iResult = SDK_HuaMai.hm_pu_open_video(iDev, ref para, ref iOpenVideo);
+            if (iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
+            {
+                //打开视频失败
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
+                return;
+            }
+
+            SDK_HuaMai.OPEN_VIDEO_RES videoRes = new SDK_HuaMai.OPEN_VIDEO_RES();
+            iResult = SDK_HuaMai.hm_pu_start_video(iOpenVideo, ref videoRes);
+            if (iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
+            {
+                //开始播放视频异常
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+                return;
+            }
+            SDK_HuaMai.DISPLAY_OPTION disp_op = new SDK_HuaMai.DISPLAY_OPTION();
+            disp_op.dm = SDK_HuaMai.DISPLAY_MODE.HME_DM_DX;
+            disp_op.pq = SDK_HuaMai.PIC_QUALITY.HME_PQ_HIGHT;
+            //IntPtr iWnd = pictureBox1.Handle;
+            iPort = IntPtr.Zero;
+            iResult = SDK_HuaMai.hm_video_display_open_port(picPlayMain.Handle, ref disp_op, ref iPort);
+            iResult = SDK_HuaMai.hm_video_display_start(iPort, 0, 0, 25);
+            //回调触发播放事件
+        }
+        /// <summary>
+        /// 华迈视频_视频关闭
+        /// </summary>
+        public void HuaMaiVideo_VideoClose()
+        {
+            SDK_HuaMai.hm_video_display_close_port(iPort);
+            iPort = IntPtr.Zero;
+            SDK_HuaMai.hm_pu_stop_video(iOpenVideo);
+            SDK_HuaMai.hm_pu_close_video(iOpenVideo);
+            iOpenVideo = IntPtr.Zero;
+            SDK_HuaMai.hm_pu_logout(iDev);
+            iDev = IntPtr.Zero;
+            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
+        }
+        #endregion
+
+        #region 回调函数
+        private void HuaMaiVideo_OnRecvRealTimeVideo(IntPtr iUser, IntPtr iFrmae, UInt32 err)
+        {
+            if (err != Convert.ToUInt32(0))
+            {
+                return;
+            }
+            if (iPort == IntPtr.Zero)
+            {
+                return;
+            }
+            var result = Marshal.PtrToStructure(iFrmae, typeof(SDK_HuaMai._FRAME_DATA));
+            SDK_HuaMai._FRAME_DATA Data = (SDK_HuaMai._FRAME_DATA)result;
+            SDK_HuaMai._RAW_FRAME_TYPE Type = (SDK_HuaMai._RAW_FRAME_TYPE)Data.frame_info.frame_type;
+            switch (Type)
+            {
+                case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_P:
+                case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_I:
+                case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_H265_P:
+                case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_H265_I:
+                    SDK_HuaMai.hm_video_display_input_data(iPort, Data.frame_stream, Data.frame_len, true);
+                    if (VideoPlayState != Enum_VideoPlayState.InPlayState)
+                    {
+                        VideoPlayState = Enum_VideoPlayState.InPlayState;
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+                    }
+                    break;
+                default:
+                    //不做操作
+                    break;
+            }
+        }
+
+
+
+        #endregion
+
+
+        #endregion
+
         #region 基本事件
 
         /// <summary>
@@ -1344,6 +1472,9 @@ namespace VideoPlayControl
                     break;
                 case Enum_VideoType.SKVideo:
                     SKVideo_VideoPlay();        //时刻视频设备
+                    break;
+                case Enum_VideoType.HuaMaiVideo:
+                    HuaMaiVideo_VideoPlay();
                     break;
             }
         }
@@ -1401,6 +1532,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.SKVideo:
                         SKVideo_VideoClose();
                         break;
+                    case Enum_VideoType.HuaMaiVideo:
+                        HuaMaiVideo_VideoClose();
+                        break;
                 }
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
             }
@@ -1446,6 +1580,21 @@ namespace VideoPlayControl
         private void picPlayMain_SizeChanged(object sender, EventArgs e)
         {
             VideoPlayWindows_Move();
+            return;
+            if (CurrentVideoInfo != null && CurrentVideoInfo.VideoType == Enum_VideoType.HuaMaiVideo)
+            {
+                if (videoPlayState == Enum_VideoPlayState.InPlayState)
+                {
+                    Size Temp_s = picPlayMain.Size;
+                    if (Math.Abs(s.Width - Temp_s.Width) > 100 || Math.Abs(s.Height - Temp_s.Height) > 100)
+                    {
+                        s = Temp_s;
+                        VideoClose();
+                        VideoPlay();
+                    }
+                    
+                }
+            }
         }
         #endregion
 

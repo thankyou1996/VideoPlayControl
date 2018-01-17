@@ -79,5 +79,27 @@ namespace VideoPlayControl
 
 
         #endregion
+
+        #region 华迈视频相关参数
+        /// <summary>
+        /// 华迈云登录信息_登录名
+        /// </summary>
+        public static string strHuaMaiLoginInfo_LoginName = "test1996";
+
+        /// <summary>
+        /// 华迈云登录信息_登录密码
+        /// </summary>
+        public static string strHuaMaiLoginInfo_LoginPwd = "123456";
+
+        /// <summary>
+        ///华迈平台 登录句柄
+        /// </summary>
+        public static IntPtr HuaMai_iServer = IntPtr.Zero;
+
+        /// <summary>
+        /// 华迈平台_设备树句柄
+        /// </summary>
+        public static IntPtr HuaMai_iTree = IntPtr.Zero;
+        #endregion
     }
 }

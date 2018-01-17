@@ -13,8 +13,8 @@ namespace VideoPlayControl
         /// <summary>
         /// 中维(云视通)SDK
         /// </summary>
-        public const string c_strCloundSeeSDKFilePath = "\\dll_Libyary\\JCSDK\\JCSDK.dll";
-
+        //public const string c_strCloundSeeSDKFilePath = "\\dll_Libyary\\JCSDK\\JCSDK.dll";
+        public const string c_strCloundSeeSDKFilePath = "\\JCSDK\\JCSDK.dll";
         /// <summary>
         /// 萤石云  SDK（旧版本）
         /// </summary>
@@ -23,14 +23,18 @@ namespace VideoPlayControl
         /// <summary>
         /// 萤石云SDK 
         /// </summary>
+        //public const string c_strEzvizSDKFilePath = "\\dll_Libyary\\Ezviz\\OpenNetStream.dll";
         public const string c_strEzvizSDKFilePath = "\\Ezviz\\OpenNetStream.dll";
-
         /// <summary>
         /// 华迈SDK
         /// </summary>
-        //public const string c_strHuaMaiSDKFilePath = "\\hmsdk.dll";
+        //public const string c_strHuaMaiSDKFilePath = "\\dll_Libyary\\HuaMai\\hmsdk.dll";
+        public const string c_strHuaMaiSDKFilePath = "\\HuaMai\\hmsdk.dll";
 
-        public const string c_strHuaMaiSDKFilePath = "\\dll_Libyary\\HuaMai\\hmsdk.dll";
+        /// <summary>
+        /// 时刻SDK  
+        /// </summary>
+        public const string c_strSKVideoSDKFilePath = "\\SKVideoSDK\\VLC_SDK.DLL";
         #endregion
 
         #region SDK默认参数
@@ -87,6 +91,37 @@ namespace VideoPlayControl
         /// 萤石云默认录像文件存放地址
         /// </summary>
         public static string strEzviz_RecDicPath = Environment.CurrentDirectory + "\\EzvizRecFile";
+        #endregion
+
+        #region HuaMai 华迈
+        /// <summary>
+        /// 华迈云登录信息_IP
+        /// </summary>
+        public const string c_strHuaMaiSDK_LoginInfo_IP = "huamaiyun.com";
+        /// <summary>
+        /// 华迈云登录信息_端口
+        /// </summary>
+        public const int c_strHuaMaiSDK_LoginInfo_Port = 80;
+
+        /// <summary>
+        /// 华迈云登录信息_系统类型
+        /// </summary>
+        public const string c_strHuaMaiSDK_LoginInfo_PlatType = "pc";
+
+        /// <summary>
+        /// 华迈云登录信息_硬件版本
+        /// </summary>
+        public const string c_strHuaMaiSDK_LoginInfo_HardVer = "Pentium4";
+
+        /// <summary>
+        /// 华迈云登录信息_软件版本
+        /// </summary>
+        public const string c_strHuaMaiSDK_LoginInfo_SoftVer = "v1.1.0.1789";
+
+        /// <summary>
+        /// 华迈_结果_成功
+        /// </summary>
+        public const UInt32 c_iHuaMaiSDK_Result_Success = 0;
         #endregion
 
         #endregion
