@@ -122,6 +122,12 @@
     <Compile Include="VideoPlayGroupControls_Basic.Designer.cs">
       <DependentUpon>VideoPlayGroupControls_Basic.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoPlayGroupControl_MultiPicture1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoPlayGroupControl_MultiPicture1.Designer.cs">
+      <DependentUpon>VideoPlayGroupControl_MultiPicture1.cs</DependentUpon>
+    </Compile>
     <Compile Include="VideoPlaySetting.cs" />
     <Compile Include="VideoPlayWindow.cs">
       <SubType>UserControl</SubType>
@@ -171,6 +177,9 @@
     <EmbeddedResource Include="VideoPlayGroupControls_Basic.resx">
       <DependentUpon>VideoPlayGroupControls_Basic.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VideoPlayGroupControl_MultiPicture1.resx">
+      <DependentUpon>VideoPlayGroupControl_MultiPicture1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VideoPlayWindow.resx">
       <DependentUpon>VideoPlayWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,285 +196,283 @@
   <ItemGroup>
     <Content Include="dll_Libyary\CommonMethod.dll" />
     <Content Include="dll_Libyary\CommonMethod.XML" />
-    <Content Include="dll_Libyary\Ezviz\AnalyzeData.dll">
+    <Content Include="Ezviz\AnalyzeData.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\AudioIntercom.dll">
+    <Content Include="Ezviz\AudioIntercom.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\AudioRender.dll">
+    <Content Include="Ezviz\AudioRender.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\D3DX9_43.dll">
+    <Content Include="Ezviz\D3DX9_43.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\hlog.dll">
+    <Content Include="Ezviz\hlog.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\hpr.dll">
+    <Content Include="Ezviz\hpr.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\HWDecode.dll">
+    <Content Include="Ezviz\HWDecode.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\libCASClient.dll">
+    <Content Include="Ezviz\libCASClient.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\libcurl.dll">
+    <Content Include="Ezviz\libcurl.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\libeay32.dll">
+    <Content Include="Ezviz\libeay32.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\libGetHDSign.dll">
+    <Content Include="Ezviz\libGetHDSign.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\libPPVClient2.dll">
+    <Content Include="Ezviz\libPPVClient2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\Microsoft.VC90.CRT\msvcm90.dll">
+    <Content Include="Ezviz\Microsoft.VC90.CRT\msvcm90.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\Microsoft.VC90.CRT\msvcp90.dll">
+    <Content Include="Ezviz\Microsoft.VC90.CRT\msvcp90.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\Microsoft.VC90.CRT\msvcr90.dll">
+    <Content Include="Ezviz\Microsoft.VC90.CRT\msvcr90.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\Microsoft.VC90.MFC\mfc90.dll">
+    <Content Include="Ezviz\Microsoft.VC90.MFC\mfc90.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\Microsoft.VC90.MFC\mfc90u.dll">
+    <Content Include="Ezviz\Microsoft.VC90.MFC\mfc90u.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\Microsoft.VC90.MFC\mfcm90.dll">
+    <Content Include="Ezviz\Microsoft.VC90.MFC\mfcm90.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\Microsoft.VC90.MFC\mfcm90u.dll">
+    <Content Include="Ezviz\Microsoft.VC90.MFC\mfcm90u.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\MidPage.dll">
+    <Content Include="Ezviz\MidPage.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\MP_Render.dll">
+    <Content Include="Ezviz\MP_Render.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\MP_VIE.dll">
+    <Content Include="Ezviz\MP_VIE.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\NetStream.dll">
+    <Content Include="Ezviz\NetStream.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\OpenAL32.dll">
+    <Content Include="Ezviz\OpenAL32.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\OpenAL32New.dll">
+    <Content Include="Ezviz\OpenAL32New.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\OpenNetStream.dll">
+    <Content Include="Ezviz\OpenNetStream.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\opensslwrap.dll">
+    <Content Include="Ezviz\opensslwrap.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\paho-mqtt3c.dll">
+    <Content Include="Ezviz\paho-mqtt3c.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\PlayCtrl.dll">
+    <Content Include="Ezviz\PlayCtrl.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\pthreadVC2.dll">
+    <Content Include="Ezviz\pthreadVC2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\PushClient.dll">
+    <Content Include="Ezviz\PushClient.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\RTPRTCP.dll">
+    <Content Include="Ezviz\RTPRTCP.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\RTSPClient.dll">
+    <Content Include="Ezviz\RTSPClient.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\ssleay32.dll">
+    <Content Include="Ezviz\ssleay32.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\streamclient_lib.dll">
+    <Content Include="Ezviz\streamclient_lib.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\StreamClient_V30.dll">
+    <Content Include="Ezviz\StreamClient_V30.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\StreamTransClient.dll">
+    <Content Include="Ezviz\StreamTransClient.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\StunClientLib.dll">
+    <Content Include="Ezviz\StunClientLib.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\SuperRender.dll">
+    <Content Include="Ezviz\SuperRender.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\SystemTransform.dll">
+    <Content Include="Ezviz\SystemTransform.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\TTSClient.dll">
+    <Content Include="Ezviz\TTSClient.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\udt.dll">
+    <Content Include="Ezviz\udt.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\Ezviz\YUVProcess.dll">
+    <Content Include="Ezviz\YUVProcess.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\avcodec-54.dll">
+    <Content Include="HuaMai\avcodec-54.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\avformat-54.dll">
+    <Content Include="HuaMai\avformat-54.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\avutil-51.dll">
+    <Content Include="HuaMai\avutil-51.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\bas.dll">
+    <Content Include="HuaMai\bas.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\bitmap.dll">
+    <Content Include="HuaMai\bitmap.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\codec.dll">
+    <Content Include="HuaMai\codec.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\demo.exe">
+    <Content Include="HuaMai\demo.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\device.dll">
+    <Content Include="HuaMai\device.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\hmsdk.dll">
+    <Content Include="HuaMai\hmsdk.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\HW_H265dec_Win32D.dll">
+    <Content Include="HuaMai\HW_H265dec_Win32D.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\json.dll">
+    <Content Include="HuaMai\json.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\libfaac.dll">
+    <Content Include="HuaMai\libfaac.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\libnat.dll">
+    <Content Include="HuaMai\libnat.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\libspeex.dll">
+    <Content Include="HuaMai\libspeex.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\libspeexdsp.dll">
+    <Content Include="HuaMai\libspeexdsp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\log.dll">
+    <Content Include="HuaMai\log.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\nat.dll">
+    <Content Include="HuaMai\nat.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\nat2.dll">
+    <Content Include="HuaMai\nat2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\net.dll">
+    <Content Include="HuaMai\net.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\server.dll">
+    <Content Include="HuaMai\server.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\swscale-2.dll">
+    <Content Include="HuaMai\swscale-2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\utility.dll">
+    <Content Include="HuaMai\utility.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\HuaMai\xml.dll">
+    <Content Include="HuaMai\xml.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\IPCWA\AxInterop.RASPLAYEROCXLib.dll" />
-    <Content Include="dll_Libyary\IPCWA\Interop.RASPLAYEROCXLib.dll" />
-    <Content Include="dll_Libyary\JCSDK\demo.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libyary\JCSDK\ieshims.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="IPCWA\AxInterop.RASPLAYEROCXLib.dll" />
+    <Content Include="IPCWA\Interop.RASPLAYEROCXLib.dll" />
+    <Content Include="JCSDK\demo.exe">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\IPCamCfg.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\ieshims.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\JADEC.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\IPCamCfg.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\jcsdk.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\JADEC.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\JDEC04.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\jcsdk.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\JDEC05.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\JDEC04.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\Jmp4pkg.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\JDEC05.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\JvClient.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\Jmp4pkg.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\JVSDKP.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\JvClient.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\libeay32.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\JVSDKP.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\nvcsdk.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\libeay32.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\PTZDlg.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\nvcsdk.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
-    <Content Include="dll_Libyary\JCSDK\ssleay32.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="JCSDK\PTZDlg.dll" />
+    <Content Include="JCSDK\ssleay32.dll">
+      <CustomToolNamespace>JCSDK</CustomToolNamespace>
     </Content>
     <Content Include="dll_Libyary\Newtonsoft.Json.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.xml" />
-    <Content Include="dll_Libyary\SKVideoSDK\avcodec-57.dll">
+    <Content Include="SKVideoSDK\avcodec-57.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\SKVideoSDK\avutil-55.dll">
+    <Content Include="SKVideoSDK\avutil-55.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\SKVideoSDK\hi_h264dec_w.dll">
+    <Content Include="SKVideoSDK\hi_h264dec_w.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\SKVideoSDK\import.h">
+    <Content Include="SKVideoSDK\import.h">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\SKVideoSDK\lib_VoiceEngine_dll32.dll">
+    <Content Include="SKVideoSDK\lib_VoiceEngine_dll32.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\SKVideoSDK\lib_VoiceEngine_dll64.dll">
+    <Content Include="SKVideoSDK\lib_VoiceEngine_dll64.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\SKVideoSDK\ShiKeVideoTestClient.exe">
+    <Content Include="SKVideoSDK\ShiKeVideoTestClient.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\SKVideoSDK\ShiKeVideoTestServer.exe">
+    <Content Include="SKVideoSDK\ShiKeVideoTestServer.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\SKVideoSDK\sk_8604_api.h">
+    <Content Include="SKVideoSDK\sk_8604_api.h">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\SKVideoSDK\swscale-4.dll">
+    <Content Include="SKVideoSDK\swscale-4.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\SKVideoSDK\VLC_SDK.dll">
+    <Content Include="SKVideoSDK\VLC_SDK.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libyary\SKVideoSDK\zlib1.dll">
+    <Content Include="SKVideoSDK\zlib1.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ImageFile\PTZImage\PTZ_Up.png" />
@@ -487,88 +494,92 @@
     <Content Include="PTZIcon\PTZ_UpperRight.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dll_Libyary\Ezviz\AnalyzeData.lib">
+    <None Include="Ezviz\AnalyzeData.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\AudioIntercom.lib">
+    <None Include="Ezviz\AudioIntercom.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\hlog.lib">
+    <None Include="Ezviz\hlog.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\hpr.lib">
+    <None Include="Ezviz\hpr.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\libCASClient.lib">
+    <None Include="Ezviz\libCASClient.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\libcurl.lib">
+    <None Include="Ezviz\libcurl.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\libeay32.lib">
+    <None Include="Ezviz\libeay32.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\libGetHDSign.lib">
+    <None Include="Ezviz\libGetHDSign.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\libPPVClient2.lib">
+    <None Include="Ezviz\libPPVClient2.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest">
+    <None Include="Ezviz\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\Microsoft.VC90.MFC\Microsoft.VC90.MFC.manifest">
+    <None Include="Ezviz\Microsoft.VC90.MFC\Microsoft.VC90.MFC.manifest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\MidPage.lib">
+    <None Include="Ezviz\MidPage.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\miniupnpc.lib">
+    <None Include="Ezviz\miniupnpc.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\NetStream.lib">
+    <None Include="Ezviz\NetStream.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\OpenNetStream.lib">
+    <None Include="Ezviz\OpenNetStream.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\opensslwrap.lib">
+    <None Include="Ezviz\opensslwrap.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\paho-mqtt3c.lib">
+    <None Include="Ezviz\paho-mqtt3c.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\PlayCtrl.lib">
+    <None Include="Ezviz\PlayCtrl.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\pthreadVC2.lib">
+    <None Include="Ezviz\pthreadVC2.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\PushClient.lib">
+    <None Include="Ezviz\PushClient.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\ssleay32.lib">
+    <None Include="Ezviz\ssleay32.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\streamclient_lib.lib">
+    <None Include="Ezviz\streamclient_lib.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\StunClientLib.lib">
+    <None Include="Ezviz\StunClientLib.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\SystemTransform.lib">
+    <None Include="Ezviz\SystemTransform.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\TTSClient.lib">
+    <None Include="Ezviz\TTSClient.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\Ezviz\udt.lib">
+    <None Include="Ezviz\udt.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\SKVideoSDK\release_clean.bat">
+    <None Include="SKVideoSDK\release_clean.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libyary\SKVideoSDK\VLC_SDK.lib">
+    <None Include="SKVideoSDK\ShiKeVideoTestClient.iobj" />
+    <None Include="SKVideoSDK\ShiKeVideoTestClient.ipdb" />
+    <None Include="SKVideoSDK\VLC_SDK.iobj" />
+    <None Include="SKVideoSDK\VLC_SDK.ipdb" />
+    <None Include="SKVideoSDK\VLC_SDK.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

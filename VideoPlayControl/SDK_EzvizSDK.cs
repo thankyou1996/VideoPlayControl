@@ -307,9 +307,15 @@ namespace VideoPlayControl
             ParameterMismatch = 10030,
 
             /// <summary>
+            /// 无设备权限
+            /// </summary>
+            NoDeviceAuthority = 20018,
+
+            /// <summary>
             /// 接口异常
             /// </summary>
             InterFaceException = 49999
+
 
         }
 

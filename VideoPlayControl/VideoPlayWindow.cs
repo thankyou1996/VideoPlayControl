@@ -1314,6 +1314,54 @@ namespace VideoPlayControl
             VideoPlayState = Enum_VideoPlayState.NotInPlayState;
             VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
         }
+
+        private void SKVideo_PTZControl(Enum_VideoPTZControl PTZControl,bool bolStart)
+        {
+            if (!bolStart)
+            {
+                SDK_SKVideoSDK.p_sdkc_onvif_ptz_stop(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel);
+                return;
+            }
+            int Temp_iXSpeed = 0;
+            int Temp_iYSpeed = 0;
+            int Temp_iZSpeed = 0;
+            switch (PTZControl)
+            {
+                case Enum_VideoPTZControl.PTZControl_Up:
+                    Temp_iXSpeed = 0;
+                    Temp_iYSpeed = 100;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_Down:
+                    Temp_iXSpeed = 0;
+                    Temp_iYSpeed = -100;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_Left:
+                    Temp_iXSpeed = -100;
+                    Temp_iYSpeed = 0;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_Right:
+                    Temp_iXSpeed = 100;
+                    Temp_iYSpeed = 0;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_LeftUp:
+                    Temp_iXSpeed = -100;
+                    Temp_iYSpeed = 100;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_LeftDown:
+                    Temp_iXSpeed = -100;
+                    Temp_iYSpeed = -100;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_RightUp:
+                    Temp_iXSpeed = 100;
+                    Temp_iYSpeed = 100;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_RightDown:
+                    Temp_iXSpeed = 100;
+                    Temp_iYSpeed = -100;
+                    break;
+            }
+            SDK_SKVideoSDK.p_sdkc_onvif_ptz_continue_move(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, Temp_iXSpeed, Temp_iYSpeed, Temp_iZSpeed);
+        }
         #endregion
 
         #endregion
@@ -1560,6 +1608,9 @@ namespace VideoPlayControl
                         break;
                     case Enum_VideoType.Ezviz:
                         Ezviz_PTZControl(PTZControl, bolStart);
+                        break;
+                    case Enum_VideoType.SKVideo:
+                        SKVideo_PTZControl(PTZControl, bolStart);
                         break;
                 }
             }

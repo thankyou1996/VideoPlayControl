@@ -146,7 +146,6 @@ namespace VideoPlayControl_UseDemo
             videoWindowTest.SDKEventCallBackEvent += SDKEventCallBackEvent;
             videoWindowTest.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
             videoPTZControl1.PTZControlEvent += PTZControlEvent;
-            videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
 
         }
 
@@ -575,6 +574,7 @@ namespace VideoPlayControl_UseDemo
             videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
             videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
             videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
+            videoPlaySet.AutoReconn = false;
             if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
             {
                 string strTimeValue = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -937,7 +937,42 @@ namespace VideoPlayControl_UseDemo
             }
             return v;
         }
-
+        public VideoInfo SKVideo_TestData1()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.SKVideo;
+            v.DVSAddress = "72-00F51F010E10-2B25";
+            v.DVSChannelNum = 16;
+            v.DVSConnectPort = 81;
+            v.DVSName = "8519云台控制";
+            v.DVSNumber = "770701";
+            v.DVSType = "SK8519V";
+            v.HostID = "9994";
+            v.Password = "sk123456";
+            v.UserName = "admin";
+            v.NetworkState = 0;
+            for (int i = 0; i < 1; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i + 1);
+                c.Channel = i;
+                c.DVSAddress = v.DVSAddress;
+                c.DVSType = v.DVSType;
+                c.DVSNumber = v.DVSNumber;
+                v.Cameras[c.Channel] = c;
+            }
+            for (int i = 8; i < 12; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i + 1);
+                c.Channel = i;
+                c.DVSAddress = v.DVSAddress;
+                c.DVSType = v.DVSType;
+                c.DVSNumber = v.DVSNumber;
+                v.Cameras[c.Channel] = c;
+            }
+            return v;
+        }
         public VideoInfo HuaMaiVideo_TestData()
         {
             VideoInfo v = new VideoInfo();
@@ -1047,8 +1082,15 @@ namespace VideoPlayControl_UseDemo
             SDKState.Huamai_Release();
         }
 
+
         #endregion
 
-        
+        private void btnSKTestData1_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = SKVideo_TestData1();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
     }
 }

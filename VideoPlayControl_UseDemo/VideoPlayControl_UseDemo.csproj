@@ -78,6 +78,12 @@
     <Compile Include="FrmVideoInfoList.Designer.cs">
       <DependentUpon>FrmVideoInfoList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_MulitPicturte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_MulitPicturte.Designer.cs">
+      <DependentUpon>Frm_MulitPicturte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Temp_TestVideoPlay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVideoInfoList.resx">
       <DependentUpon>FrmVideoInfoList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_MulitPicturte.resx">
+      <DependentUpon>Frm_MulitPicturte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Temp_TestVideoPlay.resx">
       <DependentUpon>Frm_Temp_TestVideoPlay.cs</DependentUpon>

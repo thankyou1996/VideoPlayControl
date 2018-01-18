@@ -216,10 +216,16 @@ namespace VideoPlayControl
 
 
 
-        [DllImport("\\SKVideoSDK\\VLC_SDK.DLL")]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
         public static extern void p_sdkc_get_revideo_data(string strGuid, int intChannel, string strUrl);
 
-        #endregion
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        public static extern int p_sdkc_onvif_ptz_continue_move(string strGuid, int iChannel, int iXSpeed, int iYSpeed, int iZSpeend);
+
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        public static extern int p_sdkc_onvif_ptz_stop(string strGuid, int iChannel);
         
+        #endregion
+
     }
 }

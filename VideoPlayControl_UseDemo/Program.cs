@@ -22,6 +22,7 @@ namespace VideoPlayControl_UseDemo
             Application.Run(new FrmMain());
             //Application.Run(new Frm_VideoPlayGroupControls_PTZAndTalk());
             //Application.Run(new Frm_Temp_TestVideoPlay());
+            //Application.Run(new Frm_MulitPicturte());
         }
     }
 }
