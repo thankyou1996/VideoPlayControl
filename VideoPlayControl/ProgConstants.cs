@@ -26,10 +26,11 @@ namespace VideoPlayControl
         //public const string c_strEzvizSDKFilePath = "\\dll_Libyary\\Ezviz\\OpenNetStream.dll";
         public const string c_strEzvizSDKFilePath = "\\Ezviz\\OpenNetStream.dll";
         /// <summary>
-        /// 华迈SDK
+        /// 华迈SDK 
+        /// 只能存在在根目录下
         /// </summary>
         //public const string c_strHuaMaiSDKFilePath = "\\dll_Libyary\\HuaMai\\hmsdk.dll";
-        public const string c_strHuaMaiSDKFilePath = "\\HuaMai\\hmsdk.dll";
+        public const string c_strHuaMaiSDKFilePath = "\\hmsdk.dll";
 
         /// <summary>
         /// 时刻SDK  

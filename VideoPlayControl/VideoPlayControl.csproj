@@ -325,116 +325,85 @@
     <Content Include="Ezviz\YUVProcess.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="HuaMai\avcodec-54.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\avformat-54.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\avutil-51.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\bas.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\bitmap.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\codec.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\demo.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\device.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\hmsdk.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\HW_H265dec_Win32D.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\json.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\libfaac.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\libnat.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\libspeex.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\libspeexdsp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\log.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\nat.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\nat2.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\net.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\server.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\swscale-2.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\utility.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HuaMai\xml.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="HuaMai\avcodec-54.dll" />
+    <Content Include="HuaMai\avformat-54.dll" />
+    <Content Include="HuaMai\avutil-51.dll" />
+    <Content Include="HuaMai\bas.dll" />
+    <Content Include="HuaMai\bitmap.dll" />
+    <Content Include="HuaMai\codec.dll" />
+    <Content Include="HuaMai\demo.exe" />
+    <Content Include="HuaMai\device.dll" />
+    <Content Include="HuaMai\hmsdk.dll" />
+    <Content Include="HuaMai\HW_H265dec_Win32D.dll" />
+    <Content Include="HuaMai\json.dll" />
+    <Content Include="HuaMai\libfaac.dll" />
+    <Content Include="HuaMai\libnat.dll" />
+    <Content Include="HuaMai\libspeex.dll" />
+    <Content Include="HuaMai\libspeexdsp.dll" />
+    <Content Include="HuaMai\log.dll" />
+    <Content Include="HuaMai\nat.dll" />
+    <Content Include="HuaMai\nat2.dll" />
+    <Content Include="HuaMai\net.dll" />
+    <Content Include="HuaMai\server.dll" />
+    <Content Include="HuaMai\swscale-2.dll" />
+    <Content Include="HuaMai\utility.dll" />
+    <Content Include="HuaMai\xml.dll" />
     <Content Include="IPCWA\AxInterop.RASPLAYEROCXLib.dll" />
     <Content Include="IPCWA\Interop.RASPLAYEROCXLib.dll" />
     <Content Include="JCSDK\demo.exe">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JCSDK\ieshims.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JCSDK\IPCamCfg.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JCSDK\JADEC.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JCSDK\jcsdk.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JCSDK\JDEC04.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JCSDK\JDEC05.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JCSDK\Jmp4pkg.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JCSDK\JvClient.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JCSDK\JVSDKP.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JCSDK\libeay32.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="JCSDK\nvcsdk.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="JCSDK\PTZDlg.dll" />
+    <Content Include="JCSDK\PTZDlg.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="JCSDK\ssleay32.dll">
       <CustomToolNamespace>JCSDK</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="dll_Libyary\Newtonsoft.Json.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.dll" />
@@ -575,10 +544,18 @@
     <None Include="SKVideoSDK\release_clean.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="SKVideoSDK\ShiKeVideoTestClient.iobj" />
-    <None Include="SKVideoSDK\ShiKeVideoTestClient.ipdb" />
-    <None Include="SKVideoSDK\VLC_SDK.iobj" />
-    <None Include="SKVideoSDK\VLC_SDK.ipdb" />
+    <None Include="SKVideoSDK\ShiKeVideoTestClient.iobj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SKVideoSDK\ShiKeVideoTestClient.ipdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SKVideoSDK\VLC_SDK.iobj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SKVideoSDK\VLC_SDK.ipdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="SKVideoSDK\VLC_SDK.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
