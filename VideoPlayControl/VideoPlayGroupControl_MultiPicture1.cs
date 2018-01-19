@@ -11,6 +11,18 @@ namespace VideoPlayControl
 {
     public partial class VideoPlayGroupControl_MultiPicture1 : UserControl
     {
+
+        #region 公用参数
+        public Color clrDefaulWindowColor = Color.Black;
+        public Color clrSelectedWindowColor = Color.Cyan;
+        public VideoPlayWindow CurrentV = null;
+        public bool AutoSelectedNextWindow = true;
+        public bool SelectedWindowHiglight = true;
+        public int WindowNum
+        {
+            get { return dicWin.Count; }
+        }
+        #endregion
         Dictionary<int, VideoPlayWindow> dicWin = new Dictionary<int, VideoPlayWindow>();
         Dictionary<int, VideoInfo> dicVideo = new Dictionary<int, VideoInfo>();
         public VideoPlayGroupControl_MultiPicture1()
@@ -41,6 +53,10 @@ namespace VideoPlayControl
                     tablayMain.RowCount = Temp_intRow;
                     tablayMain.ColumnCount = Temp_intRow;
                     //清除旧控件信息
+                    foreach (VideoPlayWindow v in dicWin.Values)
+                    {
+                        v.VideoClose();
+                    }
                     dicWin.Clear();
                     dicVideo.Clear();
                     tablayMain.RowStyles.Clear();
@@ -61,30 +77,56 @@ namespace VideoPlayControl
                             videoPlayWindow.Size = new Size(100, 100);
                             videoPlayWindow.Dock = DockStyle.Fill;
                             videoPlayWindow.BackColor = Color.Black;
-                            videoPlayWindow.Margin = new Padding(1);
+                            videoPlayWindow.Margin = new Padding(0);
+                            videoPlayWindow.Padding = new Padding(1);
                             tablayMain.Controls.Add(videoPlayWindow);
                             tablayMain.SetRow(videoPlayWindow, row);
                             tablayMain.SetColumn(videoPlayWindow, col);
+                            videoPlayWindow.PicMain.Click += videoPlayWindow_PicMain_ClickEvent;
                             dicWin[i] = videoPlayWindow;
+
                             i++;
                         }
                     }
-                    
-
+                    CurrentV = dicWin[0];
+                    HighlightVideoWindows(CurrentV);
                     break;
                 default:
                     return false;
             }
             return true;
         }
-    
+
+        public bool SetPlayVideoInfo(VideoInfo v)
+        {
+            CurrentV.Init_VideoInfo(v);
+            CurrentV.VideoPlay();
+            GetNextWindow();
+            return true;
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="iIndex"></param>
+        /// <returns></returns>
+        public bool SetPlayVideoInfo(VideoInfo v, int iChannel)
+        {
+            CurrentV.Init_VideoInfo(v, iChannel);
+            CurrentV.VideoPlay();
+            GetNextWindow();
+            return true;
+        }
+
+
         /// <summary>
         /// 设置播放信息
         /// </summary>
         /// <param name="v"></param>
         /// <param name="iIndex"></param>
         /// <returns></returns>
-        public bool SetPlayVideoInfo(VideoInfo v ,int iIndex)
+        public bool SetPlayVideoInfo_Index(VideoInfo v ,int iIndex)
         {
             if (!dicWin.ContainsKey(iIndex))
             {
@@ -92,14 +134,83 @@ namespace VideoPlayControl
             }
             dicWin[iIndex].Init_VideoInfo(v);
             dicWin[iIndex].VideoPlay();
+            GetNextWindow();
             return true;
+        }
+
+        public bool SetPlayVideoInfo_Index(VideoInfo v, int intChannel, int iIndex)
+        {
+            if (!dicWin.ContainsKey(iIndex))
+            {
+                return false;
+            }
+            dicWin[iIndex].Init_VideoInfo(v, intChannel);
+            dicWin[iIndex].VideoPlay();
+            GetNextWindow();
+            return true;
+        }
+
+        public void VideoColse_All()
+        {
+            foreach (VideoPlayWindow v in dicWin.Values)
+            {
+                v.VideoClose();
+            }
+        }
+
+        #endregion
+
+        #region 公用方法
+        public void GetNextWindow()
+        {
+            if (!AutoSelectedNextWindow)
+            {
+                return;
+            }
+            foreach (VideoPlayWindow v in dicWin.Values)
+            {
+                if (v.VideoPlayState != Enum_VideoPlayState.InPlayState)
+                {
+                    CurrentV = v;
+                    foreach (VideoPlayWindow vv in dicWin.Values)
+                    {
+                        vv.BackColor = clrDefaulWindowColor;
+                    }
+                    HighlightVideoWindows(CurrentV);
+                    break;
+                }
+            }
+        }
+
+        public void HighlightVideoWindows(VideoPlayWindow v)
+        {
+            if (SelectedWindowHiglight)
+            {
+                v.BackColor = clrSelectedWindowColor;
+            }
         }
         #endregion
 
-        private void tablayMain_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        private void videoPlayWindow_PicMain_ClickEvent(object sender, EventArgs e)
         {
-            //Pen pp = new Pen(Color.Red);
-            //e.Graphics.DrawRectangle(pp, e.CellBounds.X, e.CellBounds.Y, e.CellBounds.X + e.CellBounds.Width - 1, e.CellBounds.Y + e.CellBounds.Height - 1);
+            PictureBox p = (PictureBox)sender;
+            VideoPlayWindow v = (VideoPlayWindow)p.Parent;
+            foreach (VideoPlayWindow vv in dicWin.Values)
+            {
+                if (vv.Equals(v))
+                {
+                    CurrentV = v;
+                    HighlightVideoWindows(CurrentV);
+                }
+                else
+                {
+                    vv.BackColor = clrDefaulWindowColor;
+                }
+                
+            }
+            
         }
+
+
     }
 }

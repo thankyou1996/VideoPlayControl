@@ -36,11 +36,11 @@
             this.btnEzvizData = new System.Windows.Forms.Button();
             this.btnSKData = new System.Windows.Forms.Button();
             this.btnHuaMaiData = new System.Windows.Forms.Button();
-            this.videoPlayGroupControl_MultiPicture11 = new VideoPlayControl.VideoPlayGroupControl_MultiPicture1();
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.txtTestDataChannel = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTestDataChannel = new System.Windows.Forms.TextBox();
+            this.videoPlayGroupControl_MultiPicture11 = new VideoPlayControl.VideoPlayGroupControl_MultiPicture1();
             this.pnlTop.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -121,15 +121,6 @@
             this.btnHuaMaiData.UseVisualStyleBackColor = true;
             this.btnHuaMaiData.Click += new System.EventHandler(this.btnHuaMaiData_Click);
             // 
-            // videoPlayGroupControl_MultiPicture11
-            // 
-            this.videoPlayGroupControl_MultiPicture11.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.videoPlayGroupControl_MultiPicture11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoPlayGroupControl_MultiPicture11.Location = new System.Drawing.Point(0, 138);
-            this.videoPlayGroupControl_MultiPicture11.Name = "videoPlayGroupControl_MultiPicture11";
-            this.videoPlayGroupControl_MultiPicture11.Size = new System.Drawing.Size(779, 455);
-            this.videoPlayGroupControl_MultiPicture11.TabIndex = 0;
-            // 
             // pnlTop
             // 
             this.pnlTop.Controls.Add(this.groupBox1);
@@ -142,23 +133,6 @@
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(779, 138);
             this.pnlTop.TabIndex = 5;
-            // 
-            // txtTestDataChannel
-            // 
-            this.txtTestDataChannel.Location = new System.Drawing.Point(53, 14);
-            this.txtTestDataChannel.Name = "txtTestDataChannel";
-            this.txtTestDataChannel.Size = new System.Drawing.Size(41, 21);
-            this.txtTestDataChannel.TabIndex = 5;
-            this.txtTestDataChannel.Text = "0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "通道号";
             // 
             // groupBox1
             // 
@@ -174,6 +148,32 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "测试数据";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "通道号";
+            // 
+            // txtTestDataChannel
+            // 
+            this.txtTestDataChannel.Location = new System.Drawing.Point(53, 14);
+            this.txtTestDataChannel.Name = "txtTestDataChannel";
+            this.txtTestDataChannel.Size = new System.Drawing.Size(41, 21);
+            this.txtTestDataChannel.TabIndex = 5;
+            this.txtTestDataChannel.Text = "0";
+            // 
+            // videoPlayGroupControl_MultiPicture11
+            // 
+            this.videoPlayGroupControl_MultiPicture11.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.videoPlayGroupControl_MultiPicture11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPlayGroupControl_MultiPicture11.Location = new System.Drawing.Point(0, 138);
+            this.videoPlayGroupControl_MultiPicture11.Name = "videoPlayGroupControl_MultiPicture11";
+            this.videoPlayGroupControl_MultiPicture11.Size = new System.Drawing.Size(779, 455);
+            this.videoPlayGroupControl_MultiPicture11.TabIndex = 0;
             // 
             // Frm_MulitPicturte
             // 

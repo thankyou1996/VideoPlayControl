@@ -27,8 +27,13 @@ namespace VideoPlayControl_UseDemo
             //SDKState.SDKStateChangeEvent += SDKStateChange;
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, ProgParameter.strSKVideo_ServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
+            SDKState.SKVideoSDKInit();
             SDKState.HuaMai_Init();
+
+            videoPlayGroupControl_MultiPicture11.SelectedWindowHiglight = true ;
+            videoPlayGroupControl_MultiPicture11.AutoSelectedNextWindow = false;
+            videoPlayGroupControl_MultiPicture11.SetWindowNum(9);
+            CurrentV = TestData_SKData();
         }
 
         private void btnSetWinNum_Click(object sender, EventArgs e)
@@ -49,8 +54,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnSKData_Click(object sender, EventArgs e)
         {
-            int iTestDataChannel = Convert.ToInt32(txtTestDataChannel.Text);
-            CurrentV = TestData_SKData(iTestDataChannel);
+            CurrentV = TestData_SKData();
         }
 
         private void btnHuaMaiData_Click(object sender, EventArgs e)
@@ -166,10 +170,9 @@ namespace VideoPlayControl_UseDemo
 
         private void btnSetVideoPlayInfo_Click(object sender, EventArgs e)
         {
-            int iIndex = Convert.ToInt32(txtPlayWindowIndex.Text);
-            videoPlayGroupControl_MultiPicture11.SetPlayVideoInfo(CurrentV, iIndex);
+            int iChannel = Convert.ToInt32(txtTestDataChannel.Text);
+            videoPlayGroupControl_MultiPicture11.SetPlayVideoInfo(CurrentV, iChannel);
         }
-
         
     }
 }

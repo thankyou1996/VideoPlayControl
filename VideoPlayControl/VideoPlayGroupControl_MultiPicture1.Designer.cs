@@ -46,7 +46,6 @@
             this.tablayMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tablayMain.Size = new System.Drawing.Size(742, 553);
             this.tablayMain.TabIndex = 0;
-            this.tablayMain.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tablayMain_CellPaint);
             // 
             // VideoPlayGroupControl_MultiPicture1
             // 

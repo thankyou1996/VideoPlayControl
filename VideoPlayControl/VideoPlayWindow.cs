@@ -66,9 +66,14 @@ namespace VideoPlayControl
         /// 播放窗口句柄
         /// </summary>
         IntPtr intptrPlayMain = IntPtr.Zero;
-
+        
         #endregion
 
+        public PictureBox PicMain
+        {
+            get { return picPlayMain; }
+            set { picPlayMain = value; }
+        }
 
         public VideoPlayWindow()
         {
@@ -144,7 +149,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
+
 
         #endregion
 
@@ -154,9 +159,7 @@ namespace VideoPlayControl
             SDKState.SDKEventStateEvent += SDKStateChangeEvent;
             intptrPlayMain = picPlayMain.Handle;
             VideoPlayEventCallBack(Enum_VideoPlayEventType.LoadEnd);
-            s = picPlayMain.Size;
         }
-        Size s;
         public void SDKStateChangeEvent(Enum_VideoType sdkType, Enum_SDKStateEventType sdkStateEvent)
         {
             switch (sdkType)
@@ -189,6 +192,28 @@ namespace VideoPlayControl
                 CurrentCameraInfo = kv.Value;
                 break;
             }
+            if (VideoPlayState == Enum_VideoPlayState.VideoInfoNull)
+            {
+                VideoPlayState = Enum_VideoPlayState.VideoInfoInit;
+            }
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.SetVideoInfo);
+            if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
+            {
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoTypeNotExists);
+            }
+        }
+
+        public void Init_VideoInfo(VideoInfo videoInfo, int intChannel)
+        {
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+            {
+                VideoClose();
+            }
+            intConnCount = 0;
+            CurrentVideoInfo = videoInfo;
+            Init_SetVideoInfo();
+            //.Net2.0 无法获取首个对象 通过循环获取
+            CurrentCameraInfo = videoInfo.Cameras[intChannel];
             if (VideoPlayState == Enum_VideoPlayState.VideoInfoNull)
             {
                 VideoPlayState = Enum_VideoPlayState.VideoInfoInit;
@@ -1632,21 +1657,6 @@ namespace VideoPlayControl
         private void picPlayMain_SizeChanged(object sender, EventArgs e)
         {
             VideoPlayWindows_Move();
-            return;
-            if (CurrentVideoInfo != null && CurrentVideoInfo.VideoType == Enum_VideoType.HuaMaiVideo)
-            {
-                if (videoPlayState == Enum_VideoPlayState.InPlayState)
-                {
-                    Size Temp_s = picPlayMain.Size;
-                    if (Math.Abs(s.Width - Temp_s.Width) > 100 || Math.Abs(s.Height - Temp_s.Height) > 100)
-                    {
-                        s = Temp_s;
-                        VideoClose();
-                        VideoPlay();
-                    }
-                    
-                }
-            }
         }
         #endregion
 
@@ -1684,6 +1694,6 @@ namespace VideoPlayControl
         }
 
         #endregion
-
+        
     }
 }

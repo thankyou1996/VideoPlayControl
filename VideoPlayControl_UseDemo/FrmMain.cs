@@ -52,7 +52,7 @@ namespace VideoPlayControl_UseDemo
             SDKState.SDKStateChangeEvent += SDKStateChange;
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, ProgParameter.strSKVideo_ServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
+            SDKState.SKVideoSDKInit();
             SDKState.HuaMai_Init();
             Init();
         }
