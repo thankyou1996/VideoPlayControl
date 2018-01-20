@@ -18,6 +18,7 @@ namespace VideoPlayControl
         public VideoPlayWindow CurrentV = null;
         public bool AutoSelectedNextWindow = true;
         public bool SelectedWindowHiglight = true;
+        public bool DisplayToolTipInfo = true;
         public int WindowNum
         {
             get { return dicWin.Count; }
@@ -102,6 +103,7 @@ namespace VideoPlayControl
             CurrentV.Init_VideoInfo(v);
             CurrentV.VideoPlay();
             GetNextWindow();
+            SetToolTipInfo(CurrentV);
             return true;
         }
         
@@ -116,6 +118,7 @@ namespace VideoPlayControl
             CurrentV.Init_VideoInfo(v, iChannel);
             CurrentV.VideoPlay();
             GetNextWindow();
+            SetToolTipInfo(CurrentV);
             return true;
         }
 
@@ -135,6 +138,7 @@ namespace VideoPlayControl
             dicWin[iIndex].Init_VideoInfo(v);
             dicWin[iIndex].VideoPlay();
             GetNextWindow();
+            SetToolTipInfo(dicWin[iIndex]);
             return true;
         }
 
@@ -147,6 +151,7 @@ namespace VideoPlayControl
             dicWin[iIndex].Init_VideoInfo(v, intChannel);
             dicWin[iIndex].VideoPlay();
             GetNextWindow();
+            SetToolTipInfo(dicWin[iIndex]);
             return true;
         }
 
@@ -187,6 +192,19 @@ namespace VideoPlayControl
             if (SelectedWindowHiglight)
             {
                 v.BackColor = clrSelectedWindowColor;
+            }
+        }
+
+        public void SetToolTipInfo(VideoPlayWindow v)
+        {
+            if (DisplayToolTipInfo && v.CurrentVideoInfo != null)
+            {
+                StringBuilder Temp_sbDisplayToopTipInfo = new StringBuilder();
+                Temp_sbDisplayToopTipInfo.Append("(" + v.CurrentVideoInfo.DVSNumber + ")");
+                Temp_sbDisplayToopTipInfo.Append("" + v.CurrentVideoInfo.DVSName + "");
+                Temp_sbDisplayToopTipInfo.Append("_" + v.CurrentCameraInfo.CameraName + "");
+                ttip.SetToolTip(v.PicMain, Temp_sbDisplayToopTipInfo.ToString());
+                
             }
         }
         #endregion

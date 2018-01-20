@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tablayMain = new System.Windows.Forms.TableLayoutPanel();
+            this.ttip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // tablayMain
@@ -62,5 +64,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tablayMain;
+        private System.Windows.Forms.ToolTip ttip;
     }
 }
