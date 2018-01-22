@@ -411,9 +411,10 @@ namespace VideoPlayControl
         {
             ColundSee_SDKRelease(); //云视通SDK 
             Ezviz_SDKRelease();     //萤石云SDK 
-            Huamai_Release();
+            if (HuaMaiSDKState != Enum_SDKState.SDK_Null || HuaMaiSDKState != Enum_SDKState.SDK_Release)
+            {
+                Huamai_Release();
+            }
         }
     }
-
-
 }
