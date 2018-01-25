@@ -196,6 +196,8 @@
   <ItemGroup>
     <Content Include="dll_Libyary\CommonMethod.dll" />
     <Content Include="dll_Libyary\CommonMethod.XML" />
+    <Content Include="Axis\Interop.AxisMediaParserLib.dll" />
+    <Content Include="Axis\Interop.AxisMediaViewerLib.dll" />
     <Content Include="Ezviz\AnalyzeData.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -463,6 +465,7 @@
     <Content Include="PTZIcon\PTZ_UpperRight.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Axis\AMP41.rar" />
     <None Include="Ezviz\AnalyzeData.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
