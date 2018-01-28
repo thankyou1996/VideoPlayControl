@@ -41,11 +41,11 @@
       <HintPath>..\VideoPlayControl\dll_Libyary\CommonMethod.dll</HintPath>
     </Reference>
     <Reference Include="Interop.AxisMediaParserLib">
-      <HintPath>..\VideoPlayControl\dll_Libyary\Interop.AxisMediaParserLib.dll</HintPath>
+      <HintPath>..\VideoPlayControl\Axis\Interop.AxisMediaParserLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Interop.AxisMediaViewerLib">
-      <HintPath>..\VideoPlayControl\dll_Libyary\Interop.AxisMediaViewerLib.dll</HintPath>
+      <HintPath>..\VideoPlayControl\Axis\Interop.AxisMediaViewerLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="PublicClassCurrency, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -103,6 +103,12 @@
     <Compile Include="Frm_Temp_TestVideoPlay.Designer.cs">
       <DependentUpon>Frm_Temp_TestVideoPlay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_VideoPlaybackWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_VideoPlaybackWindow.Designer.cs">
+      <DependentUpon>Frm_VideoPlaybackWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_VideoPlayGroupControls_PTZAndTalk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestDataSource.cs" />
     <EmbeddedResource Include="FrmExtendedControlTest.resx">
       <DependentUpon>FrmExtendedControlTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Temp_TestVideoPlay.resx">
       <DependentUpon>Frm_Temp_TestVideoPlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_VideoPlaybackWindow.resx">
+      <DependentUpon>Frm_VideoPlaybackWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_VideoPlayGroupControls_PTZAndTalk.resx">
       <DependentUpon>Frm_VideoPlayGroupControls_PTZAndTalk.cs</DependentUpon>

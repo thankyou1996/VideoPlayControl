@@ -36,7 +36,15 @@ namespace VideoPlayControl_UseDemo
             SDKState.HuaMai_Init();
             //SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, "192.168.2.10", ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
 
-            HuaMaiVideo_TestData();
+            //HuaMaiVideo_TestData();
+            Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
+            VideoInfo v = TestDataSource.TestData_Axis();
+            dicVideoInfos[v.DVSNumber] = v;
+            videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
+            videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
+            videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
+            videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath = Application.StartupPath + "\\AxisVideoRecord";
+            videoPlayGroupControls_PTZAndTalk1.Init_VideoInfoSet(dicVideoInfos);
         }
 
         #region 测试数据
@@ -151,6 +159,7 @@ namespace VideoPlayControl_UseDemo
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_PTZAndTalk1.Init_VideoInfoSet(dicVideoInfos);
         }
+        
         #endregion
 
         public bool PreViewPwdVerify(object sender, string strVideoID)

@@ -79,9 +79,9 @@ namespace VideoPlayControl_UseDemo
             viewer.Init(0, mediaTypeBuffer, panel1.Handle.ToInt64());
 
             // Get the video frame size and resize the form to fit the video stream 
-            viewer.GetVideoSize(out viewerWidth, out viewerHeight);
-            ResizeFormToFitVideoSize(viewerWidth, viewerHeight);
-
+            //viewer.GetVideoSize(out viewerWidth, out viewerHeight);
+            //ResizeFormToFitVideoSize(viewerWidth, viewerHeight);
+            viewer.SetVideoPosition(0, 0, panel1.Width, panel1.Height);
             // Start the viewer before rendering the first frame
             viewer.Start();
 

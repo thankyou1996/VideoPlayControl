@@ -37,7 +37,7 @@ namespace VideoPlayControl_UseDemo
         Dictionary<string, VideoInfo> dicVideoInfos;
 
         string intCurrentVideoID = "";
-
+        string strVideoRecord = "";
         #endregion
 
         public FrmMain()
@@ -574,6 +574,7 @@ namespace VideoPlayControl_UseDemo
             videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
             videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
             videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
+            videoPlaySet.VideoRecordFilePath = txtVideoRecord.Text;
             videoPlaySet.AutoReconn = false;
             if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
             {
@@ -999,6 +1000,33 @@ namespace VideoPlayControl_UseDemo
             }
             return v;
         }
+
+        public VideoInfo Axis_TestData()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.Axis;
+            v.DVSAddress = "192.168.2.164";
+            v.DVSChannelNum = 4;
+            v.DVSConnectPort = 81;
+            v.DVSName = "安讯士测试";
+            v.DVSNumber = "000601";
+            v.DVSType = "AXISM3037";
+            v.HostID = "0006";
+            v.UserName = "root";
+            v.Password = "sk123456";
+            v.NetworkState = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i + 1);
+                c.Channel = i;
+                c.DVSAddress = "192.168.2.164";
+                c.DVSType = "AXISM3037";
+                c.DVSNumber = "000601";
+                v.Cameras[c.Channel] = c;
+            }
+            return v;
+        }
         #endregion
 
         #region SDK状态相关事件
@@ -1091,6 +1119,19 @@ namespace VideoPlayControl_UseDemo
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
+        }
+
+        private void btnAxisTestData_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = Axis_TestData();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+            StringBuilder sbAxisVideoRecord = new StringBuilder();
+            sbAxisVideoRecord.Append(Application.StartupPath);
+            sbAxisVideoRecord.Append("\\AxisRecord");
+            sbAxisVideoRecord.Append("\\" + videoInfo.DVSNumber + "_00_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "_06.bin");
+            txtVideoRecord.Text = sbAxisVideoRecord.ToString();
         }
     }
 }

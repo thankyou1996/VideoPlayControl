@@ -83,7 +83,6 @@ namespace VideoPlayControl
         {
             videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
             videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBackEvent;
-            videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
             videoPTZControl.PTZControlEvent += VideoPTZControl;
         }
 

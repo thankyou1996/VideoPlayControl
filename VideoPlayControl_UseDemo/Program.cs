@@ -15,14 +15,15 @@ namespace VideoPlayControl_UseDemo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FrmExtendedControlTest());
-            //Application.Run(new Frm_VideoRecordListTest()); 
+            Application.Run(new Frm_VideoRecordListTest());
             //Application.Run(new FrmTest());
             //Application.Run(new Frn_VideoPlayGroupControl_Basic());
             //Application.Run(new FrmVideoInfoList());
             //Application.Run(new FrmMain());
             //Application.Run(new Frm_VideoPlayGroupControls_PTZAndTalk());
             //Application.Run(new Frm_Temp_TestVideoPlay());
-            Application.Run(new Frm_Temp_TestAxis());
+            //Application.Run(new Frm_Temp_TestAxis());
+            //Application.Run(new Frm_VideoPlaybackWindow());
         }
     }
 }

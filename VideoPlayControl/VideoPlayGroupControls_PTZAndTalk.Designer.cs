@@ -72,6 +72,7 @@
             // 
             // videoPlayWindow
             // 
+            this.videoPlayWindow.BackColor = System.Drawing.SystemColors.Control;
             this.videoPlayWindow.ContextMenuStrip = this.cmsVideoWindow;
             this.videoPlayWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoPlayWindow.Location = new System.Drawing.Point(3, 0);
@@ -186,6 +187,7 @@
             this.videoChannelList.Name = "videoChannelList";
             this.videoChannelList.Size = new System.Drawing.Size(116, 143);
             this.videoChannelList.TabIndex = 0;
+            this.videoChannelList.ButtonChannel_ClickEvent += new VideoPlayControl.VideoChannelList.ButtonChannel_ClickDelegate(this.VideoChannelListButton_Click);
             // 
             // pnlRight
             // 

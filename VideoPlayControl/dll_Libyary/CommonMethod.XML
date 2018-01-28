@@ -45,6 +45,27 @@
             <param name="ip"></param>
             <returns></returns>
         </member>
+        <member name="M:CommonMethod.Common.GetDictionaryFirstKey(System.Collections.IDictionary)">
+            <summary>
+            获取Dictionary对象 首个对象Key
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common.CopyDir(System.String,System.String)">
+            <summary>
+            复制文件夹 文件 
+            </summary>
+            <param name="srcPath"></param>
+            <param name="aimPath"></param>
+        </member>
+        <member name="M:CommonMethod.Common.DeepCopy``1(``0)">
+            <summary>
+            深度拷贝
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
         <member name="T:CommonMethod.CommonObject">
             <summary>
             公用对象
@@ -154,6 +175,16 @@
             <param name="postDataStr"></param>
             <returns></returns>
         </member>
+        <member name="M:CommonMethod.Common_Web.HttpPost(System.String,System.String,System.String,System.String)">
+            <summary>
+            HttpPost请求
+            </summary>
+            <param name="strUrl"></param>
+            <param name="strPostData"></param>
+            <param name="strSteamWriteEncoding"></param>
+            <param name="strStreamReadEncoding"></param>
+            <returns></returns>
+        </member>
         <member name="M:CommonMethod.Common_Web.HttpGet(System.String,System.String)">
             <summary>
             HttpGet请求
@@ -162,10 +193,33 @@
             <param name="postDataStr"></param>
             <returns></returns>
         </member>
+        <member name="M:CommonMethod.Common_Web.HttpGet(System.String,System.String,System.String,System.String)">
+            <summary>
+            HttpGet请求
+            </summary>
+            <param name="strUrl"></param>
+            <param name="strGetDataStr"></param>
+            <param name="strSteamWriteEncoding"></param>
+            <param name="strStreamReadEncoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.GetNetDataTime">
+            <summary>
+            获取网络时间
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:CommonMethod.ConvertClass">
             <summary>
             转换
             </summary>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.Decimal_ChartoByte(System.String)">
+            <summary>
+            16进制转为Byte
+            </summary>
+            <param name="chrInput"></param>
+            <returns></returns>
         </member>
         <member name="M:CommonMethod.ConvertClass.BCDToHex(System.String,System.Int32)">
             <summary>
@@ -223,10 +277,78 @@
             <param name="intConvertNumber"></param>
             <returns></returns>
         </member>
-        <member name="M:CommonMethod.ConvertClass.Special_BytesToStrHex(System.Byte[])">
+        <member name="M:CommonMethod.ConvertClass.Special_BytesToStrHex(System.Byte[],System.String)">
             <summary>
             特殊转换_字节数组转换为16进制字符串
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.Special_StringToBytes(System.String)">
+            <summary>
+            特殊转换_字符串转换为Byte数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.BitOperation_BitwiseNOT(System.UInt32)">
+            <summary>
+            位运算_按位取反
+            </summary>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Insert``1(``0,System.String,System.String)">
+            <summary>
+            获取数据库语句_插入
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strKeyField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Insert``1(``0,System.String,System.String,System.String[])">
+            <summary>
+            获取数据库语句_插入
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strTableName"></param>
+            <param name="strKeyField"></param>
+            <param name="strsInsertField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Update``1(``0,System.String,System.String[])">
+            <summary>
+            获取数据库语句_更新
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strsKeyField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Update``1(``0,System.String,System.String[],System.String[])">
+            <summary>
+            获取数据库语句_更新
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strsKeyField"></param>
+            <param name="strsUpdateField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Query``1(``0,System.String,System.String[])">
+            <summary>
+            获取数据库语句_查询
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strsKeyField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Delete``1(``0,System.String,System.String[])">
+            <summary>
+            获取数据库语句_删除
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strsKeyField"></param>
             <returns></returns>
         </member>
         <member name="T:CommonMethod.GPSCoordinateConvert">

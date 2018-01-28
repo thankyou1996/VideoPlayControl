@@ -12,6 +12,9 @@ using System.Threading;
 using static VideoPlayControl.SDK_EzvizSDK_Old;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using AxisMediaParserLib;
+using AxisMediaViewerLib;
+using System.Threading.Tasks;
 
 namespace VideoPlayControl
 {
@@ -43,13 +46,16 @@ namespace VideoPlayControl
             get { return videoPlayState; }
             set
             {
-                videoPlayState = value;
-                //switch (videoPlayState)
-                //{
-                //    case Enum_VideoPlayState.InPlayState:
-                //        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
-                //        break;
-                //}
+                if (videoPlayState != value)
+                {
+                    videoPlayState = value;
+                    switch (videoPlayState)
+                    {
+                        case Enum_VideoPlayState.InPlayState:
+                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+                            break;
+                    }
+                }
             }
         }
         /// <summary>
@@ -66,7 +72,10 @@ namespace VideoPlayControl
         /// 播放窗口句柄
         /// </summary>
         IntPtr intptrPlayMain = IntPtr.Zero;
-        
+
+
+        List<byte> lstVideoRecord = new List<byte>();
+        private object objVideoRecordLock = new object();
         #endregion
 
         public PictureBox PicMain
@@ -149,8 +158,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-
-
+        
         #endregion
 
         private void VideoPlayMain_Load(object sender, EventArgs e)
@@ -415,7 +423,6 @@ namespace VideoPlayControl
                     CurrentVideoInfo.NetworkState = 1;          //置为在线
                     CloundSee_VideoPreview(false);
                     VideoPlayState = Enum_VideoPlayState.InPlayState;
-                    
                     break;
 
                 case SDK_JCSDK.JCEventType.JCET_ConTimeout: //连接超时
@@ -801,212 +808,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-
-        #region Ezviz 萤石云 旧版本
-
-        #region 全局变量
-        int intEzivz_UserID = 1;
-        private string strEzivz_SessionID = "";
-        IntPtr Temp_intptrSessiongID;
-        static SDK_EzvizSDK_Old.OpenSDK_MessageHandler openSDK_MessageHandler;
-        static SDK_EzvizSDK_Old.OpenSDK_DataCallBack RealPlayCallBack;
-        #endregion
-
-        #region 基本事件 
-
-
-        /// <summary>
-        /// 视频播放
-        /// </summary>
-        private void Ezviz_VideoPlay_Old()
-        {
-            //SDKState.Ezviz_SDKInit();
-            VideoPlayState = Enum_VideoPlayState.InPlayState;
-            //int Temp_intSessiongLength = 0;
-            //Temp_intptrSessiongID = IntPtr.Zero;
-            //openSDK_MessageHandler = new SDK_EzvizSDK.OpenSDK_MessageHandler(Ezviz_EventCallback);
-            //int intResult = SDK_EzvizSDK.OpenSDK_AllocSession_Old(openSDK_MessageHandler, intEzivz_UserID, out Temp_intptrSessiongID, out Temp_intSessiongLength);
-            //if (intResult == 0)
-            //{
-            //    //连接成功
-            //    VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
-            //}
-            //else
-            //{
-            //    //连接失败
-            //    VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
-            //}
-            //strEzivz_SessionID = Marshal.PtrToStringAnsi(Temp_intptrSessiongID);
-            //RealPlayCallBack  = new SDK_EzvizSDK.OpenSDK_DataCallBack(Ezviz_DataCallBack_Old);
-            //intResult = SDK_EzvizSDK.OpenSDK_SetDataCallBack(strEzivz_SessionID, RealPlayCallBack, "");
-            //intResult = SDK_EzvizSDK.OpenSDK_SetVideoLevel(CurrentVideoInfo.DVSAddress,0, 0);
-            //intResult = SDK_EzvizSDK.OpenSDK_StartRealPlay_Old(strEzivz_SessionID, intptrPlayMain, CurrentCameraInfo.CameraUniqueCode, ProgParameter.strEzviz_AccessToken, 0, "", "5b97c1d157474f96b8d4c75b936a0057");
-            //intResult = SDK_EzvizSDK.OpenSDK_StartRealPlayEx(strEzivz_SessionID, intptrPlayMain, CurrentCameraInfo.DVSAddress, CurrentCameraInfo.Channel, null);
-            //intResult = SDK_EzvizSDK.OpenSDK_StartRealPlay(Temp_intptrSessiongID, intptrPlayMain, CurrentCameraInfo.CameraUniqueCode, ProgParameter.strEzviz_AccessToken, 0, "", "5b97c1d157474f96b8d4c75b936a0057", 0);
-            int intResult = SDK_EzvizSDK_Old.OpenSDK_StartRealPlay_Old(strEzivz_SessionID, intptrPlayMain, CurrentCameraInfo.CameraUniqueCode, ProgParameter.strEzviz_AccessToken, 0, "", "5b97c1d157474f96b8d4c75b936a0057");
-
-        }
-
-        private void Ezviz_VideoClose_Old()
-        {
-            SDK_EzvizSDK_Old.OpenSDK_FreeSession(strEzivz_SessionID);
-            SDK_EzvizSDK_Old.OpenSDK_StopRealPlay_Old(strEzivz_SessionID);
-
-            //SDKState.Ezviz_SDKRelease();
-            Ezviz_GenerateRecord_Old();
-        }
-
-        private void Ezviz_EventCallback_Old(string szSessionId, EzvizMeesageType iMsgType, uint iErrorCode, string pMessageInfo, int pUser)
-        {
-            string strTag = "";
-            Enum_SDKEventType videoEvType = Enum_SDKEventType.Unrecognized;
-            switch (iMsgType)
-            {
-                case EzvizMeesageType.INS_PLAY_EXCEPTION:
-
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_RECONNECT:
-                    VideoPlayState = Enum_VideoPlayState.InPlayState;
-
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_RECONNECT_EXCEPTION:
-
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_START:
-                    VideoPlayState = Enum_VideoPlayState.InPlayState;
-                    CurrentVideoInfo.NetworkState = 1;          //置为在线
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_STOP:
-                    VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_ARCHIVE_END:
-                    VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-
-                    break;
-
-                case EzvizMeesageType.INS_VOICETALK_START:
-
-                    break;
-
-                case EzvizMeesageType.INS_VOICETALK_STOP:
-
-                    break;
-
-                case EzvizMeesageType.INS_VOICETALK_EXCEPTION:
-
-                    break;
-
-                case EzvizMeesageType.INS_PTZ_EXCEPTION:
-
-                    break;
-
-                case EzvizMeesageType.INS_RECORD_FILE:
-
-                    break;
-
-                case EzvizMeesageType.INS_RECORD_SEARCH_END:
-
-                    break;
-
-                case EzvizMeesageType.INS_RECORD_SEARCH_FAILED:
-
-                    break;
-
-                case EzvizMeesageType.INS_DEFENSE_SUCCESS:
-
-                    break;
-
-                case EzvizMeesageType.INS_DEFENSE_FAILED:
-
-                    break;
-
-                case EzvizMeesageType.INS_PLAY_ARCHIVE_EXCEPTION:
-
-                    break;
-
-                case EzvizMeesageType.INS_PTZCTRL_SUCCESS:
-
-                    break;
-
-                case EzvizMeesageType.INS_PTZCTRL_FAILED:
-
-                    break;
-            }
-            if (videoEvType == Enum_SDKEventType.Unrecognized)
-            {
-                strTag = strTag = iMsgType.ToString();
-            }
-            SDKEventCallBack(videoEvType, strTag);
-        }
-
-
-        FileStream aFile;
         
-        private void Ezviz_DataCallBack_Old(SDK_EzvizSDK_Old.CallBackDateType dateType, IntPtr dateContent, int dataLen, string pUser)
-        {
-            byte[] managedArray = new byte[dataLen];
-            Marshal.Copy(dateContent, managedArray, 0, dataLen);
-            lstb.AddRange(managedArray);
-        }
-
-        private void Ezviz_GenerateRecord_Old(string strRecFilePath = "")
-        {
-            if (lstb.Count > 0)
-            {
-                if (string.IsNullOrEmpty(strRecFilePath))
-                {
-                    //不存在路径 使用默认路径 
-                    //默认路径格式 [当前工作路径/EzvizRecFile/萤石云编号/时间(yyyyMMddHHmmss)_通道号(01).mp4]
-                    StringBuilder sbRecDicPath = new StringBuilder();
-                    sbRecDicPath.Append(ProgConstants.strEzviz_RecDicPath);    //默认路径
-                    sbRecDicPath.Append("\\" + CurrentVideoInfo.DVSAddress);    //萤石云编号
-                    if (!Directory.Exists(sbRecDicPath.ToString()))
-                    {
-                        //文件夹不存在，创建文件夹
-                        Directory.CreateDirectory(sbRecDicPath.ToString());
-                    }
-                    StringBuilder sbRecFilePath = new StringBuilder();
-                    sbRecFilePath.Append(sbRecDicPath.ToString());
-                    sbRecFilePath.Append("\\" + DateTime.Now.ToString("yyyyMMddHHmmss"));     //时间
-                    sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));   //通道号
-                    sbRecFilePath.Append(".mp4");
-                    strRecFilePath = sbRecFilePath.ToString();
-                }
-                else if (!strRecFilePath.EndsWith(".mp4"))
-                {
-                    //后缀名错误或者只指定文件夹
-                    if (!Directory.Exists(strRecFilePath.ToString()))
-                    {
-                        //文件夹不存在，创建文件夹
-                        Directory.CreateDirectory(strRecFilePath.ToString());
-                    }
-                    StringBuilder sbRecFilePath = new StringBuilder();
-                    sbRecFilePath.Append(strRecFilePath);
-                    sbRecFilePath.Append("\\" + CurrentVideoInfo.DVSNumber);                                //视频设备编号
-                    sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));       //通道号
-                    sbRecFilePath.Append("_" + DateTime.Now.ToString("yyyyMMddHHmmss"));                    //时间
-                    sbRecFilePath.Append("_" + "91.mp4");                                                   //分类后缀及文件格式
-                    strRecFilePath = sbRecFilePath.ToString();
-                }
-                byte[] Temp_b = lstb.ToArray();
-                using (FileStream f = File.OpenWrite(strRecFilePath))
-                {
-                    f.Write(Temp_b, 0, Temp_b.Length);
-                }
-                lstb = new List<byte>();
-            }
-        }
-
-        #endregion
-
-        #endregion
-
         #region Ezviz 萤石云
 
         #region 全局变量 
@@ -1014,7 +816,6 @@ namespace VideoPlayControl
         IntPtr intptrSessionID = IntPtr.Zero;
         SDK_EzvizSDK.MsgHandler callBack;
         SDK_EzvizSDK.DataCallBack Ezviz_DataCallBack;
-        List<byte> lstb = new List<byte>();
         GCHandle Ezviz_gchMsgBack;
         GCHandle Ezviz_gchVideoRecord;
         IntPtr iUser = IntPtr.Zero;
@@ -1093,7 +894,7 @@ namespace VideoPlayControl
                         break;
 
                     case SDK_EzvizSDK.EzvizMeesageType.INS_PLAY_RECONNECT:
-                        VideoPlayState = Enum_VideoPlayState.InPlayState;
+                        VideoPlayState = Enum_VideoPlayState.Connecting;
 
                         break;
 
@@ -1102,9 +903,8 @@ namespace VideoPlayControl
                         break;
 
                     case SDK_EzvizSDK.EzvizMeesageType.INS_PLAY_START:
-                        VideoPlayState = Enum_VideoPlayState.InPlayState;
                         CurrentVideoInfo.NetworkState = 1;          //置为在线
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+                        VideoPlayState = Enum_VideoPlayState.InPlayState;
                         break;
 
                     case SDK_EzvizSDK.EzvizMeesageType.INS_PLAY_STOP:
@@ -1185,7 +985,7 @@ namespace VideoPlayControl
             byte[] managedArray = new byte[iLen];
             Marshal.Copy(pData, managedArray, 0, iLen);
             string strUser = Marshal.PtrToStringAnsi(pUser);
-            lstb.AddRange(managedArray);
+            lstVideoRecord.AddRange(managedArray);
         }
 
         /// <summary>
@@ -1210,7 +1010,7 @@ namespace VideoPlayControl
             }
             else
             {
-                lstb = new List<byte>();
+                lstVideoRecord = new List<byte>();
             }
             
         }
@@ -1221,7 +1021,7 @@ namespace VideoPlayControl
         /// <param name="strRecFilePath"></param>
         private void Ezviz_GenerateRecord(string strRecFilePath = "")
         {
-            if (lstb.Count > 0)
+            if (lstVideoRecord.Count > 0)
             {
                 if (string.IsNullOrEmpty(strRecFilePath))
                 {
@@ -1259,12 +1059,12 @@ namespace VideoPlayControl
                     sbRecFilePath.Append("_" + "13.mp4");                                                   //分类后缀及文件格式
                     strRecFilePath = sbRecFilePath.ToString();
                 }
-                byte[] Temp_b = lstb.ToArray();
+                byte[] Temp_b = lstVideoRecord.ToArray();
                 using (FileStream f = File.OpenWrite(strRecFilePath))
                 {
                     f.Write(Temp_b, 0, Temp_b.Length);
                 }
-                lstb = new List<byte>();
+                lstVideoRecord = new List<byte>();
             }
         }
 
@@ -1329,7 +1129,6 @@ namespace VideoPlayControl
                 SDK_SKVideoSDK.p_sdkc_get_revideo_data(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, CurrentVideoPlaySet.PreVideoRecordFilePath);
             }
             VideoPlayState = Enum_VideoPlayState.InPlayState;
-            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
         }
 
 
@@ -1390,8 +1189,7 @@ namespace VideoPlayControl
         #endregion
 
         #endregion
-
-
+        
         #region HuaMaiVideo  华迈视频
 
         #region 全局变量
@@ -1460,7 +1258,6 @@ namespace VideoPlayControl
             iResult = SDK_HuaMai.hm_video_display_open_port(this.Handle, ref disp_op, ref iPort);
             iResult = SDK_HuaMai.hm_video_display_start(iPort, 0, 0, 25);
             VideoPlayState = Enum_VideoPlayState.InPlayState;
-            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
         }
         /// <summary>
         /// 华迈视频_视频关闭
@@ -1500,11 +1297,7 @@ namespace VideoPlayControl
                 case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_H265_P:
                 case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_H265_I:
                     SDK_HuaMai.hm_video_display_input_data(iPort, Data.frame_stream, Data.frame_len, true);
-                    if (VideoPlayState != Enum_VideoPlayState.InPlayState)
-                    {
-                        VideoPlayState = Enum_VideoPlayState.InPlayState;
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
-                    }
+                    VideoPlayState = Enum_VideoPlayState.InPlayState;
                     break;
                 default:
                     //不做操作
@@ -1519,6 +1312,266 @@ namespace VideoPlayControl
 
         #endregion
 
+        #region Axis 安迅士
+
+        private AxisMediaParser parser;
+        private AxisMediaViewer viewer;
+        private int viewerWidth;
+        private int viewerHeight;
+
+        #region 基本事件
+        private void Axis_VideoPlay()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                // Create AXIS Media Parser and AXIS Media Viewer components
+                parser = new AxisMediaParser();
+                viewer = new AxisMediaViewer();
+            }).Wait();
+
+            //事件注册
+            parser.OnVideoSample += OnVideoSample;
+            parser.OnAudioSample += OnAudioSample;
+            parser.OnMetaDataSample += OnMetaDataSample;
+            parser.OnError += OnError;
+
+            //流媒体参数
+            parser.ShowLoginDialog = true;
+            string strUrl = "axrtsphttp://" + CurrentVideoInfo.DVSAddress + "/axis-media/media.amp?videocodec=JPEG";
+            parser.MediaURL = strUrl;
+            parser.MediaUsername = CurrentVideoInfo.UserName;
+            parser.MediaPassword = CurrentVideoInfo.Password;
+
+            //设置页面参数
+            viewer.VideoRenderer = (int)AMV_RENDER_OPTIONS.AMV_VIDEO_RENDERER_EVR;      //视频解码器，注意回放视频是要同一
+            //图片回调
+            //viewer.EnableOnDecodedImage = true;
+            //viewer.OnDecodedImage += OnDecodedImage;
+            //viewer.ColorSpace = (short)AMV_COLOR_SPACE.AMV_CS_RGB24;
+            viewer.EnableOnDecodedImage = false;
+            viewer.ColorSpace = (short)AMV_COLOR_SPACE.AMV_CS_YUY2;
+            viewer.LiveMode = true;     //实时模式
+
+            int cookieID;
+            int numberOfStreams;
+            object objmediaTypeBuffer;
+            parser.Connect(out cookieID, out numberOfStreams, out objmediaTypeBuffer); //连接
+            viewer.Init(0, objmediaTypeBuffer, picPlayMain.Handle.ToInt64());               //初始化
+            //viewer.GetVideoSize(out viewerWidth, out viewerHeight);
+            viewer.SetVideoPosition(0, 0, picPlayMain.Width, picPlayMain.Height);
+            if (CurrentVideoPlaySet.VideoRecordEnable)
+            {
+                lstVideoRecord = new List<byte>();
+                byte[] bytsMediaType = (byte[])objmediaTypeBuffer;
+                lstVideoRecord.AddRange(BitConverter.GetBytes(bytsMediaType.Length));
+                lstVideoRecord.AddRange(bytsMediaType);
+            }
+            viewer.Start();
+            parser.Start();
+            VideoPlayState = Enum_VideoPlayState.Connecting;
+        }
+
+        private void Axis_VideoColse()
+        {
+            if (parser.Status == (int)AMP_STATUS.AMP_STATUS_RUNNING)
+            {
+                parser.Stop();
+                viewer.Stop();
+            }
+            if (CurrentVideoPlaySet.VideoRecordEnable && lstVideoRecord.Count > 0)
+            {
+                Axis_GenerateRecord(CurrentVideoPlaySet.VideoRecordFilePath);
+            }
+            parser.OnVideoSample -= OnVideoSample;
+            parser.OnAudioSample -= OnAudioSample;
+            parser.OnMetaDataSample -= OnMetaDataSample;
+            parser.OnError -= OnError;
+            viewer.OnDecodedImage -= OnDecodedImage;
+            Marshal.FinalReleaseComObject(viewer);
+            viewer = null;
+            Marshal.FinalReleaseComObject(parser);
+            parser = null;
+        }
+
+        private void Axis_GenerateRecord(string strVideoRecordPath)
+        {
+            if (lstVideoRecord.Count > 0)
+            {
+
+                if (!strVideoRecordPath.EndsWith(".bin"))
+                {
+                    //不存在文件名称
+                    CommonMethod.Common.CreateFolder(strVideoRecordPath);//创建文件夹
+                    StringBuilder sbRecFilePath = new StringBuilder();
+                    sbRecFilePath.Append(strVideoRecordPath);
+                    sbRecFilePath.Append("\\" + CurrentVideoInfo.DVSNumber);                                //视频设备编号
+                    sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));       //通道号
+                    sbRecFilePath.Append("_" + DateTime.Now.ToString("yyyyMMddHHmmss"));                    //时间
+                    sbRecFilePath.Append("_" + "06.bin");                                                   //分类后缀及文件格式
+                    strVideoRecordPath = sbRecFilePath.ToString();
+                }
+                else
+                {
+                    string Temp_strUpperLevelFolderPath = strVideoRecordPath.Substring(0, strVideoRecordPath.LastIndexOf("\\"));
+                    CommonMethod.Common.CreateFolder(strVideoRecordPath);//创建文件夹
+                }
+                //统一写入文件
+                using (FileStream f = new FileStream(strVideoRecordPath, FileMode.Create))
+                {
+                    f.Write(lstVideoRecord.ToArray(), 0, lstVideoRecord.Count);
+                }
+                lstVideoRecord = new List<byte>();
+            }
+        }
+        
+        #endregion
+
+        #region 回调事件
+        /// <summary>
+        /// 回调_视频信息
+        /// </summary>
+        /// <param name="cookieID"></param>
+        /// <param name="sampleType"></param>
+        /// <param name="sampleFlags"></param>
+        /// <param name="startTime"></param>
+        /// <param name="stopTime"></param>
+        /// <param name="SampleArray"></param>
+        private void OnVideoSample(int cookieID, int sampleType,
+            int sampleFlags, ulong startTime, ulong stopTime, object SampleArray)
+        {
+            #region 视频录像
+            if (CurrentVideoPlaySet.VideoRecordEnable)
+            {
+                lock (objVideoRecordLock)
+                {
+                    byte[] bufferBytes = (byte[])SampleArray;
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(sampleType));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(sampleFlags));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(startTime));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(stopTime));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(bufferBytes.Length));
+                    lstVideoRecord.AddRange(bufferBytes);
+                }
+            }
+            #endregion
+            long renderStartTime = 0;
+            long renderStopTime = 1;
+            if ((long)startTime + parser.LiveTimeOffset > 0)
+            {
+                renderStartTime = (long)startTime + parser.LiveTimeOffset;
+                renderStopTime = (long)stopTime + parser.LiveTimeOffset;
+            }
+            viewer.RenderVideoSample(sampleFlags, (ulong)renderStartTime, (ulong)renderStopTime, SampleArray);
+            VideoPlayState = Enum_VideoPlayState.InPlayState;
+        }
+        void UpdateTimeDisplay(DateTime time)
+        {
+            if (InvokeRequired)
+            {
+                // If called from a non UI thread, let the UI thread perform the call 
+                BeginInvoke(new Action<DateTime>(UpdateTimeDisplay), new object[] { time });
+                return;
+            }
+
+            // Update the time label
+            this.Text = time.ToString("yyyy-MM-dd HH:mm:ss.fff");
+        }
+        // Event handler from the parser for each audio frame buffer
+        private void OnAudioSample(int cookieID, int sampleType,
+            int sampleFlags, ulong startTime, ulong stopTime, object SampleArray)
+        {
+            // Let viewer render audio sample
+            //视频录像
+            if (CurrentVideoPlaySet.VideoRecordEnable)
+            {
+                lock (objVideoRecordLock)
+                {
+                    byte[] bufferBytes = (byte[])SampleArray;
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(sampleType));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(sampleFlags));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(startTime));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(stopTime));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(bufferBytes.Length));
+                    lstVideoRecord.AddRange(bufferBytes);
+                }
+            }
+            // Add LiveTimeOffset to original timestamp for optimal latency when rendering
+            long renderStartTime = 0;
+            long renderStopTime = 1;
+            if ((long)startTime + parser.LiveTimeOffset > 0)
+            {
+                renderStartTime = (long)startTime + parser.LiveTimeOffset;
+                renderStopTime = (long)stopTime + parser.LiveTimeOffset;
+            }
+            viewer.RenderAudioSample(sampleFlags, (ulong)renderStartTime, (ulong)renderStopTime, SampleArray);
+        }
+
+        private void OnMetaDataSample(int cookieID, int sampleType,
+            int sampleFlags, ulong startTime, ulong stopTime, string metaData)
+        {
+            //视频录像
+            if (CurrentVideoPlaySet.VideoRecordEnable)
+            {
+                lock (objVideoRecordLock)
+                {
+                    byte[] bufferBytes = System.Text.Encoding.UTF8.GetBytes(metaData);
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(sampleType));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(sampleFlags));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(startTime));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(stopTime));
+                    lstVideoRecord.AddRange(BitConverter.GetBytes(bufferBytes.Length));
+                    lstVideoRecord.AddRange(bufferBytes);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 回调_异常事件
+        /// </summary>
+        /// <param name="errorCode"></param>
+        private static void OnError(int errorCode)
+        {
+            AMP_ERROR ampError = (AMP_ERROR)errorCode;
+            MessageBox.Show(string.Format("Parser OnErrorEventHandler {1} (0x{0:X})",
+                errorCode, ampError.ToString()));
+        }
+
+        /// <summary>
+        /// 回调_图片解码
+        /// </summary>
+        /// <param name="StartTime"></param>
+        /// <param name="ColorSpace"></param>
+        /// <param name="SampleArray"></param>
+        private void OnDecodedImage(ulong StartTime, short ColorSpace, object SampleArray)
+        {
+            //byte[] decodedData = (byte[])SampleArray;
+            //Bitmap bm = new Bitmap(CreateBitmap(decodedData));
+            //bm.Save("firstImage.jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
+        }
+
+        private static Bitmap CreateBitmap(byte[] data)
+        {
+            using (MemoryStream memoryStream = new MemoryStream())
+            using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
+            {
+                int bitmapFileHeaderSize = 14;
+                binaryWriter.Write('B');
+                binaryWriter.Write('M');
+                binaryWriter.Write(bitmapFileHeaderSize + data.Length); // 4 bytes
+                binaryWriter.Write((short)0);
+                binaryWriter.Write((short)0);
+                int bitmapInfoHeaderLength = BitConverter.ToInt32(data, 0);
+                binaryWriter.Write(bitmapFileHeaderSize + bitmapInfoHeaderLength);
+                binaryWriter.Write(data);
+
+                return (Bitmap)Image.FromStream(memoryStream);
+            }
+        }
+        
+        #endregion
+
+        #endregion
+
         #region 基本事件
 
         /// <summary>
@@ -1526,7 +1579,7 @@ namespace VideoPlayControl
         /// </summary>
         public void VideoPlay()
         {
-            if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState || VideoPlayState == Enum_VideoPlayState.Connecting)
             {
                 //处于播放状态，释放
                 VideoClose();
@@ -1549,6 +1602,10 @@ namespace VideoPlayControl
                     break;
                 case Enum_VideoType.HuaMaiVideo://华迈设备
                     HuaMaiVideo_VideoPlay();
+                    break;
+
+                case Enum_VideoType.Axis:       //安讯士
+                    Axis_VideoPlay();
                     break;
             }
         }
@@ -1591,7 +1648,6 @@ namespace VideoPlayControl
         {
             if (VideoPlayState != Enum_VideoPlayState.VideoInfoNull)
             {
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
                 switch (CurrentVideoInfo.VideoType)
                 {
                     case Enum_VideoType.CloundSee:
@@ -1609,8 +1665,12 @@ namespace VideoPlayControl
                     case Enum_VideoType.HuaMaiVideo:
                         HuaMaiVideo_VideoClose();
                         break;
+                    case Enum_VideoType.Axis:
+                        Axis_VideoColse();
+                        break;
                 }
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
             }
         }
 
@@ -1656,7 +1716,28 @@ namespace VideoPlayControl
 
         private void picPlayMain_SizeChanged(object sender, EventArgs e)
         {
-            VideoPlayWindows_Move();
+            if (CurrentVideoInfo != null&& VideoPlayState==Enum_VideoPlayState.InPlayState)
+            {
+                switch (CurrentVideoInfo.VideoType)
+                {
+                    case Enum_VideoType.CloundSee:
+                        CloundSee_VideoLPRECTChanged();
+                        if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+                        {
+                            CloundSee_VideoPreview();
+                        }
+                        break;
+                    case Enum_VideoType.IPCWA:
+                        if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+                        {
+                            //axRASPlayerOCX1.();
+                        }
+                        break;
+                    case Enum_VideoType.Axis:
+                        viewer.SetVideoPosition(0, 0, picPlayMain.Width, picPlayMain.Height);
+                        break;
+                }
+            }
         }
         #endregion
 
@@ -1683,6 +1764,8 @@ namespace VideoPlayControl
                 }
             }
         }
+        
+
         /// <summary>
         /// 视频控件关闭
         /// </summary>
@@ -1694,6 +1777,6 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
+
     }
 }

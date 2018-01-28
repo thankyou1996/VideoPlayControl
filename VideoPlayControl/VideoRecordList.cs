@@ -104,7 +104,8 @@ namespace VideoPlayControl
             {
                 if (
                     s.ToLower().EndsWith(".mp4")||
-                    s.ToLower().EndsWith(".avi")
+                    s.ToLower().EndsWith(".avi")||
+                    s.ToLower().EndsWith(".bin")        //180128 安讯士录像文件后缀
                     )
                 {
                     lststrResult.Add(s);

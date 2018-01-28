@@ -103,12 +103,12 @@ namespace VideoPlayControl
         
         #region 接口定义
 
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]//码流端口 默认47924
-        public static extern int p_sdkc_set_server_av_port(int av_prort);
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//码流端口 默认47924
+        public static extern int p_sdkc_set_server_av_port(UInt16 av_prort);
         //char	*guid,	char *server_ip, u16	server_c_port, u16	server_v_port, u16	server_a_port
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]//默认端口  47624  47724  47824
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//默认端口  47624  47724  47824
         public static extern void p_sdkc_init_client(string clientguid, string server_ip, int server_c_port, int server_v_port, int server_a_port, string record_directory);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]//mode:1，全双工，2，监听，3，喊话
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//mode:1，全双工，2，监听，3，喊话
         public static extern void p_sdkc_start_talk(string guid, int channel, int mode, int enable_record, int max_mbyte, int max_min, string rec_file_path);
 
         
@@ -123,7 +123,7 @@ namespace VideoPlayControl
         /// <param name="max_min">最大的录像时间，分钟计数</param>
         /// <param name="rec_file_path">需要在服务器存储的文件名</param>
         /// <returns></returns>
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_start_multi_talk(string guid, ref st_multi_talk channel, int mode, int enable_record, int max_mbyte, int max_min, string rec_file_path);
 
 
@@ -137,7 +137,7 @@ namespace VideoPlayControl
         /// <param name="max_mbyte"></param>
         /// <param name="max_min"></param>
         /// <param name="rec_file_path"></param>
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]//channel 从0开始
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//channel 从0开始
         public static extern void p_sdkc_start_rt_video(string guid, int channel, IntPtr handle, int enable_record, int max_mbyte, int max_min, string rec_file_path);
 
         /// <summary>
@@ -146,12 +146,12 @@ namespace VideoPlayControl
         /// <param name="guid"></param>
         /// <param name="channel"></param>
         /// <param name="handle"></param>
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_sdkc_stop_rt_video(string guid, int channel, IntPtr handle);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_sdkc_exit_client();
 
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_stop_talk(string guid);
 
         /// <summary>
@@ -159,51 +159,51 @@ namespace VideoPlayControl
         /// 0，客户端不在线，1，客户端在线
         /// </summary>
         /// <returns></returns>
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_get_online();
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_disable_hw_render();//151201 软件解
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_enable_hw_render();//151201 硬件解码
 
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_vsdk_open(string strIP, int iport, out byte ret_val);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_vsdk_talkback_open(byte duplex, out byte ret_val);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         //        * @param  mode:		模式选择
         //*						@arg 1: 实时对讲
         //                      @arg 2: 监听
         //                      @arg 3: 喊话
         //*
         public static extern void p_vsdk_talkback_start(string strGuid, byte channel, byte mode, out byte ret_val);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_vsdk_talkback_stop(string strGuid, out byte ret_val);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_vsdk_close();
 
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_vsdk_open_console();
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_vsdk_close_console();
 
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_vsdk_get_device_info_all(IntPtr info_array);
         //public static extern void p_vsdk_get_device_info_all(ref client_info_all info_array);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]//获取事件
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//获取事件
         //public static extern void p_vsdk_pop_event(ref  st_event stevent, out  byte ret_val);
         public static extern void p_vsdk_pop_event(IntPtr stevent, out byte ret_val);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_vsdk_talkback_save_start(string file1, string file2, out byte ret_val);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_vsdk_talkback_save_stop(out byte ret_val);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_vsdk_snap_picture(string strGuid, byte snap_count, short snap_interver, byte channel, string file1_path, string file2_path, string file3_path, string file4_path, string file5_path, byte ret_val);
         //p_vsdk_snap_picture(guid_str,5,50,1,"d:\\1.jpeg","d:\\2.jpeg","d:\\3.jpeg","d:\\4.jpeg","d:\\5.jpeg",&ret_val);
 
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]//设定客户端存储根文件夹
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//设定客户端存储根文件夹
         public static extern void p_scfs_set_save_folder(string base_folder);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]//使能客户端文件存储
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//使能客户端文件存储
         public static extern void p_scfs_enable_save();
 
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
@@ -216,13 +216,13 @@ namespace VideoPlayControl
 
 
 
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_sdkc_get_revideo_data(string strGuid, int intChannel, string strUrl);
 
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_onvif_ptz_continue_move(string strGuid, int iChannel, int iXSpeed, int iYSpeed, int iZSpeend);
 
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath)]
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_onvif_ptz_stop(string strGuid, int iChannel);
         
         #endregion
