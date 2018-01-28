@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VideoPlayControl</RootNamespace>
     <AssemblyName>VideoPlayControl_Axis</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -40,16 +40,6 @@
     <Reference Include="CommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll_Libyary\CommonMethod.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.AxisMediaParserLib, Version=3.40.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>Axis\Interop.AxisMediaParserLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.AxisMediaViewerLib, Version=3.40.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>Axis\Interop.AxisMediaViewerLib.dll</HintPath>
     </Reference>
     <Reference Include="Interop.RASPLAYEROCXLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -91,7 +81,6 @@
     <Compile Include="ProgConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SDK_SKVideoSDK.cs" />
-    <Compile Include="Test.cs" />
     <Compile Include="UTF8Marsgaler.cs" />
     <Compile Include="VideoBackplayWindow.cs">
       <SubType>UserControl</SubType>

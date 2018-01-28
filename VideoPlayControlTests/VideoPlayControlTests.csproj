@@ -71,7 +71,6 @@
     <Compile Include="SDK_EzvizSDKTests.cs" />
     <Compile Include="SDK_HuaMaiTests.cs" />
     <Compile Include="SDK_JCSDKTests.cs" />
-    <Compile Include="TestTests.cs" />
     <Compile Include="VideoPlayWindowTests.cs" />
   </ItemGroup>
   <ItemGroup>
