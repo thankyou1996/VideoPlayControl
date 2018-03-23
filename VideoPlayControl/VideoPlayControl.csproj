@@ -335,6 +335,41 @@
     <Content Include="Ezviz\YUVProcess.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="HIkVideoSDK\AudioRender.dll" />
+    <Content Include="HIkVideoSDK\ClientDemo.exe" />
+    <Content Include="HIkVideoSDK\ClientDemoDll\calib.dll" />
+    <Content Include="HIkVideoSDK\ClientDemoDll\iconv.dll" />
+    <Content Include="HIkVideoSDK\ClientDemoDll\libxml2.dll" />
+    <Content Include="HIkVideoSDK\ClientDemoDll\ReadMe.txt" />
+    <Content Include="HIkVideoSDK\ClientDemoDll\zlib1.dll" />
+    <Content Include="HIkVideoSDK\D3DCompiler_43.dll" />
+    <Content Include="HIkVideoSDK\D3DX9_43.dll" />
+    <Content Include="HIkVideoSDK\EagleEyeRender.dll" />
+    <Content Include="HIkVideoSDK\gdiplus.dll" />
+    <Content Include="HIkVideoSDK\HCCore.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDK.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\AnalyzeData.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\AudioIntercom.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\DsSdk.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\HCAlarm.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\HCCoreDevCfg.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\HCDisplay.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\HCGeneralCfgMgr.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\HCIndustry.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\HCPlayBack.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\HCPreview.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\HCVoiceTalk.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\libiconv2.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\msvcr90.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\OpenAL32.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\StreamTransClient.dll" />
+    <Content Include="HIkVideoSDK\HCNetSDKCom\SystemTransform.dll" />
+    <Content Include="HIkVideoSDK\HWDecode.dll" />
+    <Content Include="HIkVideoSDK\MP_Render.dll" />
+    <Content Include="HIkVideoSDK\MP_VIE.dll" />
+    <Content Include="HIkVideoSDK\PlayCtrl.dll" />
+    <Content Include="HIkVideoSDK\SuperRender.dll" />
+    <Content Include="HIkVideoSDK\YUVProcess.dll" />
     <Content Include="HuaMai\avcodec-54.dll" />
     <Content Include="HuaMai\avformat-54.dll" />
     <Content Include="HuaMai\avutil-51.dll" />
@@ -552,6 +587,14 @@
     <None Include="Ezviz\udt.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="HIkVideoSDK\GdiPlus.lib" />
+    <None Include="HIkVideoSDK\HCCore.lib" />
+    <None Include="HIkVideoSDK\HCNetSDK.lib" />
+    <None Include="HIkVideoSDK\HCNetSDKCom\HCAlarm.lib" />
+    <None Include="HIkVideoSDK\HCNetSDKCom\HCGeneralCfgMgr.lib" />
+    <None Include="HIkVideoSDK\HCNetSDKCom\HCPreview.lib" />
+    <None Include="HIkVideoSDK\LocalXml.zip" />
+    <None Include="HIkVideoSDK\PlayCtrl.lib" />
     <None Include="SKVideoSDK\release_clean.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

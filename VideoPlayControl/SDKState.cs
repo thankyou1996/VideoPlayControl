@@ -78,7 +78,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
+
         #endregion
 
 
@@ -100,7 +100,7 @@ namespace VideoPlayControl
             }
         }
 
-        
+
         /// <summary>
         /// 云视通_初始化SDK
         /// </summary>
@@ -196,7 +196,7 @@ namespace VideoPlayControl
                 if (SDK_EzvizSDK_Old.OpenSDK_InitLib(ProgParameter.strEzviz__AuthAddr, ProgParameter.strEzviz__PlatForm, ProgParameter.strEzviz__AppID) == 0)
                 {
                     EzvizSDKState = Enum_SDKState.SDK_Init;
-                    
+
                 }
                 else
                 {
@@ -243,7 +243,7 @@ namespace VideoPlayControl
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitEnd);
             return EzvizSDKState;
         }
-        
+
         /// <summary>
         /// 萤石云_SDK释放
         /// </summary>
@@ -337,7 +337,7 @@ namespace VideoPlayControl
         {
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitStart);
             UInt32 iResult = 0;
-            UInt32 Temp_iResult = 0;            
+            UInt32 Temp_iResult = 0;
             #region 基本信息初始化
             Temp_iResult = SDK_HuaMai.hm_sdk_init();
             if (Temp_iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
@@ -404,7 +404,32 @@ namespace VideoPlayControl
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKReleaseEnd);
             return HuaMaiSDKState;
         }
+
         
+        #endregion
+
+        #region HikDVR 海康DVR直连模式
+        public static Enum_SDKState s_HikDVRSDKState = Enum_SDKState.SDK_Null;
+
+        public static Enum_SDKState HikDVRSDKState
+        {
+            get { return s_HikDVRSDKState; }
+            private set
+            {
+                s_HikDVRSDKState = value;
+                SDKStateChange(Enum_VideoType.HikDVR, s_HikDVRSDKState);
+            }
+        }
+
+        public static Enum_SDKState HikDVRSDK_Init()
+        {
+            return HikDVRSDKState;
+        }
+
+        public static Enum_SDKState HikDVRSDK_Release()
+        {
+            return HikDVRSDKState;
+        }
         #endregion
 
         public static void VideoSDKRelease()

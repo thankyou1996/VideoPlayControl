@@ -147,6 +147,71 @@
             事件内容
             </summary>
         </member>
+        <member name="T:PublicClassCurrency.HostInstSet">
+            <summary>
+            主机指令设置信息
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.strHostID">
+            <summary>
+            主机编号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.HostID">
+            <summary>
+            主机编号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.intInstAddr">
+            <summary>
+            指令地址
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.InstAddr">
+            <summary>
+            指令地址
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.strInstName">
+            <summary>
+            指令名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.InstName">
+            <summary>
+            指令名称
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.strInstContent">
+            <summary>
+            指令内容
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.InstContent">
+            <summary>
+            指令内容
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.intInstLength">
+            <summary>
+            指令长度
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.InstLength">
+            <summary>
+            指令长度
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.strPrompt">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.Prompt">
+            <summary>
+            提示信息
+            </summary>
+        </member>
         <member name="T:PublicClassCurrency.MapMarkerPointInfo">
             <summary>
             地图标注点信息
@@ -497,6 +562,11 @@
         <member name="F:PublicClassCurrency.Enum_VideoType.Axis">
             <summary>
             安讯士
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.HikDVR">
+            <summary>
+            海康DVS 直接访问模式
             </summary>
         </member>
         <member name="T:PublicClassCurrency.Enum_VIdeoRecordType">

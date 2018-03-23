@@ -1195,6 +1195,7 @@ namespace VideoPlayControl
         IntPtr iPort = IntPtr.Zero;
         IntPtr iOpenVideo = IntPtr.Zero;
         #endregion
+
         #region 基本事件
         /// <summary>
         /// 华迈视频_视频播放
@@ -1420,7 +1421,7 @@ namespace VideoPlayControl
         //        lstVideoRecord = new List<byte>();
         //    }
         //}
-        
+
         //#endregion
 
         //#region 回调事件
@@ -1564,8 +1565,23 @@ namespace VideoPlayControl
         //        return (Bitmap)Image.FromStream(memoryStream);
         //    }
         //}
-        
+
         //#endregion
+
+        #endregion
+
+        #region HikDVR 海康DVR 直接访问模式
+        #region 全局变量
+
+        #endregion
+
+        #region 基本事件
+        
+        #endregion
+
+        #region 回掉函数
+
+        #endregion
 
         #endregion
 
