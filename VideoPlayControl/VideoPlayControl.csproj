@@ -157,6 +157,7 @@
     <Compile Include="VideoTalkControl.Designer.cs">
       <DependentUpon>VideoTalkControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="SDK_XMSDK.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

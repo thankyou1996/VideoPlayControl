@@ -1744,6 +1744,7 @@ namespace VideoPlayControl
                     case Enum_VideoType.HikDVR:
                         HikDVR_VideoClose();
                         break;
+
                 }
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);

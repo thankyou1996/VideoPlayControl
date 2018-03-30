@@ -36,6 +36,12 @@ namespace VideoPlayControl
         /// 时刻SDK  
         /// </summary>
         public const string c_strSKVideoSDKFilePath = "\\SKVideoSDK\\VLC_SDK.DLL";
+
+
+        /// <summary>
+        /// 雄迈SDK 
+        /// </summary>
+        public const string c_strXMVideoSDKFilePath = "\\XMVideoSDK\\NetSdk.dll";
         #endregion
 
         #region SDK默认参数
