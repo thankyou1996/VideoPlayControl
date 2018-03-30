@@ -67,6 +67,7 @@
     <Compile Include="Enum_VideoPlayEventType.cs" />
     <Compile Include="Enum_VideoPlayState.cs" />
     <Compile Include="Enum_VideoPTZControl.cs" />
+    <Compile Include="SDK_HikClientSDK.cs" />
     <Compile Include="ProgParameter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

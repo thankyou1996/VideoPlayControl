@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoPlayControlTests", "Vi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoRecordPlayer", "VideoRecordPlayer\VideoRecordPlayer.csproj", "{D8D169BF-E6E1-4C01-BC78-FDA28D853CB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSDKTest", "VideoSDKTest\VideoSDKTest.csproj", "{FE16082C-679E-4911-A1E7-955B264E914C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDataSource", "TestDataSource\TestDataSource.csproj", "{C1D7EEE4-ED8D-4336-BDD3-B3FF3AE7F0BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{D8D169BF-E6E1-4C01-BC78-FDA28D853CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8D169BF-E6E1-4C01-BC78-FDA28D853CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8D169BF-E6E1-4C01-BC78-FDA28D853CB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE16082C-679E-4911-A1E7-955B264E914C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE16082C-679E-4911-A1E7-955B264E914C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE16082C-679E-4911-A1E7-955B264E914C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE16082C-679E-4911-A1E7-955B264E914C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1D7EEE4-ED8D-4336-BDD3-B3FF3AE7F0BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1D7EEE4-ED8D-4336-BDD3-B3FF3AE7F0BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1D7EEE4-ED8D-4336-BDD3-B3FF3AE7F0BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1D7EEE4-ED8D-4336-BDD3-B3FF3AE7F0BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

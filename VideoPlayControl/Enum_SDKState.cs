@@ -9,6 +9,10 @@ namespace VideoPlayControl
     /// </summary>
     public enum Enum_SDKState
     {
+        /// <summary>
+        /// 释放异常
+        /// </summary>
+        SDK_ReleaseFail=-3,
 
         /// <summary>
         /// SDK_初始化异常

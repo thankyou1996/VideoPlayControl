@@ -421,13 +421,22 @@ namespace VideoPlayControl
             }
         }
 
+        /// <summary>
+        /// 海康SDK初始化
+        /// </summary>
+        /// <returns></returns>
         public static Enum_SDKState HikDVRSDK_Init()
         {
+            HikDVRSDKState = SDK_HikClientSDK.NET_DVR_Init() ? Enum_SDKState.SDK_Init : Enum_SDKState.SDK_InitFail;
             return HikDVRSDKState;
         }
-
+        /// <summary>
+        /// 海康SDK 释放
+        /// </summary>
+        /// <returns></returns>
         public static Enum_SDKState HikDVRSDK_Release()
         {
+            HikDVRSDKState = SDK_HikClientSDK.NET_DVR_Cleanup() ? Enum_SDKState.SDK_Release : Enum_SDKState.SDK_ReleaseFail;
             return HikDVRSDKState;
         }
         #endregion
