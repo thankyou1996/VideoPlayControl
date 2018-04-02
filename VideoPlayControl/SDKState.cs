@@ -24,6 +24,7 @@ namespace VideoPlayControl
 
 
         #endregion
+
         #region 委托事件
 
         #region SDK状态改变
@@ -80,7 +81,6 @@ namespace VideoPlayControl
         #endregion
 
         #endregion
-
 
         #region 云视通SDK 
         /// <summary>
@@ -443,7 +443,7 @@ namespace VideoPlayControl
 
         #region 雄迈SDK 
         public static Enum_SDKState s_XMSDKState = Enum_SDKState.SDK_Null;
-
+        private static SDK_XMSDK.fDisConnect disCallback;
         public static Enum_SDKState XMSDKState
         {
             get { return s_XMSDKState; }
@@ -460,38 +460,14 @@ namespace VideoPlayControl
         /// <returns></returns>
         public static Enum_SDKState XMSDK_Init()
         {
-            HikDVRSDKState = SDK_XMSDK.H264_DVR_Init() ? Enum_SDKState.SDK_Init : Enum_SDKState.SDK_InitFail;
+            disCallback = new SDK_XMSDK.fDisConnect(DisConnectBackCallFunc);
+            XMSDKState = SDK_XMSDK.H264_DVR_Init(disCallback, IntPtr.Zero) == 1 ? Enum_SDKState.SDK_Init : Enum_SDKState.SDK_InitFail;
             return XMSDKState;
         }
 
-        void DisConnectBackCallFunc(int lLoginID, string pchDVRIP, int nDVRPort, IntPtr dwUser)
+        private static void DisConnectBackCallFunc(int lLoginID, string pchDVRIP, int nDVRPort, IntPtr dwUser)
         {
-            for (int i = 0; i < 16; i++)
-            {
-                if (lLoginID == m_videoform[i].GetLoginHandle())
-                {
-                    m_videoform[i].OnDisconnct();
-                }
-            }
-           
-          
-            foreach (DEV_INFO devinfo in dictDevInfo.Values)
-            {
-                if (devinfo.lLoginID == lLoginID)
-                {
-                    XMSDK.H264_DVR_Logout(lLoginID);
-                    dictDevInfo.Remove(devinfo.lLoginID);
-			        dictDiscontDev.Add(devinfo.lLoginID,devinfo);
-                    break;
-                }
-            }
-
-            if ( dictDiscontDev.Count > 0 )
-            {
-
-                timerDisconnect.Enabled = true;
-                timerDisconnect.Start();
-            }
+            Console.WriteLine(lLoginID.ToString());
         }
         /// <summary>
         /// 雄迈SDK 释放
@@ -499,7 +475,7 @@ namespace VideoPlayControl
         /// <returns></returns>
         public static Enum_SDKState XMSDK_Release()
         {
-            XMSDKState = SDK_HikClientSDK.NET_DVR_Cleanup() ? Enum_SDKState.SDK_Release : Enum_SDKState.SDK_ReleaseFail;
+            XMSDKState = SDK_XMSDK.H264_DVR_Cleanup() ? Enum_SDKState.SDK_Release : Enum_SDKState.SDK_ReleaseFail;
             return XMSDKState;
         }
         #endregion 

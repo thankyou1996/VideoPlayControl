@@ -337,8 +337,6 @@ namespace VideoPlayControl
 
                 #endregion
             }
-
-
         }
 
 
@@ -1151,35 +1149,35 @@ namespace VideoPlayControl
             {
                 case Enum_VideoPTZControl.PTZControl_Up:
                     Temp_iXSpeed = 0;
-                    Temp_iYSpeed = 100;
+                    Temp_iYSpeed = CurrentVideoPlaySet.PTZSpeed;
                     break;
                 case Enum_VideoPTZControl.PTZControl_Down:
                     Temp_iXSpeed = 0;
-                    Temp_iYSpeed = -100;
+                    Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
                     break;
                 case Enum_VideoPTZControl.PTZControl_Left:
-                    Temp_iXSpeed = -100;
+                    Temp_iXSpeed = -CurrentVideoPlaySet.PTZSpeed;
                     Temp_iYSpeed = 0;
                     break;
                 case Enum_VideoPTZControl.PTZControl_Right:
-                    Temp_iXSpeed = 100;
+                    Temp_iXSpeed = CurrentVideoPlaySet.PTZSpeed;
                     Temp_iYSpeed = 0;
                     break;
                 case Enum_VideoPTZControl.PTZControl_LeftUp:
-                    Temp_iXSpeed = -100;
-                    Temp_iYSpeed = 100;
+                    Temp_iXSpeed = -CurrentVideoPlaySet.PTZSpeed;
+                    Temp_iYSpeed = CurrentVideoPlaySet.PTZSpeed;
                     break;
                 case Enum_VideoPTZControl.PTZControl_LeftDown:
-                    Temp_iXSpeed = -100;
-                    Temp_iYSpeed = -100;
+                    Temp_iXSpeed = -CurrentVideoPlaySet.PTZSpeed;
+                    Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
                     break;
                 case Enum_VideoPTZControl.PTZControl_RightUp:
-                    Temp_iXSpeed = 100;
-                    Temp_iYSpeed = 100;
+                    Temp_iXSpeed = CurrentVideoPlaySet.PTZSpeed;
+                    Temp_iYSpeed = CurrentVideoPlaySet.PTZSpeed;
                     break;
                 case Enum_VideoPTZControl.PTZControl_RightDown:
-                    Temp_iXSpeed = 100;
-                    Temp_iYSpeed = -100;
+                    Temp_iXSpeed = CurrentVideoPlaySet.PTZSpeed;
+                    Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
                     break;
             }
             SDK_SKVideoSDK.p_sdkc_onvif_ptz_continue_move(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, Temp_iXSpeed, Temp_iYSpeed, Temp_iZSpeed);
@@ -1572,6 +1570,7 @@ namespace VideoPlayControl
         #endregion
 
         #region HikDVR 海康DVR 直接访问模式
+
         #region 全局变量
         int _intDVRHwd;
         int intRet;
@@ -1643,6 +1642,147 @@ namespace VideoPlayControl
 
         #endregion
 
+
+        #region XMVideo 雄迈SDK
+        #region 全局变量
+        long lLogin = -1;
+        public int m_iPlayhandle;	//play handle
+        #endregion
+
+        #region 基本事件
+        /// <summary>
+        /// 雄迈视频播放
+        /// </summary>
+        private void XMVideo_VideoPlay()
+        {
+            H264_DVR_DEVICEINFO OutDev;
+            int nError = 0;
+            VideoPlayState = Enum_VideoPlayState.Connecting;
+            lLogin = SDK_XMSDK.H264_DVR_Login(CurrentVideoInfo.DVSAddress, Convert.ToUInt16(CurrentVideoInfo.DVSConnectPort), CurrentVideoInfo.UserName,
+                CurrentVideoInfo.Password, out OutDev, out nError, SocketStyle.TCPSOCKET);
+            if (lLogin <= 0)
+            {
+                CurrentVideoInfo.NetworkState = 0;//离线
+                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed); //连接异常
+                return;
+            }
+            
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess); //连接成功
+            H264_DVR_CLIENTINFO playstru = new H264_DVR_CLIENTINFO();
+            playstru.nChannel = CurrentCameraInfo.Channel;
+            playstru.nStream = 0;
+            playstru.nMode = 0;
+            playstru.hWnd = intptrPlayMain;
+            m_iPlayhandle = SDK_XMSDK.H264_DVR_RealPlay(Convert.ToInt32(lLogin), ref playstru);
+            if (m_iPlayhandle > 0)
+            {
+                CurrentVideoInfo.NetworkState = 1;//在线
+                VideoPlayState = Enum_VideoPlayState.InPlayState;
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay); //连接成功
+                if (CurrentVideoPlaySet.VideoRecordEnable)
+                {
+                    XMVideo_VideoRecordStart(CurrentVideoPlaySet.VideoRecordFilePath);
+                }
+            }
+            else
+            {
+                //视频播放异常，后期根据 H264_DVR_GetLastError 获取错误码进行操作及 提示
+                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException); //连接成功   
+            }
+        }
+
+        /// <summary>
+        /// 视频录像
+        /// </summary>
+        public bool XMVideo_VideoRecordStart(string strRecFilePath)
+        {
+            if (string.IsNullOrEmpty(strRecFilePath))
+            {
+                //不存在路径 使用默认路径 
+                //默认路径格式 [当前工作路径/XMVideoRecFile/DVSAddress/时间(yyyyMMddHHmmss)_通道号(01)]
+                StringBuilder sbRecDicPath = new StringBuilder();
+                sbRecDicPath.Append(ProgConstants.strXMVideo_RecDicPath);    //默认路径
+                sbRecDicPath.Append("\\" + CurrentVideoInfo.DVSAddress);    //DVSAddress
+                if (!Directory.Exists(sbRecDicPath.ToString()))
+                {
+                    //文件夹不存在，创建文件夹
+                    Directory.CreateDirectory(sbRecDicPath.ToString());
+                }
+                StringBuilder sbRecFilePath = new StringBuilder();
+                sbRecFilePath.Append(sbRecDicPath.ToString());
+                sbRecFilePath.Append("\\" + DateTime.Now.ToString("yyyyMMddHHmmss"));     //时间
+                sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));   //通道号
+                sbRecFilePath.Append(".h264");  //文件后缀
+                strRecFilePath = sbRecFilePath.ToString();
+            }
+            bool bolResult = SDK_XMSDK.H264_DVR_StartLocalRecord(m_iPlayhandle, strRecFilePath, Convert.ToInt32(MEDIA_FILE_TYPE.MEDIA_FILE_NONE));
+            return bolResult;
+        }
+
+        /// <summary>
+        /// 海康视频关闭
+        /// </summary>
+        public void XMVideo_VideoClose()
+        {
+            SDK_XMSDK.H264_DVR_StopLocalPlay(m_iPlayhandle);   //停止录像
+            SDK_XMSDK.H264_DVR_StopRealPlay(m_iPlayhandle, (uint)intptrPlayMain);
+            SDK_XMSDK.H264_DVR_Logout(Convert.ToInt32(lLogin));
+            return;
+        }
+
+
+        /// <summary>
+        /// 云台控制
+        /// </summary>
+        private void XMVideo_PTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
+        {
+            SDK_XMSDK.PTZ_ControlType XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.EXTPTZ_TOTAL;
+            //云台控制类型改变
+            switch (PTZControl) //云视通仅 上下
+            {
+                case Enum_VideoPTZControl.PTZControl_Up:
+                    XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.TILT_UP;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_Down:
+                    XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.TILT_DOWN;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_Left:
+                    XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_LEFT;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_Right:
+                    XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_RIGHT;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_LeftUp:
+                    XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_LEFTTOP;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_LeftDown:
+                    XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_LEFTDOWN;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_RightUp:
+                    XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_RIGTHTOP;
+                    break;
+                case Enum_VideoPTZControl.PTZControl_RightDown:
+                    XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_RIGTHDOWN;
+                    break;
+            }
+            if (XMVideoPtzType != SDK_XMSDK.PTZ_ControlType.EXTPTZ_TOTAL)
+            {
+                //SDK_JCSDK.JCSDK_SendPTZCommand(intCloundSee_ConnID, XMVideoPtzType, bolStart);
+                bool bolResult = SDK_XMSDK.H264_DVR_PTZControl(Convert.ToInt32(lLogin), CurrentCameraInfo.Channel, Convert.ToInt32(XMVideoPtzType), !bolStart, CurrentVideoPlaySet.PTZSpeed);
+            }
+
+        }
+
+        #endregion
+
+        #region 回调函数
+
+        #endregion
+
+        #endregion
+
         #region 基本事件
 
         /// <summary>
@@ -1679,6 +1819,9 @@ namespace VideoPlayControl
                     break;
                 case Enum_VideoType.HikDVR:
                     HikDVR_VideoPlay();
+                    break;
+                case Enum_VideoType.XMaiVideo:
+                    XMVideo_VideoPlay();
                     break;
             }
         }
@@ -1744,6 +1887,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.HikDVR:
                         HikDVR_VideoClose();
                         break;
+                    case Enum_VideoType.XMaiVideo:
+                        XMVideo_VideoClose();
+                        break;
 
                 }
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
@@ -1773,6 +1919,9 @@ namespace VideoPlayControl
                         break;
                     case Enum_VideoType.SKVideo:
                         SKVideo_PTZControl(PTZControl, bolStart);
+                        break;
+                    case Enum_VideoType.XMaiVideo:
+                        XMVideo_PTZControl(PTZControl, bolStart);
                         break;
                 }
             }

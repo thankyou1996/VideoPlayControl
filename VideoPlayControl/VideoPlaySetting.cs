@@ -123,5 +123,21 @@ namespace VideoPlayControl
             get { return bolFirstInForcePreSetPosi; }
             set { bolFirstInForcePreSetPosi = value; }
         }
+
+
+        /// <summary>
+        /// 云台速度
+        /// </summary>
+        private int intPTZSpeed = 50;
+
+        /// <summary>
+        /// 云台速度
+        /// </summary>
+        public int PTZSpeed
+        {
+            get { return intPTZSpeed; }
+            set { intPTZSpeed = value; }
+        }
+
     }
 }

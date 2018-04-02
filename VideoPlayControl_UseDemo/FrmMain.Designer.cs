@@ -78,6 +78,8 @@
             this.pnlRight = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pageVideoInfo = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtVideoRecord = new System.Windows.Forms.TextBox();
             this.pnlVideoInfo_Right = new System.Windows.Forms.Panel();
             this.videoChannelList = new VideoPlayControl.VideoChannelList();
             this.pnlVideoInfo_Right_Top = new System.Windows.Forms.Panel();
@@ -126,8 +128,7 @@
             this.ssrTip = new System.Windows.Forms.StatusStrip();
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.txtVideoRecord = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.btnXMTestData1 = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -205,6 +206,7 @@
             // 
             // PageTestData
             // 
+            this.PageTestData.Controls.Add(this.btnXMTestData1);
             this.PageTestData.Controls.Add(this.btnHuaMaiTestData);
             this.PageTestData.Controls.Add(this.btnEzvizTestData);
             this.PageTestData.Controls.Add(this.btnAxisTestData);
@@ -690,6 +692,23 @@
             this.pageVideoInfo.Text = "视频设备信息";
             this.pageVideoInfo.UseVisualStyleBackColor = true;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(4, 182);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(77, 12);
+            this.label18.TabIndex = 36;
+            this.label18.Text = "录像文件地址";
+            // 
+            // txtVideoRecord
+            // 
+            this.txtVideoRecord.Location = new System.Drawing.Point(6, 197);
+            this.txtVideoRecord.Multiline = true;
+            this.txtVideoRecord.Name = "txtVideoRecord";
+            this.txtVideoRecord.Size = new System.Drawing.Size(136, 99);
+            this.txtVideoRecord.TabIndex = 35;
+            // 
             // pnlVideoInfo_Right
             // 
             this.pnlVideoInfo_Right.Controls.Add(this.videoChannelList);
@@ -1170,22 +1189,15 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // txtVideoRecord
+            // btnXMTestData1
             // 
-            this.txtVideoRecord.Location = new System.Drawing.Point(6, 197);
-            this.txtVideoRecord.Multiline = true;
-            this.txtVideoRecord.Name = "txtVideoRecord";
-            this.txtVideoRecord.Size = new System.Drawing.Size(136, 99);
-            this.txtVideoRecord.TabIndex = 35;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(4, 182);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(77, 12);
-            this.label18.TabIndex = 36;
-            this.label18.Text = "录像文件地址";
+            this.btnXMTestData1.Location = new System.Drawing.Point(163, 29);
+            this.btnXMTestData1.Name = "btnXMTestData1";
+            this.btnXMTestData1.Size = new System.Drawing.Size(75, 23);
+            this.btnXMTestData1.TabIndex = 15;
+            this.btnXMTestData1.Text = "雄迈数据";
+            this.btnXMTestData1.UseVisualStyleBackColor = true;
+            this.btnXMTestData1.Click += new System.EventHandler(this.btnXMTestData1_Click);
             // 
             // FrmMain
             // 
@@ -1337,6 +1349,7 @@
         private System.Windows.Forms.Button btnAxisTestData;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtVideoRecord;
+        private System.Windows.Forms.Button btnXMTestData1;
     }
 }
 

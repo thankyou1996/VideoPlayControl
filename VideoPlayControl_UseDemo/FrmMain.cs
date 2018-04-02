@@ -49,11 +49,12 @@ namespace VideoPlayControl_UseDemo
         {
             //VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
-            SDKState.SDKStateChangeEvent += SDKStateChange;
-            SDKState.CloundSee_SDKInit();
-            SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit();
-            SDKState.HuaMai_Init();
+            //SDKState.SDKStateChangeEvent += SDKStateChange;
+            //SDKState.CloundSee_SDKInit();
+            //SDKState.Ezviz_SDKInit();
+            //SDKState.SKVideoSDKInit();
+            //SDKState.HuaMai_Init();
+            SDKState.XMSDK_Init();
             Init();
         }
 
@@ -749,7 +750,13 @@ namespace VideoPlayControl_UseDemo
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
         }
-
+        private void btnXMTestData1_Click(object sender, EventArgs e)
+        {
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource();
+            dicVideoInfos[v.DVSNumber] = v;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
         public void Ezviz_TestData()
         {
             //"cameraId":"7e1c18bad66544408b38d1711552e320","cameraName":"视频1@DVR(756217914)",
@@ -1133,5 +1140,7 @@ namespace VideoPlayControl_UseDemo
             sbAxisVideoRecord.Append("\\" + videoInfo.DVSNumber + "_00_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "_06.bin");
             txtVideoRecord.Text = sbAxisVideoRecord.ToString();
         }
+
+        
     }
 }

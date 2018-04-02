@@ -35,6 +35,7 @@
     <DocumentationFile>bin\Release\VideoPlayControl.xml</DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Prefer32Bit>false</Prefer32Bit>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -508,6 +509,57 @@
     <Content Include="PTZIcon\PTZ_Up.png" />
     <Content Include="PTZIcon\PTZ_UpperLeft.png" />
     <Content Include="PTZIcon\PTZ_UpperRight.png" />
+    <Content Include="XMVideoSDK\AlarmCenter.exe" />
+    <Content Include="XMVideoSDK\ClientDemo.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\ConfigDemo.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\ffmpeg.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\H264Play.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\H264Play.h">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\H264Play.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\hi_h264dec_v.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\HW_H265dec_Win32D.dll" />
+    <Content Include="XMVideoSDK\HW_H265dec_Win64D.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\NetSdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\netsdk.h">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\NetSdk.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\StreamReader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\StreamReader.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\TransparentDemon.exe" />
+    <Content Include="XMVideoSDK\ucrtbased.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\UserInfo.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMVideoSDK\vcruntime140d.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Axis\AMP41.rar" />
@@ -615,6 +667,20 @@
     <None Include="SKVideoSDK\VLC_SDK.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="XMVideoSDK\Config.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XMVideoSDK\H264Play.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XMVideoSDK\Language\SimpChinese.lang">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XMVideoSDK\Language\SimpChinese.lang.bak" />
+    <None Include="XMVideoSDK\NetSdk.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XMVideoSDK\StreamReader.lib" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

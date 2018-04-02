@@ -229,49 +229,7 @@ namespace VideoPlayControl
         SDK_Local_PLAY_FAST,	        /*<! 加速播放 */
         SDK_Local_PLAY_SLOW,	        /*<! 减速播放 */
     };
-    //云台操作类型
-    public enum PTZ_ControlType
-    {
-        TILT_UP = 0,			//上
-        TILT_DOWN,				//下
-        PAN_LEFT,				//左
-        PAN_RIGHT,				//右
-        PAN_LEFTTOP,			//左上
-        PAN_LEFTDOWN,			//左下
-        PAN_RIGTHTOP,			//右上
-        PAN_RIGTHDOWN,			//右下
-        ZOOM_OUT,				//变倍小
-        ZOOM_IN,				//变倍大
-        FOCUS_FAR,				//焦点后调
-        FOCUS_NEAR,				//焦点前调
-        IRIS_OPEN,				//光圈扩大
-        IRIS_CLOSE,				//光圈缩小13
-
-        EXTPTZ_OPERATION_ALARM,			///< 报警功能 
-        EXTPTZ_LAMP_ON,					///< 灯光开
-        EXTPTZ_LAMP_OFF,				//灯光关
-        EXTPTZ_POINT_SET_CONTROL,			//设置预置点 
-        EXTPTZ_POINT_DEL_CONTROL,			//清除预置点 
-        EXTPTZ_POINT_MOVE_CONTROL,			//转预置点
-        EXTPTZ_STARTPANCRUISE,			//开始水平旋转		20	
-        EXTPTZ_STOPPANCRUISE,			//停止水平旋转	
-        EXTPTZ_SETLEFTBORDER,			//设置左边界		
-        EXTPTZ_SETRIGHTBORDER,			//设置右边界	
-        EXTPTZ_STARTLINESCAN,			//自动扫描开始 
-        EXTPTZ_CLOSELINESCAN,			//自动扫描开停止 
-        EXTPTZ_ADDTOLOOP,				//加入预置点到巡航	p1巡航线路	p2预置点值	
-        EXTPTZ_DELFROMLOOP,				//删除巡航中预置点	p1巡航线路	p2预置点值	
-        EXTPTZ_POINT_LOOP_CONTROL,			//开始巡航 28
-        EXTPTZ_POINT_STOP_LOOP_CONTROL,	//停止巡航
-        EXTPTZ_CLOSELOOP,				//清除巡航	p1巡航线路		
-        EXTPTZ_FASTGOTO,				//快速定位	
-        EXTPTZ_AUXIOPEN,				//辅助开关，关闭在子命令中//param1 参见SDK_PtzAuxStatus，param2传入具体数值
-        EXTPTZ_OPERATION_MENU,				//球机菜单操作，其中包括开，关，确定等等
-        EXTPTZ_REVERSECOMM,				//镜头翻转
-        EXTPTZ_OPERATION_RESET,			///< 云台复位
-
-        EXTPTZ_TOTAL,
-    };
+    
     [StructLayout(LayoutKind.Sequential, Size = 4)]
     public struct CONFIG_IPAddress
     {	//IP addr
@@ -1053,6 +1011,161 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
         public static extern bool H264_DVR_PTZControl(int lLoginID,int nChannelNo, int lPTZCommand, bool bStop, long lSpeed);
 
-    }
+        #region 结构体 
+        /// <summary>
+        /// 云台操作类型
+        /// </summary>
+        public enum PTZ_ControlType
+        {
+            /// <summary>
+            /// 上
+            /// </summary>
+            TILT_UP = 0,
+            /// <summary>
+            /// 下
+            /// </summary>
+            TILT_DOWN,
+            /// <summary>
+            /// 左
+            /// </summary>
+            PAN_LEFT,
+            /// <summary>
+            /// 右
+            /// </summary>
+            PAN_RIGHT,
+            /// <summary>
+            /// 左上
+            /// </summary>
+            PAN_LEFTTOP,
+            /// <summary>
+            /// 左下
+            /// </summary>
+            PAN_LEFTDOWN,
+            /// <summary>
+            /// 右上
+            /// </summary>
+            PAN_RIGTHTOP,
+            /// <summary>
+            /// 右下
+            /// </summary>
+            PAN_RIGTHDOWN,
+            /// <summary>
+            /// 变倍小
+            /// </summary>
+            ZOOM_OUT,
+            /// <summary>
+            /// 变倍大
+            /// </summary>
+            ZOOM_IN,
+            /// <summary>
+            /// 焦点后调
+            /// </summary>
+            FOCUS_FAR,
+            /// <summary>
+            /// 焦点前调
+            /// </summary>
+            FOCUS_NEAR,
+            /// <summary>
+            /// 光圈扩大
+            /// </summary>
+            IRIS_OPEN,
+            /// <summary>
+            /// 光圈缩小13
+            /// </summary>
+            IRIS_CLOSE,
+            /// <summary>
+            ///  报警功能
+            /// </summary>
+            EXTPTZ_OPERATION_ALARM,
+            /// <summary>
+            /// 灯光开
+            /// </summary>
+            EXTPTZ_LAMP_ON,
+            /// <summary>
+            /// 灯光开
+            /// </summary>
+            EXTPTZ_LAMP_OFF,
+            /// <summary>
+            /// 设置预置点
+            /// </summary>
+            EXTPTZ_POINT_SET_CONTROL,
+            /// <summary>
+            /// 清除预置点
+            /// </summary>
+            EXTPTZ_POINT_DEL_CONTROL,
+            /// <summary>
+            /// 转预置点
+            /// </summary>
+            EXTPTZ_POINT_MOVE_CONTROL,
+            /// <summary>
+            /// 开始水平旋转		20	
+            /// </summary>
+            EXTPTZ_STARTPANCRUISE,
+            /// <summary>
+            /// 停止水平旋转
+            /// </summary>
+            EXTPTZ_STOPPANCRUISE,
+            /// <summary>
+            /// 设置左边界
+            /// </summary>
+            EXTPTZ_SETLEFTBORDER,
+            /// <summary>
+            /// 设置右边界
+            /// </summary>
+            EXTPTZ_SETRIGHTBORDER,
+            /// <summary>
+            /// 自动扫描开始
+            /// </summary>
+            EXTPTZ_STARTLINESCAN,
+            /// <summary>
+            /// 自动扫描开停止 
+            /// </summary>
+            EXTPTZ_CLOSELINESCAN,
+            /// <summary>
+            /// 加入预置点到巡航	p1巡航线路	p2预置点值	
+            /// </summary>
+            EXTPTZ_ADDTOLOOP,
+            /// <summary>
+            /// 删除巡航中预置点	p1巡航线路	p2预置点值	
+            /// </summary>
+            EXTPTZ_DELFROMLOOP,
+            /// <summary>
+            /// 开始巡航 28
+            /// </summary>
+            EXTPTZ_POINT_LOOP_CONTROL,
+            /// <summary>
+            /// 停止巡航
+            /// </summary>
+            EXTPTZ_POINT_STOP_LOOP_CONTROL,
+            /// <summary>
+            /// 清除巡航	p1巡航线路		
+            /// </summary>
+            EXTPTZ_CLOSELOOP,
+            /// <summary>
+            /// 快速定位
+            /// </summary>
+            EXTPTZ_FASTGOTO,
+            /// <summary>
+            /// 辅助开关，关闭在子命令中//param1 参见SDK_PtzAuxStatus，param2传入具体数值
+            /// </summary>
+            EXTPTZ_AUXIOPEN,
+            /// <summary>
+            /// 球机菜单操作，其中包括开，关，确定等等
+            /// </summary>
+            EXTPTZ_OPERATION_MENU,
+            /// <summary>
+            /// 镜头翻转
+            /// </summary>
+            EXTPTZ_REVERSECOMM,
+            /// <summary>
+            /// 云台复位
+            /// </summary>
+            EXTPTZ_OPERATION_RESET,
 
+            EXTPTZ_TOTAL,
+        };
+
+
+        #endregion
+    }
 }
