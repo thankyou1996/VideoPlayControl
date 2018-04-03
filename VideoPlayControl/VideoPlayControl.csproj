@@ -21,7 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\VideoPlayControl.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -146,6 +147,14 @@
     <Compile Include="VideoPTZControl.Designer.cs">
       <DependentUpon>VideoPTZControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoRecordBackplayWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoRecordBackplayWindow.Designer.cs">
+      <DependentUpon>VideoRecordBackplayWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VideoRecordBackplay\IVideoRecordBackplay.cs" />
+    <Compile Include="VideoRecordBackplay\VideoRecordBackplay_XMAI.cs" />
     <Compile Include="VideoRecordList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -194,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VideoPTZControl.resx">
       <DependentUpon>VideoPTZControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoRecordBackplayWindow.resx">
+      <DependentUpon>VideoRecordBackplayWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VideoRecordList.resx">
       <DependentUpon>VideoRecordList.cs</DependentUpon>
@@ -509,14 +521,13 @@
     <Content Include="PTZIcon\PTZ_Up.png" />
     <Content Include="PTZIcon\PTZ_UpperLeft.png" />
     <Content Include="PTZIcon\PTZ_UpperRight.png" />
-    <Content Include="XMVideoSDK\AlarmCenter.exe" />
+    <Content Include="XMVideoSDK\AlarmCenter.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="XMVideoSDK\ClientDemo.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="XMVideoSDK\ConfigDemo.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XMVideoSDK\ffmpeg.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="XMVideoSDK\H264Play.dll">
@@ -531,8 +542,7 @@
     <Content Include="XMVideoSDK\hi_h264dec_v.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="XMVideoSDK\HW_H265dec_Win32D.dll" />
-    <Content Include="XMVideoSDK\HW_H265dec_Win64D.dll">
+    <Content Include="XMVideoSDK\HW_H265dec_Win32D.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="XMVideoSDK\NetSdk.dll">
@@ -550,14 +560,10 @@
     <Content Include="XMVideoSDK\StreamReader.pdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="XMVideoSDK\TransparentDemon.exe" />
-    <Content Include="XMVideoSDK\ucrtbased.dll">
+    <Content Include="XMVideoSDK\TransparentDemon.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="XMVideoSDK\UserInfo.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XMVideoSDK\vcruntime140d.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -676,11 +682,15 @@
     <None Include="XMVideoSDK\Language\SimpChinese.lang">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XMVideoSDK\Language\SimpChinese.lang.bak" />
+    <None Include="XMVideoSDK\Language\SimpChinese.lang.bak">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="XMVideoSDK\NetSdk.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XMVideoSDK\StreamReader.lib" />
+    <None Include="XMVideoSDK\StreamReader.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

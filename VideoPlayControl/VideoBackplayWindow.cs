@@ -143,7 +143,7 @@ namespace VideoPlayControl
         //private Thread renderThread;
         //private bool doExitRenderThread = false;
         //private object seekingLock = new object();
-        
+
         //private bool  Axis_PlayVideoRecord()
         //{
         //    if (CurrentPlaybackState == Enum_VideoPlaybackState.Playing)
@@ -251,7 +251,7 @@ namespace VideoPlayControl
         //    string timeFormat = (currentTime.Days > 0 || currentDuration.Days > 0) ?
         //        "({6}) {0:D2}:{1:D2}:{2:D2} / ({7}) {3:D2}:{4:D2}:{5:D2}" :
         //        "{0:D2}:{1:D2}:{2:D2}:{8:D3} / {3:D2}:{4:D2}:{5:D2}:{9:D3}";
-            
+
         //}
 
         //private void StartRenderThread()
@@ -386,7 +386,7 @@ namespace VideoPlayControl
         //        fileParser = null;
         //    }
         //    CurrentPlaybackState = Enum_VideoPlaybackState.Stopped;
-            
+
         //    return true;
         //}
 
@@ -423,14 +423,71 @@ namespace VideoPlayControl
         //        viewer.Pause();
         //        CurrentPlaybackState = Enum_VideoPlaybackState.Paused;
         //    }
-            
+
         //    return true;
         //}
 
         #endregion
 
+        #region  雄迈 XMVideoSDK
+
+        #region 全局变量
+        int m_nLocalplayHandle = -1;
+        int m_nFastTypeLocal = 0; //本地快播速度
+        int m_nSlowTypeLocal = 0;  // 本地慢播速度
+        #endregion
+        private bool XMVideo_PlayVideoRecord()
+        {
+            SDK_XMSDK.H264_DVR_StartLocalPlay(CurrentVideoRecordInfo.RecordPath, picPlaybackMain.Handle, null, Convert.ToUInt32(0));
+            SDK_XMSDK.fLocalPlayFileCallBack fileEndCallBack = new SDK_XMSDK.fLocalPlayFileCallBack(FileEndCallBack);
+            SDK_XMSDK.H264_DVR_SetFileEndCallBack(m_nLocalplayHandle, fileEndCallBack, this.Handle);
+            return true;
+        }
+
+        private bool XMVideo_StopVideoRecord()
+        {
+            SDK_XMSDK.H264_DVR_StopLocalPlay(m_nLocalplayHandle);
+            return true;
+        }
+
+        private bool XMVideo_PauseVideoRecord()
+        {
+            SDK_XMSDK.H264_DVR_LocalPlayCtrl(m_nLocalplayHandle, SDK_LoalPlayAction.SDK_Local_PLAY_PAUSE, 0);
+            return true;
+        }
+
+
+        private bool XMVideo_SetVideoRecordPos(float fltPoValue)
+        {
+            SDK_XMSDK.H264_DVR_SetPlayPos(m_nLocalplayHandle, fltPoValue);
+            return true;
+        }
+        #region 事件注册
+
+        /// <summary>
+        /// 文件播放完毕回调
+        /// </summary>
+        /// <param name="lPlayHand"></param>
+        /// <param name="nUser"></param>
+        void FileEndCallBack(uint lPlayHand, uint nUser)
+        {
+            if (SDK_XMSDK.H264_DVR_StopLocalPlay(m_nLocalplayHandle))
+            {
+                m_nLocalplayHandle = 0;
+            }
+            //timerLocalPlayBack.Enabled = false;
+            //trackBarLocalPlayPos.Value = 0;
+        }
+        #endregion
+
+
+        #endregion
         #region 基本事件
 
+        /// <summary>
+        /// 播放
+        /// </summary>
+        /// <returns></returns>
         public bool PlayVideoRecord()
         {
             switch (CurrentVideoRecordInfo.VideoRecordType )
@@ -438,10 +495,18 @@ namespace VideoPlayControl
                 case Enum_VIdeoRecordType.Axis:
                     //Axis_PlayVideoRecord();
                     break;
+                case Enum_VIdeoRecordType.XMaiVideo:
+                    XMVideo_PlayVideoRecord();
+                    break;
+
             }
             return true;
         }
 
+        /// <summary>
+        /// 停止
+        /// </summary>
+        /// <returns></returns>
         public bool StopVideoRecord()
         {
             if (CurrentVideoRecordInfo != null)
@@ -451,11 +516,18 @@ namespace VideoPlayControl
                     case Enum_VIdeoRecordType.Axis:
                         //Axis_StopVideoRecoerd();
                         break;
+                    case Enum_VIdeoRecordType.XMaiVideo:
+                        XMVideo_StopVideoRecord();
+                        break;
                 }
             }
             return true;
         }
 
+        /// <summary>
+        /// 暂停
+        /// </summary>
+        /// <returns></returns>
         public bool PauseVideoRecord()
         {
             switch (CurrentVideoRecordInfo.VideoRecordType)
@@ -463,10 +535,23 @@ namespace VideoPlayControl
                 case Enum_VIdeoRecordType.Axis:
                     //return Axis_PauseVideoRecord();
                     break;
+                case Enum_VIdeoRecordType.XMaiVideo:
+                    
+                    break;
             }
             return false;
         }
 
+        public bool SetVideoRecordPos(float fltPosValue)
+        {
+            //cas
+            return false;
+        }
+        #region 事件注册
+
+
+        #endregion 
+        
         #endregion
 
         private void picPlaybackMain_SizeChanged(object sender, EventArgs e)

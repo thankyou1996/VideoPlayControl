@@ -29,10 +29,10 @@ namespace VideoRecordPlayer
                 if (!string.IsNullOrEmpty(Temp_strValue))
                 {
                     VideoRecordInfo v = SK3000VideoRecordConvert.GetVideoRecordInfo_ByFileName(Temp_strValue);
-                    return new FrmMain(v);
+                    return new FrmVideoRecordBackplay(v);
                 }
             }
-            return new FrmMain();
+            return new FrmVideoRecordBackplay();
         }
 
 

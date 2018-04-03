@@ -569,6 +569,11 @@
             海康DVS 直接访问模式
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.XMaiVideo">
+            <summary>
+            雄迈视频SDK
+            </summary>
+        </member>
         <member name="T:PublicClassCurrency.Enum_VIdeoRecordType">
             <summary>
             录像类型
@@ -584,6 +589,11 @@
         <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.Axis">
             <summary>
             安讯士
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.XMaiVideo">
+            <summary>
+            雄迈
             </summary>
         </member>
         <member name="T:PublicClassCurrency.Enum_VideoRecordFileType">
