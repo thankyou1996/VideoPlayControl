@@ -194,7 +194,11 @@ namespace VideoPlayControl
     public enum SocketStyle
     {
         TCPSOCKET = 0,
-        UDPSOCKET
+        UDPSOCKET,
+        PLUGLANSOCKET = 4, //插座局域网登陆
+        PLUGOUTERSOCKET, //插座外网登陆
+        P2P_TUTKSOCKET, //TUTK P2P
+        SOCKETNR
     };
     public enum SERIAL_TYPE
     {
@@ -878,9 +882,10 @@ namespace VideoPlayControl
                               out H264_DVR_DEVICEINFO lpDeviceInfo, out int error, SocketStyle socketstyle);
 
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
-        public static extern Int32 H264_DVR_Login_Cloud(string sDVRIP, ushort wDVRPort, string sUserName, string sPassword,
-                              out H264_DVR_DEVICEINFO lpDeviceInfo, out int error, SocketStyle socketstyle);
-
+        public static extern Int32 H264_DVR_Login_Cloud(string sDVRIP, ushort wDVRPort, string sUserName, string sPassword, out H264_DVR_DEVICEINFO lpDeviceInfo, out int error, string strUserData);
+        
+        [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
+        public static extern Int32 H264_DVR_LoginEx_V2(string sDVRIP, ushort wDVRPort, string sUserName, string sPassword, out H264_DVR_DEVICEINFO lpDeviceInfo, int nType,out int error, SocketStyle socketstyle);
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
         public static extern int H264_DVR_GetLastError();
 
@@ -929,7 +934,7 @@ namespace VideoPlayControl
         public static extern Int32 H264_DVR_Login(StringBuilder sDVRIP, ushort wDVRPort, StringBuilder sUserName, StringBuilder sPassword,
                               out H264_DVR_DEVICEINFO lpDeviceInfo, out short error, SocketStyle socketstyle);
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
-        public static extern Int32 H264_DVR_Logout(long lLoginID);//登出设备
+        public static extern Int32 H264_DVR_Logout(int lLoginID);//登出设备
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
         public static extern void DisConnectBackCallFunc(Int32 lLoginID, IntPtr pchDVRIP, ushort nDVRPort, uint dwUser);
 

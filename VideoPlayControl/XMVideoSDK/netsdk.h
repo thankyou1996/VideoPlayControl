@@ -15,14 +15,15 @@
 #define DEF_PARAM(x) = x
 #define DEF_0_PARAM = 0
 #else	//linux
+
 #define Bool int
-#define TYPE_USER_DATA  unsigned long
-#define TYPE_USER_DATA2  long
 #define LOGD printf
 #ifdef OS_IOS
 #define H264_DVR_API
 #define DEF_PARAM(x)
 #define DEF_0_PARAM
+#define TYPE_USER_DATA  unsigned long
+#define TYPE_USER_DATA2  long
 #else
 #define H264_DVR_API	extern "C"
 #define DEF_PARAM(x) = x
@@ -42,13 +43,11 @@
 #define HDC		void*
 #define HWND	void*
 #define LPVOID	void*
+//#define 0	0
 #define LPCSTR  char*
 #define LPCTSTR  const char*
 #endif
 
-#ifdef _NAMESPACE_
-namespace JF_NETSDK{
-#endif
 enum SDK_RET_CODE
 {
 	H264_DVR_NOERROR				    = 0,				//Ã»ÓÐ´íÎó
@@ -66,29 +65,20 @@ enum SDK_RET_CODE
 	H264_DVR_DEV_VER_NOMATCH			= -11000,			//ÊÕµ½Êý¾Ý²»ÕýÈ·£¬¿ÉÄÜ°æ±¾²»Æ¥Åä
 	H264_DVR_SDK_NOTSUPPORT				= -11001,			//°æ±¾²»Ö§³Ö
 
-	H264_DVR_ANAS_EXIST					= -11130,			//NASµØÖ·ÒÑ´æÔÚ
-	H264_DVR_ANAS_ALIVE					= -11131,			//Â·¾¶±»Ê¹ÓÃ£¬ÎÞ·¨²Ù×÷
-	H264_DVR_ANAS_FULL					= -11132,			//NASÒÑ´ïµ½Ö§³ÖµÄ×î´óÖµ
-
-
-	H264_DVR_OPEN_CHANNEL_ERROR			= -11200,			//´ò¿ªÍ¨µÀÊ§°Ü,¿ÉÄÜ¼ì²âµ½Éè±¸ÒÑ¾­²»ÔÚÏß
+	H264_DVR_OPEN_CHANNEL_ERROR			= -11200,			//´ò¿ªÍ¨µÀÊ§°Ü
 	H264_DVR_CLOSE_CHANNEL_ERROR		= -11201,			//¹Ø±ÕÍ¨µÀÊ§°Ü
-	H264_DVR_SUB_CONNECT_ERROR			= -11202,			//½¨Á¢Ã½Ìå×ÓÁ¬½ÓÊ§°Ü,ÍøÂç³ö´í»òÕßÉè±¸¿ÉÄÜ²»ÔÚÏß
-	H264_DVR_SUB_CONNECT_SEND_ERROR		= -11203,			//Ã½Ìå×ÓÁ¬½ÓÍ¨Ñ¶Ê§°Ü,¿ÉÄÜ¼ì²âµ½Éè±¸ÒÑ¾­²»ÔÚÏß
+	H264_DVR_SUB_CONNECT_ERROR			= -11202,			//½¨Á¢Ã½Ìå×ÓÁ¬½ÓÊ§°Ü
+	H264_DVR_SUB_CONNECT_SEND_ERROR		= -11203,			//Ã½Ìå×ÓÁ¬½ÓÍ¨Ñ¶Ê§°Ü
 	H264_DVR_NATCONNET_REACHED_MAX		= -11204,           //NatÊÓÆµÁ´½Ó´ïµ½×î´ó£¬²»ÔÊÐíÐÂµÄNatÊÓÆµÁ´½Ó 
-	H264_DVR_NOTSUPPORT					= -11205,			//°æ±¾²»Ö§³Ö
-	H264_DVR_NOTVALID					= -11206,           //ÇëÇó·Ç·¨,Ö÷Á¬½Ó¿ÉÄÜÒÑ¶Ï¿ª
-	H264_DVR_TCPCONNET_REACHED_MAX		= -11207,			//TcpÊÓÆµÁ´½Ó´ïµ½×î´ó£¬²»ÔÊÐíÐÂµÄTcpÊÓÆµÁ´½Ó
-	H264_DVR_OPENEDPREVIEW				= -11208,			//¸ÃÍ¨µÀÒÑ¾­´ò¿ªÔ¤ÀÀ(Í¨µÀµÄ´ò¿ª¹Ø±ÕÐèÒªÒ»Ò»¶ÔÓ¦,´ò¿ª¼¸´ÎÐèÒª¹Ø±Õ¼¸´Î;²»Ò»ÖÂ»á´ò¿ªÌáÊ¾¸Ã´íÎó;Ô¤·À¿Í»§¶Ë¿ª·¢Âß¼­ÉÏµÄ²»ºÏÀíÉè¼ÆÔö¼Ó¸Ã´íÎóÖµ)
 
 	/// ÓÃ»§¹ÜÀí²¿·Ö´íÎóÂë
 	H264_DVR_NOPOWER					= -11300,			//ÎÞÈ¨ÏÞ
-	H264_DVR_PASSWORD_NOT_VALID			= -11301,			//ÕËºÅÃÜÂë²»¶Ô
+	H264_DVR_PASSWORD_NOT_VALID			= -11301,			// ÕËºÅÃÜÂë²»¶Ô
 	H264_DVR_LOGIN_USER_NOEXIST			= -11302,			//ÓÃ»§²»´æÔÚ
-	H264_DVR_USER_LOCKED				= -11303,			//¸ÃÓÃ»§±»Ëø¶¨
-	H264_DVR_USER_IN_BLACKLIST			= -11304,			//¸ÃÓÃ»§²»ÔÊÐí·ÃÎÊ(ÔÚºÚÃûµ¥ÖÐ)
-	H264_DVR_USER_HAS_USED				= -11305,			//¸ÃÓÃ»§ÒÑµÇÂ½
-	H264_DVR_USER_NOT_LOGIN				= -11306,			//¸ÃÓÃ»§Ã»ÓÐµÇÂ½
+	H264_DVR_USER_LOCKED				= -11303,			// ¸ÃÓÃ»§±»Ëø¶¨
+	H264_DVR_USER_IN_BLACKLIST			= -11304,			// ¸ÃÓÃ»§²»ÔÊÐí·ÃÎÊ(ÔÚºÚÃûµ¥ÖÐ)
+	H264_DVR_USER_HAS_USED				= -11305,			// ¸ÃÓÃ»§ÒÑµÇÂ½
+	H264_DVR_USER_NOT_LOGIN				= -11306,			// ¸ÃÓÃ»§Ã»ÓÐµÇÂ½
 	H264_DVR_CONNECT_DEVICE_ERROR		= -11307,			//¿ÉÄÜÉè±¸²»´æÔÚ
 	H264_DVR_ACCOUNT_INPUT_NOT_VALID	= -11308,			//ÓÃ»§¹ÜÀíÊäÈë²»ºÏ·¨
 	H264_DVR_ACCOUNT_OVERLAP			= -11309,			//Ë÷ÒýÖØ¸´
@@ -99,17 +89,15 @@ enum SDK_RET_CODE
 	H264_DVR_ACCOUNT_PWD_NOT_VALID		= -11314,			//ÃÜÂë²»ÕýÈ·
 	H264_DVR_ACCOUNT_PWD_NOT_MATCH		= -11315,			//ÃÜÂë²»Æ¥Åä
 	H264_DVR_ACCOUNT_RESERVED			= -11316,			//±£ÁôÕÊºÅ
-	H264_DVR_ACCOUNT_SYS_MAINTAIN		= -11317,			//ÏµÍ³Î¬»¤ÖÐ£¬²»¿ÉµÇÂ½
-	H264_DVR_EE_DVR_PASSWORD_NOT_VALID2	= -11318,			//ÕËºÅÃÜÂë²»¶Ô
 
 
 	/// ÅäÖÃ¹ÜÀíÏà¹Ø´íÎóÂë
-	H264_DVR_OPT_RESTART				= -11400,			//±£´æÅäÖÃºóÐèÒªÖØÆôÓ¦ÓÃ³ÌÐò
-	H264_DVR_OPT_REBOOT					= -11401,			//ÐèÒªÖØÆôÏµÍ³
-	H264_DVR_OPT_FILE_ERROR				= -11402,			//Ð´ÎÄ¼þ³ö´í
-	H264_DVR_OPT_CAPS_ERROR				= -11403,			//ÅäÖÃÌØÐÔ²»Ö§³Ö
-	H264_DVR_OPT_VALIDATE_ERROR			= -11404,			//ÅäÖÃÐ£ÑéÊ§°Ü
-	H264_DVR_OPT_CONFIG_NOT_EXIST		= -11405,			//ÇëÇó»òÕßÉèÖÃµÄÅäÖÃ²»´æÔÚ
+	H264_DVR_OPT_RESTART				= -11400,			// ±£´æÅäÖÃºóÐèÒªÖØÆôÓ¦ÓÃ³ÌÐò
+	H264_DVR_OPT_REBOOT					= -11401,			// ÐèÒªÖØÆôÏµÍ³
+	H264_DVR_OPT_FILE_ERROR				= -11402,			// Ð´ÎÄ¼þ³ö´í
+	H264_DVR_OPT_CAPS_ERROR				= -11403,			// ÅäÖÃÌØÐÔ²»Ö§³Ö
+	H264_DVR_OPT_VALIDATE_ERROR			= -11404,			// ÅäÖÃÐ£ÑéÊ§°Ü
+	H264_DVR_OPT_CONFIG_NOT_EXIST		= -11405,			// ÇëÇó»òÕßÉèÖÃµÄÅäÖÃ²»´æÔÚ
 	
 	//
 	H264_DVR_CTRL_PAUSE_ERROR			= -11500,			//ÔÝÍ£Ê§°Ü
@@ -134,10 +122,9 @@ enum SDK_RET_CODE
     H264_DVR_CONNECT_FULL				= -11612,			//·þÎñÆ÷Á¬½ÓÊýÒÑÂú
 	H264_DVR_CLOUD_LOGIN_ERR			= -11613,	        //ÔÆµÇÂ½¾ßÌåµÄ´íÎóÂë,ËµÃ÷:µ±µÇÂ½½Ó¿ÚµÄerror=-11613Ê±£¬Í¨¹ýH264_DVR_DEVICEINFO³ÉÔ±sCloudErrCode»ñÈ¡´íÎóÂë,µ×²ãÔö¼Ó´íÎóÂëÊ±ÉÏ²ã²»ÓÃÔö¼Ó´úÂë
 	H264_DVR_NO_CONNECT_FRONT			= -11614,			//Ç°¶ËÉè±¸Î´Á¬½Ó»òÕßÁ¬½ÓµÄÇ°¶ËÉè±¸·Ö±æÂÊÎ´Öª
-	H264_DVR_LOGIN_FULL					= -11615,			//µÇÂ¼¾ä±úÒÑ´ïµ½×î´óÖµ£¬ÎÞ·¨ÔÙµÇÂ¼
 	H264_DVR_ARSP_USER_NOEXIST			= -11619,			//ÓÃ»§²»´æÔÚ 
-	H264_DVR_ARSP_PASSWORD_ERROR		= -11620,			//ÕËºÅÃÜÂë²»¶Ô
-	H264_DVR_ARSP_QUERY_ERROR			= -11621,			//²éÑ¯Ê§°Ü 
+	H264_DVR_ARSP_PASSWORD_ERROR		= -11620,			// ÕËºÅÃÜÂë²»¶Ô
+	H264_DVR_ARSP_QUERY_ERROR			= -11621,			//	²éÑ¯Ê§°Ü 
 	//°æÈ¨Ïà¹Ø
 	H264_DVR_PIRATESOFTWARE				= -11700,			//Éè±¸µÁ°æ
 	H264_DVR_AUTH_TIMEOUT          		= -11800,			//¼øÈ¨³¬Ê±
@@ -153,29 +140,26 @@ enum SDK_RET_CODE
 	H264_DVR_INVALID_COMPALIBLE			= -11809,			//Éý¼¶³ÌÐòµÄ¼æÈÝ°æ±¾ºÅ±ÈÉè±¸ÏÖÓÐµÄÐ¡£¬²»ÔÊÐíÉè±¸Éý¼¶»ØÀÏ³ÌÐò
 	H264_DVR_INVALID_VERSION			= -11810,			//·Ç·¨µÄ°æ±¾
 	H264_DVR_INVALID_WIFI_DRIVE			= -11811,			//Éý¼¶³ÌÐòÀïwifiÇý¶¯ºÍÉè±¸µ±Ç°ÔÚÊ¹ÓÃµÄwifiÍø¿¨²»Æ¥Åä
-	H264_DVR_INVALID_CUR_FLASH			= -11812,			//Éý¼¶³ÌÐò²»Ö§³ÖÉè±¸Ê¹ÓÃµÄFlash
-	//³¬Ê±
-	H264_DVR_NAT_INIT_TIMEOUT           = -12000,			//ÔÆµÇÂ¼³õÊ¼»¯³¬Ê±ÓÃÓÚÇø±ðÒ»°ã³¬Ê±Çé¿ö
 };
 
 
 //ÔÆÌ¨²Ù×÷ÀàÐÍ
 enum PTZ_ControlType
 {
-	TILT_UP = 0,					//ÉÏ
-	TILT_DOWN,						//ÏÂ
-	PAN_LEFT,						//×ó
-	PAN_RIGHT,						//ÓÒ
-	PAN_LEFTTOP,					//×óÉÏ
-	PAN_LEFTDOWN,					//×óÏÂ
-	PAN_RIGTHTOP,					//ÓÒÉÏ
-	PAN_RIGTHDOWN,					//ÓÒÏÂ
-	ZOOM_OUT_1,						//±ä±¶Ð¡//ZOOM_OUT/ZOOM_INÔÚVS2010ÓëÏµÍ³¶¨ÒåµÄ³åÍ»ÁË
-	ZOOM_IN_1,						//±ä±¶´ó
-	FOCUS_FAR,						//½¹µãºóµ÷
-	FOCUS_NEAR,						//½¹µãÇ°µ÷
-	IRIS_OPEN,						//¹âÈ¦À©´ó
-	IRIS_CLOSE,						//¹âÈ¦ËõÐ¡13
+	TILT_UP = 0,			//ÉÏ
+	TILT_DOWN,				//ÏÂ
+	PAN_LEFT,				//×ó
+	PAN_RIGHT,				//ÓÒ
+	PAN_LEFTTOP,			//×óÉÏ
+	PAN_LEFTDOWN,			//×óÏÂ
+	PAN_RIGTHTOP,			//ÓÒÉÏ
+	PAN_RIGTHDOWN,			//ÓÒÏÂ
+	ZOOM_OUT_1,				//±ä±¶Ð¡//ZOOM_OUT/ZOOM_INÔÚVS2010ÓëÏµÍ³¶¨ÒåµÄ³åÍ»ÁË
+	ZOOM_IN_1,				//±ä±¶´ó
+	FOCUS_FAR,				//½¹µãºóµ÷
+	FOCUS_NEAR,				//½¹µãÇ°µ÷
+	IRIS_OPEN,				//¹âÈ¦À©´ó
+	IRIS_CLOSE,				//¹âÈ¦ËõÐ¡13
 
 	EXTPTZ_OPERATION_ALARM,			//±¨¾¯¹¦ÄÜ 
 	EXTPTZ_LAMP_ON,					//µÆ¹â¿ª
@@ -214,14 +198,15 @@ enum SDK_PtzAuxStatus
 //#define EXTPTZ_FASTGOTO	30	//ÈýÎ¬¶¨Î»
 
 
-#define NET_MAX_CHANNUM 			64			//×î´óÍ¨µÀ¸öÊý
-#define NET_DECORDR_CH              64          //×î´ó½âÂëÍ¨µÀ¸öÊý
+
+#define NET_MAX_CHANNUM 			32			//×î´óÍ¨µÀ¸öÊý
+#define NET_DECORDR_CH              32          //×î´ó½âÂëÍ¨µÀ¸öÊý
 #define NET_MAX_USER_NUM			60			//×î¶àÓÃ»§Êý
-#define NET_MAX_RIGTH_NUM			200			//×î¶àÈ¨ÏÞÊý
+#define NET_MAX_RIGTH_NUM			128			//×î¶àÈ¨ÏÞÊý
 #define NET_MAX_GROUP_NUM			50			//×î¶à×éÊý
 #define NET_MAX_USER_LENGTH			32			//ÓÃ»§ÃûÃÜÂë×î´ó³¤¶È
 #define NET_MAX_COMBINE_NUM			2			//×î´ó×éºÏ±àÂëÍ¨µÀÊý
-#define NET_MAX_DECORDR_CH          64          //×î´ó½âÂëÍ¨µÀ¸öÊý	
+#define NET_MAX_DECORDR_CH          32          //×î´ó½âÂëÍ¨µÀ¸öÊý	
 
 #define NET_MAX_DDNS_TYPE			5			//Ö§³ÖµÄDDNSÖÖÀà
 #define NET_MAX_ARSP_TYPE			5
@@ -243,83 +228,66 @@ enum SDK_PtzAuxStatus
 #define NET_MAX_INFO_LEN		    128
 #define NET_MAX_USERNAME_LENGTH		128
 #define NET_MAX_SERIALNO_LENGTH		128         //×î´ó½âÂëÍ¨µÀ¸öÊý
-#define NET_CHANNEL_NAME_MAX_LEN    64			//Í¨µÀÃû³Æ×î´ó³¤¶È
+#define NET_CHANNEL_NAME_MAX_LEN   64			//Í¨µÀÃû³Æ×î´ó³¤¶È
 #define NET_MAX_LINE_PER_OSD_AREA   12			//±àÂëÖÐÒ»¸öOSDÇøÓò×î¶à¿ÉÒÔÏÔÊ¾µÄ×Ö·ûÐÐÊý
 
 //DDNS²ÎÊý
-#define DDNS_MAX_DDNS_NAMELEN       64  		//Ö÷»úÃû³¤¶È
-#define DDNS_MAX_DDNS_PWDLEN        32   		//ÃÜÂë³¤¶È
-#define DDNS_MAX_DDNS_IPSIZE        64   		//IPµØÖ·³¤¶È
-#define DDNS_MAX_DDNS_IDSIZE        32   		//Éè±¸±êÊ¶³¤¶È
-#define DDNS_MAX_SERIALINFO_SIZE    16 			//ÐòÁÐºÅÒÔ¼°ÓÃ»§Ãû³¤¶È
+#define DDNS_MAX_DDNS_NAMELEN 64  //Ö÷»úÃû³¤¶È
+#define DDNS_MAX_DDNS_PWDLEN 32   //ÃÜÂë³¤¶È
+#define DDNS_MAX_DDNS_IPSIZE 64   //IPµØÖ·³¤¶È
+#define DDNS_MAX_DDNS_IDSIZE 32   //Éè±¸±êÊ¶³¤¶È
+#define DDNS_MAX_SERIALINFO_SIZE 16 //ÐòÁÐºÅÒÔ¼°ÓÃ»§Ãû³¤¶È
 
-#define  NET_MAX_MSK_SIZE           128			//ÑÚÂëÊý×éµÄ´óÐ¡
 
 
 //ÉãÏó»ú²ÎÊý
-#define CAMERAPARA_MAXNUM           16    		//ÆØ¹âÄÜÁ¦ÖÐÄ¿Ç°×î´ó³¤¶È
+#define CAMERAPARA_MAXNUM  16    //ÆØ¹âÄÜÁ¦ÖÐÄ¿Ç°×î´ó³¤¶È
 //¶ÌÐÅ×î´óÊýÁ¿
-#define NET_MAX_RECIVE_MSG_PHONE_COUNT 3		///<×î´ó·¢Éú¶ÌÐÅÊýÁ¿
+#define MAX_RECIVE_MSG_PHONE_COUNT 3	//×î´ó·¢Éú¶ÌÐÅÊýÁ¿
 
 //VGA·Ö±æÂÊ
-#define VGA_MAXNUM        32       				//·Ö±æÂÊ ÖÖÀà
-#define VGA_NAME_LENGTH   10					//·Ö±æÂÊ ³¤¶È	
+#define VGA_MAXNUM     32       //·Ö±æÂÊ ÖÖÀà
+#define VGA_NAME_LENGTH 10		//·Ö±æÂÊ ³¤¶È	
 
 //ÏÔÊ¾µÄÉè±¸ÁÐ±í(Éè±¸¶ËËÑË÷)
 #define DEV_LIST_SHOW  256
 
 //IP SIZE
 #define IP_SIZE  16
-//#define  MAX_HVR_CHNCAP 16
+//#define  MAX_HVR_CHNCAP       16
 //DDNS·þÎñÆ÷Éè±¸µÄÐÅÏ¢
-
-//Í¨µÀÄ£Ê½
-#define MAX_HVR_CHNCAP_CHN		32
 
 #define  NET_NAME_TOKEN_LEN 128
 
 #define  NET_NAME_URL_LEN 128
 #define  NET_NAME_ID_LEN 64
-#define  NET_MAX_POS_FUNC_KEYWORDS 4 //POS¹¦ÄÜÖÐ×î¶àÖ§³ÖµÄ¹Ø¼ü×Ö¸öÊý
-#define  NET_MAX_TITLE_DOT_BUF_LEN	 64*24*24
-//Ó²ÅÌÐÅÏ¢
-#define NET_FSLEN 8	//´ÓIConstraint::FS_LEN¿½¹ýÀ´
-
-//³µÅÆÍ¼Æ¬ÐÅÏ¢´óÐ¡
-#define MAX_PLATE_NUM 7
-#define LPR_MAX_LED_CONTENT 120
-#define LPR_MAX_LED_COUNT 8
-
-//µØÖ·´óÐ¡ºÍpinÂë´óÐ¡
-#define  NAME_TOKEN_LEN 128
-#define  NAME_URL_LEN 128
 
 typedef struct _DDNS_INFO
 {
-	char ID[64];    						//Éè±¸±êÊ¶
+	char ID[64];    //Éè±¸±êÊ¶
 	char Alias[DDNS_MAX_DDNS_NAMELEN];
-	char IP[DDNS_MAX_DDNS_IPSIZE];   		//ÍâÍøIP
-	char LanIP[DDNS_MAX_DDNS_IPSIZE];		//ÄÚÍøIP
-	int WebPort; 							//Web¶Ë¿Ú,Ä¬ÈÏÎª80
-	int MediaPort; 							//Ã½Ìå¶Ë¿Ú,Ä¬ÈÏÎª34567
-	int MobilePort;  						//ÊÖ»ú¼à¿Ø¶Ë¿Ú£¬Ä¬ÈÏÎª34599
-	int UPNPWebPort;  						//UPNPÆô¶¯ÏÂWeb¶Ë¿Ú,UPNP²»¿ªÆôÎª0
-	int UPNPMediaPort; 						//UPNPÆô¶¯ÏÂÃ½Ìå¶Ë¿Ú,UPNP²»¿ªÆôÎª0
-	int UPNPMobilePort; 					//UPNPÆô¶¯ÏÂÊÖ»ú¼à¿Ø¶Ë¿Ú,UPNP²»¿ªÆôÎª0
-	int ChannelNum; 						//Í¨µÀÊý
-	int Status; 							//×´Ì¬
-	char Username[DDNS_MAX_DDNS_NAMELEN]; 	//ÓÃ»§Ãû
-	char Password[DDNS_MAX_DDNS_PWDLEN]; 	//ÃÜÂë
+	char IP[DDNS_MAX_DDNS_IPSIZE];   //ÍâÍøIP
+	char LanIP[DDNS_MAX_DDNS_IPSIZE];//ÄÚÍøIP
+	int WebPort; //Web¶Ë¿Ú,Ä¬ÈÏÎª80
+	int MediaPort; //Ã½Ìå¶Ë¿Ú,Ä¬ÈÏÎª34567
+	int MobilePort;  //ÊÖ»ú¼à¿Ø¶Ë¿Ú£¬Ä¬ÈÏÎª34599
+	int UPNPWebPort;  //UPNPÆô¶¯ÏÂWeb¶Ë¿Ú,UPNP²»¿ªÆôÎª0
+	int UPNPMediaPort; //UPNPÆô¶¯ÏÂÃ½Ìå¶Ë¿Ú,UPNP²»¿ªÆôÎª0
+	int UPNPMobilePort; //UPNPÆô¶¯ÏÂÊÖ»ú¼à¿Ø¶Ë¿Ú,UPNP²»¿ªÆôÎª0
+	int ChannelNum; //Í¨µÀÊý
+	int Status; //×´Ì¬
+	char Username[DDNS_MAX_DDNS_NAMELEN]; //ÓÃ»§Ãû
+	char Password[DDNS_MAX_DDNS_PWDLEN]; //ÃÜÂë
 }DDNS_INFO,*pDDNS_INFO;
 
 //DDNSÐÅÏ¢²éÑ¯Ä£Ê½
 typedef struct _SearchMode
 {
-	int  nType;        								//²éÑ¯ÀàÐÍ£¬¼ûSearchModeType
-	char szSerIP[DDNS_MAX_DDNS_IPSIZE];				//·þÎñÆ÷µØÖ·
-	int nSerPort;           						//·þÎñÆ÷¶Ë¿ÚºÅ
-	char szSerialInfo[DDNS_MAX_SERIALINFO_SIZE];  	//Èç¹ûÊÇ°´ÐòÁÐºÅ£¬ÔòÎªÐòÁÐºÅ£¬Èç¹ûÊÇÓÃ»§Ãû£¬ÔòÎªÓÃ»§Ãû
-	char szPassWord[DDNS_MAX_DDNS_PWDLEN]; 			//°´ÓÃ»§ÃûµÇÂ½Ê±ºòµÄÃÜÂë
+	int  nType;        //²éÑ¯ÀàÐÍ£¬¼ûSearchModeType
+	char szSerIP[DDNS_MAX_DDNS_IPSIZE];//·þÎñÆ÷µØÖ·
+	int nSerPort;           //·þÎñÆ÷¶Ë¿ÚºÅ
+	char szSerialInfo[DDNS_MAX_SERIALINFO_SIZE];  //Èç¹ûÊÇ°´ÐòÁÐºÅ£¬ÔòÎªÐòÁÐºÅ£¬Èç¹ûÊÇÓÃ»§Ãû£¬ÔòÎªÓÃ»§Ãû
+	char szPassWord[DDNS_MAX_DDNS_PWDLEN]; //°´ÓÃ»§ÃûµÇÂ½Ê±ºòµÄÃÜÂë
 
 }SearchMode;
 
@@ -332,20 +300,20 @@ enum SearchModeType
 //ÊµÊ±Ô¤ÀÀÀ©Õ¹½Ó¿ÚÔö¼ÓµÄ²ÎÊý£ºÔ¤ÀÀÀàÐÍ
 typedef enum _H264_DVR_RealPlayType
 {
-	NET_RType_Realplay = 0,		//ÊµÊ±Ô¤ÀÀ
+	NET_RType_Realplay = 0,	//ÊµÊ±Ô¤ÀÀ
 	NET_RType_Main_Realplay2,	//ÊµÊ±¼àÊÓ-Ö÷ÂëÁ÷£¬µÈÍ¬ÓÚNET_RType_Realplay
 	NET_RType_Main_Realplay3,
 	NET_RType_Sub_Realplay_1,	//ÊµÊ±¼àÊÓ-´ÓÂëÁ÷1
 	NET_RType_Sub_Realplay_2,	//ÊµÊ±¼àÊÓ-´ÓÂëÁ÷2
 	NET_RType_Sub_Realplay_3,	//ÊµÊ±¼àÊÓ-´ÓÂëÁ÷3
 
-	NET_RType_Multiplay_1,		//¶à»­ÃæÔ¤ÀÀ£­1»­Ãæ
-	NET_RType_Multiplay_4,		//¶à»­ÃæÔ¤ÀÀ£­4»­Ãæ
-	NET_RType_Multiplay_6,		//¶à»­ÃæÔ¤ÀÀ£­6»­Ãæ
-	NET_RType_Multiplay_8,		//¶à»­ÃæÔ¤ÀÀ£­8»­Ãæ
-	NET_RType_Multiplay_9,		//¶à»­ÃæÔ¤ÀÀ£­9»­Ãæ
-	NET_RType_Multiplay_12,		//¶à»­ÃæÔ¤ÀÀ£­12»­Ãæ
-	NET_RType_Multiplay_16,		//¶à»­ÃæÔ¤ÀÀ£­16»­Ãæ
+	NET_RType_Multiplay_1,	//¶à»­ÃæÔ¤ÀÀ£­1»­Ãæ
+	NET_RType_Multiplay_4,	//¶à»­ÃæÔ¤ÀÀ£­4»­Ãæ
+	NET_RType_Multiplay_6,	//¶à»­ÃæÔ¤ÀÀ£­6»­Ãæ
+	NET_RType_Multiplay_8,	//¶à»­ÃæÔ¤ÀÀ£­8»­Ãæ
+	NET_RType_Multiplay_9,	//¶à»­ÃæÔ¤ÀÀ£­9»­Ãæ
+	NET_RType_Multiplay_12,	//¶à»­ÃæÔ¤ÀÀ£­12»­Ãæ
+	NET_RType_Multiplay_16,	//¶à»­ÃæÔ¤ÀÀ£­16»­Ãæ
 } NET_RealPlayType;
 
 /// ×éºÏ±àÂëÄ£Ê½
@@ -381,7 +349,7 @@ enum NetCombinType
 
 //ÕâÐ©½á¹¹ÌåºÍÃ¶¾ÙÊÇÌá¹©¸øÍâ²¿Ê¹ÓÃ£¬ËùÓÐ¿ÉÄÜ»áºÍÉè±¸ÄÇ±ß¶¨ÒåÁË2´Î,ËùÒÔ¶¼ÔÚÇ°Ãæ¼ÓÁËSDK_
 enum SDK_CAPTURE_SIZE_t {
-	SDK_CAPTURE_SIZE_D1,		///< 720*576(PAL)	720*480(NTSC)   800*480
+	SDK_CAPTURE_SIZE_D1,		///< 720*576(PAL)	720*480(NTSC)
 	SDK_CAPTURE_SIZE_HD1,		///< 352*576(PAL)	352*480(NTSC)
 	SDK_CAPTURE_SIZE_BCIF,		///< 720*288(PAL)	720*240(NTSC)
 	SDK_CAPTURE_SIZE_CIF,		///< 352*288(PAL)	352*240(NTSC)
@@ -390,31 +358,31 @@ enum SDK_CAPTURE_SIZE_t {
 	SDK_CAPTURE_SIZE_QVGA,		///< 320*240(PAL)	320*240(NTSC)
 	SDK_CAPTURE_SIZE_SVCD,		///< 480*480(PAL)	480*480(NTSC)
 	SDK_CAPTURE_SIZE_QQVGA,		///< 160*128(PAL)	160*128(NTSC)
-	SDK_CAPTURE_SIZE_ND1 = 9,   ///< 240*192
-	SDK_CAPTURE_SIZE_650TVL,    ///< 926*576
-	SDK_CAPTURE_SIZE_720P,      ///< 1280*720
-	SDK_CAPTURE_SIZE_1_3M,      ///< 1280*960
-	SDK_CAPTURE_SIZE_UXGA ,     ///< 1600*1200
-	SDK_CAPTURE_SIZE_1080P,     ///< 1920*1080
-	SDK_CAPTURE_SIZE_WUXGA,     ///< 1920*1200
-	SDK_CAPTURE_SIZE_2_5M,      ///< 1872*1408
-	SDK_CAPTURE_SIZE_3M,        ///< 2048*1536
-	SDK_CAPTURE_SIZE_5M,        ///< 3744*1408
+	SDK_CAPTURE_SIZE_ND1 = 9,     ///< 240*192
+	SDK_CAPTURE_SIZE_650TVL,      ///< 926*576
+	SDK_CAPTURE_SIZE_720P,        ///< 1280*720
+	SDK_CAPTURE_SIZE_1_3M,        ///< 1280*960
+	SDK_CAPTURE_SIZE_UXGA ,       ///< 1600*1200
+	SDK_CAPTURE_SIZE_1080P,       ///< 1920*1080
+	SDK_CAPTURE_SIZE_WUXGA,       ///< 1920*1200
+	SDK_CAPTURE_SIZE_2_5M,        ///< 1872*1408
+	SDK_CAPTURE_SIZE_3M,          ///< 2048*1536
+	SDK_CAPTURE_SIZE_5M,          ///< 3744*1408
 	SDK_CAPTURE_SIZE_NR =19,
-	SDK_CAPTURE_SIZE_1080N = 19,///< 960*1080
+	SDK_CAPTURE_SIZE_1080N = 19,     ///< 960*1080
 	SDK_CAPTURE_SIZE_4M,        ///< 2592*1520
 	SDK_CAPTURE_SIZE_6M,		///< 3072¡Á2048
 	SDK_CAPTURE_SIZE_8M,		///< 3264¡Á2448
 	SDK_CAPTURE_SIZE_12M,		///< 4000*3000
 	SDK_CAPTURE_SIZE_4K,		///< 4096 * 2160Í¨ÓÃ/3840*2160º£Ë¼
 	SDK_CAPTURE_SIZE_EXT_V2_NR =25,
-	SDK_CAPTURE_SIZE_720N = 25,  	///< 640*720
-	SDK_CAPTURE_SIZE_WSVGA,			///< 1024*576
-	SDK_CAPTURE_SIZE_NHD,			///< Wifi IPC 640*360
-	SDK_CAPTURE_SIZE_3M_N,			///< 1024*1536
-	SDK_CAPTURE_SIZE_4M_N,			///< 1296*1520
-	SDK_CAPTURE_SIZE_5M_N,			///< 1872*1408
-	SDK_CAPTURE_SIZE_4K_N,			///< 2048 * 2160Í¨ÓÃ/1920*2160º£Ë¼
+	SDK_CAPTURE_SIZE_720N = 25,  		//  640*720
+	SDK_CAPTURE_SIZE_RES1,       		// 0*0 ÈßÓà
+	SDK_CAPTURE_SIZE_RES2,      		// 0*0
+	SDK_CAPTURE_SIZE_RES3,      		// 0*0
+	SDK_CAPTURE_SIZE_RES4,      		// 0*0
+	SDK_CAPTURE_SIZE_RES5,      		// 0*0
+	SDK_CAPTURE_SIZE_RES6,      		// 0*0
 	SDK_CAPTURE_SIZE_EXT_V3_NR,
 };
 
@@ -436,7 +404,6 @@ enum SDK_CAPTURE_COMP_t {
 	SDK_CAPTURE_COMP_MJPG,			///< MJPG
 	SDK_CAPTURE_COMP_FCC_MPEG4,		///< FCC MPEG4
 	SDK_CAPTURE_COMP_H264,			///< H.264
-	SDK_CAPTURE_COMP_H265,			///< H.265
 	SDK_CAPTURE_COMP_NR				///< Ã¶¾ÙµÄÑ¹Ëõ±ê×¼ÊýÄ¿¡£
 };
 
@@ -567,13 +534,13 @@ typedef enum _SDK_CONFIG_TYPE
 	E_SDK_CONFIG_CLOSETRANSCOMCHANNEL = 90,//¹Ø±ÕÍ¸Ã÷´®¿Ú
 	E_SDK_CONFIG_SERIALWIRTE,  			//Ð´ÈëÍ¸Ã÷´®¿ÚÐÅÏ¢
 	E_SDK_CONFIG_SERIALREAD,   			//¶ÁÈ¡Í¸Ã÷´®¿ÚÐÅÏ¢
-	E_SDK_CONFIG_CHANNELTILE_DOT,		//µãÕóÐÅÏ¢-ÐÞ¸ÄIPCÍ¨µÀÃûÐèÒªµãÕóÐÅÏ¢---¶ÔÓ¦½á¹¹ÌåSDK_TitleDot
+	E_SDK_CONFIG_CHANNELTILE_DOT,		//µãÕóÐÅÏ¢-ÐÞ¸ÄIPCÍ¨µÀÃûÐèÒªµãÕóÐÅÏ¢
 	E_SDK_CONFIG_CAMERA,           		//ÉãÏó»ú²ÎÊý---¶ÔÓ¦½á¹¹ÌåSDK_CameraParam
 	E_SDK_CONFIG_ABILITY_CAMERA,    	//ÆØ¹âÄÜÁ¦¼¶---¶ÔÓ¦½á¹¹ÌåSDK_CameraAbility
 	E_SDK_CONFIG_BUGINFO,    			//ÃüÁîµ÷ÊÔ													
 	E_SDK_CONFIG_STORAGENOTEXIST,		//Ó²ÅÌ²»´æÔÚ---¶ÔÓ¦½á¹¹ÌåSDK_VIDEOLOSSCONFIG
-	E_SDK_CONFIG_STORAGELOWSPACE, 		//Ó²ÅÌÈÝÁ¿²»×ã---¶ÔÓ¦½á¹¹ÌåSDK_StorageLowSpaceConfig								
-	E_SDK_CONFIG_STORAGEFAILURE, 		//Ó²ÅÌ³ö´í---¶ÔÓ¦½á¹¹ÌåSDK_StorageFailConfig
+	E_SDK_CONFIG_STORAGELOWSPACE, 		//Ó²ÅÌÈÝÁ¿²»×ã---¶ÔÓ¦½á¹¹ÌåSDK_StorageLowSpaceConfig
+	E_SDK_CONFIG_STORAGEFAILURE, 		//Ó²ÅÌ³ö´í---¶ÔÓ¦½á¹¹ÌåSDK_VIDEOLOSSCONFIG
 	E_SDK_CFG_NETIPCONFLICT = 100,   	//IP³åÍ»---¶ÔÓ¦½á¹¹ÌåSDK_VIDEOLOSSCONFIG
 	E_SDK_CFG_NETABORT,  				//ÍøÂçÒì³£---¶ÔÓ¦½á¹¹ÌåSDK_VIDEOLOSSCONFIG
 	E_SDK_CONFIG_CHNSTATUS, 			//Í¨µÀ×´Ì¬---¶ÔÓ¦½á¹¹ÌåSDK_NetDecorderChnStatusAll
@@ -644,7 +611,7 @@ typedef enum _SDK_CONFIG_TYPE
 	E_SDK_ABILITY_MAX_PRE_RECORD,   //×î´ó¿ÉÉèÖÃÔ¤Â¼Ê±¼ä1~30---¶ÔÓ¦½á¹¹ÌåSDK_AbilityMask
 	E_SDK_CFG_DIG_TIME_SYN,			//Êý×ÖÍ¨µÀÊ±¼äÍ¬²½ÅäÖÃ(¾ö¶¨Ç°¶ËÍ¬²½·½Ê½)---¶ÔÓ¦½á¹¹ÌåSDK_TimeSynParam
 	E_SDK_CONFIG_OSDINFO_DOT,		//3ÐÐOSD
-	E_SDK_CFG_NET_POS = 170,		//POS»úÅäÖÃ---¶ÔÓ¦½á¹¹ÌåSDK_NetPosConfigAll
+	E_CFG_NET_POS = 170,			//POS»úÅäÖÃ---¶ÔÓ¦½á¹¹ÌåSDK_NetPosConfigAll
 	E_SDK_CFG_CUSTOMIZE_OEMINFO,	//¶¨ÖÆOEM¿Í»§°æ±¾ÐÅÏ¢---¶ÔÓ¦½á¹¹ÌåSDK_CustomizeOEMInfo
 	E_SDK_CFG_DIGITAL_ENCODE, 		//Êý×ÖÍ¨µÀ¾«¼ò°æ±àÂëÅäÖÃ---¶ÔÓ¦½á¹¹ÌåSDK_EncodeConfigAll_SIMPLIIFY
 	E_SDK_CFG_DIGITAL_ABILITY, 		//Êý×ÖÍ¨µÀµÄ±àÂëÄÜÁ¦---¶ÔÓ¦½á¹¹ÌåSDK_DigitDevInfo
@@ -656,8 +623,8 @@ typedef enum _SDK_CONFIG_TYPE
 	E_SDK_ABILITY_AHD_ENCODE_L, 	//AHDLÄÜÁ¦¼¯---¶ÔÓ¦½á¹¹ÌåSDK_AHDEncodeLMask
 	E_SDK_CFG_SPEEDALARM = 180,		//ËÙ¶È±¨¾¯---¶ÔÓ¦½á¹¹ÌåSDK_SpeedAlarmConfigAll
 	E_SDK_CFG_CORRESPONDENT_INFO,	//ÓÃ»§×Ô¶¨ÒåÅäÖÃ---¶ÔÓ¦½á¹¹ÌåSDK_CorrespondentOwnInfo
-	E_SDK_SET_OSDINFO,				//OSDÐÅÏ¢ÉèÖÃ---¶ÔÓ¦½á¹¹ÌåSDK_OSDInfo,(´ËÏî¹¦ÄÜÖ»Ö§³ÖÄ£ÄâÍ¨µÀ)
-	E_SDK_SET_OSDINFO_V2,			//OSDÐÅÏ¢µþ¼Ó£¬²»±£´æÅäÖÃ---¶ÔÓ¦½á¹¹ÌåSDK_OSDInfoConfigAll£¬(´ËÏî¹¦ÄÜÖ»Ö§³ÖÄ£ÄâÍ¨µÀ)
+	E_SDK_SET_OSDINFO,				//OSDÐÅÏ¢ÉèÖÃ---¶ÔÓ¦½á¹¹ÌåSDK_OSDInfo
+	E_SDK_SET_OSDINFO_V2,			//OSDÐÅÏ¢µþ¼Ó£¬²»±£´æÅäÖÃ---¶ÔÓ¦½á¹¹ÌåSDK_OSDInfoConfigAll
 	E_SDK_ABILITY_SUPPORT_EXTSTREAM,//Ö§³Ö¸¨ÂëÁ÷Â¼Ïñ---¶ÔÓ¦½á¹¹ÌåSDK_AbilityMask
 	E_SDK_CFG_EXT_RECORD,			//¸¨ÂëÁ÷ÅäÖÃ---¶ÔÓ¦½á¹¹ÌåSDK_RECORDCONFIG_ALL/SDK_RECORDCONFIG
 	E_SDK_CFG_APP_DOWN_LINK,		//ÓÃÓÚÓÃ»§¶¨ÖÆÏÂÔØÁ´½Ó---¶ÔÓ¦½á¹¹ÌåSDK_AppDownloadLink
@@ -699,106 +666,34 @@ typedef enum _SDK_CONFIG_TYPE
 	E_SDK_CFG_ENCODE_ADD_BEEP,		//ÉèÖÃ±àÂë¼ÓÈëÃ¿¸ô30ÃëbeepÉù---¶ÔÓ¦½á¹¹ÌåSDK_EncodeAddBeep
 	E_SDK_CFG_DATALINK,			    //datalink¿Í»§ÔÚÍøÂç·þÎñÖÐµÄÖ´ÐÐ³ÌÐòÊ¹ÄÜÅäÖÃ---¶ÔÓ¦½á¹¹Ìå SDK_DataLinkConfig
 	E_SDK_CFG_FISH_EYE_PARAM,	    //ÓãÑÛ¹¦ÄÜ²ÎÊýÅäÖÃ---¶ÔÓ¦½á¹¹ÌåSDK_FishEyeParam
-	E_SDK_OPERATION_SET_LOGO,	    //ÊÓÆµÉÏµþ¼Ó³§¼ÒµÄLOGO---¶ÔÓ¦½á¹¹ÌåSDK_SetLogo
+	E_SDK_OPERATION_SET_LOGO,	    //ÊÓÆµÉÏµþ¼ÓÐÛÂõµÈ³§¼ÒµÄLOGO---¶ÔÓ¦½á¹¹ÌåSDK_SetLogo
 	E_SDK_CFG_SPARSH_HEARTBEAT,		//Sparsh¿Í»§µÄÐÄÌø¹¦ÄÜÅäÖÃ---¶ÔÓ¦½á¹¹Ìå SDK_SparshHeartbeat
 	E_SDK_CFG_LOGIN_FAILED,			//µÇÂ¼Ê§°ÜÊ±·¢ËÍÓÊ¼þ£¬Ê¹ÓÃ½á¹¹Ìå:»ù±¾ÊÂ¼þ½á¹¹---¶ÔÓ¦½á¹¹Ìå SDK_VIDEOLOSSCONFIG
-	E_SDK_CFG_NETPLAT_SPVMN_NAS,	//°²»Õ³¬Çå¿Í»§µÄnas·þÎñÆ÷ÅäÖÃ---¶ÔÓ¦½á¹¹ÌåSDK_SPVMN_NAS_SERVER
-	E_SDK_CFG_DDNS_APPLY,			//ddns °´¼ü¹¦ÄÜ²âÊÔ---¶ÔÓ¦½á¹¹ÌåSDK_NetDDNSConfigALL
-	E_SDK_OPERATION_NEW_UPGRADE_VERSION_REQ = 230,	//ÐÂ°æÔÆÉý¼¶°æ±¾²éÑ¯ÇëÇó---¶ÔÓ¦½á¹¹ÌåSDK_CloudUpgradeVersionRep
-	E_SDK_CFG_IPV6_ADDRESS,			//ipv6------¶ÔÓ¦µÄ½á¹¹ÌåSDK_IPAddressV6
-	E_SDK_CFG_DDNS_IPMSG,         	//DDNSÍâÍøIPµØÖ·
-	E_SDK_CFG_ONLINE_UPGRADE,		//ÔÚÏßÉý¼¶Ïà¹ØÅäÖÃ-----¶ÔÓ¦µÄ½á¹¹ÌåSDK_OnlineUpgradeCfg
-	E_SDK_CFG_CONS_SENSOR_ALARM,    //¼ÒÓÃ²úÆ·433±¨¾¯Áª¶¯ÏîÅäÖÃ-----¶ÔÓ¦µÄSDK_ConsSensorAlarmCfg
-	E_SDK_OPEARTION_SPLIT_CONTROL,  //»­Ãæ·Ö¸îÄ£Ê½-----¶ÔÓ¦µÄ½á¹¹ÌåSDK_SplitControl
-	E_SDK_CFG_Netinfo_TRANS_COMM,	//Netinfo_cctv¿Í»§Ôö¼Ó´®¿ÚÊý¾Ýµ½Ö¸¶¨·þÎñÆ÷ÅäÖÃ-----¶ÔÓ¦µÄ½á¹¹ÌåSDK_NetinfoNetTransComm
-	E_SDK_CFG_RECORD_ENABLE,       	//ÊÇ·ñ×¼±¸ºÃ¿ªÊ¼Â¼ÏñºÍ×¥Í¼£¬ÏÖÔÚÓÃÓÚÈÕ±¾¿Í»§Í¨¹ý´®¿Ú¿ØÖÆ¿ªÆôºÍ¹Ø±ÕÂ¼Ïñ¹¦ÄÜ
-	E_SDK_CFG_NAS,					//nasÅäÖÃ		//SDK_NAS_LIST
-	E_SDK_CFG_NKB_DEVICE_LIST,		//ÍøÂç¼üÅÌÉè±¸Á´±í
-	E_SDK_CFG_PARKING_PORT = 240,	//²´³µÏµÍ³¶Ë¿ÚºÅÅäÖÃ  SDK_PortService
-	E_SDK_CFG_NET_GBEYES,			//ÐÅ²úÈ«ÇòÑÛÆ½Ì¨ SDK_GbEyesCfg
-	E_SDK_CFG_GLOBALEYE,			//È«ÇòÑÛÅäÖÃ SDK_DefaultResponse
-	E_SDK_OPERATION_FISHEYE_MODIFY_CENTER,	//ÓãÑÛÔ²ÐÄÐ£Õý SDK_Point
-	E_SDK_OPERATION_UTC_TIME_SETTING = 244,	//ÉèÖÃUTCÊ±¼ä---¶ÔÓ¦½á¹¹ÌåSDK_SYSTEM_TIME
-	E_SDK_CFG_INTELBRAS_SPECIAL_INFO,		//interbras ÌØÊâtcp¶Ë¿ÚºÅ-----SDK_IntelBrasSpecialInfo
-	E_SDK_CFG_SPVMN_PLATFORM_SIP,			//28181Ð­ÒéÅäÖÃsip°å¿¨ip-------SDK_SIP_NET_IP_CONFIG
-	E_SDK_CFG_FISH_LENS_PARAM,				//ô~ÑÛçRî^…¢”µ------SDK_FishLensParam
-	E_SDK_CFG_PTZCTRLMODE,					//Ä£ÄâÍ¨µÀÔÆÌ¨¿ØÖÆµÄ¿ØÖÆ·½Ê½Ñ¡Ôñ-----SDK_PTZControlModeAll
-	E_SDK_CFG_ENCODE_SmartH264,				//SmartH264+ÅäÖÃ------SDK_SmartH264ParamAll
-	E_SDK_CFG_WIFI_INFO,					//ÎÞÏßWIFIÐÅÏ¢--SDK_WifiInfo
-	E_SDK_CFG_NET_RTMP,						//RTMPÐ­Òé--SDK_NetRTMPConfig
-	E_SDK_CFG_SNAP_SCHEDULE,				//¶¨Ê±×¥Í¼ÅäÖÃ--SDK_SnapConfigAll
-	E_SDK_OPERATION_SET_LANGUAGE,			//ÉèÖÃÒ»ÖÖÓïÑÔ
-	E_SDK_CFG_PTZPRESET,					//Ô¤ÖÃµãÅäÖÃ--SDK_PtzPreset
-	E_SDK_CFG_PTZTOUR,						//Ñ²º½ÅäÖÃ--SDK_PtzTour
-	E_SDK_CFG_PWD_SAFETY,					//°²È«ÎÊÌâÏà¹ØÅäÖÃ(ÓÃÓÚÖØÖÃÃÜÂë)--SDK_PasswordSafety
-	E_SDK_ABILITY_QUESTION_DELIVERY,		//»ñÈ¡ÃÜÂëÕÒ»ØÎÊÌâ--SDK_QuestionDelivery
-	E_SDK_CFG_TUTK_VERSION,					//TUTK¿Í»§¶¨ÖÆ°æ±¾ÐÅÏ¢--SDK_TutkVersion
-	E_SDK_CFG_BREVIARY,						//ËõÂÔÍ¼ÅäÖÃ
-	E_SDK_CFG_SERIALPORT_ALARM,				//´®¿Ú±¨¾¯ÅäÖÃ--SDK_SerialPortAlarm
-	E_SDK_OPEARTION_SET_LEARN_CODE,			//Ö§³Ö´®¿Ú±¨¾¯ÉèÖÃ²ÅÄÜÉèÖÃÑ§Âë--SDK_AMIRLearnCode
-	E_SDK_CFG_PIR_ALARM,					//¿Í»§¶¨ÖÆPIR±¨¾¯ÅäÖÃ--SDK_PIRConfigAll
-	E_SDK_OPEARTION_CAMERA_VISCA,			//ÒÚ¼ÎºÍViscaÐ­ÒéÐÞ¸Ä£¬ÉèÖÃºÍ»ñÈ¡±¶ÂÊ½¹¾àµÈ--SDK_CameraViscaControl
-	E_SDK_OPERATION_TIME_SETTING_NEW_WAY,	//ÉèÖÃÏµÍ³Ê±¼ä£¨Ïë¹ØµôÊ±¼äÍ¬²½µÄ³ÌÐò¿ÉÒÔÓÃÕâ¸öÃüÁî£¬²¢½ûÓÃÖ®Ç°µÄÊ±¼äÉèÖÃÃüÁî£©
-	E_SDK_OPERATION_UTC_TIME_SETTING_NEW_WAY,//ÉèÖÃUTCÊ±¼ä£¨ÓÃÓÚÆäËûÐ­ÒéÉèÖÃUTCÊ±¼ä£©
-	E_SDK_CFG_DDNSADDRINFO,					//DDNS×´Ì¬ÐÅÏ¢
-	E_SDK_CFG_THXY_VERION_INFO,				//ÌìºêÐñÓ¥¶¨ÖÆ°æ±¾ÐÅÏ¢--SDK_THXY_VersionInfo
-	E_SDK_CFG_ALARM_BLUR_CHECK,				//Í¼ÏñÄ£ºý¼ì²â--SDK_BlurCheckAlarmAll
-	E_SDK_CFG_INTEL_ENCODE,					//ÖÇÄÜ±àÂë--SDK_IntelEnCodeCfgAll
-	E_SDK_CFG_PLATE_DETECT_WHITE_LIST,		//³µÅÆÊ¶±ð°×Ãûµ¥--SDK_PlateDetectWhiteList
-	E_SDK_OPERATION_PLATE_DETECT_LIFT,		//³µÅÆÕì²âÌ§¸Ë--SDK_PlateDetectLiftBar
-	E_SDK_CFG_ALARM_PLATE_DETECT,			//³µÅÆÕì²â±¨¾¯--SDK_PlateDetectAll
-	E_SDK_CFG_ALARM_FACE_DETECT,			//ÈËÁ³Ê¶±ð±¨¾¯--SDK_FaceDetectAll
-	E_SDK_CFG_NET_IPADAPTIVE,				//ip×ÔÊÊÓ¦Íø¹Ø¹¦ÄÜÊ¹ÄÜÅäÖÃ--SDK_IPAdaptiveCfg
-	E_SDK_CFG_OEM_GETINFO,					//¿Í»§¶¨ÖÆ»ñÈ¡ÏµÍ³ÐÅÏ¢--SDK_OemGetInfo
-	E_SDK_CFG_433_ALARM_DEV,				//¿Í»§¶¨ÖÆ433±¨¾¯ÅäÖÃ--SDK_ConsumerAlarm433DevList
-	E_SDK_CFG_NET_ONVIF_PWD_CHECKOUT,		//onvif ÃÜÂëÐ£Ñé--SDK_IpcOnvifPwdCheckout
-	E_SDK_CFG_BALL_CAMERA_TRACK_DETECT,		//Çò»ú¸ú×ÙÊ¶±ðÅäÖÃ--SDK_BallCameraTrackDetectParamAll
-	E_SDK_CFG_CAMERA_SPECIAL_NIGHT,			//Ò¹ÍíÇé¾°ÌØÊâÄ£Ê½--SDK_CameraSpecialNightCtrl
-	E_SDK_CFG_LPR_LIGHT_CONTROL,			//³µÅÆÊ¶±ð°×¹âµÆ¿ØÖÆ--SDK_LPRLigthControl
-	E_SDK_CFG_LPR_RECOGNIZE_TRIGGERMODE,	//³µÅÆÊ¶±ð´¥·¢·½Ê½--SDK_LPRRecognizeTriggerMode
-	E_SDK_CFG_LPR_TEMP_CAR_CHARGE_RULE,		//ÁÙÊ±³µÊÕ·Ñ¹æÔò--SDK_LPRTempCarChargeRule
-	E_SDK_OPERATION_LPR_FORCE_RECOGNIZE,	//Ç¿ÖÆ¿ªÊ¼Ê¶±ð³µÅÆ--SDK_LprForceTrigRecognize
-	E_SDK_CFG_LPR_DISPLAY,					//³µÅÆÊ¶±ð LEDÏÔÊ¾ÆÁÅäÖÃ--SDK_LprLedSet
-	E_SDK_CFG_LPR_BLACK_WHITE_LIST_WORK_MODE,//³µÅÆÊÕ·ÑÏµÍ³ºÚ°×Ãûµ¥¹¤×÷Ä£Ê½--SDK_LprBlackWhiteListModeAll
-	E_SDK_OPERATION_LPR_LED_SHOW,			//ÏÔÊ¾ÆÁÏÔÊ¾ÊÕ·Ñ½ð¶î,¿ÕÓà³µÎ»--SDK_LprLedShow
-	E_SDK_CFG_LPR_AUTO_CONTRL_GATE,			//³µÅÆÊÕ·ÑÏµÍ³Õë¶ÔÁÙÊ±³µÊÕ·Ñ×Ô¶¯Ì§¸ËÅäÖÃ--SDK_LprAutoContrlGate
-	E_SDK_LPR_ENTRY_EXIT_EXPORT,			//Í£³µÊÕ·ÑÏµÍ³³öÈë¼ÇÂ¼µ¼³ö--
-	E_SDK_CFG_LPR_ENTRY_EXIT,				//³µÅÆÊÕ·ÑÏµÍ³³öÈë³¡ÅäÖÃ--SDK_LprEntryExitSet
-	E_SDK_CFG_LPR_PARKING_LOT_INFO,			//³µÅÆÊÕ·ÑÏµÍ³Í£³µ³¡ÐÅÏ¢--SDK_LprParkingLotInfo
-	E_SDK_CFG_HARDWARE_ABILITY,				//·¢ËÍÊý¾Ý
-	E_SDK_CFG_URL_LOAD,						//ÉÏº£ìÚÖª¶þ´Î¿ª·¢»ñÈ¡ÉÏ´«Â·¾¶--SDK_CustomURLCfg
-	E_SDK_CFG_LPR_HTTP_COMMUNICATION,		//³µÅÆÊ¶±ð½á¹ûÍ¨¹ýhttpÐ­ÒéÍÆËÍÅäÖÃ--SDK_LprHttpCommunication
-	E_SDK_CFG_PIRDETECT,					//PIR ¼ì²â--SDK_PIRDetectV2Config
-	E_SDK_CFG_SERIAL_TRANS,					//º¼ÖÝ×¯ÏÍ´®¿ÚÍ¸´«»ñÈ¡web ¶ËµÄÅäÖÃ--SDK_SerialTransConfig
-	E_SDK_CFG_CAMERA_SET_AWB,   			//Î÷°²ÖªÏó¶¨ÖÆ°×Æ½ºâ--SDK_AWB_ATTR
-	E_SDK_CFG_ControlPTZ,					//¿ØÖÆÔÆÌ¨
-	E_SDK_OPERATION_SET_SENSOR_ABILITY,		//ÉèÖÃºÏ·âÄ£×ésensorµÈ¼¶ÐÅÏ¢
-	E_SDK_OPERATION_GET_SENSOR_ABILITY,		//»ñÈ¡ºÏ·âÄ£×ésensorµÈ¼¶ÐÅÏ¢
-	E_SDK_OPERATION_SWITCH_WIFI_MODE,		//ÇÐ»»APÄ£Ê½--SDK_SWITCH_WIFI_MODE
-	E_SDK_DEVICE_INFO_LPR_VERSION,			//³µÅÆÊ¶±ð°æ±¾ÐÅÏ¢--SDK_LPR_VERSION
 }SDK_CONFIG_TYPE;
+
+
 
 /// ±¨¾¯ÊÂ¼þÂë
 enum SDK_EventCodeTypes
 {
 	SDK_EVENT_CODE_INIT = 0,
-	SDK_EVENT_CODE_LOCAL_ALARM = 1,		//±¾µØ±¨¾¯(Íâ²¿±¨¾¯)
-	SDK_EVENT_CODE_NET_ALARM,			//ÍøÂç±¨¾¯
-	SDK_EVENT_CODE_MANUAL_ALARM,		//ÊÖ¶¯±¨¾¯
-	SDK_EVENT_CODE_VIDEO_MOTION,		//¶¯Ì¬¼ì²â
-	SDK_EVENT_CODE_VIDEO_LOSS,			//ÊÓÆµ¶ªÊ§
-	SDK_EVENT_CODE_VIDEO_BLIND,			//ÊÓÆµÕÚµ²
+	SDK_EVENT_CODE_LOCAL_ALARM = 1,	//±¾µØ±¨¾¯(Íâ²¿±¨¾¯)
+	SDK_EVENT_CODE_NET_ALARM,		//ÍøÂç±¨¾¯
+	SDK_EVENT_CODE_MANUAL_ALARM,	//ÊÖ¶¯±¨¾¯
+	SDK_EVENT_CODE_VIDEO_MOTION,	//¶¯Ì¬¼ì²â
+	SDK_EVENT_CODE_VIDEO_LOSS,		//ÊÓÆµ¶ªÊ§
+	SDK_EVENT_CODE_VIDEO_BLIND,		//ÊÓÆµÕÚµ²
 	SDK_EVENT_CODE_VIDEO_TITLE,		
 	SDK_EVENT_CODE_VIDEO_SPLIT,
 	SDK_EVENT_CODE_VIDEO_TOUR,
-	SDK_EVENT_CODE_STORAGE_NOT_EXIST,	//´æ´¢Éè±¸²»´æÔÚ
-	SDK_EVENT_CODE_STORAGE_FAILURE,		//´æ´¢Éè±¸·ÃÎÊÊ§°Ü
-	SDK_EVENT_CODE_LOW_SPACE,			//´æ´¢Éè±¸ÈÝÁ¿¹ýµÍ
+	SDK_EVENT_CODE_STORAGE_NOT_EXIST,//´æ´¢Éè±¸²»´æÔÚ
+	SDK_EVENT_CODE_STORAGE_FAILURE,//´æ´¢Éè±¸·ÃÎÊÊ§°Ü
+	SDK_EVENT_CODE_LOW_SPACE,		//´æ´¢Éè±¸ÈÝÁ¿¹ýµÍ
 	SDK_EVENT_CODE_NET_ABORT,
 	SDK_EVENT_CODE_COMM,
-	SDK_EVENT_CODE_STORAGE_READ_ERROR,	//´æ´¢Éè±¸¶Á´íÎó
-	SDK_EVENT_CODE_STORAGE_WRITE_ERROR,	//´æ´¢Éè±¸Ð´´íÎó
-	SDK_EVENT_CODE_NET_IPCONFLICT,		//ip³åÍ»
+	SDK_EVENT_CODE_STORAGE_READ_ERROR,//´æ´¢Éè±¸¶Á´íÎó
+	SDK_EVENT_CODE_STORAGE_WRITE_ERROR,//´æ´¢Éè±¸Ð´´íÎó
+	SDK_EVENT_CODE_NET_IPCONFLICT,	//ip³åÍ»
 	SDK_EVENT_CODE_ALARM_EMERGENCY,
 	SDK_EVENT_CODE_DEC_CONNECT,	
 	SDK_EVENT_CODE_UPGRADE,
@@ -810,16 +705,7 @@ enum SDK_EventCodeTypes
 	SDK_EVENT_CODE_IPC_ALARM,
 	SDK_EVENT_CODE_SPEED_ALARM,
 	SDK_EVENT_CODE_GSENSOR_AlARM,
-	SDK_EVENT_CODE_LOGIN_FAILED,		//µÇÂ¼Ê§°Ü
-	SDK_EVENT_CODE_SERIAL_ALARM,
-	SDK_EVENT_CODE_PIR_ALARM,			//¿Í»§¶¨ÖÆPIR±¨¾¯
-	SDK_EVENT_CODE_CONSSENSOR_ALARM, 	//Ïû·ÑÀà²úÆ·°ó¶¨µÄÍâ²¿Éè±¸±¨¾¯
-	SDK_EVENT_CODE_WORDDETECT,			//¼ÒÓÃ²úÆ·£¬ÓïÒôÊ¶±ðÃô¸Ð´Ê±¨¾¯
-	SDK_EVENT_CODE_BLURCHECK_ALARM,		//Ä£ºý¼ì²â±¨¾¯
-	SDK_EVENT_CODE_PLATEDETECT,			//³µÅÆ¼ì²â±¨¾¯
-	SDK_EVENT_CODE_FACEDETECT,			//ÈËÁ³¼ì²â±¨¾¯
-	SDK_EVENT_CODE_433ALARM,			//¿Í»§¶¨ÖÆ433±¨¾¯
-	SDK_EVENT_CODE_PIRDetect = 38,		//PIR¼ì²â
+	SDK_EVENT_CODE_LOGIN_FAILED,//µÇÂ¼Ê§°Ü
 	SDK_EVENT_CODE_NR,
 };
 //! ±àÂëÅäÖÃµÄÀàÐÍ
@@ -837,19 +723,14 @@ enum SDK_ENCODE_TYPE_BY_RECORD
 //ÍøÂç´«Êä²ßÂÔ
 enum SDK_TransferPolicy
 {
-	SDK_TRANSFER_POLICY_AUTO,			///< ×ÔÊÊÓ¦
-	SDK_TRANSFER_POLICY_QUALITY,		///< ÖÊÁ¿ÓÅÏÈ
-	SDK_TRANSFER_POLICY_FLUENCY,		///< Á÷Á¿ÓÅÏÈ
-	SDK_TRANSFER_POLICY_TRANSMISSION,	///< Íø´«ÓÅÏÈ
+	SDK_TRANSFER_POLICY_AUTO,		///< ×ÔÊÊÓ¦
+	SDK_TRANSFER_POLICY_QUALITY,	///< ÖÊÁ¿ÓÅÏÈ
+	SDK_TRANSFER_POLICY_FLUENCY,	///< Á÷Á¿ÓÅÏÈ
+	SDK_TRANSFER_POLICY_TRANSMISSION,//< Íø´«ÓÅÏÈ
 	SDK_TRANSFER_POLICY_NR,
 };
 
-/// ÍøÂç´«ÊäÐ­ÒéÀàÐÍ
-enum SDK_NetTransProtocolType
-{
-	SDK_NET_TRANS_PRO_TCP = 0,
-	SDK_NET_TRANS_PRO_UDP = 1,
-};
+
 
 typedef struct {
 	int left;
@@ -871,11 +752,11 @@ typedef struct SDK_AudioInFormatConfig
 typedef enum __TALK_CODING_TYPE
 {
 	TALK_DEFAULT = 0,
-	TALK_PCM = 1,		//PCM
-	TALK_G711a,			//G711a
-	TALK_AMR,			//AMR
-	TALK_G711u,			//G711u
-	TALK_G726,			//G726
+	TALK_PCM = 1,					//PCM
+	TALK_G711a,						//G711a
+	TALK_AMR,						//AMR
+	TALK_G711u,						//G711u
+	TALK_G726,						//G726
 }TALK_CODING_TYPE;
 //ÓïÒô¶Ô½²
 typedef struct H264_DVR_TALKDECODE_INFO
@@ -889,18 +770,18 @@ typedef struct H264_DVR_TALKDECODE_INFO
 
 /// ÏµÍ³Ê±¼ä½á¹¹
 typedef struct SDK_SYSTEM_TIME{
-	int  year;		///< Äê¡£   
-	int  month;		///< ÔÂ£¬January = 1, February = 2, and so on.   
-	int  day;		///< ÈÕ¡£   
-	int  wday;		///< ÐÇÆÚ£¬Sunday = 0, Monday = 1, and so on   
-	int  hour;		///< Ê±¡£   
-	int  minute;	///< ·Ö¡£   
-	int  second;	///< Ãë¡£   
-	int  isdst;		///< ÏÄÁîÊ±±êÊ¶¡£   
+	int  year;///< Äê¡£   
+	int  month;///< ÔÂ£¬January = 1, February = 2, and so on.   
+	int  day;///< ÈÕ¡£   
+	int  wday;///< ÐÇÆÚ£¬Sunday = 0, Monday = 1, and so on   
+	int  hour;///< Ê±¡£   
+	int  minute;///< ·Ö¡£   
+	int  second;///< Ãë¡£   
+	int  isdst;///< ÏÄÁîÊ±±êÊ¶¡£   
 }SDK_SYSTEM_TIME;
 
 //Â¼ÏñÉèÖÃÏà¹Ø½á¹¹Ìå
-typedef struct SDK_TIMESECTION
+typedef struct tagSDK_TIMESECTION
 {
 	//!Ê¹ÄÜ
 	int enable;
@@ -930,12 +811,12 @@ typedef struct{
 //Ê±¼ä½á¹¹
 typedef struct _NEW_NET_TIME
 {
-	unsigned int second		:6;		//	Ãë	1-60		
-	unsigned int minute		:6;		//	·Ö	1-60		
-	unsigned int hour		:5;		//	Ê±	1-24		
-	unsigned int day		:5;		//	ÈÕ	1-31		
-	unsigned int month		:4;		//	ÔÂ	1-12		
-	unsigned int year		:6;		//	Äê	2000-2063	
+	unsigned int second			:6;					//	Ãë	1-60		
+	unsigned int minute			:6;					//	·Ö	1-60		
+	unsigned int hour			:5;					//	Ê±	1-24		
+	unsigned int day			:5;					//	ÈÕ	1-31		
+	unsigned int month			:4;					//	ÔÂ	1-12		
+	unsigned int year			:6;					//	Äê	2000-2063	
 }NEW_NET_TIME, *LPNET_TIME;
 ///< ÏÄÁîÊ±½á¹¹
 typedef struct DSTPoint
@@ -950,7 +831,7 @@ typedef struct DSTPoint
 
 typedef struct SDK_VIDEO_FORMAT
 {
-	int		iCompression;			//  Ñ¹ËõÄ£Ê½(ÊÓÆµ¸ñÊ½) ²ÎÕÕenum SDK_CAPTURE_COMP_t 	
+	int		iCompression;			//  Ñ¹ËõÄ£Ê½ 	
 	int		iResolution;			//  ·Ö±æÂÊ ²ÎÕÕÃ¶¾ÙSDK_CAPTURE_SIZE_t
 	int		iBitRateControl;		//  ÂëÁ÷¿ØÖÆ ²ÎÕÕÃ¶¾ÙSDK_capture_brc_t
 	int		iQuality;				//  ÂëÁ÷µÄ»­ÖÊ µµ´Î1-6		
@@ -958,21 +839,19 @@ typedef struct SDK_VIDEO_FORMAT
 	int		nBitRate;				//  0-4096k,¸ÃÁÐ±íÖ÷ÒªÓÉ¿Í»§¶Ë±£´æ£¬Éè±¸Ö»½ÓÊÕÊµ¼ÊµÄÂëÁ÷Öµ¶ø²»ÊÇÏÂ±ê¡£
 	int		iGOP;					//  ÃèÊöÁ½¸öIÖ¡Ö®¼äµÄ¼ä¸ôÊ±¼ä£¬2-12 
 } SDK_VIDEO_FORMAT;
-
 typedef struct  SDK_AUDIO_FORMAT
 {
 	int		nBitRate;				//  ÂëÁ÷kbps	
 	int		nFrequency;				//  ²ÉÑùÆµÂÊ	
 	int		nMaxVolume;				//  ×î´óÒôÁ¿ãÐÖµ
 }SDK_AUDIO_FORMAT;
-
 // Ã½Ìå¸ñÊ½
 typedef struct SDK_MEDIA_FORMAT
 {
-	SDK_VIDEO_FORMAT vfFormat;		//  ÊÓÆµ¸ñÊ½¶¨Òå 			
-	SDK_AUDIO_FORMAT afFormat;		//  ÒôÆµ¸ñÊ½¶¨Òå 
-	bool	bVideoEnable;			//  ¿ªÆôÊÓÆµ±àÂë 
-	bool	bAudioEnable;			//  ¿ªÆôÒôÆµ±àÂë 	
+	SDK_VIDEO_FORMAT vfFormat;			//  ÊÓÆµ¸ñÊ½¶¨Òå 			
+	SDK_AUDIO_FORMAT afFormat;			//  ÒôÆµ¸ñÊ½¶¨Òå 
+	bool	bVideoEnable;				//  ¿ªÆôÊÓÆµ±àÂë 
+	bool	bAudioEnable;				//  ¿ªÆôÒôÆµ±àÂë 	
 } SDK_MEDIA_FORMAT;
 
 typedef union {	//IP addr
@@ -980,6 +859,13 @@ typedef union {	//IP addr
 	unsigned short	s[2];
 	unsigned int 	l;
 }CONFIG_IPAddress;
+
+
+
+
+
+
+
 
 ///////////////////ÓÃ»§ÕÊºÅ¹ÜÀíÏà¹Ø½á¹¹Ìå/////////////////////////////////
 typedef struct _OPR_RIGHT
@@ -1046,22 +932,20 @@ typedef struct _SDK_CONFIG_NORMAL
 {
 	SDK_SYSTEM_TIME sysTime;		//ÏµÍ³Ê±¼ä
 
-	int  iLocalNo;				///< ±¾»ú±àºÅ:[0, 998] */
-	int  iOverWrite;			///< Ó²ÅÌÂúÊ±´¦Àí "OverWrite£¨iOverWrite=1£©", "StopRecord£¨iOverWrite=0£©" */		
-	char cIranCalendarEnable;	///< ÊÇ·ñÆôÓÃÒÁÀÊÈÕÀú£¬1±íÊ¾ÆôÓÃ£¬0±íÊ¾²»ÆôÓÃ
-	char cFontSize;				///< Ê¸Á¿×ÖÌå´óÐ¡
-	char reserved[2];
-	char sMachineName[64];		///< »úÆ÷Ãû
-	int  iVideoStartOutPut;		///< Êä³öÄ£Ê½ */
-	int  iAutoLogout;			///< ±¾µØ²Ëµ¥×Ô¶¯×¢Ïú(·ÖÖÓ)	[0, 120]
+	int iLocalNo;			/*!< ±¾»ú±àºÅ:[0, 998] */
+	int iOverWrite;			/*!< Ó²ÅÌÂúÊ±´¦Àí "OverWrite£¨iOverWrite=1£©", "StopRecord£¨iOverWrite=0£©" */		
+	char cIranCalendarEnable;			///<ÒÁÀÊÈÕÀú 
+	char sMachineName[64];	///< »úÆ÷Ãû
+	int iVideoStartOutPut;	/*!< Êä³öÄ£Ê½ */
+	int iAutoLogout;			///< ±¾µØ²Ëµ¥×Ô¶¯×¢Ïú(·ÖÖÓ)	[0, 120]
 
-	int  iVideoFormat;			///< ÊÓÆµÖÆÊ½:¡°PAL¡±:0, ¡°NTSC¡±:1, ¡°SECAM¡± */
-	int  iLanguage;				///< ÓïÑÔÑ¡Ôñ:¡°English¡±, ¡°SimpChinese¡±, ¡°TradChinese¡±, ¡°Italian¡±, ¡°Spanish¡±, ¡°Japanese¡±, ¡°Russian¡±, ¡°French¡±, ¡°German¡± */	
-	int  iDateFormat;			///< ÈÕÆÚ¸ñÊ½:¡°YYMMDD¡±, ¡°MMDDYY¡±, ¡°DDMMYY¡± */
-	int  iDateSeparator;		///< ÈÕÆÚ·Ö¸î·û:¡°.¡±, ¡°-¡±, ¡°/¡± */
-	int  iTimeFormat;			///< Ê±¼ä¸ñÊ½:¡°12¡±, ¡°24¡± */
-	int  iDSTRule;				///< ÏÄÁîÊ±¹æÔò 
-	int  iWorkDay;				///< ¹¤×÷ÈÕ
+	int iVideoFormat;		/*!< ÊÓÆµÖÆÊ½:¡°PAL¡±, ¡°NTSC¡±, ¡°SECAM¡± */
+	int iLanguage;			/*!< ÓïÑÔÑ¡Ôñ:¡°English¡±, ¡°SimpChinese¡±, ¡°TradChinese¡±, ¡°Italian¡±, ¡°Spanish¡±, ¡°Japanese¡±, ¡°Russian¡±, ¡°French¡±, ¡°German¡± */	
+	int iDateFormat;		/*!< ÈÕÆÚ¸ñÊ½:¡°YYMMDD¡±, ¡°MMDDYY¡±, ¡°DDMMYY¡± */
+	int iDateSeparator;		/*!< ÈÕÆÚ·Ö¸î·û:¡°.¡±, ¡°-¡±, ¡°/¡± */
+	int iTimeFormat;		/*!< Ê±¼ä¸ñÊ½:¡°12¡±, ¡°24¡± */
+	int iDSTRule;			///< ÏÄÁîÊ±¹æÔò 
+	int iWorkDay;			///< ¹¤×÷ÈÕ
 	DSTPoint dDSTStart;
 	DSTPoint dDSTEnd;
 }SDK_CONFIG_NORMAL;
@@ -1071,11 +955,10 @@ typedef struct _SDK_CONFIG_NORMAL
 // ±àÂëÉèÖÃ
 typedef struct SDK_CONFIG_ENCODE
 {
-	SDK_MEDIA_FORMAT dstMainFmt[SDK_ENCODE_TYPE_NUM];	//  Ö÷ÂëÁ÷¸ñÊ½ 	
-	SDK_MEDIA_FORMAT dstExtraFmt[SDK_EXTRATYPES];		//  ¸¨ÂëÁ÷¸ñÊ½ 
-	SDK_MEDIA_FORMAT dstSnapFmt[SDK_ENCODE_TYPE_NUM];	//  ×¥Í¼¸ñÊ½ 
+	SDK_MEDIA_FORMAT dstMainFmt[SDK_ENCODE_TYPE_NUM];		//  Ö÷ÂëÁ÷¸ñÊ½ 	
+	SDK_MEDIA_FORMAT dstExtraFmt[SDK_EXTRATYPES];	//  ¸¨ÂëÁ÷¸ñÊ½ 
+	SDK_MEDIA_FORMAT dstSnapFmt[SDK_ENCODE_TYPE_NUM];		//  ×¥Í¼¸ñÊ½ 
 }SDK_CONFIG_ENCODE;
-
 typedef struct  SDK_EncodeConfigAll
 {
 	SDK_CONFIG_ENCODE vEncodeConfigAll[NET_MAX_CHANNUM];
@@ -1086,7 +969,7 @@ typedef struct  SDK_EncodeConfigAll
 /// Ã½Ìå¸ñÊ½
 typedef struct SDK_MEDIA_FORMAT_SIMPLIIFY
 {
-	SDK_VIDEO_FORMAT vfFormat;		//  ÊÓÆµ¸ñÊ½¶¨Òå 			
+	SDK_VIDEO_FORMAT vfFormat;			//  ÊÓÆµ¸ñÊ½¶¨Òå 			
 	bool	bVideoEnable;			//  ¿ªÆôÊÓÆµ±àÂë 
 	bool	bAudioEnable;			//  ¿ªÆôÒôÆµ±àÂë 	
 }SDK_MEDIA_FORMAT_SIMPLIIFY;
@@ -1094,7 +977,7 @@ typedef struct SDK_MEDIA_FORMAT_SIMPLIIFY
 /// ±àÂëÉèÖÃ
 typedef struct SDK_CONFIG_ENCODE_SIMPLIIFY
 {
-	SDK_MEDIA_FORMAT dstMainFmt;	//  Ö÷ÂëÁ÷¸ñÊ½ 	
+	SDK_MEDIA_FORMAT dstMainFmt;		//  Ö÷ÂëÁ÷¸ñÊ½ 	
 	SDK_MEDIA_FORMAT dstExtraFmt;	//  ¸¨ÂëÁ÷¸ñÊ½ 
 }SDK_CONFIG_ENCODE_SIMPLIIFY;
 
@@ -1124,10 +1007,10 @@ typedef struct SDK_CombEncodeModeAll
 //!ÊÓÆµÎï¼þ½á¹¹
 typedef struct  SDK_VIDEO_WIDGET
 {
-	unsigned int rgbaFrontground;	///< Îï¼þµÄÇ°¾°MakeRGB£¬ºÍÍ¸Ã÷¶È	
-	unsigned int rgbaBackground;	///< Îï¼þµÄºó¾°MakeRGB£¬ºÍÍ¸Ã÷¶È	
+	unsigned int rgbaFrontground;		///< Îï¼þµÄÇ°¾°MakeRGB£¬ºÍÍ¸Ã÷¶È	
+	unsigned int rgbaBackground;		///< Îï¼þµÄºó¾°MakeRGB£¬ºÍÍ¸Ã÷¶È	
 	sdkRect	rcRelativePos;			///< Îï¼þ±ß¾àÓëÕû³¤µÄ±ÈÀý*8191
-	bool	bPreviewBlend;			///< Ô¤ÀÀµþ¼Ó,ÊÇ·ñÏÔÊ¾£¬1£ºÏÔÊ¾ 0£ºÒþ²Ø
+	bool	bPreviewBlend;			///< Ô¤ÀÀµþ¼Ó	
 	bool	bEncodeBlend;			///< ±àÂëµþ¼Ó
 }SDK_VIDEO_WIDGET;
 
@@ -1135,8 +1018,8 @@ typedef struct  SDK_VIDEO_WIDGET
 typedef struct SDK_CONFIG_VIDEOWIDGET
 {
 	SDK_VIDEO_WIDGET	dstCovers[NET_COVERNUM];
-	SDK_VIDEO_WIDGET	ChannelTitle; //Í¨µÀÃû³Æ
-	SDK_VIDEO_WIDGET	TimeTitle;	  //Éè±¸Ê±¼ä
+	SDK_VIDEO_WIDGET	ChannelTitle;
+	SDK_VIDEO_WIDGET	TimeTitle;
 	struct 
 	{
 		char strName[NET_NAME_PASSWORD_LEN];
@@ -1145,8 +1028,8 @@ typedef struct SDK_CONFIG_VIDEOWIDGET
 #else
 		long long iSerialNo;	
 #endif
-	}ChannelName;			///< Í¨µÀÃû³Æ
-	int		iCoverNum;		///< µ±Ç°¸ÃÍ¨µÀÓÐ¼¸¸öµþ¼ÓµÄÇøÓò */
+	}ChannelName;					/// Í¨µÀÃû³Æ
+	int				iCoverNum;		/*!< µ±Ç°¸ÃÍ¨µÀÓÐ¼¸¸öµþ¼ÓµÄÇøÓò */
 }SDK_CONFIG_VIDEOWIDGET;
 
 /// ÊÓÆµÎï¼þ(Êä³öÄ£Ê½¶Ô»°¿ò)
@@ -1197,8 +1080,8 @@ typedef struct SDK_GUISetConfig
 	int iWindowAlpha;			///< ´°¿ÚÍ¸Ã÷¶È	[128, 255]
 	bool bTimeTitleEn;			///< Ê±¼ä±êÌâÏÔÊ¾Ê¹ÄÜ
 	bool bChannelTitleEn;		///< Í¨µÀ±êÌâÏÔÊ¾Ê¹ÄÜ	
-	bool bAlarmStatus;			///< ±¨¾¯×´Ì¬
-	bool bRecordStatus;			///< Â¼Ïñ×´Ì¬ÏÔÊ¾Ê¹ÄÜ
+	bool bAlarmStatus;			///<  ±¨¾¯×´Ì¬
+	bool bRecordStatus;			///<  Â¼Ïñ×´Ì¬ÏÔÊ¾Ê¹ÄÜ
 	bool bChanStateRecEn;		///< Â¼Ïñ±êÖ¾ÏÔÊ¾Ê¹ÄÜ
 	bool bChanStateVlsEn;		///< ÊÓÆµ¶ªÊ§±êÖ¾ÏÔÊ¾Ê¹ÄÜ
 	bool bChanStateLckEn;		///< Í¨µÀËø¶¨±êÖ¾ÏÔÊ¾Ê¹ÄÜ	
@@ -1230,7 +1113,7 @@ typedef struct SDK_CONFIG_NET_COMMON
 	int UDPPort;
 	//!×î´óÁ¬½ÓÊý
 	int MaxConn;
-	//!¼àÊÓÐ­Òé {"TCP","UDP","MCAST","NAT","DaHua","RTSP","IPV6",¡­}
+	//!¼àÊÓÐ­Òé {"TCP","UDP","MCAST",¡­}
 	int MonMode;
 	//!ÏÞ¶¨ÂëÁ÷Öµ
 	int MaxBps;
@@ -1245,33 +1128,6 @@ typedef struct SDK_CONFIG_NET_COMMON
 	char sMac[NET_MAX_MAC_LEN];
 }SDK_CONFIG_NET_COMMON;
 
- typedef enum SDK_DevType
- {
- 	SDK_DEV_TYPE_IPC,
- 	SDK_DEV_TYPE_DVR,
-	SDK_DEV_TYPE_HVR,
-	SDK_DEV_TYPE_POEIPC,
-	SDK_DEV_TYPE_NVR,
-	SDK_DEV_TYPE_RTSPIPC,
- 	SDK_DEV_TYPE_NR
- }SDK_DevType;
-
- enum  SDK_Manufacturer
- {
-	 MF_XIONGMAI = 0,
-	 MF_HIKVISION,
-	 MF_DAHUA,
-	 MF_JOVISION,
- };
-
- ///< º¼ÖÝ×¯ÏÍ´®¿ÚÍ¸´«»ñÈ¡web ¶ËµÄÅäÖÃ
- typedef struct SDK_SerialTransConfig
- {
-	 bool Enable;
-	 char pServerAddr[64];		///< ip
-	 int ServerPort;			///< port
- }SDK_SerialTransConfig;
-
 ////!ÆÕÍ¨ÍøÂçÉèÖÃ --
 typedef struct SDK_CONFIG_NET_COMMON_V2
 {
@@ -1283,9 +1139,6 @@ typedef struct SDK_CONFIG_NET_COMMON_V2
 	CONFIG_IPAddress Submask;
 	//!Íø¹ØIP
 	CONFIG_IPAddress Gateway;
-	char pLocalLinkAddr[32];	//±¾µØÁ´Â·µØÖ·
-	char pAddr[64];				//ipv6µØÖ·
-	char pGateway[64];
 	//!HTTP·þÎñ¶Ë¿Ú
 	int HttpPort;
 	//!TCPÕìÌý¶Ë¿Ú
@@ -1302,49 +1155,59 @@ typedef struct SDK_CONFIG_NET_COMMON_V2
 	int MaxBps;
 	//!´«Êä²ßÂÔ
 	//char TransferPlan[NET_NAME_PASSWORD_LEN];
-	int  TransferPlan;						///´«Êä²ßÂÔ
-	bool bUseHSDownLoad;					///ÊÇ·ñÆôÓÃ¸ßËÙÂ¼ÏñÏÂÔØ²âÂÊ
-	char sMac[NET_MAX_MAC_LEN];				///MACµØÖ·
-	char sSn[NET_MAX_MAC_LEN]; 				///ÐòÁÐºÅ(´ó»ªºÍÖÐÎ¬Éè±¸ËÑË÷ÖÐÓÃµ½£¬ÓÃÀ´±£´æÐÞ¸ÄIPËùÐèÊý¾Ý)
+	int TransferPlan;
+
+	//!ÊÇ·ñÆôÓÃ¸ßËÙÂ¼ÏñÏÂÔØ²âÂÊ
+	bool bUseHSDownLoad;
+
+	//!MACµØÖ·
+	char sMac[NET_MAX_MAC_LEN];
+
+	char sSn[NET_MAX_MAC_LEN]; 	///ÐòÁÐºÅ
 #ifndef WIN32
-	int  DeviceType;   						///Éè±¸ÀàÐÍ,ÊÖ»úÇø·ÖÊÇ²å×ù»¹ÊÇÆÕÍ¨Éè±¸
+	int DeviceType;   //Éè±¸ÀàÐÍ
 #endif
-
-	int ChannelNum;			///Í¨µÀÊý
-	int	Device_Type;		///Éè±¸ÀàÐÍ£¬¼ûenum SDK_DevType
-#ifdef OME
-	char Version[NET_MAX_INFO_LEN];         //°æ±¾ÐÅÏ¢
-	SDK_SYSTEM_TIME BuildDate;  			//°æ±¾ÈÕÆÚ
-#endif
-	char OtherFunction[49]; ///ÓÃÀ´±£´æÐÞ¸ÄÆäËü³§¼ÒIPËùÐèÐÅÏ¢ 
-	char Manufacturer;  ///Éè±¸Éú²úÉÌ£¬¼ûÃ¶¾ÙSDK_Manufacturer
-	char Resume[6];			///±£Áô
-
+	char Resume[64];	///±£Áô
 }SDK_CONFIG_NET_COMMON_V2;
 
 ////!¿çÍø¶ÎÉèÖÃIPÐè --
 typedef struct SDK_CONFIG_NET_COMMON_V3
 {
-    char HostName[NET_NAME_PASSWORD_LEN];	///Ö÷»úÃû 
-    CONFIG_IPAddress HostIP;				///Ö÷»úIP
-    CONFIG_IPAddress Submask;				///×ÓÍøÑÚÂë
-    CONFIG_IPAddress Gateway;				///Íø¹ØIP  
-    int  HttpPort;							///HTTP·þÎñ¶Ë¿Ú   
-    int  TCPPort;							///TCPÕìÌý¶Ë¿Ú   
-    int  SSLPort;							///SSLÕìÌý¶Ë¿Ú
-    int  UDPPort;							///UDPÕìÌý¶Ë¿Ú  
-    int  MaxConn;							///×î´óÁ¬½ÓÊý
-    int  MonMode;							///¼àÊÓÐ­Òé {"TCP","UDP","MCAST",?}
-    int  MaxBps;								///ÏÞ¶¨ÂëÁ÷Öµ
+    //!Ö÷»úÃû
+    char HostName[NET_NAME_PASSWORD_LEN];
+    //!Ö÷»úIP
+    CONFIG_IPAddress HostIP;
+    //!×ÓÍøÑÚÂë
+    CONFIG_IPAddress Submask;
+    //!Íø¹ØIP
+    CONFIG_IPAddress Gateway;
+    //!HTTP·þÎñ¶Ë¿Ú
+    int HttpPort;
+    //!TCPÕìÌý¶Ë¿Ú
+    int TCPPort;
+    //!SSLÕìÌý¶Ë¿Ú
+    int SSLPort;
+    //!UDPÕìÌý¶Ë¿Ú
+    int UDPPort;
+    //!×î´óÁ¬½ÓÊý
+    int MaxConn;
+    //!¼àÊÓÐ­Òé {"TCP","UDP","MCAST",?}
+    int MonMode;
+    //!ÏÞ¶¨ÂëÁ÷Öµ
+    int MaxBps;
+    //!´«Êä²ßÂÔ
     //char TransferPlan[NET_NAME_PASSWORD_LEN];
-    int  TransferPlan;						///´«Êä²ßÂÔ
-    bool bUseHSDownLoad; 					///ÊÇ·ñÆôÓÃ¸ßËÙÂ¼ÏñÏÂÔØ²âÂÊ
-    char sMac[NET_MAX_MAC_LEN];				///MACµØÖ·
-    char UserName[NET_NAME_PASSWORD_LEN];	///Éè±¸ÓÃ»§Ãû
-    char Password[NET_NAME_PASSWORD_LEN];	///Éè±¸ÃÜÂë
+    int TransferPlan;
+    
+    //!ÊÇ·ñÆôÓÃ¸ßËÙÂ¼ÏñÏÂÔØ²âÂÊ
+    bool bUseHSDownLoad;
+    
+    //!MACµØÖ·
+    char sMac[NET_MAX_MAC_LEN];
+    char UserName[NET_NAME_PASSWORD_LEN];
+    char Password[NET_NAME_PASSWORD_LEN];
     char LocalMac[NET_MAX_MAC_LEN];
-    int  nPasswordType;
-	char Resume[92];						///±£Áô
+    int nPasswordType;
 }SDK_CONFIG_NET_COMMON_V3;
 
 //DHCP
@@ -1369,17 +1232,17 @@ typedef struct SDK_NetDNSConfig
 ///< ·þÎñÆ÷½á¹¹¶¨Òå
 typedef struct SDK_RemoteServerConfig
 {
-    char ServerName[NET_NAME_PASSWORD_LEN];		///< ·þÎñÃû
+    char ServerName[NET_NAME_PASSWORD_LEN];	///< ·þÎñÃû
     CONFIG_IPAddress ip;						///< IPµØÖ·
-    int Port;									///< ¶Ë¿ÚºÅ
+    int Port;							///< ¶Ë¿ÚºÅ
     char UserName[NET_NAME_PASSWORD_LEN];		///< ÓÃ»§Ãû
     char Password[NET_NAME_PASSWORD_LEN];		///< ÃÜÂë
-    bool Anonymity;								///< ÊÇ·ñÄäÃûµÇÂ¼
+    bool Anonymity;							///< ÊÇ·ñÄäÃûµÇÂ¼
 }SDK_RemoteServerConfig;
 ///< IPÈ¨ÏÞÉèÖÃ
 typedef struct SDK_NetIPFilterConfig
 {
-    bool Enable;											///< ÊÇ·ñ¿ªÆô
+    bool Enable;		///< ÊÇ·ñ¿ªÆô
     CONFIG_IPAddress BannedList[NET_MAX_FILTERIP_NUM];		///< ºÚÃûµ¥ÁÐ±í
     CONFIG_IPAddress TrustList[NET_MAX_FILTERIP_NUM];		///< °×Ãûµ¥ÁÐ±í
 }SDK_NetIPFilterConfig;
@@ -1387,23 +1250,23 @@ typedef struct SDK_NetIPFilterConfig
 ///< ×é²¥ÉèÖÃ
 typedef struct SDK_NetMultiCastConfig
 {
-    bool Enable;						///< ÊÇ·ñ¿ªÆô
+    bool Enable;		///< ÊÇ·ñ¿ªÆô
     SDK_RemoteServerConfig Server;		///< ×é²¥·þÎñÆ÷
 }SDK_NetMultiCastConfig;
 
 ///< pppoeÉèÖÃ
 typedef struct SDK_NetPPPoEConfig
 {
-    bool Enable;						///< ÊÇ·ñ¿ªÆô
+    bool Enable;	///< ÊÇ·ñ¿ªÆô
     SDK_RemoteServerConfig Server;		///< PPPOE·þÎñÆ÷
-    CONFIG_IPAddress addr;				///< ²¦ºÅºó»ñµÃµÄIPµØÖ·
+    CONFIG_IPAddress addr;		///< ²¦ºÅºó»ñµÃµÄIPµØÖ·
 }SDK_NetPPPoEConfig;
 
 ///< DDNSÉèÖÃ
 typedef struct SDK_NetDDNSConfig
 {
-    bool Enable;							///< ÊÇ·ñ¿ªÆô
-    bool Online;							///< ÊÇ·ñÔÚÏß
+    bool Enable;	///< ÊÇ·ñ¿ªÆô
+    bool Online;		///< ÊÇ·ñÔÚÏß
     char DDNSKey[NET_NAME_PASSWORD_LEN];	///< DDNSÀàÐÍÃû³Æ, Ä¿Ç°ÓÐ: JUFENG
     char HostName[NET_NAME_PASSWORD_LEN];	///< Ö÷»úÃû
     SDK_RemoteServerConfig Server;			///< DDNS·þÎñÆ÷
@@ -1418,10 +1281,10 @@ typedef struct SDK_NetDDNSConfigALL
 
 ///< FTPÉèÖÃ
 typedef struct SDK_FtpServerConfig{
-    bool bEnable;        					///< ·þÎñÆ÷Ê¹ÄÜ
-    SDK_RemoteServerConfig Server;			///< FTP·þÎñÆ÷
+    bool bEnable;        ///< ·þÎñÆ÷Ê¹ÄÜ
+    SDK_RemoteServerConfig Server;	///< FTP·þÎñÆ÷
     char cRemoteDir[NET_MAX_PATH_LENGTH];	///< Ô¶³ÌÄ¿Â¼
-    int  iMaxFileLen;						///< ÎÄ¼þ×î´ó³¤¶È
+    int iMaxFileLen;	///< ÎÄ¼þ×î´ó³¤¶È
 }SDK_FtpServerConfig;
 
 ///< NTPÉèÖÃ
@@ -1432,13 +1295,13 @@ typedef struct SDK_NetNTPConfig
     ///< PPPOE·þÎñÆ÷
     SDK_RemoteServerConfig Server;
     ///< ¸üÐÂÖÜÆÚ
-    int  UpdatePeriod;
+    int UpdatePeriod;
     ///< Ê±Çø
-    int  TimeZone;
+    int TimeZone;
 }SDK_NetNTPConfig;
 #define  NET_MAX_EMAIL_TITLE_LEN 64
 #define  NET_MAX_EMAIL_RECIEVERS  5
-#define  NET_EMAIL_ADDR_LEN  64
+#define  NET_EMAIL_ADDR_LEN  32
 
 ///< EMAILÉèÖÃ
 typedef struct SDK_NetEmailConfig
@@ -1462,12 +1325,12 @@ typedef struct SDK_NetEmailConfig
 ///< ARSP(Ö÷¶¯×¢²á·þÎñÆ÷)ÉèÖÃ
 typedef struct SDK_NetARSPConfig
 {
-    bool bEnable;							///< ÊÇ·ñ¿ªÆô
+    bool bEnable;	///< ÊÇ·ñ¿ªÆô
     char sARSPKey[NET_NAME_PASSWORD_LEN];	///< DNSÀàÐÍÃû³Æ
-    int  iInterval;							///< ±£»î¼ä¸ôÊ±¼ä
-    char sURL[NET_NAME_PASSWORD_LEN];    	///< ±¾»úÓòÃû
-    SDK_RemoteServerConfig Server;			///< DDNS·þÎñÆ÷
-    int  nHttpPort;                  		///< ·þÎñÆ÷HTTP¶Ë¿Ú
+    int iInterval;	///< ±£»î¼ä¸ôÊ±¼ä
+    char sURL[NET_NAME_PASSWORD_LEN];    ///< ±¾»úÓòÃû
+    SDK_RemoteServerConfig Server;		///< DDNS·þÎñÆ÷
+    int nHttpPort;                  ///< ·þÎñÆ÷HTTP¶Ë¿Ú
 }SDK_NetARSPConfig;
 
 typedef struct SDK_NetARSPConfigAll
@@ -1478,14 +1341,14 @@ typedef struct SDK_NetARSPConfigAll
 ///< ½âÂëÆ÷µØÖ·ÉèÖÃ
 typedef struct SDK_NetDecoderConfig
 {
-    bool Enable;							///< ÊÇ·ñ¿ªÆô
+    bool Enable;						///< ÊÇ·ñ¿ªÆô
     char UserName[NET_NAME_PASSWORD_LEN];	///< DDNSÀàÐÍÃû³Æ, Ä¿Ç°ÓÐ: JUFENG
     char PassWord[NET_NAME_PASSWORD_LEN];	///< Ö÷»úÃû
     char Address[NET_NAME_PASSWORD_LEN];
-    int  Protocol;
-    int  Port;								///< ½âÂëÆ÷Á¬½Ó¶Ë¿Ú
-    int  Channel;							///< ½âÂëÆ÷Á¬½ÓÍ¨µÀºÅ
-    int  Interval;                       	///< ÂÖÑ²µÄ¼ä¸ôÊ±¼ä(s)
+    int Protocol;
+    int Port;							///< ½âÂëÆ÷Á¬½Ó¶Ë¿Ú
+    int Channel;						///< ½âÂëÆ÷Á¬½ÓÍ¨µÀºÅ
+    int Interval;                       ///< ÂÖÑ²µÄ¼ä¸ôÊ±¼ä(s)
 }SDK_NetDecoderConfig;
 
 /// ËùÓÐÍ¨µÀµÄ½âÂëÆ÷µØÖ·ÉèÖÃ
@@ -1509,33 +1372,20 @@ typedef struct SDK_NetDecoderConfigAll_V2
 }SDK_NetDecoderConfigAll_V2;
 
 
-/// ²¶»ñÍ¨µÀÀàÐÍ
-enum SDK_CaptureChannelTypes 
-{
-	SDK_CAPTURE_CHN_MAIN = 0,		///< Ö÷Í¨µÀ	£­	Ö÷ÂëÁ÷1 
-	SDK_CAPTURE_CHN_2END = 1,		///< ¸¨Í¨µÀ	£­	³ö¸¨ÂëÁ÷2 
-	SDK_CAPTURE_CHN_3IRD = 2,		///< ¸¨Í¨µÀ	£­	³ö¸¨ÂëÁ÷3 
-	SDK_CAPTURE_CHN_4RTH = 3,		///< ¸¨Í¨µÀ	£­	³ö¸¨ÂëÁ÷4 
-	SDK_CAPTURE_CHN_JPEG = 4,		///< ¸¨Í¨µÀ	£­	³öJPEG×¥Í¼ 
-	SDK_CAPTURE_CHN_NR,
-};
-
 ///< ½âÂëÆ÷µØÖ·ÉèÖÃ
 typedef struct SDK_NetDecorderConfigV3
 {
-    bool Enable;							///< ÊÇ·ñ¿ªÆô
+    bool Enable;						///< ÊÇ·ñ¿ªÆô
     char UserName[NET_NAME_PASSWORD_LEN];	///< DDNSÀàÐÍÃû³Æ, Ä¿Ç°ÓÐ: JUFENG
     char PassWord[NET_NAME_PASSWORD_LEN];	///< Ö÷»úÃû
-    char Address[NET_NAME_URL_LEN];
-    int  Protocol;							///¼ûenum SDK_TransferProtocol_V2
-    int  Port;								///< ½âÂëÆ÷Á¬½Ó¶Ë¿Ú
-    int  Channel;							///< ½âÂëÆ÷Á¬½ÓÍ¨µÀºÅ
-    int  Interval;                       	///< ÂÖÑ²µÄ¼ä¸ôÊ±¼ä(s),0:±íÊ¾ÓÀ¾Ã
+    char Address[NET_NAME_PASSWORD_LEN];
+    int Protocol;
+    int Port;							///< ½âÂëÆ÷Á¬½Ó¶Ë¿Ú
+    int Channel;						///< ½âÂëÆ÷Á¬½ÓÍ¨µÀºÅ
+    int Interval;                       ///< ÂÖÑ²µÄ¼ä¸ôÊ±¼ä(s),0:±íÊ¾ÓÀ¾Ã
     char ConfName[NET_NAME_PASSWORD_LEN];	///<ÅäÖÃÃû³Æ
-    int  DevType;							///<Éè±¸ÀàÐÍ
-    int  StreamType;						///<Á¬½ÓµÄÂëÁ÷ÀàÐÍ ¼ûenum SDK_CaptureChannelTypes
-	char MainRtspUrl[NET_NAME_URL_LEN];		///<rtspÐ­ÒéÊ±±íÊ¾Ç°¶ËÉè±¸µÄÖ÷ÂëÁ÷µØÖ·
-	char SubRtspUrl[NET_NAME_URL_LEN];		///<rtspÐ­ÒéÊ±±íÊ¾Ç°¶ËÉè±¸µÄ¸¨ÂëÁ÷µØÖ·
+    int DevType;						///<Éè±¸ÀàÐÍ
+    int StreamType;						///<Á¬½ÓµÄÂëÁ÷ÀàÐÍCaptureChannelTypes
 }SDK_NetDecorderConfigV3;
 
 /*½âÂëÆ÷Á¬½ÓÀàÐÍ*/
@@ -1549,14 +1399,13 @@ enum SDK_DecorderConnType
 /*Êý×ÖÍ¨µÀµÄÅäÖÃ*/
 typedef struct SDK_NetDigitChnConfig
 {
-    bool Enable;									/*Êý×ÖÍ¨µÀÊÇ·ñ¿ªÆô*/
-    int  ConnType;									/*Á¬½ÓÀàÐÍ£¬È¡DecoderConnectTypeµÄÖµ*/
-    int  TourIntv;									/*¶àÁ¬½ÓÊ±ÂÖÑ²¼ä¸ô*/
-    unsigned int SingleConnId;						/*µ¥Á¬½ÓÊ±µÄÁ¬½ÓÅäÖÃID, ´Ó1¿ªÊ¼£¬0±íÊ¾ÎÞÐ§*/
-    bool EnCheckTime;								/*¿ªÆô¶ÔÊ±*/
-    SDK_NetDecorderConfigV3 NetDecorderConf[32]; 	/*ÍøÂçÉè±¸Í¨µÀÅäÖÃ±í*/
-    int  nNetDeorde; 								/* ÓÐ¶àÉÙ¸ö */
-	bool EnSynchResolution;							//Í¬²½·Ö±æÂÊÊ¹ÄÜ¿ª¹Ø,0±íÊ¾´ò¿ª£¬1±íÊ¾¹Ø±Õ
+    bool Enable;		/*Êý×ÖÍ¨µÀÊÇ·ñ¿ªÆô*/
+    int ConnType;		/*Á¬½ÓÀàÐÍ£¬È¡DecoderConnectTypeµÄÖµ*/
+    int TourIntv;		/*¶àÁ¬½ÓÊ±ÂÖÑ²¼ä¸ô*/
+    unsigned int SingleConnId;	/*µ¥Á¬½ÓÊ±µÄÁ¬½ÓÅäÖÃID, ´Ó1¿ªÊ¼£¬0±íÊ¾ÎÞÐ§*/
+    bool EnCheckTime;	/*¿ªÆô¶ÔÊ±*/
+    SDK_NetDecorderConfigV3 NetDecorderConf[32]; /*ÍøÂçÉè±¸Í¨µÀÅäÖÃ±í*/
+    int nNetDeorde; // ÓÐ¶àÉÙ¸ö
 }SDK_NetDigitChnConfig;
 
 /*ËùÓÐÊý×ÖÍ¨µÀµÄÅäÖÃ*/
@@ -1565,52 +1414,48 @@ typedef struct SDK_NetDecorderConfigAll_V3
     SDK_NetDigitChnConfig DigitChnConf[NET_MAX_DECORDR_CH];
 }SDK_NetDecorderConfigAll_V3;
 
+//Í¨µÀÄ£Ê½
+#define MAX_HVR_CHNCAP_CHN		32
 typedef struct SDK_HVR_CHNCAP
 {
-    int nD1Chn;					// Ö§³ÖµÄD1Â·Êý
-    int n960HChn;				// Ö§³ÖµÄ960HÂ·Êý
-    int n720PChn;				// Ö§³ÖµÄ720PÂ·Êý
-    int n1080PChn;				// Ö§³ÖµÄ1080PÂ·Êý
-    int nCIFChn;				//Ö§³ÖµÄCIFÍ¨µÀÊý
-    int nHD1Chn;				//Ö§³ÖµÄHD1Í¨µÀÊý
-    unsigned char nPlayChn; 	//Ö§³Ö»Ø·ÅÂ·Êý
-    unsigned char nDigiTalChn; 	//Ö§³Ö×î´óÊý×ÖÍ¨µÀÂ·Êý
-    unsigned char n960PChn; 	//Ö§³ÖµÄ960PÍ¨µÀÊý
-    unsigned char n3MChn; 		//Ö§³ÖµÄ3MÍ¨µÀÊý
-    unsigned char n5MChn; 		//Ö§³ÖµÄ5MÍ¨µÀÊý
-    unsigned char nWUXGAChn; 	//Ö§³ÖµÄWUXGAÍ¨µÀÊý
-    unsigned char n1080NChn;	//Ö§³Ö1080NÍ¨µÀÊý
-    unsigned char n4MChn;		//Ö§³Ö4MÍ¨µÀÊý
+    int nD1Chn;		// Ö§³ÖµÄD1Â·Êý
+    int n960HChn;	// Ö§³ÖµÄ960HÂ·Êý
+    int n720PChn;	// Ö§³ÖµÄ720PÂ·Êý
+    int n1080PChn;	// Ö§³ÖµÄ1080PÂ·Êý
+    int nCIFChn;	//Ö§³ÖµÄCIFÍ¨µÀÊý
+    int nHD1Chn;	//Ö§³ÖµÄHD1Í¨µÀÊý
+    unsigned char nPlayChn; //Ö§³Ö»Ø·ÅÂ·Êý
+    unsigned char nDigiTalChn; //Ö§³Ö×î´óÊý×ÖÍ¨µÀÂ·Êý
+    unsigned char n960PChn; //Ö§³ÖµÄ960PÍ¨µÀÊý
+    unsigned char n3MChn; //Ö§³ÖµÄ3MÍ¨µÀÊý
+    unsigned char n5MChn; //Ö§³ÖµÄ5MÍ¨µÀÊý
+    unsigned char nWUXGAChn; //Ö§³ÖµÄWUXGAÍ¨µÀÊý
+    unsigned char n1080NChn;//Ö§³Ö1080NÍ¨µÀÊý
+    unsigned char n4MChn;//Ö§³Ö4MÍ¨µÀÊý
     //unsigned char nResChar[2]; //ÈßÓà
 }SDK_HVR_CHNCAP, *SDK_PHVR_CHNCAP;
 
 typedef struct SDK_HVR_CHNCAPV2
 {
     unsigned char nD1Chn;		// Ö§³ÖµÄD1Â·Êý
-    unsigned char n960HChn;		// Ö§³ÖµÄ960HÂ·Êý
-    unsigned char n720PChn;		// Ö§³ÖµÄ720PÂ·Êý
+    unsigned char n960HChn;	// Ö§³ÖµÄ960HÂ·Êý
+    unsigned char n720PChn;	// Ö§³ÖµÄ720PÂ·Êý
     unsigned char n1080PChn;	// Ö§³ÖµÄ1080PÂ·Êý
-    unsigned char nCIFChn;		//Ö§³ÖµÄCIFÍ¨µÀÊý
-    unsigned char nHD1Chn;		//Ö§³ÖµÄHD1Í¨µÀÊý
-    unsigned char nPlayChn; 	//Ö§³Ö»Ø·ÅÂ·Êý
-    unsigned char nDigiTalChn; 	//Ö§³Ö×î´óÊý×ÖÍ¨µÀÂ·Êý
-    unsigned char n960PChn; 	//Ö§³ÖµÄ960PÍ¨µÀÊý
-    unsigned char n3MChn; 		//Ö§³ÖµÄ3MÍ¨µÀÊý
-    unsigned char n5MChn; 		//Ö§³ÖµÄ5MÍ¨µÀÊý
-    unsigned char nWUXGAChn; 	//Ö§³ÖµÄWUXGAÍ¨µÀÊý
-    unsigned char n1080NChn;	//Ö§³Ö1080NÍ¨µÀÊý
-    unsigned char n4MChn;		//Ö§³Ö4MÍ¨µÀÊý
-    unsigned char n720NChn;		//Ö§³Ö720NÍ¨µÀÊý
-	unsigned char nWSVGAChn;	//Ö§³ÖWSVGA(1024*576)Í¨µÀÊý
-	unsigned char n4KChn;		//Ö§³ÖµÄ4KÍ¨µÀÊý
-	unsigned char n3M_NChn;		//Ö§³ÖµÄ3M_NÍ¨µÀÊý
-	unsigned char n4M_NChn;		//Ö§³ÖµÄ4M_NÍ¨µÀÊý
-	unsigned char n5M_NChn;		//Ö§³ÖµÄ5M_NÍ¨µÀÊý
-	unsigned char n4K_NChn;		//Ö§³ÖµÄ4K_NÍ¨µÀÊý
-	unsigned char nRes[11];
+    unsigned char nCIFChn;	//Ö§³ÖµÄCIFÍ¨µÀÊý
+    unsigned char nHD1Chn;	//Ö§³ÖµÄHD1Í¨µÀÊý
+    unsigned char nPlayChn; //Ö§³Ö»Ø·ÅÂ·Êý
+    unsigned char nDigiTalChn; //Ö§³Ö×î´óÊý×ÖÍ¨µÀÂ·Êý
+    unsigned char n960PChn; //Ö§³ÖµÄ960PÍ¨µÀÊý
+    unsigned char n3MChn; //Ö§³ÖµÄ3MÍ¨µÀÊý
+    unsigned char n5MChn; //Ö§³ÖµÄ5MÍ¨µÀÊý
+    unsigned char nWUXGAChn; //Ö§³ÖµÄWUXGAÍ¨µÀÊý
+    unsigned char n1080NChn;//Ö§³Ö1080NÍ¨µÀÊý
+    unsigned char n4MChn;//Ö§³Ö4MÍ¨µÀÊý
+    unsigned char n720NChn;//Ö§³Ö720NÍ¨µÀÊý
+    unsigned char nRes[17];
 }SDK_HVR_CHNCAPV2, *SDK_PHVR_CHNCAPV2;
 
-typedef struct SDK_CAPTURE_HVRCAP  	//¸ÄÓÃCAPTURE_HVRCAPV2£¬ÎªÁË¼æÈÝÀÏµÄ±£Áô
+typedef struct SDK_CAPTURE_HVRCAP  //¸ÄÓÃCAPTURE_HVRCAPV2£¬ÎªÁË¼æÈÝÀÏµÄ±£Áô
 {
     SDK_HVR_CHNCAP DigitalCap;		// Ö§³ÖµÄÊý×ÖÍ¨µÀÐÅÏ¢
     SDK_HVR_CHNCAP AnalogCap;		// Ö§³ÖµÄÄ£ÄâÍ¨µÀÐÅÏ¢
@@ -1618,20 +1463,20 @@ typedef struct SDK_CAPTURE_HVRCAP  	//¸ÄÓÃCAPTURE_HVRCAPV2£¬ÎªÁË¼æÈÝÀÏµÄ±£Áô
 
 typedef struct SDK_CAPTURE_HVRCAPV2
 {
-    SDK_HVR_CHNCAPV2 DigitalCap;	// Ö§³ÖµÄÊý×ÖÍ¨µÀÐÅÏ¢
+    SDK_HVR_CHNCAPV2 DigitalCap;		// Ö§³ÖµÄÊý×ÖÍ¨µÀÐÅÏ¢
     SDK_HVR_CHNCAPV2 AnalogCap;		// Ö§³ÖµÄÄ£ÄâÍ¨µÀÐÅÏ¢
 }SDK_CAPTURE_HVRCAPV2, *SDK_PCAPTURE_HVRCAPV2;
 
 typedef struct SDK_CAPTURE_TOTAL_HVRCAP //¸ÄÓÃCAPTURE_TOTAL_HVRCAPV2£¬ÎªÁË¼æÈÝÀÏµÄ±£Áô
 {
-    int		nHVRCap;									// Êµ¼ÊÖ§³ÖµÄÄ£Ê½
+    int		nHVRCap;			// Êµ¼ÊÖ§³ÖµÄÄ£Ê½
     SDK_CAPTURE_HVRCAP	HVRCap[MAX_HVR_CHNCAP_CHN];		// ËùÓÐÄ£Ê½µÄ»ã×Ü
 }SDK_CAPTURE_TOTAL_HVRCAP, *SDK_PCAPTURE_TOTAL_HVRCAP;
 
 typedef struct SDK_CAPTURE_TOTAL_HVRCAPV2
 {
-    int		nHVRCap;									// Êµ¼ÊÖ§³ÖµÄÄ£Ê½
-    SDK_CAPTURE_HVRCAPV2	HVRCap[MAX_HVR_CHNCAP_CHN];	// ËùÓÐÄ£Ê½µÄ»ã×Ü
+    int		nHVRCap;			// Êµ¼ÊÖ§³ÖµÄÄ£Ê½
+    SDK_CAPTURE_HVRCAPV2	HVRCap[MAX_HVR_CHNCAP_CHN];		// ËùÓÐÄ£Ê½µÄ»ã×Ü
 }SDK_CAPTURE_TOTAL_HVRCAPV2, *SDK_PCAPTURE_TOTAL_HVRCAPV2;
 
 //Í¨µÀÄ£Ê½ÅäÖÃ
@@ -1647,14 +1492,14 @@ typedef struct SDK_NetDecorderChnStatus
 {
     char ChnName[NET_NAME_PASSWORD_LEN];
     char pMaxResName[50];
-    char pCurResName[50];
+    char	pCurResName[50];
     char pStatus[50];
 }SDK_NetDecorderChnStatus;
 
 /*ËùÓÐÊý×ÖÍ¨µÀ×´Ì¬*/
 typedef struct SDK_NetDecorderChnStatusAll
 {
-    SDK_NetDecorderChnStatus ChnStatusAll[NET_MAX_DECORDR_CH];
+    SDK_NetDecorderChnStatus ChnStatusAll[MAX_HVR_CHNCAP_CHN];
 }SDK_NetDecorderChnStatusAll;
 
 //PosÉè±¸ÀàÐÍ
@@ -1677,17 +1522,17 @@ enum SDK_WordEncode
 // posÏà¹ØÅäÖÃ
 typedef struct SDK_NetPosConfig
 {
-    bool Enable;			/*pos»úÍ¨µÀÊ¹ÄÜ*/
-    int  Devtype;			//pos»úÀàÐÍ
-    int  Protocol;			//Í¨ÐÅÐ­Òé
-    int  Port;				//Ð­Òé¶Ë¿ÚºÅ
-    bool SnapEnable;		//×¥ÅÄÊ¹ÄÜ
-    int  StartLine;			//¶ÔÊÕµ½µÄÐÅÏ¢´Ó¶àÉÙÐÐ¿ªÊ¼ÏÔÊ¾
-    int  WordEncodeType;	//ÎÄ×Ö±àÂë¸ñÊ½£¬ÈçÃ¶¾ÙÖµ WordEncodeType ËùÊ¾
-    bool KeyWordEnable; 	//¹Ø¼ü×ÖÐ´ÈÕÖ¾¹¦ÄÜÊ¹ÄÜ
+    bool Enable;		/*pos»úÍ¨µÀÊ¹ÄÜ*/
+    int Devtype;		//pos»úÀàÐÍ
+    int Protocol;		//Í¨ÐÅÐ­Òé
+    int Port;		//Ð­Òé¶Ë¿ÚºÅ
+    bool SnapEnable;       //×¥ÅÄÊ¹ÄÜ
+    int  StartLine;        //¶ÔÊÕµ½µÄÐÅÏ¢´Ó¶àÉÙÐÐ¿ªÊ¼ÏÔÊ¾
+    int  WordEncodeType;   //ÎÄ×Ö±àÂë¸ñÊ½£¬ÈçÃ¶¾ÙÖµ WordEncodeType ËùÊ¾
+    bool KeyWordEnable;    //¹Ø¼ü×ÖÐ´ÈÕÖ¾¹¦ÄÜÊ¹ÄÜ
     char SearchWrod[SDK_MAX_POS_FUNC_KEYWORDS][16]; //ÐèÒªÌí¼Óµ½ÈÕÖ¾ÀïµÄµ¥´Ê
-    int  HideTime;         	//Òþ²ØÍ¨µÀÏÔÊ¾µÄposÐÅÏ¢µÄÊ±¼ä,µ¥Î»ÊÇÃë£¬0±íÊ¾²»×Ô¶¯Òþ²Ø
-    int  res;				//±£Áô
+    int  HideTime;         //Òþ²ØÍ¨µÀÏÔÊ¾µÄposÐÅÏ¢µÄÊ±¼ä,µ¥Î»ÊÇÃë£¬0±íÊ¾²»×Ô¶¯Òþ²Ø
+    int res;		//±£Áô
 }SDK_NetPosConfig;
 //ËùÓÐpos»úÏà¹ØÅäÖÃ
 typedef struct SDK_NetPosConfigAll
@@ -1699,23 +1544,19 @@ typedef struct SDK_NetPosConfigAll
 ///< 3G²¦ºÅÉèÖÃ
 typedef struct SDK_Net3GConfig
 {
-    bool bEnable;			  				///< ÎÞÏßÄ£¿éÊ¹ÄÜ±êÖ¾
-    int  iNetType;			  				///< ÎÞÏßÍøÂçÀàÐÍ
+    bool bEnable;			  ///< ÎÞÏßÄ£¿éÊ¹ÄÜ±êÖ¾
+    int iNetType;			  ///< ÎÞÏßÍøÂçÀàÐÍ
     char sAPN[NET_NAME_PASSWORD_LEN];		///< ½ÓÈëµãÃû³Æ
     char sDialNum[NET_NAME_PASSWORD_LEN];   ///< ²¦ºÅºÅÂë
     char sUserName[NET_NAME_PASSWORD_LEN];  ///< ²¦ºÅÓÃ»§Ãû
     char sPassword[NET_NAME_PASSWORD_LEN];  ///< ²¦ºÅÃÜÂë
-    CONFIG_IPAddress addr;			  		///< ²¦ºÅºó»ñµÃµÄIPµØÖ·
-	char sOperators[NET_NAME_PASSWORD_LEN]; ///< ÔËÓªÉÌ(ÉÏ²ãÊ¹ÓÃ)
-	char strSubNetMask[NET_NAME_PASSWORD_LEN];///< ²¦ºÅ×ÓÍøÑÚÂë
-	char strGateWay[NET_NAME_PASSWORD_LEN];	  ///< ²¦ºÅÄ¬ÈÏÍø¹Ø
-	bool bSIMState;							  ///< SIM¿¨µÄ×´Ì¬
+    CONFIG_IPAddress addr;			  ///< ²¦ºÅºó»ñµÃµÄIPµØÖ·
 }SDK_Net3GConfig;
 
 ///< ÊÖ»ú¼à¿ØÉèÖÃ°üÀ¨
 typedef struct SDK_NetMoblieConfig
 {
-    bool bEnable;						///< ÊÇ·ñ¿ªÆô
+    bool bEnable;	///< ÊÇ·ñ¿ªÆô
     SDK_RemoteServerConfig Server;		///< ·þÎñÆ÷
 }SDK_NetMoblieConfig;
 
@@ -1731,44 +1572,44 @@ typedef struct SDK_NetRTSPConfig
 ///< UPNPÉèÖÃ
 typedef struct SDK_NetUPNPConfig
 {
-    bool bEnable;				///< Ê¹ÄÜ±êÖ¾
-    bool bState;				///< ×´Ì¬, 1: OK 0: NOK
-    int  iHTTPPort;				///< HTTPÁ¬½ÓÓ³ÉäºóµÄ¶Ë¿Ú
-    int  iMediaPort;			///< Ã½ÌåÁ¬½ÓÓ³ÉäºóµÄ¶Ë¿Ú
-    int  iMobliePort;			///< ÊÖ»ú¼à¿ØÓ³ÉäºóµÄ¶Ë¿Ú
+    bool bEnable;			  ///< Ê¹ÄÜ±êÖ¾
+    bool bState;              ///< ×´Ì¬, 1: OK 0: NOK
+    int iHTTPPort;			  ///< HTTPÁ¬½ÓÓ³ÉäºóµÄ¶Ë¿Ú
+    int iMediaPort;			  ///< Ã½ÌåÁ¬½ÓÓ³ÉäºóµÄ¶Ë¿Ú
+    int iMobliePort;		  ///< ÊÖ»ú¼à¿ØÓ³ÉäºóµÄ¶Ë¿Ú
 }SDK_NetUPNPConfig;
 
 ///< WIFIÉèÖÃ
 typedef struct SDK_NetWifiConfig
 {
     bool bEnable;
-    char sSSID[36];            	///< SSID Number
-    int  nChannel;             	///< channel
-    char sNetType[32];         	///< Infra, Adhoc
-    char sEncrypType[32];      	///< NONE, WEP, TKIP, AES
-    char sAuth[32];            	///< OPEN, SHARED, WEPAUTO, WPAPSK, WPA2PSK, WPANONE, WPA, WPA2
-    int  nKeyType;             	///< 0:Hex 1:ASCII
+    char sSSID[36];            //SSID Number
+    int nChannel;                   //channel
+    char sNetType[32];         //Infra, Adhoc
+    char sEncrypType[32];      //NONE, WEP, TKIP, AES
+    char sAuth[32];            //OPEN, SHARED, WEPAUTO, WPAPSK, WPA2PSK, WPANONE, WPA, WPA2
+    int  nKeyType;                  //0:Hex 1:ASCII
     char sKeys[NET_IW_ENCODING_TOKEN_MAX];
-    CONFIG_IPAddress HostIP;	///< host ip
-    CONFIG_IPAddress Submask;	///< netmask
-    CONFIG_IPAddress Gateway;	///< gateway
+    CONFIG_IPAddress HostIP;		///< host ip
+    CONFIG_IPAddress Submask;		///< netmask
+    CONFIG_IPAddress Gateway;		///< gateway
 }SDK_NetWifiConfig;
 
 enum SDK_RSSI_SINGNAL
 {
-    SDK_RSSI_NO_SIGNAL,    //<= -90db
+    SDK_RSSI_NO_SIGNAL,   //<= -90db
     SDK_RSSI_VERY_LOW,     //<= -81db
     SDK_RSSI_LOW,          //<= -71db
     SDK_RSSI_GOOD,         //<= -67db
     SDK_RSSI_VERY_GOOD,    //<= -57db
-    SDK_RSSI_EXCELLENT     //<= -57db
+    SDK_RSSI_EXCELLENT     //>-57db
 };
 
 typedef struct SDK_NetWifiDevice
 {
     char sSSID[36];            //SSID Number
-    int  nRSSI;                //SEE SDK_RSSI_SINGNAL
-    int  nChannel;
+    int nRSSI;                 //SEE SDK_RSSI_SINGNAL
+    int nChannel;
     char sNetType[32];         //Infra, Adhoc
     char sEncrypType[32];      //NONE, WEP, TKIP, AES
     char sAuth[32];            //OPEN, SHARED, WEPAUTO, WPAPSK, WPA2PSK, WPANONE, WPA, WPA2
@@ -1783,9 +1624,10 @@ typedef struct SDK_NetWifiDeviceAll
 ///< ±¨¾¯ÖÐÐÄÉèÖÃ
 typedef struct SDK_NetAlarmCenterConfig
 {
-    bool bEnable;									///< ÊÇ·ñ¿ªÆô
+    bool bEnable;		///< ÊÇ·ñ¿ªÆô
     char sAlarmServerKey[NET_NAME_PASSWORD_LEN];	///< ±¨¾¯ÖÐÐÄÐ­ÒéÀàÐÍÃû³Æ,
-    SDK_RemoteServerConfig Server;					///< ±¨¾¯ÖÐÐÄ·þÎñÆ÷
+    ///< ±¨¾¯ÖÐÐÄ·þÎñÆ÷
+    SDK_RemoteServerConfig Server;
     bool bAlarm;
     bool bLog;
 }SDK_NetAlarmCenterConfig;
@@ -1802,15 +1644,15 @@ typedef struct SDK_CONFIG_NET_MEGA
     bool bEnable;
     bool bNetManEnable;
     CONFIG_IPAddress ServerIP;
-    int  iServerPort;
+    int iServerPort;
     char sDeviceId[32];
     char sUserName[24];
     char sPasswd[32];
-    int  iMaxCon;
-    int  iVideoPort;
-    int  iAudioPort;
-    int  iMsgPort;
-    int  iUpdatePort;
+    int iMaxCon;
+    int iVideoPort;
+    int iAudioPort;
+    int iMsgPort;
+    int iUpdatePort;
 }SDK_CONFIG_NET_MEGA;
 
 // ÐÂÍûÆ½Ì¨
@@ -1820,8 +1662,8 @@ typedef struct SDK_CONFIG_NET_XINGWANG
     bool bSyncTime;
     bool bSubStream;
     CONFIG_IPAddress ServerIP;
-    int  iServerPort;
-    int  iDownLoadPort;
+    int iServerPort;
+    int iDownLoadPort;
     char sPasswd[32];
     char szSID[32];
 }SDK_CONFIG_NET_XINGWANG;
@@ -1860,40 +1702,37 @@ enum SDK_AlarmCenterStatus
 // ¸æ¾¯ÖÐÐÄÏûÏ¢ÄÚÈÝ
 typedef struct SDK_NetAlarmCenterMsg
 {
-    CONFIG_IPAddress HostIP;			///< Éè±¸IP
-    int  nChannel;                  	///< Í¨µÀ
-    int  nType;                     	///< ÀàÐÍ ¼ûAlarmCenterMsgType
-    int  nStatus;                   	///< ×´Ì¬ ¼ûAlarmCenterStatus
-    SDK_SYSTEM_TIME Time;           	///< ·¢ÉúÊ±¼ä
-    char sEvent[NET_MAX_INFO_LEN];  	///< ÊÂ¼þ
-    char sSerialID[NET_MAX_MAC_LEN]; 	///< Éè±¸ÐòÁÐºÅ
-    char sDescrip[NET_MAX_INFO_LEN];  	///< ÃèÊö
+    CONFIG_IPAddress HostIP;		///< Éè±¸IP
+    int nChannel;                   ///< Í¨µÀ
+    int nType;                      ///< ÀàÐÍ ¼ûAlarmCenterMsgType
+    int nStatus;                    ///< ×´Ì¬ ¼ûAlarmCenterStatus
+    SDK_SYSTEM_TIME Time;           ///< ·¢ÉúÊ±¼ä
+    char sEvent[NET_MAX_INFO_LEN];  ///< ÊÂ¼þ
+    char sSerialID[NET_MAX_MAC_LEN]; ///< Éè±¸ÐòÁÐºÅ
+    char sDescrip[NET_MAX_INFO_LEN];  ///< ÃèÊö
 }SDK_NetAlarmCenterMsg;
 
 /// ±àÂëÐÅÏ¢
 typedef struct SDK_EncodeInfo
 {
-    bool bEnable;						///< Ê¹ÄÜÏî
-    bool bHaveAudio;					///< ÊÇ·ñÖ§³ÖÒôÆµ
-    int  iStreamType;					///< ÂëÁ÷ÀàÐÍ£¬capture_channel_t
-    unsigned int uiCompression;			///< capture_comp_tµÄÑÚÂë
-    unsigned int uiResolution;			///< SDK_CAPTURE_SIZE_tµÄÑÚÂë
+    bool bEnable;			///< Ê¹ÄÜÏî
+    bool bHaveAudio;		///< ÊÇ·ñÖ§³ÖÒôÆµ
+    int iStreamType;		///< ÂëÁ÷ÀàÐÍ£¬capture_channel_t
+    unsigned int uiCompression;		///< capture_comp_tµÄÑÚÂë
+    unsigned int uiResolution;		///< SDK_CAPTURE_SIZE_tµÄÑÚÂë
 }SDK_EncodeInfo;
 
 /// ±àÂëÄÜÁ¦
 typedef struct CONFIG_EncodeAbility
 {
-    unsigned int iMaxEncodePower;							///< Ö§³ÖµÄ×î´ó±àÂëÄÜÁ¦
-    int iChannelMaxSetSync;									///< Ã¿¸öÍ¨µÀ·Ö±æÂÊÊÇ·ñÐèÒªÍ¬²½ 0-²»Í¬²½, 1 -Í¬²½
+    unsigned int iMaxEncodePower;		///< Ö§³ÖµÄ×î´ó±àÂëÄÜÁ¦
+    int iChannelMaxSetSync;		///< Ã¿¸öÍ¨µÀ·Ö±æÂÊÊÇ·ñÐèÒªÍ¬²½ 0-²»Í¬²½, 1 -Í¬²½
     unsigned int nMaxPowerPerChannel[NET_MAX_CHANNUM];		///< Ã¿¸öÍ¨µÀÖ§³ÖµÄ×î¸ß±àÂëÄÜÁ¦
     unsigned int ImageSizePerChannel[NET_MAX_CHANNUM];		///< Ã¿¸öÍ¨µÀÖ§³ÖµÄÍ¼Ïñ·Ö±æÂÊ
-    unsigned int ExImageSizePerChannel[NET_MAX_CHANNUM];	///< Ã¿¸öÍ¨µÀÖ§³ÖµÄ¸¨ÂëÁ÷Í¼Ïñ·Ö±æÂÊ
-	unsigned int CompressionMask[NET_MAX_CHANNUM];			///< ±àÂëÄ£Ê½capture_comp_tÑÚÂë
-	unsigned int ThridImageSize[NET_MAX_CHANNUM];			///< CHL_3IRD_TÂëÁ÷Ö§³ÖµÄÍ¼Ïñ·Ö±æÂÊ
-	unsigned int FourthImageSize[NET_MAX_CHANNUM];			///< CHL_4RTH_TÂëÁ÷Ö§³ÖµÄÍ¼Ïñ·Ö±æÂÊ
-    SDK_EncodeInfo vEncodeInfo[SDK_CHL_FUNCTION_NUM];		///< ±àÂëÐÅÏ¢,ÔÝÊ±×î´ó¾Í4ÖÐÂëÁ÷
-    SDK_EncodeInfo vCombEncInfo[SDK_CHL_FUNCTION_NUM];		///< ×éºÏ±àÂëÐÅÏ¢,ÔÝÊ±×î´ó¾Í4ÖÐÂëÁ÷
-    int	iMaxBps;											///< ×î¸ßÂëÁ÷Kbps
+    unsigned int ExImageSizePerChannel[NET_MAX_CHANNUM];		///< Ã¿¸öÍ¨µÀÖ§³ÖµÄ¸¨ÂëÁ÷Í¼Ïñ·Ö±æÂÊ
+    SDK_EncodeInfo vEncodeInfo[SDK_CHL_FUNCTION_NUM];	///< ±àÂëÐÅÏ¢,ÔÝÊ±×î´ó¾Í4ÖÐÂëÁ÷
+    SDK_EncodeInfo vCombEncInfo[SDK_CHL_FUNCTION_NUM];	///< ×éºÏ±àÂëÐÅÏ¢,ÔÝÊ±×î´ó¾Í4ÖÐÂëÁ÷
+    int	iMaxBps;				///< ×î¸ßÂëÁ÷Kbps
     unsigned int ExImageSizePerChannelEx[NET_MAX_CHANNUM][SDK_CAPTURE_SIZE_EXT_V3_NR];	///< Ã¿¸öÍ¨µÀÖ§³ÖµÄ¸¨ÂëÁ÷Í¼Ïñ·Ö±æÂÊ
 }CONFIG_EncodeAbility;
 
@@ -1964,95 +1803,76 @@ enum SDK_EncodeFunctionTypes
     SDK_ENCODE_FUNCTION_TYPE_SNAP_STREAM,		///< ×¥Í¼¹¦ÄÜ
     SDK_ENCODE_FUNCTION_TYPE_WATER_MARK,		///< Ë®Ó¡¹¦ÄÜ
     SDK_ENCODE_FUNCTION_TYPE_IFRAME_RANGE,		///< IÖ¡¼ä¸ô
-    SDK_ENCODE_FUNCTION_TYPE_LOW_BITRATE,   	///< µÍÂëÁ÷
-	SDK_ENCODE_FUNCTION_TYPE_SmartH264,			///< H264+
-	SDK_ENCODE_FUNCTION_TYPE_INTELLIGENT_ENCODE,///< ÖÇÄÜ±àÂë
+    SDK_ENCODE_FUNCTION_TYPE_LOW_BITRATE,   // µÍÂëÁ÷
     SDK_ENCODE_FUNCTION_TYPE_NR,
 };
 
 /// ±¨¾¯¹¦ÄÜ
 enum SDK_AlarmFucntionTypes
 {
-    SDK_ALARM_FUNCTION_TYPE_MOTION_DETECT,		///< ¶¯Ì¬¼ì²â
-    SDK_ALARM_FUNCTION_TYPE_BLIND_DETECT,		///< ÊÓÆÁÕÚµ²
-    SDK_ALARM_FUNCTION_TYPE_LOSS_DETECT,		///< ÊÓÆÁ¶ªÊ§
-    SDK_ALARM_FUNCTION_TYPE_LOCAL_ALARM,		///< ±¾µØ±¨¾¯
-    SDK_ALARM_FUNCTION_TYPE_NET_ALARM,			///< ÍøÂç±¨¾¯
-    SDK_ALARM_FUNCTION_TYPE_IP_CONFLICT,		///< IPµØÖ·³åÍ»
-    SDK_ALARM_FUNCTION_TYPE_NET_ABORT,			///< ÍøÂçÒì³£
+    SDK_ALARM_FUNCTION_TYPE_MOTION_DETECT,	///< ¶¯Ì¬¼ì²â
+    SDK_ALARM_FUNCTION_TYPE_BLIND_DETECT,	///< ÊÓÆÁÕÚµ²
+    SDK_ALARM_FUNCTION_TYPE_LOSS_DETECT,	///< ÊÓÆÁ¶ªÊ§
+    SDK_ALARM_FUNCTION_TYPE_LOCAL_ALARM,	///< ±¾µØ±¨¾¯
+    SDK_ALARM_FUNCTION_TYPE_NET_ALARM,		///< ÍøÂç±¨¾¯
+    SDK_ALARM_FUNCTION_TYPE_IP_CONFLICT,	///< IPµØÖ·³åÍ»
+    SDK_ALARM_FUNCTION_TYPE_NET_ABORT,		///< ÍøÂçÒì³£
     SDK_ALARM_FUNCTION_TYPE_STORAGE_NOTEXIST,	///< ´æ´¢Éè±¸²»´æÔÚ
     SDK_ALARM_FUNCTION_TYPE_STORAGE_LOWSPACE,	///< ´æ´¢Éè±¸ÈÝÁ¿²»×ã
     SDK_ALARM_FUNCTION_TYPE_STORAGE_FAILURE,	///< ´æ´¢Éè±¸·ÃÎÊÊ§°Ü
-    SDK_ALARM_FUNCTION_TYPE_VIDEOANALYSE,		///< ÊÓÆµ·ÖÎö
-    SDK_ALARM_FUNCTION_TYPE_NET_ABORT_EXTEND,	///< ÍøÂçÒì³£À©Õ¹
-    SDK_ALARM_FUNCTION_TYPE_IPC_ALARM,			///< IPC±¨¾¯
-	SDK_ALARM_FUNCTION_TYPE_CONSUMER_433ALARM,	///< ¼ÒÓÃ²úÆ·433Éè±¸±¨¾¯
-	SDK_ALARM_FUNCTION_TYPE_CONSUMER_REMOTE, 	///< ¼ÒÓÃ²úÆ·2.4G Ò£¿ØÆ÷
-	SDK_ALARM_FUNCTION_TYPE_SERIAL_ALARM,		///< ´®¿Ú±¨¾¯
-	SDK_ALARM_FUNCTION_TYPE_NEW_VIEDO_ANALYZE,	///< ÐÂÀÏÖÇÄÜ
-	SDK_ALARM_FUNCTION_TYPE_PIR_ALARM,			///< PIR±¨¾¯
-	SDK_ALARM_FUNCTION_TYPE_BLUR_CHECK,			///< Ä£ºý¼ì²â±¨¾¯
-	SDK_ALARM_FUNCTION_TYPE_433_ALARM,			///< ¿Í»§¶¨ÖÆ433±¨¾¯
-	SDK_ALARM_FUNCTION_TYPE_PIR_DETECT,			///< PIR ¼ì²â
+    SDK_ALARM_FUNCTION_TYPE_VIDEOANALYSE,///<ÊÓÆµ·ÖÎö
+    SDK_ALARM_FUNCTION_TYPE_NET_ABORT_EXTEND,	//ÍøÂçÒì³£À©Õ¹
+    SDK_ALARM_FUNCTION_TYPE_IPC_ALARM,			//IPC±¨¾¯
     SDK_ALARM_FUNCTION_TYPE_NR
 };
 
 /// ÍøÂç·þÎñ¹¦ÄÜ
 enum SDK_NetServerTypes
 {
-    SDK_NET_SERVER_TYPES_IPFILTER,			///< °×ºÚÃûµ¥
-    SDK_NET_SERVER_TYPES_DHCP,				///< DHCP¹¦ÄÜ
-    SDK_NET_SERVER_TYPES_DDNS,				///< DDNS¹¦ÄÜ
-    SDK_NET_SERVER_TYPES_EMAIL,				///< Email¹¦ÄÜ
-    SDK_NET_SERVER_TYPES_MULTICAST,			///< ¶à²¥¹¦ÄÜ
-    SDK_NET_SERVER_TYPES_NTP,				///< NTP¹¦ÄÜ
+    SDK_NET_SERVER_TYPES_IPFILTER,		///< °×ºÚÃûµ¥
+    SDK_NET_SERVER_TYPES_DHCP,			///< DHCP¹¦ÄÜ
+    SDK_NET_SERVER_TYPES_DDNS,			///< DDNS¹¦ÄÜ
+    SDK_NET_SERVER_TYPES_EMAIL,			///< Email¹¦ÄÜ
+    SDK_NET_SERVER_TYPES_MULTICAST,		///< ¶à²¥¹¦ÄÜ
+    SDK_NET_SERVER_TYPES_NTP,			///< NTP¹¦ÄÜ
     SDK_NET_SERVER_TYPES_PPPOE,
     SDK_NET_SERVER_TYPES_DNS,
-    SDK_NET_SERVER_TYPES_ARSP,				///< Ö÷¶¯×¢²á·þÎñ
-    SDK_NET_SERVER_TYPES_3G,            	///< 3G²¦ºÅ
-    SDK_NET_SERVER_TYPES_MOBILE=10,     	///< ÊÖ»ú¼à¿Ø
-    SDK_NET_SERVER_TYPES_UPNP,				///< UPNP
-    SDK_NET_SERVER_TYPES_FTP,				///< FTP
-    SDK_NET_SERVER_TYPES_WIFI,          	///< WIFI
-    SDK_NET_SERVER_TYPES_ALARM_CENTER,  	///< ¸æ¾¯ÖÐÐÄ
-    SDK_NET_SERVER_TYPES_NETPLAT_MEGA,  	///< »¥ÐÅ»¥Í¨
-    SDK_NET_SERVER_TYPES_NETPLAT_XINWANG,  	///< ÐÇÍû
-    SDK_NET_SERVER_TYPES_NETPLAT_SHISOU,  	///< ÊÓËÑ
-    SDK_NET_SERVER_TYPES_NETPLAT_VVEYE,  	///< ÍþÍþÑÛ
-    SDK_NET_SERVER_TYPES_RTSP,     			///< RTSP
-    SDK_NET_SERVER_TYPES_PHONEMSG=20,     	///< ÊÖ»úÐÅÏ¢·¢ËÍÅäÖÃ
-    SDK_NET_SERVER_TYPES_PHONEMULTIMEDIAMSG,///< ÊÖ»úÐÅÏ¢·¢ËÍÅäÖÃ
-    SDK_NET_SERVER_TYPES_DAS,          		///< Ö÷¶¯×¢²á
-    SDK_NET_SERVER_TYPES_LOCALSDK_PLATFORM, ///< ÍøÂçÆ½Ì¨ÐÅÏ¢ÉèÖÃ
-    SDK_NET_SERVER_TYPES_GOD_EYE,			///< ÉñÑÛ½Ó¾¯ÖÐÐÄÏµÍ³
-    SDK_NET_SERVER_TYPES_NAT,				///< NAT´©Í¸£¬MTUÅäÖÃ
-    SDK_NET_SERVER_TYPES_VPN,     			///< VPN
-    SDK_NET_SERVER_TYPES_NET_KEYBOARD,		///< ÍøÂç¼üÅÌÅäÖÃ
-    SDK_NET_SERVER_TYPES_SPVMN,				///< 28181Ð­ÒéÅäÖÃ
-    SDK_NET_SERVER_TYPES_PMS,      			///< ÊÖ»ú·þÎñ
-    SDK_NET_SERVER_TYPE_KAICONG,			///< ¿­´ÏÅäÖÃ
-    SDK_NET_SERVER_TYPE_PROTOCOL_MAC,		///< Ö§³ÖMACÐ­Òé
-    SDK_NET_SERVER_TYPE_XMHEARTBEAT, 		///< ÐÄÌø
-    SDK_NET_SERVER_TYPES_MONITOR_PLATFORM, 	///< ÉñÖÝÊýÂë¼à¿ØÆ½Ì¨
-    SDK_NET_SERVER_TYPES_ANJUP2P,			///< 
-    SDK_NET_SERVER_TYPES_TUTKIOTC,			///< TUTK IOTCÆ½Ì¨
-    SDK_NET_SERVER_TYPES_BAIDUCLOUD, 		///< °Ù¶ÈÔÆ
-    SDK_NET_SERVER_TYPES_MOBILWATCH,		///< ÊÖ»ú¿´µê
-	SDK_NET_SERVER_TYPES_BJLTHY,			///< ±±¾©ÁúÌÚ·ÃÎÊ·þÎñÆ÷Æ½Ì¨
-    SDK_NET_SERVER_TYPES_OPENVPN,			///< openvpnÅäÖÃ
-    SDK_NET_SERVER_TYPES_PROTOCOL_NAT,		///< Ö§³ÖNATÐ­Òé
-    SDK_NET_SERVER_TYPES_PLATFORM_GBEYES,	///< Ö§³Ö»·±£Êý¾Ýµþ¼Ó
-	SDK_NET_SERVER_TYPES_GBEYES,			///< ÐÅ²úÈ«ÇòÑÛÆ½Ì¨
-    SDK_NET_SERVER_TYPES_DATALINK,			///< DataLink¿Í»§ÍøÂç·þÎñÖÐÖ´ÐÐ³ÌÐòÊ¹ÄÜÅäÖÃ
-    SDK_NET_SERVER_TYPES_WIFI_MODE,			///< ÊÇ·ñÖ§³ÖwifiÄ£Ê½Ïà¹ØÅäÖÃ
-	SDK_NET_SERVER_TYPES_IPV6,				///< Ö§³Öipv6
-	SDK_NET_SERVER_TYPES_PMS_V2,			///< ÐÂ°æPMSÒ³Ãæ
-	SDK_NET_SERVER_TYPES_4G,				///< ÎÞÏß²¦ºÅµÄÐ­ÒéÏÂÀ­¿òÊÇ·ñÏÔÊ¾4G
-	SDK_NET_SERVER_TYPES_SPVMN_SIP,			///< 28181ÅäÖÃÏÔÊ¾SIP °å¿¨µØÖ·
-	SDK_NET_SERVER_TYPES_RTMP,				///< RTMPÐ­Òé
-	SDK_NET_SERVER_TYPES_IPADAPTIVE,		///< IP×ÔÊÊÓ¦ÍøÂçÄÜÁ¦
-	SDK_NET_SERVER_TYPES_ONVIF_PWD_CHECKOUT,///< ONVIFÃÜÂëÐ£Ñé
-	SDK_NET_SERVER_TYPES_SERIAL_TRANS,		//º¼ÖÝ×¯ÏÍ´®¿ÚÍ¸´«»ñÈ¡web ¶ËµÄÅäÖÃ
+    SDK_NET_SERVER_TYPES_ARSP,			///< Ö÷¶¯×¢²á·þÎñ
+    SDK_NET_SERVER_TYPES_3G,            ///< 3G²¦ºÅ
+    SDK_NET_SERVER_TYPES_MOBILE=10,        ///< ÊÖ»ú¼à¿Ø
+    SDK_NET_SERVER_TYPES_UPNP,			    ///< UPNP
+    SDK_NET_SERVER_TYPES_FTP,			    ///< FTP
+    SDK_NET_SERVER_TYPES_WIFI,          ///<WIFI
+    SDK_NET_SERVER_TYPES_ALARM_CENTER,  ///< ¸æ¾¯ÖÐÐÄ
+    SDK_NET_SERVER_TYPES_NETPLAT_MEGA,  ///< »¥ÐÅ»¥Í¨
+    SDK_NET_SERVER_TYPES_NETPLAT_XINWANG,  ///< ÐÇÍû
+    SDK_NET_SERVER_TYPES_NETPLAT_SHISOU,  ///< ÊÓËÑ
+    SDK_NET_SERVER_TYPES_NETPLAT_VVEYE,  ///< ÍþÍþÑÛ
+    SDK_NET_SERVER_TYPES_RTSP,     //RTSP
+    SDK_NET_SERVER_TYPES_PHONEMSG=20,     //ÊÖ»úÐÅÏ¢·¢ËÍÅäÖÃ
+    SDK_NET_SERVER_TYPES_PHONEMULTIMEDIAMSG,     //ÊÖ»úÐÅÏ¢·¢ËÍÅäÖÃ
+    SDK_NET_SERVER_TYPES_DAS,          //Ö÷¶¯×¢²á
+    SDK_NET_SERVER_TYPES_LOCALSDK_PLATFORM,          //ÍøÂçÆ½Ì¨ÐÅÏ¢ÉèÖÃ
+    SDK_NET_SERVER_TYPES_GOD_EYE,///<ÉñÑÛ½Ó¾¯ÖÐÐÄÏµÍ³
+    SDK_NET_SERVER_TYPES_NAT,		///NAT´©Í¸£¬MTUÅäÖÃ
+    SDK_NET_SERVER_TYPES_VPN,     ///VPN
+    SDK_NET_SERVER_TYPES_NET_KEYBOARD,	///ÍøÂç¼üÅÌÅäÖÃ
+    SDK_NET_SERVER_TYPES_SPVMN,		///28181Ð­ÒéÅäÖÃ
+    SDK_NET_SERVER_TYPES_PMS,      //ÊÖ»ú·þÎñ
+    SDK_NET_SERVER_TYPE_KAICONG,		///¿­´ÏÅäÖÃ
+    SDK_NET_SERVER_TYPE_PROTOCOL_MAC,///Ö§³ÖMACÐ­Òé
+    SDK_NET_SERVER_TYPE_XMHEARTBEAT, //ÐÛÂõÐÄÌø
+    SDK_NET_SERVER_TYPES_MONITOR_PLATFORM, //ÉñÖÝÊýÂë¼à¿ØÆ½Ì¨
+    SDK_NET_SERVER_TYPES_ANJUP2P,			//
+    SDK_NET_SERVER_TYPES_TUTKIOTC,		//TUTK IOTCÆ½Ì¨
+    SDK_NET_SERVER_TYPES_BAIDUCLOUD, //°Ù¶ÈÔÆ
+    SDK_NET_SERVER_TYPES_MOBILWATCH,		//ÊÖ»ú¿´µê
+    SDK_NET_NET_SERVER_TYPES_BJLTHY,				//±±¾©ÁúÌÚ
+    SDK_NET_SERVER_TYPES_OPENVPN,			//openvpnÅäÖÃ
+    SDK_NET_SERVER_TYPES_PROTOCOL_NAT,		//Ö§³ÖNATÐ­Òé
+    SDK_NET_SERVER_TYPES_PLATFORM_GBEYES,	//Ö§³Ö»·±£Êý¾Ýµþ¼Ó
+    SDK_NET_SERVER_TYPES_DATALINK,			//DataLink¿Í»§ÍøÂç·þÎñÖÐÖ´ÐÐ³ÌÐòÊ¹ÄÜÅäÖÃ
+    SDK_NET_SERVER_TYPES_WIFI_MODE,			//ÊÇ·ñÖ§³ÖwifiÄ£Ê½Ïà¹ØÅäÖÃ
     SDK_NET_SERVER_TYPES_NR,
 };
 
@@ -2067,8 +1887,8 @@ enum SDK_PreviewTypes
 ///´®¿ÚÀàÐÍ
 enum SDK_CommTypes
 {
-    SDK_COMM_TYPES_RS485,		///<485´®¿Ú
-    SDK_COMM_TYPES_RS232,		///<232´®¿Ú
+    SDK_COMM_TYPES_RS485,			///<485´®¿Ú
+    SDK_COMM_TYPES_RS232,			///<232´®¿Ú
     SDK_COMM_TYPES_NR
 };
 
@@ -2082,19 +1902,18 @@ enum SDK_InPutMethod
 //±¨¾¯ÖÐ±êÇ©ÏÔÊ¾
 enum SDK_TipShow
 {
-    SDK_NO_BEEP_TIP_SHOW,  		//·äÃùÌáÊ¾
-    SDK_NO_FTP_TIP_SHOW,  		//FTPÌáÊ¾
-    SDK_NO_EMAIL_TIP_SHOW,  	//EMAILÌáÊ¾
-	SDK_NO_DISK_MANAGER_SHOW, //²»ÏÔÊ¾Ó²ÅÌ¹ÜÀíÒ³ÃæµÄ·ÖÇøºÍÀàÐÍÐÞ¸ÄµÈ°´Å¥
+    SDK_NO_BEEP_TIP_SHOW,  //·äÃùÌáÊ¾
+    SDK_NO_FTP_TIP_SHOW,  //FTPÌáÊ¾
+    SDK_NO_EMAIL_TIP_SHOW,  //EMAILÌáÊ¾
     SDK_NO_TIP_SHOW_NR
 };
 ///³µÔØ¹¦ÄÜ
 enum SDK_MobileCar
 {
-    SDK_MOBILEDVR_STATUS_EXCHANGE,			//³µÁ¾×´Ì¬
-    SDK_MOBILEDVR_DELAY_SET,	  			//ÑÓÊ±ÉèÖÃ
+    SDK_MOBILEDVR_STATUS_EXCHANGE,
+    SDK_MOBILEDVR_DELAY_SET,
     SDK_MOBILEDVR_CARPLATE_SET,
-    SDK_MOBILEDVR_GPS_TIMING,	  			//GPSÐ£Ê±
+    SDK_MOBILEDVR_GPS_TIMING,
     SDK_MOBILEDVR_DVR_BOOT_TYPE_SET,
     SDK_MOBILEDVR_NR
 };
@@ -2102,80 +1921,57 @@ enum SDK_MobileCar
 ///ÆäËû¹¦ÄÜ
 enum SDK_OtherFunction
 {
-    SDK_OTHER_DOWNLOADPAUSE,				//Â¼ÏñÏÂÔØÔÝÍ£¹¦ÄÜ
-    SDK_OTHER_USB_SUPPORT_RECORD,			//USBÖ§³ÖÂ¼Ïñ¹¦ÄÜ
-    SDK_OTHER_SD_SUPPORT_RECORD,			//SDÖ§³ÖÂ¼Ïñ¹¦ÄÜ
-    SDK_OTHER_ONVIF_CLIENT_SUPPORT,			//ÊÇ·ñÖ§³ÖONVIF¿Í»§¶Ë
-    SDK_OTHER_NET_LOCALSEARCH_SUPPORT,		//ÊÇ·ñÖ§³ÖÔ¶³ÌËÑË÷
-    SDK_OTHER_MAXPLAYBACK_SUPPORT, 			//ÊÇ·ñÖ§³Ö×î´ó»Ø·ÅÍ¨µÀÊýÏÔÊ¾
-    SDK_OTHER_NVR_SUPPORT, 					//ÊÇ·ñÊÇ×¨ÒµNVR
-    SDK_OTHER_C7_PLATFORM_SUPPORT,			//Ö§³ÖC7Æ½Ì¨
-    SDK_OTHER_MAIL_TEST_SUPPORT,			//Ö§³ÖÓÊ¼þ²âÊÔ
-    SDK_OTHER_SHOW_OSD_INFO,            	//Ö§³ÖÏÔÊ¾3ÐÐOSDÐÅÏ¢
-    SDK_OTHER_HIDE_DIGITAL, 				//Í¨µÀÄ£Ê½ÆÁ±Î¹¦ÄÜ
-    SDK_OTHER_ACUTANCE_HORIZONTAL,			//Èñ¶È
+    SDK_OTHER_DOWNLOADPAUSE,		//Â¼ÏñÏÂÔØÔÝÍ£¹¦ÄÜ
+    SDK_OTHER_USB_SUPPORT_RECORD,	//USBÖ§³ÖÂ¼Ïñ¹¦ÄÜ
+    SDK_OTHER_SD_SUPPORT_RECORD,		//SDÖ§³ÖÂ¼Ïñ¹¦ÄÜ
+    SDK_OTHER_ONVIF_CLIENT_SUPPORT,	//ÊÇ·ñÖ§³ÖONVIF¿Í»§¶Ë
+    SDK_OTHER_NET_LOCALSEARCH_SUPPORT,	//ÊÇ·ñÖ§³ÖÔ¶³ÌËÑË÷
+    SDK_OTHER_MAXPLAYBACK_SUPPORT, //ÊÇ·ñÖ§³Ö×î´ó»Ø·ÅÍ¨µÀÊýÏÔÊ¾
+    SDK_OTHER_NVR_SUPPORT, //ÊÇ·ñÊÇ×¨ÒµNVR
+    SDK_OTHER_C7_PLATFORM_SUPPORT,//Ö§³ÖC7Æ½Ì¨
+    SDK_OTHER_MAIL_TEST_SUPPORT,		//Ö§³ÖÓÊ¼þ²âÊÔ
+    SDK_OTHER_SHOW_OSD_INFO,            //Ö§³ÖÏÔÊ¾3ÐÐOSDÐÅÏ¢
+    SDK_OTHER_HIDE_DIGITAL, //Í¨µÀÄ£Ê½ÆÁ±Î¹¦ÄÜ
+    SDK_OTHER_ACUTANCE_HORIZONTAL,	//Èñ¶È
     SDK_OTHER_ACUTANCE_VERTIAL,
-    SDK_OTHER_BROAD_TRENDS,					//¿í¶¯Ì¬¹¦ÄÜ
-    SDK_OTHER_NO_TALK,						//¶Ô½²ÄÜÁ¦
-    SDK_OTHER_ALTER_DIGITAL_NAME,			//ÐÞ¸ÄÊý×ÖÍ¨µÀÃû³Æ
-    SDK_OTHER_SHOW_CONNECT_STATUS,      	//Ö§³ÖÏÔÊ¾wifi 3G Ö÷¶¯×¢²áµÈµÄÁ¬½Ó×´Ì¬
-    SDK_OTHER_SUPPORT_ECACT_SEEK,			//Ö§³Ö»Ø·Å¾«×¼¶¨Î»
-    SDK_OTHER_UPLOAD_TITLEANDSTATE,			//Í¨µÀ±êÌâºÍÊý×ÖÍ¨µÀ×´Ì¬ÉÏ´«ÄÜÁ¦¼¯
-    SDK_OTHER_NO_HDD_RECORD,				//ÎÞÓ²ÅÌÂ¼Ïñ
-    SDK_OTHER_MUSICFILE_PLAY,				//²¥·ÅÒôÆµÎÄ¼þ
-    SDK_OTHER_SUPPORT_SET_DIG_IP,			//ÉèÖÃÇ°¶ËipÄÜÁ¦
-    SDK_OTHER_VERSION_PRODUCT_TYPE,			//Ö§³ÖÔÚ°æ±¾ÐÅÏ¢ÀïÏÔÊ¾Éè±¸ÐÍºÅ
-    SDK_OTHER_SUPPORT_CAMERA_IMG_STYLE,		//Ö§³ÖÉãÏñ»úÍ¼Ïñ·ç¸ñ
-    SDK_OTHER_SUPPORT_TITLE_ABILITY,		//Ö§³ÖÐÞ¸Äonvif±êÌâ
-    SDK_OTHER_SUPPORT_DIMEN_CODE,			//Ö§³Ö¶þÎ¬Âë
-	SDK_OTHER_STORAGE_NAS_SUPPORT,			//ÊÇ·ñÖ§³ÖNAS´æ´¢¹¦ÄÜ
-    SDK_OTHER_SHOWFALSE_CHECKTIME,			//ÆÁ±Î½âÂëÆ÷Ê±¼äÍ¬²½¹¦ÄÜ
-    SDK_OTHER_SUPPORT_TIME_ZONE, 			//Ê±ÇøÅäÖÃ
-    SDK_OTHER_SHOW_ALARM_LEVEL_REGION,		//ÏÔÊ¾Êý×ÖÍ¨µÀ±¨¾¯¹¦ÄÜµÄÁéÃô¶ÈºÍÇøÓòÉèÖÃ
-    SDK_OTHER_SUPPORT_POS,					//Ö§³ÖPOS
-    SDK_OTHER_HDD_LOWSPACE_USE_MB,			//Ó²ÅÌ¿Õ¼ä²»×ã±¨¾¯ÏÂÏÞÓÃMB
-    SDK_OTHER_SUPPORT_CUSTOMIZE_OEMINFO,	//¶¨ÖÆOEM¿Í»§°æ±¾ÐÅÏ¢
-    SDK_OTHER_DIGITAL_ENCODE,				//Êý×ÖÍ¨µÀ±àÂëÅäÖÃ
-    SDK_OTHER_RESUME_PTZ_STATE,				//¿ª»ú»Ö¸´ÔÆÌ¨×´Ì¬
-    SDK_OTHER_SUPPORT_SNAP_CFG,				//Ö§³Ö×¥Í¼ÅäÖÃ
-    SDK_OTHER_ABNORMITY_SEND_EMAIL,			//´æ´¢Éè±¸´æÔÚ¼°´æ´¢Òì³£¼°´æ´¢¿Õ¼ä²»×ã·¢ÓÊ¼þ
-    SDK_OTHER_SUPPORT_DIGITAL_PRE,			//Ö§³ÖÊý×ÖÍ¨µÀÔ¤Â¼
-    SDK_OTHER_SUPPORT_WRITE_LOG, 			//±¨¾¯Ò³ÃæÌí¼ÓÊÇ·ñÐ´ÈÕÖ¾¹´Ñ¡¿ò
-    SDK_OTHER_SUPPORT_CHANGE_ONVIF_PORT,	//Ö§³ÖÐÞ¸Äonvif¶Ë¿Ú
-    SDK_OTHER_SUPPORT_COMM_DATA_UPLOAD,  	//Ö§³Ö´®¿ÚÊý¾ÝÉÏ´«µ½Ö¸¶¨·þÎñÆ÷
-    SDK_OTHER_SUPPORT_TEXT_PASSWORD,		//¼ÇÂ¼Ã÷ÎÄÃÜÂë
-    SDK_OTHER_SUPPORT_CLOUD_UPGRADE,		// Ö§³ÖÔÆÉý¼¶
-    SDK_OTHER_SUPPORT_USER_PROGRAM,			//Ö§³ÖÆô¶¯¿Í»§Ð¡³ÌÐò
-    SDK_OTHER_SUPPORT_MODIFY_FRONT_CFG,		//Ö§³ÖÐÞ¸ÄÇ°¶ËÅäÖÃ
-    SDK_OTHER_SUPPORT_FTP_TEST,    			//ÐÂ³ÌÐòÖ§³ÖFTPÖ§³ÖFTP²âÊÔ£¬ÀÏ³ÌÐò²»Ö§³Ö¡£
-    SDK_OTHER_SUPPORT_PTZ_IDLE_STATE, 		//ÔÆÌ¨¿ÕÏÐÊ±Ö´ÐÐºÎÖÖ²Ù×÷µÄÅäÖÃ
-	SDK_OTHER_SUPPORT_IMP_RCD,				//web¶ËÊÇ·ñÌá¹©¹Ø¼üÂ¼ÏñËÑË÷µÄÑ¡Ïî	
-	SDK_OTHER_SUPPORT_CAMERA_MOTOR_CTRL, 	//Ö§³Ö»úÆ÷ÈËÂí´ï¿ØÖÆ
-	SDK_OTHER_SUPPORT_ENCODE_ADD_BEEP,		// ÊÓÆµ±àÂëÃ¿¸ô30Ãë¼ÓÈëbeepÉù
-	SDK_OTHER_SUPPORT_FISH_EYE,	        	//ÓãÑÛ¹¦ÄÜÄÜÁ¦¼¯
-	SDK_OTHER_SUPPORT_SPVMN_NAS_SERVER,		//°²»Õ³¬Çå¿Í»§µÄnas·þÎñÆ÷ÅäÖÃ
-	SDK_OTHER_SUPPORT_SMALL_CHN_TITLE_FONT, //IE¶Ë´«12*18µÄÍ¨µÀ±êÌâµãÕó
-	SDK_OTHER_SUPPORT_CFG_CLOUD_UPGRADE, 	//Ö§³ÖÐÂµÄÔÆÉý¼¶¹¦ÄÜÅäÖÃ
-	SDK_OTHER_SUPPORT_STORAGE_FAIL_REBOOT,	//È«²¿Ó²ÅÌ³ö´íºó×Ô¶¯ÖØÆô
-	SDK_OTHER_SUPPORT_SPLIT_CONTROL,		//Ö§³ÖCMS¿Í»§¶Ë»­Ãæ·Ö¸î
-	SDK_OTHER_RTSP_CLIENT_SUPPORT,			//Êý×ÖÍ¨µÀÊÇ·ñÖ§³ÖÍ¨¹ýRTSPÁ¬½ÓÇ°¶ËÉè±¸
-	SDK_OTHER_LOW_LUX_MODE,					//Î¢¹âÄ£Ê½
-	SDK_OTHER_SUPPORT_Switch_Resolution,	//ÐÞ¸ÄÇ°¶ËÊý×ÖÍ¨µÀ·Ö±æÂÊ
-	SDK_OTHER_LOW_MOTION,					//ÔË¶¯Ïà»úÂý¶¯×÷
-	SDK_OTHER_SUPPORT_CORRIDOR_MODE,        //Ö§³Ö×ßÀÈÄ£Ê½
-	SDK_OTHER_WIFINVR_SUPPORT,				//ÊÇ·ñÊÇWIFINVR
-	SDK_OTHER_SUPPORT_SNAP_SCHEDULE,		//ÊÇ·ñÖ§³Ö¶¨Ê±×¥Í¼
-	SDK_OTHER_SUPPORT_PWD_SAFETY,			//ÊÇ·ñÖ§³ÖÃÜÂëÕÒ»Ø
-	SDK_OTHER_SUPPORT_PLATE_DETECT,			//ÊÇ·ñÖ§³Ö³µÅÆÕì²â
-	SDK_OTHER_SUPPORT_BREVIARY,				//ÊÇ·ñÖ§³ÖËõÂÔÍ¼
-	SDK_OTHER_SUPPORT_INTELLIGENT_PLAYBACK, //ÊÇ·ñÖ§³ÖÖÇÄÜ¿ì·Å
-	SDK_OTHER_SUPPORT_FACE_DETECT,			//ÈËÁ³Ê¶±ð¹¦ÄÜ
-	SDK_OTHER_SUPPORT_DEVICE_INFO,			//ÊÇ·ñÖ§³ÖÐÂÉè±¸ÐÅÏ¢
-	SDK_OTHER_SUPPORT_BALL_CAMERA_TRACK_DETECT,//Ö§³ÖÇò»ú¸ú×ÙÊ¶±ð
-	SDK_OTHER_SPECIAL_NIGHT_CONTROAL,		//Ò¹ÍíÌØÊâÇé¾°¿ØÖÆ
-	SDK_OTHER_SUPPORT_SET_HARDWARE_ABILITY,	//Ö§³ÖÉèÖÃÉè±¸Ó²¼þÄÜÁ¦¼¯
-	SDK_OTHER_SUPPORT_SAFETY_EMAIL,			//Ö§³Ö°²È«ÓÊÏäÖØÖÃÃÜÂë¹¦ÄÜ
-	SDK_OTHER_SUPPORT_SENSOR_ABILITY_SETTING,//Ö§³ÖºÏ·âÄ£×éÖ§³ÖµÄsensorµÈ¼¶
+    SDK_OTHER_BROAD_TRENDS,		//¿í¶¯Ì¬¹¦ÄÜ
+    SDK_OTHER_NO_TALK,		//¶Ô½²ÄÜÁ¦
+    SDK_OTHER_ALTER_DIGITAL_NAME,	//ÐÞ¸ÄÊý×ÖÍ¨µÀÃû³Æ
+    SDK_OTHER_SHOW_CONNECT_STATUS,      //Ö§³ÖÏÔÊ¾wifi 3G Ö÷¶¯×¢²áµÈµÄÁ¬½Ó×´Ì¬
+    SDK_OTHER_SUPPORT_ECACT_SEEK,	//Ö§³Ö»Ø·Å¾«×¼¶¨Î»
+    SDK_OTHER_UPLOAD_TITLEANDSTATE,		//Í¨µÀ±êÌâºÍÊý×ÖÍ¨µÀ×´Ì¬ÉÏ´«ÄÜÁ¦¼¯
+    SDK_OTHER_NO_HDD_RECORD,		//ÎÞÓ²ÅÌÂ¼Ïñ
+    SDK_OTHER_MUSICFILE_PLAY,		//²¥·ÅÒôÆµÎÄ¼þ
+    SDK_OTHER_SUPPORT_SET_DIG_IP,//ÉèÖÃÇ°¶ËipÄÜÁ¦
+    SDK_OTHER_VERSION_PRODUCT_TYPE,//Ö§³ÖÔÚ°æ±¾ÐÅÏ¢ÀïÏÔÊ¾Éè±¸ÐÍºÅ
+    SDK_OTHER_SUPPORT_CAMERA_IMG_STYLE,//Ö§³ÖÉãÏñ»úÍ¼Ïñ·ç¸ñ
+    SDK_OTHER_SUPPORT_TITLE_ABILITY,//Ö§³ÖÐÞ¸Äonvif±êÌâ
+    SDK_OTHER_SUPPORT_DIMEN_CODE,//Ö§³Ö¶þÎ¬Âë
+    SDK_OTHER_SHOWFALSE_CHECKTIME,//ÆÁ±Î½âÂëÆ÷Ê±¼äÍ¬²½¹¦ÄÜ
+    SDK_OTHER_SUPPORT_TIME_ZONE, //Ê±ÇøÅäÖÃ
+    SDK_OTHER_SHOW_ALARM_LEVEL_REGION,//ÏÔÊ¾Êý×ÖÍ¨µÀ±¨¾¯¹¦ÄÜµÄÁéÃô¶ÈºÍÇøÓòÉèÖÃ
+    SDK_OTHER_SUPPORT_POS,//Ö§³ÖPOS
+    SDK_OTHER_HDD_LOWSPACE_USE_MB,//Ó²ÅÌ¿Õ¼ä²»×ã±¨¾¯ÏÂÏÞÓÃMB
+    SDK_OTHER_SUPPORT_CUSTOMIZE_OEMINFO,//¶¨ÖÆOEM¿Í»§°æ±¾ÐÅÏ¢
+    SDK_OTHER_DIGITAL_ENCODE,//Êý×ÖÍ¨µÀ±àÂëÅäÖÃ
+    SDK_OTHER_RESUME_PTZ_STATE,//¿ª»ú»Ö¸´ÔÆÌ¨×´Ì¬
+    SDK_OTHER_SUPPORT_SNAP_CFG,//Ö§³Ö×¥Í¼ÅäÖÃ
+    SDK_OTHER_ABNORMITY_SEND_EMAIL,//´æ´¢Éè±¸´æÔÚ¼°´æ´¢Òì³£¼°´æ´¢¿Õ¼ä²»×ã·¢ÓÊ¼þ
+    SDK_OTHER_SUPPORT_DIGITAL_PRE,//Ö§³ÖÊý×ÖÍ¨µÀÔ¤Â¼
+    SDK_OTHER_SUPPORT_WRITE_LOG, //±¨¾¯Ò³ÃæÌí¼ÓÊÇ·ñÐ´ÈÕÖ¾¹´Ñ¡¿ò
+    SDK_OTHER_SUPPORT_CHANGE_ONVIF_PORT,//Ö§³ÖÐÞ¸Äonvif¶Ë¿Ú
+    SDK_OTHER_SUPPORT_COMM_DATA_UPLOAD,  //Ö§³Ö´®¿ÚÊý¾ÝÉÏ´«µ½Ö¸¶¨·þÎñÆ÷
+    SDK_OTHER_SUPPORT_TEXT_PASSWORD,//¼ÇÂ¼Ã÷ÎÄÃÜÂë
+    SDK_OTHER_SUPPORT_CLOUD_UPGRADE,	// Ö§³ÖÔÆÉý¼¶
+    SDK_OTHER_SUPPORT_USE_PROGRAM,//Ö§³ÖÆô¶¯¿Í»§Ð¡³ÌÐò
+    SDK_OTHER_SUPPORT_MODIFY_FRONT_CFG,//Ö§³ÖÐÞ¸ÄÇ°¶ËÅäÖÃ
+    SDK_OTHER_SUPPORT_FTP_TEST,    //ÐÂ³ÌÐòÖ§³ÖFTPÖ§³ÖFTP²âÊÔ£¬ÀÏ³ÌÐò²»Ö§³Ö¡£
+    SDK_OTHER_SUPPORT_PTZ_IDLE_STATE, //ÔÆÌ¨¿ÕÏÐÊ±Ö´ÐÐºÎÖÖ²Ù×÷µÄÅäÖÃ
+	SDK_OTHER_SUPPORT_IMP_RCD,//web¶ËÊÇ·ñÌá¹©¹Ø¼üÂ¼ÏñËÑË÷µÄÑ¡Ïî	
+	SDK_OTHER_SUPPORT_CAMERA_MOTOR_CTRL, //Ö§³Ö»úÆ÷ÈËÂí´ï¿ØÖÆ
+	SDK_OTHER_SUPPORT_ENCODE_ADD_BEEP,// ÊÓÆµ±àÂëÃ¿¸ô30Ãë¼ÓÈëbeepÉù
+	SDK_OTHER_SUPPORT_FISH_EYE,	        //ÓãÑÛ¹¦ÄÜÄÜÁ¦¼¯
+	SDK_OTHER_SUPPORT_SPVMN_NAS_SERVER,	//°²»Õ³¬Çå¿Í»§µÄnas·þÎñÆ÷ÅäÖÃ
 	SDK_OTHER_NR
 };
 
@@ -2183,14 +1979,14 @@ enum SDK_OtherFunction
 typedef struct SDK_SystemFunction
 {
     bool vEncodeFunction[SDK_ENCODE_FUNCTION_TYPE_NR];	///< ±àÂë¹¦ÄÜSDK_EncodeFunctionTypes
-    bool vAlarmFunction[SDK_ALARM_FUNCTION_TYPE_NR];	///< ±¨¾¯¹¦ÄÜAlarmFucntionTypes
+    bool vAlarmFunction[SDK_ALARM_FUNCTION_TYPE_NR];		///< ±¨¾¯¹¦ÄÜAlarmFucntionTypes
     bool vNetServerFunction[SDK_NET_SERVER_TYPES_NR];	///< ÍøÂç·þÎñ¹¦ÄÜNetServerTypes
     bool vPreviewFunction[SDK_PREVIEW_TYPES_NR];		///< Ô¤ÀÀ¹¦ÄÜPreviewTypes
-    bool vCommFunction[SDK_COMM_TYPES_NR];				///< ´®¿ÚÀàÐÍSDK_CommTypes
-    bool vInputMethodFunction[SDK_NO_SUPPORT_NR];  		///< ÊäÈë·¨ÏÞÖÆSDK_InPutMethod>
-    bool vTipShowFunction[SDK_NO_TIP_SHOW_NR];          ///< ±¨¾¯±êÇ©ÏÔÊ¾SDK_TipShow>
-    bool vMobileCarFunction[SDK_MOBILEDVR_NR];			///< ³µÔØ¹¦ÄÜ
-    bool vOtherFunction[SDK_OTHER_NR];					///< ÆäËû¹¦ÄÜOtherFunction
+    bool vCommFunction[SDK_COMM_TYPES_NR];			///<´®¿ÚÀàÐÍSDK_CommTypes
+    bool vInputMethodFunction[SDK_NO_SUPPORT_NR];  //<ÊäÈë·¨ÏÞÖÆSDK_InPutMethod>
+    bool vTipShowFunction[SDK_NO_TIP_SHOW_NR];               //±¨¾¯±êÇ©ÏÔÊ¾SDK_TipShow>
+    bool vMobileCarFunction[SDK_MOBILEDVR_NR];//³µÔØ¹¦ÄÜ
+    bool vOtherFunction[SDK_OTHER_NR];				//ÆäËû¹¦ÄÜOtherFunction
 }SDK_SystemFunction;
 
 typedef struct SDK_COMMATTRI
@@ -2204,9 +2000,9 @@ typedef struct SDK_COMMATTRI
 // ´®¿ÚÅäÖÃ
 typedef struct SDK_CONFIG_COMM_X
 {
-    char iProtocolName[32];		// ´®¿ÚÐ­Òé:¡°Console¡±
-    int iPortNo;				// ¶Ë¿ÚºÅ
-    SDK_COMMATTRI aCommAttri;	// ´®¿ÚÊôÐÔ
+    char iProtocolName[32];	// ´®¿ÚÐ­Òé:¡°Console¡±
+    int iPortNo;		// ¶Ë¿ÚºÅ
+    SDK_COMMATTRI aCommAttri;		// ´®¿ÚÊôÐÔ
 }SDK_CONFIG_COMM_X;
 
 typedef struct SDK_CommConfigAll
@@ -2214,14 +2010,15 @@ typedef struct SDK_CommConfigAll
     SDK_CONFIG_COMM_X vCommConfig[SDK_COM_TYPES];
 }SDK_CommConfigAll;
 
+
 // ÔÆÌ¨ÉèÖÃ
 typedef struct SDK_STR_CONFIG_PTZ
 {
     char sProtocolName[NET_MAX_PTZ_PROTOCOL_LENGTH];	// Ð­ÒéÃû³Æ
-    int	ideviceNo;										// ÔÆÌ¨Éè±¸µØÖ·±àºÅ
-    int	iNumberInMatrixs;								// ÔÚ¾ØÕóÖÐµÄÍ³Ò»±àºÅ
-    int iPortNo;										// ´®¿Ú¶Ë¿ÚºÅ	[1, 4]
-    SDK_COMMATTRI dstComm;								// ´®¿ÚÊôÐÔ
+    int	ideviceNo;				// ÔÆÌ¨Éè±¸µØÖ·±àºÅ
+    int	iNumberInMatrixs;		// ÔÚ¾ØÕóÖÐµÄÍ³Ò»±àºÅ
+    int iPortNo;				// ´®¿Ú¶Ë¿ÚºÅ	[1, 4]
+    SDK_COMMATTRI dstComm;			// ´®¿ÚÊôÐÔ
 }SDK_STR_CONFIG_PTZ;
 
 //ËùÓÐÍ¨µÀÔÆÌ¨Ð­Òé
@@ -2254,28 +2051,28 @@ enum SDK_RecordModeTypes
 ///< Â¼ÏñÉèÖÃ
 typedef struct SDK_RECORDCONFIG
 {
-    int iPreRecord;										///< Ô¤Â¼Ê±¼ä£¬ÎªÁãÊ±±íÊ¾¹Ø±Õ
-    bool bRedundancy;									///< ÈßÓà¿ª¹Ø
-    //bool bSnapShot;									///< ¿ìÕÕ¿ª¹Ø
-    int iPacketLength;									///< Â¼Ïñ´ò°ü³¤¶È£¨·ÖÖÓ£©[1, 255]
-    int iRecordMode;									///< Â¼ÏñÄ£Ê½£¬0 ¹Ø±Õ£¬1 ½ûÖ¹ 2 ÅäÖÃ
-    SDK_CONFIG_WORKSHEET wcWorkSheet;					///< Â¼ÏñÊ±¼ä¶Î
-    unsigned int typeMask[NET_N_WEEKS][NET_N_TSECT];	///< Â¼ÏñÀàÐÍÑÚÂë
+    int iPreRecord;			///< Ô¤Â¼Ê±¼ä£¬ÎªÁãÊ±±íÊ¾¹Ø±Õ
+    bool bRedundancy;		///< ÈßÓà¿ª¹Ø
+    bool bSnapShot;			///< ¿ìÕÕ¿ª¹Ø
+    int iPacketLength;		///< Â¼Ïñ´ò°ü³¤¶È£¨·ÖÖÓ£©[1, 255]
+    int iRecordMode;		///< Â¼ÏñÄ£Ê½£¬0 ¹Ø±Õ£¬1 ½ûÖ¹ 2 ÅäÖÃ
+    SDK_CONFIG_WORKSHEET wcWorkSheet;			///< Â¼ÏñÊ±¼ä¶Î
+    unsigned int typeMask[NET_N_WEEKS][NET_N_TSECT];		///< Â¼ÏñÀàÐÍÑÚÂë
 }SDK_RECORDCONFIG;
 
 //Â¼ÏñÉèÖÃ½á¹¹Ìå
 typedef struct SDK_RECORDCONFIG_ALL
 {
-    SDK_RECORDCONFIG vRecordConfigAll[NET_MAX_CHANNUM];
+    SDK_RECORDCONFIG vRecordConfigAll[NET_MAX_CHANNUM+NET_MAX_CHANNUM];
 }SDK_RECORDCONFIG_ALL;
 
 ///< Í¼Æ¬ÉèÖÃ
 typedef struct SDK_SnapshotConfig
 {
-    int iPreSnap;										///< Ô¤×¥Í¼Æ¬Êý
-    bool bRedundancy;									///< ÈßÓà¿ª¹Ø
-    int iSnapMode;										///< Â¼ÏñÄ£Ê½£¬¼ûRecordModeTypes
-    SDK_CONFIG_WORKSHEET wcWorkSheet;					///< Â¼ÏñÊ±¼ä¶Î
+    int iPreSnap;			///< Ô¤×¥Í¼Æ¬Êý
+    bool bRedundancy;		///< ÈßÓà¿ª¹Ø
+    int iSnapMode;		///< Â¼ÏñÄ£Ê½£¬¼ûRecordModeTypes
+    SDK_CONFIG_WORKSHEET wcWorkSheet;				///< Â¼ÏñÊ±¼ä¶Î
     unsigned int typeMask[NET_N_WEEKS][NET_N_TSECT];	///< Â¼ÏñÀàÐÍÑÚÂë£¬¼ûenum RecordTypes
 }SDK_SnapshotConfig;
 
@@ -2286,37 +2083,27 @@ typedef struct SDK_SnapshotConfigAll
 
 
 //±¨¾¯Ïà¹Ø½á¹¹Ìå
-// ÔÆÌ¨Áª¶¯ÀàÐÍ
-enum PtzLinkTypes
-{
-	PTZ_LINK_NONE,		// ²»ÐèÒªÁª¶¯ 
-	PTZ_LINK_PRESET,		// ×ªÖÁÔ¤ÖÃµã 
-	PTZ_LINK_TOUR,		// Ñ²º½ 
-	PTZ_LINK_PATTERN		// ¹ì¼£ 
-};
-
 //  ÔÆÌ¨Áª¶¯½á¹¹
 typedef struct SDK_PtzLinkConfig
 {
-    int iType;		// Áª¶¯µÄÀàÐÍ--¶ÔÓ¦½á¹¹ÌåPtzLinkTypes
+    int iType;		// Áª¶¯µÄÀàÐÍ
     int iValue;		// Áª¶¯µÄÀàÐÍ¶ÔÓ¦µÄÖµ
 }SDK_PtzLinkConfig;
 
 #define CHANNELNAME_MAX_LEN 64  //Í¨µÀÃû³Æ×î´ó³¤¶È
 
-//ÓÉÓÚÒª¼æÈÝ¶àÍ¨µÀÉè±¸£¬ËùÒÔÐèÒªÐÞ¸Ä½á¹¹ÌåÀàÐÍ
 typedef struct SDK_EventHandler
 {
-	char	dwRecord[NET_MAX_MSK_SIZE];				// Â¼ÏóÑÚÂë 
-    int		iRecordLatch;							// Â¼ÏñÑÓÊ±£º10?300 sec
-	char	dwTour[NET_MAX_MSK_SIZE];				// ÂÖÑ²ÑÚÂë 	
-	char	dwSnapShot[NET_MAX_MSK_SIZE];			// ×¥Í¼ÑÚÂë 
-	char	dwAlarmOut[NET_MAX_MSK_SIZE];			// ±¨¾¯Êä³öÍ¨µÀÑÚÂë 
-	char	dwMatrix[NET_MAX_MSK_SIZE];				// ¾ØÕóÑÚÂë 
-    int		iEventLatch;							// Áª¶¯¿ªÊ¼ÑÓÊ±Ê±¼ä£¬sÎªµ¥Î»
-    int		iAOLatch;								// ±¨¾¯Êä³öÑÓÊ±£º10?300 sec
+    unsigned int	dwRecord;				// Â¼ÏóÑÚÂë
+    int		iRecordLatch;			// Â¼ÏñÑÓÊ±£º10?300 sec
+    unsigned int	dwTour;					// ÂÖÑ²ÑÚÂë
+    unsigned int	dwSnapShot;				// ×¥Í¼ÑÚÂë
+    unsigned int	dwAlarmOut;				// ±¨¾¯Êä³öÍ¨µÀÑÚÂë
+    unsigned int	dwMatrix;				// ¾ØÕóÑÚÂë
+    int		iEventLatch;			// Áª¶¯¿ªÊ¼ÑÓÊ±Ê±¼ä£¬sÎªµ¥Î»
+    int		iAOLatch;				// ±¨¾¯Êä³öÑÓÊ±£º10?300 sec
     SDK_PtzLinkConfig PtzLink[NET_MAX_CHANNUM];		// ÔÆÌ¨Áª¶¯Ïî
-    SDK_CONFIG_WORKSHEET schedule;					// Â¼ÏñÊ±¼ä¶Î
+    SDK_CONFIG_WORKSHEET schedule;		// Â¼ÏñÊ±¼ä¶Î
     
     bool	bRecordEn;				// Â¼ÏñÊ¹ÄÜ
     bool	bTourEn;				// ÂÖÑ²Ê¹ÄÜ
@@ -2336,8 +2123,8 @@ typedef struct SDK_EventHandler
     bool	bMessagetoNet;			// ÏûÏ¢ÉÏ´«¸øÍøÂçÊ¹ÄÜ
     
     bool    bShowInfo;              // ÊÇ·ñÔÚGUIÉÏºÍ±àÂëÀïÏÔÊ¾±¨¾¯ÐÅÏ¢
-    char    dwShowInfoMask[NET_MAX_MSK_SIZE];	// ÒªÁª¶¯ÏÔÊ¾±¨¾¯ÐÅÏ¢µÄÍ¨µÀÑÚÂë
-    char    pAlarmInfo[CHANNELNAME_MAX_LEN];	//ÒªÏÔÊ¾µÄ±¨¾¯ÐÅÏ¢
+    unsigned int    dwShowInfoMask;         // ÒªÁª¶¯ÏÔÊ¾±¨¾¯ÐÅÏ¢µÄÍ¨µÀÑÚÂë
+    char    pAlarmInfo[CHANNELNAME_MAX_LEN];//ÒªÏÔÊ¾µÄ±¨¾¯ÐÅÏ¢
     
     bool    bShortMsg;              //·¢ËÍ¶ÌÐÅ
     bool    bMultimediaMsg;         //·¢ËÍ²ÊÐÅ
@@ -2351,8 +2138,8 @@ enum SDK_ANALYSE_MODE
 /** ÖÜ½ç¼ì²âÄ£Ê½ */
 enum SDK_URP_PERIMETER_MODE_E
 {
-    SDK_URP_PMODE_INTRUSION = 0,	/**< ÈëÇÖ */
-    SDK_URP_PMODE_ENTER,			/**< ½øÈë */
+    SDK_URP_PMODE_INTRUSION = 0,			/**< ÈëÇÖ */
+    SDK_URP_PMODE_ENTER,				/**< ½øÈë */
     SDK_URP_PMODE_EXIT				/**< Àë¿ª */
 };
 
@@ -2385,7 +2172,7 @@ typedef struct SDK_URP_POLYGON_REGION_S
 /** URPÖÜ½ç¼ì²â±ß½çµã */
 typedef struct SDK_URP_PERIMETER_LIMIT_BOUNDARY_S
 {
-    int      iBoundaryPtNum;										/**< ±ß½çµãÊýÄ¿ */
+    int      iBoundaryPtNum;					/**< ±ß½çµãÊýÄ¿ */
     URP_SDK_POINT_S   astBoundaryPts[SDK_MAX_BOUNDARY_POINT_NUM];	/**< ±ß½çµã¼¯ºÏ */
 }SDK_URP_PERIMETER_LIMIT_BOUNDARY_S;
 
@@ -2394,19 +2181,19 @@ typedef struct SDK_URP_PERIMETER_LIMIT_PARA_S
 {
     int iMinDist;						/**< ×îÐ¡ÏñËØ¾àÀë */
     int iMinTime;						/**< ×î¶ÌÊ±¼ä */
-    int	iDirectionLimit;				/**< ÊÇ·ñ×ö·½ÏòÏÞÖÆ */
-    int iForbiddenDirection;			/**< ½ûÖ¹·½Ïò½Ç¶È(µ¥Î»: ½Ç¶È) */
-    SDK_URP_PERIMETER_LIMIT_BOUNDARY_S stBoundary;	/**< ÖÜ½ç±ß½çÇøÓò */
+    int	iDirectionLimit;					/**< ÊÇ·ñ×ö·½ÏòÏÞÖÆ */
+    int iForbiddenDirection;					/**< ½ûÖ¹·½Ïò½Ç¶È(µ¥Î»: ½Ç¶È) */
+    SDK_URP_PERIMETER_LIMIT_BOUNDARY_S stBoundary;			/**< ÖÜ½ç±ß½çÇøÓò */
 }SDK_URP_PERIMETER_LIMIT_PARA_S;
 
 /** URPÖÜ½ç¼ì²â¹æÔò²ÎÊý */
 typedef struct SDK_URP_PERIMETER_RULE_PARA_S
 {
-    int iTypeLimit;					/**< Ä¿±êÀàÐÍÏÞÖÆ */
-    int iTypeHuman;					/**< Ä¿±êÀà±ð£ºÈË(ÏÞ¶¨ÀàÐÍÊ±Ê¹ÓÃ) */
-    int iTypeVehicle;				/**< Ä¿±êÀà±ð£º³µ */
+    int iTypeLimit;						/**< Ä¿±êÀàÐÍÏÞÖÆ */
+    int iTypeHuman;						/**< Ä¿±êÀà±ð£ºÈË(ÏÞ¶¨ÀàÐÍÊ±Ê¹ÓÃ) */
+    int iTypeVehicle;						/**< Ä¿±êÀà±ð£º³µ */
     int iMode;						/**< ÖÜ½çÄ£Ê½ */
-    SDK_URP_PERIMETER_LIMIT_PARA_S stLimitPara;	/**< ÖÜ½çÏÞÖÆ²ÎÊý */
+    SDK_URP_PERIMETER_LIMIT_PARA_S stLimitPara;				/**< ÖÜ½çÏÞÖÆ²ÎÊý */
 }SDK_URP_PERIMETER_RULE_PARA_S;
 
 // ----------------------------------------------------------------------
@@ -2418,9 +2205,9 @@ typedef struct SDK_URP_PERIMETER_RULE_PARA_S
 typedef struct SDK_URP_TRIPWIRE_S
 {
     int     iValid;						/**< ÊÇ·ñÓÐÐ§ */
-    int    iIsDoubleDirection;			/**< ±íÊ¾¸Ã°íÏßÊÇ·ñÎªË«Ïò°íÏß(0: ·ñ, 1: ÊÇ) */
-    int     iForbiddenDirection;		/**< µ¥°íÏß½ûÖ¹·½Ïò*/
-    SDK_URP_LINE_S	stLine;				/**< µ¥°íÏßÎ»ÖÃ */
+    int    iIsDoubleDirection;				/**< ±íÊ¾¸Ã°íÏßÊÇ·ñÎªË«Ïò°íÏß(0: ·ñ, 1: ÊÇ) */
+    int     iForbiddenDirection;				/**< µ¥°íÏß½ûÖ¹·½Ïò*/
+    SDK_URP_LINE_S	stLine;						/**< µ¥°íÏßÎ»ÖÃ */
 }SDK_URP_TRIPWIRE_S;
 
 /** URPµ¥°íÏßÏÞÖÆ²ÎÊý */
@@ -2435,8 +2222,8 @@ typedef struct SDK_URP_TRIPWIRE_RULE_PARA_S
 {
     int iTypeLimit;						/**< Ä¿±êÀàÐÍÏÞÖÆ */
     int iTypeHuman;						/**< Ä¿±êÀà±ð£ºÈË(ÏÞ¶¨ÀàÐÍÊ±Ê¹ÓÃ) */
-    int iTypeVehicle;					/**< Ä¿±êÀà±ð£º³µ */
-    SDK_URP_TRIPWIRE_S astLines[SDK_URP_MAX_TRIPWIRE_CNT];	/**< µ¥°íÏß */
+    int iTypeVehicle;						/**< Ä¿±êÀà±ð£º³µ */
+    SDK_URP_TRIPWIRE_S astLines[SDK_URP_MAX_TRIPWIRE_CNT];		/**< µ¥°íÏß */
     SDK_URP_TRIPWIRE_LIMIT_PARA_S stLimitPara;				/**< µ¥°íÏßÏÞÖÆ²ÎÊý */
 }SDK_URP_TRIPWIRE_RULE_PARA_S;
 
@@ -2456,9 +2243,7 @@ enum SDK_MODULE_TYPE
     SDK_MODULE_TYPE_PEA = 0,
     SDK_MODULE_TYPE_OSC,
     SDK_MODULE_TYPE_AVD,
-	SDK_MODULE_TYPE_CPC,
-	SDK_MODULE_TYPE_BCT,
-    SDK_MODULE_TYPE_ALL,
+    SDK_MODULE_TYPE_ALL
 };
 
 // ----------------------------------------------------------------------
@@ -2468,10 +2253,10 @@ typedef struct SDK_PEA_RULE_S
 {
     int iShowTrack;						/// ÊÇ·ñÏÔÊ¾¹ì¼£
     int iShowRule;						/// ÊÇ·ñÏÔÊ¾¹æÔò
-    int iLevel;							/// ¾¯½ä¼¶±ð£¨ÁéÃô¶È£©0£º¸ß¼¶£¨Ä¬ÈÏÖµ£©£»1£ºÖÐ¼¶£»2£ºµÍ¼¶£»
-    int iPerimeterEnable;				/// ÖÜ½ç¹æÔòÊ¹ÄÜ
-    SDK_URP_PERIMETER_RULE_PARA_S	stPerimeterRulePara;/**< ÖÜ½ç¼ì²â */
-    int iTripWireEnable;				/// µ¥°íÏß¹æÔòÊ¹ÄÜ
+    int iLevel;						/// ¾¯½ä¼¶±ð£¨ÁéÃô¶È£©0£º¸ß¼¶£¨Ä¬ÈÏÖµ£©£»1£ºÖÐ¼¶£»2£ºµÍ¼¶£»
+    int iPerimeterEnable;					/// ÖÜ½ç¹æÔòÊ¹ÄÜ
+    SDK_URP_PERIMETER_RULE_PARA_S	stPerimeterRulePara;	/**< ÖÜ½ç¼ì²â */
+    int iTripWireEnable;					/// µ¥°íÏß¹æÔòÊ¹ÄÜ
     SDK_URP_TRIPWIRE_RULE_PARA_S	stTripwireRulePara;	/**< µ¥°íÏß¼ì²â */
 }SDK_PEA_RULE_S;
 
@@ -2502,9 +2287,9 @@ typedef struct SDK_PEA_STATUS_S
 
 typedef struct SDK_URP_OSC_SPECL_REGIONS_S
 {
-    int nValid; 						//ÊÇ·ñÓÐÐ§
-    char chName[NET_NAME_BUF_SIZE]; 	//ÇøÓòÃû³Æ
-    SDK_URP_POLYGON_REGION_S stOscRg; 	//Òª¼ì²âÇøÓò¶¨Òå
+    int nValid; //ÊÇ·ñÓÐÐ§
+    char chName[NET_NAME_BUF_SIZE]; //ÇøÓòÃû³Æ
+    SDK_URP_POLYGON_REGION_S stOscRg; //Òª¼ì²âÇøÓò¶¨Òå
     SDK_URP_POLYGON_REGION_S astSubRgA; //¼ì²âÇøÓòÖÐµÄÎÞÐ§×ÓÇøÓò
     SDK_URP_POLYGON_REGION_S astSubRgB; //¼ì²âÇøÓòÖÐµÄÎÞÐ§×ÓÇøÓò
     SDK_URP_POLYGON_REGION_S astSubRgC; //¼ì²âÇøÓòÖÐµÄÎÞÐ§×ÓÇøÓò
@@ -2519,45 +2304,45 @@ typedef struct SDK_URP_OSC_LMT_PARA_S
 
 typedef struct SDK_URP_OSC_RULE_PARA_S
 {
-    int nSceneType; 					//³¡¾°ÀàÐÍ
-    int nCameraType; 					//Ïà»úÀàÐÍ
+    int nSceneType; //³¡¾°ÀàÐÍ
+    int nCameraType; //Ïà»úÀàÐÍ
     SDK_URP_OSC_SPECL_REGIONS_S astSpclRgs[NET_MAX_OSC_NUM]; //Òª´¦ÀíµÄÇøÓò¸öÊý
-    SDK_URP_OSC_LMT_PARA_S stOscPara; 	//Ò»Ð©Ô¼Êø
+    SDK_URP_OSC_LMT_PARA_S stOscPara; //Ò»Ð©Ô¼Êø
 }SDK_URP_OSC_RULE_PARA_S;
 
 typedef struct SDK_OSC_RULE_S
 {
-    int iShowTrack;									/// ÊÇ·ñÏÔÊ¾¹ì¼£
-    int iShowRule;									/// ÊÇ·ñÏÔÊ¾¹æÔò
-    int iLevel;										/// ¾¯½ä¼¶±ð0£º·Ç¾¯±¨£¨Ä¬ÈÏÖµ£©£»1£ºµÍ¼¶£»2£ºÖÐ¼¶£»3: ¸ß¼¶
-    int iAbandumEnable;		   						/// ÎïÆ·ÒÅÁôÊ¹ÄÜ
-    SDK_URP_OSC_RULE_PARA_S stObjAbandumRulePara; 	/// ÎïÆ·ÒÅÁô²ÎÊý
-    int iStolenEnable;								/// ÎïÆ·±»µÁÊ¹ÄÜ
-    SDK_URP_OSC_RULE_PARA_S stObjStolenRulePara;   	/// ÎïÆ·±»µÁ²ÎÊý
-    int iNoParkingEnable;							/// ·Ç·¨Í£³µÊ¹ÄÜ
-    SDK_URP_OSC_RULE_PARA_S stNoParkingRulePara;   	/// ·Ç·¨Í£³µ²ÎÊý
+    int iShowTrack;				/// ÊÇ·ñÏÔÊ¾¹ì¼£
+    int iShowRule;						     /// ÊÇ·ñÏÔÊ¾¹æÔò
+    int iLevel;						     /// ¾¯½ä¼¶±ð0£º·Ç¾¯±¨£¨Ä¬ÈÏÖµ£©£»1£ºµÍ¼¶£»2£ºÖÐ¼¶£»3: ¸ß¼¶
+    int iAbandumEnable;		   	/// ÎïÆ·ÒÅÁôÊ¹ÄÜ
+    SDK_URP_OSC_RULE_PARA_S stObjAbandumRulePara; /// ÎïÆ·ÒÅÁô²ÎÊý
+    int iStolenEnable;			  	 /// ÎïÆ·±»µÁÊ¹ÄÜ
+    SDK_URP_OSC_RULE_PARA_S stObjStolenRulePara;   /// ÎïÆ·±»µÁ²ÎÊý
+    int iNoParkingEnable;		 	  	 /// ·Ç·¨Í£³µÊ¹ÄÜ
+    SDK_URP_OSC_RULE_PARA_S stNoParkingRulePara;   /// ·Ç·¨Í£³µ²ÎÊý
 }SDK_OSC_RULE_S;
 
 
 typedef struct SDK_AVD_RULE_S
 {
-    int iLevel;						    /// ÁéÃô¶ÈµµÎ»£¬1-5µµ£¬ÊýÖµÔ½´óÔ½ÁéÃôÔ½Ò×±¨¾¯
-    int itBrightAbnmlEnable;			///< ÁÁ¶ÈÒì³£Ê¹ÄÜ
+    int iLevel;						     /// ÁéÃô¶ÈµµÎ»£¬1-5µµ£¬ÊýÖµÔ½´óÔ½ÁéÃôÔ½Ò×±¨¾¯
+    int itBrightAbnmlEnable;				///< ÁÁ¶ÈÒì³£Ê¹ÄÜ
     int iClarityEnable;					///< ÇåÎú¶È¼ì²âÊ¹ÄÜ
     int iNoiseEnable;					///< ÔëÉù¼ì²âÊ¹ÄÜ
     int iColorEnable;					///< Æ«É«¼ì²âÊ¹ÄÜ
     int iFreezeEnable;					///< »­Ãæ¶³½á¼ì²âÊ¹ÄÜ
-    int iNosignalEnable;				///< ÐÅºÅÈ±Ê§¼ì²âÊ¹ÄÜ
+    int iNosignalEnable;					///< ÐÅºÅÈ±Ê§¼ì²âÊ¹ÄÜ
     int iChangeEnable;					///< ³¡¾°±ä»»¼ì²âÊ¹ÄÜ
-    int iInterfereEnable;				///< ÈËÎª¸ÉÈÅ¼ì²âÊ¹ÄÜ
-    int iPtzLoseCtlEnable;				///< PTZÊ§¿Ø¼ì²âÊ¹ÄÜ
+    int iInterfereEnable;					///< ÈËÎª¸ÉÈÅ¼ì²âÊ¹ÄÜ
+    int iPtzLoseCtlEnable;					///< PTZÊ§¿Ø¼ì²âÊ¹ÄÜ
 }SDK_AVD_RULE_S;
 
 /** ×ø±êµã */
 typedef struct SDK_URP_IMP_POINT_S
 {
-    short s16X;				/**< x */
-    short s16Y;				/**< y */
+    short s16X;					/**< x */
+    short s16Y;					/**< y */
 }SDK_URP_IMP_POINT_S;
 
 typedef struct SDK_CPC_RULE_S
@@ -2565,68 +2350,29 @@ typedef struct SDK_CPC_RULE_S
     SDK_URP_IMP_POINT_S stRulePoint[4];	///¼ì²â¹æÔò£¬ÐèÒª»­Âú4¸öµã
     int s32Sizemin;			///×îÐ¡Ïñ¾à(0,height/2)
     int s32Sizemax;			///×î´óÏñ¾à(sizemin, height/2)
-    int s32Countmax;		///×î´óÄ¿±êÊý[1~15],
+    int s32Countmax;			///×î´óÄ¿±êÊý[1~15],
     int s32Sensitivity;		/// ÁéÃô¶ÈµµÎ»£¬1-5µµ£¬ÊýÖµÔ½´óÔ½ÁéÃôÔ½Ò×±¨¾¯
-    unsigned int u32Flag;	///±êÖ¾Î»£¬ÓÃÀ´ÅÐ¶Ï½ø³ö£¬Ä¬ÈÏÉè0
+    unsigned int u32Flag;				///±êÖ¾Î»£¬ÓÃÀ´ÅÐ¶Ï½ø³ö£¬Ä¬ÈÏÉè0
     int s32EnterDirection;	///½øÈëµÄ·½Ïò
 }SDK_CPC_RULE_S;
-
-//Çò»úÊØÍûµã·ÖÎö
-typedef struct SDK_PresetPointTrack		//Ô¤ÖÃµã¸ú×Ù
-{
-	int iWatchPoint;					//ÊØÍûµã
-	int iTrackTimeoutTime;			//¸ú×Ù³¬Ê±Ê±¼ä
-	int iAllowedInterruptEnable;		//ÔÊÐí´ò¶ÏÊ¹ÄÜ
-	char resv[16];					//±£Áô×Ö½Ú
-}SDK_PresetPointTrack;
-
-typedef struct  SDK_CruisePresePointParam
-{
-	char cPresePoint;					//Ô¤ÖÃµã
-	char cIntervalTime;				//µã¼äÑ²º½¼ä¸ôÊ±¼ä
-}SDK_CruisePresePointParam;
-
-typedef struct SDK_CruiseTrack			//Ñ²º½¸ú×Ù
-{
-	int iWatchPoint;					//ÊØÍûµã
-	int iTrackTimeoutTime;				//¸ú×Ù³¬Ê±Ê±¼ä
-	int iAllowedToInterruptEnable;		//ÔÊÐí´ò¶ÏÊ¹ÄÜ
-	int iCruiseLine;					//Ñ²º½Â·Ïß
-	SDK_CruisePresePointParam tCruisePresePointParam[6][20];
-	char resv[16];						//±£Áô×Ö½Ú
-}SDK_CruiseTrack;
-
-typedef struct SDK_tagBCT_RULE_S
-{
-	int iShowTrack;						// ÊÇ·ñÏÔÊ¾¹ì¼£
-	int iBallCameraTrackEnable;			//Çò»ú×·×ÙÊ¹ÄÜ
-	int iChooseYype;						//Ñ¡ÔñµÄÅäÖÃÀàÐÍ
-	int iTrackSpeed;						//¸ú×ÙËÙ¶ÈÀàÐÍ£¬ÆäÖµÎªÀàËÆÓTRACK_SPEED_HIGHµÄÃ¶¾ÙÁ¿
-	int iTrackSize;						//¸ú×ÙÄ¿±ê´óÐ¡£¬ÆäÖµÎªÀàËÆÓTTRACK_SIZE_BIGµÄÃ¶¾ÙÁ¿
-	int iChangeRatioLimit;				//±ä±¶ÏÞÖÆ
-	SDK_PresetPointTrack tPresetPointTrack; 	//Ô¤ÖÃµã¸ú×ÙÅäÖÃ
-	SDK_CruiseTrack tCruiseTrack;				//Ñ²º½¸ú×ÙÅäÖÃ
-	char resv[64];						//±£Áô×Ö½Ú
-}SDK_BCT_RULE_S;
 
 //¸÷ÖÖËã·¨µÄ¹æÔòÅäÖÃ¼¯ºÏ
 typedef struct SDK_RULECONFIG
 {
     SDK_PEA_RULE_S stRulePea;   //ÖÜ½ç¼ì²âÓë°íÏßÅäÖÃ
-    SDK_OSC_RULE_S stRuleOSC; 	//ÎïÆ·µÁÒÆ¡¢ÖÍÁô£¬·Ç·¨Í£³µÅäÖÃ
-    SDK_AVD_RULE_S stRuleAVD;	//Òì³£ÊÓÆµÐÅºÅÕï¶ÏÅäÖÃ
-    SDK_CPC_RULE_S stRuleCPC; 	//ÈËÍ·¼ÆÊýËã·¨ÅäÖÃ
-	SDK_BCT_RULE_S stRuleBCT;	//×·×ÙÇòËã·¨ÅäÖÃ
+    SDK_OSC_RULE_S stRuleOSC; //ÎïÆ·µÁÒÆ¡¢ÖÍÁô£¬·Ç·¨Í£³µÅäÖÃ
+    SDK_AVD_RULE_S stRuleAVD;//Òì³£ÊÓÆµÐÅºÅÕï¶ÏÅäÖÃ
+    SDK_CPC_RULE_S stRuleCPC; //ÈËÍ·¼ÆÊýËã·¨ÅäÖÃ
 }SDK_RULECONFIG;
 
 
 //Ò»¸öÍ¨µÀµÄÖÇÄÜ·ÖÎöÅäÖÃ
 typedef struct SDK_ANALYSECONFIG
 {
-    bool         bEnable;      		//ÊÇ·ñÆôÓÃÊÓÆµ·ÖÎö¹¦ÄÜ
-    int          moduleType;   		//Ê¹ÓÃµÄÄÇÖÖËã·¨Ä£¿é
-    SDK_EventHandler hEvent;  		//Áª¶¯ÊÂ¼þ
-    SDK_RULECONFIG   stRuleConfig; 	//¸÷ÖÖËã·¨µÄ¹æÔòÅäÖÃ
+    bool         bEnable;      //ÊÇ·ñÆôÓÃÊÓÆµ·ÖÎö¹¦ÄÜ
+    int          moduleType;   //Ê¹ÓÃµÄÄÇÖÖËã·¨Ä£¿é
+    SDK_EventHandler hEvent;  //Áª¶¯ÊÂ¼þ
+    SDK_RULECONFIG   stRuleConfig; //¸÷ÖÖËã·¨µÄ¹æÔòÅäÖÃ
 }SDK_ANALYSECONFIG;
 
 //ËùÓÐÍ¨µÀµÄÖÇÄÜ·ÖÎöÅäÖÃ
@@ -2635,88 +2381,27 @@ typedef struct SDK_ANALYSECONFIG_ALL
     SDK_ANALYSECONFIG vAnalyzeAll[NET_MAX_CHANNUM];
 }SDK_ANALYSECONFIG_ALL;
 
-enum SDK_E_TRACK_SPEED_TYPE		//¸ú×ÙËÙ¶È
-{
-	TRACK_SPEED_HIGH,				//¿ìËÙ
-	TRACK_SPEED_MEDIUM,			//ÖÐËÙ
-	TRACK_SPEED_LOW,				//ÂýËÙ	
-};
-enum SDK_E_TRACK_SIZE
-{
-	TRACK_SIZE_BIG,				//´óÐÍÄ¿±ê
-	TRACK_SIZE_MEDIUM,			//ÖÐµÈÄ¿±ê
-	TRACK_SIZE_SMALL,				//Ð¡ÐÍÄ¿±ê
-};
-
-//PEAÖ§³ÖµÄËã·¨ÀàÐÍ
-enum SDK_PEA_TYPE{
-	PEA_TYPE_TRIPWIRE   = 0,	//°íÏß
-	PEA_TYPE_PERIMETER,			//ÖÜ½ç±£»¤
-	PEA_TYPE_ALL
-};
-
-//OSCÖ§³ÖµÄËã·¨ÀàÐÍ
-enum SDK_OSC_TYPE{
-	OSC_TYPE_ABANDUM = 0,		//ÒÅÆúÎï¼ì²â
-	OSC_TYPE_OBJSTOLEN,			//±»µÁÎï¼ì²â
-	OSC_TYPE_NOPARKING,			//·Ç·¨Í£³µ¼ì²â
-	OSC_TYPE_ALL
-};
-
-//AVDÖ§³ÖµÄËã·¨ÀàÐÍ
-enum SDK_AVD_TYPE{
-	AVD_TYPE_BRIGHTABNML = 0,	//ÁÁ¶ÈÒì³£
-	AVD_TYPE_CLARITY,			//ÇåÎú¶È¼ì²â
-	AVD_TYPE_NOISE,				//ÔëÉù¼ì²â
-	AVD_TYPE_COLOR,				//Æ«É«¼ì²â
-	AVD_TYPE_FREEZE,			//»­Ãæ¶³½á¼ì²âAVD_TYPE_NOSIGNAL,	//ÐÅºÅÈ±Ê§¼ì²â
-	AVD_TYPE_CHANGE,			//³¡¾°±ä»»¼ì²â
-	AVD_TYPE_INTERFERE,			//ÈËÎª¸ÉÈÅ¼ì²â
-	AVD_TYPE_PTZLOSECTL,		//PTZÊ§¿Ø¼ì²â
-	AVD_TYPE_ALL
-};
-
-//ÐÂÖÇÄÜ·ÖÎöÔö¼ÓµÄÅäÖÃ
-typedef struct SDK_PEALimit
-{
-	int  rectangle;     //ÇøÓòÊÇ·ñ±ØÐëÊÇ¾ØÐÎ£¬1:±ØÐëÊÇ       0:¿ÉÒÔ²»ÊÇ
-	char areaMaxLineNum;//Ò»¸öÇøÓò×î¶àÓÐ¶àÉÙÌõ±ß
-	char lineNum;       //Ö§³ÖµÄ¾¯½äÏßÌõÊý
-	char areaNum;       //Ö§³ÖµÄ¾¯½äÇøÓò¸öÊý
-	char rev;
-}SDK_PEALimit;
-
-typedef struct SDK_OSCLimit
-{
-	int  rectangle;     //ÇøÓòÊÇ·ñ±ØÐëÊÇ¾ØÐÎ£¬1:±ØÐëÊÇ       0:¿ÉÒÔ²»ÊÇ
-	char areaMaxLineNum;//Ò»¸öÇøÓò×î¶àÓÐ¶àÉÙÌõ±ß
-	char areaNum;       //Ö§³Ö¼ì²âÇøÓò¸öÊý
-	char Resv[2];
-}SDK_OSCLimit;
-
-//ÖÇÄÜ·ÖÎöÄÜÁ¦ //ÐÂÖÇÄÜÅäÖÃÐèÒªSDK_ALARM_FUNCTION_TYPE_NEW_VIEDO_ANALYZEÄÜÁ¦¼¶ÎªTRUE
+//ÖÇÄÜ·ÖÎöÄÜÁ¦
 typedef struct SDK_ANALYZEABILITY
 {
-	char uIntelPEA[NET_MAX_MSK_SIZE];	//ÖÇÄÜPEAÖ§³Ö£¬Î»¶ÔÓ¦Í¨µÀ 1¸ö×Ö½Ú´ú±íÒ»¸öÍ¨µÀ
-    UINT uAlgorithmPEA;					//PEAÖ§³ÖµÄËã·¨ÀàÐÍ--¼ûSDK_PEA_TYPEÃ¶¾Ù
-	char uIntelOSC[NET_MAX_MSK_SIZE]; 	//ÖÇÄÜOSCÖ§³Ö£¬Î»¶ÔÓ¦Í¨µÀ 1¸ö×Ö½Ú´ú±íÒ»¸öÍ¨µÀ
-    UINT uAlgorithmOSC;					//OSCÖ§³ÖµÄËã·¨ÀàÐÍ--¼ûSDK_OSC_TYPEÃ¶¾Ù
-	char uIntelAVD[NET_MAX_MSK_SIZE]; 	//ÖÇÄÜAVDÖ§³Ö£¬Î»¶ÔÓ¦Í¨µÀ 1¸ö×Ö½Ú´ú±íÒ»¸öÍ¨µÀ
-    UINT uAlgorithmAVD;					//AVDÖ§³ÖµÄËã·¨ÀàÐÍ--¼ûSDK_AVD_TYPEÃ¶¾Ù
-	char uIntelCPC[NET_MAX_MSK_SIZE]; 	//ÈËÁ÷Á¿¼ÇÊýÖ§³Ö£¬Î»¶ÔÓ¦Í¨µÀ 1¸ö×Ö½Ú´ú±íÒ»¸öÍ¨µÀ
-    UINT uAlgorithmCPC;							//CPCÖ§³ÖµÄËã·¨ÀàÐÍ
-	SDK_PEALimit uPEALimit;				//ÐÂÖÇÄÜ¿âµÄPEAÏÞÖÆÌõ¼þ
-	SDK_OSCLimit uOSCLimit;				//ÐÂÖÇÄÜ¿âÀïOSCÏÞÖÆÌõ¼þ
-	char uIntelBCT[NET_MAX_MSK_SIZE];	//ÖÇÄÜBCTÖ§³Ö£¬Î»¶ÔÓ¦Í¨µÀ
-	UINT uAlgorithmBCT;					//BCTÖ§³ÖµÄËã·¨ÀàÐÍ
+    UINT uIntelPEA; //ÖÇÄÜPEAÖ§³Ö£¬Î»¶ÔÓ¦Í¨µÀ
+    UINT uAlgorithmPEA;//PEAÖ§³ÖµÄËã·¨ÀàÐÍ£¬ÀýÈç°èÏß
+    UINT uIntelOSC; //ÖÇÄÜOSCÖ§³Ö£¬Î»¶ÔÓ¦Í¨µÀ
+    UINT uAlgorithmOSC;//OSCÖ§³ÖµÄËã·¨ÀàÐÍ
+    UINT uIntelAVD; //ÖÇÄÜAVDÖ§³Ö£¬Î»¶ÔÓ¦Í¨µÀ
+    UINT uAlgorithmAVD;//AVDÖ§³ÖµÄËã·¨ÀàÐÍ
+    UINT uIntelCPC; //ÈËÁ÷Á¿¼ÇÊýÖ§³Ö£¬Î»¶ÔÓ¦Í¨µÀ
+    UINT uAlgorithmCPC;//CPCÖ§³ÖµÄËã·¨ÀàÐÍ
 }SDK_ANALYZEABILITY;
+
+
 
 ///< ¶¯Ì¬¼ì²âÉèÖÃ
 typedef struct SDK_MOTIONCONFIG
 {
-    bool bEnable;								// ¶¯Ì¬¼ì²â¿ªÆô
-    int iLevel;									// ÁéÃô¶È
-    unsigned int mRegion[NET_MD_REGION_ROW];	// ÇøÓò£¬Ã¿Ò»ÐÐÊ¹ÓÃÒ»¸ö¶þ½øÖÆ´®
+    bool bEnable;							// ¶¯Ì¬¼ì²â¿ªÆô
+    int iLevel;								// ÁéÃô¶È
+    unsigned int mRegion[NET_MD_REGION_ROW];			// ÇøÓò£¬Ã¿Ò»ÐÐÊ¹ÓÃÒ»¸ö¶þ½øÖÆ´®
     SDK_EventHandler hEvent;					// ¶¯Ì¬¼ì²âÁª¶¯
 }SDK_MOTIONCONFIG;
 
@@ -2726,26 +2411,11 @@ typedef struct SDK_MOTIONCONFIG_ALL
     SDK_MOTIONCONFIG vMotionDetectAll[NET_MAX_CHANNUM];
 }SDK_MOTIONCONFIG_ALL;
 
-///PIR ¼ì²âÉèÖÃ
-typedef struct SDK_PIRDetectV2Config
-{
-	bool bEnable;							// PIR ¼ì²â¿ªÆô 
-	bool bInfraredEnable;					// ºìÍâµÆ¿ªÆô
-	bool bInfraredRelevanceEnable;			// ºìÍâµÆ¹ØÁª¿ªÆô
-	SDK_EventHandler hEvent;				// PIR ¼ì²âÁª¶¯ 
-}SDK_PIRDetectV2Config;
-
-/// È«Í¨µÀPIR ¼ì²âÅäÖÃ
-typedef struct SDK_PIRDetectV2ConfigAll
-{
-	SDK_PIRDetectV2Config vPIRDetectAll[NET_MAX_CHANNUM];
-}SDK_PIRDetectV2ConfigAll;
-
 ///< ÕÚµ²¼ì²âÅäÖÃ
 typedef struct SDK_BLINDDETECTCONFIG
 {
-    bool	bEnable;			///< ÕÚµ²¼ì²â¿ªÆô
-    int		iLevel;				///< ÁéÃô¶È£º1?6
+    bool	bEnable;		///< ÕÚµ²¼ì²â¿ªÆô
+    int		iLevel;			///< ÁéÃô¶È£º1?6
     SDK_EventHandler hEvent;	///< ÕÚµ²¼ì²âÁª¶¯
 }SDK_BLINDDETECTCONFIG;
 
@@ -2758,7 +2428,7 @@ typedef struct SDK_BLINDDETECTCONFIG_ALL
 ///< »ù±¾ÊÂ¼þ½á¹¹
 typedef struct SDK_VIDEOLOSSCONFIG
 {
-    bool bEnable;				///< Ê¹ÄÜ
+    bool bEnable;			///< Ê¹ÄÜ
     SDK_EventHandler hEvent;	///< ´¦Àí²ÎÊý
 }SDK_VIDEOLOSSCONFIG;
 
@@ -2771,8 +2441,8 @@ typedef struct SDK_VIDEOLOSSCONFIG_ALL
 ///< ±¨¾¯ÊäÈëÅäÖÃ
 typedef struct SDK_ALARM_INPUTCONFIG
 {
-    bool	bEnable;			///< ±¨¾¯ÊäÈë¿ª¹Ø
-    int		iSensorType;		///< ´«¸ÐÆ÷ÀàÐÍ³£¿ª or ³£±Õ
+    bool	bEnable;		///< ±¨¾¯ÊäÈë¿ª¹Ø
+    int		iSensorType;	///< ´«¸ÐÆ÷ÀàÐÍ³£¿ª or ³£±Õ
     SDK_EventHandler hEvent;	///< ±¨¾¯Áª¶¯
 }SDK_ALARM_INPUTCONFIG;
 
@@ -2785,7 +2455,7 @@ typedef struct SDK_ALARM_INPUTCONFIG_ALL
 ///< ÍøÂ·±¨¾¯
 typedef struct SDK_NETALARMCONFIG
 {
-    bool bEnable;				///< Ê¹ÄÜ
+    bool bEnable;			///< Ê¹ÄÜ
     SDK_EventHandler hEvent;	///< ´¦Àí²ÎÊý
 }SDK_NETALARMCONFIG;
 
@@ -2814,12 +2484,12 @@ enum SDK_StorageLowSpaceType
 typedef struct SDK_StorageLowSpaceConfig
 {
     bool bEnable;
-    int iLowerLimit;			///< Ó²ÅÌÊ£ÓàÈÝÁ¿ÏÂÏÞ, °Ù·ÖÊý
+    int iLowerLimit;		///< Ó²ÅÌÊ£ÓàÈÝÁ¿ÏÂÏÞ, °Ù·ÖÊý
     SDK_EventHandler hEvent;	///< ´¦Àí²ÎÊý
     bool bRecordTimeEnable;
-    int iRecordTime;			///<Â¼ÏñÌìÊý
+    int iRecordTime;		///<Â¼ÏñÌìÊý
     int iLowerLimitSpace;		///< Ó²ÅÌÊ£ÓàÈÝÁ¿MB»òÕßGBÎªµ¥Î»
-    int EnableType;				///< 0ÎªÓÃ°Ù·Ö±È£¬1ÎªÓÃMB£¬¼ûÃ¶¾ÙStorageLowSpaceType
+    int EnableType;		///< 0ÎªÓÃ°Ù·Ö±È£¬1ÎªÓÃMB£¬¼ûÃ¶¾ÙStorageLowSpaceType
 }SDK_StorageLowSpaceConfig;
 
 ///< ËùÓÐÍ¨µÀµÄ±¨¾¯Êä³öÅäÖÃ
@@ -2838,22 +2508,21 @@ typedef struct SDK_AbilitySerialNo
 ///< Çý¶¯Æ÷ÐÅÏ¢½á¹¹
 typedef struct SDK_DriverInformation
 {
-    int		iDriverType;				///< Çý¶¯Æ÷ÀàÐÍ
-    bool	bIsCurrent;					///< ÊÇ·ñÎªµ±Ç°¹¤×÷ÅÌ
+    int		iDriverType;		///< Çý¶¯Æ÷ÀàÐÍ
+    bool	bIsCurrent;			///< ÊÇ·ñÎªµ±Ç°¹¤×÷ÅÌ
     unsigned int	uiTotalSpace;		///< ×ÜÈÝÁ¿£¬MBÎªµ¥Î»
     unsigned int	uiRemainSpace;		///< Ê£ÓàÈÝÁ¿£¬MBÎªµ¥Î»
-    int		iStatus;					///< ´íÎó±êÖ¾£¬ÎÄ¼þÏµÍ³³õÊ¼»¯Ê±±»ÉèÖÃ
+    int		iStatus;			///< ´íÎó±êÖ¾£¬ÎÄ¼þÏµÍ³³õÊ¼»¯Ê±±»ÉèÖÃ
     int		iLogicSerialNo;				///< Âß¼­ÐòºÅ
-    SDK_SYSTEM_TIME  tmStartTimeNew;	///< ÐÂÂ¼ÏñÊ±¼ä¶ÎµÄ¿ªÊ¼Ê±¼ä
-    SDK_SYSTEM_TIME	 tmEndTimeNew;		///< ÐÂÂ¼ÏñÊ±¼ä¶ÎµÄ½áÊøÊ±¼ä
-    SDK_SYSTEM_TIME	 tmStartTimeOld;	///< ÀÏÂ¼ÏñÊ±¼ä¶ÎµÄ¿ªÊ¼Ê±¼ä
-    SDK_SYSTEM_TIME	 tmEndTimeOld;		///< ÀÏÂ¼ÏñÊ±¼ä¶ÎµÄ½áÊøÊ±¼ä
-	char		fsType[NET_FSLEN];		///<ÎÄ¼þÀàÐÍ
+    SDK_SYSTEM_TIME  tmStartTimeNew;		///< ÐÂÂ¼ÏñÊ±¼ä¶ÎµÄ¿ªÊ¼Ê±¼ä
+    SDK_SYSTEM_TIME	 tmEndTimeNew;			///< ÐÂÂ¼ÏñÊ±¼ä¶ÎµÄ½áÊøÊ±¼ä
+    SDK_SYSTEM_TIME	 tmStartTimeOld;		///< ÀÏÂ¼ÏñÊ±¼ä¶ÎµÄ¿ªÊ¼Ê±¼ä
+    SDK_SYSTEM_TIME	 tmEndTimeOld;			///< ÀÏÂ¼ÏñÊ±¼ä¶ÎµÄ½áÊøÊ±¼ä
 }SDK_DriverInformation;
 enum
 {
-    SDK_MAX_DRIVER_PER_DISK = 4,		///< Ã¿¸ö´ÅÅÌ×î¶àµÄ·ÖÇøÊý
-    SDK_MAX_DISK_PER_MACHINE = 8,		///< ×î¶àÖ§³Ö8¿éÓ²ÅÌ
+    SDK_MAX_DRIVER_PER_DISK = 2,	///< Ã¿¸ö´ÅÅÌ×î¶àµÄ·ÖÇøÊý
+    SDK_MAX_DISK_PER_MACHINE = 8,	///< ×î¶àÖ§³Ö8¿éÓ²ÅÌ
 };
 //Ó²ÅÌ¹ÜÀí
 typedef struct SDK_STORAGEDISK
@@ -2876,11 +2545,7 @@ enum SDK_StorageDeviceControlTypes
     SDK_STORAGE_DEVICE_CONTROL_RECOVER,		///< »Ö¸´´íÎó
     SDK_STORAGE_DEVICE_CONTROL_PARTITIONS,	///< ·ÖÇø²Ù×÷
     SDK_STORAGE_DEVICE_CONTROL_CLEAR,		///< Çå³ý²Ù×÷
-   
-	SDK_STORAGE_DEVICE_CONTROL_ADDNAS,		///<Ìí¼ÓNAS
-	SDK_STORAGE_DEVICE_CONTROL_CHANGENAS,	///ÐÞ¸ÄNAS
-	SDK_STORAGE_DEVICE_CONTROL_DELNAS,		///<É¾³ýNAS
- 	SDK_STORAGE_DEVICE_CONTROL_NR,
+    SDK_STORAGE_DEVICE_CONTROL_NR,
 };
 
 /// Çå³ý´ÅÅÌÊý¾ÝÀàÐÍ
@@ -2910,7 +2575,7 @@ typedef struct SDK_StorageDeviceControl
     int iSerialNo;	///< ´ÅÅÌÐòÁÐºÅ
     int iPartNo;    ///< ·ÖÇøºÅ
     int iType;		///< enum SDK_StorageDeviceClearTypes»òÕßSDK_FileSystemDriverTypes
-    int iPartSize[4/*MAX_DRIVER_PER_DISK*/];	///< ¸÷¸ö·ÖÇøµÄ´óÐ¡
+    int iPartSize[2/*MAX_DRIVER_PER_DISK*/];	///< ¸÷¸ö·ÖÇøµÄ´óÐ¡
 }SDK_StorageDeviceControl;
 
 /// Éè±¸ÀàÐÍ
@@ -2932,7 +2597,7 @@ typedef struct _H264_DVR_DEVICEINFO
     char sHardWareVersion[64];	///< Ó²¼þ°æ±¾ÐÅÏ¢
     char sEncryptVersion[64];	///< ¼ÓÃÜ°æ±¾ÐÅÏ¢
     SDK_SYSTEM_TIME tmBuildTime;///< Èí¼þ´´½¨Ê±¼ä
-    char sSerialNumber[64];		///< Éè±¸ÐòÁÐºÅ
+    char sSerialNumber[64];			///< Éè±¸ÐòÁÐºÅ
     int byChanNum;				///< ÊÓÆµÊäÈëÍ¨µÀÊý
     int iVideoOutChannel;		///< ÊÓÆµÊä³öÍ¨µÀÊý
     int byAlarmInPortNum;		///< ±¨¾¯ÊäÈëÍ¨µÀÊý
@@ -2942,17 +2607,16 @@ typedef struct _H264_DVR_DEVICEINFO
     int iExtraChannel;			///< À©Õ¹Í¨µÀÊý
     int iAudioInChannel;		///< ÒôÆµÊäÈëÍ¨µÀÊý
     int iCombineSwitch;			///< ×éºÏ±àÂëÍ¨µÀ·Ö¸îÄ£Ê½ÊÇ·ñÖ§³ÖÇÐ»»
-    int iDigChannel;			///<Êý×ÖÍ¨µÀÊý
-    unsigned int uiDeviceRunTime;///<ÏµÍ³ÔËÐÐÊ±¼ä
+    int iDigChannel;		///<Êý×ÖÍ¨µÀÊý
+    unsigned int uiDeviceRunTime;	///<ÏµÍ³ÔËÐÐÊ±¼ä
     SDK_DeviceType deviceTye;	///Éè±¸ÀàÐÍ
-    char sHardWare[64];			///<Éè±¸ÐÍºÅ
-    char uUpdataTime[20];		///<¸üÐÂÈÕÆÚ ÀýÈç 2013-09-03 14:15:13
+    char sHardWare[64];		///<Éè±¸ÐÍºÅ
+    char uUpdataTime[20];	///<¸üÐÂÈÕÆÚ ÀýÈç 2013-09-03 14:15:13
     unsigned int uUpdataType;	///<¸üÐÂÄÚÈÝ
-	char sDeviceModel[16];       //Éè±¸ÐÍºÅ(µ×²ã¿â´Ó¼ÓÃÜÀï»ñµÃ£¬sHardWareÕë¶Ô¶à¸öÉè±¸ÓÃÍ¬Ò»¸ö³ÌÐòÕâÖÖÇé¿öÇø·Ö²»ÁË) 
-	int nLanguage;//¹ú¼ÒµÄÓïÑÔID,0Ó¢Óï 1ÖÐÎÄ 2ÖÐÎÄ·±Ìå 3º«Óï 4µÂÓï 5ÆÏÌÑÑÀÓï 6¶íÓï
+    int nLanguage;//¹ú¼ÒµÄÓïÑÔID,0:Ó¢ÎÄ/ 1:ÖÐÎÄ
     char sCloudErrCode[NET_MAX_PATH_LENGTH];//ÔÆµÇÂ½¾ßÌå´íÎóÄÚÈÝ
 	int status[32];
-	//ÅÐ¶ÏÐÂ¹ýÀ´µÄÁ¬½ÓÊÇ²»ÊÇÍ¨¹ý´úÀí×ª·¢µÄ£¬Èç¹ûÊÇÄÇÃ´°´ÕÕ·þÎñÆ÷3
+	//ÅÐ¶ÏÐÂ¹ýÀ´µÄÁ¬½ÓÊÇ²»ÊÇÍ¨¹ý´úÀí×ª·¢µÄ£¬Èç¹ûÊÇÄÇÃ´°´ÕÕ·þÎñÆ÷
 	//·µ»ØµÄÏÞÖÆÌõ¼þÀ´ÏÞÖÆ¡£
 	//status[0] Â·ÊýÏÞÖÆ:0´ú±í²»ÏÞÖÆ£¬ n´ú±íÏÞÖÆnÂ·
 	//status[1]ÂëÁ÷ÏÞÖÆ¡£0 :²»ÏÞÖÆ¡£1ÏÞÖÆ²»ÄÜ¹Û¿´Ö÷ÂëÁ÷¡£
@@ -2966,9 +2630,9 @@ typedef struct _H264_DVR_DEVICEINFO
 //Ö÷¶¯·þÎñ»Øµ÷Êý¾Ý
 typedef struct H264_DVR_ACTIVEREG_INFO
 {
-    char deviceSarialID[64];		//Éè±¸ÐòÁÐºÅ£¬Èç¹û´óÓÚ64Î»Ôò¸³Öµ0
-    H264_DVR_DEVICEINFO deviceInfo;	//Éè±¸ÐÅÏ¢
-    char IP[IP_SIZE];   			//ÍâÍøIP
+    char deviceSarialID[64];//Éè±¸ÐòÁÐºÅ£¬Èç¹û´óÓÚ64Î»Ôò¸³Öµ0
+    H264_DVR_DEVICEINFO deviceInfo;//Éè±¸ÐÅÏ¢
+    char IP[IP_SIZE];   //ÍâÍøIP
 }H264_DVR_ACTIVEREG_INFO;
 ///< ×Ô¶¯Î¬»¤ÉèÖÃ
 typedef struct SDK_AutoMaintainConfig
@@ -2981,16 +2645,16 @@ typedef struct SDK_AutoMaintainConfig
 /// Ä¬ÈÏÅäÖÃÖÖÀà
 enum SDK_DefaultConfigKinds
 {
-    SDK_DEFAULT_CFG_GENERAL,		// ÆÕÍ¨ÅäÖÃ
-    SDK_DEFAULT_CFG_ENCODE,			// ±àÂëÅäÖÃ
-    SDK_DEFAULT_CFG_RECORD,			// Â¼ÏñÅäÖÃ
-    SDK_DEFAULT_CFG_NET_SERVICE,	// ÍøÂç·þÎñ
-    SDK_DEFAULT_CFG_NET_COMMON,		// Í¨ÓÃÍøÂç
-    SDK_DEFAULT_CFG_ALARM,			// ±¨¾¯
-    SDK_DEFAULT_CFG_PTZCOMM,		// ÔÆÌ¨£¬´®¿Ú
-    SDK_DEFAULT_CFG_USERMANAGER,	// ÓÃ»§¹ÜÀí
-    SDK_DEFAULT_CFG_PREVIEW,		// Ô¤ÀÀÅäÖÃ
-    SDK_DEFAULT_CFG_CAMERA_PARAM,   // ÍøÂçÉãÏñÍ·ÅäÖÃ
+    SDK_DEFAULT_CFG_GENERAL,			// ÆÕÍ¨ÅäÖÃ
+    SDK_DEFAULT_CFG_ENCODE,				// ±àÂëÅäÖÃ
+    SDK_DEFAULT_CFG_RECORD,				// Â¼ÏñÅäÖÃ
+    SDK_DEFAULT_CFG_NET_SERVICE,		// ÍøÂç·þÎñ
+    SDK_DEFAULT_CFG_NET_COMMON,			// Í¨ÓÃÍøÂç
+    SDK_DEFAULT_CFG_ALARM,				// ±¨¾¯
+    SDK_DEFAULT_CFG_PTZCOMM,			// ÔÆÌ¨£¬´®¿Ú
+    SDK_DEFAULT_CFG_USERMANAGER,		// ÓÃ»§¹ÜÀí
+    SDK_DEFAULT_CFG_PREVIEW,			// Ô¤ÀÀÅäÖÃ
+    SDK_DEFAULT_CFG_CAMERA_PARAM,            // ÍøÂçÉãÏñÍ·ÅäÖÃ
     SDK_DEFAULT_CFG_END,
 };
 
@@ -2998,7 +2662,6 @@ enum SDK_DefaultConfigKinds
 typedef struct SDK_SetDefaultConfigTypes
 {
     bool vSetDefaultKinds[SDK_DEFAULT_CFG_END];
-	bool vDefaultFactory;			//»Ö¸´³ö³§ÉèÖÃÅäÖÃ
 }SDK_SetDefaultConfigTypes;
 
 
@@ -3026,13 +2689,13 @@ enum SDK_File_Type
     SDK_RECORD_DETECT,	  //ÊÓÆµÕì²âÂ¼Ïñ
     SDK_RECORD_REGULAR,	  //ÆÕÍ¨Â¼Ïñ
     SDK_RECORD_MANUAL,	  //ÊÖ¶¯Â¼Ïñ
-    SDK_RECORD_KEY,		  //¹Ø¼üÂ¼Ïñ
     SDK_PIC_ALL = 10,
-    SDK_PIC_ALARM,		  //Íâ²¿±¨¾¯Í¼Æ¬
-    SDK_PIC_DETECT,		  //ÊÓÆµÕì²âÍ¼Æ¬
-    SDK_PIC_REGULAR,      //ÆÕÍ¨Í¼Æ¬
-    SDK_PIC_MANUAL,       //ÊÖ¶¯Í¼Æ¬
+    SDK_PIC_ALARM,		  //Íâ²¿±¨¾¯Â¼Ïñ
+    SDK_PIC_DETECT,		  //ÊÓÆµÕì²âÂ¼Ïñ
+    SDK_PIC_REGULAR,      //ÆÕÍ¨Â¼Ïñ
+    SDK_PIC_MANUAL,       //ÊÖ¶¯Â¼Ïñ
     SDK_PIC_IDXIMG,		  //Ë÷ÒýÍ¼Æ¬
+    SDK_PIC_KEY,		//¹Ø¼üÂ¼Ïñ
     SDK_TYPE_NUM
 };
 
@@ -3041,11 +2704,11 @@ typedef struct H264_DVR_FINDINFO
 {
     int nChannelN0;			//Í¨µÀºÅ
     int nFileType;			//ÎÄ¼þÀàÐÍ, ¼ûSDK_File_Type
-    H264_DVR_TIME startTime;//¿ªÊ¼Ê±¼ä
+    H264_DVR_TIME startTime;	//¿ªÊ¼Ê±¼ä
     H264_DVR_TIME endTime;	//½áÊøÊ±¼ä
-    char szFileName[32];	//ÎÄ¼þÃû£¬Îª¿ÕµÄ»°£¬ÏµÍ³´¦Àí£¬ÓÐÖµ£¬ÏµÍ³²ÉÓÃ
-    void *hWnd;				
-    int  StreamType;		//²éÑ¯µÄÂëÁ÷ÀàÐÍ,Ö÷ÂëÁ÷:0,¸¨ÂëÁ÷:1
+    char szFileName[32];		//ÎÄ¼þÃû£¬Îª¿ÕµÄ»°£¬ÏµÍ³´¦Àí£¬ÓÐÖµ£¬ÏµÍ³²ÉÓÃ
+    void *hWnd;
+    int  StreamType;
 #ifndef OS_IOS
     H264_DVR_FINDINFO()
     {
@@ -3060,11 +2723,11 @@ typedef struct H264_DVR_FILE_DATA
 {
     int ch;						//Í¨µÀºÅ
     int size;					//ÎÄ¼þ´óÐ¡
-    char sFileName[108];		//ÎÄ¼þÃû
-    SDK_SYSTEM_TIME stBeginTime;//ÎÄ¼þ¿ªÊ¼Ê±¼ä
-    SDK_SYSTEM_TIME stEndTime;	//ÎÄ¼þ½áÊøÊ±¼ä
-    void *hWnd;					//´°¿Ú¾ä±ú
-    int StreamType;				//ÂëÁ÷ÀàÐÍÊÇ»Ø·ÅÖ÷ÂëÁ÷£¨0£©»¹ÊÇ¸¨ÖúÂëÁ÷£¨1£©
+    char sFileName[108];		///< ÎÄ¼þÃû
+    SDK_SYSTEM_TIME stBeginTime;	///< ÎÄ¼þ¿ªÊ¼Ê±¼ä
+    SDK_SYSTEM_TIME stEndTime;		///< ÎÄ¼þ½áÊøÊ±¼ä
+    void *hWnd;
+    int StreamType;	//ÂëÁ÷ÀàÐÍÊÇ»Ø·ÅÖ÷ÂëÁ÷»¹ÊÇ¸¨ÖúÂëÁ÷
 #ifndef OS_IOS
     H264_DVR_FILE_DATA()
     {
@@ -3083,7 +2746,6 @@ enum SDK_PlayBackAction
     SDK_PLAY_BACK_FAST,	        /*<! ¼ÓËÙ»Ø·Å */
     SDK_PLAY_BACK_SLOW,	        /*<! ¼õËÙ»Ø·Å */
     SDK_PLAY_BACK_SEEK_PERCENT, /*<! »Ø·Å¶¨Î»°Ù·Ö±È */
-	SDK_PLAY_SET_TYPE,			/*<! »Ø·ÅÖÇÄÜ¶¨Î»*/
 };
 
 //°´Ê±¼ä¶Î²éÑ¯
@@ -3092,11 +2754,11 @@ typedef struct SDK_SearchByTime
     int nHighChannel;			///< 33~64Â¼ÏñÍ¨µÀºÅÑÚÂë
     int nLowChannel;			///< 1~32Â¼ÏñÍ¨µÀºÅÑÚÂë
     int nFileType;              ///< ÎÄ¼þÀàÐÍ, ¼ûSDK_File_Type
-    SDK_SYSTEM_TIME stBeginTime;///< ²éÑ¯¿ªÊ¼Ê±¼ä
-    SDK_SYSTEM_TIME stEndTime;	///< ²éÑ¯½áÊøÊ±¼ä
+    SDK_SYSTEM_TIME stBeginTime;	    ///< ²éÑ¯¿ªÊ¼Ê±¼ä
+    SDK_SYSTEM_TIME stEndTime;		///< ²éÑ¯½áÊøÊ±¼ä
     int    iSync;               ///< ÊÇ·ñÐèÒªÍ¬²½
-    unsigned int	nHighStreamType;///< 33~64Â¼ÏñµÄÂëÁ÷ÀàÐÍ,¶þ½øÖÆÎ»Îª0´ú±íÖ÷ÂëÁ÷£¬1´ú±í¸¨ÂëÁ÷
-    unsigned int nLowStreamType;///< 1~32Â¼ÏñµÄÂëÁ÷ÀàÐÍ,¶þ½øÖÆÎ»Îª0´ú±íÖ÷ÂëÁ÷£¬1´ú±í¸¨ÂëÁ÷
+    unsigned int	nHighStreamType;///< 33~64Â¼ÏñµÄÂëÁ÷ÀàÐÍ
+    unsigned int nLowStreamType;///< 1~32Â¼ÏñµÄÂëÁ÷ÀàÐÍ
 }SDK_SearchByTime;
 
 //Ã¿¸öÍ¨µÀµÄÂ¼ÏñÐÅÏ¢
@@ -3121,7 +2783,6 @@ typedef struct SDK_ALARM_INFO
     int iEvent; //±¨¾¯ÊÂ¼þÂë:¼ûÃ¶¾ÙSDK_EventCodeTypes
     int iStatus;//0:±¨¾¯¿ªÊ¼£¬1:±¨¾¯½áÊø
     SDK_SYSTEM_TIME SysTime;
-	char pExtInfo[128]; //¸½¼ÓÐÅÏ¢£¬·¢ËÍÕßºÍ½ÓÊÕÕß¶Ô¸÷ÖÖ±¨¾¯ÀàÐÍ½øÐÐ¸ñÊ½Ô¼¶¨
 }SDK_AlarmInfo;
 
 /// ÈÕÖ¾²éÑ¯Ìõ¼þ
@@ -3136,11 +2797,11 @@ typedef struct SDK_LogSearchCondition
 
 typedef struct SDK_LogItem
 {
-    char sType[24];				///< ÈÕÖ¾ÀàÐÍ
-    char sUser[32];				///< ÈÕÖ¾ÓÃ»§
-    char sData[68];				///< ÈÕÖ¾Êý¾Ý
+    char sType[24];	///< ÈÕÖ¾ÀàÐÍ
+    char sUser[32];	///< ÈÕÖ¾ÓÃ»§
+    char sData[68];	///< ÈÕÖ¾Êý¾Ý
     SDK_SYSTEM_TIME stLogTime;	///< ÈÕÖ¾Ê±¼ä
-    int  iLogPosition;			///< ´ÓÉÏ´Î²éÑ¯µÄ½áÊøÊ±µÄÈÕÖ¾Ö¸Õë
+    int iLogPosition;			///< ´ÓÉÏ´Î²éÑ¯µÄ½áÊøÊ±µÄÈÕÖ¾Ö¸Õë
 }SDK_LogItem;
 
 //ÈÕÖ¾·µ»ØÐÅÏ¢
@@ -3159,11 +2820,11 @@ typedef struct SDK_AudioInFormatConfigAll
 /// ¸æ¾¯×´Ì¬
 typedef struct SDK_DVR_ALARMSTATE
 {
-	char iVideoMotion[NET_MAX_MSK_SIZE];	///< ÒÆ¶¯Õì²â×´Ì¬,ÓÃÑÚÂë±íÊ¾Í¨µÀºÅ,byte0´ú±íÍ¨µÀÒ»,ÒÔ´ËÀàÍÆ 1: ÓÐ¸æ¾¯ 0: ÎÞ¸æ¾¯
-	char iVideoBlind[NET_MAX_MSK_SIZE];		///< ÊÓÆµÕÚµ²×´Ì¬,ÓÃÑÚÂë±íÊ¾Í¨µÀºÅ,byte0´ú±íÍ¨µÀÒ»,ÒÔ´ËÀàÍÆ 1: ÓÐ¸æ¾¯ 0: ÎÞ¸æ¾¯
-	char iVideoLoss[NET_MAX_MSK_SIZE];		///< ÊÓÆµ¶ªÊ§×´Ì¬,ÓÃÑÚÂë±íÊ¾Í¨µÀºÅ,byte0´ú±íÍ¨µÀÒ»,ÒÔ´ËÀàÍÆ 1: ÓÐ¸æ¾¯ 0: ÎÞ¸æ¾¯
-	char iAlarmIn[NET_MAX_MSK_SIZE];		///< ¸æ¾¯ÊäÈë×´Ì¬,ÓÃÑÚÂë±íÊ¾Í¨µÀºÅ,byte0´ú±íÍ¨µÀÒ»,ÒÔ´ËÀàÍÆ 1: ÓÐ¸æ¾¯ 0: ÎÞ¸æ¾¯
-	char iAlarmOut[NET_MAX_MSK_SIZE];		///< ¸æ¾¯Êä³ö×´Ì¬,ÓÃÑÚÂë±íÊ¾Í¨µÀºÅ,byte0´ú±íÍ¨µÀÒ»,ÒÔ´ËÀàÍÆ 1: ÓÐ¸æ¾¯ 0: ÎÞ¸æ¾¯
+    int iVideoMotion; ///< ÒÆ¶¯Õì²â×´Ì¬,ÓÃÑÚÂë±íÊ¾Í¨µÀºÅ,bit0´ú±íÍ¨µÀÒ»,ÒÔ´ËÀàÍÆ 1: ÓÐ¸æ¾¯ 0: ÎÞ¸æ¾¯
+    int iVideoBlind; ///< ÊÓÆµÕÚµ²×´Ì¬,ÓÃÑÚÂë±íÊ¾Í¨µÀºÅ,bit0´ú±íÍ¨µÀÒ»,ÒÔ´ËÀàÍÆ 1: ÓÐ¸æ¾¯ 0: ÎÞ¸æ¾¯
+    int iVideoLoss;	///< ÊÓÆµ¶ªÊ§×´Ì¬,ÓÃÑÚÂë±íÊ¾Í¨µÀºÅ,bit0´ú±íÍ¨µÀÒ»,ÒÔ´ËÀàÍÆ 1: ÓÐ¸æ¾¯ 0: ÎÞ¸æ¾¯
+    int iAlarmIn;	///< ¸æ¾¯ÊäÈë×´Ì¬,ÓÃÑÚÂë±íÊ¾Í¨µÀºÅ,bit0´ú±íÍ¨µÀÒ»,ÒÔ´ËÀàÍÆ 1: ÓÐ¸æ¾¯ 0: ÎÞ¸æ¾¯
+    int iAlarmOut;	///< ¸æ¾¯Êä³ö×´Ì¬,ÓÃÑÚÂë±íÊ¾Í¨µÀºÅ,bit0´ú±íÍ¨µÀÒ»,ÒÔ´ËÀàÍÆ 1: ÓÐ¸æ¾¯ 0: ÎÞ¸æ¾¯
 }SDK_DVR_ALARMSTATE;
 
 // Í¨µÀ×´Ì¬
@@ -3220,7 +2881,7 @@ enum SDK_NetKeyBoardValue
     SDK_NET_KEY_SPLIT16,     // 16»­Ãæ
     SDK_NET_KEY_SHUT,        // ¹Ø»ú
     SDK_NET_KEY_MENU,        // ²Ëµ¥
-    SDK_NET_KEY_SPLIT25,	 // 25»­Ãæ
+    SDK_NET_KEY_SPLIT25,	// 25»­Ãæ
     SDK_NET_KEY_SPLIT36,     // 36»­Ãæ
     SDK_NET_KEY_PTZ = 60,    // ½øÈëÔÆÌ¨¿ØÖÆÄ£Ê½
     SDK_NET_KEY_TELE,        // ±ä±¶¼õ
@@ -3260,13 +2921,12 @@ typedef struct SDK_UpgradeInfo
     char szHardware[64];
     char szVendor[64];
     unsigned int uiLogoArea[2];
-	char szLogoPartType[64];
 }SDK_UpgradeInfo;
 
 /// ÍøÂç±¨¾¯
 typedef struct SDK_NetAlarmInfo
 {
-    int iEvent;   //Ä¿Ç°Î´Ê¹ÓÃ
+    int iEvent;  //Ä¿Ç°Î´Ê¹ÓÃ
     int iState;   //Ã¿bit±íÊ¾Ò»¸öÍ¨µÀ,bit0:µÚÒ»Í¨µÀ,0-ÎÞ±¨¾¯ 1-ÓÐ±¨¾¯, ÒÀ´ÎÀàÍÆ
 }SDK_NetAlarmInfo;
 
@@ -3289,53 +2949,39 @@ enum MEDIA_PACK_TYPE
     AUDIO_PACKET = 10,			// ÒôÆµ°ü
 };
 
-enum SDK_ENCODE_TYPE
-{
-	SDK_StreamTypeEmpty = 0,
-	SDK_StreamTypeH264 = 2,
-	SDK_StreamTypeJpeg = 3,
-	SDK_StreamTypeGeneral = 4,
-	SDK_StreamTypeH265 = 5,
-	SDK_StreamTypePCM8 = 7,
-	SDK_StreamTypeStd = 8
-};
-
 typedef struct
 {
-    int		       nPacketType;			// °üÀàÐÍ,¼ûMEDIA_PACK_TYPE
-    char*	       pPacketBuffer;		// »º´æÇøµØÖ·
-    unsigned int   dwPacketSize;		// °üµÄ´óÐ¡
-
-	unsigned int   nEncodeType;         ///Êý¾Ý¸ñÊ½ÀàÐÍ¼ûSDK_ENCODE_TYPE
-
+    int		nPacketType;				// °üÀàÐÍ,¼ûMEDIA_PACK_TYPE
+    char*	pPacketBuffer;				// »º´æÇøµØÖ·
+    unsigned int	dwPacketSize;				// °üµÄ´óÐ¡
     
     // ¾ø¶ÔÊ±±ê
-    int		       nYear;				// Ê±±ê:Äê
-    int		       nMonth;				// Ê±±ê:ÔÂ
-    int		       nDay;				// Ê±±ê:ÈÕ
-    int		       nHour;				// Ê±±ê:Ê±
-    int		       nMinute;				// Ê±±ê:·Ö
-    int		       nSecond;				// Ê±±ê:Ãë
-    unsigned int   dwTimeStamp;			// Ïà¶ÔÊ±±êµÍÎ»£¬µ¥Î»ÎªºÁÃë
-    unsigned int   dwTimeStampHigh;    	//Ïà¶ÔÊ±±ê¸ßÎ»£¬µ¥Î»ÎªºÁÃë
-    unsigned int   dwFrameNum;          //Ö¡ÐòºÅ
-    unsigned int   dwFrameRate;         //Ö¡ÂÊ
+    int		nYear;						// Ê±±ê:Äê
+    int		nMonth;						// Ê±±ê:ÔÂ
+    int		nDay;						// Ê±±ê:ÈÕ
+    int		nHour;						// Ê±±ê:Ê±
+    int		nMinute;					// Ê±±ê:·Ö
+    int		nSecond;					// Ê±±ê:Ãë
+    unsigned int 	dwTimeStamp;					// Ïà¶ÔÊ±±êµÍÎ»£¬µ¥Î»ÎªºÁÃë
+    unsigned int	dwTimeStampHigh;        //Ïà¶ÔÊ±±ê¸ßÎ»£¬µ¥Î»ÎªºÁÃë
+    unsigned int   dwFrameNum;             //Ö¡ÐòºÅ
+    unsigned int   dwFrameRate;            //Ö¡ÂÊ
     unsigned short uWidth;              //Í¼Ïñ¿í¶È
     unsigned short uHeight;             //Í¼Ïñ¸ß¶È
-    unsigned int   Reserved[6];     	//±£Áô
+    unsigned int       Reserved[6];            //±£Áô
 } PACKET_INFO_EX;
 
 
 typedef struct SDK_OEMInfo
 {
-    int nOEMID;                     	//OEM ID
+    int nOEMID;                     //OEM ID
     char sCompanyName[NET_MAX_USERNAME_LENGTH]; //¹«Ë¾Ãû
     char sTel[NET_MAX_USERNAME_LENGTH];         //µç»°
     char sAddr[NET_MAX_USERNAME_LENGTH];        //µØÖ·
 }SDK_OEMInfo;
-typedef struct __TransComChannel//Í¸Ã÷´®¿Ú
+typedef struct __TransComChannel//Í¸Ã÷´°¿Ú
 {
-    SERIAL_TYPE TransComType;	//SERIAL_TYPE
+    SERIAL_TYPE TransComType;//SERIAL_TYPE
     unsigned int baudrate;
     unsigned int databits;
     unsigned int stopbits;
@@ -3351,9 +2997,9 @@ typedef enum SDK_State_Type
 //ÆØ¹âÅäÖÃ
 typedef struct SDK_ExposureCfg
 {
-    int  level;    			//ÆØ¹âµÈ¼¶
-    unsigned int leastTime;	//×Ô¶¯ÆØ¹âÊ±¼äÏÂÏÞ»òÊÖ¶¯ÆØ¹âÊ±¼ä£¬µ¥Î»Î¢Ãë
-    unsigned int mostTime; 	//×Ô¶¯ÆØ¹âÊ±¼äÉÏÏÞ£¬µ¥Î»Î¢Ãë
+    int  level;    //ÆØ¹âµÈ¼¶
+    unsigned int leastTime;//×Ô¶¯ÆØ¹âÊ±¼äÏÂÏÞ»òÊÖ¶¯ÆØ¹âÊ±¼ä£¬µ¥Î»Î¢Ãë
+    unsigned int mostTime; //×Ô¶¯ÆØ¹âÊ±¼äÉÏÏÞ£¬µ¥Î»Î¢Ãë
 }SDK_ExposureCfg;
 
 //ÔöÒæÅäÖÃ
@@ -3366,28 +3012,27 @@ typedef struct SDK_GainCfg
 //ÍøÂçÉãÏñ»úÅäÖÃ
 typedef struct SDK_CameraParam
 {
-    unsigned int whiteBalance;      //°×Æ½ºâ
-    unsigned int dayNightColor;     //ÈÕÒ¹Ä£Ê½£¬È¡ÖµÓÐ²ÊÉ«¡¢×Ô¶¯ÇÐ»»ºÍºÚ°×
-    int elecLevel;             		//²Î¿¼µçÆ½Öµ
-    unsigned int apertureMode;      //×Ô¶¯¹âÈ¦Ä£Ê½
-    unsigned int BLCMode;           //±³¹â²¹³¥Ä£Ê½
-    SDK_ExposureCfg exposureConfig;	//ÆØ¹âÅäÖÃ
-    SDK_GainCfg     gainConfig;    	//ÔöÒæÅäÖÃ
+    unsigned int whiteBalance;         //°×Æ½ºâ
+    unsigned int dayNightColor;        //ÈÕÒ¹Ä£Ê½£¬È¡ÖµÓÐ²ÊÉ«¡¢×Ô¶¯ÇÐ»»ºÍºÚ°×
+    int elecLevel;             //²Î¿¼µçÆ½Öµ
+    unsigned int apertureMode;          //×Ô¶¯¹âÈ¦Ä£Ê½
+    unsigned int BLCMode;               //±³¹â²¹³¥Ä£Ê½
+    SDK_ExposureCfg exposureConfig;//ÆØ¹âÅäÖÃ
+    SDK_GainCfg     gainConfig;    //ÔöÒæÅäÖÃ
     
     unsigned int PictureFlip;		//Í¼Æ¬ÉÏÏÂ·­×ª
-    unsigned int PictureMirror;		//Í¼Æ¬×óÓÒ·­×ª(¾µÏñ)
-    unsigned int RejectFlicker;		//ÈÕ¹âµÆ·ÀÉÁ¹¦ÄÜ
-    unsigned int EsShutter;			//µç×ÓÂý¿ìÃÅ¹¦ÄÜ
+    unsigned int PictureMirror;	//Í¼Æ¬×óÓÒ·­×ª(¾µÏñ)
+    unsigned int RejectFlicker;	//ÈÕ¹âµÆ·ÀÉÁ¹¦ÄÜ
+    unsigned int EsShutter;		//µç×ÓÂý¿ìÃÅ¹¦ÄÜ
     
     int ircut_mode;		//IR-CUTÇÐ»» 0 = ºìÍâµÆÍ¬²½ÇÐ»» 1 = ×Ô¶¯ÇÐ»»
     
-    int dnc_thr;		//ÈÕÒ¹×ª»»ãÐÖµ
+    int dnc_thr;			//ÈÕÒ¹×ª»»ãÐÖµ
     int ae_sensitivity;	//aeÁéÃô¶ÈÅäÖÃ
     
-    int Day_nfLevel;	//noise filter µÈ¼¶£¬0-5,0²»ÂË²¨£¬1-5 ÖµÔ½´óÂË²¨Ð§¹ûÔ½Ã÷ÏÔ
+    int Day_nfLevel;		//noise filter µÈ¼¶£¬0-5,0²»ÂË²¨£¬1-5 ÖµÔ½´óÂË²¨Ð§¹ûÔ½Ã÷ÏÔ
     int Night_nfLevel;
     int Ircut_swap;		//ircut Õý³£Ðò= 0        ·´Ðò= 1
-	int high_light;     //Ç¿¹âÒÖÖÆ¹¦ÄÜ 0~255,Ä¬ÈÏÊÇ16
 }SDK_CameraParam;
 
 //ËùÓÐÉãÏó»úÅäÖÃ
@@ -3399,26 +3044,22 @@ typedef struct SDK_AllCameraParam
 //ÆØ¹âÄÜÁ¦¼¶
 typedef struct SDK_CameraAbility
 {
-    int  count;      						//Ö§³ÖÆØ¹âËÙ¶ÈÊýÁ¿
+    int  count;      //Ö§³ÖÆØ¹âËÙ¶ÈÊýÁ¿
     unsigned int speeds[CAMERAPARA_MAXNUM]; //ÆØ¹âËÙ¶È
-    int  status;     						//¹¤×÷×´Ì¬  >= 0 Õý³£    < 0 Òì³£
-    int  elecLevel;  						//²Î¿¼µçÆ½Öµ
-    int  luminance;  						//Æ½¾ùÁÁ¶È
-    char pVersion[64];						//xm 2a°æ±¾
-	char isFishLens; //ÊÇ·ñÊÇÓãÑÛ¾µÍ·£¬Èç¹ûÊÇ£¬ÔòÐèÒªappºÍPC¶Ë×öÍ¼ÏñÐ£Õý
-	char isSupportIntellDoubleLight; //ÊÇ·ñÖ§³ÖÖÇÄÜË«¹â
-	char isSupportPreventOverExpo; //ÊÇ·ñÖ§³Ö·À¹ýÆØ
-	char resv1[1];   //±£Áô£¬Èç¹ûÔö¼ÓcharÐÍµÄ³ÉÔ±ÏÈÓÃÕâÀïµÄ
-	char reserve[28];//±£Áô£¬Èç¹ûÔö¼ÓintÐÍµÄ³ÉÔ±ÓÃÕâÀï
+    int  status;     //¹¤×÷×´Ì¬  >= 0 Õý³£    < 0 Òì³£
+    int  elecLevel;  //²Î¿¼µçÆ½Öµ
+    int  luminance;  //Æ½¾ùÁÁ¶È
+    char pVersion[64];//xm 2a°æ±¾
+    char reserve[32];//±£Áô
 }SDK_CameraAbility;
 
 //±¾µØ²¥·Å¿ØÖÆ
 enum SDK_LoalPlayAction
 {
     SDK_Local_PLAY_PAUSE,		/*<! ÔÝÍ£²¥·Å */
-    SDK_Local_PLAY_CONTINUE,	/*<! ¼ÌÐøÕý³£²¥·Å */
-    SDK_Local_PLAY_FAST,	    /*<! ¼ÓËÙ²¥·Å */
-    SDK_Local_PLAY_SLOW,	    /*<! ¼õËÙ²¥·Å */
+    SDK_Local_PLAY_CONTINUE,		/*<! ¼ÌÐøÕý³£²¥·Å */
+    SDK_Local_PLAY_FAST,	        /*<! ¼ÓËÙ²¥·Å */
+    SDK_Local_PLAY_SLOW,	        /*<! ¼õËÙ²¥·Å */
     
 };
 
@@ -3426,14 +3067,14 @@ enum SDK_LoalPlayAction
 typedef struct SDK_NetShortMsgCfg
 {
     bool bEnable;       //·¢ËÍÊÖ»ú¶ÌÐÅµÄ¹¦ÄÜÊÇ·ñÆôÓÃ
-    char pDesPhoneNum[NET_MAX_RECIVE_MSG_PHONE_COUNT][16];
+    char pDesPhoneNum[MAX_RECIVE_MSG_PHONE_COUNT][16];
     int  sendTimes;     //ÐèÒªÏòÃ¿¸öÊÖ»ú·¢ËÍ¶àÉÙ´Î¶ÌÐÅ
 }SDK_NetShortMsgCfg;
 //ÊÖ»ú²ÊÐÅÅäÖÃ
 typedef struct SDK_NetMultimediaMsgCfg
 {
     bool bEnable;				// ·¢ËÍÊÖ»ú²ÊÐÅµÄ¹¦ÄÜÊÇ·ñÆôÓÃ
-    char pDesPhoneNum[NET_MAX_RECIVE_MSG_PHONE_COUNT][16]; //½ÓÊÕ²ÊÐÅµÄÊÖ»úºÅ£¬ÏÖÖ§³Ö3¸öÊÖ»úºÅ
+    char pDesPhoneNum[MAX_RECIVE_MSG_PHONE_COUNT][16]; //½ÓÊÕ²ÊÐÅµÄÊÖ»úºÅ£¬ÏÖÖ§³Ö3¸öÊÖ»úºÅ
     char pGateWayDomain[40];	// Íø¹ØµØÖ·£¬ÓòÃû»òIP
     int  gateWayPort;			// Íø¹Ø¶Ë¿Ú
     char pMmscDomain[40];		// ²ÊÐÅ·þÎñÆ÷µØÖ·£¬IP»òÓòÃû
@@ -3451,14 +3092,10 @@ typedef struct SDK_DASSerInfo
 }SDK_DASSerInfo;
 typedef enum UploadDataType  //ÉÏ´«Êý¾ÝÀàÐÍ
 {
-    VEHICLE=0,				//³µÔØÐÅÏ¢
-    SDK_RECORD_STATE,		//Â¼Ïñ×´Ì¬
-    SDK_DIGITCHN_STATE,		//Êý×ÖÍ¨µÀÁ¬½Ó×´Ì¬
-    SDK_TITLE_INFO,			//Í¨µÀ±êÌâ
-	SDK_FUNCTION_STATE,		//¹¦ÄÜ×´Ì¬ÀýÈçÔË¶¯Ïà»úÂ¼Ïñ£¬ÑÓÊ±ÅÄµÈ
-	SDK_ELECT_STATE,		//µçÁ¿
-	SDK_MUSICBOX_STATE,		//wifiÒôÀÖºÐ
-	SDK_ADD_433DEV_RESULT,	//433±¨¾¯Åä¶ÔÊý¾Ý
+    VEHICLE=0,//³µÔØÐÅÏ¢
+    SDK_RECORD_STATE,//Â¼Ïñ×´Ì¬
+    SDK_DIGITCHN_STATE,	//Êý×ÖÍ¨µÀÁ¬½Ó×´Ì¬
+    SDK_TITLE_INFO,		//Í¨µÀ±êÌâ
 }UploadDataType;
 //³µÔØÏà¹Ø************************************************************************
 //³µÁ¾×´Ì¬
@@ -3515,10 +3152,10 @@ typedef struct SDK_CarDelayTimeConfig
     int timeCloseDelay;		//µ¥Î»:·ÖÖÓ
 }SDK_CarDelayTimeConfig;
 enum SDK_network_media {
-    SDK_NM_WIRED = 0,  	//ÓÐÏßÍø¿¨
-    SDK_NM_WLAN,       	//Wifi
-    SDK_NM_3G,         	//3GÍø¿¨
-    SDK_NM_NR,    		//ÖÖÀàÊý
+    SDK_NM_WIRED = 0,  //ÓÐÏßÍø¿¨
+    SDK_NM_WLAN,       //Wifi
+    SDK_NM_3G,         //3GÍø¿¨
+    SDK_NM_NR,    //ÖÖÀàÊý
 };
 //ÍøÂçÁ¬½ÓÓÅÏÈ¼¶
 typedef struct SDK_tagNetLinkOrder
@@ -3529,10 +3166,10 @@ typedef struct SDK_tagNetLinkOrder
 //ÍøÂçÓÅÏÈ¼¶
 typedef struct SDK_NetOrderConfig
 {
-    bool         bEnable;        			//ÊÇ·ñÉèÖÃÍøÂçÓÅÏÈ¼¶
-    int          netCount;       			//ÍøÂçÀàÐÍÊýÄ¿
-    SDK_NetLinkOrder pNetOrder[SDK_NM_NR];	//ÍøÂçÓÅÏÈ¼¶
-    SDK_NetLinkOrder pReserve[7-SDK_NM_NR];	//¸øÐÂµÄÍøÂçÀàÐÍÔ¤Áô
+    bool         bEnable;        //ÊÇ·ñÉèÖÃÍøÂçÓÅÏÈ¼¶
+    int          netCount;       //ÍøÂçÀàÐÍÊýÄ¿
+    SDK_NetLinkOrder pNetOrder[SDK_NM_NR];//ÍøÂçÓÅÏÈ¼¶
+    SDK_NetLinkOrder pReserve[7-SDK_NM_NR];//¸øÐÂµÄÍøÂçÀàÐÍÔ¤Áô
 }SDK_NetOrderConfig;
 ///ÍøÂçÓÅÏÈ¼¶ÄÜÁ¦
 typedef struct SDK_NetOrderFunction
@@ -3547,12 +3184,12 @@ struct  SDK_CarPlates
 };
 enum NET_ISP
 {
-    ISP_AUTO, 		//×Ô¶¯Ñ¡Ôñ
-    ISP_TELCOM, 	//µçÐÅ
-    ISP_UNIONCOM, 	//ÁªÍ¨
-    ISP_CNC,		//ÍøÍ¨
-    ISP_MOBILE,		//ÒÆ¶¯£¬ÌúÍ¨
-    ISP_USER,		//×Ô¶¨Òå
+    ISP_AUTO, //×Ô¶¯Ñ¡Ôñ
+    ISP_TELCOM, //µçÐÅ
+    ISP_UNIONCOM, //ÁªÍ¨
+    ISP_CNC,//ÍøÍ¨
+    ISP_MOBILE,//ÒÆ¶¯£¬ÌúÍ¨
+    ISP_USER,//×Ô¶¨Òå
 };
 //ÍøÂçÆ½Ì¨ÐÅÏ¢ÉèÖÃ
 typedef struct SDK_LocalSdkNetPlatformConfig
@@ -3578,10 +3215,10 @@ typedef struct SDK_GPSTimingConfig
 typedef struct	SDK_GodEyeConfig
 {
     bool	bEnable;
-    char MainSeverName[NET_NAME_PASSWORD_LEN];	//Ö÷ÓòÃû
-    int MainPort;								//Ö÷¶Ë¿Ú
-    char ExSeverName[NET_NAME_PASSWORD_LEN]; 	//±¸ÓÃÓòÃû
-    int ExPort;									//±¸ÓÃ¶Ë¿Ú
+    char MainSeverName[NET_NAME_PASSWORD_LEN]; //Ö÷ÓòÃû
+    int MainPort;	//Ö÷¶Ë¿Ú
+    char ExSeverName[NET_NAME_PASSWORD_LEN]; //±¸ÓÃÓòÃû
+    int ExPort;	//±¸ÓÃ¶Ë¿Ú
 }SDK_GodEyeConfig;
 enum  SDK_DigManagerShowStatus
 {
@@ -3603,13 +3240,13 @@ typedef struct SDK_NatConfig
 #if 0
     bool CloudpushEnable;
 #endif
-    int nMTU;             		// ·¶Î§ (100,1400)
-    char serverAddr[64];  		//ÔÆ·þÎñµÄÓòÃû»òÕßIPµØÖ·¡£
-    int  serverPort;      		//ÔÆ·þÎñµÄ¶Ë¿Ú;
-    CONFIG_IPAddress dnsSvr1;	//ÔÆ·þÎñµÄDNS·þÎñÆ÷µØÖ·
+    int nMTU;             // ·¶Î§ (100,1400)
+    char serverAddr[64];  //ÔÆ·þÎñµÄÓòÃû»òÕßIPµØÖ·¡£
+    int  serverPort;      //ÔÆ·þÎñµÄ¶Ë¿Ú;
+    CONFIG_IPAddress dnsSvr1;//ÔÆ·þÎñµÄDNS·þÎñÆ÷µØÖ·
     CONFIG_IPAddress dnsSvr2;
 #if 0
-    char pResv[16];      		//±£Áô
+    char pResv[16];      //±£Áô
 #endif
 }SDK_NatConfig;
 
@@ -3617,34 +3254,31 @@ typedef enum SubConnType
 {
     conn_realTimePlay=1,
     conn_talk,
-    conn_playback,
-	conn_push
+    conn_playback
 }SubConnType;
 //*** */ÏòÉè±¸×¢²á
 enum SocketStyle
 {
 	TCPSOCKET=0,
 	UDPSOCKET,	
-	PLUGLANSOCKET=4,		//²å×ù¾ÖÓòÍøµÇÂ½
+	PLUGLANSOCKET=4,			//²å×ù¾ÖÓòÍøµÇÂ½
 	PLUGOUTERSOCKET,		//²å×ùÍâÍøµÇÂ½
-	P2P_TUTKSOCKET,			//TUTK P2P
     SOCKETNR
 };
 
 
 enum SDK_NatStatusType
 {
-    SDK_NAT_STATUS_DISENABLE,	//Î´¿ªÆô
-    SDK_NAT_STATUS_PROBING,  	//ÕýÔÚÌ½²âDNS
-    SDK_NAT_STATUS_CONNECTING,	//ÕýÔÚÁ¬½Ó·þÎñÆ÷
-    SDK_NAT_STATUS_CONNECTED,	//Á¬½Ó³É¹¦
+    SDK_NAT_STATUS_DISENABLE,//Î´¿ªÆô
+    SDK_NAT_STATUS_PROBING,  //ÕýÔÚÌ½²âDNS
+    SDK_NAT_STATUS_CONNECTING,//ÕýÔÚÁ¬½Ó·þÎñÆ÷
+    SDK_NAT_STATUS_CONNECTED,//Á¬½Ó³É¹¦
 };
 //nat×´Ì¬ÐÅÏ¢
 typedef struct SDK_NatStatusInfo
 {
 	int	iNatStatus;
 	char NatInfoCode[256];//Ôö¼ÓÄÚÈÝ£¬¼Ó´ó
-
 }SDK_NatStatusInfo;
 
 /// Êý×ÖË®Ó¡ÅäÖÃ
@@ -3682,13 +3316,13 @@ enum
     sdk_maxpack=4,// sdk_maxCPCDataItem/sdk_maxCPCDataReturn
 };
 
-typedef struct SDK_CPCDataItem	//ÈËÊýÍ³¼ÆÏî½á¹¹Ìå
+typedef struct SDK_CPCDataItem		//ÈËÊýÍ³¼ÆÏî½á¹¹Ìå
 {
-    int channel;				//¶ÔÓ¦µÄÍ¨µÀºÅ
+    int channel;			//¶ÔÓ¦µÄÍ¨µÀºÅ
     SDK_SYSTEM_TIME startTime;	//¿ªÊ¼Ê±¼ä
     SDK_SYSTEM_TIME endTime;	//½áÊøÊ±¼ä
-    int inNum;					//½øÈëÈËÊý
-    int outNum;					//Àë¿ªÈËÊý
+    int inNum;			//½øÈëÈËÊý
+    int outNum;			//Àë¿ªÈËÊý
 }SDK_CPCDataItem;
 
 typedef struct SDK_CPCData
@@ -3715,11 +3349,11 @@ typedef struct SDK_RecordStorageType
 //VPN½á¹¹Ìå
 typedef struct SDK_VPNConfig
 {
-    bool Enable;								///< ÊÇ·ñ¿ªÆô
-    CONFIG_IPAddress ServiceIp;					///< ·þÎñÆ÷IPµØÖ·
+    bool Enable;		///< ÊÇ·ñ¿ªÆô
+    CONFIG_IPAddress ServiceIp;						///< ·þÎñÆ÷IPµØÖ·
     char UserName[NET_NAME_PASSWORD_LEN];		///< ÓÃ»§Ãû
     char Password[NET_NAME_PASSWORD_LEN];		///< ÃÜÂë
-    CONFIG_IPAddress addr;						///< ²¦ºÅºó»ñµÃµÄIPµØÖ·
+    CONFIG_IPAddress addr;		///< ²¦ºÅºó»ñµÃµÄIPµØÖ·
     char ServerName[NET_NAME_PASSWORD_LEN];		///< openvpn·þÎñÆ÷µØÖ·
     int port;
 }SDK_VPNConfig;
@@ -3743,21 +3377,20 @@ typedef struct SDK_NetDevList
     SDK_CONFIG_NET_COMMON_V2 vNetDevList[DEV_LIST_SHOW];
 }SDK_NetDevList;
 
-
 //ÎÂÖÝ¿­ÄÜÆ½Ì¨
 /***ÓÃ»§ÐÅÏ¢***/
 
 typedef struct SDK_CONFIG_KAINENG_USERINFO
 {
     char szUserName[16];           //ÓÃ»§ÐÕÃû£º5¸öºº×Ö»òÊ®¸ö×ÖÄ¸;
-    char szUserAddr[128];          //ÓÃ»§µØÖ·£º30¸öºº×Ö»ò60¸ö×ÖÄ¸;
+    char szUserAddr[128];           //ÓÃ»§µØÖ·£º30¸öºº×Ö»ò60¸ö×ÖÄ¸;
     char szUserAttr[16];           //ÓÃ»§ÐÔÖÊ£º5¸öºº×Ö»òÊ®¸ö×ÖÄ¸£»
     
     char szBelongUnit[64];         //¹é¹Üµ¥Î»£º15¸öºº×Ö»ò30¸ö×ÖÄ¸;
     char szBelongUnitPhone[16];    //¹é¹Üµ¥Î»µç»°£º14Î»Êý×Ö£»·Ö»úÓÃ"-" ¸ôÀë·û;
     
     char szPoliceUnit[64];         //³ö¾¯µ¥Î»£º15¸öºº×Ö»ò30¸ö×ÖÄ¸;
-    char szPoliceUnitAddr[128];    //³ö¾¯µ¥Î»µØÖ·£º30¸öºº×Ö»ò60¸ö×ÖÄ¸;
+    char szPoliceUnitAddr[128];     //³ö¾¯µ¥Î»µØÖ·£º30¸öºº×Ö»ò60¸ö×ÖÄ¸;
     char szPoliceUnitPhone[16];    //³ö¾¯µ¥Î»µç»°£º14Î»Êý×Ö£»·Ö»úÓÃ"-"¸ôÀë·û;
     
     char szPolicePhone[4][16];
@@ -3765,7 +3398,7 @@ typedef struct SDK_CONFIG_KAINENG_USERINFO
     
     char szFTP[64];                //FTP£º50¸ö×Ö·û£»
     char szEMail[64];              //E-Mail: 50¸ö×Ö·û£»
-    CONFIG_IPAddress PoliceIP;     //½Ó¾¯ÖÐÐÄIPµØÖ·
+    CONFIG_IPAddress PoliceIP;            //½Ó¾¯ÖÐÐÄIPµØÖ·
     int nHttpPort;                 //½Ó¾¯ÖÐÐÄIP¶Ë¿Ú
 }SDK_CONFIG_KAINENG_USERINFO;
 
@@ -3788,7 +3421,7 @@ typedef struct SDK_CONFIG_KAINENG_DEVINFO
     char nProbeType;			   //Ìõ¼þ£ºÏÂÀ­¿ò ¿ÉÑ¡Ôñ3ÖÖÎª <½ûÖ¹>  <AND>  <OR>  Ä¬ÈÏÎª <½ûÖ¹>
     char nGuardType;               //ÏÐÖÃ²¼·À, ²ÎÕÕGUARDTYEP
     
-    int AlarmTime;                 //¾¯µÑ¿ªÆôÊ±¼ä£ºÈýÎ»Êý×Ö´Ó000-999  Ä¬ÈÏÎª£º180
+    int AlarmTime;                //¾¯µÑ¿ªÆôÊ±¼ä£ºÈýÎ»Êý×Ö´Ó000-999  Ä¬ÈÏÎª£º180
     int nGuardArea;               //ÓÐÏß·ÀÇøÀàÐÍ£º°ËÎ»Êý×Ö£¬Ã¿Î»×îÐ¡0×î´ó3£¬¼´00000000 µ½33333333;  Ä¬ÈÏ£º00000000£»
     
     char szRemConAddr[4][4];       //Ò£¿ØÆ÷1-4ºÅµØÖ· £º°ËÎ»16½øÖÆ×Ö·ûÔÊÐí¿Õ£¨¼´0-9  A-F£©£¬Ä¬ÈÏÎª¿Õ£»
@@ -3812,7 +3445,7 @@ typedef enum SDK_KNAlarmLink
     SDK_LINK_600S,
     SDK_LINK_METHOD_1,
     SDK_LINK_METHOD_2,
-    SDK_LINK_MAX_1,
+    SDK_LINK_MAX,
 }SDK_KNALARMLINK;
 
 typedef struct SDK_CONFIG_KAINENG_LINKINFO
@@ -3833,12 +3466,8 @@ typedef enum SDK_TransferProtocol_V2
 {
     SDK_TRANSFER_PROTOCOL_NETIP,
     SDK_TRANSFER_PROTOCOL_ONVIF,
-    SDK_TRANSFER_PROTOCOL_MAC,
-	SDK_TRANSFER_PROTOCOL_NAT,
-	SDK_TRANSFER_PROTOCOL_DAHUA,
-	SDK_TRANSFER_PROTOCOL_RTSP,
-	SDK_TRANSFER_PROTOCOL_NETIPV6,
-    SDK_TRANSFER_PROTOCOL_NR_V2,
+    SDK_TRANSFER_TRANSFER_PROTOCOL_MAC,
+    SDK_TRANSFER_PROTOCOL_NR_V2=5,
     SDK_TRANSFER_PROTOCOL_ONVIF_DEFAULT = 128,
     SDK_TRANSFER_PROTOCOL_ONVIF_NR_V2
 }SDK_TransferProtocol_V2;
@@ -3873,11 +3502,11 @@ typedef struct SDK_C7PlatformConfig
 ///ÍøÂç¼üÅÌ
 typedef struct SDK_NetKeyboardConfig
 {
-    bool Enable;				//ÊÇ·ñ¿ªÆô
-    char sTransProtocol[4];		//´«ÊäÐ­Òé
-    int ListenPort;				//¼àÌý¶Ë¿Ú
+    bool Enable;		///< ÊÇ·ñ¿ªÆô
+    char sTransProtocol[4];	//´«ÊäÐ­Òé
+    int ListenPort;		//¼àÌý¶Ë¿Ú
     char sParserProtocol[32];
-    int deviceaddr;				//Éè±¸µØÖ·
+    int deviceaddr;	//Éè±¸µØÖ·
 }SDK_NetKeyboardConfig;
 ////// ÍøÂç¼üÅÌÐ­Òé
 typedef struct SDK_NetKeyboardAbility
@@ -3892,26 +3521,26 @@ typedef struct SDK_NetKeyboardAbility
 //28181Ð­ÒéÅäÖÃ
 typedef struct SDK_ASB_NET_VSP_CONFIG
 {
-    bool	bCsEnable;								//Ê¹ÄÜ±ê¼Ç
-    char	szCsIP[64];								//·þÎñÆ÷µØÖ·
-    short	sCsPort;								//·þÎñÆ÷¶Ë¿Ú
-    short	sUdpPort;								//±¾µØ°ó¶¨udp¶Ë¿Ú
-    char	szServerNo[64];							//·þÎñÆ÷ÐòÁÐºÅ
-    char 	szServerDn[64];							//·þÎñÆ÷ËùÔÚµÄÓòÃû³Æ
-    char	szDeviceNO[64];							//Éè±¸ÐòÁÐºÅ
-    char 	szConnPass[64];							//Éè±¸½ÓÈëÃÜÂë
-    int		iHsIntervalTime;						//ÐÄÌø¼ä¸ôÊ±¼ä,µ¥Î»ÊÇÃë
-    int		iRsAgedTime;							//ÖØÐÂ·¢ËÍ×¢²áÊ±¼ä¼ä¸ô£¬µ¥Î»ÎªÃë
-    char	Camreaid[NET_MAX_CHANNUM][64];			//Éè±¸ÖÐÉãÏñÍ·ID
-    int		CamreaLevel[NET_MAX_CHANNUM];			//±¨¾¯µÈ¼¶
-    char	Alarmid[NET_MAX_CHANNUM][64];			//Éè±¸ÖÐÉãÏñÍ·ID
-    int		AlarmLevel[NET_MAX_CHANNUM];			//±¨¾¯µÈ¼¶
-    unsigned int	uiAlarmStateGpinEnable;			//Íâ²¿±¨¾¯Ê¹ÄÜ
-    unsigned int	uiAlarmStateLoseEnable;			//ÊÓÆµ¶ªÊ§¸æ¾¯Ê¹ÄÜ
-    unsigned int	uiAlarmStateMotionEnable;		//ÊÓÆµ¶¯Ì¬Õì²â¸æ¾¯Ê¹ÄÜ
-    unsigned int	uiAlarmStateBlindEnable;		//ÆÁÄ»ÕÚµ²¸æ¾¯Ê¹ÄÜ
-    unsigned int	uiAlarmStatePerformanceEnable;	//ÏµÍ³Òì³£¸æ¾¯Ê¹ÄÜ
-    unsigned int	uiAlarmStateConnectEnable;		//ÓÃ»§Á¬½Ó¸æ¾¯Ê¹ÄÜ
+    bool		bCsEnable;				//Ê¹ÄÜ±ê¼Ç
+    char		szCsIP[64];				//·þÎñÆ÷µØÖ·
+    short	sCsPort;					//·þÎñÆ÷¶Ë¿Ú
+    short	sUdpPort;				//±¾µØ°ó¶¨udp¶Ë¿Ú
+    char		szServerNo[64];			//·þÎñÆ÷ÐòÁÐºÅ
+    char 	szServerDn[64];			//·þÎñÆ÷ËùÔÚµÄÓòÃû³Æ
+    char		szDeviceNO[64];			//Éè±¸ÐòÁÐºÅ
+    char 	szConnPass[64];			//Éè±¸½ÓÈëÃÜÂë
+    int		iHsIntervalTime;			//ÐÄÌø¼ä¸ôÊ±¼ä,µ¥Î»ÊÇÃë
+    int		iRsAgedTime;			//ÖØÐÂ·¢ËÍ×¢²áÊ±¼ä¼ä¸ô£¬µ¥Î»ÎªÃë
+    char		Camreaid[NET_MAX_CHANNUM][64];	//Éè±¸ÖÐÉãÏñÍ·ID
+    int		CamreaLevel[NET_MAX_CHANNUM];	//±¨¾¯µÈ¼¶
+    char		Alarmid[NET_MAX_CHANNUM][64];	//Éè±¸ÖÐÉãÏñÍ·ID
+    int		AlarmLevel[NET_MAX_CHANNUM];	//±¨¾¯µÈ¼¶
+    unsigned int		uiAlarmStateGpinEnable;	//Íâ²¿±¨¾¯Ê¹ÄÜ
+    unsigned int		uiAlarmStateLoseEnable;	//ÊÓÆµ¶ªÊ§¸æ¾¯Ê¹ÄÜ
+    unsigned int		uiAlarmStateMotionEnable;//ÊÓÆµ¶¯Ì¬Õì²â¸æ¾¯Ê¹ÄÜ
+    unsigned int		uiAlarmStateBlindEnable;	//ÆÁÄ»ÕÚµ²¸æ¾¯Ê¹ÄÜ
+    unsigned int		uiAlarmStatePerformanceEnable;	//ÏµÍ³Òì³£¸æ¾¯Ê¹ÄÜ
+    unsigned int		uiAlarmStateConnectEnable;	//ÓÃ»§Á¬½Ó¸æ¾¯Ê¹ÄÜ
 }SDK_ASB_NET_VSP_CONFIG;
 
 //ÊÖ»ú·þÎñÅäÖÃ
@@ -3931,26 +3560,26 @@ typedef struct  SDK_OSDInfoConfig
     char ppInfo[NET_MAX_LINE_PER_OSD_AREA][NET_CHANNEL_NAME_MAX_LEN];
 }SDK_OSDInfoConfig ;
 
-typedef enum SDK_wordEncType
+enum SDK_wordEncType
 {
-    SDK_wordEnc_GB2312,			//ºº×Ö±àÂëGB2312
-    SDK_wordEnc_Unicode,		//Íò¹úÂë Unicode
-    SDK_wordEnc_UTF8,			//UTF-8
-    SDK_wordEnc_NR,	
-}SDK_wordEncType;
+    SDK_wordEnc_GB2312,
+    SDK_wordEnc_Unicode,
+    SDK_wordEnc_UTF8,
+    SDK_wordEnc_NR,
+};
 
 //ËùÓÐÍ¨µÀµÄÆÁÄ»ÌáÊ¾ÐÅÏ¢
 typedef struct  SDK_OSDInfoConfigAll
 {
     SDK_OSDInfoConfig   vOSDInfoAll[NET_MAX_CHANNUM];
-    int strEnc;//±àÂë¸ñÊ½,Ä¬ÈÏÎªUTF-8,²»×öÈÎºÎ´¦Àí£»Ö÷ÒªÓÃÓÚ¿Í»§ÌØÊâÐèÇó£¬Ã¶¾Ù²Î¼ûSDK_wordEncType
+    int strEnc;//±àÂë¸ñÊ½,Ä¬ÈÏÎªUTF-8,²»×öÈÎºÎ´¦Àí£»Ö÷ÒªÓÃÓÚ¿Í»§ÌØÊâÐèÇó£¬Ã¶¾Ù²Î¼ûwordEncType
 }SDK_OSDInfoConfigAll;
 //
 typedef struct SDK_KaiCongAlarmConfig
 {
-    bool Enable;								///< ÊÇ·ñ¿ªÆô
-    char ServerName[NET_NAME_PASSWORD_LEN];		///< ·þÎñÃû
-    int Port;									///< ¶Ë¿ÚºÅ
+    bool Enable;		///< ÊÇ·ñ¿ªÆô
+    char ServerName[NET_NAME_PASSWORD_LEN];	///< ·þÎñÃû
+    int Port;							///< ¶Ë¿ÚºÅ
     char UserName[NET_NAME_PASSWORD_LEN];		///< ÓÃ»§Ãû
     char Password[NET_NAME_PASSWORD_LEN];		///< ÃÜÂë
 }SDK_KaiCongAlarmConfig;
@@ -3979,10 +3608,10 @@ typedef struct SDK_PositionPoint
 
 typedef struct SDK_XMHeartbeatConfig
 {
-    bool bEnable;								///< ÊÇ·ñ¿ªÆô
-    int iInterval;								///< ±£»î¼ä¸ôÊ±¼ä
-    char ServerName[NET_NAME_PASSWORD_LEN];		///< ·þÎñÃû
-    int Port;									///< ¶Ë¿ÚºÅ
+    bool bEnable;							///< ÊÇ·ñ¿ªÆô
+    int iInterval;							///< ±£»î¼ä¸ôÊ±¼ä
+    char ServerName[NET_NAME_PASSWORD_LEN];	///< ·þÎñÃû
+    int Port;								///< ¶Ë¿ÚºÅ
     char UserName[NET_NAME_PASSWORD_LEN];		///< ÓÃ»§Ãû
     char Password[NET_NAME_PASSWORD_LEN];		///< ÃÜÂë
     char resume[24];
@@ -3997,28 +3626,20 @@ typedef struct SDK_MonitorPlatformConfig
     char agentid[128];	//¿Í»§¶Ëid£¬Éî¹ãÆ½Ì¨Ê¹ÓÃ(ÒÔSSJC¿ªÍ·)
     char type[128];		//
 }SDK_MonitorPlatformConfig;
-
-typedef enum SDK_IMG_TYPE
+enum SDK_IMG_TYPE
 {
     SDK_IMG_TYPE_DEFAULT,
     SDK_IMG_TYPE_1,
     SDK_IMG_TYPE_2,
     SDK_IMG_TYPE_NR,
-}SDK_IMG_TYPE;
+};
 //ÍøÂçÉãÏñÍ·À©Õ¹²ÎÊý
 typedef struct SDK_CameraParamEx
 {
-    SDK_GainCfg broadTrends;		//¿í¶¯Ì¬
-    int style;						//enum SDK_IMG_TYPE
-    unsigned int exposureTime;		//Êµ¼ÊÉúÐ§µÄÆØ¹âÊ±¼ä
-	int  Dis ;						//µç×Ó·À¶¶ÉèÖÃ  0:¹Ø±Õ 1:¿ªÆô**/
-	int Ldc; 						//¾µÍ·»û±äÐ£Õý  0:¹Ø±Õ 1:¿ªÆô**/
-	int AeMeansure; 				//²â¹âÄ£Ê½Ð£Õý  0:Æ½¾ù²â¹â 1:ÖÐÑë²â¹â**/
-	int LowLuxMode; 				//Î¢¹âÄ£Ê½ mode£º0 ¹Ø±Õ 1¿ªÆô ==only imx291
-	int corridor_mode;				//1:×ßÀÈÄ£Ê½  0:ÆÕÍ¨Ä£Ê½
-	int lightRestrainLevel;			// Ç¿¹âÒÖÖÆ¹¦ÄÜ0~255£¬Ä¬ÈÏ16
-	int preventOverExpo;			// ·À¹ýÆØ   0:¹Ø±Õ   1:¿ªÆô
-	int res[55];					//ÈßÓà 
+    SDK_GainCfg broadTrends;	//¿í¶¯Ì¬
+    int style;	//enum SDK_IMG_TYPE
+    unsigned int exposureTime;//Êµ¼ÊÉúÐ§µÄÆØ¹âÊ±¼ä
+    int res[62];	//ÈßÓà
 }SDK_CameraParamEx;
 
 // ÉãÏñÍ·ËùÓÐÀ©Õ¹²ÎÊý
@@ -4036,25 +3657,23 @@ typedef struct SDK_NetPlatformCommonCfg
     char ID[NET_NAME_PASSWORD_LEN];
     char UserName[NET_NAME_PASSWORD_LEN];		///< ÓÃ»§Ãû
     char Password[NET_NAME_PASSWORD_LEN];		///< ÃÜÂë
-    char resume[128];							///Ô¤Áô
+    char resume[128];		///Ô¤Áô
 }SDK_NetPlatformCommonCfg;
 
-typedef enum SDK_INFO_NET_LINK_STATUS
+enum SDK_INFO_NET_LINK_STATUS
 {
     SDK_INFO_NET_LINK_OK         = 0,
     SDK_INFO_NET_LINK_FAILED     = 1,
     SDK_INFO_NET_LINK_NO_DEVICE  = 2,
     SDK_INFO_NET_LINK_INVALID    = 9,
-}SDK_INFO_NET_LINK_STATUS;
-
-typedef enum SDK_POSITIONING_DIRECTION
+};
+enum SDK_POSITIONING_DIRECTION
 {
     SDK_POS_DIRECTION_EAST  = 'E',
     SDK_POS_DIRECTION_WEST  = 'W',
     SDK_POS_DIRECTION_SOUTH = 'S',
     SDK_POS_DIRECTION_NORTH = 'N'
-}SDK_POSITIONING_DIRECTION;
-
+};
 typedef struct SDK_POSITIONING_POS//¾­Î³¶È
 {
     int  degree;     //ÒÔ(¶È/1000)Îªµ¥Î»
@@ -4095,15 +3714,15 @@ typedef struct SDK_DASStatusInfo
 
 typedef struct SDK_RecordStorageInfo
 {
-    unsigned int bStart;			//ÊÇ·ñÂ¼Ïñ±êÖ¾Î»
-    SDK_SYSTEM_TIME beginTime;		//Â¼Ïñ¿ªÊ¼Ê±¼ä
-    SDK_SYSTEM_TIME endTime;		//Â¼Ïñ½áÊøÊ±¼ä
-    unsigned int  storageCapacity;	//Ó²ÅÌ×ÜÈÝÁ¿
-    unsigned int  useCapacity;		//Ê¹ÓÃÈÝÁ¿
-    int res[16];					//ÈßÓà
+    unsigned int bStart;//ÊÇ·ñÂ¼Ïñ±êÖ¾Î»
+    SDK_SYSTEM_TIME beginTime;//Â¼Ïñ¿ªÊ¼Ê±¼ä
+    SDK_SYSTEM_TIME endTime;//Â¼Ïñ½áÊøÊ±¼ä
+    unsigned int  storageCapacity;//Ó²ÅÌ×ÜÈÝÁ¿
+    unsigned int  useCapacity;//Ê¹ÓÃÈÝÁ¿
+    int res[16];//ÈßÓà
 }SDK_RecordStorageInfo;
 /// ½âÂëÑÓÊ±µÈ¼¶
-typedef enum SDK_DecodeDeleyTypes
+enum SDK_DecodeDeleyTypes
 {
     SDK_DecodeDeley_0 = 0,
     SDK_DecodeDeley_1,
@@ -4113,7 +3732,7 @@ typedef enum SDK_DecodeDeleyTypes
     SDK_DecodeDeley_5,
     SDK_DecodeDeley_6,
     SDK_DecodeDeley_TYPE_NR,
-}SDK_DecodeDeleyTypes;
+};
 
 typedef struct SDK_DecodeDeleyTimePrame
 {
@@ -4137,16 +3756,16 @@ typedef struct SDK_VIDEOCOLOR_PARAM_EX
 {
     int		BrightnessRef;		///< ÁÁ¶Èref1£¬È¡Öµ0-100¡£
     int		ContrastRef;		///< ¶Ô±È¶Èref1£¬È¡Öµ0-100¡£
-    int  		ContrastThRef;	///< ¶Ô±È¶È·§Öµref1£¬È¡Öµ0-100¡£
-    int		ContrastSlopeRef;	///< ¶Ô±È¶ÈÐ±ÂÊref1£¬È¡Öµ0-100¡£
+    int  		ContrastThRef;		///< ¶Ô±È¶È·§Öµref1£¬È¡Öµ0-100¡£
+    int		ContrastSlopeRef;		///< ¶Ô±È¶ÈÐ±ÂÊref1£¬È¡Öµ0-100¡£
     int 		DarkBlfRef;
     int		DarkNfRef;
     int		DarkEcPthRef;
     int		DarkEcMthRef;
     int		DarkDcRef;
-    int		CbGain;				///high low middle
-    int		CrGain;				///higg low middle
-    int		reserved;			///±£Áô
+    int		CbGain;	//high low middle
+    int		CrGain;	//higg low middle
+    int		reserved;	//±£Áô
 }SDK_VIDEOCOLOR_PARAM_EX;
 
 typedef struct SDK_VIDEOCOLOR_PARAM_CUSTOM
@@ -4158,14 +3777,13 @@ typedef struct SDK_VIDEOCOLOR_PARAM_CUSTOM
     int		AeWight;		//±³¹â²¹³¥
 }SDK_VIDEOCOLOR_PARAM_CUSTOM;
 
-typedef enum SDK_FileControlType
+enum SDK_FileControlType
 {
     SDK_FILE_DEL,			//É¾³ýÎÄ¼þ
     SDK_FILE_DIR_DEL,		//É¾³ýÎÄ¼þ¼Ð
     SDK_FILE_DIR_CLEAR,		//Çå¿ÕÎÄ¼þ¼Ð
-	SDK_RUNTIME_CLEAR,		//Çå³ýÔËÐÐÊ±¼ä
     SDK_FILE_NR,
-}SDK_FileControlType;
+};
 
 typedef struct SDK_NetFileControl
 {
@@ -4173,16 +3791,15 @@ typedef struct SDK_NetFileControl
     char strfile[256];
 }SDK_NetFileControl;
 
-typedef enum SDK_DecChnStateType
+enum SDK_DecChnStateType
 {
     SDK_DEC_STA_NONE, 			//ÎÞÓÃ
     SDK_DEC_STA_NOCONFIG,		//Î´ÅäÖÃ
     SDK_DEC_STA_NOLOGIN,		//Î´µÇÂ½
-    SDK_DEC_STA_NOCONNECT,		//Î´Á¬½Ó
-    SDK_DEC_STA_CONNECTED,		//ÒÑÁ¬½Ó
+    SDK_DEC_STA_NOCONNECT,	//Î´Á¬½Ó
+    SDK_DEC_STA_CONNECTED,	//ÒÑÁ¬½Ó
     SDK_DEC_STA_LOGIN_FAILED,	//µÇÂ¼Ê§°Ü
-	SDK_DEC_STA_OFFLINE,		//Ç°¶ËÉè±¸²»ÔÚÏß
-}SDK_DecChnStateType;
+};
 
 typedef struct SDK_DigitStateInfo
 {
@@ -4195,26 +3812,22 @@ typedef struct SDK_TitleNameInfo
     int nchannel;
     char titleName[256];
 }SDK_TitleNameInfo;
-
-typedef struct SDK_Add433DevResult
-{
-	int nchannel;
-	int n433DevChn;
-	int AddRet;
-	char DevID[8];
-}SDK_Add433DevResult;
+/*
+	==SDK_TransferProtocol_V2
+	==µÚÒ»Î»´ú±íSDK_TRANSFER_PROTOCOL_ONVIF_DEFAULT = 128£¬ÒÔ´ËÄÚÍÆ
+ */
 typedef struct SDK_AbilityMask
 {
     unsigned int AbilityPram;
 }SDK_AbilityMask;
 
-typedef enum SDK_Music_Play_Action
+enum SDK_Music_Play_Action
 {
     SDK_MUSIC_ACTION_PLAY,
     SDK_MUSIC_ACTION_STOP,
     SDK_MUSIC_ACTION_PAUSE,
     SDK_MUSIC_ACTION_CONTINUE
-}SDK_Music_Play_Action;
+};
 
 typedef struct SDK_LocalMusicControl
 {
@@ -4229,12 +3842,12 @@ typedef struct SDK_MusicFileList
     char sFileName[8][20];
 }SDK_MusicFileList;
 
-typedef enum SDK_CAR_BOOT_TYPE
+enum SDK_CAR_BOOT_TYPE
 {
     SDK_CAR_BOOT_TYPE_SPARK,  //µã»ðÏ¨»ð¿ª¹Ø»ú
     SDK_CAR_BOOT_TYPE_TIMING, //¶¨Ê±¿ª¹Ø»ú
     SDK_CAR_BOOT_TYPE_NR,
-}SDK_CAR_BOOT_TYPE;
+};
 
 
 //µã»ð¿ª¹Ø»úÑÓÊ±ÅäÖÃ
@@ -4255,7 +3868,7 @@ typedef struct SDK_CarTimingWork
 
 typedef struct SDK_CarBootTypeConfig
 {
-    int           bootType;         	//ÈçÃ¶¾Ù SDK_CAR_BOOT_TYPE ËùÊö
+    int           bootType;         //ÈçÃ¶¾Ù SDK_CAR_BOOT_TYPE ËùÊö
     SDK_CarSparkWork  sparkWorkConfig;  //µã»ð¿ª¹Ø»úÅäÖÃ
     SDK_CarTimingWork timingWorkConfig; //¶¨Ê±¿ª¹Ø»úÊ±¼ä¶Î1
     char          resv[48];
@@ -4264,8 +3877,8 @@ typedef struct SDK_CarBootTypeConfig
 //µ¥¸öIPC
 typedef struct SDK_ALARM_IPCCONFIG
 {
-    bool	bEnable;			///< ±¨¾¯ÊäÈë¿ª¹Ø
-    int		iSensorType;		///< ´«¸ÐÆ÷ÀàÐÍ³£¿ª or ³£±Õ
+    bool	bEnable;		///< ±¨¾¯ÊäÈë¿ª¹Ø
+    int		iSensorType;	///< ´«¸ÐÆ÷ÀàÐÍ³£¿ª or ³£±Õ
     SDK_EventHandler hEvent;	///< ±¨¾¯Áª¶¯
 }SDK_ALARM_IPCCONFIG;
 ///< ËùÓÐÊý×ÖÍ¨µÀµÄ±¨¾¯ÅäÖÃ
@@ -4279,23 +3892,23 @@ typedef struct SDK_BaiduCloudCfg
 {
     bool	enable;
     char APIKey[NET_NAME_TOKEN_LEN];				//Ó¦ÓÃAPIÃÜÔ¿
-    char SecretKey[NET_NAME_TOKEN_LEN];				//Ó¦ÓÃÃÜÔ¿
-    char AuthorizationCode[NET_NAME_TOKEN_LEN];		//ÊÚÈ¨Âë
-    char accessToken[NET_NAME_TOKEN_LEN];			//·ÃÎÊÈ¨ÏÞÂë
-    char refreshToken[NET_NAME_TOKEN_LEN];			//Ë¢ÐÂÈ¨ÏÞÂë
-    char deviceID[NET_NAME_TOKEN_LEN];				//Éè±¸ID
-    char userCode[NET_NAME_TOKEN_LEN];				//ÓÃ»§ÊÚÈ¨Âë
-    char qrcodeUrl[NET_NAME_TOKEN_LEN];				//¶þÎ¬Âë
-    char streamID[NET_NAME_TOKEN_LEN];				//Á÷ID
-    char describe[NET_NAME_TOKEN_LEN];				//Éè±¸Ãû³Æ
-    int state;										//×´Ì¬
+    char SecretKey[NET_NAME_TOKEN_LEN];			//Ó¦ÓÃÃÜÔ¿
+    char AuthorizationCode[NET_NAME_TOKEN_LEN];	//ÊÚÈ¨Âë
+    char accessToken[NET_NAME_TOKEN_LEN];		//·ÃÎÊÈ¨ÏÞÂë
+    char refreshToken[NET_NAME_TOKEN_LEN];		//Ë¢ÐÂÈ¨ÏÞÂë
+    char deviceID[NET_NAME_TOKEN_LEN];			//Éè±¸ID
+    char userCode[NET_NAME_TOKEN_LEN];			//ÓÃ»§ÊÚÈ¨Âë
+    char qrcodeUrl[NET_NAME_TOKEN_LEN];			//¶þÎ¬Âë
+    char streamID[NET_NAME_TOKEN_LEN];			//Á÷ID
+    char describe[NET_NAME_TOKEN_LEN];			//Éè±¸Ãû³Æ
+    int state;								//×´Ì¬
     SDK_SYSTEM_TIME	refreshTime;					//ÉÏ´ÎË¢ÐÂTokenÊ±¼ä
     int channelMain[NET_MAX_CHANNUM];				//ÊÇ·ñ¿ªÆô±ê¼Ç
     int channelExtra[NET_MAX_CHANNUM];				//ÊÇ·ñ¿ªÆô±ê¼Ç
-    int	recordFileMode;								//ÅäÖÃÂ¼ÏñÄ£Ê½
-    int	recordFileSize;								//Â¼ÏñÎÄ¼þ´óÐ¡
-    int	recordFileTime;								//Â¼Ïñ×î³¤Ê±¼ä
-    char resume[128];								//Ô¤Áô
+    int	recordFileMode;						//ÅäÖÃÂ¼ÏñÄ£Ê½
+    int	recordFileSize;						//Â¼ÏñÎÄ¼þ´óÐ¡
+    int	recordFileTime;						//Â¼Ïñ×î³¤Ê±¼ä
+    char resume[128];							///Ô¤Áô
 }SDK_BaiduCloudCfg;
 
 //ÊÖ»ú¶©ÔÄÊý
@@ -4311,37 +3924,13 @@ typedef struct SDK_LOGIN_CFG//ÐÞ¸ÄÇ°¶ËipµÇÂ¼ÓÃ
     int iEncryptType;			///< ÃÜÂë¼ÓÃÜ·½Ê½ ¹Ì¶¨Öµ 1
 }SDK_LOGIN_CFG;
 
-typedef struct SDK_IPSetCfg
+typedef struct
 {
     int ch;
     int devtype;
     SDK_CONFIG_NET_COMMON netcfg;
     SDK_LOGIN_CFG loginPram;
 }SDK_IPSetCfg;
-
-#define SDK_LONG_PATH_LEN 256	// Ô¶³ÌÂ·¾¶(¹ÒÔØÔ´)
-#define SDK_SHORT_PATH_LEN 64	// ±¾µØ¹ÒÔØµã
-#define SDK_FS_TYPE_LEN 8	//ÎÄ¼þÏµÍ³ÀàÐÍ(eg: ext3)Ãû×Ö³¤¶ÈÉÏÏÞ
-#define SDK_USERNAME_LEN 32
-#define SDK_PASSWD_LEN 32
-#define SDK_MAX_NAS_NUM 8	//×î¶àÖ§³ÖNAS¸öÊý
-#define SDK_MAX_DEV_NUM 16	// Ö§³Ö±¾µØÉè±¸¸öÊý
-#define SDK_MAX_PART_NUM 4	// µ¥¸öÓ²ÅÌÖ§³ÖµÄ·ÖÇøÊýÁ¿ÉÏÏÞ
-struct SDK_NAS_INFO	// NASÐÅÏ¢
-{
-	char mountSrc[SDK_LONG_PATH_LEN];	// Ô¶³ÌÂ·¾¶(¹ÒÔØÔ´)
-	char fsType[SDK_FS_TYPE_LEN];
-	char mountOn[SDK_SHORT_PATH_LEN];	// ±¾µØ¹ÒÔØµã
-	char username[SDK_USERNAME_LEN];
-	char password[SDK_PASSWD_LEN];
-	unsigned int DirType;	//ÈçÃ¶¾ÙIStorageDirectory::DIR_TYPEÃèÊö
-};
-
-typedef struct SDK_NAS_LIST	// NAS(samba, nfs)ÁÐ±í
-{
-	unsigned int  count;
-	SDK_NAS_INFO nasInfo[SDK_MAX_NAS_NUM];
-}SDK_NAS_LIST;
 
 //¶þÎ¬
 typedef struct SDK_DimenCode
@@ -4362,23 +3951,24 @@ typedef struct SDK_DimenCodeAll
 typedef struct SDK_MobileWatchCfg
 {
     int	Enable;
-    char DevID[NET_NAME_ID_LEN];			// Éè±¸±àÂë
+    char DevID[NET_NAME_ID_LEN];				// Éè±¸±àÂë
     char DevKey[NET_NAME_ID_LEN];			// Éè±¸ÑéÖ¤Âë
     char ManufacturerNo[NET_NAME_ID_LEN];	// ³§ÉÌ±àºÅ
     char Mode[NET_NAME_ID_LEN];				// Éè±¸ÐÍºÅ
     char GroupAddr[NET_NAME_URL_LEN];		// ¼¯ÍÅÆ½Ì¨µØÖ·
-    char ProvinceAddr[NET_NAME_URL_LEN];	// Ê¡Æ½Ì¨µØÖ·
-    char NatIP[NET_NAME_ID_LEN];			// Éè±¸Ö÷·þÎñÆ÷½ÓÈëµØÖ·
+    char ProvinceAddr[NET_NAME_URL_LEN];		// Ê¡Æ½Ì¨µØÖ·
+    char NatIP[NET_NAME_ID_LEN];				// Éè±¸Ö÷·þÎñÆ÷½ÓÈëµØÖ·
     int	NatPort;							// Éè±¸Ö÷·þÎñÆ÷½ÓÈë¶Ë¿Ú
     char BackupNatIP[NET_NAME_ID_LEN];		// Éè±¸±¸ÓÃ·þÎñÆ÷½ÓÈëµØÖ·
-    int	BackupNatPort;						// Éè±¸±¸ÓÃ·þÎñÆ÷½ÓÈë¶Ë¿Ú
-    char TurnIP[NET_NAME_ID_LEN];			// TurnServer·þÎñÆ÷µØÖ·
-    int	TurnPort;							// TurnServer·þÎñÆ÷¶Ë¿Ú
+    int	BackupNatPort;					// Éè±¸±¸ÓÃ·þÎñÆ÷½ÓÈë¶Ë¿Ú
+    
+    char TurnIP[NET_NAME_ID_LEN];				// TurnServer·þÎñÆ÷µØÖ·
+    int	TurnPort;						// TurnServer·þÎñÆ÷¶Ë¿Ú
     char BackupTurnIP[NET_NAME_ID_LEN];		// TurnServer±¸·Ý·þÎñÆ÷µØÖ·
-    int	BackupTurnPort;						// TurnServer±¸·Ý·þÎñÆ÷¶Ë¿Ú
-    char FtpIP[NET_NAME_ID_LEN];			// Í¼Æ¬ÉÏ´«FTP·þÎñÆ÷µØÖ·
+    int	BackupTurnPort;					// TurnServer±¸·Ý·þÎñÆ÷¶Ë¿Ú
+    char FtpIP[NET_NAME_ID_LEN];				// Í¼Æ¬ÉÏ´«FTP·þÎñÆ÷µØÖ·
     int	FtpPort;							// Í¼Æ¬ÉÏ´«FTP·þÎñÆ÷¶Ë¿Ú
-    char FtpAccount[NET_NAME_ID_LEN];		// Í¼Æ¬ÉÏ´«FTP·þÎñÆ÷ÕÊºÅ
+    char FtpAccount[NET_NAME_ID_LEN];			// Í¼Æ¬ÉÏ´«FTP·þÎñÆ÷ÕÊºÅ
     char FtpPassword[NET_NAME_ID_LEN];		// Í¼Æ¬ÉÏ´«FTP·þÎñÆ÷ÃÜÂë
     char resume[NET_NAME_URL_LEN];			// Ô¤Áô
 }SDK_MobileWatchCfg;
@@ -4390,19 +3980,19 @@ typedef struct SDK_BrowserLanguageType
 
 typedef struct SDK_TimeZone
 {
-    int minuteswest; 	//¸úUTCÊ±¼äµÄ²îÖµ£¬µ¥Î»·ÖÖÓ£¬¿ÉÒÔÎª¸º
+    int minuteswest; //¸úUTCÊ±¼äµÄ²îÖµ£¬µ¥Î»·ÖÖÓ£¬¿ÉÒÔÎª¸º
     int FistFlag;		//ÓÃÓÚ±£Ö¤µÚÒ»´ÎÊ¹ÓÃµÄÊ±ºòÊ±¼ä²»±ä
 }SDK_TimeZone;
 
 
-typedef enum SDK_TimeSynTypes
+enum SDK_TimeSynTypes
 {
     SDK_TST_OFF = 0,
     SDK_TST_TIME_UTC,
     SDK_TST_TIME_LOCAL,
     SDK_TST_TIME_ALL,
     SDK_TST_NR,
-}SDK_TimeSynTypes;
+};
 
 // Êý×ÖÍ¨µÀÊ±¼äÍ¬²½
 typedef struct SDK_TimeSynParam
@@ -4418,27 +4008,18 @@ typedef struct SDK_CustomizeOEMInfo
     unsigned int oemSerial;
 }SDK_CustomizeOEMInfo;
 
-typedef struct SDK_IFrameRange
-{
-	int main_min;
-	int main_max;
-	int sub_min;
-	int sub_max;
-}SDK_IFrameRange;
-
 typedef struct SDK_DigitDevInfo
 {
-    bool enable; 					//ÅäÖÃÊÇ·ñ¿ÉÓÃ£¬±¾µØÉè±¸Ê¹ÓÃ
-    int nCapture;					//Ä£ÄâÍ¨µÀÊý
-    int nAudio;						//ÒôÆµÍ¨µÀÊý
-    int videoFormat;				//ÊÓÆµÖÆÊ½
-    CONFIG_EncodeAbility ability;	//±àÂëÄÜÁ¦
-	SDK_IFrameRange iGOPRange;	//Ö÷¸¨ÂëÁ÷µÄIÖ¡¼ä¸ô·¶Î§
+    bool enable; //ÅäÖÃÊÇ·ñ¿ÉÓÃ£¬±¾µØÉè±¸Ê¹ÓÃ
+    int nCapture;//Ä£ÄâÍ¨µÀÊý
+    int nAudio;//ÒôÆµÍ¨µÀÊý
+    int videoFormat;//ÊÓÆµÖÆÊ½
+    CONFIG_EncodeAbility ability;//±àÂëÄÜÁ¦
 }SDK_DigitDevInfo;
 
 typedef struct SDK_EncodeChDisplay
 {
-    char displayChanelMask[NET_MAX_MSK_SIZE];	//IEÏÔÊ¾µÄ±àÂëÅäÖÃÍ¨µÀºÅÑÚÂë
+    unsigned int displayChanelMask;	//IEÏÔÊ¾µÄ±àÂëÅäÖÃÍ¨µÀºÅÑÚÂë
 }SDK_EncodeChDisplay;
 
 //µã¼äÑ²º½
@@ -4501,19 +4082,24 @@ typedef struct SDK_ResumePtzState
     SDK_PtzState ptzStateAll[NET_MAX_CHANNUM];
 }SDK_ResumePtzState;
 
+typedef struct SDK_AHDEncodeLMask
+{
+    unsigned int AHDLMask;
+}SDK_AHDEncodeLMask;
+
 /// ËÙ¶È±¨¾¯ÀàÐÍ
-typedef enum SDK_SpeedAlarmTypes
+enum SDK_SpeedAlarmTypes
 {
     SDK_SPEED_ALARM_HIGH,		// ¸ßËÙ±¨¾¯
     SDK_SPEED_ALARM_LOW,		// µÍËÙ±¨¾¯
     SDK_SPEED_ALARM_NR
-}SDK_SpeedAlarmTypes;
+};
 
 ///< ËÙ¶È±¨¾¯ÅäÖÃ
 typedef struct SDK_SpeedAlarmConfig
 {
-    bool	bEnable;			///< ËÙ¶È±¨¾¯¿ªÆô
-    int		iSpeed;				///< ËÙ¶È
+    bool	bEnable;		///< ËÙ¶È±¨¾¯¿ªÆô
+    int		iSpeed;			///< ËÙ¶È
     SDK_EventHandler hEvent;	///< ËÙ¶È±¨¾¯Áª¶¯²ÎÊý
 }SDK_SpeedAlarmConfig;
 
@@ -4530,8 +4116,6 @@ typedef struct SDK_CorrespondentOwnInfo
     char pFirmwareVersion[32];
     char pHardwareId[32];
     int port;
-	int scopeNum;
-	char vScopeInfo[32][64];
 }SDK_CorrespondentOwnInfo;
 
 typedef struct SDK_OSDInfo
@@ -4540,19 +4124,19 @@ typedef struct SDK_OSDInfo
     int nX;//·¶Î§0-1000
     int nY;//·¶Î§0-1000
     int nChannel;//ÒªÉèÖÃµÄÍ¨µÀ
-    char pOSDStr[1024];//Òªµþ¼ÓµÄ×Ö·û´®
+    char pOSDStr[128];//Òªµþ¼ÓµÄ×Ö·û´®
 }SDK_OSDInfo;
 
 typedef struct SDK_AppDownloadLink
 {
-    bool IOSEnable;    		//ÊÇ·ñÏÔÊ¾iphone¿Í»§¶Ë¶þÎ¬Âë
-    bool AndroidEnable;		//ÊÇ·ñÏÔÊ¾°²×¿¿Í»§¶Ë¶þÎ¬Âë
-    bool SNEnable;    		//ÊÇ·ñÏÔÊ¾ÐòÁÐºÅ¶ÔÓ¦µÄ¶þÎ¬Âë
-    bool OtherEnable;  		//ÊÇ·ñÏÔÊ¾¿Í»§×Ô¶¨Òå¶þÎ¬Âë
+    bool IOSEnable;    //ÊÇ·ñÏÔÊ¾iphone¿Í»§¶Ë¶þÎ¬Âë
+    bool AndroidEnable;//ÊÇ·ñÏÔÊ¾°²×¿¿Í»§¶Ë¶þÎ¬Âë
+    bool SNEnable;     //ÊÇ·ñÏÔÊ¾ÐòÁÐºÅ¶ÔÓ¦µÄ¶þÎ¬Âë
+    bool OtherEnable;  //ÊÇ·ñÏÔÊ¾¿Í»§×Ô¶¨Òå¶þÎ¬Âë
     char inkIOS[128];
     char linkAndroid[128];
-    char nameOther[128];  	//¿Í»§×Ô¶¨Òå¶þÎ¬ÂëÃû³Æ
-    char linkOther[128];  	//¿Í»§×Ô¶¨Òå¶þÎ¬Âë
+    char nameOther[128];  //¿Í»§×Ô¶¨Òå¶þÎ¬ÂëÃû³Æ
+    char linkOther[128];  //¿Í»§×Ô¶¨Òå¶þÎ¬Âë
 }SDK_AppDownloadLink;
 
 typedef struct SDK_UserMap
@@ -4564,22 +4148,13 @@ typedef struct SDK_UserMap
 //ÉÏ´«´®¿ÚÊý¾Ýµ½Ö¸¶¨·þÎñÆ÷
 typedef struct SDK_NetTransCommData
 {
-    bool bEnable;								///< ÊÇ·ñ¿ªÆô
-    int SerialType;  							//´®¿ÚÀàÐÍ£¬0±íÊ¾RS232£¬1±íÊ¾RS485
-    int ServerType;								///Ð­ÒéÀàÐÍÃû³Æ,0±íÊ¾TCP£¬1±íÊ¾UDP
-    char ServerAddr[NET_NAME_PASSWORD_LEN];  	//ÓòÃû»òÕßIPµØÖ·¡£
-    int  ServerPort;							//¶Ë¿Ú;
-	int ReportTime;								//×´Ì¬ÏûÏ¢·¢ËÍ¼ä¸ôÊ±¼ä£¬µ¥Î»·ÖÖÓ
+    bool bEnable;		///< ÊÇ·ñ¿ªÆô
+    int SerialType;  //´®¿ÚÀàÐÍ£¬0±íÊ¾RS232£¬1±íÊ¾RS485
+    int ServerType;	///Ð­ÒéÀàÐÍÃû³Æ,0±íÊ¾TCP£¬1±íÊ¾UDP
+    char ServerAddr[NET_NAME_PASSWORD_LEN];  //ÓòÃû»òÕßIPµØÖ·¡£
+    int  ServerPort;	//¶Ë¿Ú;
+	int  ReportTime;	//×´Ì¬ÏûÏ¢·¢ËÍ¼ä¸ôÊ±¼ä£¬µ¥Î»·ÖÖÓ
 }SDK_NetTransCommData;
-
-//Netinfo_cctv¿Í»§Ôö¼Ó´®¿ÚÊý¾Ýµ½Ö¸¶¨·þÎñÆ÷ÅäÖÃ
-typedef struct SDK_NetinfoNetTransComm
-{
-	char LastReportTime[32];	//×îºóÒ»´Î±¨¸æÊ±¼ä
-	char KeyPadNu[16];			//Éè±¸±àºÅ
-	int ConnStatus;				//Á¬½Ó×´Ì¬(1:Á¬½Ó³É¹¦0:Î´Á¬½Ó)
-	int  ReportTime;			//×´Ì¬ÏûÏ¢·¢ËÍ¼ä¸ôÊ±¼ä£¬µ¥Î»·ÖÖÓ
-} SDK_NetinfoNetTransComm;
 
 typedef struct SDK_PhoneInfo
 {
@@ -4592,12 +4167,15 @@ typedef struct SDK_PhoneInfo
     char resume[24];
 }SDK_PhoneInfo;
 
-#define SDK_MAX_VERSION_NUM 20
+enum
+{
+    SDK_MAX_VERSION_NUM = 20,
+};
 
 typedef struct SDK_CloudUpgradeVersion
 {
-    char name[128];			// °æ±¾Ãû
-    char date[12];			//°æ±¾ÈÕÆÚ£¬¸ñÊ½:"2014-08-26"
+    char name[128];// °æ±¾Ãû
+    char date[12];//°æ±¾ÈÕÆÚ£¬¸ñÊ½:"2014-08-26"
     unsigned int length;	// Éý¼¶ÎÄ¼þ³¤¶È
 }SDK_CloudUpgradeVersion;
 
@@ -4610,18 +4188,18 @@ typedef struct SDK_CloudUpgradeList
 //Æô¶¯¿Í»§demo
 typedef struct SDK_NetUseProgram
 {
-    bool bEnable;   							///ÊÇ·ñ¿ªÆô
+    bool bEnable;   //ÊÇ·ñ¿ªÆô
     char UserName[NET_NAME_PASSWORD_LEN];		///< ÓÃ»§Ãû
     char Password[NET_NAME_PASSWORD_LEN];		///< ÃÜÂë
-    int Port;									///< ¶Ë¿ÚºÅ
-    char ServerAddr[NET_NAME_PASSWORD_LEN];  	///ÓòÃû»òÕßIPµØÖ·¡£
-    char Describe[NET_MAX_RIGTH_NUM];			///Éè±¸Ãû³Æ
+    int Port;	///< ¶Ë¿ÚºÅ
+    char ServerAddr[NET_NAME_PASSWORD_LEN];  //ÓòÃû»òÕßIPµØÖ·¡£
+    char Describe[NET_MAX_RIGTH_NUM];			//Éè±¸Ãû³Æ
 }SDK_NetUseProgram;
 
 typedef struct I_VERSION_INFO_T
 {
-    char name[128];			// °æ±¾Ãû
-    char date[12];			//°æ±¾ÈÕÆÚ£¬¸ñÊ½:"2014-08-26"
+    char name[128];// °æ±¾Ãû
+    char date[12];//°æ±¾ÈÕÆÚ£¬¸ñÊ½:"2014-08-26"
     unsigned int length;	// Éý¼¶ÎÄ¼þ³¤¶È
 }I_VERSION_INFO_T;
 
@@ -4653,18 +4231,7 @@ typedef struct SDK_AutoSwitchAll
     SDK_AutoSwitch Aswitch[10];
 }SDK_AutoSwitchAll;
 
-typedef struct SDK_tagPoint
-{
-	int x;
-	int y;
-}SDK_Point;
 
-typedef struct SDK_TitleDot
-{
-	int width;
-	int height;
-	char pDotBuf[NET_MAX_TITLE_DOT_BUF_LEN];
-}SDK_TitleDot;
 
 typedef struct SDK_PowerSocketSet
 {
@@ -4689,6 +4256,8 @@ typedef struct SDK_ClientInfoAll
     SDK_ClientInfo info[10];
 }SDK_ClientInfoAll;
 
+
+
 typedef struct SDK_Authority
 {
     int Level;
@@ -4711,17 +4280,15 @@ typedef struct SDK_AlarmInfo_V2
 }SDK_AlarmInfo_V2;
 
 /// ÓÃ»§µÇÂ½·½Ê½
-typedef enum SDK_LoginType
+enum SDK_LoginType
 {
-    H264_DVR_LOGIN_TYPE_WEB,			///< WEBµÇÂ½(Ä¬ÈÏ)
+    H264_DVR_LOGIN_TYPE_WEB,		///< WEBµÇÂ½(Ä¬ÈÏ)
     H264_DVR_LOGIN_TYPE_LOCALUPGRADE,	///< Éý¼¶¹¤¾ß(¾ÖÓòÍøÉý¼¶)µÇÂ½
     H264_DVR_LOGIN_TYPE_CLOUDUPGRADE,	///< ÔÆÉý¼¶µÇÂ½
-    H264_DVR_LOGIN_TYPE_PCCLIENT,		///< PC¿Í»§¶ËµÇÂ½
-    H264_DVR_LOGIN_TYPE_MOBILE,			///< ÒÆ¶¯ÖÕ¶Ë£¨IPhone£©µÇÂ½
-	H264_DVR_LOGIN_TYPE_FUTRUE_HOME,	///Î´À´¼ÒÍ¥¿Í»§¶ËµÇÂ½
-	H264_DVR_LOGIN_TYPE_XM030,			///xmeye¿Í»§¶ËµÇÂ½
-    H264_DVR_LOGIN_TYPE_NR,				///< µÇÂ½ÀàÐÍ
-}SDK_LoginType;
+    H264_DVR_LOGIN_TYPE_PCCLIENT,	///< PC¿Í»§¶ËµÇÂ½
+    H264_DVR_LOGIN_TYPE_MOBILE,		///< ÒÆ¶¯ÖÕ¶Ë£¨IPhone£©µÇÂ½
+    H264_DVR_LOGIN_TYPE_NR,			///< µÇÂ½ÀàÐÍ
+};
 
 typedef struct SDK_Xpms_Search_AlarmInfo_Req
 {
@@ -4729,10 +4296,10 @@ typedef struct SDK_Xpms_Search_AlarmInfo_Req
     char authCode[100];
     SDK_SYSTEM_TIME StarTime;	//±¨¾¯ÐÅÏ¢²éÑ¯ÆðÊ¼Ê±¼ä
     SDK_SYSTEM_TIME EndTime;	//±¨¾¯ÐÅÏ¢²éÑ¯½áÊøÊ±¼ä£¬È«0±íÊ¾µ±Ç°Ê±¼ä
-    int Channel;				//Channel < 0 ±íÊ¾È«²¿²éÑ¯£¬Í¨µÀºÅÊÇ´Ó0¿ªÊ¼µÄ
-    int AlarmType;				//±¨¾¯ÀàÐÍ(ÔÝÊ±ÎÞÓÃ)
-    int Number;					//ÇëÇóÒª²éµÄ±¨¾¯ÌõÊý £¬Number <= 0 ±íÊ¾²éÈ«²¿
-    int Index;					//ÐèÒª´Ó²éÑ¯µÄ½á¹ûÖÐÄÄÒ»Ìõ¿ªÊ¼È¡
+    int Channel;			//Channel < 0 ±íÊ¾È«²¿²éÑ¯£¬Í¨µÀºÅÊÇ´Ó0¿ªÊ¼µÄ
+    int AlarmType;		//±¨¾¯ÀàÐÍ(ÔÝÊ±ÎÞÓÃ)
+    int Number;			//ÇëÇóÒª²éµÄ±¨¾¯ÌõÊý £¬Number <= 0 ±íÊ¾²éÈ«²¿
+    int Index;				//ÐèÒª´Ó²éÑ¯µÄ½á¹ûÖÐÄÄÒ»Ìõ¿ªÊ¼È¡
     char Res[32];
 }SDK_XPMS_SEARCH_ALARMINFO_REQ;
 
@@ -4756,8 +4323,8 @@ typedef struct SDK_CONFIG_NET_BJHONGTAIHENG
     char ServerUrl[64]; //·þÎñÆ÷µØÖ·
     char DevID[16];     //Éè±¸id
     char Password[16];  //Éè±¸ÑéÖ¤Âë
-    char DevModel[16];	//Éè±¸ÐÍºÅ
-    char SerialNo[20]; 	//Éè±¸ÐòÁÐºÅ
+    char DevModel[16];     //Éè±¸ÐÍºÅ
+    char SerialNo[20]; //Éè±¸ÐòÁÐºÅ
 }SDK_CONFIG_NET_BJHONGTAIHENG;
 
 typedef enum
@@ -4783,10 +4350,10 @@ typedef struct SDK_CloudRecordConfigAll
 // ¿ÕÏÐ¶¯×÷
 typedef struct SDK_PtzIdleState
 {
-    bool bEnable;		// ¿ÕÏÐ¶¯×÷Ê¹ÄÜÎ»
-    int iTime;			// ¿ÕÏÐÊ±¼ä µ¥Î»: Ãë
+    bool bEnable;					// ¿ÕÏÐ¶¯×÷Ê¹ÄÜÎ»
+    int iTime;						// ¿ÕÏÐÊ±¼ä µ¥Î»: Ãë
     int iIdleState;		// ¿ÕÏÐ¶¯×÷ÀàÐÍ
-    int iId;			// ÏàÓ¦¿ÕÏÐ¶¯×÷ÀàÐÍµÄ¶¯×÷±àºÅ
+    int iId;				// ÏàÓ¦¿ÕÏÐ¶¯×÷ÀàÐÍµÄ¶¯×÷±àºÅ
 }SDK_PtzIdleState;
 typedef struct SDK_PtzIdleStateAll
 {
@@ -4825,16 +4392,14 @@ typedef struct SDK_DataLinkConfig
 	int NIP2Enable;
 }SDK_DataLinkConfig;
 //°²×°Î»ÖÃ
-typedef enum SDK_FISHEYE_APP_TYPE_E
-{
+typedef enum{
 	SDK_FISHEYE_APP_CEIL = 0, //Ìì»¨°å
 	SDK_FISHEYE_APP_TABL = 1, //×ÀÉÏ
 	SDK_FISHEYE_APP_WALL = 2, //Ç½ÉÏ
 }SDK_FISHEYE_APP_TYPE_E;
 
 //ÓãÑÛÄ£Ê½
-typedef enum SDK_FISHEYE_SECENE_E
-{
+typedef enum{
 	SDK_FISHEYE_SECENE_ORIG	= 0,
 	SDK_FISHEYE_SECENE_R = 1,
 	SDK_FISHEYE_SECENE_P180_ALL = 2,
@@ -4849,23 +4414,12 @@ typedef enum SDK_FISHEYE_SECENE_E
 	SDK_FISHEYE_SECENE_RRP_R = 11
 }SDK_FISHEYE_SECENE_E;
 
-//ÓãÑÛ¾µÍ·¹¤×÷Ä£Ê½
-typedef enum{
-	FISHEYE_BULB_MODE_TIMING = 0,//¶¨Ê±Ä£Ê½
-	FISHEYE_BULB_MODE_OPEN = 1,//ÊÖ¶¯Ä£Ê½¿ª
-	FISHEYE_BULB_MODE_CLOSE = 2, //ÊÖ¶¯Ä£Ê½¹Ø
-	FISHEYE_BULB_MODE_NR,
-}SDK_FISHEYE_BULB_MODE_E;
 
 typedef struct SDK_FishEyeParam
 {
-	int appType;	//ÈçÃ¶¾ÙSDK_FISHEYE_APP_TYPE_E
-	int secene;		//ÈçÃ¶¾ÙSDK_FISHEYE_SECENE_E
-	int duty;		// µÆÅÝÁÁ¶È 0~100¼¶
-	char bulbWorkMode; //µÆÅÝ¹¤×÷Ä£Ê½£¬ÈçÃ¶¾ÙSDK_FISHEYE_BULB_MODE_E
-	char resv[3];
-	SDK_TIMESECTION ligthOnSection; // µÆÅÝ×Ô¶¯¹¤×÷Ê±¼ä¶Î
-	unsigned int reserv[5];
+	int appType;	//ÈçÃ¶¾ÙFISHEYE_APP_TYPE_E
+	int secene;		//ÈçÃ¶¾ÙFISHEYE_SECENE_E
+	unsigned int reserv[8];
 }SDK_FishEyeParam;
 
 //ÊÇ·ñµþ¼ÓOSD logo
@@ -4877,15 +4431,15 @@ typedef struct SDK_SetLogo
 
 typedef struct SDK_SparshHeartbeat
 {
-	bool bEnable;							///ÊÇ·ñÆôÓÃ
-	int  IntevalTime; 						///¼ä¸ôÉÏ±¨Ê±¼ä
+	bool bEnable;	///ÊÇ·ñÆôÓÃ
+	int  IntevalTime; 	///¼ä¸ôÉÏ±¨Ê±¼ä
 	char AlarmType[NET_NAME_PASSWORD_LEN];	///Ãû³Æ
 }SDK_SparshHeartbeat;
 typedef struct SDK_SDevicesState
 {
-    int 	num;	  	//Éè±¸ÊýÁ¿
-    char uuid[32][32];	//×î´ó32¸öÐòÁÐºÅ
-    int state[32];    	//0:²»ÔÚÏß£¬1:ÔÚÏß
+    int 	num;
+    char uuid[32][32];
+    int state[32];
 }SDK_SDevicesState;
 
 typedef enum SDK_EncMode
@@ -4910,1221 +4464,6 @@ typedef struct SDK_SWifiInfo
 	char mobileMac[32];
 }SDK_SWifiInfo;
 
-//¿Í»§µÄnas·þÎñÅäÖÃ
-typedef struct SDK_SPVMN_NAS_SERVER
-{
-	char ServerIP[16];
-	int Port;
-	char RootDir[256];
-	char DowloadIP[16];	
-	char DowloadPath[256];
-}SDK_SPVMN_NAS_SERVER;
-
-//IE¶ËÇëÇó»ñÈ¡Éý¼¶°æ±¾ÐÅÏ¢
-typedef struct SDK_CloudUpgradeVersionReq
-{
-	char uuid[20];				//Éè±¸ÐòÁÐºÅ
-	char  devID[32];			//Éè±¸ÀàÐÍµÄIDºÅ
-	char  curVersion[16];		//µ±Ç°°æ±¾ÈÕÆÚ
-	char Language[32];			//ÓïÑÔÀàÐÍ
-	char devType;				//ÀàÐÍ
-	char expect;				//0±íÊ¾×îÐÂ°æ±¾1±íÊ¾²éÑ¯ÖØÒª°æ±¾
-	char		manual;			//1±íÊ¾ÊÖ¶¯²éÑ¯£¬0±íÊ¾×Ô¶¯²éÑ¯
-	char		rev;
-}SDK_CloudUpgradeVersionReq;
-
-//ºó¶Ë»Ø¸´¸øIE¶Ë»ñÈ¡µÄÉý¼¶°æ±¾ÐÅÏ¢
-typedef struct SDK_CloudUpgradeVersionRep
-{
-	char FileName[128];			//ÎÄ¼þÃû£¬ÏÂÔØÇëÇóÊ±ÐèÌîÕâ¸öÖµ
-	char DevID[32];				//Éè±¸ÀàÐÍµÄIDºÅ
-	char Date[16];				//°æ±¾ÈÕÆÚ
-	int 		   FileSize;	//Éý¼¶ÎÄ¼þµÄ´óÐ¡
-	int		  FileLevel;		//°æ±¾ÖØÒª³Ì¶È
-	char ChangeLog[512];		//change log,¼Óµ½512×Ö½Ú,ÈÕÖ¾¿ÉÄÜÓÐºÜ¶à
-}SDK_CloudUpgradeVersionRep;
-
-//web¶Ë·¢ËÍ¸øºó¶ËµÄÉý¼¶³ÌÐòÇëÇó
-typedef struct SDK_CloudUpgradeStartReq
-{
-	char uuid[20];				//Éè±¸ÐòÁÐºÅ
-	char DevID[32];				//Éè±¸ÀàÐÍIDºÅ
-	char FileName[128];			//Éý¼¶ÎÄ¼þÃû
-	char Date[16];				//°æ±¾ÈÕÆÚ
-	bool 	manual;				//1±íÊ¾ÓÃ»§ÊÖ¶¯µÄÉý¼¶£¬0±íÊ¾×Ô¶¯Éý¼¶£¬ÊÖ»ú¶Ë¸ÃÖµÒ»°ã´«1¼´¿É
-}SDK_CloudUpgradeStartReq;
-
-//ipv6
-typedef struct SDK_IPAddressV6
-{
-	bool bEnable;				//ÊÇ·ñÆôÓÃipv6
-	char pLocalLinkAddr[32];	//±¾µØÁ´Â·µØÖ·
-	char pAddr[64];				//ipv6µØÖ·
-	char pGateway[64];			//Íø¹Ø
-	int	iPrefix;  				//ipv6Ç°×º³¤¶È
-} SDK_IPAddressV6;
-
-typedef struct SDK_OnlineUpgradeCfg
-{
-	char cEnable; 				//ÊÇ·ñÆôÓÃÔÚÏßÉý¼¶¹¦ÄÜ
-	char pServerAddr[63];
-	int  serverPort;
-	char cAutoCheck;		//ÊÇ·ñ¿ªÆô×Ô¶¯¼ì²â
-	char cAutoUpgradeImp;		//Ö»×Ô¶¯Éý¼¶ÖØÒª¸üÐÂ
-	char cIgnoreAllVersion;		//ºöÂÔËùÓÐ°æ±¾µÄÒ³ÃæÌáÊ¾
-	char cIgnoreCurVersion;		//ºöÂÔµ±Ç°°æ±¾µÄÒ³ÃæÌáÊ¾£¬·¢ÏÖ¸üÐÂµÄ°æ±¾ºóÒ²Ö»ÌáÊ¾Ò»´Î
-	unsigned int IgnoreCurTime;	//ºöÂÔµôµÄµ±Ç°°æ±¾µÄÊ±¼ä£¬Óë bIgnoreCurVersionÁªÓÃ
-	char cJustImpVersion;		//Ö»ÓÐÖØÒª°æ±¾ÌáÊ¾
-	char rev[3];
-} SDK_OnlineUpgradeCfg;
-
-//¼ÒÓÃ²úÆ·433±¨¾¯Áª¶¯ÏîÅäÖÃ
-typedef struct SDK_ConsSensorAlarmCfg
-{
-	bool bEnable;				// ¶¯Ì¬¼ì²â¿ªÆô  
-	SDK_EventHandler hEvent;	// ¶¯Ì¬¼ì²âÁª¶¯ 
-} SDK_ConsSensorAlarmCfg;
-
-///<Ó²ÅÌ³ö´íÊÂ¼þ½á¹¹
-typedef struct SDK_StorageFailConfig
-{
-	bool 	bEnable;
-	SDK_EventHandler hEvent;	///< ´¦Àí²ÎÊý
-	bool	bRebootEnable;		//ÏµÍ³ÖØÆôÈ«ÄÜ:hutianhao
-	int		bRebooted;			//ÊÇ·ñ³ö´íÖØÆô¹ý;0:Î´³ö´íÖØÆô¹ý;·Ç0:³ö´íÖØÆô¹ý
-	int		NoBitRateCnt;		//ÎÞÂëÁ÷Éè±¸×Ô¶¯ÖØÆô´ÎÊý
-}SDK_StorageFailConfig;
-
-//CMS¿Í»§¶Ë¶Ë·¢À´µÄ»­Ãæ·Ö¸îÌõ¼þ
-typedef struct SDK_SplitControl
-{
-	int iSplitChannel;//·Ö¸îÍ¨µÀ
-	int iSplitWinType;//·Ö¸îÀàÐÍ(Èç:ËÄÍ¨µÀ)
-	char rev[8];
-}SDK_SplitControl;
-
-typedef enum _SDK_EXCEPTION_TYPE
-{
-	SDK_EXCEPTION_DISCONNECTED,//Éè±¸¶ÏÏß
-	SDK_EXCEPTION_RECCONNECTED,//Éè±¸»Ö¸´ÖØÁ¬
-}SDK_EXCEPTION_TYPE;
-
-//ÖØÁ¬Éè±¸µÄÏà¹ØÐÅÏ¢
-typedef struct SDK_ReconInfo
-{
-	LPH264_DVR_DEVICEINFO deviceInfo; //ÖØÐÂµÇÂ¼ºóµÄÉè±¸ÐÅÏ¢£¨ÇÐ»»Ä£Ê½ÁËÉè±¸Í¨µÀµÈÐÅÏ¢¿ÉÄÜ»á±ä£¨ÀýÈçÍ¨µÀÄ£Ê½±ä»¯ÁË£©,ËùÒÔÖØÁ¬³É¹¦ºóÒª·µ»Ø³öÀ´£©
-	void* pWnd;			//ÖØÁ¬ÊÓÆµÊ±Í¨µÀ¶ÔÓ¦µÄ´°¿Ú¾ä±ú
-	int nType;			//¼ûÃ¶¾ÙSDK_EXCEPTION_TYPE
-}SDK_ReconInfo;
-
-//×ÓÁ¬½ÓÖØÁ¬Éè±¸µÄÏà¹ØÐÅÏ¢
-typedef struct SDK_SubConnectInfo
-{
-	long lRealHandle;	//Ô¤ÀÀÊÓÆµ×ÓÁ¬½Ó¶Ï¿ªºóÖØÁ¬ÊÓÆµ³É¹¦µÄ²¥·Å¾ä±ú
-	bool bSubOnline;	//Ô¤ÀÀÊÓÆµ×ÓÁ¬½ÓÊÇ·ñÖØÁ¬ÉÏ,true´ú±í×ÓÁ¬½ÓÖØÁ¬ÉÏÁË
-	void* pWnd;			//Ô¤ÀÀÊÓÆµ×ÓÁ¬½Ó¶Ï¿ªºóÖØÁ¬ÊÓÆµÊ±Í¨µÀ¶ÔÓ¦µÄ´°¿Ú¾ä±ú£»bSubOnlineÎªtrieÊ±µ÷ÓÃH264_DVR_RealPlayÊ±´«Èë´°¿Ú¾ä±úÊ±pWnd²ÅÓÐÖµ£¬·ñÔò¶¼ÎªNULL
-}SDK_SubConnectInfo;
-
-typedef struct SDK_IntelBrasSpecialInfo
-{
-	int TCPPort;		///< TCPÕìÌý¶Ë¿Ú
-	char  bEnableCloud;	//interbras ÔÆ¹¦ÄÜ
-	char rev2[3];
-	int searchPort;		//ËÑË÷¶Ë¿ÚºÅ
-	int vvMinPort;		//vv ÔÆ×îÐ¡¶Ë¿Ú
-	int vvMaxPort;		//vv ÔÆ×î´ó¶Ë¿Ú
-	int rev[14];
-}SDK_IntelBrasSpecialInfo;
-
-//sip Éè±¸°å¿¨µØÖ·
-typedef struct SDK_SIP_NET_IP_CONFIG
-{
-	char	SIPDevIP[64]; 
-
-}SDK_SIP_NET_IP_CONFIG;
-typedef struct SDK_registersercfg
-{
-	bool enable;
-	char serAddr[NET_NAME_PASSWORD_LEN];//PAGÅäÖÃ
-	int  port;
-	int  factorycode;//³§ÉÌ´úÂë
-	char userName[NET_NAME_PASSWORD_LEN];
-	char passwd[NET_NAME_PASSWORD_LEN];
-	char puid[NET_NAME_PASSWORD_LEN];//Éè±¸id
-	char mainid[NET_NAME_PASSWORD_LEN];//Óòid
-	int TaskID;//´æ´¢Ïà¹Ø
-	int TaskName;//´æ´¢Ïà¹Ø
-	char MainRecordPath[256];//Ö÷ÓÃµØÖ·
-	char BakRecordPath[256];//±¸ÓÃµØÖ·
-	int FileMode;//ÎÄ¼þ´ò°ü¸ñÊ½   0£º°´Ê±³¤£¬1£º°´´óÐ¡
-	int FileLength;//ÎÄ¼þÖµ10£¬FileModeÎª0±íÊ¾10·ÖÖÓ£¬Îª1Ê±±íÊ¾10M
-	int VideoTransMode;//ÊµÊ±´«ÊäÊÓÆµµÄÄ£Ê½¡¾ÊµÊ±ÊÓÆµ·¢Á÷Ä£Ê½¡¿(0-UDP ,1-TCP)
-	char Reserved[NET_NAME_PASSWORD_LEN];
-}SDK_GbEyesCfg;
-
-//AHDLÍ¨µÀÑÚÂë£¬¸ÃÍ¨µÀÎªAHDLÖÃ1
-typedef struct SDK_AHDEncodeLMask
-{
-	char AHDLMask[NET_MAX_MSK_SIZE];
-}SDK_AHDEncodeLMask;
-
-typedef struct SDK_PortService
-{
-	BOOL Enable;		///< ÊÇ·ñ¿ªÆô
-	int port;
-}SDK_PortService;
-
-/// Ä¬ÈÏÏìÓ¦°ü¸ñÊ½
-typedef struct SDK_DefaultResponse
-{
-	unsigned int uiSessionId;		///< »á»°ID
-	int iRet;				///< ·µ»ØÖµ
-	char sName[64];		///< ÅäÖÃÃû³Æ
-}SDK_DefaultResponse;
-
-typedef enum SDK_CloudRecType
-{
-	SDK_TimeRec = (int)0x00001,
-	SDK_AlarmRec = (int)0x00002,
-}SDK_CloudRecType;
-
-//ºÏ·âÄ£×éÖÐIPC·Ö±æÂÊÖ§³ÖµÄÀàÐÍ
-typedef enum SDK_SENSOR_RESOUTION_TYPE
-{
-	SDK_SENSOR_RESOLUTION_NORMAL = 0,		//Ä¬ÈÏ£¬²»Ö§³ÖÍ¨¹ýReslutionÅÐ±ð
-	SDK_SENSOR_RESOLUTION_1M = 1,				//1M
-	SDK_SENSOR_RESOLUTION_1_3M = 2,				//1.3M
-	SDK_SENSOR_RESOLUTION_2M = 3,				//2M
-	SDK_SENSOR_RESOLUTION_3M = 4,				//3M
-	SDK_SENSOR_RESOLUTION_4M = 5,				//4M
-	SDK_SENSOR_RESOLUTION_5M = 6,				//5M
-	SDK_SENSOR_RESOLUTION_6M = 7,				//6M
-	SDK_SENSOR_RESOLUTION_8M = 8,				//8M
-	SDK_SENSOR_RESOLUTION_12M = 9,				//12M
-	SDK_SENSOR_RESOLUTION_16M = 10,				//16M
-}SDK_SENSOR_RESOUTION_TYPE;
-
-//ºÏ·âÄ£×éÖÐIPCÖ§³ÖµÄÉè±¸ÀàÐÍ
-typedef enum SDK_SENSOR_DEVICE_TYPE_ALL
-{
-	SDK_SENSOR_DEVICE_Normal = 0,					//Ä¬ÈÏ£¬²»Ö§³ÖÍ¨¹ýReslutionÅÐ±ð
-	SDK_SENSOR_DEVICE_Plain = 1,					//ÆÕÍ¨
-	SDK_SENSOR_DEVICE_Plain_Color = 2,				//ÆÕÍ¨ ²ÊÉ«
-	SDK_SENSOR_DEVICE_WDR = 3,						//¿í¶¯Ì¬
-	SDK_SENSOR_DEVICE_Low_Light = 4,				//µÍÕÕ¶È
-	SDK_SENSOR_DEVICE_Stellar = 5,					//ÐÇ¹â
-	SDK_SENSOR_DEVICE_Double_Light = 6,				//Ë«¹â
-}SDK_SENSOR_DEVICE_TYPE_ALL;
-
-//ÓãÑÛ¾µÍ·ÀàÐÍÃ¶¾Ù
-typedef enum SDK_E_FISH_LENS_TYPE
-{
-	SDK_FISH_LENS_NORMAL,  //ÆÕÍ¨¾µÍ·£¬²»ÓÃapp¶Ë×öÍ¼ÏñÐ£Õý
-	SDK_FISH_LENS_360VR,
-	SDK_FISH_LENS_360LVR,
-	SDK_FISH_LENS_180VR,
-	SDK_FISH_LENS_DUAL_360VR,
-	SDK_FISH_LENS_DUAL_180VR,
-	SDK_FISH_LENS_NR,
-}SDK_E_FISH_LENS_TYPE;
-
-//ÓãÑÛ¾µÍ·ÅäÖÃ²ÎÊý
-typedef struct SDK_FishLensParam
-{
-	char  version;		 //½á¹¹ÌåµÄ°æ±¾ºÅ(Èç¹ûÐÞ¸ÄÏÂÃæµÄ³ÉÔ±µ¼ÖÂappÐèÒª¶ÔÐÂÀÏ³ÌÐò·Ö¿ª´¦ÀíÊ±£¬ÔòÐèÒªÈÃÀ©Õ¹²¿½«²ÎÊýÉèÖÃ¹¤¾ßÖÐµÄ°æ±¾ºÅ¼Ó1£¬²¢ÐÞ¸ÄÉè±¸ÉÏµÄÄ¬ÈÏÅäÖÃ)
-	char  lensType;      //¾µÍ·ÀàÐÍ£¬ÈçÃ¶¾ÙSDK_E_FISH_LENS_TYPE
-	short centerOffsetX; //Ô²ÐÄÆ«²îºá×ø±ê  µ¥Î»:ÏñËØµã
-	short centerOffsetY; //Ô²ÐÄÆ«²î×Ý×ø±ê  µ¥Î»:ÏñËØµã
-	short radius;        //°ë¾¶  µ¥Î»:ÏñËØµã
-	short imageWidth;    //Ô²ÐÄÐ£ÕýÊ±µÄÍ¼Ïñ¿í¶È  µ¥Î»:ÏñËØµã
-	short imageHeight;	 //Ô²ÐÄÐ£ÕýÊ±µÄÍ¼Ïñ¸ß¶È  µ¥Î»:ÏñËØµã
-	char  viewAngle;	 //ÊÓ½Ç  0:¸©ÊÓ   1:Æ½ÊÓ
-	char  viewMode;		 //ÏÔÊ¾Ä£Ê½   0:360VR
-	short zoom;			 //Ëõ·Å±ÈÀý¡£ÎªÁË´«Êä·½±ã£¬ÕâÀï½«Ô­Öµ·Å´óÁË100±¶
-	char  pPCMac[16];	 //Ð£ÕýÉè±¸Ê±Ê¹ÓÃµÄµçÄÔµÄMACµØÖ·
-	char  resv[8];	
-} SDK_FishLensParam;
-
-//ËùÓÐÍ¨µÀµÄÓãÑÛ¾µÍ·²ÎÊýÅäÖÃ
-typedef struct SDK_FishLensParamAll
-{
-	SDK_FishLensParam vLensParamAll[NET_MAX_CHANNUM];
-}SDK_FishLensParamAll;
-
-//ÔÆÌ¨ÅäÖÃµÄ¿ØÖÆ·½Ê½ÉèÖÃ
-typedef enum SDK_PTZ_CTRL_TYPE
-{
-	PTZ_CTRL_COAX = 0,//Í¨¹ýÍ¬ÖáÏß
-	PTZ_CTRL_RS485,   //Í¨¹ý485Ïß
-	PTZ_CTRL_BOTH,    //Í¬ÖáÏßºÍ485Ïß¶¼·¢ËÍ¿ØÖÆÃüÁî
-}SDK_PTZ_CTRL_TYPE;
-
-typedef struct SDK_PTZControlMode
-{
-	int ctrlMode;			//ÔÆÌ¨¿ØÖÆµÄ·½Ê½¡¾PTZ_CTRL_TYPE Èý¸öÃ¶¾ÙÖµ¡¿
-} SDK_PTZControlMode;
-
-typedef struct SDK_PTZControlModeAll
-{
-	SDK_PTZControlMode CtrlModeAll[NET_MAX_CHANNUM];
-}SDK_PTZControlModeAll;
-
-typedef struct SDK_SmartH264Param
-{
-	bool SmartH264;
-}SDK_SmartH264Param;
-
-typedef struct SDK_SmartH264ParamAll
-{
-	 SDK_SmartH264Param SmartH264All[NET_MAX_CHANNUM];
-}SDK_SmartH264ParamAll;
-
-typedef struct SDK_WifiInfo
-{
-	char ssid[32];			//ÎÞÏßSSIDÐÅÏ¢
-	char wifiVersion[32];	//ÎÞÏßÄ£¿éµÄ°æ±¾ÐÅÏ¢
-	int advance;			//ÐÔÄÜÔöÇ¿Ä£Ê½
-}SDK_WifiInfo;
-
-typedef struct SDK_NetRTMPConfig
-{
-	bool bEnable;			//ÊÇ·ñ¿ªÆô
-	char Directory[NET_MAX_PATH_LENGTH];	//RTMPµÄµØÖ·
-}SDK_NetRTMPConfig;
-
-///< °´¼ä¸ô×¥Í¼
-struct SDK_IntervalSnapMode
-{
-	int iFTPTime;
-	int iEmailTime;
-	int iStorageTime;
-};
-///< °´¶¨Ê±×¥Í¼
-struct SDK_TriggerSnapMode
-{
-	SDK_SYSTEM_TIME TriggerTime;
-	bool bFTP;
-	bool bEmail;
-	bool bStorage;
-};
-///< ×¥Í¼¼Æ»®
-struct SDK_SnapSchedule
-{
-	int iSnapType;			// 0:¼ä¸ô×¥Í¼£»1:¶¨Ê±×¥Í¼ 2:¹Ø±Õ
-	int iTriggerNum;		//¶¨Ê±×¥Í¼µÄ¸öÊý
-	SDK_IntervalSnapMode intervalMode;
-	SDK_TriggerSnapMode vTriggerMode[256];
-};
-
-//ËùÓÐÍ¨µÀµÄ¼Æ»®×¥Í¼ÅäÖÃ
-struct SDK_SnapConfigAll
-{
-	SDK_SnapSchedule vSnapScheduleAll[NET_MAX_CHANNUM];
-};
-// ËõÂÔÍ¼
-struct SDK_BreviaryConfig
-{
-	bool bBreviaryEn;		//ËõÂÔÍ¼Ê¹ÄÜ
-	int  iBreviaryInteSec;	//ËõÂÔÍ¼×¥Í¼¼ä¸ôÊ±¼ä
-};
-//Ô¤ÖÃµãÊý¾ÝÅäÖÃ
-struct SDK_PtzPreset
-{
-	int nPresetId[256];
-};
-//ËùÓÐÍ¨µÀµÄÔ¤ÖÃµãÊý¾ÝÅäÖÃ
-struct SDK_PtzPresetAll
-{
-	SDK_PtzPreset nPresetAll[NET_MAX_CHANNUM];
-};
-
-//Ô¤ÖÃµãµÄÊý¾ÝÅäÖÃ
-struct SDK_PtzTour_Preset
-{
-	int nPresetId;		//Ô¤ÖÃµãId
-	int nPresetTime;	//¼ä¸ôÊ±¼ä
-};
-//Ñ²º½Â·ÏßµÄÊý¾ÝÅäÖÃ
-struct SDK_PtzTour 
-{
-	int nTourId;		//ÏßÂ·Id
-	SDK_PtzTour_Preset nTourNum[20];	//¶ÔÓ¦µÄËùÓÐÔ¤ÖÃµãºÍÊ±¼ä¼ä¸ô
-};
-//ËùÓÐÑ²º½µÄÊý¾ÝÅäÖÃ
-struct SDK_PtzTours
-{
-	SDK_PtzTour nPtzTours[20];
-};
-//ËùÓÐÍ¨µÀÑ²º½µÄÊý¾ÝÅäÖÃ
-struct SDK_PtzTourAll
-{
-	SDK_PtzTours vPtzTour[NET_MAX_CHANNUM];
-};
-
-//°²È«ÎÊÌâÅäÖÃ
-struct SDK_PwdPresetQsPair 
-{
-	int questionIndex;				//ÎÊÌâÐòºÅ
-	char strAnswer[256];			//´ð°¸
-};
-struct SDK_PasswordSafety 
-{
-	bool bTipPageHide;					//ÊÇ·ñÒþ²ØÃÜÂëÎª¿ÕÊ±µÄÌáÊ¾Ò³Ãæ
-	SDK_PwdPresetQsPair PwdResetQs[4];	//°²È«ÎÊÌâºÍ´ð°¸
-	char resetMailAddr[64];				//ÓÃÓÚ½ÓÊÕ³¬¼¶ÃÜÂëµÄÓÊÏä  
-	char resv[20];
-};
-
-//»ñÈ¡ÕÒ»ØÃÜÂëµÄÎÊÌâ
-struct SDK_QuestionDelivery
-{
-	int  nStrNum;		//ÎÊÌâ¸öÊý
-	char vQuestionStr[7][256];
-};
-struct SDK_TutkVersion
-{
-	char Product[32];	//Éè±¸ÐÍºÅ
-	int  version;		//Éè±¸°æ±¾
-};
-
-///< ´®¿Ú±¨¾¯
-typedef struct SDK_SerialPortAlarm
-{
-	bool bEnable;				///< Ê¹ÄÜ
-	int		iSensorType;		///< ´«¸ÐÆ÷ÀàÐÍ³£¿ª or ³£±Õ
-	SDK_EventHandler hEvent;	///< ´¦Àí²ÎÊý
-}SDK_SerialPortAlarm;
-
-/// ËùÓÐÍ¨µÀµÄ´®¿Ú±¨¾¯½á¹¹
-typedef struct SDK_SerialPortAlarm_ALL
-{
-	SDK_SerialPortAlarm vSerialAlarmConfig[NET_MAX_CHANNUM];
-}SDK_SerialPortAlarm_ALL;
-
-/// ¿Í»§¶¨ÖÆÑ§Âë¹¦ÄÜ
-typedef struct SDK_AMIRLearnCode
-{
-	int iValue;
-}SDK_AMIRLearnCode;
-
-///ÍøÂç»ñÈ¡ËõÂÔÍ¼
-typedef struct SDK_NetBreviaryPic
-{
-	int iChannel;  //Í¨µÀºÅ
-	int iNumJpg; //ÇëÇó»ñÈ¡µÄÍ¼Æ¬Êý
-	SDK_SYSTEM_TIME startTime;
-	SDK_SYSTEM_TIME endTime;
-}SDK_NetBreviaryPic;
-
-///ÒÚ¼ÎºÍViscaÐ­ÒéÐÞ¸Ä£¬ÉèÖÃºÍ»ñÈ¡±¶ÂÊ½¹¾àµÈ
-enum SDK_CameraViscaCommand
-{
-	SDK_SET_CAM_ZOOM,		//ÉèÖÃ±¶ÂÊ
-	SDK_SET_CAM_FOCUS,		//ÉèÖÃ½¹¾à
-	SDK_SET_CAM_ZOOM_FOCUS,	//ÉèÖÃ±¶ÂÊºÍ½¹¾à
-	SDK_GET_CAM_ZOOM,		//»ñÈ¡±¶ÂÊ
-	SDK_GET_CAM_FOCUS,		//»ñÈ¡½¹¾à
-};
-
-//ÒÚ¼ÎºÍViscaÐ­ÒéÐÞ¸Ä£¬ÉèÖÃºÍ»ñÈ¡±¶ÂÊ½¹¾àµÈ
-typedef struct SDK_CameraViscaControl
-{
-	int iChannel;		//Í¨µÀºÅ
-	int iCommand;		//ÃüÁî,Ã¶¾Ù SDK_CameraViscaCommand
-	int iCameraZoom;	//±¶ÂÊ
-	int iCameraFocus;	//½¹¾à
-}SDK_CameraViscaControl;
-
-typedef struct SDK_PIRConfig
-{
-	bool	bEnable;		///< PIRÊ¹ÄÜ¿ª¹Ø
-	int		iLevel;			///< ÁéÃô¶È£º1¡«6
-	SDK_EventHandler hEvent;///< PIRÁª¶¯²ÎÊý
-}SDK_PIRConfig;
-
-/// È«Í¨µÀPIRÅäÖÃ,Ä£ÄâÍ¨µÀ²ÅÖ§³Ö
-typedef struct SDK_PIRConfigAll
-{
-	SDK_PIRConfig vPIRAll[NET_MAX_CHANNUM];
-}SDK_PIRConfigAll;
-
-//ÖÇÄÜ»Ø·Å¶¨Î»µÄÀàÐÍ,ÑÚÂëÀýÈç:1010¡ª>IPC±¨¾¯ÀàÐÍ=1,¶ÏÍø±¨¾¯=0,ÍøÂç±¨¾¯=1,±¾µØ±¨¾¯=0
-enum SDK_PLAY_BACK_SETTYPE
-{
-	F_SUB_COMMON,
-	F_SUB_LOCALALARM, 	///< ±¾µØ±¨¾¯
-	F_SUB_NETALARM, 	///< ÍøÂç±¨¾¯
-	F_SUB_NETABORT, 	///< ¶ÏÍø±¨¾¯
-	F_SUB_IPCALARM, 	///< IPC±¨¾¯
-	F_SUB_SPEEDALARM, 	///< ³¬ËÙ±¨¾¯
-	F_SUB_GSENSORALARM, ///< SENSOR±¨¾¯
-	F_SUB_SERIALALARM, 	///< ´®¿Ú±¨¾¯
-	F_SUB_MOTIONDETECT, ///< ÒÆ¶¯Õì²â
-	F_SUB_LOSSDETECT, 	///< ÊÓÆµ¶ªÊ§
-	F_SUB_BLINDDETECT, 	///< ÊÓÆµÕÚµ²
-	F_SUB_PIRALARM, 	///< ºìÍâ¼ì²â
-	F_SUB_CARDNUMBER, 	///< ¿¨ºÅÂ¼Ïñ
-	F_SUB_PERIMETER, 	///< ÖÜ½ç¼ì²â
-	F_SUB_TRIPWIRE,		///< µ¥°íÏß¼ì²â
-	F_SUB_ABANDUM, 		///< ÎïÆ·ÒÅÁô
-	F_SUB_STOLEN, 		///< ÎïÆ·±»µÁ
-	F_SUB_CHANGE, 		///< ³¡¾°±ä»»
-	F_SUB_NR,
-};
-
-//DDNSÊµÊ±×´Ì¬
-typedef struct SDK_NetDDNSInConfig
-{
-	char IP[32];
-	int state;      //state 0 ±íÊ¾Î´Á¬½Ó 1±íÊ¾Á¬½Ó³É¹¦
-	char resv[8];
-}SDK_NetDDNSInConfig;
-
-//ÌìºêÐñÓ¥¶¨ÖÆ°æ±¾ÐÅÏ¢
-typedef struct SDK_THXY_VersionInfo
-{
-	char productType[64];	//²úÆ·ÐÍºÅ
-	char serialNo[64];		//Éè±¸ÐòÁÐºÅ
-	char ManuDate[64];		//³ö³§ÈÕÆÚ
-	char VersionNum[64];	//°æ±¾ºÅ
-	char buildDate[64];		//°æ±¾ÈÕÆÚ
-	char hardVersion[64];	//¹Ì¼þ°æ±¾
-	int chnNum;				//Í¨µÀÊý
-	int handDiskNum;		//Ó²ÅÌÊý
-	int alarmIn;			//±¨¾¯ÊäÈë
-	int alarmOut;			//±¨¾¯Êä³ö
-	int	reserve[32];
-}SDK_THXY_VersionInfo;
-
-//Ä£ºý¼ì²â±¨¾¯
-typedef struct SDK_BlurCheckAlarm
-{
-	bool bEnable;			//true:¿ªÆô,false:¹Ø±Õ
-	int	 iLevel;			//ÁéÃô¶È£º1¡«6
-	int  iCheckFrequency;	//¼ì²âÆµÂÊ£¬µ¥Î»:·ÖÖÓ
-	SDK_EventHandler hEvent;//Ä£ºý¼ì²âÁª¶¯²ÎÊý
-}SDK_BlurCheckAlarm;
-
-//È«Í¨µÀÄ£ºý¼ì²â±¨¾¯
-typedef struct SDK_BlurCheckAlarmAll
-{
-	SDK_BlurCheckAlarm vBlurCheckAlarm[NET_MAX_CHANNUM];
-}SDK_BlurCheckAlarmAll;
-
-typedef struct SDK_IntelEnCodeCfg
-{
-	bool bEnable;			//½Ó¿ÚÊ¹ÄÜÏú»Ù±êÖ¾
-	int highQP;				//¸ßåå±³¾°ååQPÖµ
-	int lowQP;				//Ç°¾°ååQPÖµ
-	int highFPS;			//±³¾°fps
-	int lowFPS;				//Ç°¾°fps
-	int Channel;			//±àÂëÂëÁ÷ÀàÐÍ£º0Ö÷£¬1¸¨
-}SDK_IntelEnCodeCfg;
-
-//ÖÇÄÜ±àÂë
-typedef struct SDK_IntelEnCodeCfgAll
-{
-	SDK_IntelEnCodeCfg vEncodeCfg[NET_MAX_CHANNUM];
-}SDK_IntelEnCodeCfgAll;
-
-/*===================³µÅÆÊ¶±ðÅäÖÃ¹¦ÄÜ=======begin======================*/
-typedef struct SDK_PlateDetectWhiteList
-{
-	int iAddrCount;					//³µÅÆ¸öÊý
-	char vWhiteListAddr[256][256]; // ³µÅÆ°×Ãûµ¥µØÖ·
-}SDK_PlateDetectWhiteList;
-
-//³µÅÆÕì²âÉý½µ¸Ë¿ØÖÆ
-typedef struct SDK_PlateDetectLiftBar
-{
-	bool bLiftBarCmd;
-	int	iChannel;
-}SDK_PlateDetectLiftBar;
-
-//±¨¾¯»Øµ÷ÀàÐÍ
-enum {
-	ALARM_TYPE = 1,
-	PUSH_TYPE,
-};
-
-enum SDK_INTEL_PUSH_TYPE
-{
-	SDK_INTEL_PUSH_TYPE_CAR_PLATE = 0,	//±íÊ¾³µÅÆÀàÐÍ
-	SDK_INTEL_PUSH_TYPE_FACE      = 1,	//±íÊ¾ÈËÁ³ÀàÐÍ
-	SDK_INTEL_PUSH_TYPE_ALL       = 255,//±íÊ¾È«²¿ÀàÐÍ
-};
-enum SDK_INTEL_PUSH_IMG_TYPE
-{
-	SDK_INTEL_PUSH_IMG_TYPE_FULL   = 1,	//±íÊ¾Ö»Òª´óÍ¼
-	SDK_INTEL_PUSH_IMG_TYPE_TARGET = 2,	//±íÊ¾Ö»ÒªÐ¡Í¼
-	SDK_INTEL_PUSH_IMG_TYPE_NR			//±íÊ¾Á½ÖÖÍ¼¶¼Òª
-};
-
-//³µÅÆÇøÓò
-typedef struct SDK_RECT_S
-{
-	int leftX;
-	int topY;
-	int width;
-	int height;
-} SDK_RECT_S;
-
-typedef struct SDK_PLATE_DETECT
-{
-	char acPlateCode[20];	//³µÅÆºÅÂë£¬Î²²¿ÓÐ×Ö·û´®½áÊø·û"\0" 
-	char acPlateColor[4];	//³µÅÆÑÕÉ«£¬»ÆÀ¶ºÚ°×»ò"ÎÞ"´ú±íÎ´Öª£¬×Ö·û´®½áÊø·û"\0"£¬×Ö·û±àÂë¸ñÊ½Îª
-	float acfConfidence;	//ÖÃÐÅ¶È
-}SDK_PLATE_DETECT;
-
-typedef struct SDK_FACE_DETECT
-{
-	char sex;//ÐÔ±ð
-	char age;//ÄêÁä
-	char resv[26];
-}SDK_FACE_DETECT;
-
-typedef struct SDK_FR_TARGET_INFO
-{
-	SDK_RECT_S stRect;
-	SDK_FACE_DETECT face;
-	char resv[12];
-}SDK_FR_TARGET_INFO;
-
-typedef struct SDK_LPR_TARGET_INFO
-{
-	SDK_RECT_S stRect;
-	SDK_PLATE_DETECT plate;
-	char resv[12];
-}SDK_LPR_TARGET_INFO;
-
-typedef struct SDK_IA_COMM_RES_S
-{
-	char resultType; //Ê¶±ðÀàÐÍÀàÐÍ  0:³µÅÆ  1:ÈËÁ³Ê¶±ð  
-	char picSubType; //0:´óÍ¼  1:Ð¡Í¼
-	char picFormat;  //0:jpg  1:bmp   2:yuv
-	char tagNum;		//Ä¿±ê¸öÊý
-	char reserved[16];
-}SDK_IA_COMM_RES_S;
-
-typedef struct SDK_IA_LPR_REC_S
-{
-	SDK_IA_COMM_RES_S comm;
-	int iCount;
-	void *pTargetInfo;  // LPR_TARGET_INFO
-}SDK_IA_LPR_REC_S;
-
-typedef struct SDK_IA_FR_REC_S
-{
-	SDK_IA_COMM_RES_S comm;
-	int index;			//µ±Ç°Í¼Æ¬µÄË÷ÒýºÅ
-	void *pTargetInfo;  // FR_TARGET_INFO
-}SDK_IA_FR_REC_S;
-
-typedef enum SDK_PushData_IA_Type
-{
-	SDK_PUSHDATA_IA_PLATE,
-	SDK_PUSHDATA_IA_FACE,
-}SDK_PushData_IA_Type;
-
-typedef struct SDK_PushRetData
-{
-	int nPushIAType;			//SDK_PushData_IA_Type,
-	char* pPushIAData;			//ÍÆËÍµÄÖÇÄÜÊý¾Ý£¬¸ù¾ÝnPushTypeÕÒÏàÓ¦ÀàÐÍµÄ½á¹¹Ìå
-	int nChannel;				//Í¨µÀºÅ
-	int nLenSize;				//Í¼Æ¬´óÐ¡
-	unsigned char* pBuffer;		//Í¼Æ¬Êý¾Ý
-}SDK_PushRetData;
-
-//³µÅÆÀàÐÍ
-enum SDK_E_LPR_PALTE_TYPE
-{
-	E_LPR_PLATE_TYPE_NULL=0,		//Î´Öª
-	E_LPR_PLATE_TYPE_BLUE,			//ÆÕÍ¨À¶ÅÆ
-	E_LPR_PLATE_TYPE_BLACK,			//ÆÕÍ¨ºÚÅÆ
-	E_LPR_PLATE_TYPE_YELLOW,		//ÆÕÍ¨»ÆÅÆ
-	E_LPR_PLATE_TYPE_YELLOW2,		//Ë«²ã»ÆÅÆ
-	E_LPR_PLATE_TYPE_POLICE,		//¾¯²ì³µÅÆ
-	E_LPR_PLATE_TYPE_ARMYPOLICE,	//Îä¾¯³µÅÆ
-	E_LPR_PLATE_TYPE_INDIVIDUALITY,	//¸öÐÔ³µÅÆ
-	E_LPR_PLATE_TYPE_ARMY,			//µ¥²ã¾üÅÆ
-	E_LPR_PLATE_TYPE_ARMY2,			//Ë«²ã¾üÅÆ
-	E_LPR_PLATE_TYPE_COACH,			//½ÌÁ·ÅÆ
-	E_LPR_PLATE_TYPE_NEW_ENERGY,	//ÐÂÄÜÔ´ÅÆ
-	E_LPR_PLATE_TYPE_NR
-};
-
-//³µÉíÑÕÉ«
-enum SDK_E_LPR_CAR_COLOR_TYPE
-{
-	E_LPR_CAR_COLOR_BULE,	//À¶É«
-	E_LPR_CAR_COLOR_YELLO,	//»ÆÉ«
-	E_LPR_CAR_COLOR_WHITE,	//°×É«
-	E_LPR_CAR_COLOR_BLACK,	//ºÚÉ«
-	E_LPR_CAR_COLOR_OTHER,	//ÆäËûÑÕÉ«
-	E_LPR_CAR_COLOR_TYPE_ALL
-};
-
-//³µ±êÀàÐÍ
-enum SDK_E_LPR_VEHICLE_BROND_TYPE
-{
-	E_LPR_VEHICLE_BROND_UNKNOWN,	//²»Ê¶±ðµÄ³µ±ê
-	E_LPR_VEHICLE_BROND_TOYOTA,		//·áÌï
-	E_LPR_VEHICLE_BROND_VOLKSWAGEN,	//´óÖÚ
-	E_LPR_VEHICLE_BROND_HONDA,		//±¾Ìï
-	E_LPR_VEHICLE_BROND_PEUGEOT,	//±êÖÂ
-	E_LPR_VEHICLE_BROND_HYUNDAI,	//ÏÖ´ú
-	E_LPR_VEHICLE_BROND_BUICK,		//±ð¿Ë
-	E_LPR_VEHICLE_BROND_AUDI,		//°ÂµÏ
-	E_LPR_VEHICLE_BROND_KIA,		//ÆðÑÇ
-	E_LPR_VEHICLE_BROND_JEEP,		//¼ªÆÕ
-	E_LPR_VEHICLE_BROND_TORD,		//¸£ÌØ
-	E_LPR_VEHICLE_BROND_BENZ,		//±¼³Û
-	E_LPR_VEHICLE_BROND_BMW,		//±¦Âí
-	E_LPR_VEHICLE_BROND_MAZDA,		//Âí×Ô´ï
-	E_LPR_VEHICLE_BROND_SUZUKI,		//ÁåÄ¾
-	E_LPR_VEHICLE_BROND_CITROEN,	//Ñ©ÌúÁú
-	E_LPR_VEHICLE_BROND_NISSAN,		//ÄáÉ£
-	E_LPR_VEHICLE_BROND_MITSUBISHI,	//ÈýÁâ
-	E_LPR_VEHICLE_BROND_LEXUS,		//À×¿ËÈøË¹
-	E_LPR_VEHICLE_BROND_CHEVROLET,	//Ñ©·ðÀ¼
-	E_LPR_VEHICLE_BROND_VOLVO,		//ÎÖ¶ûÎÖ
-	E_LPR_VEHICLE_BROND_FIAT,		//·ÆÑÇÌØ
-	E_LPR_VEHICLE_BROND_BYD,		//±ÈÑÇµÏ
-	E_LPR_VEHICLE_BROND_CHERY,		//ÆæÈð
-};
-
-//³µÐÍ
-enum SDK_E_LPR_VEHICLE_SIZE_TYPE
-{
-	E_LPR_VEHICLE_SIZE_CAR,		//Ð¡½Î³µ
-	E_LPR_VEHICLE_SIZE_MINIBUS, //Ãæ°ü³µ
-	E_LPR_VEHICLE_SIZE_TYPE_ALL
-};
-
-//¿ªÕ¢·Ö¸îÏß×ø±ê
-struct SDK_LprGateSplitLine
-{
-	int iLeftX;
-	int	iLeftY;
-	int iRightX;
-	int iRightY;
-};
-
-typedef struct SDK_PlateDetectCfg
-{
-	int iDefaultL;		//Ä¬ÈÏ×ÖÄ¸£¬±ÈÈç"A" 
-	int iDefaultP;		//Ä¬ÈÏºº×Ö£¬±ÈÈç"Õã" ,²ÉÓÃgb2312±àÂë
-	char chPlateType;	//³µÅÆÀàÐÍ--¼ûenum SDK_E_LPR_PALTE_TYPE
-	char chVehicleColor;//³µÉíÑÕÉ«¼û--enum SDK_E_LPR_CAR_COLOR_TYPE
-	char chVehicleSize;	//³µÐÍ--¼ûenum SDK_E_LPR_VEHICLE_SIZE_TYPE
-	char reserv;		//±£ÁôÎ»
-	int chVehicleBrond;	//³µ±ê--¼ûenum SDK_E_LPR_VEHICLE_BROND_TYPE
-	SDK_LprGateSplitLine stGateSplitLine;//¿ªÕ¢·Ö¸îÏß×ø±ê
-	SDK_RECT_S astLpRect[7];
-	int iMaxWidth;
-	int iMinWidth;
-	int iSceneMode; //³¡¾°Ä£Ê½Ñ¡Ôñ£¬0:³öÈë¿Ú, 1:¿¨¿Ú
-}SDK_PlateDetectCfg;
-
-//³µÅÆ¼ì²â
-typedef struct SDK_PlateDetect
-{
-	bool	bEnable;				//true:¿ªÆô,false:¹Ø±Õ
-	SDK_PlateDetectCfg stPlateParam;//³µÅÆ¼ì²â²ÎÊýÉèÖÃ
-	SDK_EventHandler hEvent;			//³µÅÆ¼ì²âÁª¶¯²ÎÊý
-}SDK_PlateDetect;
-
-//È«Í¨µÀ³µÅÆ¼ì²â
-typedef struct SDK_PlateDetectAll
-{
-	SDK_PlateDetect vPlateDetect[NET_MAX_CHANNUM];
-}SDK_PlateDetectAll;
-
-//ÈËÁ³Ïà¹Ø½á¹¹Ìå£º
-typedef struct SDK_FaceRect
-{
-	int s32X;
-	int s32Y;
-	int u32Width;
-	int u32Height;
-}SDK_FaceRect;
-
-//ÈËÁ³¼ì²â
-typedef struct SDK_FaceDetect
-{
-	bool	bEnable;			//true:¿ªÆô,false:¹Ø±Õ
-	SDK_FaceRect stFaceParam;	//ÈËÁ³¼ì²â²ÎÊýÉèÖÃ
-	SDK_EventHandler hEvent;	//ÈËÁ³¼ì²âÁª¶¯²ÎÊý
-}SDK_FaceDetect;
-
-//È«Í¨µÀÈËÁ³¼ì²â
-typedef struct SDK_FaceDetectAll
-{
-	SDK_FaceDetect vFaceDetect[NET_MAX_CHANNUM];
-}SDK_FaceDetectAll;
-
-//³µÁ¾ÊÕ·ÑÏµÍ³ÊÕ·Ñ¹æÔò
-enum SDK_E_LRP_CHARGE_TYPE
-{
-	E_LPR_NO_CHARGE,//²»ÊÕ·Ñ
-	E_LPR_CHARGE,   //ÊÕ·Ñ
-};
-
-enum SDK_E_FIXCARD_CAR_CHARGE_CYCLE_TYPE
-{
-	E_FIXCARD_CAR_CHARGE_BY_YEAR,
-	E_FIXCARD_CAR_CHARGE_BY_MONTH,
-	E_FIXCARD_CAR_CHARGE_BY_DAY,
-	E_FIXCARD_CAR_CHARGE_BY_HOUR,
-};
-
-typedef struct SDK_LRPChargeRule
-{
-	int  isNeedCharge;         //Í£³µÊÇ·ñÊÕ·Ñ
-	int  fixedCarChargeCycle; //¹Ì¶¨³µÊÕ·ÑÖÜÆÚÀàÐÍ£¬ÈçÃ¶¾ÙE_FIXCARD_CAR_CHARGE_CYCLE_TYPE
-	int  fixedCarMoneyEveryCycle; //ÔÚÉÏÃæµÄ¼Æ·ÑÖÜÆÚÏÂ£¬Ò»¸öÖÜÆÚÊÕ¶àÉÙÇ®¡£ µ¥Î»Ôª
-	int  tempCarFreeMinutes;  //Ãâ·ÑÍ£³µÊ±³¤£¬µ¥Î»·ÖÖÓ
-	int  tempCarChargeMostHour;  //ÊÕ·ÑÍ£³µ×î¶à¶àÉÙ¸öÐ¡Ê±·â¶¥
-	int  tempCarMinutesFirstSec; //¿ªÊ¼¼Æ·ÑºóÊ×¶Î³¤¶È£¬µ¥Î»·ÖÖÓ
-	int  tempCarMoneyFirstSec;   //Ê×¶Î×ÜÊÕ·Ñ½ð¶î£¬µ¥Î»Ôª
-	int  tempCarMinutesEverySec; //Ê×¶ÎÖ®ºóµÄÃ¿¶ÎÊ±³¤£¬µ¥Î»·ÖÖÓ
-	int  tempCarMoneyEverySec;   //ºóÃæÃ¿¶ÎÊÕ·Ñ½ð¶î£¬µ¥Î»Ôª
-}SDK_LRPChargeRule;
-
-//ÕÕÃ÷µÆÉèÖÃ
-enum SDK_E_LPR_LIGHT_WORKMODE
-{
-	LPR_LIGHT_KEEP_CLOSE,  //¹Ø±Õ
-	LPR_LIGHT_KEEP_OPEN,   //³£¿ª
-	LPR_LIGHT_AUTO_ADJUST, //¸ù¾Ý»·¾³ÁÁ¶È×Ô¶¯µ÷½Ú
-};
-
-typedef struct SDK_LPRLigthControl
-{
-	char workMode;   //¹¤×÷Ä£Ê½£¬ÈçÃ¶¾Ù SDK_E_LPR_LIGHT_WORKMOD
-	char lighteness; //ÁÁ¶È£¬ÔÚ³£¿ªÄ£Ê½ÏÂÓÐÐ§¡£0±íÊ¾¹Ø±Õ²¹¹â
-	char resv[2];
-}SDK_LPRLigthControl;
-
-//³µÅÆÊ¶±ð´¥·¢·½Ê½
-enum SDK_E_LPR_RECOGNIZE_TRIGGERMODE
-{
-	E_LPR_RECOGNIZE_TRIGGER_BY_VIDEO,       //ÊÓÆµ×Ô¶¯¼ì²â
-	E_LPR_RECOGNIZE_TRIGGER_BY_GROUND_COIL, //µØ¸ÐÏßÈ¦´¥·¢
-	E_LPR_RECOGNIZE_TRIGGER_BY_AUTO,		//ÊÓÆµ+µØ¸Ð
-};
-
-typedef struct SDK_LPRRecognizeTriggerMode
-{
-	char triggerMode;  //´¥·¢·½Ê½£¬ÈçÃ¶¾ÙE_LPR_RECOGNIZE_TRIGGERMODE
-	char resv[3];
-}SDK_LPRRecognizeTriggerMode;
-
-//ÁÙÊ±³µÊÕ·Ñ¹æÔò
-enum SDK_E_LPR_TEMP_CAR_CHARGE_MODE
-{
-	E_LPR_TEMP_CAR_CHARGE_BY_TIME,         //°´Ê±³¤ÊÕ·Ñ--¶ÔÓ¦½á¹¹Ìå-SDK_LPRChargeOnTimeRule
-	E_LPR_TEMP_CAR_CHARGE_BY_TIMES,        //°´´ÎÊýÊÕ·Ñ--¶ÔÓ¦½á¹¹Ìå-SDK_LPRChargeOnTimesRule
-	E_LPR_TEMP_CAR_CHARGE_BY_TIMESECTIONS, //°´Ê±³¤ÊÕ·Ñ£¬µ«Ö§³Ö¶à¸öÊ±¼ä¶ÎÉèÖÃ²»Í¬µÄÊÕ·Ñ±ê×¼--¶ÔÓ¦½á¹¹Ìå-SDK_LPRChargeOnTimeSectionRule
-	E_LPR_TEMP_CAR_CHARGE_MODE_NR
-};
-
-enum SDK_E_LPR_CAR_TYPE
-{
-	E_LPR_CAR_TYPE_INVALID,
-	E_LPR_CAR_TYPE_LITTLE_CAR,
-	E_LPR_CAR_TYPE_NR
-};
-
-typedef struct SDK_LPRChargeOnTimeRule
-{
-	char ucEnable;
-	char ucVehType; /*³µÁ¾ÀàÐÍ*/
-	char aucReserved[2];
-	short usCyclePay;/* ÖÜÆÚÊÕ·Ñ½ð¶î*/
-	short usStartPay;/* Æð²½½ð¶î*/
-	short usFreeTime;/* Ãâ·ÑÊ±³¤*/
-	short usCycleTime;/* ¼Æ·ÑÖÜÆÚ*/
-	short usStartTime;/* Æð²½Ê±³¤*/
-	short usTotalPreDay;/* ·â¶¥½ð¶î*/
-}SDK_LPRChargeOnTimeRule;
-
-typedef struct SDK_LPRChargeOnTimesRule
-{
-	char ucEnable;
-	char ucVehType;/*³µÁ¾ÀàÐÍ*/
-	char ucMaxTime;/*·â¶¥´ÎÊý*/
-	char ucReserved;
-	short usPayOne;/*Ò»´ÎÊÕ·Ñ½ð¶î*/
-	short usFreeTime;/*Ãâ·ÑÊ±³¤*/
-	short usFreeStartTime; /*Ãâ·Ñ¿ªÊ¼Ê±¼ä£¬ÒÔ·ÖÖÓÎªµ¥Î»*/
-	short usFreeEndTime; /*Ãâ·Ñ½áÊøÊ±¼ä£¬ÒÔ·ÖÖÓÎªµ¥Î»*/
-	short usPayStartTime; /*ÊÕ·Ñ¿ªÊ¼Ê±¼ä£¬ÒÔ·ÖÖÓÎªµ¥Î»*/
-	short usPayEndTime;/*ÊÕ·Ñ½áÊøÊ±¼ä£¬ÒÔ·ÖÖÓÎªµ¥Î»*/
-}SDK_LPRChargeOnTimesRule;
-
-typedef struct SDK_LPRChargeOnTimeSectionRule
-{
-	char ucEnable;
-	char ucVehType; /*³µÁ¾ÀàÐÍ*/
-	char aucReserved[2];
-	short usCyclePay;/* ÖÜÆÚÊÕ·Ñ½ð¶î*/
-	short usStartPay;/* Æð²½½ð¶î*/
-	short usFreeTime;/* Ãâ·ÑÊ±³¤*/
-	short usCycleTime;/* ¼Æ·ÑÖÜÆÚ*/
-	short usStartTime;/* Æð²½Ê±³¤*/
-	short usTotalPreDay;/* Ê±¶Î·â¶¥½ð¶î*/
-	short usSectionStartTime; /*Ê±¶Î¿ªÊ¼Ê±¼ä£¬ÒÔ·ÖÖÓÎªµ¥Î»*/
-	short usSectionEndTime;/*Ê±¶Î½áÊøÊ±¼ä£¬ÒÔ·ÖÖÓÎªµ¥Î»*/
-}SDK_LPRChargeOnTimeSectionRule;
-
-typedef struct SDK_LPRTempCarChargeRule
-{
-	char isCharge; //0:²»ÊÕ·Ñ  1:ÊÕ·Ñ
-	char chargeMode; //ÊÕ·ÑÄ£Ê½£¬ÈçÃ¶¾ÙE_LPR_TEMP_CAR_CHARGE_MODE
-	SDK_LPRChargeOnTimeRule atOnTimePay[8];
-	SDK_LPRChargeOnTimesRule atTimesPay[8];
-	SDK_LPRChargeOnTimeSectionRule atTimeSectionPay[8][4];
-}SDK_LPRTempCarChargeRule;
-
-//Ç¿ÖÆÊ¶±ð³µÅÆ
-typedef struct SDK_LprForceTrigRecognize
-{
-	bool bForceRecognizeCmd;
-}SDK_LprForceTrigRecognize;
-
-enum SDK_LPR_LED_SHOW_MODE
-{
-	LPR_LED_MODE_TIME,		//Ê±¼äÏÔÊ¾
-	LPR_LED_MODE_VEH_LEFT,	//Ê£Óà³µÎ»ÏÔÊ¾
-	LPR_LED_MODE_PLATE_CODE,//³µÅÆÏÔÊ¾
-	LPR_LED_MODE_WELCOME,	//»¶Ó­ÓïÏÔÊ¾
-	LPR_LED_MODE_VEH_PAY,	//Í£³µ¸¶·ÑÏÔÊ¾
-	LPR_LED_MODE_VEH_TIME,	//Í£³µÊ±¼äÏÔÊ¾
-	LPR_LED_MODE_VEH_PERIOD,//ÔÂ×âÓÐÐ§ÆÚÏÔÊ¾
-	LPR_LED_MODE_CUSTOM,	//ÓÃ»§×Ô¶¨ÒåÏÔÊ¾
-	LPR_LED_SHOW_MODE_MAX
-};
-
-enum SDK_LPR_LED_SHOW_COLOR
-{
-	LPR_LED_COLOR_RED,		//ºìÉ«
-	LPR_LED_COLOR_GREEN,	//ÂÌÉ«
-	LPR_LED_COLOR_YELLOW,	//»ÆÉ«
-	LPR_LED_COLOR_MAX
-};
-
-typedef struct SDK_LprLedShowSet
-{
-	char chEnable;		//ÏÔÊ¾Ê¹ÄÜ
-	char chInterVal;	//Ê±¼ä¼ä¸ô£¨Ãë£©
-	char chLedLine;		//ÐÐºÅ
-	char chMode;		//ÏÔÊ¾ÄÚÈÝÄ£Ê½--¼ûenum SDK_LPR_LED_SHOW_MODE
-	char pContent[LPR_MAX_LED_CONTENT];//×Ô¶¨ÒåÄ£Ê½Ê±ÏÔÊ¾ÄÚÈÝ
-}SDK_LprLedShowSet;
-
-typedef struct SDK_LprLedSet
-{
-	char chAudioEnable;	//ÓïÒôÊ¹ÄÜ
-	char chReserverd[3];//±£Áô×Ö¶Î
-	SDK_LprLedShowSet  stLedInIdle[LPR_MAX_LED_COUNT];//ÏÐÊ±Èë¿ÚÏÔÊ¾ÆÁÄÚÈÝ
-	SDK_LprLedShowSet  stLedInBusy[LPR_MAX_LED_COUNT];//Ã¦Ê±Èë¿ÚÏÔÊ¾ÆÁÄÚÈÝ
-	SDK_LprLedShowSet  stLedOutIdle[LPR_MAX_LED_COUNT];//ÏÐÊ±³ö¿ÚÏÔÊ¾ÆÁÄÚÈÝ
-	SDK_LprLedShowSet  stLedOutBusy[LPR_MAX_LED_COUNT];//Ã¦Ê±³ö¿ÚÏÔÊ¾ÆÁÄÚÈÝ
-}SDK_LprLedSet;
-
-//ºÚ°×Ãûµ¥ÀàÐÍ
-enum SDK_LPR_LIST_TYPE
-{
-	LPR_LIST_WHITE,//°×Ãûµ¥
-	LPR_LIST_BLACK,//ºÚÃûµ¥
-	LPR_LIST_TYPE_ALL
-};
-
-//ºÚ°×Ãûµ¥²Ù×÷ÀàÐÍ
-enum SDK_LPR_LIST_OPT_TYPE
-{
-	LPR_LIST_OPT_ADD,//Ôö¼Ó³µÅÆ
-	LPR_LIST_OPT_DELETE,//É¾³ý³µÅÆ
-	LPR_LIST_OPT_UPDATE,//ÐÞ¸Ä³µÅÆÐÅÏ¢
-	LPR_LIST_OPT_SEEK,//²éÕÒ³µÅÆÐÅÏ¢
-	LPR_LIST_OPT_IMPORT,//ÅúÁ¿µ¼ÈëºÚ°×Ãûµ¥
-	LPR_LIST_OPT_EXPORT,//ÅúÁ¿µ¼³öºÚ°×Ãûµ¥
-	LPR_LIST_OPT_TYPE_ALL
-};
-
-//Ãûµ¥
-typedef struct SDK_LprBlackWhiteList
-{
-	char pPlateCode[20];//³µÅÆºÅ
-	char pStartTime[24];//¿ªÊ¼Ê±¼ä ¸ñÊ½:2017-07-14
-	char pEndTime[24];//½ØÖ¹Ê±¼ä
-}SDK_LprBlackWhiteList;
-
-enum SDK_LPR_BLACK_WHITE_LIST_WORK_MODE
-{
-	LPR_LIST_WORK_MODE_CLOSE,//²»¿ªÆô
-	LPR_LIST_WORK_MODE_OFFLINE_WORK,//ÍÑ»ú¹¤×÷
-	LPR_LIST_WORK_MODE_ALWAYS_WORK,//ÍÑ»úÁª»ú¶¼¹¤×÷
-	LPR_LIST_WORK_MODE_ALL
-};
-enum SDK_LPR_BLACK_WHITE_LIST_MATCH_MODE
-{
-	LPR_LIST_MATCH_MODE_EXACT,//¾«È·Æ¥Åä
-	LPR_LIST_MATCH_MODE_IGNORE_CHINESE,//ºöÂÔºº×Ö,²»±È½Ï³µÅÆÖÐµÄºº×Ö
-	LPR_LIST_MATCH_MODE_SIMILAR_CHAR,//ÏàËÆ×Ö·ûÆ¥Åä 0-D 8-B O-Q E-F
-	LPR_LIST_MATCH_MODE_PLAIN_CHAR,//ÆÕÍ¨×Ö·ûÆ¥Åä
-	LPR_LIST_MATCH_MODE_ALL
-};
-struct SDK_LprBlackWhiteListMatchMode
-{
-	char chFuzzyMatchMode;//Ä£ºýÆ¥ÅäÄ£Ê½ÈçLPR_BLACK_WHITE_LIST_MATCH_MODE
-	char chValue;//ÆÕÍ¨×Ö·ûÆ¥ÅäÄ£Ê½Ê±£¬ÔÊÐí×Ö·û²»Í¬µÄ×î´óÊý
-};
-struct SDK_LprBlackWhiteListMode
-{
-	char chListType;//0 ºÚÃûµ¥;1 °×Ãûµ¥
-	char chWorkMode;//¹¤×÷Ä£Ê½ÈçÃ¶¾Ù LPR_BLACK_WHITE_LIST_WORK_MODE
-	SDK_LprBlackWhiteListMatchMode stFuzzyMatchMode;//
-};
-struct SDK_LprBlackWhiteListModeAll
-{
-	SDK_LprBlackWhiteListMode stLprBlackListWorkMode;
-	SDK_LprBlackWhiteListMode stLprWhiteListWorkMode;
-};
-
-//ÉèÖÃLEDÏÔÊ¾Êý¾Ý
-struct SDK_LprLedShow
-{
-	char chShowType;//0:ÓàÎ»£»1:½ð¶î
-	char chLineNo;//ÐÐºÅ 
-	char chInterval;//Ê±¼ä¼ä¸ô,ÏÔÊ¾¶à³¤Ê±¼ä(Ãë)
-	int iValue;//ÏÔÊ¾ÆÁÏÔÊ¾ÄÚÈÝ£¬ÏÔÊ¾½ð¶î ¡¢Ê£Óà³µÎ»
-};
-
-//Õë¶ÔÁÙÊ±³µÊÕ·Ñ×Ô¶¯Ì§¸Ë
-struct SDK_LprAutoContrlGate
-{
-	char chEntryEnable;//Èë¿ÚÌ§¸ËÊ¹ÄÜ
-	char chExitEnable;//³ö¿ÚÌ§¸ËÊ¹ÄÜ
-};
-
-//³öÈë³¡ÅäÖÃ
-enum SDK_LPR_ENTRY_EXIT_TYPE
-{
-	LPR_TYPE_ENTRY,
-	LPR_TYPE_EXIT,
-	LPR_ENTRY_EXIT_TYPE_ALL
-};
-//³µÅÆÊ¶±ðÖÇÄÜÊÕ·ÑÏµÍ³³öÈë³¡ÅäÖÃ
-struct SDK_LprEntryExitSet
-{
-	char chEntryExit;		//ÉèÖÃ¸ÃÏà»úÊÇ³ö³¡»¹ÊÇÈë³¡Ê¹ÓÃ
-	char pEntryExitName[24];//³öÈë¿ÚÃû³Æ
-};
-
-//³µÅÆÊÕ·ÑÏµÍ³Í£³µ³¡ÐÅÏ¢
-struct SDK_LprParkingLotInfo
-{
-	char chParkingType;		//Í£³µ³¡ÀàÐÍ
-	char pParkingName[64];	//Í£³µ³¡Ãû³Æ
-	char pPhoneNo[24];		//ÁªÏµµç»°
-	int iTotalParkingSpace; //×Ü³µÎ»
-	int iUsedParkingSpace;  //ÒÑÍ£³µÊý
-};
-
-enum SDK_SendType
-{
-	LPR_CHARGE_RULE=1,	//ÊÕ·Ñ¹æÔò--¼ûstruct SDK_LRPChargeRule
-	LPR_CHARGE_MODE,	//ÊÕ·ÑÄ£Ê½--¼ûstruct SDK_LPRTempCarChargeRule
-	LPR_AUTO_CONTRL,	//×Ô¶¯Ì§¸Ë--¼ûstruct SDK_LprAutoContrlGate
-};
-
-struct SDK_LprHttpCommunication
-{
-	char pServerAddr[24];		//·þÎñÆ÷µØÖ·
-	int iPort;					//¶Ë¿Ú
-	int iTimeOut;				//³¬Ê±Ê±¼ä
-	char chPushResultEnable;	//ÊÇ·ñÍÆËÍÊ¶±ð½á¹û
-	char pPushResultAddr[128];	//Ê¶±ð½á¹ûÍÆËÍµØÖ·
-	char chPushPicEnable;		//ÍÆËÍ´óÍ¼Æ¬Ê¹ÄÜ
-	char chPushSmallPicEnable;	//ÍÆËÍÐ¡Í¼Æ¬Ê¹ÄÜ
-};
-
-struct SDK_LPR_VERSION
-{
-	char pLprVersion[64];
-};
-
-/*===================³µÅÆÊ¶±ðÅäÖÃ¹¦ÄÜ=======end======================*/
-
-//ipc onvifËÑË÷Ê±×Ô¶¯ÐÞ¸ÄipÎª¾ÖÓòÍøip
-typedef struct SDK_IPAdaptiveCfg
-{
-	bool bIPAdaptive;	//IP×ÔÊÊÓ¦ÅäÖÃ
-}SDK_IPAdaptiveCfg;
-
-//²éÑ¯ÈÕÀúÌõ¼þ
-typedef struct SDK_SearchCalendar
-{
-	int year;
-	int month;
-	int nFileType;			//ÎÄ¼þÀàÐÍ, ¼ûSDK_File_Type
-}SDK_SearchCalendar;
-
-//Ò»¸öÔÂÄÚÄÄÐ©ÌìÓÐ·ûºÏÒªÇóµÄÂ¼Ïñ»òÍ¼Æ¬
-typedef struct SDK_SearchCalendarMask
-{
-	int mask;		//Ã¿Î»´ú±íÒ»Ìì´ÓµÍÎ»¿ªÊ¼£¬1:ÓÐÂ¼Ïñ, 0:ÎÞÂ¼Ïñ
-}SDK_SearchCalendarMask;
-
-typedef struct SDK_HardDiskInfo{
-	bool	bIsCurrent;					///< ÊÇ·ñÎªµ±Ç°¹¤×÷ÅÌ
-	unsigned int	uiTotalSpace;		///< ×ÜÈÝÁ¿£¬MBÎªµ¥Î»
-	unsigned int	uiRemainSpace;		///< Ê£ÓàÈÝÁ¿£¬MBÎªµ¥Î»
-}SDK_HardDiskInfo;
-
-typedef struct SDK_OemGetInfo
-{
-	int iConnectNum;					//Á¬½ÓÊý
-	int iDisk;							//Ó²ÅÌ¸öÊý
-	SDK_HardDiskInfo cHardDisk[SDK_MAX_DISK_PER_MACHINE];//Ó²ÅÌÊ£ÓàÈÝÁ¿
-	char cRecordState[NET_MAX_CHANNUM];	//Â¼Ïñ×´Ì¬
-	char cVersion[64];					//°æ±¾ÐÅÏ¢
-}SDK_OemGetInfo;
-
-typedef enum {
-	DEV_TYPE3_DOOR_CONTACT = 0,		//ÃÅ´Å
-	DEV_TYPE3_INFRA = 1,			//ºìÍâ
-	DEV_TYPE3_SHOCK = 2,			//Õð¶¯
-	DEV_TYPE3_BROKEN_GLASS = 3,		//ÆÆËé
-	DEV_TYPE3_SMOKE_SENSOR = 4,		//ÑÌ¸Ð
-	DEV_TYPE3_GAS_SENSOR = 5,		//Æø¸Ð
-	DEV_TYPE3_WATER_SENSOR = 6,		//Â©Ë®
-	DEV_TYPE3_REMOTE_CONTROL = 7,	//Ò£¿ØÆ÷
-	DEV_TYPE3_ENVIRO_SENSOR = 8,	//ÎÂ¶È
-	DEV_TYPE3_NR,					//ÆäËû
-}SDK_DEVICE_TYPE3;
-typedef enum {
-	DEFENCE_TYPE_24HOUR_STEAL = 0,	//24Ð¡Ê±ÇÔµÁ·ÀÇø
-	DEFENCE_TYPE_STOP,				//°øÂ·
-	DEFENCE_TYPE_FIRE,				//24Ð¡Ê±»ð¾¯·ÀÇø
-	DEFENCE_TYPE_SILENT,			//24Ð¡Ê±ÎÞÉù½ÙµÁ·ÀÇø
-	DEFENCE_TYPE_VOICE,				//24Ð¡Ê±ÓÐÉù½ÙµÁ·ÀÇø
-	DEFENCE_TYPE_INTIME_STEAL,		//ÑÓÊ±ÇÔµÁ·ÀÇø
-	DEFENCE_TYPE_DELAYED_STEAL,		//¼´Ê±ÇÔµÁ·ÀÇø
-	DEFENCE_TYPE_NR,
-}SDK_DEFENCE_TYPE;
-//433Ïû·ÑÀà²úÆ·Ìí¼ÓµÄ±¨¾¯Éè±¸
-typedef struct SDK_ConsumerAlarm433Dev
-{
-	int  nChannel;			//Í¨µÀ
-	int  nDefenceType;		//·ÀÇøÀàÐÍ--¼ûÃ¶¾ÙSDK_DEFENCE_TYPE
-	char pDevID[16];		//±¨¾¯Éè±¸ID£¬°üÀ¨Ò£¿ØÆ÷ID
-	char pDevName[32];		//±¨¾¯Éè±¸êÇ³Æ
-	int  pDevType;			//±¨¾¯Éè±¸ÀàÐÍ--¼ûÃ¶¾ÙSDK_DEVICE_TYPE3
-	bool bEnable;			//¶¯Ì¬¼ì²â¿ªÆô  
-	SDK_EventHandler hEvent;//¶¯Ì¬¼ì²âÁª¶¯ 
-}SDK_ConsumerAlarm433Dev;
-typedef struct SDK_ConsumerAlarm433DevList
-{
-	SDK_ConsumerAlarm433Dev vAlarm433DevList[32];	//IPCÁ¬½ÓµÄ´«¸ÐÆ÷¸öÊý	
-}SDK_ConsumerAlarm433DevList;
-
-enum SDK_ConsumerProCmd 
-{
-	CONSUMER_PRO_ADD_DEV = 0,			///< Ìí¼Ó±¨¾¯Éè±¸
-	CONSUMER_PRO_STOP_ADD_DEV = 1,		///< Í£Ö¹Ìí¼Ó±¨¾¯Éè±¸
-	CONSUMER_PRO_DEL_DEV = 2,			///< É¾³ýÒÑ¾­Ìí¼ÓµÄ±¨¾¯Éè±¸
-	CONSUMER_PRO_CHANGE_DEV_NAME = 3,	///< ÐÞ¸ÄÒÑ¾­Ìí¼ÓÉè±¸µÄÃû³Æ
-	CONSUMER_PRO_INQUIRY_STATUS = 4,	///< »ñÈ¡´«¸ÐÆ÷µÄµçÁ¿ºÍ×´Ì¬
-	//CONSUMER_PRO_INQUIRY_INFO = 5,	///< ²éÑ¯Éè±¸ÐÅÏ¢
-	CONSUMER_PRO_GET_DEV_LIST = 5,		///< »ñÈ¡Éè±¸ÁÐ±í
-	CONSUMER_PRO_CHANGE_DEV_STATUS = 6,	///< ÐÞ¸Ä´«¸ÐÆ÷µÄ×´Ì¬ open or close
-	CONSUMER_PRO_GET_DEVLIST_STATUS = 7,///< »ñÈ¡ÒÑ¾­ÔÚÏßµÄÉè±¸ÁÐ±í
-	CONSUMER_PRO_CHANGE_MODE = 8,		///< ÇÐ»»³¡¾°Ä£Ê½
-	CONSUMER_PRO_GET_MODE_CFG = 9,		///< »ñÈ¡¶ÔÓ¦Ä£Ê½µÄ×´Ì¬
-	CONSUMER_PRO_GET_MODE_LIST = 10,	///< »ñÈ¡Ä£Ê½ÁÐ±í
-	CONSUMER_PRO_CHANGE_MODE_NAME = 11,	///< ÐÞ¸ÄÄ£Ê½Ãû×Ö
-	CONSUMER_PRO_GET_LINK_STATE = 12,	///< ÅÐ¶ÏÉè±¸ÊÇ·ñÔÚÏß
-	CONSUMER_PRO_NR						///< ÃüÁî¸öÊý
-};
-
-typedef struct SDK_ConsumerProOpr
-{
-	int  cmd;		//ÈçÃ¶¾ÙSDK_ConsumerProCmd
-	char pArg1[20]; //Éè±¸µÄÀàÐÍ--SDK_DEVICE_TYPE3
-	char pArg2[32]; //Éè±¸Ãû³Æ
-	int  Channel;	//¶ÔÓ¦µÄÉè±¸Í¨µÀ
-	int  nDefenceType;//·ÀÇøÀàÐÍ
-	char res[4];
-}SDK_ConsumerProOpr;
-
-//¹ØÓÚipc¹¦ÄÜµÄÃÜÂëÐ£Ñé
-typedef struct SDK_IpcOnvifPwdCheckout
-{
-	bool cEnable;
-}SDK_IpcOnvifPwdCheckout;
-
-//ÉÏº£ìÚÖª¶þ´Î¿ª·¢ÐèÒªÅäÖÃ
-//Ö»ÓÃÀ´IE¶ËÉèÖÃ»ñÈ¡ÉèÖÃ£¬Ã»ÓÐ±¾µØ¶Ë
-typedef struct SDK_CustomURLCfg
-{
-	char pautoupload[NAME_URL_LEN];//×Ô¶¯ÉÏ´«µØÖ·
-	char pvideoupload[NAME_URL_LEN];//ÊÓÆµÉÏ´«µØÖ·
-	char pcameraupload[NAME_URL_LEN];//ÉãÏñÍ·ÉÏ´«µØÖ·
-	char ppincode[NAME_TOKEN_LEN];//PINÂë
-}SDK_CustomURLCfg;
-
-typedef struct SDK_hiIVE_RECT_S
-{
-	int u16X;		//×óÉÏ½Çx 
-	int u16Y;		//×óÉÏ½Çy 
-	int u16Width;             
-	int u16Hight;
-}SDK_IVE_RECT_S;
-
-typedef struct SDK_BALLCAMERA_COVER_S
-{
-	int MainStatus;				// 1±íÊ¾¿ªÆÁ±Î; 2±íÊ¾¹ØÆÁ±Î 
-	int iRectEnable[6];			// 1±íÊ¾¿òÓÐÐ§; 2±íÊ¾¿òÎÞÐ§
-	SDK_IVE_RECT_S astMaskRect[6];
-}SDK_BALLCAMERA_COVER_S;
-
-//Çò»ú¸ú×ÙÊ¶±ð²ÎÊýÉèÖÃ
-typedef struct SDK_BallCameraTrackDetectParamAll
-{
-	SDK_BALLCAMERA_COVER_S vTrackDetect[NET_MAX_CHANNUM];	
-}SDK_BallCameraTrackDetectParamAll;
-
-//Ò¹ÍíÇé¾°ÌØÊâÄ£Ê½
-typedef struct SDK_CameraSpecialNightCtrl
-{
-	bool bEnable;	//false±íÊ¾¹Ø±Õ£¬trueÎª´ò¿ª
-}SDK_CameraSpecialNightCtrl;
-
-typedef struct SDK_AWB_ATTR
-{
-	int enOpType;
-	short u16Rgain;
-	short u16Grgain;
-	short u16Gbgain;
-	short u16Bgain;
-}SDK_AWB_ATTR;
-
-typedef struct SDK_CameraSensorAbility
-{
-	char CheckValue[64];
-	char SensorResolution[64];
-	char SensorType[64];
-}SDK_CameraSensorAbility;
-
-typedef struct SDK_SWITCH_WIFI_MODE
-{
-	char actionMode[10];	//ToAP:ÇÐ»»µ½APÄ£Ê½
-	int channel;			//Í¨µÀÖµµÄ·¶Î§[0-13]
-}SDK_SWITCH_WIFI_MODE;
-
 // Êý¾ÝÉÏ´«Í¨µÀ»Øµ÷º¯ÊýÔ­ÐÍ
 typedef void (CALL_METHOD *fUploadDataCallBack) (long lLoginID, long UploadType, char *pBuffer, unsigned long dwBufSize, unsigned long dwUser);
 
@@ -6132,27 +4471,25 @@ typedef void (CALL_METHOD *fUploadDataCallBack) (long lLoginID, long UploadType,
 typedef void (CALL_METHOD *fTransComCallBack) (long lLoginID, long lTransComType, char *pBuffer, unsigned long dwBufSize, unsigned long dwUser);
 //·þÎñÆ÷¶Ï¿ª»Øµ÷Ô­ÐÎ
 typedef void (CALL_METHOD *fDisConnect)(long lLoginID, char *pchDVRIP, long nDVRPort, unsigned long dwUser);
+
 //Ô­Ê¼Êý¾Ý»Øµ÷Ô­ÐÎ
 typedef int(CALL_METHOD *fRealDataCallBack) (long lRealHandle, long dwDataType, unsigned char *pBuffer,long lbufsize,long dwUser);
-typedef int(CALL_METHOD *fRealDataCallBack_V2) (long lRealHandle, const PACKET_INFO_EX *pFrame, long dwUser);
+typedef int(CALL_METHOD *fRealDataCallBack_V2) (long lRealHandle, const PACKET_INFO_EX *pFrame, unsigned int dwUser);
 
 // »Ø·ÅÂ¼Ïñ½ø¶È»Øµ÷Ô­ÐÎ
 typedef void(CALL_METHOD *fDownLoadPosCallBack) (long lPlayHandle, long lTotalSize, long lDownLoadSize, long dwUser);
 
 //ÏûÏ¢£¨±¨¾¯,Ö÷¶¯×¢²á£©»Øµ÷Ô­ÐÎ
 /*
-	1.±¨¾¯,pBufËµÃ÷--ntype = ALARM_TYPE
+	1.±¨¾¯,pBufËµÃ÷,
 	SDK_AlarmInfo alarmInfo;
 	memcpy ( &alarmInfo, pBuf, dwBufLen );
 	2.Ö÷¶¯×¢²á,pBufËµÃ÷,
 	H264_DVR_ACTIVEREG_INFO activeInfo;
-	memcpy ( &activeInfo, pBuf, dwBufLen );
-	3.Í¼Æ¬ÍÆËÍ,pBufËµÃ÷--nType=PUSH_TYPE
-	SDK_PushRetData PushDetect;
-	memcpy(&PushDetect, pBuf, sizeof(SDK_PushRetData));
-	
+	memcpy ( &alarmInfo, pBuf, dwBufLen );
 */
-typedef bool (CALL_METHOD *fMessCallBack)(long lLoginID, char *pBuf, unsigned long dwBufLen, long dwUser, int nType);
+typedef bool (CALL_METHOD *fMessCallBack)(long lLoginID, char *pBuf,
+                                          unsigned long dwBufLen, long dwUser);
 
 //Éý¼¶Éè±¸³ÌÐò»Øµ÷Ô­ÐÎ
 /*
@@ -6178,6 +4515,8 @@ typedef void (CALL_METHOD * fLocalPlayFileCallBack)(long lPlayHand, long nUser);
 //ÐÅÏ¢Ö¡»Øµ÷ÉèÖÃ
 typedef void (CALL_METHOD  *InfoFramCallBack)(long lPlayHand, long nType, LPCSTR pBuf,long nSize, long nUser);
 
+
+
 //×ÓÁ¬½Ó¶ÏÏß»Øµ÷
 typedef void (CALL_METHOD *fSubDisConnectCallBack)(long lLoginID, SubConnType type, long nChannel, long dwUser);
 
@@ -6188,1352 +4527,375 @@ typedef void (CALL_METHOD * fPlayDrawCallBack)(long lPlayHand,HDC hDc,long nUser
 typedef void (CALL_METHOD * fPlayDrawCallBack)(long lPlayHand,void* hDc,long nUser);
 #endif // WIN32
 
-/*
-	ÃèÊö:SDK³õÊ¼»¯
-	²ÎÊý:
-		cbDisConnect[out]:¶ÏÏß»Øµ÷º¯Êý
-		dwUser[in]:»Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		=1: ³É¹¦
-		<=0:Ê§°Ü
-*/
+//*** */SDK³õÊ¼»¯
 H264_DVR_API long CALL_METHOD H264_DVR_Init(fDisConnect cbDisConnect, unsigned long dwUser);
 
-/*
-	ÃèÊö:SDKÍË³öÇåÀí
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//*** */SDKÍË³öÇåÀí
 H264_DVR_API bool CALL_METHOD H264_DVR_Cleanup();
 
-/*
-	ÃèÊö:»ñÈ¡´íÎóÐÅÏ¢
-	·µ»ØÖµ:
-		´íÎóÂë	
-*/
+//»ñÈ¡´íÎóÐÅÏ¢
 H264_DVR_API long CALL_METHOD H264_DVR_GetLastError();
 
+// ÉèÖÃÁ¬½ÓÉè±¸³¬Ê±Ê±¼äºÍ³¢ÊÔ´ÎÊý
 /*
-	ÃèÊö:ÉèÖÃµÇÂ¼Éè±¸³¬Ê±Ê±¼äºÍ³¢ÊÔ´ÎÊý
-	²ÎÊý:	
-		nWaitTime[in]:µ¥Î»ms²»ÉèÖÃÊ±Ä¬ÈÏ5000ms,
-		nTryTimes[in]:´ÎÊý,²»ÉèÖÃÊ±Ä¬ÈÏ3´Î
+	nWaitTime:µ¥Î»ms²»ÉèÖÃÊ±Ä¬ÈÏ5000ms,
+	nTryTimes:´ÎÊý,²»ÉèÖÃÊ±Ä¬ÈÏ3´Î
 */
-
 H264_DVR_API bool CALL_METHOD H264_DVR_SetConnectTime(long nWaitTime, long nTryTimes);
 
+//µÇÂ½Éè±¸
 /*
-	ÃèÊö:µÇÂ½Éè±¸
-	²ÎÊý:
-		sDVRIP[in]:		  ip
-		wDVRPort[in]:	  ¶Ë¿Ú
-		sUserName[in]:    ÓÃ»§Ãû
-		sPassword[in]:    ÃÜÂë
-		lpDeviceInfo[out]:·µ»ØÉè±¸ÐÅÏ¢
-		error[out]:		  ·µ»ØµÇÂ½´íÎóÂë
-		socketType[in]:	  µÇÂ½·½Ê½
-	·µ»ØÖµ:
-		>0:	   ³É¹¦,´Ó1¿ªÊ¼µ½n,Ã¿´ÎµÇÂ¼Ò»Ì¨Éè±¸·µ»ØÖµ+1
-		=0:	   Ê§°Ü
+	socketType ²Î¿¼ÀàÐÍ SocketStyle£¬Ä¬ÈÏÊÇ0 
 */
 H264_DVR_API long CALL_METHOD H264_DVR_Login(char *sDVRIP, unsigned short wDVRPort, char *sUserName, char *sPassword,
                                              LPH264_DVR_DEVICEINFO lpDeviceInfo, int *error,int socketType DEF_PARAM(0));
 
+//ÏòÉè±¸×¢²áÀ©Õ¹½Ó¿Ú
 /*
-	ÃèÊö:µÇÂ½Éè±¸À©Õ¹½Ó¿Ú
-	²ÎÊý:
-		sDVRIP[in]:		  ip
-		wDVRPort[in]:	  ¶Ë¿Ú
-		sUserName[in]:    ÓÃ»§Ãû
-		sPassword[in]:    ÃÜÂë
-		lpDeviceInfo[out]:·µ»ØÉè±¸ÐÅÏ¢
-		nType[in]:		  µÇÂ½ÀàÐÍ,0==web 1 ==Éý¼¶¹¤¾ß 2 == ËÑË÷¹¤¾ß  102 == Íâ²¿¼ÓÃÜ£¬ÄÚ²¿¾Í²»ÓÃ¼ÓÃÜÁË
-		error[out]:		  ·µ»ØµÇÂ½´íÎóÂë
-	·µ»ØÖµ:
-		>0:	   ³É¹¦
-		=0:	   Ê§°Ü
+	Ôö¼ÓµÇÂ½ÀàÐÍ 0==web 1 ==Éý¼¶¹¤¾ß 2 == ËÑË÷¹¤¾ß  102 == Íâ²¿¼ÓÃÜ£¬ÄÚ²¿¾Í²»ÓÃ¼ÓÃÜÁË
 */
 H264_DVR_API long CALL_METHOD H264_DVR_LoginEx(char *sDVRIP, unsigned short wDVRPort, char *sUserName, char *sPassword,
 							   LPH264_DVR_DEVICEINFO lpDeviceInfo, int nType, int *error);
 
-/*
-	ÃèÊö:µÇÂ½½Ó¿ÚV2°æ±¾,¿ÉÒÔÖ¸¶¨¿Í»§¶ËÀàÐÍµÇÂ½
-	²ÎÊý:
-		sDVRIP[in]:		  ip
-		wDVRPort[in]:	  ¶Ë¿Ú
-		sUserName[in]:    ÓÃ»§Ãû
-		sPassword[in]:    ÃÜÂë
-		lpDeviceInfo[out]:·µ»ØÉè±¸ÐÅÏ¢
-		nType[in]:		  µÇÂ½ÀàÐÍ£¬¼ûenum SDK_LoginType
-		error[out]:		  ·µ»ØµÇÂ½´íÎóÂë
-		socketType[in]:	  µÇÂ½·½Ê½
-	·µ»ØÖµ:
-		>0:	   ³É¹¦
-		=0:	   Ê§°Ü
-*/
-H264_DVR_API long CALL_METHOD H264_DVR_LoginEx_V2(char *sDVRIP, unsigned short wDVRPort, char *sUserName, char *sPassword,
-												  LPH264_DVR_DEVICEINFO lpDeviceInfo, int nType, int *error,int socketType);
-/*
-	ÃèÊö:¿Í»§ÔÆµÇÂ½½Ó¿Ú
-	²ÎÊý:
-		sDVRIP[in]:		  Éè±¸ÐòÁÐºÅ
-		wDVRPort[in]:	  ¶Ë¿Ú
-		sUserName[in]:    ÓÃ»§Ãû
-		sPassword[in]:    ÃÜÂë
-		lpDeviceInfo[out]:·µ»ØÉè±¸ÐÅÏ¢
-		error[out]:		  ·µ»ØµÇÂ½´íÎóÂë
-		uuid[in]:		  uuid
-	·µ»ØÖµ:
-		>0:    ³É¹¦
-		=0:	   Ê§°Ü
-*/
+//¿Í»§ÔÆµÇÂ½½Ó¿Ú
 H264_DVR_API long CALL_METHOD H264_DVR_Login_Cloud(char *sDVRIP, unsigned short wDVRPort, char *sUserName, char *sPassword,
 												   LPH264_DVR_DEVICEINFO lpDeviceInfo, int *error,char* uuid);
-/*
-	ÃèÊö:ÏòÉè±¸×¢Ïú£¬µÇ³öÉè±¸
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
-*/
+//ÏòÉè±¸×¢Ïú
 H264_DVR_API long CALL_METHOD H264_DVR_Logout(long lLoginID);
 
-/*
-	ÃèÊö:ÉèÖÃ½ÓÊÕDVRÐÅÏ¢»Øµ÷, ÀýÈç±¨¾¯ÐÅÏ¢,ÒÔIDºÅÇø·Ö
-	²ÎÊý:
-		cbAlarmcallback[out]:»Øµ÷º¯Êý
-		lUser[in]:			 »Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÉèÖÃ½ÓÊÕDVRÐÅÏ¢»Øµ÷, ÀýÈç±¨¾¯ÐÅÏ¢,ÒÔIDºÅÇø·Ö
 H264_DVR_API bool CALL_METHOD H264_DVR_SetDVRMessCallBack(fMessCallBack cbAlarmcallback, unsigned long lUser);
 
-/*
-	ÃèÊö:½¨Á¢±¨¾¯ÉÏ´«Í¨µÀ
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
-*/
+//½¨Á¢±¨¾¯ÉÏ´«Í¨µÀ
 H264_DVR_API long CALL_METHOD H264_DVR_SetupAlarmChan(long lLoginID);
-
-/*
-	ÃèÊö:¹Ø±Õ±¨¾¯ÉÏ±¨
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
-*/
+//¹Ø±Õ±¨¾¯ÉÏ±¨
 H264_DVR_API bool CALL_METHOD H264_DVR_CloseAlarmChan(long lLoginID);
 
-/*
-	ÃèÊö:Ô¶³Ì»ñÈ¡ÅäÖÃ²ÎÊý
-	²ÎÊý:
-		lLoginID[in]:	     µÇÂ½¾ä±ú
-		dwCommand[in]:		 ¿ØÖÆÃüÁî,¼ûenum SDK_CONFIG_TYPE
-		nChannelNO[in]:		 -1´ú±íÈ«Í¨µÀ,0-n´ú±íµ¥¸öÍ¨µÀ
-		lpOutBuffer[out]:	 ½ÓÊÕ»º³å
-		dwOutBufferSize[in]: ½ÓÊÕ»º³å´óÐ¡
-		lpBytesReturned[out]:·µ»ØµÄÊý¾Ý´óÐ¡
-		waittime[in]:		 µÈ´ýÊ±¼ä 
-	·µ»ØÖµ:
-		=1:³É¹¦
-		<0:Ê§°Ü
-*/
-H264_DVR_API long  CALL_METHOD H264_DVR_GetDevConfig(long lLoginID, unsigned long dwCommand, int nChannelNO, char * lpOutBuffer, unsigned long dwOutBufferSize, unsigned long* lpBytesReturned,int waittime DEF_PARAM(1000));
 
-/*
-	ÃèÊö:Ô¶³ÌÉèÖÃÅäÖÃ²ÎÊý
-	²ÎÊý:
-		lLoginID[in]:	     µÇÂ½¾ä±ú
-		dwCommand[in]:		 ¿ØÖÆÃüÁî,¼ûenum SDK_CONFIG_TYPE
-		nChannelNO[in]:		 -1´ú±íÈ«Í¨µÀ,0-n´ú±íµ¥¸öÍ¨µÀ
-		lpInBuffer[out]:	 ÊäÈë»º³å
-		dwInBufferSize[in]:  ÊäÈë»º³å´óÐ¡
-		waittime[in]:		 µÈ´ýÊ±¼ä 
-	·µ»ØÖµ:
-		=1:³É¹¦
-		<0:Ê§°Ü
-*/
+//Ô¶³ÌÅäÖÃÉè±¸½Ó¿Ú ÅäÖÃÀàÐÍ¼ûSDK_CONFIG_TYPE
+H264_DVR_API long  CALL_METHOD H264_DVR_GetDevConfig(long lLoginID, unsigned long dwCommand, int nChannelNO, char * lpOutBuffer, unsigned long dwOutBufferSize, unsigned long* lpBytesReturned,int waittime DEF_PARAM(1000));
 H264_DVR_API long  CALL_METHOD H264_DVR_SetDevConfig(long lLoginID, unsigned long dwCommand, int nChannelNO, char * lpInBuffer, unsigned long dwInBufferSize, int waittime DEF_PARAM(1000));
 
-/*
-	ÃèÊö:¿çÍø¶ÎÉèÖÃÉè±¸ÅäÖÃ£¬Ä¿Ç°Ö»Ö§³Ö¶ÔÍøÂçÅäÖÃ½øÐÐÉèÖÃ 
-	²ÎÊý:
-		dwCommand[in]:	   E_SDK_CONFIG_SYSNET
-		nChannelNO[in]:	   1ÁÙÊ±±£´æ,ÆäËûÎªÓÀ¾Ã±£´æ
-		lpInBuffer[in]:	   SDK_CONFIG_NET_COMMON_V3½á¹¹ÌåµØÖ·
-		dwInBufferSize[in]:sizeof(SDK_CONFIG_NET_COMMON_V3)
-		waittime[in]:	   µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		=0:³É¹¦
-		<0:Ê§°Ü
-*/
+//¿çÍø¶ÎÉèÖÃÉè±¸ÅäÖÃ£¬Ä¿Ç°Ö»Ö§³Ö¶ÔÍøÂçÅäÖÃ½øÐÐÉèÖÃ    SDK_CONFIG_NET_COMMON_V3,nChannelNO:1ÁÙÊ±±£´æ,ÆäËûÎªÓÀ¾Ã±£´æ
 H264_DVR_API long CALL_METHOD H264_DVR_SetConfigOverNet(unsigned long dwCommand, int nChannelNO, char * lpInBuffer, unsigned long dwInBufferSize, int waittime DEF_PARAM(1000));
 
-/*
-	ÃèÊö:ÈÕÖ¾²éÑ¯
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		pFindParam[in]:²éÑ¯Ìõ¼þ
-		pRetBuffer[out]:ÈÕÖ¾·µ»ØÐÅÏ¢
-		lBufSize[in]:½ÓÊÕÈÕÖ¾ÐÅÏ¢´óÐ¡
-		waittime:µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÈÕÖ¾²éÑ¯
 H264_DVR_API bool CALL_METHOD H264_DVR_FindDVRLog(long lLoginID, SDK_LogSearchCondition *pFindParam, SDK_LogList *pRetBuffer, long lBufSize, int waittime DEF_PARAM(2000));
 
-/*
-	ÃèÊö:´ò¿ªÊµÊ±Ô¤ÀÀ
-	²ÎÊý:
-		lLoginID[in]:	 µÇÂ½¾ä±ú
-		lpClientInfo[in]:²¥·ÅÐÅÏ¢
-	·µ»ØÖµ:
-		>0»ò<0:³É¹¦£¬Ô¤ÀÀ²¥·Å¾ä±ú
-		=0:Ê§°Ü,¾­³£³öÏÖµÄ´íÎóÂë·ÖÎöÀýÈç-11202¼ûÎÄµµ
-*/
+//´ò¿ªÊµÊ±Ô¤ÀÀ
 H264_DVR_API long CALL_METHOD H264_DVR_RealPlay(long lLoginID, LPH264_DVR_CLIENTINFO lpClientInfo);
-
-/*
-	ÃèÊö:Í£Ö¹ÊµÊ±Ô¤ÀÀ
-	²ÎÊý:
-		lRealHandle[in]: Ô¤ÀÀ²¥·Å¾ä±ú
-		lpClientInfo[in]:²¥·ÅÐÅÏ¢
-	·µ»ØÖµ:
-		>0»ò<0:³É¹¦
-		=0:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_StopRealPlay(long lRealHandle,void*hWnd DEF_PARAM(0));
-
-/*
-	ÃèÊö:¿ØÖÆÊµÊ±Ô¤ÀÀ
-	²ÎÊý:
-		lRealHandle[in]:Ô¤ÀÀ²¥·Å¾ä±ú
-		bPause[in]:	    ÔÝÍ£»ò¼ÌÐø 1-ÔÝÍ£ 0-¼ÌÐø
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
-*/
 H264_DVR_API long CALL_METHOD H264_DVR_PauseRealPlay(long lRealHandle, bool bPause);
 
-/*
-	ÃèÊö:ÉèÖÃÊý¾Ý»Øµ÷
-	²ÎÊý:
-		lRealHandle[in]:Ô¤ÀÀ²¥·Å¾ä±ú
-		cbRealData[out]:ÊµÊ±Êý¾Ý»Øµ÷
-		dwUser[in]:		»Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÉèÖÃ»Øµ÷º¯Êý£¬ÓÃ»§×Ô¼º´¦Àí¿Í»§¶ËÊÕµ½µÄÊý¾Ý
 H264_DVR_API bool CALL_METHOD H264_DVR_SetRealDataCallBack(long lRealHandle,fRealDataCallBack cbRealData, long dwUser);
-
 /*
-	ÃèÊö:Êý¾Ý¾­¹ýÂëÁ÷·ÖÎö¹ý£¬´øÓÐÖ¡µÄ¾ßÌåÐÅÏ¢,ÆäËûÓëH264_DVR_SetRealDataCallBackÏàÍ¬
+	Êý¾Ý¾­¹ýÂëÁ÷·ÖÎö¹ý£¬´øÓÐÖ¡µÄ¾ßÌåÐÅÏ¢
 */
 H264_DVR_API bool CALL_METHOD H264_DVR_SetRealDataCallBack_V2(long lRealHandle,fRealDataCallBack_V2 cbRealData, long dwUser);
 
-/*
-	ÃèÊö:Çå³ý»Øµ÷º¯Êý,¸Ãº¯ÊýÐèÒªÔÚH264_DVR_StopRealPlayÇ°µ÷ÓÃ
-	²ÎÊý:
-		lRealHandle[in]:Ô¤ÀÀ²¥·Å¾ä±ú
-		cbRealData[in]: ÊµÊ±»Øµ÷º¯Êý
-		dwUser[in]:	    ÊµÊ±»Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//Çå³ý»Øµ÷º¯Êý,¸Ãº¯ÊýÐèÒªÔÚH264_DVR_StopRealPlayÇ°µ÷ÓÃ
 H264_DVR_API bool CALL_METHOD H264_DVR_DelRealDataCallBack(long lRealHandle,fRealDataCallBack cbRealData, long dwUser);
-
-/*
-	ÃèÊö:Çå³ý»Øµ÷º¯ÊýV2°æ±¾
-	²ÎÊý:
-		lRealHandle[in]:Ô¤ÀÀ²¥·Å¾ä±ú
-		cbRealData[in]: ÊµÊ±»Øµ÷º¯ÊýV2°æ±¾
-		dwUser[in]:	    ÊµÊ±»Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_DelRealDataCallBack_V2(long lRealHandle,fRealDataCallBack_V2 cbRealData, long dwUser);
 
+//Â¼Ïñ²éÑ¯
 /*
-	ÃèÊö:°´ÎÄ¼þÃû²éÑ¯Â¼Ïñ
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		lpFindInfo[in]:²éÑ¯Ìõ¼þ
-		lpFileData[out]:²éÑ¯½á¹û
-		lMaxCount[in]:²éÑ¯µÄ×î´óÂ¼ÏñÊýÁ¿
-		findcount[out]:²éÑ¯µ½µÄÂ¼ÏñÊýÁ¿
-		waittime[in]:µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
+	lLoginID	µÇÂ½¾ä±ú
+	lpFindInfo	²éÑ¯Ìõ¼þ
+	lpFileData	²éÕÒµ½µÄÂ¼ÏñÊý¾Ý£¬Íâ²¿¿ªÄÚ´æ
+	lMaxCount	×î´óÂ¼ÏñÊýÄ¿
+	findcount	²éÕÒµ½µÄÂ¼ÏñÊýÄ¿
+	waittime	²éÑ¯³¬Ê±Ê±¼ä
 */
 H264_DVR_API long CALL_METHOD H264_DVR_FindFile(long lLoginID, H264_DVR_FINDINFO* lpFindInfo, H264_DVR_FILE_DATA *lpFileData, int lMaxCount, int *findcount, int waittime DEF_PARAM(5000));
 
+//Â¼Ïñ²éÑ¯
 /*
-	ÃèÊö:°´Ê±¼ä²éÑ¯Â¼ÏñÎÄ¼þ
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		lpFindInfo[in]:²éÑ¯Ìõ¼þ
-		lpFileData[out]:²éÑ¯½á¹û
-		waittime[in]:µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
+	lLoginID		µÇÂ½¾ä±ú
+	lpFindInfo	²éÑ¯Ìõ¼þ
+	lpFileData	²éÕÒµ½µÄÂ¼ÏñÊý¾Ý£¬Íâ²¿¿ªÄÚ´æ
+	waittime		²éÑ¯³¬Ê±Ê±¼ä
 */
 H264_DVR_API long CALL_METHOD H264_DVR_FindFileByTime(long lLoginID, SDK_SearchByTime* lpFindInfo, SDK_SearchByTimeResult *lpFileData, int waittime DEF_PARAM(10000));
 
+//Â¼Ïñ»Ø·Å
 /*
-	ÃèÊö:°´ÎÄ¼þÃû»Ø·ÅÂ¼Ïñ
-	²ÎÊý:
-		lLoginID[in]:	   µÇÂ½¾ä±ú
-		sPlayBackFile[in]: »Ø·ÅµÄÎÄ¼þ²ÎÊý
-		cbDownLoadPos[out]:½ø¶È»Øµ÷£¬ÓÃ»§Í¨ÖªÓÃ»§Éè±¸ÊÇ·ñÒÑ¾­½«Êý¾Ý·¢ËÍÍê±Ï£¬»Øµ÷ÖÐµÄlDownLoadSize=-1´ú±íÊý¾Ý·¢ËÍÍê±Ï
-						   ¿Í»§Èç¹ûÏëÊµÊ±ÏÔÊ¾½ø¶È£¬Ó¦¸Ã´ÓÂëÁ÷ÀïÃæ»ñÈ¡Ê±¼äÀ´¼ÆËãÍøÂç²¿·Ö²»·ÖÎöÂëÁ÷£¬Èç¹ûÒÔµ±Ç°½ÓÊÕÊý¾Ý´óÐ¡/×Ü´óÐ¡À´¼ÆËã½ø¶ÈµÄ»°²»ÊÇºÜ×¼£¬Ó¦¸ÃÒÔµ±Ç°Ê±¼ä£¬¸ù¾Ý¿ªÊ¼Ê±¼äºÍ½áÊøÊ±¼äÀ´¼ÆËã½ø¶È
-		fDownLoadDataCallBack[out]:»Ø·ÅÊý¾Ý»Øµ÷
-		dwDataUser[in]:			   Êý¾Ý»Øµ÷²ÎÊý
-	·µ»ØÖµ:
-		>0»ò<0:³É¹¦
-		=0:	   Ê§°Ü
+	lLoginID		µÇÂ½¾ä±ú
+	sPlayBackFileName	»Ø·ÅµÄÂ¼ÏñÃû³Æ
+	cbDownLoadPos ½ø¶È»Øµ÷£¬ÓÃ»§Í¨ÖªÓÃ»§Éè±¸ÊÇ·ñÒÑ¾­½«Êý¾Ý·¢ËÍÍê±Ï£¬»Øµ÷ÖÐµÄlDownLoadSize=-1´ú±íÊý¾Ý·¢ËÍÍê±Ï
+	¿Í»§Èç¹ûÏëÊµÊ±ÏÔÊ¾½ø¶È£¬Ó¦¸Ã´ÓÂëÁ÷ÀïÃæ»ñÈ¡Ê±¼äÀ´¼ÆËã
+	ÍøÂç²¿·Ö²»·ÖÎöÂëÁ÷£¬Èç¹ûÒÔµ±Ç°½ÓÊÕÊý¾Ý´óÐ¡/×Ü´óÐ¡À´¼ÆËã½ø¶ÈµÄ»°²»ÊÇºÜ×¼£¬Ó¦¸ÃÒÔµ±Ç°Ê±¼ä£¬¸ù¾Ý¿ªÊ¼Ê±¼äºÍ½áÊøÊ±¼äÀ´¼ÆËã½ø¶È
+	fDownLoadDataCallBack Êý¾Ý»Øµ÷
+	dwDataUser	»Øµ÷²ÎÊý
 */
 H264_DVR_API long CALL_METHOD H264_DVR_PlayBackByName(long lLoginID, H264_DVR_FILE_DATA *sPlayBackFile, fDownLoadPosCallBack cbDownLoadPos, fRealDataCallBack fDownLoadDataCallBack, long dwDataUser);
-
-/*
-	ÃèÊö:°´ÎÄ¼þÃû»Ø·ÅÂ¼Ïñ
-	²ÎÊý:
-		lLoginID[in]:	   µÇÂ½¾ä±ú
-		sPlayBackFile[in]: »Ø·ÅµÄÎÄ¼þ²ÎÊý
-		cbDownLoadPos[out]:½ø¶È»Øµ÷£¬ÓÃ»§Í¨ÖªÓÃ»§Éè±¸ÊÇ·ñÒÑ¾­½«Êý¾Ý·¢ËÍÍê±Ï£¬»Øµ÷ÖÐµÄlDownLoadSize=-1´ú±íÊý¾Ý·¢ËÍÍê±Ï
-						   ¿Í»§Èç¹ûÏëÊµÊ±ÏÔÊ¾½ø¶È£¬Ó¦¸Ã´ÓÂëÁ÷ÀïÃæ»ñÈ¡Ê±¼äÀ´¼ÆËãÍøÂç²¿·Ö²»·ÖÎöÂëÁ÷£¬Èç¹ûÒÔµ±Ç°½ÓÊÕÊý¾Ý´óÐ¡/×Ü´óÐ¡À´¼ÆËã½ø¶ÈµÄ»°²»ÊÇºÜ×¼£¬Ó¦¸ÃÒÔµ±Ç°Ê±¼ä£¬¸ù¾Ý¿ªÊ¼Ê±¼äºÍ½áÊøÊ±¼äÀ´¼ÆËã½ø¶È
-		fDownLoadDataCallBack[out]:»Ø·ÅÊý¾Ý»Øµ÷,Êý¾Ý¾­¹ýÂëÁ÷·ÖÎö
-		dwDataUser[in]:			   Êý¾Ý»Øµ÷²ÎÊý
-	·µ»ØÖµ:
-		>0»ò<0:³É¹¦
-		=0:	   Ê§°Ü
-*/
 H264_DVR_API long CALL_METHOD H264_DVR_PlayBackByName_V2(long lLoginID, H264_DVR_FILE_DATA *sPlayBackFile, fDownLoadPosCallBack cbDownLoadPos, fRealDataCallBack_V2 fDownLoadDataCallBack, long dwDataUser);
 
+//°´Ê±¼ä½øÐÐÂ¼Ïñ»Ø·Å
 /*
-	ÃèÊö:°´Ê±¼ä»Ø·ÅÂ¼Ïñ
-	²ÎÊý:
-		lLoginID[in]:      µÇÂ½¾ä±ú
-		lpFindInfo[in]:    ²éÑ¯Â¼ÏñÌõ¼þ
-		cbDownLoadPos[out]:½ø¶È»Øµ÷£¬ÓÃ»§Í¨ÖªÓÃ»§Éè±¸ÊÇ·ñÒÑ¾­½«Êý¾Ý·¢ËÍÍê±Ï£¬»Øµ÷ÖÐµÄlDownLoadSize=-1´ú±íÊý¾Ý·¢ËÍÍê±Ï
-		fDownLoadDataCallBack[out]:»Ø·ÅÊý¾Ý»Øµ÷
-		dwDataUser[in]:			   Êý¾Ý»Øµ÷²ÎÊý
-	·µ»ØÖµ:
-		>0»ò<0:³É¹¦
-		=0:	   Ê§°Ü
+	1¡¢½ø¶È»Øµ÷ºÍÊý¾Ý»Øµ÷ÓÃµÄÍ¬Ò»¸ö»Øµ÷²ÎÊý
+	2¡¢fDownLoadDataCallBackÊý¾Ý»Øµ÷³öÀ´µÄÊý¾ÝµÄÃ»ÓÐ¾­¹ýÂëÁ÷·ÖÎö
 */
 H264_DVR_API long CALL_METHOD H264_DVR_PlayBackByTime(long lLoginID, H264_DVR_FINDINFO* lpFindInfo, fDownLoadPosCallBack cbDownLoadPos, fRealDataCallBack fDownLoadDataCallBack, long dwDataUser);
 
-
 /*
-	ÃèÊö:°´Ê±¼ä»Ø·ÅÂ¼ÏñEx,½ø¶È»Øµ÷ºÍÊý¾Ý»Øµ÷ÓÃ²»Í¬µÄ»Øµ÷²ÎÊý,ÆäËûÓëH264_DVR_PlayBackByTimeÏàÍ¬
-	
+	1¡¢½ø¶È»Øµ÷ºÍÊý¾Ý»Øµ÷ÓÃ²»Í¬µÄ»Øµ÷²ÎÊý
+	2¡¢fDownLoadDataCallBackÊý¾Ý»Øµ÷³öÀ´µÄÊý¾ÝµÄÃ»ÓÐ¾­¹ýÂëÁ÷·ÖÎö
 */
 H264_DVR_API long CALL_METHOD H264_DVR_PlayBackByTimeEx(long lLoginID, H264_DVR_FINDINFO* lpFindInfo,fRealDataCallBack fDownLoadDataCallBack, long dwDataUser,
 											fDownLoadPosCallBack cbDownLoadPos, long dwPosUser);
 /*
-	ÃèÊö:fDownLoadDataCallBackÊý¾Ý»Øµ÷³öÀ´µÄÊý¾ÝµÄÂëÁ÷·ÖÎö¹ý£¬ÆäËûÓëH264_DVR_PlayBackByTimeExÏàÍ¬
+	1¡¢½ø¶È»Øµ÷ºÍÊý¾Ý»Øµ÷ÓÃ²»Í¬µÄ»Øµ÷²ÎÊý
+	2¡¢fDownLoadDataCallBackÊý¾Ý»Øµ÷³öÀ´µÄÊý¾ÝµÄÂëÁ÷·ÖÎö¹ý
 */
 H264_DVR_API long CALL_METHOD H264_DVR_PlayBackByTime_V2(long lLoginID, H264_DVR_FINDINFO* lpFindInfo,fRealDataCallBack_V2 fDownLoadDataCallBack, long dwDataUser,
 											fDownLoadPosCallBack cbDownLoadPos, long dwPosUser);
 
-/*
-	ÃèÊö:Í£Ö¹Â¼Ïñ»Ø·Å
-	²ÎÊý:
-		lPlayHandle[in]:»Ø·Å¾ä±ú
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//Í£Ö¹»Ø·Å
 H264_DVR_API bool CALL_METHOD H264_DVR_StopPlayBack(long lPlayHandle);
 
-/*
-	ÃèÊö:»Ø·Å¿ØÖÆ
-	²ÎÊý:
-		lPlayHandle[in]:»Ø·Å¾ä±ú
-		lControlCode[in]:¿ØÖÆÃüÁî,¼ûenum SDK_PlayBackAction
-		lCtrlValue[in]:¿ØÖÆÖµ
-		itype[in]:ÀàÐÍ--½öÖÇÄÜ»Ø·Å¶¨Î»²ÅÓÐÐ§,¸÷ÀàÐÍµÄÑÚÂë--¼ûenum SDK_PLAY_BACK_SETTYPE
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
-H264_DVR_API bool CALL_METHOD H264_DVR_PlayBackControl(long lPlayHandle, long lControlCode,long lCtrlValue, int itype DEF_PARAM(0));
+//»Ø·Å¿ØÖÆ·ÖÔÝÍ£/¼ÌÐø/¶¨Î»/¿ì·Å/Âý·ÅµÈµÈ lControlCode: SDK_PlayBackAction
+H264_DVR_API bool CALL_METHOD H264_DVR_PlayBackControl(long lPlayHandle, long lControlCode,long lCtrlValue);
 
-/*
-	ÃèÊö:°´ÎÄ¼þÃûÏÂÔØ,ÓÃ»§¿ÉÒÔ²»Ê¹ÓÃ»Øµ÷£¬×Ô¼ºÍ¨¹ýH264_DVR_GetDownloadPos»ñÈ¡½ø¶È
-	²ÎÊý:
-		lLoginID[in]:	    µÇÂ½¾ä±ú
-		sPlayBackFile[in]:  ÏÂÔØµÄÂ¼ÏñÐÅÏ¢
-		sSavedFileName[in]: ±£´æµÄÎÄ¼þÂ·¾¶
-		cbDownLoadPos[out]:ÏÂÔØ½ø¶È»Øµ÷
-		dwDataUser[in]:    »Øµ÷º¯Êý²ÎÊý
-		fDownLoadDataCallBack[out]:Êý¾Ý»Øµ÷
-	·µ»ØÖµ:
-		<0»ò>0:³É¹¦
-		=0:	   Ê§°Ü
-*/
+//Â¼ÏñÏÂÔØ,ÓÃ»§¿ÉÒÔ²»Ê¹ÓÃ»Øµ÷£¬×Ô¼ºÍ¨¹ýH264_DVR_GetDownloadPos»ñÈ¡½ø¶È
 H264_DVR_API long CALL_METHOD H264_DVR_GetFileByName(long lLoginID,H264_DVR_FILE_DATA *sPlayBackFile,char *sSavedFileName,
                                                      fDownLoadPosCallBack cbDownLoadPos DEF_0_PARAM, long dwDataUser DEF_0_PARAM,fRealDataCallBack fDownLoadDataCallBack DEF_0_PARAM);
 
-/*
-	ÃèÊö:°´ÎÄ¼þÃûÏÂÔØV2°æ±¾,Êý¾Ý»Øµ÷ÊÇ¾­¹ýÂëÁ÷·ÖÎö¹ý,ÆäËûÓëH264_DVR_GetFileByNameÏàÍ¬
-*/
+//Â¼ÏñÏÂÔØ,ÓÃ»§¿ÉÒÔ²»Ê¹ÓÃ»Øµ÷£¬×Ô¼ºÍ¨¹ýH264_DVR_GetDownloadPos»ñÈ¡½ø¶È
 H264_DVR_API long CALL_METHOD H264_DVR_GetFileByName_V2(long lLoginID,H264_DVR_FILE_DATA *sPlayBackFile,char *sSavedFileName,
 													 fDownLoadPosCallBack cbDownLoadPos DEF_0_PARAM, long dwDataUser DEF_0_PARAM,fRealDataCallBack_V2 fDownLoadDataCallBack_V2 DEF_0_PARAM);
 
-/*
-	ÃèÊö:°´Ê±¼äÏÂÔØV2°æ±¾
-	²ÎÊý:
-		lLoginID[in]:			  µÇÂ½¾ä±ú
-		lpFindInfo[in]:           Â¼Ïñ²éÑ¯Ìõ¼þ
-		sSavedFileDIR[in]:		  Â¼ÏñÎÄ¼þ±£´æÂ·¾¶
-		bMerge[in]:				  ÎÄ¼þÊÇ·ñºÏ²¢
-		cbDownLoadPos[out]:		  ½ø¶È»Øµ÷,ÓÃ»§Í¨ÖªÓÃ»§Éè±¸ÊÇ·ñÒÑ¾­½«Êý¾Ý·¢ËÍÍê±Ï£¬»Øµ÷ÖÐµÄlDownLoadSize=-1´ú±íÊý¾Ý·¢ËÍÍê±Ï
-		dwDataUser[in]:			  »Øµ÷º¯Êý²ÎÊý
-		fDownLoadDataCallBack[in]:Êý¾Ý»Øµ÷
-	·µ»ØÖµ:
-		>0»ò<0:³É¹¦
-		=0:Ê§°Ü
-*/
 H264_DVR_API long CALL_METHOD H264_DVR_GetFileByTime(long lLoginID, H264_DVR_FINDINFO* lpFindInfo, char *sSavedFileDIR, bool bMerge DEF_PARAM(0),
                                                      fDownLoadPosCallBack cbDownLoadPos DEF_0_PARAM, long dwDataUser DEF_0_PARAM,fRealDataCallBack fDownLoadDataCallBack DEF_0_PARAM);
 
-/*
-	ÃèÊö:Êý¾Ý»Øµ÷³öÀ´µÄÊý¾ÝµÄÂëÁ÷·ÖÎö¹ý,ÆäËûÓëH264_DVR_GetFileByTimeÏàÍ¬
-*/
-H264_DVR_API long CALL_METHOD H264_DVR_GetFileByTime_V2(long lLoginID, H264_DVR_FINDINFO* lpFindInfo, char *sSavedFileDIR, bool bMerge
-														,fDownLoadPosCallBack cbDownLoadPos DEF_0_PARAM,long dwDataUser DEF_0_PARAM,fRealDataCallBack_V2 fDownLoadDataCallBack_V2 DEF_0_PARAM);
-
-/*
-	ÃèÊö:Í£Ö¹ÏÂÔØÎÄ¼þ
-	²ÎÊý:
-		lFileHandle[in]:ÏÂÔØÎÄ¼þ¾ä±ú
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_StopGetFile(long lFileHandle);
 
-
-/*
-	ÃèÊö:ÏÂÔØ¿ØÖÆ
-	²ÎÊý:
-		lPlayHandle[in]: ÏÂÔØ¾ä±ú
-		lControlCode[in]:¿ØÖÆÃüÁî,¼ûenum SDK_PlayBackAction
-		bDown[in]:		 ÊÇ·ñÎ»ÏÂÔØ£¬Ä¬ÈÏÎª1
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÏÂÔØ¿ØÖÆ·Ö,ÔÝÍ£,¼ÌÐø lControlCode: SDK_PlayBackAction
 H264_DVR_API bool CALL_METHOD H264_DVR_GetFileControl(long lPlayHandle, long lControlCode, bool bDown DEF_PARAM(1));
-
-/*
-	ÃèÊö:»ñÈ¡ÏÂÔØ½ø¶È
-	²ÎÊý:
-		lFileHandle[in]:ÏÂÔØ¾ä±ú
-	·µ»ØÖµ:
-		>=0:ÏÂÔØ½ø¶È
-		<0:	Ê§°Ü
-*/
+//»ñÈ¡ÏÂÔØ½ø¶È
 H264_DVR_API int CALL_METHOD H264_DVR_GetDownloadPos(long lFileHandle);
 
-/* 
-	ÃèÊö:±¾µØÉý¼¶
-	²ÎÊý:
-		lLoginID[in]: µÇÂ½¾ä±ú
-		sFileName[in]:Éý¼¶ÎÄ¼þÂ·¾¶
-		nType[in]:	  Éý¼¶ÀàÐÍ,1-¿ªÊ¼Éý¼¶ 0-ÖÕÖ¹Éý¼¶
-		cbUpgrade[in]:Éý¼¶½ø¶È»Øµ÷
-		dwUser[in]:	  »Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		>0»ò<0: ³É¹¦
-		=0:		Ê§°Ü
-*/
+//Éý¼¶
+/*
+	==UpgradeTypes
+ */
 H264_DVR_API long CALL_METHOD H264_DVR_Upgrade(long lLoginID, char *sFileName, int nType DEF_0_PARAM, fUpgradeCallBack cbUpgrade DEF_0_PARAM, long dwUser DEF_0_PARAM);
 
-/*
-	ÃèÊö:µÃµ½Éý¼¶×´Ì¬
-	²ÎÊý:
-		lUpgradeHandle[in]:Éý¼¶¾ä±ú
-	·µ»ØÖµ:
-		1:³É¹¦
-		2:ÕýÔÚÉý¼¶
-		3:Ê§°Ü
-*/
+//Éý¼¶×´Ì¬ 1 ³É¹¦£¬ 2 ÕýÔÚÉý¼¶ 3 Ê§°Ü
 H264_DVR_API int CALL_METHOD H264_DVR_GetUpgradeState(long lUpgradeHandle);
-
-/*
-	ÃèÊö:ÊÍ·ÅÉý¼¶¾ä±ú
-	²ÎÊý:
-		lUpgradeHandle[in]:Éý¼¶¾ä±ú
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
-*/
 H264_DVR_API long CALL_METHOD H264_DVR_CloseUpgradeHandle(long lUpgradeHandle);
 
 
+//ÔÆÌ¨¿ØÖÆ£¬Ä¬ÈÏÊÇ¿ªÆôÔÆÌ¨£¬ËÙ¶È4£¬ÓÃ»§Ò²¿ÉÒÔ×ÔÐÐÉèÖÃËÙ¶È
 /* 
-	ÃèÊö:ÔÆÌ¨¿ØÖÆ
-	²ÎÊý:
-		lLoginID[in]:	µÇÂ½¾ä±ú
-		nChannelNo[in]:	Í¨µÀºÅ
-		lPTZCommand[in]:¿ØÖÆÃüÁî£¬¼ûenum PTZ_ControlType
-		bStop[in]:		ÊÇ·ñÊÇÍ£Ö¹£¬0Îª´ò¿ª£¬1ÎªÍ£Ö¹
-		lSpeed[in]:		ËÙ¶È
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
+	lPTZCommand:¼ûPTZ_ControlType
 */
 H264_DVR_API bool CALL_METHOD H264_DVR_PTZControl(long lLoginID,int nChannelNo, long lPTZCommand, bool bStop  DEF_PARAM(0), long lSpeed DEF_PARAM(4));
 
+//À©Õ¹ÔÆÌ¨¿ØÖÆ£¬°üÀ¨Ô¤ÖÃµãÉèÖÃ£¬Ñ²º½Â·Ïß£¬¿ìËÙ¶¨Î»µÈµÈ
 /*
-	ÃèÊö:1¡¢ÉèÖÃ£¬É¾³ý£¬×ªµ½Ô¤ÖÃµãÊ±£ºlParam1ÎªÔ¤ÖÃµãÖµ
-		 2¡¢¼ÓÈëÔ¤ÖÃµãµ½Ñ²º½£¬É¾³ýÑ²º½ÖÐÔ¤ÖÃµãÊ±£ºlParam1ÎªÑ²º½ÏßÂ·Öµ£¬lParam2ÎªÔ¤ÖÃµãÖµ,lParam3ÎªÊ±¼ä¼ä¸ô
-		 3¡¢¿ªÊ¼Ñ²º½£¬Í£Ö¹Ñ²º½£¬Çå³ýÑ²º½ÏßÂ·Ê±£ºlParam1ÎªÑ²º½ÏßÂ·Öµ
-		 4¡¢ÔÆÌ¨·½ÏòÉèÖÃÊ±£ºlParam1ÎªË®Æ½²½³¤£¬lParam2Îª´¹Ö±²½³¤
-		 5¡¢×ó±ß½çÉèÖÃ£¬ÓÒ±ß½çÉèÖÃ£¬×Ô¶¯É¨Ïß¹¦ÄÜ£º
-	²ÎÊý:
-		lLoginID[in]:	µÇÂ½¾ä±ú
-		nChannelNo[in]:	Í¨µÀºÅ
-		lPTZCommand[in]:¿ØÖÆÃüÁî£¬¼ûenum PTZ_ControlType
-		lParam1[in]:	²ÎÊý1
-		lParam2[in]:	²ÎÊý2
-		lParam3[in]:	²ÎÊý3
-		bStop[in]:		ÊÇ·ñÊÇÍ£Ö¹£¬0Îª´ò¿ª£¬1ÎªÍ£Ö¹
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
+	ÉèÖÃ£¬É¾³ý£¬×ªµ½Ô¤ÖÃµãÊ±£ºlParam1ÎªÔ¤ÖÃµãÖµ
+	¼ÓÈëÔ¤ÖÃµãµ½Ñ²º½£¬É¾³ýÑ²º½ÖÐÔ¤ÖÃµãÊ±£ºlParam1ÎªÑ²º½ÏßÂ·Öµ£¬
+	lParam2ÎªÔ¤ÖÃµãÖµ,lParam3ÎªÊ±¼ä¼ä¸ô
+	¿ªÊ¼Ñ²º½£¬Í£Ö¹Ñ²º½£¬Çå³ýÑ²º½ÏßÂ·Ê±£ºlParam1ÎªÑ²º½ÏßÂ·Öµ
+	ÔÆÌ¨·½ÏòÉèÖÃÊ±£ºlParam1ÎªË®Æ½²½³¤£¬lParam2Îª´¹Ö±²½³¤
+	lPTZCommand:PTZ_ControlType
  */
 H264_DVR_API bool CALL_METHOD H264_DVR_PTZControlEx(long lLoginID,int nChannelNo, long lPTZCommand,
                                                     long lParam1, long lParam2, long lParam3, bool bStop DEF_0_PARAM);
 
+//Éè±¸¿ØÖÆ£º·µ»ØÖµ true ³É¹¦£¬ false Ê§°Ü
 /*
-	ÃèÊö:Éè±¸¿ØÖÆ 
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		type[in]:	 ¿ØÖÆÀàÐÍ,0 ÖØÆôÉè±¸£¬1 Çå³ýÈÕÖ¾ 2 ¹Ø»ú 3.»Ö¸´¼ÇÂ¼ÈÕÖ¾ 4.Í£Ö¹¼ÇÂ¼ÈÕÖ¾
-		waittime[in]:µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
+	type==0 ÖØÆôÉè±¸£¬1 Çå³ýÈÕÖ¾ 2 ¹Ø»ú 3.»Ö¸´¼ÇÂ¼ÈÕÖ¾ 4.Í£Ö¹¼ÇÂ¼ÈÕÖ¾ 5.ÊÖ»ú¶Ô½²»Ö¸´¹Ø±ÕÖ®Ç°ÁÙÊ±´ò¿ª¹ýµÄÒôÆµ
 */
 H264_DVR_API bool CALL_METHOD H264_DVR_ControlDVR(long lLoginID, int type, int waittime DEF_PARAM(2000));
 	
-/*
-	ÃèÊö:ËÑË÷¾ÖÓòÍøÄÚµÄÉè±¸ 
-	²ÎÊý:
-		szBuf[out]:		½ÓÊÕ»º³å
-		nBufLen[in]:	½ÓÊÕ»º³å´óÐ¡,sizeof(SDK_CONFIG_NET_COMMON_V2)*n
-		pRetLen[in]:	·µ»ØµÄ´óÐ¡
-		nSearchTime[in]:µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+
+//ËÑË÷¾ÖÓòÍøÄÚµÄÉè±¸ SDK_CONFIG_NET_COMMON_V2
 H264_DVR_API bool CALL_METHOD H264_DVR_SearchDevice(char* szBuf, int nBufLen, int* pRetLen, int nSearchTime);
 
-H264_DVR_API bool CALL_METHOD H264_DVR_SearchDevice_IPV6(char* szBuf, int nBufLen, int* pRetLen, int nSearchTime, int ntype);
 
-typedef  void ( CALL_METHOD *pfSearchDeviceCallBack)(SDK_CONFIG_NET_COMMON_V2  *pNetCom , unsigned long userData);
-//
-/*
-	ÃèÊö:ËÑË÷¾ÖÓòÍøÄÚµÄÉè±¸,ËÑË÷¾ÖÓòÍøÄÚµÄÉè±¸V2°æ±¾
-	²ÎÊý:
-		pfNetCom[out]:	»Øµ÷º¯Êý
-		userData[in]:	»Øµ÷²ÎÊý
-		nSearchTime[in]:µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
-H264_DVR_API bool CALL_METHOD H264_DVR_SearchDevice_V2(pfSearchDeviceCallBack pfNetCom,unsigned long userData, int nSearchTime);
-
-/*
-	ÃèÊö:¿ªÊ¼¶Ô½²
-	²ÎÊý:
-		lLoginID[in]:  µÇÂ½¾ä±ú
-		pVcb[out]:	   ½ÓÊÕ¶Ô½²Êý¾Ý»Øµ÷	
-		dwDataUser[in]:»Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		>0»ò<0: ³É¹¦
-		=0:		Ê§°Ü
-*/
+//ÓïÒô¶Ô½²£¬¸ºÔðÊý¾Ý´«·¢½Ó¿Ú
 H264_DVR_API long CALL_METHOD H264_DVR_StartVoiceCom_MR(long lLoginID, pfAudioDataCallBack pVcb, long dwDataUser);
-
-/*
-	ÃèÊö:·¢ËÍ¶Ô½²Êý¾Ý
-	²ÎÊý:
-		lVoiceHandle[in]:¶Ô½²¾ä±ú
-		pSendBuf[in]:	 ¶Ô½²Êý¾Ý
-		lBufSize[in]:	 ¶Ô½²Êý¾Ý´óÐ¡
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_VoiceComSendData(long lVoiceHandle, char *pSendBuf, long lBufSize);
-
-/*
-	ÃèÊö:Í£Ö¹¶Ô½²
-	²ÎÊý:
-		lVoiceHandle[in]:¶Ô½²¾ä±ú
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_StopVoiceCom(long lVoiceHandle);
 
-/*	
-	ÃèÊö:ÉèÖÃ¶Ô½²ÒôÆµ±àÂë·½Ê½£¬ÓÃ»§¿ÉÒÔ²»ÉèÖÃ£¬Ä¬ÈÏÎªG711A±àÂë
-	²ÎÊý:
-		lLoginID[in]:  µÇÂ½¾ä±ú
-		pTalkMode[in]: Í¨µÀºÅ,-1´ú±íÈ«Í¨µÀ£¬0-n´ú±íµ¥¸öÍ¨µÀ
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÉèÖÃ¶Ô½²ÒôÆµ±àÂë·½Ê½£¬ÓÃ»§¿ÉÒÔ²»ÉèÖÃ£¬Ä¬ÈÏÎªG711A±àÂë
 H264_DVR_API bool CALL_METHOD H264_DVR_SetTalkMode(long lLoginID, SDK_AudioInFormatConfig* pTalkMode);
 
-/*	
-	ÃèÊö:ÉèÖÃÂ¼ÏñÄ£Ê½
-	²ÎÊý:
-		lLoginID[in]:  µÇÂ½¾ä±ú
-		nChannelNo[in]: Í¨µÀºÅ,-1´ú±íÈ«Í¨µÀ£¬0-n´ú±íµ¥¸öÍ¨µÀ
-		lRecordType[in]:Â¼ÏñÄ£Ê½,¼ûenum SDK_RecordModeTypes
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/ 
+// lRecordTypeÂ¼ÏñÄ£Ê½, ¼ûSDK_RecordModeTypes
 H264_DVR_API bool CALL_METHOD H264_DVR_StartDVRRecord(long lLoginID, int nChannelNo ,long lRecordType);
-
-/*	
-	ÃèÊö:¹Ø±ÕÂ¼Ïñ
-	²ÎÊý:
-		lLoginID[in]:  µÇÂ½¾ä±ú
-		nChannelNo[in]: Í¨µÀºÅ,-1´ú±íÈ«Í¨µÀ£¬0-n´ú±íµ¥¸öÍ¨µÀ
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/ 
 H264_DVR_API bool CALL_METHOD H264_DVR_StopDVRRecord(long lLoginID, int nChannelNo);
 
-/*	
-	ÃèÊö:ÉèÖÃÉè±¸ÏµÍ³Ê±¼ä
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		pSysTime[in]:Ê±¼ä
-		nType[in]:ÏµÍ³Ê±¼äÀàÐÍ(true-ÐÂµÄÏµÍ³Ê±¼ä)
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
-H264_DVR_API bool CALL_METHOD H264_DVR_SetSystemDateTime(long lLoginID, SDK_SYSTEM_TIME *pSysTime, bool nType DEF_0_PARAM);
-
-/*	
-	ÃèÊö:µÃµ½Éè±¸µÄ¹¤×÷×´Ì¬
-	²ÎÊý:
-		lLoginID[in]:   µÇÂ½¾ä±ú
-		pWorkState[out]:Éè±¸µÄ¹¤×÷×´Ì¬
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÉèÖÃÉè±¸ÏµÍ³Ê±¼ä
+H264_DVR_API bool CALL_METHOD H264_DVR_SetSystemDateTime(long lLoginID, SDK_SYSTEM_TIME *pSysTime);
+//µÃµ½Éè±¸µÄ¹¤×÷×´Ì¬
 H264_DVR_API bool CALL_METHOD H264_DVR_GetDVRWorkState(long lLoginID, SDK_DVR_WORKSTATE *pWorkState);
 
-/*	
-	ÃèÊö:ÍøÂç¼üÅÌ£¬¾ßÌåÊ¹ÓÃ·½·¨¼ûClientDemo
-	²ÎÊý:
-		lLoginID[in]:     µÇÂ½¾ä±ú
-		pKeyBoardData[in]:ÍøÂç¼üÅÌ²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÍøÂç¼üÅÌ£¬¾ßÌåÊ¹ÓÃ·½·¨¼ûClientDemo
 H264_DVR_API bool CALL_METHOD H264_DVR_ClickKey(long lLoginID, SDK_NetKeyBoardData *pKeyBoardData);
 
+// ´ÅÅÌ¹ÜÀí
 /*	
-	ÃèÊö:¶ÔÓ²ÅÌ½øÐÐ·ÖÇø,¸ñÊ½»¯µÈµÈ²Ù×÷
-	²ÎÊý:
-		lLoginID[in]:   µÇÂ½¾ä±ú
-		pStorageCtl[in]:²Ù×÷²ÎÊý
-	·µ»ØÖµ:
-		=1: ³É¹¦
-		<=0:Ê§°Ü
+	¶ÔÓ²ÅÌ½øÐÐ·ÖÇø,¸ñÊ½»¯µÈµÈ²Ù×÷
 */
 H264_DVR_API int CALL_METHOD H264_DVR_StorageManage(long lLoginID, SDK_StorageDeviceControl *pStorageCtl);
 
-/*
-	ÃèÊö:·¢ËÍÍøÂç±¨¾¯ÐÅÏ¢
-	²ÎÊý:
-		lLoginID[in]:  µÇÂ½¾ä±ú
-		pAlarmInfo[in]:ÍøÂç±¨¾¯²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_SendNetAlarmMsg(long lLoginID, SDK_NetAlarmInfo *pAlarmInfo);
 
+//Éè±¸¶Ë×¥Í¼,¼´×¥Éè±¸¶Ë·¢¹ýÀ´µÄ¼´Ê±µÄÒ»ÕÅÍ¼Æ¬sdkÄÚ²¿Éú³ÉÎÄ¼þ
 /*
-	ÃèÊö:Éè±¸¶Ë×¥Í¼,¼´×¥Éè±¸¶Ë·¢¹ýÀ´µÄ¼´Ê±µÄÒ»ÕÅÍ¼Æ¬µÄÄÚ´æbuf
-		1.ÐèÒªÉè±¸ÅäÖÃÀïÃæÓÐ×¥Í¼ÅäÖÃÑ¡Ïî¸Ã½Ó¿Ú²ÅÓÐÐ§
-		2.Èç¹ûÂú×ã1£¬Ä¬ÈÏ×¥³öÀ´µÄ·Ö±æÂÊÊÇD1£¬Èç¹ûÏë×¥¸úÊÓÆµ·Ö±æÂÊÒ»ÑùµÄÍ¼Æ¬£¬¾ÍÐèÒªÐÞ¸Ä±àÂëÉèÖÃÀïµÄ×¥Í¼·Ö±æÂÊ£¬
-		  Èç¹û±àÂëÉèÖÃÃ»ÓÐ×¥Í¼·Ö±æÂÊÑ¡Ïî£¬ÔòÐèÒª¶¨ÖÆÖ§³Ö¸ÃÏîµÄ³ÌÐò
-    ²ÎÊý:
-		lLoginID[in]: µÇÂ½¾ä±ú
-		nChannel[in]: Í¨µÀºÅ
-		sFileName[in]:±£´æÂ·¾¶
-		nType[in]:Í¼Æ¬ÀàÐÍÄ¬ÈÏÎªjpg, 0:jpg 1:YUV
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
+	ËµÃ÷:Éè±¸¶Ë×¥Í¼,¼´×¥Éè±¸¶Ë·¢¹ýÀ´µÄ¼´Ê±µÄÒ»ÕÅÍ¼Æ¬µÄÄÚ´æbuf
+	1.ÐèÒªÉè±¸ÅäÖÃÀïÃæÓÐ×¥Í¼ÅäÖÃÑ¡Ïî¸Ã½Ó¿Ú²ÅÓÐÐ§
+	2.Èç¹ûÂú×ã1£¬Ä¬ÈÏ×¥³öÀ´µÄ·Ö±æÂÊÊÇD1£¬Èç¹ûÏë×¥¸úÊÓÆµ·Ö±æÂÊÒ»ÑùµÄÍ¼Æ¬£¬¾ÍÐèÒªÐÞ¸Ä±àÂëÉèÖÃÀïµÄ×¥Í¼·Ö±æÂÊ£¬
+	  Èç¹û±àÂëÉèÖÃÃ»ÓÐ×¥Í¼·Ö±æÂÊÑ¡Ïî£¬ÔòÐèÒª¶¨ÖÆÖ§³Ö¸ÃÏîµÄ³ÌÐò
 */
-H264_DVR_API bool CALL_METHOD H264_DVR_CatchPic(long lLoginID, int nChannel, char *sFileName, int nType DEF_0_PARAM);
+H264_DVR_API bool CALL_METHOD H264_DVR_CatchPic(long lLoginID, int nChannel, char *sFileName);
 
+//Éè±¸¶Ë×¥Í¼,¼´×¥Éè±¸¶Ë·¢¹ýÀ´µÄ¼´Ê±µÄÒ»ÕÅÍ¼Æ¬µÄÄÚ´æbuf£¬Íâ²¿Éú³ÉÎÄ¼þ
 /*
-	ÃèÊö:Éè±¸¶Ë×¥Í¼,¼´×¥Éè±¸¶Ë·¢¹ýÀ´µÄ¼´Ê±µÄÒ»ÕÅÍ¼Æ¬µÄÄÚ´æbuf£¬Íâ²¿Éú³ÉÎÄ¼þ
-		1.ÐèÒªÉè±¸ÅäÖÃÀïÃæÓÐ×¥Í¼ÅäÖÃÑ¡Ïî¸Ã½Ó¿Ú²ÅÓÐÐ§
-		2.Èç¹ûÂú×ã1£¬Ä¬ÈÏ×¥³öÀ´µÄ·Ö±æÂÊÊÇD1£¬Èç¹ûÏë×¥¸úÊÓÆµ·Ö±æÂÊÒ»ÑùµÄÍ¼Æ¬£¬¾ÍÐèÒªÐÞ¸Ä±àÂëÉèÖÃÀïµÄ×¥Í¼·Ö±æÂÊ£¬
-		  Èç¹û±àÂëÉèÖÃÃ»ÓÐ×¥Í¼·Ö±æÂÊÑ¡Ïî£¬ÔòÐèÒª¶¨ÖÆÖ§³Ö¸ÃÏîµÄ³ÌÐò
-    ²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		nChannel[in]:Í¨µÀºÅ
-		pBuffer[out]:½ÓÊÕ»º³å
-		nBufLen[in]:½ÓÊÕ»º³åµÄ´óÐ¡
-		pPicLen[in]:Êµ¼Ê·µ»ØµÄ´óÐ¡
-		nType[in]:Í¼Æ¬ÀàÐÍÄ¬ÈÏÎªjpg, 0:jpg 1:YUV
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
+	ËµÃ÷:Í¬H264_DVR_CatchPic
 */
-H264_DVR_API bool CALL_METHOD H264_DVR_CatchPicInBuffer(long lLoginID, int nChannel, char *pBuffer, int nBufLen, int *pPicLen, int nType DEF_0_PARAM);
+H264_DVR_API bool CALL_METHOD H264_DVR_CatchPicInBuffer(long lLoginID, int nChannel, char *pBuffer, int nBufLen, int *pPicLen);
 
-/*
-	ÃèÊö:Æô¶¯±¨¾¯ÖÐÐÄ¼àÌý(¾ßÌåÓÃ·¨¼ûAlarmCenter demo)
-	²ÎÊý:
-		nPort[in]:		   ¼àÌý¶Ë¿ÚºÅ
-		cbAlarmCenter[out]:Êý¾Ý»Øµ÷
-		dwDataUser[in]:    »Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//Æô¶¯±¨¾¯ÖÐÐÄ¼àÌý(¾ßÌåÓÃ·¨¼ûAlarmCenter demo)
 H264_DVR_API bool CALL_METHOD H264_DVR_StartAlarmCenterListen(int nPort, fMessCallBack cbAlarmCenter, unsigned long dwDataUser);
-
-/*
-	ÃèÊö:¹Ø±Õ±¨¾¯ÖÐÐÄ¼àÌý(¾ßÌåÓÃ·¨¼ûAlarmCenter demo)
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//¹Ø±Õ±¨¾¯ÖÐÐÄ¼àÌý
 H264_DVR_API bool CALL_METHOD H264_DVR_StopAlarmCenterListen();
 
-/*
-	ÃèÊö:Í¨¹ý´®¿ÚÏòÉè±¸Ð´Êý¾Ý
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		nType[in]:	 ´®¿ÚÀàÐÍ
-		pBuffer[in]: Êý¾Ý
-		nBufLen[in]: Êý¾Ý³¤¶È
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//Í¸Ã÷232,485
 H264_DVR_API bool CALL_METHOD H264_DVR_SerialWrite(long lLoginID, SERIAL_TYPE nType, char *pBuffer, int nBufLen);
-
-/*
-	ÃèÊö:Í¨¹ý´®¿Ú´ÓÉè±¸¶ÁÊý¾Ý
-	²ÎÊý:
-		lLoginID[in]: µÇÂ½¾ä±ú
-		nType[in]:	  ´®¿ÚÀàÐÍ
-		pBuffer[out]: ½ÓÊÕÊý¾Ý
-		nBufLen[in]:  ½ÓÊÕÊý¾Ý³¤¶È
-		pReadLen[out]:ÊÕµ½µÄÊý¾Ý³¤¶È
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_SerialRead(long lLoginID, SERIAL_TYPE nType, char *pBuffer, int nBufLen, int *pReadLen);
 
-/*
-	ÃèÊö:»ñÈ¡DDNSÐÅÏ¢£¬¾ßÌåÓÃ·¨¼ûClientDemo
-	²ÎÊý:
-		searchmode[in]:ËÑË÷ÐÅÏ¢
-		pDevicInfo[out]:DDNSÐÅÏ¢
-		maxDeviceNum[in]:×î´óÉè±¸Êý
-		nretNum[out]:µÃµ½µÄÉè±¸Êý
-	·µ»ØÖµ:
-		=1:³É¹¦
-		<0:Ê§°Ü
-*/
+//»ñÈ¡DDNSÐÅÏ¢£¬¾ßÌåÓÃ·¨¼ûClientDemo
 H264_DVR_API int CALL_METHOD H264_DVR_GetDDNSInfo(SearchMode &searchmode, DDNS_INFO *pDevicInfo, int maxDeviceNum, int &nretNum);
 
-/*
-	ÃèÊö:Ç¿ÖÆIÖ¡
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		nChannel[in]:Í¨µÀºÅ
-		nStream[in]: ÂëÁ÷ÀàÐÍ,0±íÊ¾Ö÷ÂëÁ÷£¬Îª1±íÊ¾×ÓÂëÁ÷
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//nStream: 0±íÊ¾Ö÷ÂëÁ÷£¬Îª1±íÊ¾×ÓÂëÁ÷
 H264_DVR_API bool CALL_METHOD H264_DVR_MakeKeyFrame(long lLoginID, int nChannel, int nStream);
 
-/*
-	ÃèÊö:»ñÈ¡OEMÐÅÏ¢
-	²ÎÊý:
-		lLoginID[in]:	 µÇÂ½¾ä±ú
-		pOEMInfo[out]:	 OEMÐÅÏ¢
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//nStream: 0±íÊ¾Ö÷ÂëÁ÷£¬Îª1±íÊ¾×ÓÂëÁ÷
 H264_DVR_API bool CALL_METHOD H264_DVR_GetOEMInfo(long lLoginID, SDK_OEMInfo *pOEMInfo);
-
-/*
-	ÃèÊö:´´½¨Í¸Ã÷´®¿ÚÍ¨µÀ
-	²ÎÊý:
-		lLoginID[in]:	 µÇÂ½¾ä±ú
-		TransInfo[in]:	 Í¸Ã÷´®¿Ú²ÎÊý
-		cbTransCom[out]: Éè±¸Êý¾Ý»Øµ÷
-		lUser[in]:		 »Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+// ´´½¨Í¸Ã÷´®¿ÚÍ¨µÀ
 H264_DVR_API bool CALL_METHOD H264_DVR_OpenTransComChannel(long lLoginID, TransComChannel *TransInfo, fTransComCallBack cbTransCom, unsigned long lUser);
-
-/*
-	ÃèÊö:¹Ø±ÕÍ¸Ã÷´®¿ÚÍ¨µÀ
-	²ÎÊý:
-		lLoginID[in]:	 µÇÂ½¾ä±ú
-		nType[in]:		 Í¸Ã÷´®¿ÚÀàÐÍ
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//¹Ø±ÕÍ¸Ã÷´®¿ÚÍ¨µÀ
 H264_DVR_API bool CALL_METHOD H264_DVR_CloseTransComChannel(long lLoginID, SERIAL_TYPE nType);
-//»ñÈ¡×´Ì¬ÐÅÏ¢
-H264_DVR_API bool CALL_METHOD H264_DVR_GetDeviceState(long lLoginID, SDK_State_Type type, char *pState);
 
-/*
-	ÃèÊö:»ñÈ¡±¾µØuiÍ¼Æ¬
-	²ÎÊý:
-		lLoginID[in]:	 µÇÂ½¾ä±ú
-		saveFileName[in]:Í¼Æ¬±£´æÂ·¾¶
-		type[in]:		 ±£´æÍ¼Æ¬ÀàÐÍ,1:ÎªÈ«Í¼Æ¬ 2:»î¶¯ÇøÓòÍ¼Æ¬
-*/
+//»ñÈ¡uiÍ¼Æ¬:type 1:ÎªÈ«Í¼Æ¬ 2:»î¶¯ÇøÓòÍ¼Æ¬
 H264_DVR_API bool CALL_METHOD H264_DVR_CatchPicUI(long lLoginID,char *saveFileName,int type DEF_PARAM(1));
 
 #ifdef WIN32
 
-/*
-	ÃèÊö:´ò¿ªÍ¨µÀÒôÆµ,Ô¤ÀÀ/»Ø·Å/±¾µØ²¥·ÅÒ»¸öº¯Êý
-	²ÎÊý:
-		lHandle[in]:²¥·Å¾ä±ú
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//´ò¿ªÍ¨µÀÒôÆµ //Ô¤ÀÀ£¬»Ø·Å£¬±¾µØ²¥·Å Ò»¸öº¯Êý
 H264_DVR_API bool CALL_METHOD H264_DVR_OpenSound(long lHandle);
-
-/*
-	ÃèÊö:¹Ø±ÕÍ¨µÀÒôÆµ,Ô¤ÀÀ/»Ø·Å/±¾µØ²¥·ÅÒ»¸öº¯Êý
-	²ÎÊý:
-		lHandle[in]:²¥·Å¾ä±ú
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//¹Ø±ÕÍ¨µÀÒôÆµ //Ô¤ÀÀ£¬»Ø·Å£¬±¾µØ²¥·Å Ò»¸öº¯Êý
 H264_DVR_API bool CALL_METHOD H264_DVR_CloseSound(long lHandle);
-
-/*
-	ÃèÊö:×¥±¾µØÍ¼Æ¬,Ô¤ÀÀ/»Ø·Å/±¾µØ²¥·ÅÒ»¸öº¯Êý
-	²ÎÊý:
-		lHandle[in]:²¥·Å¾ä±ú
-		szSaveFileName[in]:±£´æÍ¼Æ¬Â·¾¶
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//×¥±¾µØÍ¼Æ¬ //Ô¤ÀÀ£¬»Ø·Å£¬±¾µØ²¥·Å Ò»¸öº¯Êý
 H264_DVR_API bool CALL_METHOD H264_DVR_LocalCatchPic(long lHandle,char*szSaveFileName);
-
-/*
-	ÃèÊö:´ò¿ª¶Ô½²
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//´ò¿ª¶Ô½²
 H264_DVR_API long CALL_METHOD H264_DVR_StartLocalVoiceCom(long lLoginID);
-
-/*
-	ÃèÊö:¿ªÊ¼±¾µØÂ¼Ïñ
-	²ÎÊý:
-		lRealHandle[in]:²¥·Å¾ä±ú
-		szSaveFileName[in]:Â¼ÏñÂ·¾¶
-		type[in]:Â¼ÏñÀàÐÍ
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//¿ªÊ¼±¾µØÂ¼Ïñ
 H264_DVR_API bool CALL_METHOD H264_DVR_StartLocalRecord(long lRealHandle,char*szSaveFileName,long type=0);
-
-/*
-	ÃèÊö:¹Ø±Õ±¾µØÂ¼Ïñ
-	²ÎÊý:
-		lRealHandle[in]:²¥·Å¾ä±ú
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//¹Ø±Õ±¾µØÂ¼Ïñ
 H264_DVR_API bool CALL_METHOD H264_DVR_StopLocalRecord(long lRealHandle);
 
-/*
-	ÃèÊö:²¥·Å±¾µØÎÄ¼þ
-	²ÎÊý:
-		pFileName[in]:	  Â¼ÏñÎÄ¼þÂ·¾¶
-		hWnd[in]:		  ²¥·Å´°¿Ú¾ä±ú
-		drawCallBack[out]:»Øµ÷º¯Êý
-		user[in]:		  »Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:±¾µØ²¥·Å¾ä±ú
-		>0»ò<0:³É¹¦
-		=0:	   Ê§°Ü
-*/
+//²¥·Å±¾µØÎÄ¼þ
 H264_DVR_API long CALL_METHOD H264_DVR_StartLocalPlay(char*pFileName,void* hWnd,fPlayDrawCallBack drawCallBack=0,long user=0);
-
-/*
-	ÃèÊö:¹Ø±Õ±¾µØ²¥·Å
-	²ÎÊý:
-		lPlayHandle[in]:±¾µØ²¥·Å¾ä±ú
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//¹Ø±Õ±¾µØ²¥·Å
 H264_DVR_API bool CALL_METHOD H264_DVR_StopLocalPlay(long lPlayHandle);
-
-/*
-	ÃèÊö:»ñÈ¡²¥·ÅÎ»ÖÃ£¨°Ù·Ö±È£©£¬ÓÃÓÚ»Ø·ÅºÍ±¾µØ²¥·Å,»Ø·ÅÊ±´«´°¿Ú¾ä±ú¸Ã½Ó¿Ú²ÅÓÐÐ§
-	²ÎÊý:
-		lPlayHandle[in]:»Ø·Å¾ä±ú»ò±¾µØ²¥·Å¾ä±ú
-	·µ»ØÖµ:²¥·Å½ø¶È
-*/
+//»ñÈ¡²¥·ÅÎ»ÖÃÓÃÓÚ»Ø·Å£¬ºÍ±¾µØ²¥·Å
 H264_DVR_API float CALL_METHOD H264_DVR_GetPlayPos(long lPlayHandle);
-
-/*
-	ÃèÊö:ÉèÖÃ²¥·ÅÎ»ÖÃ£¨°Ù·Ö±È£©,ÓÃÓÚ»Ø·Å£¬±¾µØ²¥·Å(±¾µØ»Ø·ÅÊ±´«´°¿Ú¾ä±ú¸Ã½Ó¿Ú²ÅÓÐÐ§)
-	²ÎÊý:
-		lPlayHandle[in]:»Ø·Å¾ä±ú»ò±¾µØ²¥·Å¾ä±ú
-		fRelativPos[in]:²¥·Å½ø¶È
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÉèÖÃ²¥·ÅÎ»ÖÃ£¨°Ù·Ö±È£©ÓÃÓÚ»Ø·Å£¬ºÍ±¾µØ²¥·Å
 H264_DVR_API bool CALL_METHOD H264_DVR_SetPlayPos(long lPlayHandle,float fRelativPos);
-
-/*
-	ÃèÊö:²¥·Å¿ØÖÆ£¨²¥·Å£¬Í£Ö¹£¬»Ö¸´£¬¿ì·¢£¬Âý·Å£©
-	²ÎÊý:
-		lPlayHandle[in]:»Ø·Å¾ä±ú»ò±¾µØ²¥·Å¾ä±ú
-		action[in]:		²¥·Å¿ØÖÆÀàÐÍ
-		lCtrlValue[in]: ¿ØÖÆËÙ¶È
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//²¥·Å¿ØÖÆ£¨²¥·Å£¬Í£Ö¹£¬»Ö¸´£¬¿ì·¢£¬Âý·Å£©
 H264_DVR_API bool CALL_METHOD H264_DVR_LocalPlayCtrl(long lPlayHandle,SDK_LoalPlayAction action,long lCtrlValue);
-
-/*
-	ÃèÊö:ÉèÖÃ±¾µØ²¥·Å½áÊø»Øµ÷
-	²ÎÊý:
-		lPlayHandle[in]:»Ø·Å¾ä±ú»ò±¾µØ²¥·Å¾ä±ú
-		callBack[out]:	²¥·Å½áÊø»Øµ÷
-		user[in]:		»Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÉèÖÃ²¥·Å½áÊø»Øµ÷
 H264_DVR_API bool CALL_METHOD H264_DVR_SetFileEndCallBack(long lPlayHandle,fLocalPlayFileCallBack callBack,long user);
-
-/*
-	ÃèÊö:ÉèÖÃÐÅÏ¢Ö¡»Øµ÷
-	²ÎÊý:
-		lPlayHandle[in]:ÊµÊ±²¥·Å¾ä±ú»òÕß»Ø·Å¾ä±ú»ò±¾µØ²¥·Å¾ä±ú
-		callback[out]:	ÐÅÏ¢Ö¡»Øµ÷
-		user[in]:		»Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÉèÖÃÐÅÏ¢Ö¡»Øµ÷
 H264_DVR_API bool CALL_METHOD H264_DVR_SetInfoFrameCallBack(long lPlayHandle,InfoFramCallBack callback,long user);
 
-/*
-	ÃèÊö:»ñÈ¡±¾µØÑÕÉ«£¬Ô¤ÀÀ/»Ø·Å/±¾µØ²¥·ÅÒ»¸öº¯Êý
-	²ÎÊý:
-		lHandle[in]:     ÊµÊ±²¥·Å¾ä±ú»òÕß»Ø·Å¾ä±ú»ò±¾µØ²¥·Å¾ä±ú
-		nRegionNum[in]:  ÏÔÊ¾ÇøÓò,Èç¹ûÖ»ÓÐÒ»¸öÏÔÊ¾ÇøÓò(Í¨³£Çé¿ö)ÉèÎª0
-		pBrightness[out]:ÁÁ¶È	  
-		pContrast[out]:	 ¶Ô±È¶È
-		pSaturation[out]:±¥ºÍ¶È
-		pHue[out]:		 É«µ÷
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//±¾µØÑÕÉ«¿ØÖÆ //Ô¤ÀÀ£¬»Ø·Å£¬±¾µØ²¥·Å Ò»¸öº¯Êý
 H264_DVR_API bool CALL_METHOD H264_DVR_LocalGetColor(long lHandle, DWORD nRegionNum, LONG *pBrightness, LONG *pContrast, LONG *pSaturation, LONG *pHue);
-
-/*
-	ÃèÊö:±¾µØÑÕÉ«¿ØÖÆ£¬Ô¤ÀÀ/»Ø·Å/±¾µØ²¥·ÅÒ»¸öº¯Êý
-	²ÎÊý:
-		lHandle[in]:     ÊµÊ±²¥·Å¾ä±ú»òÕß»Ø·Å¾ä±ú»ò±¾µØ²¥·Å¾ä±ú
-		nRegionNum[in]:  ÏÔÊ¾ÇøÓò,Èç¹ûÖ»ÓÐÒ»¸öÏÔÊ¾ÇøÓò(Í¨³£Çé¿ö)ÉèÎª0
-		pBrightness[in]: ÁÁ¶È	  
-		pContrast[in]:	 ¶Ô±È¶È
-		pSaturation[in]: ±¥ºÍ¶È
-		pHue[in]:		 É«µ÷
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_LocalSetColor(long lHandle, DWORD nRegionNum, LONG nBrightness, LONG nContrast, LONG nSaturation, LONG nHue);
 #endif
-/*
-	ÃèÊö:ÉèÖÃ±¾µØip,socketÍ¨ÐÅÌ×½Ó×Ö°ó¶¨µÄip
-	²ÎÊý:
-		szIP[in]:ip
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÉèÖÃ±¾µØip
 H264_DVR_API bool CALL_METHOD H264_DVR_SetLocalBindAddress(char*szIP);
 
-/*
-	ÃèÊö:¿ªÆôÉÏ±¨Êý¾Ý,°üÀ¨³µÔØÐÅÏ¢¾­Î³¶È/Â¼Ïñ×´Ì¬/Êý×ÖÍ¨µÀÁ¬½Ó×´Ì¬/Í¨µÀ±êÌâ
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		upLoadType[in]:ÉÏ±¨Êý¾ÝÀàÐÍ
-		callBack[out]:ÉÏ±¨Êý¾Ý»Øµ÷
-		lUser[in]:»Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÉÏ±¨Êý¾Ý
 H264_DVR_API bool CALL_METHOD H264_DVR_StartUploadData(long lLoginID,UploadDataType upLoadType,fUploadDataCallBack callBack,long lUser);
 
-/*
-	ÃèÊö:Í£Ö¹ÉÏ±¨Êý¾Ý
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		upLoadType[in]:ÉÏ±¨Êý¾ÝÀàÐÍ
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_StopUploadData(long lLoginID,UploadDataType upLoadType);
 
-/*
-	ÃèÊö:¿ªÊ¼Ö÷¶¯×¢²á
-	²ÎÊý:
-		nPort[in]:¼àÌý¶Ë¿ÚºÅ,0<=nPort<=65535
-		cbFunc[out]: ×¢²áÉÏÏß»Øµ÷º¯Êý
-		dwDataUser[in]:»Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		true:³É¹¦
-		false:Ê§°Ü
-*/
+//Ö÷¶¯×¢²á
 H264_DVR_API bool CALL_METHOD H264_DVR_StartActiveRigister(int nPort, fMessCallBack cbFunc, unsigned long dwDataUser);
-
-
-/*
-	ÃèÊö:¹Ø±ÕÖ÷¶¯×¢²á
-	·µ»ØÖµ:
-		true:³É¹¦
-		false:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_StopActiveRigister();
 
-/*
-	ÃèÊö:¼ì²â×ÓÁ¬½ÓÒì³£¶Ï¿ª
-	²ÎÊý:
-		callBack[out]:×ÓÁ¬½Ó¶Ï¿ª»Øµ÷
-		userData[in]: »Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
-*/
+//×ÓÁ¬½ÓÒì³£¶Ï¿ª
 H264_DVR_API long CALL_METHOD H264_DVR_SetSubDisconnectCallBack(fSubDisConnectCallBack callBack,DWORD userData);
 
-/*
-	ÃèÊö:ÉèÖÃ±£»îÊ±¼ä,perKeeplifeTime(ÐÄÌø¼ä¸ô):Ä¬ÈÏ10Ãë,detectDisconTime(¶ÏÏß¼ì²âÊ±¼ä):Ä¬ÈÏ60Ãë
-	²ÎÊý:
-		lLoginID[in]:	     µÇÂ½¾ä±ú
-		perKeeplifeTime[in]: ±£»îÊ±¼ä
-		detectDisconTime[in]:¶ÏÏß¼ì²âÊ±¼ä
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
-*/
+//ÉèÖÃ±£»îÊ±¼ä,perKeeplifeTime(ÐÄÌø¼ä¸ô):µ¥Î»Ãë,detectDisconTime(¶ÏÏß¼ì²âÊ±¼ä):µ¥Î»Ãë
 H264_DVR_API long CALL_METHOD H264_DVR_SetKeepLifeTime(long lLoginID,unsigned int perKeeplifeTime,unsigned int detectDisconTime);
 
-/*
-	ÃèÊö:MACÊÇ·ñµÃµ½¼ÓÃÜ
-	²ÎÊý:
-		pMac[in]:MACµØÖ·
-	·µ»ØÖµ:
-		true: ¼ÓÃÜ
-		false:Ã»ÓÐ¼ÓÃÜ
-*/
+//MAC µÃµ½¼ÓÃÜ
 H264_DVR_API bool CALL_METHOD H264_DVR_CheckEncrypt(char *pMac);
 
-/*
-	ÃèÊö:Éè±¸ËÑË÷µ½µÄÉè±¸£¬ÓëÉè±¸ÔÚÍ¬Ò»¸ö¾ÖÓòÍøµÄÉè±¸,Éè±¸È¥ËÑË÷£¬È»ºó·µ»Ø½á¹û(H264_DVR_SearchDeviceÕâ¸ö½Ó¿ÚÊÇsdk±¾ÉíÈ¥ËÑË÷,Á½Õß·µ»ØµÄ½á¹ûÊÇÒ»ÖÂµÄ)
-	²ÎÊý:
-		lLoginID[in]:		 µÇÂ½¾ä±ú
-		pDevlist[out]:		 Éè±¸ÁÐ±í
-		transferProtocol[in]:´«ÊäÐ­Òé,¼ûenum SDK_TransferProtocol_V2
-		waittime[in]:		 µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//Éè±¸ËÑË÷µ½µÄÉè±¸£¬ÓëÉè±¸ÔÚÍ¬Ò»¸ö¾ÖÓòÍøµÄÉè±¸
 H264_DVR_API bool CALL_METHOD H264_DVR_SearchDeviceEX(long lLoginID,SDK_NetDevList *pDevlist,SDK_TransferProtocol_V2 transferProtocol DEF_PARAM(SDK_TRANSFER_PROTOCOL_NETIP),int waittime DEF_PARAM(15000));
 
-/*
-	ÃèÊö:ÔÆÌ¨¿ìËÙ¶¨Î»,Ê¹ÓÃÇ°ÅÐ¶ÏÊÇ·ñÖ§³Ö
-	²ÎÊý:
-		lLoginID[in]:		µÇÂ½¾ä±ú
-		nChannel[in]:		Í¨µÀºÅ
-		pPositionPoint[in]:Î»ÖÃ
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//ÔÆÌ¨¿ìËÙ¶¨Î»
+//Ê¹ÓÃÇ° ÅÐ¶ÏÊÇ·ñÖ§³Ö
 H264_DVR_API bool CALL_METHOD H264_DVR_PTZPostion(long lLoginID,int nChannel,SDK_PositionPoint *pPositionPoint);
 
-/* 
-	ÃèÊö:NVRºÍÆäÁ¬½ÓµÄÇ°¶Ë¶Ô½²,¸Ã¹¦ÄÜÐèÒªÌØÊâ¶¨ÖÆ³ÌÐò
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		nChannel[in]:Í¨µÀºÅ
-		waittime[in]:µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+///< NVRºÍÆäÁ¬½ÓµÄÇ°¶Ë¶Ô½²
 H264_DVR_API bool CALL_METHOD H264_DVR_StartDevTalk(long lLoginID,int nChannel,int waittime DEF_PARAM(2000));
-
-/* 
-	ÃèÊö:Í£Ö¹NVRºÍÆäÁ¬½ÓµÄÇ°¶Ë¶Ô½²
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		nChannel[in]:Í¨µÀºÅ
-		waittime[in]:µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_StopDevTalk(long lLoginID,int nChannel,int waittime DEF_PARAM(2000));
-
-/*
-	ÃèÊö:²éÑ¯Ó²ÅÌÂ¼ÏñÐÅÏ¢
-	²ÎÊý:
-		lLoginID[in]:   µÇÂ½¾ä±ú
-		lpFindInfo[in]: ²éÑ¯Ìõ¼þ
-		lpFileData[out]:²éÕÒµ½µÄÂ¼ÏñÊý¾Ý£¬Íâ²¿¿ªÄÚ´æ
-		waittime[in]:	²éÑ¯³¬Ê±Ê±¼ä
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
-*/
+///<Ó²ÅÌÂ¼ÏñÐÅÏ¢
+//Â¼Ïñ²éÑ¯
+//lLoginID		µÇÂ½¾ä±ú
+//lpFindInfo	²éÑ¯Ìõ¼þ
+//lpFileData	²éÕÒµ½µÄÂ¼ÏñÊý¾Ý£¬Íâ²¿¿ªÄÚ´æ
+//waittime		²éÑ¯³¬Ê±Ê±¼ä
 H264_DVR_API long CALL_METHOD H264_DVR_RecordInfo(long lLoginID, SDK_SearchByTime* lpFindInfo, SDK_RecordStorageInfo *lpRecordData, int waittime DEF_PARAM(15000));
 
-/*
-	ÃèÊö:¿ØÖÆÉè±¸ÉÏÎÄ¼þ
-	²ÎÊý:
-		lLoginID[in]:	   µÇÂ½¾ä±ú
-		lpFileControl[in]:ÐèÒª¿ØÖÆµÄÎÄ¼þºÍ¿ØÖÆÃüÁî
-		waittime[in]:      µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
- */
 H264_DVR_API bool CALL_METHOD H264_DVR_ControlFile(long lLoginID,SDK_NetFileControl *lpFileControl,int waittime DEF_PARAM(15000));
 
-/*
-	ÃèÊö:²éÑ¯Â¼ÏñÉè±¸ÀïÃæÒôÆµÎÄ¼þ£¬×î´ó8¸ö
-	²ÎÊý:
-		lLoginID[in]:	µÇÂ½¾ä±ú
-		lpFileList[out]:²éÕÒµ½µÄÒôÆµÊý¾Ý
-		waittime[in]:	µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+//Â¼ÏñÉè±¸ÀïÃæÓÐ¶àÉÙÒôÆµÎÄ¼þ£¬×î´ó8¸ö
+//lLoginID		µÇÂ½¾ä±ú
+//lpFindInfo	²éÑ¯Ìõ¼þ
+//lpFileData	²éÕÒµ½µÄÒôÆµÊý¾Ý£¬Íâ²¿¿ªÄÚ´æ
+//waittime		²éÑ¯³¬Ê±Ê±¼ä
 H264_DVR_API bool CALL_METHOD H264_DVR_FindAudioFile(long lLoginID, SDK_MusicFileList* lpFileList, int waittime DEF_PARAM(5000));
 
 /*
-	ÃèÊö:¿ØÖÆ²¥·ÅÉè±¸ÉÏÒôÆµÎÄ¼þ
-	²ÎÊý:
-		lLoginID[in]:	   µÇÂ½¾ä±ú
-		lpMusicControl[in]:ÐèÒª²¥·ÅµÄÎÄ¼þºÍ¿ØÖÆÃüÁî
-		waittime[in]:      µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
+	==²¥·ÅÒôÆµÎÄ¼þÐèÒªÎÄ¼þÃû£¬ÆäËûµÄ²»ÐèÒª£¬ACTIONÒ»¶¨Òª¸³Öµ
+	== Action  ²Î¿¼ SDK_Music_Play_Action
  */
 H264_DVR_API bool CALL_METHOD H264_DVR_ControlAudio(long lLoginID, SDK_LocalMusicControl *lpMusicControl, int waittime DEF_PARAM(2000));
 
-/*
-	ÃèÊö:ÐÞ¸ÄÔÆ´©Í¸·þÎñÆ÷µØÖ·
-	²ÎÊý:
-		ntype[in]:	  ±¸ÓÃ²ÎÊý
-		pUserData[in]:·þÎñÆ÷µØÖ·
-		nlen[in]:     ±¸ÓÃ²ÎÊý
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_UserData(int ntype,char *pUserData, long nlen);
-/*
-	ÃèÊö:¿ªÊ¼ÔÆÉý¼¶
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		sUpgradeVer[in]:Éý¼¶µÄÎÄ¼þÐÅÏ¢
-	·µ»ØÖµ:
-		=0:³É¹¦
-		<0:Ê§°Ü
-*/
 H264_DVR_API long CALL_METHOD H264_DVR_Upgrade_Cloud(long lLoginID, SDK_CloudUpgradeVersion *sUpgradeVer, int nType DEF_0_PARAM, fUpgradeCallBack cbUpgrade DEF_0_PARAM, long dwUser DEF_0_PARAM);
-/*
-	ÃèÊö:ÐÂµÄÔÆÉý¼¶
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		sUpgradeVer[in]:Éý¼¶µÄÎÄ¼þÐÅÏ¢
-	·µ»ØÖµ:
-		=0:³É¹¦
-		<0:Ê§°Ü
-		Ïà¹Øº¯Êý:H264_DVR_GetUpgradeVersion
-*/
-H264_DVR_API long CALL_METHOD H264_DVR_Upgrade_Cloud_V2(long lLoginID, SDK_CloudUpgradeStartReq *sUpgradeVer, int nType DEF_0_PARAM, fUpgradeCallBack cbUpgrade DEF_0_PARAM, long dwUser DEF_0_PARAM);
-/*
-	ÃèÊö:Í£Ö¹ÔÆÉý¼¶
-	²ÎÊý:
-		lHandle[in]:ÔÆÉý¼¶¾ä±ú
-	·µ»ØÖµ:
-		=0:³É¹¦
-		<0:Ê§°Ü
-*/
 H264_DVR_API long CALL_METHOD H264_DVR_StopUpgrade_Cloud(long lHandle);
-/*
-	¹¦ÄÜ:²éÑ¯Ä³¸öÉè±¸µÄÍâÍøip
-	²ÎÊý:
-		uuid[in]:Éè±¸ÐòÁÐºÅ
-		ip[out]: ÍâÍøip
-	·µ»ØÖµ:
-		=1: ³É¹¦
-		<=0:Ê§°Ü
-*/
 H264_DVR_API bool CALL_METHOD H264_DVR_Get_OutNet_IP(const char *uuid, char* ip);
-
-/*
-	ÃèÊö:¼È¿ÉÒÔ»ñÈ¡Ò²¿ÉÒÔÅäÖÃÉè±¸²ÎÊý
-	²ÎÊý:
-		lLoginID[in]:		 µÇÂ½¾ä±ú
-		nCmdReq[in]:		 ÇëÇóÃüÁî
-		szCmd[in]:			 jsonÃû³Æ
-		lpOutBuffer[out]:	 ½ÓÊÕjson»º³å
-		dwOutBufferSize[in]: ½ÓÊÕ»º³å´óÐ¡(×Ö½Ú)
-		lpBytesReturned[out]:½ÓÊÕµ½µÄjson´óÐ¡
-		nTimeout[in]:		 µÈ´ýÊ±¼ä
-		pInParam[in]:		 ÅäÖÃÊ±Ê¹ÓÃµÄjson×Ö·û´®
-		nInParamLen[in]:	 ÅäÖÃÊ±json´óÐ¡(×Ö½Ú)
-	·µ»ØÖµ:
-		=0:³É¹¦
-		<0:Ê§°Ü
-*/
-H264_DVR_API long CALL_METHOD H264_DVR_CmdGeneral(long lLoginID, int nCmdReq, const char *szCmd, void *lpOutBuffer, unsigned long dwOutBufferSize, unsigned long* lpBytesReturned, int nTimeout, char *pInParam DEF_PARAM(0), int nInParamLen DEF_PARAM(0), int nCmdRes DEF_PARAM(-1));
-
-
 #ifndef WIN32
-/*
-	ÃèÊö:ÉèÖÃÔÆÉý¼¶·þÎñÆ÷µØÖ·ºÍ¶Ë¿Ú
-	²ÎÊý:
-		ip[in]:  ·þÎñÆ÷µØÖ·
-		port[in]:¶Ë¿Ú
-	·µ»ØÖµ:
-		=0: ³É¹¦
-		<0:Ê§°Ü
-*/
-
-H264_DVR_API int  CALL_METHOD H264_DVR_SetServerAddr(const char *ip, int port);
-/*
-	ÃèÊö:µÃµ½Éý¼¶ÎÄ¼þÁÐ±í
-	²ÎÊý:
-		id[in]:idºÅ
-		VersionList[out]:½ÓÊÕÊý¾Ý»º³å,´óÐ¡sizeof(I_VERSION_INFO_T)*n
-		num[out]:»ñÈ¡µ½µÄÉý¼¶ÎÄ¼þÊýÁ¿
-	·µ»ØÖµ:
-		=0:³É¹¦
-		<0:Ê§°Ü
-*/
-H264_DVR_API int  CALL_METHOD H264_DVR_GetUpgradeFileList(const char *id, char *VersionList,int &num);
 
 typedef void (*IDownProcess)(int nProcess,int userData);
 typedef void (*IDownData)(unsigned char* data, unsigned int length, int nUserData);
 
-/*
-	ÃèÊö:ÏÂÔØÉý¼¶ÎÄ¼þµ½±¾µØ
-	²ÎÊý:
-		strSaveFilePath[in]:±£´æµÄÏÂÔØÎÄ¼þÂ·¾¶
-		id[in]:				idºÅ
-		date:				Éý¼¶ÎÄ¼þÈÕÆÚ
-		name:				Éý¼ÛÎÄ¼þÃû³Æ
-		length:				Éý¼¶ÎÄ¼þ´óÐ¡
-		ProgressCallback[out]:Éý¼¶ÎÄ¼þÏÂÔØ½ø¶È»Øµ÷
-		IDownData[out]:		Éý¼¶ÎÄ¼þÏÂÔØÊý¾Ý»Øµ÷
-		userData[out]:		»Øµ÷º¯Êý²ÎÊý
-	·µ»ØÖµ:
-		=0:³É¹¦
-		<0:Ê§°Ü
-		
-*/
+H264_DVR_API int  CALL_METHOD H264_DVR_SetServerAddr(const char *ip, int port);
+////start********ÊÖ»úÓÃ**********/
+H264_DVR_API int  CALL_METHOD H264_DVR_GetUpgradeFileList(const char *id, char *VersionList,int &num);
 H264_DVR_API int CALL_METHOD H264_DVR_StartDownload(const char* strSaveFilePath, const char *id, const char *date,const char *name,unsigned int length,IDownProcess ProgressCallback,IDownData DataCallback,int userData);
-/*
-	ÃèÊö:È¡ÏûÏÂÔØÉý¼¶ÎÄ¼þ
-	·µ»ØÖµ:
-		=0:³É¹¦
-		<0:Ê§°Ü
-		
-*/
 H264_DVR_API int CALL_METHOD H264_DVR_CancelDownload();
+////**************end/
 
-/*
-	ÃèÊö:»ñÈ¡ÔÆ´©Í¸·þÎñÆ÷ip
-	²ÎÊý:
-		_serverip[out]:ÔÆ´©Í¸·þÎñÆ÷ip
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
+H264_DVR_API bool CALL_METHOD H264_DVR_ControlFBExtraState(long lLoginID, bool bOn, int waittime);
+//»ñÈ¡·þÎñÆ÷ip(²âÊÔÓÃ)
 H264_DVR_API bool CALL_METHOD H264_DVR_GetServerIp(char* _serverip);
+
 
 H264_DVR_API int CALL_METHOD H264_DVR_AuthDevice_Init(char *uuid,char *ip,int port);
 H264_DVR_API int CALL_METHOD H264_DVR_AuthDevice_Register();
 H264_DVR_API int CALL_METHOD H264_DVR_AuthDevice_UnRegister();
+
 H264_DVR_API int CALL_METHOD H264_DVR_AuthDevice_GetUpdateServer(char *ip,int size);
 
 
@@ -7545,243 +4907,30 @@ typedef int (*MpsDevDataRecv)(char *buffer,int size,int clientID);	//Êý¾ÝÓÉ¿Í»§¶
 H264_DVR_API int CALL_METHOD H264_DVR_AlarmPush(char* buffer,int size);
 H264_DVR_API int CALL_METHOD H264_DVR_AlarmStart(char* uuid,char* serIP,MpsDevAuth  AuthCb, MpsDevDataRecv DataRecvCb);
 
-/*
-	ÃèÊö:»ñÈ¡´©Í¸¿âµÄ°æ±¾ÐÅÏ¢
-	²ÎÊý:
-		version[out]:´©Í¸¿â°æ±¾ÐÅÏ¢
-		size[i]:	 ´óÐ¡
-*/
+H264_DVR_API int CALL_METHOD H264_DVR_IMpsClient(char* uuid,SDK_CONFIG_TYPE configType,char* buffer,int size);
+
+H264_DVR_API int CALL_METHOD H264_DVR_IMpsGetClient(char* uuid,SDK_CONFIG_TYPE configType,char* buffer,int size);
+H264_DVR_API int CALL_METHOD H264_DVR_IMpsInbuffer(char* uuid,SDK_CONFIG_TYPE configType,char* buffer,int *size);
+H264_DVR_API long CALL_METHOD H264_DVR_Upgrade_Cloud_V2(char* uuid, SDK_CloudUpgradeVersion *sUpgradeVer, int nType,fUpgradeCallBack cbUpgrade, long dwUser);
+
+H264_DVR_API int H264_DVR_SearchAlarmInfo(char *ip, int port, SDK_XPMS_SEARCH_ALARMINFO_REQ &AlarmInfoReq);
+H264_DVR_API int H264_DVR_SearchAlarmPic(char *ip, int port, SDK_XPMS_SEARCH_ALARMPIC_REQ &AlarmPicReq);
+//»ñÈ¡´©Í¸¿âµÄ°æ±¾ÐÅÏ¢
 H264_DVR_API void CALL_METHOD H264_VV_NAT_GetVersion(char *version, int size);
-/*
-	ÃèÊö:Ç¿ÖÆ×ß×ª·¢
-	²ÎÊý:
-		skipP2P[in];1-Ç¿ÖÆ×ª·¢;0-°´Õý³£¼ì²â»úÖÆÁ÷³Ì
-*/
+////Ôö¼ÓÇ¿ÖÆ×ß×ª·¢µÄ½Ó¿Ú£»skipP2P=1  Ç¿ÖÆ×ª·¢¡£skipP2P=0 °´Õý³£¼ì²â»úÖÆÁ÷³Ì¡£
 H264_DVR_API void CALL_METHOD H264_Direct_Proxy(int skipP2P);
-/*
-	ÃèÊö:ÅÐ¶ÏÉè±¸ÊÇ¾«Æ·»¹ÊÇ·Ç¾«Æ·
-	·µ»ØÖµ:
-		=1:¾«Æ·Éè±¸
-		=0:ÆÕÍ¨Éè±¸	
-*/
+//1ÐÛÂõ¾«Æ·  0ÆÕÍ¨µÄ
 H264_DVR_API int CALL_METHOD H264_XM_Unique();
-/*
-	ÃèÊö:µÃµ½±¨¾¯ÍÆËÍ¶ÔÏóÖ¸Õë,¹©ÊÖ»ú¿ª·¢ÓÃ
-	·µ»ØÖµ:
-		mps±¨¾¯ÍÆËÍ¿âIMpsAlarmClient¶ÔÏóÖ¸Õë
-*/
 H264_DVR_API void* get_MpsAlarmClient_Instance();
-
-/*
-	ÃèÊö:µÃµ½ÅäÖÃµÄjson¸ñÊ½
-	²ÎÊý:
-		lLoginID[in]:	     µÇÂ½¾ä±ú
-		dwCommand[in]:	     jsonÃû
-		nChannelNO[in]:		 Í¨µÀºÅ,-1:µÃµ½È«Í¨µÀÅäÖÃ,0-n:µÃµ½µ¥¸öÍ¨µÀµÄÅäÖÃ,´Ó0¿ªÊ¼
-		lpOutBuffer[out]:	 ½ÓÊÕjson»º³å
-		dwOutBufferSize[in]: ½ÓÊÕ»º³å´óÐ¡
-		lpBytesReturned[out]:µÃµ½µÄ»º³å´óÐ¡(×Ö½Ú)
-		waittime[in]:		 µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		=1:³É¹¦
-		<0:Ê§°Ü
-*/
 H264_DVR_API long CALL_METHOD H264_DVR_GetDevConfig_Json(long lLoginID, const char* dwCommand, int nChannelNO,char * lpOutBuffer,unsigned long dwOutBufferSize,unsigned long* lpBytesReturned,int waittime DEF_PARAM(1000));
-/*
-	ÃèÊö:ÉèÖÃÅäÖÃµÄjson¸ñÊ½
-	²ÎÊý:
-		lLoginID[in]:	     µÇÂ½¾ä±ú
-		dwCommand[in]:	     jsonÃû
-		nChannelNO[in]:		 Í¨µÀºÅ,-1:µÃµ½È«Í¨µÀÅäÖÃ,0-n:µÃµ½µ¥¸öÍ¨µÀµÄÅäÖÃ,´Ó0¿ªÊ¼
-		lpOutBuffer[in]:	 ÉèÖÃµÄjson×Ö·û´®
-		waittime[in]:		 µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		=1:³É¹¦
-		<0:Ê§°Ü
-*/
+
 H264_DVR_API long CALL_METHOD H264_DVR_SetDevConfig_Json(long lLoginID,const char* dwCommand, int nChannelNO, char * lpInBuffer,int waittime DEF_PARAM(1000));
-
-
-typedef void (*PFunOnWifiConfigResult)(int nResult, SDK_CONFIG_NET_COMMON_V2 *pConfig);
-/*
-	ÃèÊö:¿ªÊ¼wifiÒ»¼üÅäÖÃ
-	²ÎÊý:
-		pInfo[i]:	   ÅäÖÃwifiµÄÒ»Ð©»ù±¾ÐÅÏ¢
-		pOnResult[out]:ÅäÖÃwifi³É¹¦ºó·µ»ØµÄÉè±¸ÍøÂç²ÎÊý
-	·µ»ØÖµ:
-		=1:³É¹¦
-		<0:Ê§°Ü
-*/
-H264_DVR_API int CALL_METHOD H264_DVR_StartWifiConfig(SDK_SWifiInfo *pInfo, PFunOnWifiConfigResult pOnResult);
-/*
-	ÃèÊö:Í£Ö¹wifiÒ»¼üÅäÖÃ
-*/
-H264_DVR_API void CALL_METHOD H264_DVR_StopWifiConfig();
-/*
-	ÃèÊö:¸ü¸ÄÈÏÖ¤¿âÓÃ»§ÃûºÍÃÜÂë
-	²ÎÊý:
-		userName[in]:ÓÃ»§Ãû
-		password[in]:ÃÜÂë
-	·µ»ØÖµ:
-		=0:³É¹¦
-		<0:Ê§°Ü
-*/
-H264_DVR_API int CALL_METHOD H264_DVR_SetAuthUserInfo(const char *userName, const char *password);
-
-#endif
-
-/*
-	ÃèÊö:»ñÈ¡ÔÆÉý¼¶µÄÉè±¸ÐÅÏ¢
-	²ÎÊý: 
-	lLoginID[int]:µÇÂ¼¾ä±ú
-	versionInfo	[int]	:ÇëÇóÉý¼¶µÄÐÅÏ¢
-	lpOutBuffer[out];Éè±¸°æ±¾µÄÐÅÏ¢
-	dwOutBufferSize[out]:Éè±¸°æ±¾µÄ´óÐ¡
-	lpBytesReturned[out]:½ÓÊÕµ½µÄ´óÐ¡
-	waittime£ºµÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-	=0:³É¹¦
-	<0:Ê§°Ü
-	Ïà¹Øº¯Êý£ºH264_DVR_Upgrade_Cloud_V2
-*/
-H264_DVR_API long CALL_METHOD H264_DVR_GetUpgradeVersion(long lLoginID,SDK_CloudUpgradeVersionReq* versionInfo, 
-	
-														 char * lpOutBuffer,unsigned long dwOutBufferSize,unsigned long* lpBytesReturned,int waittime/*=500*/);
-
-
 typedef int (*OnFoundDevCB)(char * uuid,int state,int userData);
-/*
-	ÃèÊö:²éÑ¯¶à¸öÉè±¸ÊÇ·ñÔÚÏßV2°æ±¾
-	²ÎÊý:
-		pStates[out]: Òª²éÑ¯µÄ¶à¸öÉè±¸ÐÅÏ¢,»á·µ»ØÉè±¸×´Ì¬
-		nTimeout[in]: µÈ´ýÊ±¼ä
-		decCb[out]:   Éè±¸ÔÚÏßÓë·ñµÄ»Øµ÷
-		userData[out]:»Øµ÷²ÎÊý
-	·µ»ØÖµ:
-		=0:³É¹¦
-		<0:Ê§°Ü
-*/
+H264_DVR_API int CALL_METHOD H264_DVR_Check_Device_Exist(SDK_SDevicesState *pStates, int nTimeout,OnFoundDevCB decCb,int userData);
 H264_DVR_API int CALL_METHOD H264_DVR_Check_Device_Exist_V2(SDK_SDevicesState *pStates, int nTimeout,OnFoundDevCB decCb,int userData);
-/*
-	ÃèÊö£ºÉèÖÃ¶þ´Î¿ª·¢ÔÆ·ÃÎÊuuid
-	²ÎÊý£º
-		uuid[in]: ¿Í»§uuid
-*/
-H264_DVR_API bool CALL_METHOD H264_DVR_Set_UUid(char* uuid);
-/*
-	ÃèÊö£º»ñÈ¡¸ÃÊ±¼ä¶ÎÉÏµÄÍ¼Æ¬
-	²ÎÊý£º
-		lLoginID[int]:µÇÂ¼¾ä±ú
-		pNetBreviaryPic:ÇëÇó»ñÈ¡µÄÐÅÏ¢
-		pBuffer:·µ»ØµÄÍ¼Æ¬Êý¾Ý
-*/
-H264_DVR_API bool CALL_METHOD H264_DVR_GetNetPic(long lLoginID, SDK_NetBreviaryPic* pNetBreviaryPic, char* pBuffer, int nBufLen, int *pPicLen);
-/* 
-	ÃèÊö:ÒÚ¼ÎºÍViscaÐ­ÒéÐÞ¸Ä£¬ÉèÖÃºÍ»ñÈ¡±¶ÂÊ½¹¾àµÈ
-	²ÎÊý:
-		lLoginID[in]:	µÇÂ½¾ä±ú
-		pCameraControl[in&out]: ¿ØÖÆ
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
-H264_DVR_API bool CALL_METHOD H264_DVR_CameraViscaControl(long lLoginID, SDK_CameraViscaControl *pCameraControl);
-
-/*
-	ÃèÊö:½¨Á¢Í¼Æ¬ÉÏ´«Í¨µÀ
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		nChannelNo[in]:Í¨µÀºÅ
-		nPicType[in]:ÐèÒª¹Ø×¢µÄÍ¼Æ¬ÀàÐÍ--¼ûÃ¶¾ÙSDK_INTEL_PUSH_TYPE
-		nType[in]:ÍÆËÍµÃµ½µÄÍ¼Æ¬ÀàÐÍ--¼ûÃ¶¾ÙSDK_INTEL_PUSH_IMG_TYPE
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
-*/
-H264_DVR_API long CALL_METHOD H264_DVR_SetupPushChan(long lLoginID, int nChannel, int nPicType, int nType);
-
-/*
-	ÃèÊö:¹Ø±ÕÍ¼Æ¬ÉÏ±¨
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		nChannelNo[in]:Í¨µÀºÅ
-	·µ»ØÖµ:
-		=1:³É¹¦
-		=0:Ê§°Ü
-*/
-H264_DVR_API bool CALL_METHOD H264_DVR_ClosePushChan(long lLoginID, int nChannelNo);
-
-/*
-	ÃèÊö:ÈÕÀú²éÑ¯
-	²ÎÊý:
-		lLoginID[in]:µÇÂ½¾ä±ú
-		pFindParam[in]:²éÑ¯Ìõ¼þ
-		pRetBuffer[out]:ÈÕÀú·µ»ØÐÅÏ¢
-		lBufSize[out]:ÈÕÀú·µ»Ø´óÐ¡
-		waittime:µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
-H264_DVR_API bool CALL_METHOD H264_DVR_SearchCalendar(long lLoginID, SDK_SearchCalendar *pFindParam, SDK_SearchCalendarMask *pRetBuffer, int waittime DEF_PARAM(2000));
-
-/*
-	ÃèÊö:ÌØÊâÃüÁî²Ù×÷--¼ûÃ¶¾ÙSDK_ConsumerProCmd
-	²ÎÊý:
-	lLoginID[in]:	     µÇÂ½¾ä±ú
-	lpOutBuffer[out]:	 ²Ù×÷Êý¾Ý--SDK_ConsumerProOpr
-	lpBytesReturned[out]:·µ»ØµÄÊý¾Ý
-	waittime[in]:		 µÈ´ýÊ±¼ä 
-	·µ»ØÖµ:
-	=1:³É¹¦
-	<0:Ê§°Ü
-*/
-H264_DVR_API long CALL_METHOD H264_DVR_ConsumerCmd(long lLoginID, SDK_ConsumerProOpr* lpOutBuffer, int* lpBytesReturned,int waittime DEF_PARAM(1000));
-
-/*
-	ÃèÊö:³µÅÆÕì²âÖÐºÚ°×Ãûµ¥²Ù×÷
-	²ÎÊý:
-	lLoginID[in]:	µÇÂ½¾ä±ú
-	dwCommand[in]:	²Ù×÷ÃüÁî--¼ûenum SDK_LPR_LIST_OPT_TYPE
-	dwtype[in]:		Ãûµ¥ÀàÐÍ--¼ûenum SDK_LPR_LIST_TYPE
-	lpBuffer[]:		Êý¾Ý--¼û--SDK_LprBlackWhiteList
-	dwBufferSize[]:	Êý¾Ý¸öÊý--³µÅÆÃûµ¥µÄ½á¹¹Ìå¸öÊý
-	szfileName[]:	ÎÄ¼þÃû£¬µ¼³öÃûµ¥Ê±£¬¿ÉÓÃÀ´»ñÈ¡£¬Èç¹ûÎª¿ÕÊ±£¬ÔòÓÃ
-	waittime[in]:   µÈ´ýÊ±¼ä 
-	·µ»ØÖµ:
-	=1:³É¹¦
-	<0:Ê§°Ü
-
-*/
-H264_DVR_API long CALL_METHOD H264_DVR_WhiteListCmd(long lLoginID, unsigned long dwCommand, int dwtype, char * lpBuffer, unsigned long& dwBufferSize, char* szfileName, int waittime DEF_PARAM(1000));
-
-/*
-	ÃèÊö:·¢ËÍ¹ã²¥Êý¾Ý¸ø¾ÖÓòÍøÄÚµÄÉè±¸ 
-	²ÎÊý:
-		szBuf[in]:		·¢ËÍÊý¾Ý»º³å
-		nBufLen[in]:	Êý¾Ý´óÐ¡
-		nType[in]:		Êý¾ÝÀàÐÍ--¼ûÃ¶¾Ùenum SDK_SendType
-		nSendTime[in]:µÈ´ýÊ±¼ä
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
-H264_DVR_API bool CALL_METHOD H264_DVR_SendToDevice(char* szBuf, int nBufLen, int nType, int nSendTime DEF_PARAM(3000));
-
-/*
-	ÃèÊö:¼ÓÃÜÃÜÂë
-	²ÎÊý:
-		outputPswBuf[out]:	¼ÓÃÜÃÜÂë
-		inputPswBuf[in]:	Î´¼ÓÃÜÃÜÂë--ÃÜÂë³¤¶È×î´ó100×Ö½Ú
-	·µ»ØÖµ:
-		true: ³É¹¦
-		false:Ê§°Ü
-*/
-H264_DVR_API bool CALL_METHOD H264_DVR_EncryptPassword(char * outputPswBuf, char * inputPswBuf);
-
-
-#ifdef _NAMESPACE_
-}
+typedef void (*PFunOnWifiConfigResult)(int nResult, SDK_CONFIG_NET_COMMON_V2 *pConfig);
+H264_DVR_API int CALL_METHOD H264_DVR_StartWifiConfig(SDK_SWifiInfo *pInfo, PFunOnWifiConfigResult pOnResult);
+H264_DVR_API void CALL_METHOD H264_DVR_StopWifiConfig();
+H264_DVR_API int CALL_METHOD H264_DVR_SetAuthUserInfo(const char *userName, const char *password);
 #endif
-
 #endif

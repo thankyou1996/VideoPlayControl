@@ -75,7 +75,7 @@ namespace TestDataSource
             v.DVSChannelNum = 1;
             v.DVSConnectPort = 34567;
             v.DVSName = "雄迈";
-            v.DVSNumber = "000801";
+            v.DVSNumber = "000802";
             v.DVSType = "SK8605XM";
             v.HostID = "0008";
             v.UserName = "admin";

@@ -32,19 +32,27 @@ namespace VideoPlayControl_UseDemo2
             //SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
-            //SDKState.XMSDK_Init();
+            //SDKState.XMSDK_Release();
+            SDKState.XMSDK_Init();
             //SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, "192.168.2.10", ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
 
             //HuaMaiVideo_TestData();
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
             VideoInfo v = TestDataSource.TestDataSource.XMDataSource1();
             dicVideoInfos[v.DVSNumber] = v;
+            VideoInfo v1 = TestDataSource.TestDataSource.XMDataSource();
+            dicVideoInfos[v1.DVSNumber] = v1;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             //videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath = Application.StartupPath + "\\AxisVideoRecord";
             videoPlayGroupControls_PTZAndTalk1.Init_VideoInfoSet(dicVideoInfos);
             //videoPlayGroupControls_PTZAndTalk1.VideoPlay("", -1);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SDKState.XMSDK_Release();
         }
     }
 }
