@@ -1656,10 +1656,27 @@ namespace VideoPlayControl
         private void XMVideo_VideoPlay()
         {
             H264_DVR_DEVICEINFO OutDev;
+            SDKState.XMSDK_Init();
             int nError = 0;
             VideoPlayState = Enum_VideoPlayState.Connecting;
-            lLogin = SDK_XMSDK.H264_DVR_Login(CurrentVideoInfo.DVSAddress, Convert.ToUInt16(CurrentVideoInfo.DVSConnectPort), CurrentVideoInfo.UserName,
-                CurrentVideoInfo.Password, out OutDev, out nError, SocketStyle.TCPSOCKET);
+            #region 连接类型选择 
+            if (CurrentVideoPlaySet.ConnType == Enum.Enum_VideoConnType.Auto)
+            {
+                CurrentVideoPlaySet.ConnType = CommonMethod.Verification.isIP(CurrentVideoInfo.DVSAddress) ? Enum.Enum_VideoConnType.Direct : Enum.Enum_VideoConnType.Clound;
+            }
+            if (CurrentVideoPlaySet.ConnType == Enum.Enum_VideoConnType.Clound)
+            {
+                //雄迈云
+                lLogin = SDK_XMSDK.H264_DVR_Login_Cloud(CurrentVideoInfo.DVSAddress, Convert.ToUInt16(CurrentVideoInfo.DVSConnectPort), CurrentVideoInfo.UserName, CurrentVideoInfo.Password, out OutDev, out nError, SocketStyle.TCPSOCKET);
+            }
+            else
+            {
+                //默认直连
+                lLogin = SDK_XMSDK.H264_DVR_Login(CurrentVideoInfo.DVSAddress, Convert.ToUInt16(CurrentVideoInfo.DVSConnectPort), CurrentVideoInfo.UserName, CurrentVideoInfo.Password, out OutDev, out nError, SocketStyle.TCPSOCKET);
+            }
+            //lLogin = SDK_XMSDK.H264_DVR_Login("192.168.2.165", 34567, "admin", "123456", out OutDev, out nError, SocketStyle.TCPSOCKET);
+            #endregion
+
             if (lLogin <= 0)
             {
                 CurrentVideoInfo.NetworkState = 0;//离线
@@ -1689,12 +1706,12 @@ namespace VideoPlayControl
             {
                 //视频播放异常，后期根据 H264_DVR_GetLastError 获取错误码进行操作及 提示
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException); //连接成功   
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException); //连接成功
             }
         }
 
         /// <summary>
-        /// 视频录像
+        /// 雄迈视频录像
         /// </summary>
         public bool XMVideo_VideoRecordStart(string strRecFilePath)
         {
@@ -1722,13 +1739,17 @@ namespace VideoPlayControl
         }
 
         /// <summary>
-        /// 海康视频关闭
+        /// 雄迈视频关闭
         /// </summary>
         public void XMVideo_VideoClose()
         {
-            SDK_XMSDK.H264_DVR_StopLocalPlay(m_iPlayhandle);   //停止录像
-            SDK_XMSDK.H264_DVR_StopRealPlay(m_iPlayhandle, (uint)intptrPlayMain);
-            SDK_XMSDK.H264_DVR_Logout(Convert.ToInt32(lLogin));
+            int intResult = -1;
+            bool bolResult = false;
+            //bolResult = SDK_XMSDK.H264_DVR_StopLocalPlay(m_iPlayhandle);   //停止录像
+            intResult = SDK_XMSDK.H264_DVR_StopRealPlay(m_iPlayhandle, (uint)intptrPlayMain);
+            intResult = SDK_XMSDK.H264_DVR_Logout(lLogin);
+            SDKState.XMSDK_Release();
+            Thread.Sleep(3000);
             return;
         }
 
@@ -1854,7 +1875,6 @@ namespace VideoPlayControl
                         break;
                 }
             }
-
         }
 
         /// <summary>

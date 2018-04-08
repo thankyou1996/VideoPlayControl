@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using VideoPlayControl.Enum;
 
 namespace VideoPlayControl
 {
@@ -139,5 +140,18 @@ namespace VideoPlayControl
             set { intPTZSpeed = value; }
         }
 
+        /// <summary>
+        /// 连接类型
+        /// </summary>
+        private Enum_VideoConnType connType;
+
+        /// <summary>
+        /// 连接类型
+        /// </summary>
+        public Enum_VideoConnType ConnType
+        {
+            get { return connType; }
+            set { connType = value; }
+        }
     }
 }

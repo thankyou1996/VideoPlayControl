@@ -337,7 +337,7 @@ namespace VideoPlayControl
         {
             SDKEventCallBack(Enum_VideoType.Ezviz, Enum_SDKStateEventType.SDKInitStart);
             UInt32 iResult = 0;
-            UInt32 Temp_iResult = 0;
+            UInt32 Temp_iResult = 0; 
             #region 基本信息初始化
             Temp_iResult = SDK_HuaMai.hm_sdk_init();
             if (Temp_iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
@@ -462,6 +462,7 @@ namespace VideoPlayControl
         {
             disCallback = new SDK_XMSDK.fDisConnect(DisConnectBackCallFunc);
             XMSDKState = SDK_XMSDK.H264_DVR_Init(disCallback, IntPtr.Zero) == 1 ? Enum_SDKState.SDK_Init : Enum_SDKState.SDK_InitFail;
+            SDK_XMSDK.H264_DVR_SetConnectTime(5000, 3);
             return XMSDKState;
         }
 

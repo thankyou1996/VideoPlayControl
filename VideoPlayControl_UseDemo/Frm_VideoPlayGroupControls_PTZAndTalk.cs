@@ -6,7 +6,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VideoPlayControl;
 
@@ -34,17 +33,19 @@ namespace VideoPlayControl_UseDemo
             SDKState.Ezviz_SDKInit();
             SDKState.SKVideoSDKInit();
             SDKState.HuaMai_Init();
+            SDKState.XMSDK_Init();
             //SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, "192.168.2.10", ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
 
             //HuaMaiVideo_TestData();
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
-            VideoInfo v = TestDataSource.TestDataSource.TestData_Axis();
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource();
             dicVideoInfos[v.DVSNumber] = v;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath = Application.StartupPath + "\\AxisVideoRecord";
             videoPlayGroupControls_PTZAndTalk1.Init_VideoInfoSet(dicVideoInfos);
+            //videoPlayGroupControls_PTZAndTalk1.VideoPlay("", -1);
         }
 
         #region 测试数据

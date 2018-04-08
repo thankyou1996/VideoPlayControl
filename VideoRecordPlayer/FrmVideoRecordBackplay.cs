@@ -68,5 +68,21 @@ namespace VideoRecordPlayer
         {
             videoRecordBackplayWindow1.CloseVideoRecord();
         }
+
+        private void videoRecordBackplayWindow1_DragDrop(object sender, DragEventArgs e)
+        {
+            string strPath = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();     //获取文件路径
+            VideoRecordInfo v = SK3000VideoRecordConvert.GetVideoRecordInfo_ByFileName(strPath);
+            //videoBackplayWindow1.Init_SetVideoRecord(v);
+            //videoBackplayWindow1.PlayVideoRecord();
+        }
+
+        private void videoRecordBackplayWindow1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.All;
+            }
+        }
     }
 }

@@ -53,7 +53,7 @@
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(800, 387);
+            this.pnlMain.Size = new System.Drawing.Size(800, 460);
             this.pnlMain.TabIndex = 3;
             // 
             // videoRecordBackplayWindow1
@@ -62,8 +62,10 @@
             this.videoRecordBackplayWindow1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoRecordBackplayWindow1.Location = new System.Drawing.Point(0, 25);
             this.videoRecordBackplayWindow1.Name = "videoRecordBackplayWindow1";
-            this.videoRecordBackplayWindow1.Size = new System.Drawing.Size(800, 362);
+            this.videoRecordBackplayWindow1.Size = new System.Drawing.Size(800, 435);
             this.videoRecordBackplayWindow1.TabIndex = 2;
+            this.videoRecordBackplayWindow1.DragDrop += new System.Windows.Forms.DragEventHandler(this.videoRecordBackplayWindow1_DragDrop);
+            this.videoRecordBackplayWindow1.DragEnter += new System.Windows.Forms.DragEventHandler(this.videoRecordBackplayWindow1_DragEnter);
             // 
             // msMain
             // 
@@ -105,7 +107,7 @@
             this.pnlBottom.Controls.Add(this.btnStartPlay);
             this.pnlBottom.Controls.Add(this.trackBar);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 387);
+            this.pnlBottom.Location = new System.Drawing.Point(0, 460);
             this.pnlBottom.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(800, 82);
@@ -160,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 469);
+            this.ClientSize = new System.Drawing.Size(800, 542);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlBottom);
             this.Name = "FrmVideoRecordBackplay";

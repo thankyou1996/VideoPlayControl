@@ -48,11 +48,38 @@ namespace TestDataSource
             v.DVSChannelNum = 1;
             v.DVSConnectPort = 34567;
             v.DVSName = "雄迈";
-            v.DVSNumber = "00000801";
+            v.DVSNumber = "000801";
             v.DVSType = "SK8605XM";
             v.HostID = "0008";
             v.UserName = "admin";
-            v.Password = "";
+            v.Password = "123456";
+            v.NetworkState = 0;
+            for (int i = 0; i < v.DVSChannelNum; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i + 1);
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8605XM";
+                c.DVSNumber = "000501";
+                v.Cameras[c.Channel] = c;
+            }
+            return v;
+        }
+
+        public static VideoInfo XMDataSource1()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.XMaiVideo;
+            v.DVSAddress = "93c4de073e976f89";
+            v.DVSChannelNum = 1;
+            v.DVSConnectPort = 34567;
+            v.DVSName = "雄迈";
+            v.DVSNumber = "000801";
+            v.DVSType = "SK8605XM";
+            v.HostID = "0008";
+            v.UserName = "admin";
+            v.Password = "123456";
             v.NetworkState = 0;
             for (int i = 0; i < v.DVSChannelNum; i++)
             {

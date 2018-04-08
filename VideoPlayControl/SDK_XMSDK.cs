@@ -848,7 +848,7 @@ namespace VideoPlayControl
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
 	    public SDK_NetDHCPConfig[] vNetDHCPConfig;
     };
-    class SDK_XMSDK
+    public class SDK_XMSDK
     {
         
         public delegate void fDisConnect(int lLoginID, string pchDVRIP, int nDVRPort, IntPtr dwUser);
@@ -875,6 +875,10 @@ namespace VideoPlayControl
 
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
         public static extern Int32 H264_DVR_Login(string sDVRIP, ushort wDVRPort, string sUserName, string sPassword,
+                              out H264_DVR_DEVICEINFO lpDeviceInfo, out int error, SocketStyle socketstyle);
+
+        [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
+        public static extern Int32 H264_DVR_Login_Cloud(string sDVRIP, ushort wDVRPort, string sUserName, string sPassword,
                               out H264_DVR_DEVICEINFO lpDeviceInfo, out int error, SocketStyle socketstyle);
 
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
@@ -925,7 +929,7 @@ namespace VideoPlayControl
         public static extern Int32 H264_DVR_Login(StringBuilder sDVRIP, ushort wDVRPort, StringBuilder sUserName, StringBuilder sPassword,
                               out H264_DVR_DEVICEINFO lpDeviceInfo, out short error, SocketStyle socketstyle);
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
-        public static extern Int32 H264_DVR_Logout(int lLoginID);//登出设备
+        public static extern Int32 H264_DVR_Logout(long lLoginID);//登出设备
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
         public static extern void DisConnectBackCallFunc(Int32 lLoginID, IntPtr pchDVRIP, ushort nDVRPort, uint dwUser);
 
