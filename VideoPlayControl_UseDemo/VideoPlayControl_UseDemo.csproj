@@ -62,9 +62,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TestDataSource">
-      <HintPath>..\TestDataSource\bin\Debug\TestDataSource.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FrmExtendedControlTest.cs">
@@ -210,6 +207,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TestDataSource\TestDataSource.csproj">
+      <Project>{c1d7eee4-ed8d-4336-bdd3-b3ff3ae7f0bf}</Project>
+      <Name>TestDataSource</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VideoPlayControl\VideoPlayControl.csproj">
       <Project>{8410BDF8-2F6C-4BD1-A602-037DD86072F2}</Project>
       <Name>VideoPlayControl</Name>

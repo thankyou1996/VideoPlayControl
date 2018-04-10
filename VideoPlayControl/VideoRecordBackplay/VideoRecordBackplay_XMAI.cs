@@ -59,6 +59,7 @@ namespace VideoPlayControl.VideoRecordBackplay
 
         public bool PlayVideoRecord()
         {
+            Thread.Sleep(300);
             SDK_XMSDK.H264_DVR_LocalPlayCtrl(m_nLocalplayHandle, SDK_LoalPlayAction.SDK_Local_PLAY_CONTINUE, 0);
             currentPlaybackState = Enum_VideoPlaybackState.Playing;
             StartGetVideoRecordPost();
@@ -90,6 +91,7 @@ namespace VideoPlayControl.VideoRecordBackplay
 
         private float Temp_intPos;
         private int Temp_intEndCount;
+        private const int Temp_EndMxCount=20;
         #endregion
 
         #region 事件注册
@@ -146,7 +148,7 @@ namespace VideoPlayControl.VideoRecordBackplay
                     Temp_intPos = pos; 
                     Temp_intEndCount = 0;
                 }
-                if (Temp_intEndCount > 10)
+                if (Temp_intEndCount > Temp_EndMxCount)
                 {
                     SDK_XMSDK.H264_DVR_StopLocalPlay(m_nLocalplayHandle);
                     currentPlaybackState = Enum_VideoPlaybackState.Stopped;

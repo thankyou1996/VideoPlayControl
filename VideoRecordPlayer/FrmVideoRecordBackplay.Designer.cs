@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVideoRecordBackplay));
             this.pnlMain = new System.Windows.Forms.Panel();
             this.videoRecordBackplayWindow1 = new VideoPlayControl.VideoRecordBackplayWindow();
             this.msMain = new System.Windows.Forms.MenuStrip();
@@ -89,15 +90,16 @@
             // tsmiSelectedFile
             // 
             this.tsmiSelectedFile.Name = "tsmiSelectedFile";
-            this.tsmiSelectedFile.Size = new System.Drawing.Size(124, 22);
+            this.tsmiSelectedFile.Size = new System.Drawing.Size(180, 22);
             this.tsmiSelectedFile.Text = "打开文件";
             this.tsmiSelectedFile.Click += new System.EventHandler(this.tsmiSelectedFile_Click);
             // 
             // tsmiClose
             // 
             this.tsmiClose.Name = "tsmiClose";
-            this.tsmiClose.Size = new System.Drawing.Size(124, 22);
+            this.tsmiClose.Size = new System.Drawing.Size(180, 22);
             this.tsmiClose.Text = "退出";
+            this.tsmiClose.Click += new System.EventHandler(this.tsmiClose_Click);
             // 
             // pnlBottom
             // 
@@ -165,6 +167,7 @@
             this.ClientSize = new System.Drawing.Size(800, 542);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlBottom);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmVideoRecordBackplay";
             this.Text = "视频回放";
             this.Load += new System.EventHandler(this.FrmVideoRecordBackplay_Load);

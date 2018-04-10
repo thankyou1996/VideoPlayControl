@@ -38,9 +38,9 @@ namespace VideoPlayControl_UseDemo2
 
             //HuaMaiVideo_TestData();
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
-            VideoInfo v = TestDataSource.TestDataSource.XMDataSource1();
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource();
             dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v1 = TestDataSource.TestDataSource.XMDataSource();
+            VideoInfo v1 = TestDataSource.TestDataSource.XMDataSource1();
             dicVideoInfos[v1.DVSNumber] = v1;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             //videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;

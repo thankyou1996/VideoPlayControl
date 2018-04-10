@@ -450,7 +450,7 @@ namespace VideoPlayControl
             private set
             {
                 s_XMSDKState = value;
-                SDKStateChange(Enum_VideoType.HikDVR, s_XMSDKState);
+                SDKStateChange(Enum_VideoType.XMaiVideo, s_XMSDKState);
             }
         }
 
@@ -462,7 +462,7 @@ namespace VideoPlayControl
         {
             disCallback = new SDK_XMSDK.fDisConnect(DisConnectBackCallFunc);
             XMSDKState = SDK_XMSDK.H264_DVR_Init(disCallback, IntPtr.Zero) == 1 ? Enum_SDKState.SDK_Init : Enum_SDKState.SDK_InitFail;
-            SDK_XMSDK.H264_DVR_SetConnectTime(5000, 3);
+            SDK_XMSDK.H264_DVR_SetConnectTime(3000, 3);
             return XMSDKState;
         }
 

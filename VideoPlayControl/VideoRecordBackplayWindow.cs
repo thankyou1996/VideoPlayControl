@@ -20,7 +20,7 @@ namespace VideoPlayControl
                 VideoRecodPosChangeEvnet(this, fltPosValue);
             }
         }
-        IVideoRecordBackplay videoPlay;
+        public IVideoRecordBackplay videoPlay;
         public VideoRecordBackplayWindow()
         {
             InitializeComponent();

@@ -50,10 +50,10 @@ namespace VideoPlayControl_UseDemo
             //VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             SDKState.SDKStateChangeEvent += SDKStateChange;
-            SDKState.CloundSee_SDKInit();
-            SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit();
-            SDKState.HuaMai_Init();
+            //SDKState.CloundSee_SDKInit();
+            //SDKState.Ezviz_SDKInit();
+            //SDKState.SKVideoSDKInit();
+            //SDKState.HuaMai_Init();
             SDKState.XMSDK_Init();
             Init();
         }
@@ -752,7 +752,7 @@ namespace VideoPlayControl_UseDemo
         }
         private void btnXMTestData1_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.XMDataSource1();
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource2();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

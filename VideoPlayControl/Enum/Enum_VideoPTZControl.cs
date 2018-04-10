@@ -40,6 +40,21 @@ namespace VideoPlayControl
         /// <summary>
         /// 右下
         /// </summary>
-        PTZControl_RightDown = 8
+        PTZControl_RightDown = 8,
+
+        /// <summary>
+        /// 设置预置点
+        /// </summary>
+        PTZControl_SetPreset = 9,
+
+        /// <summary>
+        /// 转到预置点
+        /// </summary>
+        PTZControl_GoToPreser = 10,
+
+        /// <summary>
+        /// 删除预置点
+        /// </summary>
+        PTZControl_DelPreset = 11,
     }
 }

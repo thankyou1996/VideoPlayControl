@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace VideoRecordPlayer
@@ -19,7 +20,9 @@ namespace VideoRecordPlayer
         }
         public FrmVideoRecordBackplay(VideoRecordInfo v)
         {
+            InitializeComponent();
             videoRecordBackplayWindow1.SetVideoRecordInfo(v);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,6 +33,11 @@ namespace VideoRecordPlayer
         private void FrmVideoRecordBackplay_Load(object sender, EventArgs e)
         {
             videoRecordBackplayWindow1.VideoRecodPosChangeEvnet += VideoRecordBackplayWindow1_VideoRecodPosChangeEvnet;
+            if (videoRecordBackplayWindow1.videoPlay != null && videoRecordBackplayWindow1.videoPlay.VideoRecordInfo != null)
+            {
+                videoRecordBackplayWindow1.OpenVideoRecord();
+                videoRecordBackplayWindow1.PlayVideoRecord();
+            }
         }
 
         private void VideoRecordBackplayWindow1_VideoRecodPosChangeEvnet(object value, float fltPosValue)
@@ -83,6 +91,11 @@ namespace VideoRecordPlayer
             {
                 e.Effect = DragDropEffects.All;
             }
+        }
+
+        private void tsmiClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

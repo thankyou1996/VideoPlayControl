@@ -1018,8 +1018,9 @@ namespace VideoPlayControl
         public static extern bool H264_DVR_LocalCatchPic(int lHandle, string strPath);
 
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
-        public static extern bool H264_DVR_PTZControl(int lLoginID,int nChannelNo, int lPTZCommand, bool bStop, long lSpeed);
-
+        public static extern bool H264_DVR_PTZControl(int lLoginID, int nChannelNo, int lPTZCommand, bool bStop , long lSpeed );
+        [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
+        public static extern bool H264_DVR_PTZControlEx(int lLoginID, int nChannelNo, int lPTZCommand, int lParam1, int lParam2, int lParam3, bool bStop);
         #region 结构体 
         /// <summary>
         /// 云台操作类型

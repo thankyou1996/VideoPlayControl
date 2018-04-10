@@ -1655,7 +1655,6 @@ namespace VideoPlayControl
         /// </summary>
         private void XMVideo_VideoPlay()
         {
-            SDKState.XMSDK_Init();
             H264_DVR_DEVICEINFO OutDev;
             int nError = 0;
             VideoPlayState = Enum_VideoPlayState.Connecting;
@@ -1689,7 +1688,7 @@ namespace VideoPlayControl
             playstru.nChannel = CurrentCameraInfo.Channel;
             //playstru.nChannel = 0;
             playstru.nStream =0;
-            //playstru.nMode = 1;
+            playstru.nMode = 1;
             playstru.hWnd = intptrPlayMain;
             m_iPlayhandle = SDK_XMSDK.H264_DVR_RealPlay(Convert.ToInt32(lLogin), ref playstru);
             if (m_iPlayhandle > 0)
@@ -1716,24 +1715,23 @@ namespace VideoPlayControl
         /// </summary>
         public bool XMVideo_VideoRecordStart(string strRecFilePath)
         {
+            StringBuilder sbRecFilePath = new StringBuilder();
             if (string.IsNullOrEmpty(strRecFilePath))
             {
                 //不存在路径 使用默认路径 
-                //默认路径格式 [当前工作路径/XMVideoRecFile/DVSAddress/时间(yyyyMMddHHmmss)_通道号(01)]
-                StringBuilder sbRecDicPath = new StringBuilder();
-                sbRecDicPath.Append(ProgConstants.strXMVideo_RecDicPath);    //默认路径
-                sbRecDicPath.Append("\\" + CurrentVideoInfo.DVSAddress);    //DVSAddress
-                if (!Directory.Exists(sbRecDicPath.ToString()))
+                strRecFilePath = ProgConstants.strXMVideo_RecDicPath + "\\" + CurrentVideoInfo.DVSAddress;    //默认路径
+                if (!Directory.Exists(strRecFilePath))
                 {
                     //文件夹不存在，创建文件夹
-                    Directory.CreateDirectory(sbRecDicPath.ToString());
+                    Directory.CreateDirectory(strRecFilePath);
                 }
-                StringBuilder sbRecFilePath = new StringBuilder();
-                sbRecFilePath.Append(sbRecDicPath.ToString());
-                sbRecFilePath.Append("\\" + DateTime.Now.ToString("yyyyMMddHHmmss"));     //时间
-                sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));   //通道号
-                sbRecFilePath.Append(".h264");  //文件后缀
-                strRecFilePath = sbRecFilePath.ToString();
+            }
+            if (!strRecFilePath.EndsWith(".h264"))
+            {
+                //后缀错误，使用默认文件生成
+                //默认路径格式 [当前工作路径/XMVideoRecFile/DVSAddress/时间(yyyyMMddHHmmss)_通道号(01)]
+
+                strRecFilePath += "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
             }
             bool bolResult = SDK_XMSDK.H264_DVR_StartLocalRecord(m_iPlayhandle, strRecFilePath, Convert.ToInt32(MEDIA_FILE_TYPE.MEDIA_FILE_NONE));
             return bolResult;
@@ -1749,7 +1747,6 @@ namespace VideoPlayControl
             //bolResult = SDK_XMSDK.H264_DVR_StopLocalPlay(m_iPlayhandle);   //停止录像
             intResult = SDK_XMSDK.H264_DVR_StopRealPlay(m_iPlayhandle, (uint)intptrPlayMain);
             intResult = SDK_XMSDK.H264_DVR_Logout(lLogin);
-            SDKState.XMSDK_Init();
             return;
         }
 
@@ -1790,10 +1787,23 @@ namespace VideoPlayControl
             }
             if (XMVideoPtzType != SDK_XMSDK.PTZ_ControlType.EXTPTZ_TOTAL)
             {
-                //SDK_JCSDK.JCSDK_SendPTZCommand(intCloundSee_ConnID, XMVideoPtzType, bolStart);
-                bool bolResult = SDK_XMSDK.H264_DVR_PTZControl(Convert.ToInt32(lLogin), CurrentCameraInfo.Channel, Convert.ToInt32(XMVideoPtzType), !bolStart, CurrentVideoPlaySet.PTZSpeed);
-            }
 
+                Console.WriteLine("PTZControl" + "_" + bolStart.ToString());
+                //Cono
+                //SDK_JCSDK.JCSDK_SendPTZCommand(intCloundSee_ConnID, XMVideoPtzType, bolStart);
+                bool bolTemp = !bolStart;
+                bool bolResult = SDK_XMSDK.H264_DVR_PTZControl(lLogin, CurrentCameraInfo.Channel, Convert.ToInt32(XMVideoPtzType), bolTemp, CurrentVideoPlaySet.PTZSpeed);
+                StringBuilder sbDisplayInfo = new StringBuilder();
+                sbDisplayInfo.Append(DateTime.Now.ToString() + "_");
+                sbDisplayInfo.Append("PTZContorl");
+                sbDisplayInfo.Append("_" + lLogin);
+                sbDisplayInfo.Append("_" + CurrentCameraInfo.Channel);
+                sbDisplayInfo.Append("_" + XMVideoPtzType.ToString());
+                sbDisplayInfo.Append("_" + bolTemp);
+                sbDisplayInfo.Append("_" + CurrentVideoPlaySet.PTZSpeed);
+                sbDisplayInfo.Append("Result:" + bolResult.ToString());
+                Console.WriteLine(sbDisplayInfo.ToString());
+            }
         }
 
         #endregion
