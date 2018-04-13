@@ -43,18 +43,28 @@ namespace VideoPlayControl
         PTZControl_RightDown = 8,
 
         /// <summary>
+        /// 缩小
+        /// </summary>
+        PTZControl_Zoom_Out = 9,
+
+        /// <summary>
+        /// 放大
+        /// </summary>
+        PTZControl_Zoom_In = 10,
+
+        /// <summary>
         /// 设置预置点
         /// </summary>
-        PTZControl_SetPreset = 9,
+        PTZControl_SetPreset = 11,
 
         /// <summary>
         /// 转到预置点
         /// </summary>
-        PTZControl_GoToPreser = 10,
+        PTZControl_GoToPreser = 12,
 
         /// <summary>
         /// 删除预置点
         /// </summary>
-        PTZControl_DelPreset = 11,
+        PTZControl_DelPreset = 13,
     }
 }
