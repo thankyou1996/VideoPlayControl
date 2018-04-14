@@ -20,6 +20,7 @@ namespace VideoRecordPlayer
             Application.SetCompatibleTextRenderingDefault(false);
             //args = new string[] { @"G:\上班汇总\Working\维护项目\公用项目\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl_UseDemo\bin\Debug\AxisRecord\000601_00_20180127085739_06.bin" };
             //args = new string[] { @"C:\SHIKE_Video\0004\20180409205510\000401_00_20180409205522_08.h264" };
+            args = new string[] { @"C:\SHIKE_Video\0007\20180413211119\000701_00_20180413211141_06.bin" };
             Application.Run(StartFormCreator(args));
         }
         static Form StartFormCreator(string[] args)

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VideoPlayControl</RootNamespace>
     <AssemblyName>VideoPlayControl</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -42,6 +42,16 @@
     <Reference Include="CommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll_Libyary\CommonMethod.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.AxisMediaParserLib, Version=3.40.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Axis\Interop.AxisMediaParserLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.AxisMediaViewerLib, Version=3.40.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Axis\Interop.AxisMediaViewerLib.dll</HintPath>
     </Reference>
     <Reference Include="Interop.RASPLAYEROCXLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -155,6 +165,7 @@
       <DependentUpon>VideoRecordBackplayWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="VideoRecordBackplay\IVideoRecordBackplay.cs" />
+    <Compile Include="VideoRecordBackplay\VideoRecordBackplay_AXIS.cs" />
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_XMAI.cs" />
     <Compile Include="VideoRecordInfoConvert.cs" />
     <Compile Include="VideoRecordList.cs">
