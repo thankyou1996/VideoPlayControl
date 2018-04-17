@@ -323,6 +323,9 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.DeviceNotExist:
                         sbDisplayInfo.Append("设备不存在");
                         break;
+                    case Enum_VideoPlayEventType.ConnNumMax:
+                        sbDisplayInfo.Append("超出设备最大连接数");
+                        break;
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;

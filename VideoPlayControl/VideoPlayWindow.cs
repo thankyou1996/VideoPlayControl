@@ -1706,10 +1706,19 @@ namespace VideoPlayControl
             }
             else
             {
+
+                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
                 int intResult = SDK_XMSDK.H264_DVR_GetLastError();
                 //视频播放异常，后期根据 H264_DVR_GetLastError 获取错误码进行操作及 提示
-                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException); //连接成功
+                switch (intResult)
+                {
+                    case (int)SDK_RET_CODE.H264_DVR_NATCONNET_REACHED_MAX:
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnNumMax); //连接成功
+                        break;
+                    default:
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException); //连接成功
+                        break;
+                }
             }
         }
 
@@ -1747,7 +1756,7 @@ namespace VideoPlayControl
         {
             int intResult = -1;
             bool bolResult = false;
-            //bolResult = SDK_XMSDK.H264_DVR_StopLocalPlay(m_iPlayhandle);   //停止录像
+            bolResult = SDK_XMSDK.H264_DVR_StopLocalPlay(m_iPlayhandle);   //停止录像
             intResult = SDK_XMSDK.H264_DVR_StopRealPlay(m_iPlayhandle, (uint)intptrPlayMain);
             intResult = SDK_XMSDK.H264_DVR_Logout(lLogin);
             return;
@@ -1993,7 +2002,7 @@ namespace VideoPlayControl
                         }
                         break;
                     case Enum_VideoType.Axis:
-                        //viewer.SetVideoPosition(0, 0, picPlayMain.Width, picPlayMain.Height);
+                        viewer.SetVideoPosition(0, 0, picPlayMain.Width, picPlayMain.Height);
                         break;
                 }
             }

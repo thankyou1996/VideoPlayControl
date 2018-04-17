@@ -84,6 +84,11 @@ namespace VideoPlayControl
         /// <summary>
         /// 设备登录异常
         /// </summary>
-        DevLoginException = 15
+        DevLoginException = 15,
+
+        /// <summary>
+        /// 超出设备最大连接数
+        /// </summary>
+        ConnNumMax=16,
     }
 }

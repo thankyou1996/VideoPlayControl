@@ -31,6 +31,7 @@ namespace VideoPlayControl
         H264_DVR_CLOSE_CHANNEL_ERROR = -11201,			//关闭通道失败
         H264_DVR_SUB_CONNECT_ERROR = -11202,			//建立媒体子连接失败
         H264_DVR_SUB_CONNECT_SEND_ERROR = -11203,			//媒体子连接通讯失败
+        H264_DVR_NATCONNET_REACHED_MAX = -11204,           //Nat视频链接达到最大，不允许新的Nat视频链接 
         /// 用户管理部分错误码
         H264_DVR_NOPOWER = -11300,			//无权限
         H264_DVR_PASSWORD_NOT_VALID = -11301,			// 账号密码不对
