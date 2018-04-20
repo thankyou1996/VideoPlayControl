@@ -245,27 +245,38 @@ namespace VideoPlayControl
         /// <returns></returns>
         public static int GetDevOnlineState(string strDevSerial,int intChannel)
         {
-            int intResult = 0;
-            IntPtr intptrToken = Marshal.StringToHGlobalAnsi(ProgParameter.strEzviz_AccessToken);
-            IntPtr intptrDevSerial = Marshal.StringToHGlobalAnsi(strDevSerial);
-            IntPtr intptrDevInfo = IntPtr.Zero;
-            int intLength;
-            intResult = SDK_EzvizSDK.OpenSDK_Data_GetDeviceInfo(intptrToken, intptrDevSerial, out intptrDevInfo, out intLength);
-            string strResult = Marshal.PtrToStringAnsi(intptrDevInfo);
-            JObject Temp_jobject = (JObject)JsonConvert.DeserializeObject(strResult);
-            JsonRequestResult RequestResult = (JsonRequestResult)Convert.ToInt32(Temp_jobject["result"]["code"]);
-            if (RequestResult == JsonRequestResult.RequestSuccess)
+            int intResult = -1;
+            string Temp_strDeviceData = "";
+            try
             {
-                //请求成功 赋值
-                JArray jar = JArray.Parse(Temp_jobject["result"]["data"].ToString());
-                foreach (JObject jo in jar)
+                IntPtr intptrToken = Marshal.StringToHGlobalAnsi(ProgParameter.strEzviz_AccessToken);
+                IntPtr intptrDevSerial = Marshal.StringToHGlobalAnsi(strDevSerial);
+                IntPtr intptrDevInfo = IntPtr.Zero;
+                int intLength;
+                intResult = SDK_EzvizSDK.OpenSDK_Data_GetDeviceInfo(intptrToken, intptrDevSerial, out intptrDevInfo, out intLength);
+                string strResult = Marshal.PtrToStringAnsi(intptrDevInfo);
+                Temp_strDeviceData = strResult;
+                JObject Temp_jobject = (JObject)JsonConvert.DeserializeObject(strResult);
+                JsonRequestResult RequestResult = (JsonRequestResult)Convert.ToInt32(Temp_jobject["result"]["code"]);
+                if (RequestResult == JsonRequestResult.RequestSuccess)
                 {
-                    if (intChannel.ToString() == jo["cameraNo"].ToString())
+                    //请求成功 赋值
+                    JArray jar = JArray.Parse(Temp_jobject["result"]["data"].ToString());
+                    foreach (JObject jo in jar)
                     {
-                        intResult = Convert.ToInt32(jo["status"]);
-                        break;
+                        if (intChannel.ToString() == jo["cameraNo"].ToString())
+                        {
+                            intResult = Convert.ToInt32(jo["status"]);
+                            break;
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                CommonMethod.LogWrite.WritExceptionLog("GetDevOnlineState", ex);
+                CommonMethod.LogWrite.WriteEventLog("DevException ", Temp_strDeviceData);
+                intResult = -1;
             }
             return intResult;
         }

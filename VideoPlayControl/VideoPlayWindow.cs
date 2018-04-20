@@ -830,12 +830,13 @@ namespace VideoPlayControl
             int intLenght = 0;
             int intResult = 0;
             CurrentVideoInfo.NetworkState = SDK_EzvizSDK.GetDevOnlineState(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel);
-            if (CurrentVideoInfo.NetworkState != 1)
+            if (CurrentVideoInfo.NetworkState == 0)
             {
                 //设备离线
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoDeviceNotOnline);
                 return;
             }
+            //状态未明进行连接
             callBack = new SDK_EzvizSDK.MsgHandler(Ezviz_MsgCallback);
             Ezviz_gchMsgBack = GCHandle.Alloc(callBack);
             string strUser = CurrentVideoInfo.DVSAddress + "_" + CurrentCameraInfo.Channel;
@@ -981,10 +982,13 @@ namespace VideoPlayControl
         /// <param name="pUser"></param>
         public void Ezviz_DataCallBackEvent(SDK_EzvizSDK.DataType enType, IntPtr pData, int iLen, IntPtr pUser)
         {
-            byte[] managedArray = new byte[iLen];
-            Marshal.Copy(pData, managedArray, 0, iLen);
-            string strUser = Marshal.PtrToStringAnsi(pUser);
-            lstVideoRecord.AddRange(managedArray);
+            if (CurrentVideoPlaySet.VideoRecordEnable)  //预防未其余窗口启用录像导致数据异常
+            {
+                byte[] managedArray = new byte[iLen];
+                Marshal.Copy(pData, managedArray, 0, iLen);
+                string strUser = Marshal.PtrToStringAnsi(pUser);
+                lstVideoRecord.AddRange(managedArray);
+            }
         }
 
         /// <summary>
@@ -994,11 +998,11 @@ namespace VideoPlayControl
         {
             SDK_EzvizSDK.OpenSDK_StopRealPlay(intptrSessionID, 0);
             SDK_EzvizSDK.OpenSDK_FreeSession(intptrSessionID.ToString());
-            
+
             if (Ezviz_gchMsgBack != null && Ezviz_gchMsgBack.IsAllocated)
             {
                 Ezviz_gchMsgBack.Free();
-            } 
+            }
             if (CurrentVideoPlaySet.VideoRecordEnable)
             {
                 Ezviz_GenerateRecord(CurrentVideoPlaySet.VideoRecordFilePath);

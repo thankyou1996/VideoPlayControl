@@ -59,7 +59,10 @@ namespace VideoPlayControl
         /// 自动播放视频
         /// </summary>
         public bool bolAutoPlayVideo = true;
+
+      
         #endregion
+
 
         string strTalkVideoNum = "";
 
@@ -422,6 +425,11 @@ namespace VideoPlayControl
                 videoPlayWindow.SetPresetPosi(intPreset);
             }
         }
+
+        public void SetPTZVisible(bool bolVisible)
+        {
+            pagePTZControl.Parent = bolVisible ? tabToolbar : null;
+        }
         
         #endregion
 
@@ -439,7 +447,11 @@ namespace VideoPlayControl
                     //当前控件未被释放
                     this.BeginInvoke(new EventHandler(delegate
                     {
-                        tslblPrompt.Text = strDisplayInfo;
+                        if (!this.IsDisposed)
+                        {
+                            tslblPrompt.Text = strDisplayInfo;
+                        }
+                        
                     }));
                 }
                 catch (Exception ex)

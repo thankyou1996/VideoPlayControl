@@ -15117,13 +15117,7 @@ namespace VideoPlayControl
         public int initialize()
         {
             int intRet=-1;
-            try
-            {
-                intRet = InitStreamClientLib();                
-            }
-            catch
-            {
-            }
+            intRet = InitStreamClientLib();
             if(intRet<0)
             {
                 _isInit = false;
@@ -15151,9 +15145,7 @@ namespace VideoPlayControl
             pmsgback = new pMsgBack(MyMsgRecCallBack);
             GCHandle.Alloc(pmsgback);//代码回收锁定
             int intRet=-1;
-
-            try
-            {
+            
                 intRet = HIKS_CreatePlayer(0, playHandle, pdatarec, pmsgback, 0);
                 if (intRet < 0)
                     return -1;
@@ -15202,10 +15194,7 @@ namespace VideoPlayControl
                     StopLiveVideo(); //iHsession 090928
                     return -3;
                 }
-            }
-            catch
-            {
-            }
+            
             return intRet;
         }
         public bool StopLiveVideo()
@@ -15322,22 +15311,12 @@ namespace VideoPlayControl
 
         public void SaveNetLog(string info)
         {
-            try
+            if (info != null && info != "")
             {
-                if (info != null && info != "")
-                {
-                    StreamWriter sw = new StreamWriter(System.Windows.Forms.Application.StartupPath + "\\CULog\\" + DateTime.Now.ToString("yyyyMMdd") + "(VideoInfo)" + ".log", true, Encoding.Default);
-                    try
-                    {
-                        sw.WriteLine(info);
-                        sw.Close();
-                    }
-                    catch
-                    { }
-                }
-            }
-            catch
-            {
+                StreamWriter sw = new StreamWriter(System.Windows.Forms.Application.StartupPath + "\\CULog\\" + DateTime.Now.ToString("yyyyMMdd") + "(VideoInfo)" + ".log", true, Encoding.Default);
+                    sw.WriteLine(info);
+                    sw.Close();
+                    
             }
         }
 

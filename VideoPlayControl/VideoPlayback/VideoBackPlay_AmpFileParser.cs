@@ -86,7 +86,10 @@ namespace VideoPlayControl.VideoPlayback
                     sample.Buffer = reader.ReadBytes(sample.BufferSize);
                 }
             }
-            catch (EndOfStreamException) { }
+            catch (EndOfStreamException)
+            {
+
+            }
 
             return sample;
         }
