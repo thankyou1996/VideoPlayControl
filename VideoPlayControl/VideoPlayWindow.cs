@@ -1865,6 +1865,10 @@ namespace VideoPlayControl
             //VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
             switch (CurrentVideoInfo.VideoType)
             {
+
+                case Enum_VideoType.Unrecognized:
+                    //不做操作
+                    break;
                 case Enum_VideoType.CloundSee:  //云视通设备
                     CloundSee_VideoPlay();
                     break;
@@ -1883,11 +1887,11 @@ namespace VideoPlayControl
                 case Enum_VideoType.Axis:       //安讯士
                     Axis_VideoPlay();
                     break;
-                case Enum_VideoType.HikDVR:
-                    iv.VideoPlay();
-                    break;
                 case Enum_VideoType.XMaiVideo:
                     XMVideo_VideoPlay();
+                    break;
+                default:
+                    iv.VideoPlay();
                     break;
             }
         }
@@ -1931,6 +1935,9 @@ namespace VideoPlayControl
             {
                 switch (CurrentVideoInfo.VideoType)
                 {
+                    case Enum_VideoType.Unrecognized:
+                        //不做操作
+                        break;
                     case Enum_VideoType.CloundSee:
                         CloundSee_VideoClose();
                         break;
@@ -1949,14 +1956,12 @@ namespace VideoPlayControl
                     case Enum_VideoType.Axis:
                         Axis_VideoColse();
                         break;
-                    case Enum_VideoType.HikDVR:
-                        //HikDVR_VideoClose();
-                        iv.VideoClose();
-                        break;
                     case Enum_VideoType.XMaiVideo:
                         XMVideo_VideoClose();
                         break;
-
+                    default:
+                        iv.VideoClose();
+                        break;
                 }
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
