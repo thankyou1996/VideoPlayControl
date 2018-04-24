@@ -57,7 +57,14 @@ namespace VideoPlayControl_UseDemo
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             SDKState.HikDVRSDK_Init();
+            SDKState.BlueSkySDK_Init();
+
             Init();
+
+
+
+            btnBlueSkyTestData_Click(sender, e);
+
         }
 
         #region 初始化
@@ -651,7 +658,8 @@ namespace VideoPlayControl_UseDemo
 
         private void btnTestClose_Click(object sender, EventArgs e)
         {
-            lstVideoPlayWindow[0].VideoClose();
+            videoWindowTest.VideoClose();
+            //lstVideoPlayWindow[0].VideoClose();
             //videoWindowTest.VideoClose();
             //SDKState.Ezviz_SDKRelease();
         }
@@ -697,11 +705,7 @@ namespace VideoPlayControl_UseDemo
 
         int intTempCount = 0;
 
-
-
-
-
-
+        
         int Temp_i = 1;
         int Temp_ii = 0;
         bool bolTestMode = false;
@@ -1158,6 +1162,40 @@ namespace VideoPlayControl_UseDemo
             txtVideoRecord.Text = sbAxisVideoRecord.ToString();
         }
 
-       
+        private void btnBlueSkyTestData_Click(object sender, EventArgs e)
+        {
+            VideoInfo v = TestDataSource.TestDataSource.BuleSkyDataSource();
+            dicVideoInfos[v.DVSNumber] = v;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+
+        int intBtnClick = 1;
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            VideoChannelListButton_Click(videoChannelList.lstbtns[Temp_i], (videoChannelList.lstbtns[intBtnClick]));
+
+            if (intBtnClick == 1)
+            {
+                intBtnClick = 2;
+            }
+            else
+            {
+                intBtnClick = 1;
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (timer2.Enabled)
+            {
+                timer2.Enabled = false;
+            }
+            else
+            {
+                timer2.Enabled = true;
+
+            }
+        }
     }
 }

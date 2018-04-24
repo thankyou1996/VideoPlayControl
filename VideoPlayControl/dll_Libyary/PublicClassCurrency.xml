@@ -414,6 +414,16 @@
             DVS连接端口
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intDVSDataPort">
+            <summary>
+            DVS数据端口
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSDataPort">
+            <summary>
+            DVS连接端口
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.VideoInfo.intDVSChannelNum">
             <summary>
             通道号数量
@@ -584,6 +594,11 @@
             雄迈视频SDK
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.BlueSky">
+            <summary>
+            蓝色星际
+            </summary>
+        </member>
         <member name="T:PublicClassCurrency.Enum_VIdeoRecordType">
             <summary>
             录像类型
@@ -609,6 +624,11 @@
         <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.XMaiVideo">
             <summary>
             雄迈
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.BlueSky">
+            <summary>
+            蓝色星际
             </summary>
         </member>
         <member name="T:PublicClassCurrency.Enum_VideoRecordFileType">

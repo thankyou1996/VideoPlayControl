@@ -46,6 +46,13 @@ namespace VideoPlayControl
         /// 雄迈SDK 
         /// </summary>
         public const string c_strXMVideoSDKFilePath = "\\XMVideoSDK\\NetSdk.dll";
+
+        /// <summary>
+        /// 蓝色星际
+        /// </summary>
+        public const string c_strBlueSkyVideoSDKFilePath = "\\BlueSkyVideoSDK\\dvxSdk.dll";
+
+        public const string c_strBlueSkyVideoSDKFilePath1 = "\\BlueSkyVideoSDK\\UKeyVerify_Cpp.dll";
         #endregion
 
         #region SDK默认参数
@@ -137,6 +144,11 @@ namespace VideoPlayControl
 
         #region XMVideo 雄迈
         public static string strXMVideo_RecDicPath = Environment.CurrentDirectory + "\\XMVideoRecFile";
+
+        #endregion
+
+        #region BlueSky 蓝色星际
+        public static string strBlueSkyVideo_RecDicPath = Environment.CurrentDirectory + "\\BlueSkyVideoRecFile";
 
         #endregion
 

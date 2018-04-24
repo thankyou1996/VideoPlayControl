@@ -479,7 +479,25 @@ namespace VideoPlayControl
             XMSDKState = SDK_XMSDK.H264_DVR_Cleanup() ? Enum_SDKState.SDK_Release : Enum_SDKState.SDK_ReleaseFail;
             return XMSDKState;
         }
-        #endregion 
+        #endregion
+
+        #region 蓝色星际 SDK
+        public static Enum_SDKState s_BlueState = Enum_SDKState.SDK_Null;
+        public static Enum_SDKState BlueSkySDKState
+        {
+            get { return s_BlueState; }
+            private set
+            {
+                s_BlueState = value;
+                SDKStateChange(Enum_VideoType.BlueSky, s_BlueState);
+            }
+        }
+        public static Enum_SDKState BlueSkySDK_Init()
+        {
+            BlueSkySDKState = SDK_BlueSDK.dvxSdkInit() == 0 ? Enum_SDKState.SDK_Init : Enum_SDKState.SDK_InitFail;
+            return BlueSkySDKState;
+        }
+        #endregion
 
         public static void VideoSDKRelease()
         {

@@ -326,6 +326,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.HikDVR:
                         iv = new VideoPlay_HikDVR();
                         break;
+                    case Enum_VideoType.BlueSky:
+                        iv = new VideoPlay_BuleSky(this.Handle);
+                        break;
                 }
             }
             else
@@ -337,6 +340,9 @@ namespace VideoPlayControl
                     {
                         case Enum_VideoType.HikDVR:
                             iv = new VideoPlay_HikDVR();
+                            break;
+                        case Enum_VideoType.BlueSky:
+                            iv = new VideoPlay_BuleSky(this.Handle);
                             break;
                     }
                 }
@@ -1865,7 +1871,6 @@ namespace VideoPlayControl
             //VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
             switch (CurrentVideoInfo.VideoType)
             {
-
                 case Enum_VideoType.Unrecognized:
                     //不做操作
                     break;
@@ -1962,8 +1967,8 @@ namespace VideoPlayControl
                     default:
                         iv.VideoClose();
                         break;
-            }
-            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+                }
+                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
             //}
         }

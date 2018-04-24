@@ -32,6 +32,7 @@ namespace VideoRecordPlayer
 
         private void FrmVideoRecordBackplay_Load(object sender, EventArgs e)
         {
+            VideoPlayControl.SDKState.BlueSkySDK_Init();
             videoRecordBackplayWindow1.VideoRecodPosChangeEvnet += VideoRecordBackplayWindow1_VideoRecodPosChangeEvnet;
             if (videoRecordBackplayWindow1.videoPlay != null && videoRecordBackplayWindow1.videoPlay.VideoRecordInfo != null)
             {
