@@ -33,6 +33,9 @@ namespace VideoPlayControl
                 case Enum_VIdeoRecordType.XMaiVideo:
                     videoPlay = new VideoRecordBackplay_XMAI();
                     break;
+                case Enum_VIdeoRecordType.BlueSky:
+                    videoPlay = new VideoRecordBackplay_BlueSky(this.Handle);
+                    break;
                 case Enum_VIdeoRecordType.Axis:
 
                     break;

@@ -34,6 +34,9 @@ namespace VideoPlayControl
                 case "08":
                     v.VideoRecordType = Enum_VIdeoRecordType.XMaiVideo;
                     break;
+                case "09":
+                    v.VideoRecordType = Enum_VIdeoRecordType.BlueSky;
+                    break;
                 default:
                     v.VideoRecordType = Enum_VIdeoRecordType.Unrecognized;
                     return v;
@@ -72,6 +75,9 @@ namespace VideoPlayControl
                     break;
                 case Enum_VideoType.XMaiVideo:
                     sbVideoRecordFileName.Append("08.h264");
+                    break;
+                case Enum_VideoType.BlueSky:
+                    sbVideoRecordFileName.Append("09.bsr");
                     break;
                 default:
                     sbVideoRecordFileName.Append("99.mp4");

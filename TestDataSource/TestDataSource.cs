@@ -149,5 +149,34 @@ namespace TestDataSource
             return v;
         }
         #endregion
+        #region 蓝色星际数据源
+        public static VideoInfo BuleSkyDataSource()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.BlueSky;
+            v.DVSAddress = "192.168.18.254";
+            v.DVSChannelNum = 65;
+            v.DVSConnectPort = 3721;
+            v.DVSDataPort = 3720;
+            v.DVSName = "蓝色星际DVR";
+            v.DVSNumber = "000801";
+            v.DVSType = "SK8605XM";
+            v.HostID = "0008";
+            v.UserName = "admin";
+            v.Password = "123456";
+            v.NetworkState = 0;
+            for (int i = 0; i < v.DVSChannelNum; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "通道" + i;
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8605XM";
+                c.DVSNumber = "000501";
+                v.Cameras[c.Channel] = c;
+            }
+            return v;
+        }
+        #endregion
     }
 }

@@ -23,7 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>
     </DocumentationFile>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -81,6 +81,7 @@
     <Compile Include="Enum\Enum_VideoPlayState.cs" />
     <Compile Include="Enum\Enum_VideoPTZControl.cs" />
     <Compile Include="PubDelegate.cs" />
+    <Compile Include="SDK_BlueSDK.cs" />
     <Compile Include="SDK_HikClientSDK.cs" />
     <Compile Include="ProgParameter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -154,6 +155,7 @@
       <DependentUpon>VideoPlayWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="VideoPlay\IVideoPlay.cs" />
+    <Compile Include="VideoPlay\VideoPlay_BuleSky.cs" />
     <Compile Include="VideoPlay\VideoPlay_HikDVR.cs" />
     <Compile Include="VideoPTZControl.cs">
       <SubType>UserControl</SubType>
@@ -169,6 +171,7 @@
     </Compile>
     <Compile Include="VideoRecordBackplay\IVideoRecordBackplay.cs" />
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_AXIS.cs" />
+    <Compile Include="VideoRecordBackplay\VideoRecordBackplay_BlueSky.cs" />
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_XMAI.cs" />
     <Compile Include="VideoRecordInfoConvert.cs" />
     <Compile Include="VideoRecordList.cs">
@@ -231,6 +234,20 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BlueSkyVideoSDK\dvxAiConfig.dll" />
+    <Content Include="BlueSkyVideoSDK\dvxConfig.dll" />
+    <Content Include="BlueSkyVideoSDK\dvxPlayer.dll" />
+    <Content Include="BlueSkyVideoSDK\dvxRemoteConfig.dll" />
+    <Content Include="BlueSkyVideoSDK\dvxSdk.dll" />
+    <Content Include="BlueSkyVideoSDK\ET199_32.dll" />
+    <Content Include="BlueSkyVideoSDK\fdk_aacdec.dll" />
+    <Content Include="BlueSkyVideoSDK\ffmpegDecoder.dll" />
+    <Content Include="BlueSkyVideoSDK\FishCorrect.dll" />
+    <Content Include="BlueSkyVideoSDK\hi_h264dec_w.dll" />
+    <Content Include="BlueSkyVideoSDK\hi_mjpeg_dec_w.dll" />
+    <Content Include="BlueSkyVideoSDK\ipcConfig.dll" />
+    <Content Include="BlueSkyVideoSDK\TulipBConfig.dll" />
+    <Content Include="BlueSkyVideoSDK\UKeyVerify_Cpp.dll" />
     <Content Include="dll_Libyary\CommonMethod.dll" />
     <Content Include="dll_Libyary\CommonMethod.pdb" />
     <Content Include="dll_Libyary\CommonMethod.XML" />
@@ -657,6 +674,7 @@
     <None Include="XMVideoSDK\NetSdk.exp" />
     <None Include="XMVideoSDK\NetSdk.lib" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
