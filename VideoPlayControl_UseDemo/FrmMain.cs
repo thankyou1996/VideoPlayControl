@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using VideoPlayControl;
+using VideoPlayControl.VideoPlay;
 
 namespace VideoPlayControl_UseDemo
 {
@@ -54,7 +55,8 @@ namespace VideoPlayControl_UseDemo
             //SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
-            SDKState.XMSDK_Init();
+            //SDKState.XMSDK_Init();
+            SDKState.HikDVRSDK_Init();
             Init();
         }
 
@@ -157,7 +159,6 @@ namespace VideoPlayControl_UseDemo
         }
         #endregion
 
-
         #region 控件事件
         public void SDKStateChangedCallBackEvent(object sender, Enum_SDKState sdkState)
         {
@@ -180,8 +181,17 @@ namespace VideoPlayControl_UseDemo
 
         public void VideoPlayEventCallBack(object sender, Enum_VideoPlayEventType eventType)
         {
-            VideoPlayWindow v = (VideoPlayWindow)sender;
-            AddRecord(v.CurrentVideoInfo.DVSAddress + "_" + eventType.ToString(), "VideoEvent");
+            try
+            {
+                VideoPlayWindow v = (VideoPlayWindow)sender;
+                AddRecord(v.CurrentVideoInfo.DVSAddress + "_" + eventType.ToString(), "VideoEvent");
+            }
+            catch (Exception ex)
+            {
+                //转换异常
+                IVideoPlay iv = (IVideoPlay)sender;
+                AddRecord(iv.CurrentVideoInfo.DVSAddress + "_" + eventType.ToString(), "VideoEvent");
+            }
         }
 
         /// <summary>
@@ -757,6 +767,13 @@ namespace VideoPlayControl_UseDemo
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
         }
+        private void btnHikTestData1_Click(object sender, EventArgs e)
+        {
+            VideoInfo v = TestDataSource.TestDataSource.GetHikDVSData1();
+            dicVideoInfos[v.DVSNumber] = v;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
         public void Ezviz_TestData()
         {
             //"cameraId":"7e1c18bad66544408b38d1711552e320","cameraName":"视频1@DVR(756217914)",
@@ -1141,6 +1158,6 @@ namespace VideoPlayControl_UseDemo
             txtVideoRecord.Text = sbAxisVideoRecord.ToString();
         }
 
-        
+       
     }
 }

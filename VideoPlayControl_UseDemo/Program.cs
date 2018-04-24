@@ -21,6 +21,7 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new Frn_VideoPlayGroupControl_Basic());
             //Application.Run(new FrmVideoInfoList());
             Application.Run(new FrmMain());
+            //Application.Run(new Form1());
             //Application.Run(new Frm_VideoPlayGroupControls_PTZAndTalk());
             //Application.Run(new Frm_VideoPlayGroupControls_PTZAndTalk());
             //Application.Run(new Frm_Temp_TestVideoPlay());

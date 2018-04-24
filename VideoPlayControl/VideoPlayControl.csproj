@@ -28,7 +28,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -80,6 +80,7 @@
     <Compile Include="Enum\Enum_VideoPlayEventType.cs" />
     <Compile Include="Enum\Enum_VideoPlayState.cs" />
     <Compile Include="Enum\Enum_VideoPTZControl.cs" />
+    <Compile Include="PubDelegate.cs" />
     <Compile Include="SDK_HikClientSDK.cs" />
     <Compile Include="ProgParameter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -152,6 +153,8 @@
     <Compile Include="VideoPlayWindow.Designer.cs">
       <DependentUpon>VideoPlayWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoPlay\IVideoPlay.cs" />
+    <Compile Include="VideoPlay\VideoPlay_HikDVR.cs" />
     <Compile Include="VideoPTZControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

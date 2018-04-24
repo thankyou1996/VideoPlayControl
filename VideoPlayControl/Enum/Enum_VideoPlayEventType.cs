@@ -90,5 +90,25 @@ namespace VideoPlayControl
         /// 超出设备最大连接数
         /// </summary>
         ConnNumMax=16,
+
+        /// <summary>
+        /// 开始视频录制
+        /// </summary>
+        StartVideoRecord=17,
+
+        /// <summary>
+        /// 停止视频录制
+        /// </summary>
+        StopVideoRecord = 18,
+
+        /// <summary>
+        /// 开始视频录制异常
+        /// </summary>
+        StartVideoRecordException=19,
+
+        /// <summary>
+        /// 停止视频录制正常
+        /// </summary>
+        StopVideoRecordException = 20,
     }
 }

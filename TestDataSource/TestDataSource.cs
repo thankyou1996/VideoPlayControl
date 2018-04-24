@@ -9,11 +9,11 @@ namespace TestDataSource
     {
 
         #region 海康数据源
-        public static VideoInfo HikDataSource()
+        public static VideoInfo GetHikDVSData1()
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.HikDVR;
-            v.DVSAddress = "192.168.5.162";
+            v.DVSAddress = "192.168.2.162";
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
             v.DVSName = "海康DVR测试";
@@ -26,7 +26,7 @@ namespace TestDataSource
             for (int i = 1; i <= 8; i++)
             {
                 CameraInfo c = new CameraInfo();
-                c.CameraName = "摄像头" + (i + 1);
+                c.CameraName = "摄像头" + (i);
                 c.Channel = i;
                 //c.DVSAddress = "E322213C04245";
                 c.DVSType = "SK8605HM";
@@ -36,9 +36,8 @@ namespace TestDataSource
             return v;
         }
 
+
         #endregion
-
-
         #region 雄迈数据源
         public static VideoInfo XMDataSource()
         {

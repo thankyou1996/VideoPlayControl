@@ -16,6 +16,7 @@ using static VideoPlayControl.SDK_HikClientSDK;
 using AxisMediaParserLib;
 using AxisMediaViewerLib;
 using System.Threading.Tasks;
+using VideoPlayControl.VideoPlay;
 
 namespace VideoPlayControl
 {
@@ -37,6 +38,7 @@ namespace VideoPlayControl
         /// </summary>
         public CameraInfo CurrentCameraInfo;
 
+        IVideoPlay iv;
         /// <summary>
         /// 当前视频播放状态
         /// </summary>
@@ -115,20 +117,13 @@ namespace VideoPlayControl
         {
             if (SDKEventCallBackEvent != null)
             {
-                SDKEventCallBackEvent( this,etType, strTag);
+                SDKEventCallBackEvent(this, etType, strTag);
             }
         }
 
         #endregion
 
         #region 视频播放事件回调
-        /// <summary>
-        /// 视频播放事件回调_委托
-        /// </summary>
-        /// <param name="eventType"></param>
-        /// <param name="strTag"></param>
-        public delegate void VideoPlayEventCallBackDelegate(object sender, Enum_VideoPlayEventType eventType);
-
         /// <summary>
         /// 视频播放事件回调_事件
         /// </summary>
@@ -159,7 +154,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
+
         #endregion
 
         private void VideoPlayMain_Load(object sender, EventArgs e)
@@ -210,6 +205,7 @@ namespace VideoPlayControl
             {
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoTypeNotExists);
             }
+            InterfaceInit();
         }
 
         public void Init_VideoInfo(VideoInfo videoInfo, int intChannel)
@@ -232,6 +228,7 @@ namespace VideoPlayControl
             {
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoTypeNotExists);
             }
+            InterfaceInit();
         }
 
         public void Init_VideoInfo(VideoInfo videoInfo, VideoPlaySetting videoPlaySet)
@@ -259,6 +256,7 @@ namespace VideoPlayControl
             {
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoTypeNotExists);
             }
+            InterfaceInit();
         }
 
         public void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
@@ -287,6 +285,7 @@ namespace VideoPlayControl
             //    CloundSee_VideoLPRECTChanged();
             //    CloundSee_InitSDKCallBack();
             //}
+            InterfaceInit();
         }
 
         private void Init_SetVideoInfo()
@@ -311,38 +310,47 @@ namespace VideoPlayControl
                 CloundSee_VideoLPRECTChanged();
                 CloundSee_InitSDKCallBack();
             }
-            if (CurrentVideoInfo.VideoType == Enum_VideoType.Ezviz)
-            {
-                #region 旧代码
-                //    //SDK_EzvizSDK.OpenSDK_MessageHandler openSDK_MessageHandler = new SDK_EzvizSDK.OpenSDK_MessageHandler(Ezviz_EventCallback);
-                //    //SDK_EzvizSDK.OpenSDK_DataCallBack RealPlayCallBack = new SDK_EzvizSDK.OpenSDK_DataCallBack(Ezviz_DataCallBack);
-                //    int Temp_intSessiongLength = 0;
-                //    Temp_intptrSessiongID = IntPtr.Zero;
-                //    openSDK_MessageHandler = new SDK_EzvizSDK_Old.OpenSDK_MessageHandler(Ezviz_EventCallback_Old);
-                //    int intResult = SDK_EzvizSDK_Old.OpenSDK_AllocSession_Old(openSDK_MessageHandler, intEzivz_UserID, out Temp_intptrSessiongID, out Temp_intSessiongLength);
-                //    if (intResult == 0)
-                //    {
-                //        //连接成功
-                //        VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
-                //    }
-                //    else
-                //    {
-                //        //连接失败
-                //        VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
-                //    }
-                //    strEzivz_SessionID = Marshal.PtrToStringAnsi(Temp_intptrSessiongID);
-                //    RealPlayCallBack = new SDK_EzvizSDK_Old.OpenSDK_DataCallBack(Ezviz_DataCallBack_Old);
-                //    intResult = SDK_EzvizSDK_Old.OpenSDK_SetDataCallBack(strEzivz_SessionID, RealPlayCallBack, "");
-                #endregion
-
-                #region 新代码
-                //ezviz
-
-                #endregion
-            }
+            InterfaceInit();
         }
 
-
+        private void InterfaceInit()
+        {
+            if (iv != null && iv.VideoPlayState == Enum_VideoPlayState.InPlayState)
+            {
+                iv.VideoClose();
+            }
+            if (iv == null)
+            {
+                switch (CurrentVideoInfo.VideoType)
+                {
+                    case Enum_VideoType.HikDVR:
+                        iv = new VideoPlay_HikDVR();
+                        break;
+                }
+            }
+            else
+            {
+                if (iv.CurrentVideoInfo.VideoType != CurrentVideoInfo.VideoType)
+                {
+                    iv = null;
+                    switch (CurrentVideoInfo.VideoType)
+                    {
+                        case Enum_VideoType.HikDVR:
+                            iv = new VideoPlay_HikDVR();
+                            break;
+                    }
+                }
+            }
+            if (iv != null)
+            {
+                iv.intptrPlayMain = intptrPlayMain;
+                iv.CurrentVideoInfo = CurrentVideoInfo;
+                iv.CurrentCameraInfo = CurrentCameraInfo;
+                iv.CurrentVideoPlaySet = CurrentVideoPlaySet;
+                iv.VideoPlayEventCallBackEvent -= VideoPlayEventCallBackEvent;
+                iv.VideoPlayEventCallBackEvent += VideoPlayEventCallBackEvent;
+            }
+        }
         #endregion
 
         #region CloundSeeSDK 云视通
@@ -1589,8 +1597,8 @@ namespace VideoPlayControl
         /// </summary>
         public void HikDVR_VideoPlay()
         {
+            bool Temp_bolResult = false;
             NET_DVR_DEVICEINFO_V30 dev = new NET_DVR_DEVICEINFO_V30();
-
             _intDVRHwd = NET_DVR_Login_V30(CurrentVideoInfo.DVSAddress, CurrentVideoInfo.DVSConnectPort, CurrentVideoInfo.UserName, CurrentVideoInfo.Password, ref dev);
             if (_intDVRHwd < 0)
             {
@@ -1619,13 +1627,24 @@ namespace VideoPlayControl
 
             //intRet = NET_DVR_RealPlay_V30(_intDVRHwd, ref cli, null, pUser, 1);//130814
             intRet = NET_DVR_RealPlay_V40(_intDVRHwd, ref lpPreviewInfo, null, pUser);//140521
-            //intRet = NET_DVR_RealPlay(_intDVRHwd, ref cli);//130814
-            NET_DVR_OpenSound(intRet);//140609
-            if (intRet < 0)
+            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+            //NET_DVR_OpenSound(intRet);//140609
+            if (intRet != 1)
             {
                 videoPlayState = Enum_VideoPlayState.InPlayState;
-                return;
+                if (CurrentVideoPlaySet.VideoRecordEnable)
+                {
+                    if (NET_DVR_SaveRealData(intRet, CurrentVideoPlaySet.VideoRecordFilePath))
+                    {
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecord);
+                    }
+                    else
+                    {
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecordException);
+                    }
+                }
             }
+            
         }
 
         
@@ -1717,10 +1736,10 @@ namespace VideoPlayControl
                 switch (intResult)
                 {
                     case (int)SDK_RET_CODE.H264_DVR_NATCONNET_REACHED_MAX:
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnNumMax); //连接成功
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnNumMax); //达到最大连接数量
                         break;
                     default:
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException); //连接成功
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException); //连接异常
                         break;
                 }
             }
@@ -1865,7 +1884,7 @@ namespace VideoPlayControl
                     Axis_VideoPlay();
                     break;
                 case Enum_VideoType.HikDVR:
-                    HikDVR_VideoPlay();
+                    iv.VideoPlay();
                     break;
                 case Enum_VideoType.XMaiVideo:
                     XMVideo_VideoPlay();
@@ -1931,7 +1950,8 @@ namespace VideoPlayControl
                         Axis_VideoColse();
                         break;
                     case Enum_VideoType.HikDVR:
-                        HikDVR_VideoClose();
+                        //HikDVR_VideoClose();
+                        iv.VideoClose();
                         break;
                     case Enum_VideoType.XMaiVideo:
                         XMVideo_VideoClose();

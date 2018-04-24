@@ -33,6 +33,7 @@
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.PageTestData = new System.Windows.Forms.TabPage();
+            this.btnXMTestData1 = new System.Windows.Forms.Button();
             this.btnHuaMaiTestData = new System.Windows.Forms.Button();
             this.btnEzvizTestData = new System.Windows.Forms.Button();
             this.btnAxisTestData = new System.Windows.Forms.Button();
@@ -128,7 +129,7 @@
             this.ssrTip = new System.Windows.Forms.StatusStrip();
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnXMTestData1 = new System.Windows.Forms.Button();
+            this.btnHikTestData1 = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -206,6 +207,7 @@
             // 
             // PageTestData
             // 
+            this.PageTestData.Controls.Add(this.btnHikTestData1);
             this.PageTestData.Controls.Add(this.btnXMTestData1);
             this.PageTestData.Controls.Add(this.btnHuaMaiTestData);
             this.PageTestData.Controls.Add(this.btnEzvizTestData);
@@ -220,11 +222,21 @@
             this.PageTestData.Text = "测试数据";
             this.PageTestData.UseVisualStyleBackColor = true;
             // 
+            // btnXMTestData1
+            // 
+            this.btnXMTestData1.Location = new System.Drawing.Point(148, 29);
+            this.btnXMTestData1.Name = "btnXMTestData1";
+            this.btnXMTestData1.Size = new System.Drawing.Size(72, 23);
+            this.btnXMTestData1.TabIndex = 15;
+            this.btnXMTestData1.Text = "雄迈数据";
+            this.btnXMTestData1.UseVisualStyleBackColor = true;
+            this.btnXMTestData1.Click += new System.EventHandler(this.btnXMTestData1_Click);
+            // 
             // btnHuaMaiTestData
             // 
-            this.btnHuaMaiTestData.Location = new System.Drawing.Point(83, 29);
+            this.btnHuaMaiTestData.Location = new System.Drawing.Point(81, 29);
             this.btnHuaMaiTestData.Name = "btnHuaMaiTestData";
-            this.btnHuaMaiTestData.Size = new System.Drawing.Size(75, 23);
+            this.btnHuaMaiTestData.Size = new System.Drawing.Size(62, 23);
             this.btnHuaMaiTestData.TabIndex = 15;
             this.btnHuaMaiTestData.Text = "华迈数据";
             this.btnHuaMaiTestData.UseVisualStyleBackColor = true;
@@ -234,7 +246,7 @@
             // 
             this.btnEzvizTestData.Location = new System.Drawing.Point(3, 3);
             this.btnEzvizTestData.Name = "btnEzvizTestData";
-            this.btnEzvizTestData.Size = new System.Drawing.Size(74, 22);
+            this.btnEzvizTestData.Size = new System.Drawing.Size(72, 22);
             this.btnEzvizTestData.TabIndex = 14;
             this.btnEzvizTestData.Text = "萤石数据";
             this.btnEzvizTestData.UseVisualStyleBackColor = true;
@@ -244,7 +256,7 @@
             // 
             this.btnAxisTestData.Location = new System.Drawing.Point(3, 29);
             this.btnAxisTestData.Name = "btnAxisTestData";
-            this.btnAxisTestData.Size = new System.Drawing.Size(74, 22);
+            this.btnAxisTestData.Size = new System.Drawing.Size(72, 22);
             this.btnAxisTestData.TabIndex = 14;
             this.btnAxisTestData.Text = "安讯士";
             this.btnAxisTestData.UseVisualStyleBackColor = true;
@@ -252,9 +264,9 @@
             // 
             // btnSKTestData1
             // 
-            this.btnSKTestData1.Location = new System.Drawing.Point(163, 3);
+            this.btnSKTestData1.Location = new System.Drawing.Point(148, 3);
             this.btnSKTestData1.Name = "btnSKTestData1";
-            this.btnSKTestData1.Size = new System.Drawing.Size(74, 22);
+            this.btnSKTestData1.Size = new System.Drawing.Size(71, 22);
             this.btnSKTestData1.TabIndex = 14;
             this.btnSKTestData1.Text = "时刻数据1";
             this.btnSKTestData1.UseVisualStyleBackColor = true;
@@ -262,9 +274,9 @@
             // 
             // btnSKTestData
             // 
-            this.btnSKTestData.Location = new System.Drawing.Point(83, 3);
+            this.btnSKTestData.Location = new System.Drawing.Point(81, 3);
             this.btnSKTestData.Name = "btnSKTestData";
-            this.btnSKTestData.Size = new System.Drawing.Size(74, 22);
+            this.btnSKTestData.Size = new System.Drawing.Size(61, 22);
             this.btnSKTestData.TabIndex = 14;
             this.btnSKTestData.Text = "时刻数据";
             this.btnSKTestData.UseVisualStyleBackColor = true;
@@ -1189,15 +1201,15 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnXMTestData1
+            // btnHikTestData1
             // 
-            this.btnXMTestData1.Location = new System.Drawing.Point(163, 29);
-            this.btnXMTestData1.Name = "btnXMTestData1";
-            this.btnXMTestData1.Size = new System.Drawing.Size(75, 23);
-            this.btnXMTestData1.TabIndex = 15;
-            this.btnXMTestData1.Text = "雄迈数据";
-            this.btnXMTestData1.UseVisualStyleBackColor = true;
-            this.btnXMTestData1.Click += new System.EventHandler(this.btnXMTestData1_Click);
+            this.btnHikTestData1.Location = new System.Drawing.Point(3, 52);
+            this.btnHikTestData1.Name = "btnHikTestData1";
+            this.btnHikTestData1.Size = new System.Drawing.Size(72, 23);
+            this.btnHikTestData1.TabIndex = 15;
+            this.btnHikTestData1.Text = "海康数据1";
+            this.btnHikTestData1.UseVisualStyleBackColor = true;
+            this.btnHikTestData1.Click += new System.EventHandler(this.btnHikTestData1_Click);
             // 
             // FrmMain
             // 
@@ -1350,6 +1362,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtVideoRecord;
         private System.Windows.Forms.Button btnXMTestData1;
+        private System.Windows.Forms.Button btnHikTestData1;
     }
 }
 

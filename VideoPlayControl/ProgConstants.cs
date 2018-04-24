@@ -37,6 +37,10 @@ namespace VideoPlayControl
         /// </summary>
         public const string c_strSKVideoSDKFilePath = "\\SKVideoSDK\\VLC_SDK.DLL";
 
+        /// <summary>
+        /// 海康SDK
+        /// </summary>
+        public const string c_strHikVideoSDKFilePath = "HIkVideoSDK\\HCNetSDK.dll";
 
         /// <summary>
         /// 雄迈SDK 
