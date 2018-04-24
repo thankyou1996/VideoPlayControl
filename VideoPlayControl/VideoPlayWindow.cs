@@ -1931,8 +1931,8 @@ namespace VideoPlayControl
         /// </summary>
         public void VideoClose()
         {
-            if (VideoPlayState != Enum_VideoPlayState.VideoInfoNull)
-            {
+            //if (VideoPlayState != Enum_VideoPlayState.VideoInfoNull)
+            //{
                 switch (CurrentVideoInfo.VideoType)
                 {
                     case Enum_VideoType.Unrecognized:
@@ -1962,10 +1962,10 @@ namespace VideoPlayControl
                     default:
                         iv.VideoClose();
                         break;
-                }
-                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
             }
+            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
+            //}
         }
 
         /// <summary>

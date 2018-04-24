@@ -33,6 +33,7 @@
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.PageTestData = new System.Windows.Forms.TabPage();
+            this.btnHikTestData1 = new System.Windows.Forms.Button();
             this.btnXMTestData1 = new System.Windows.Forms.Button();
             this.btnHuaMaiTestData = new System.Windows.Forms.Button();
             this.btnEzvizTestData = new System.Windows.Forms.Button();
@@ -129,7 +130,6 @@
             this.ssrTip = new System.Windows.Forms.StatusStrip();
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnHikTestData1 = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -221,6 +221,16 @@
             this.PageTestData.TabIndex = 0;
             this.PageTestData.Text = "测试数据";
             this.PageTestData.UseVisualStyleBackColor = true;
+            // 
+            // btnHikTestData1
+            // 
+            this.btnHikTestData1.Location = new System.Drawing.Point(3, 52);
+            this.btnHikTestData1.Name = "btnHikTestData1";
+            this.btnHikTestData1.Size = new System.Drawing.Size(72, 23);
+            this.btnHikTestData1.TabIndex = 15;
+            this.btnHikTestData1.Text = "海康数据1";
+            this.btnHikTestData1.UseVisualStyleBackColor = true;
+            this.btnHikTestData1.Click += new System.EventHandler(this.btnHikTestData1_Click);
             // 
             // btnXMTestData1
             // 
@@ -720,6 +730,7 @@
             this.txtVideoRecord.Name = "txtVideoRecord";
             this.txtVideoRecord.Size = new System.Drawing.Size(136, 99);
             this.txtVideoRecord.TabIndex = 35;
+            this.txtVideoRecord.Text = "C:\\SHIKE_Video\\000201_01_20180423101542_12.mp4";
             // 
             // pnlVideoInfo_Right
             // 
@@ -1200,16 +1211,6 @@
             // 
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnHikTestData1
-            // 
-            this.btnHikTestData1.Location = new System.Drawing.Point(3, 52);
-            this.btnHikTestData1.Name = "btnHikTestData1";
-            this.btnHikTestData1.Size = new System.Drawing.Size(72, 23);
-            this.btnHikTestData1.TabIndex = 15;
-            this.btnHikTestData1.Text = "海康数据1";
-            this.btnHikTestData1.UseVisualStyleBackColor = true;
-            this.btnHikTestData1.Click += new System.EventHandler(this.btnHikTestData1_Click);
             // 
             // FrmMain
             // 

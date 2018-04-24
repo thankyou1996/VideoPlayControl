@@ -258,6 +258,16 @@
             地图点信息
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Map.MapType.BaiduOnlineMap">
+            <summary>
+            百度在线地图
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Map.MapType.SogouOffLineMap">
+            <summary>
+            搜狗离线地图
+            </summary>
+        </member>
         <member name="T:PublicClassCurrency.MapPointInfo">
             <summary>
             地图点信息
@@ -589,6 +599,11 @@
         <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.Axis">
             <summary>
             安讯士
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.HikDVR">
+            <summary>
+            海康DVS 直接访问模式
             </summary>
         </member>
         <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.XMaiVideo">

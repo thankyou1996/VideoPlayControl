@@ -75,6 +75,10 @@ namespace VideoPlayControl.VideoPlay
                 VideoPlayState = Enum_VideoPlayState.InPlayState;
                 if (CurrentVideoPlaySet.VideoRecordEnable)
                 {
+                    if (string.IsNullOrEmpty(CurrentVideoPlaySet.VideoRecordFilePath) || !CurrentVideoPlaySet.VideoRecordFilePath.ToUpper().EndsWith(".mp4"))
+                    {
+                        CurrentVideoPlaySet.VideoRecordFilePath = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                    }
                     if (NET_DVR_SaveRealData(intRet, CurrentVideoPlaySet.VideoRecordFilePath))
                     {
                         VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecord);
@@ -89,6 +93,7 @@ namespace VideoPlayControl.VideoPlay
         }
         public void RealDataCallBack(Int32 lRealHandle, UInt32 dwDataType, ref byte pBuffer, UInt32 dwBufSize, IntPtr pUser)
         {
+
         }
 
         public bool VideoClose()

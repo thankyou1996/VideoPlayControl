@@ -31,6 +31,9 @@ namespace VideoPlayControl
                 case "06":
                     v.VideoRecordType = Enum_VIdeoRecordType.Axis;
                     break;
+                case "07":
+                    v.VideoRecordType = Enum_VIdeoRecordType.HikDVR;
+                    break;
                 case "08":
                     v.VideoRecordType = Enum_VIdeoRecordType.XMaiVideo;
                     break;
@@ -69,6 +72,9 @@ namespace VideoPlayControl
             {
                 case Enum_VideoType.Axis:
                     sbVideoRecordFileName.Append("06.bin");
+                    break;
+                case Enum_VideoType.HikDVR:
+                    sbVideoRecordFileName.Append("07.mp4");
                     break;
                 case Enum_VideoType.XMaiVideo:
                     sbVideoRecordFileName.Append("08.h264");
