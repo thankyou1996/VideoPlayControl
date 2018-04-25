@@ -607,6 +607,13 @@ namespace VideoPlayControl
         public static extern int dvxSdkInit();
 
         /// <summary>
+        /// 卸载
+        /// </summary>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strBlueSkyVideoSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int dvxSdkDeInit();
+
+        /// <summary>
         /// 创建一个新的SDK实例 
         /// </summary>
         /// <param name="ip"> Dvr的ip地址</param>

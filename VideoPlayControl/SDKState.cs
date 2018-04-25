@@ -497,6 +497,12 @@ namespace VideoPlayControl
             BlueSkySDKState = SDK_BlueSDK.dvxSdkInit() == 0 ? Enum_SDKState.SDK_Init : Enum_SDKState.SDK_InitFail;
             return BlueSkySDKState;
         }
+
+        public static Enum_SDKState BlueSkySDK_UnInit()
+        {
+            BlueSkySDKState = SDK_BlueSDK.dvxSdkDeInit() == 0 ? Enum_SDKState.SDK_Release : Enum_SDKState.SDK_ReleaseFail;
+            return BlueSkySDKState;
+        }
         #endregion
 
         public static void VideoSDKRelease()
