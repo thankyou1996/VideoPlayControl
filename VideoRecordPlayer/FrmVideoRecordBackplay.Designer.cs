@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVideoRecordBackplay));
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.videoRecordBackplayWindow1 = new VideoPlayControl.VideoRecordBackplayWindow();
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.tsmiSystem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSelectedFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +39,7 @@
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStartPlay = new System.Windows.Forms.Button();
             this.trackBar = new System.Windows.Forms.TrackBar();
+            this.videoRecordBackplayWindow1 = new VideoPlayControl.VideoRecordBackplayWindow();
             this.pnlMain.SuspendLayout();
             this.msMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -56,17 +56,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(800, 460);
             this.pnlMain.TabIndex = 3;
-            // 
-            // videoRecordBackplayWindow1
-            // 
-            this.videoRecordBackplayWindow1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.videoRecordBackplayWindow1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoRecordBackplayWindow1.Location = new System.Drawing.Point(0, 25);
-            this.videoRecordBackplayWindow1.Name = "videoRecordBackplayWindow1";
-            this.videoRecordBackplayWindow1.Size = new System.Drawing.Size(800, 435);
-            this.videoRecordBackplayWindow1.TabIndex = 2;
-            this.videoRecordBackplayWindow1.DragDrop += new System.Windows.Forms.DragEventHandler(this.videoRecordBackplayWindow1_DragDrop);
-            this.videoRecordBackplayWindow1.DragEnter += new System.Windows.Forms.DragEventHandler(this.videoRecordBackplayWindow1_DragEnter);
             // 
             // msMain
             // 
@@ -90,14 +79,14 @@
             // tsmiSelectedFile
             // 
             this.tsmiSelectedFile.Name = "tsmiSelectedFile";
-            this.tsmiSelectedFile.Size = new System.Drawing.Size(180, 22);
+            this.tsmiSelectedFile.Size = new System.Drawing.Size(124, 22);
             this.tsmiSelectedFile.Text = "打开文件";
             this.tsmiSelectedFile.Click += new System.EventHandler(this.tsmiSelectedFile_Click);
             // 
             // tsmiClose
             // 
             this.tsmiClose.Name = "tsmiClose";
-            this.tsmiClose.Size = new System.Drawing.Size(180, 22);
+            this.tsmiClose.Size = new System.Drawing.Size(124, 22);
             this.tsmiClose.Text = "退出";
             this.tsmiClose.Click += new System.EventHandler(this.tsmiClose_Click);
             // 
@@ -159,6 +148,18 @@
             this.trackBar.Size = new System.Drawing.Size(800, 45);
             this.trackBar.TabIndex = 7;
             this.trackBar.TickFrequency = 0;
+            this.trackBar.Scroll += new System.EventHandler(this.trackBar_Scroll);
+            // 
+            // videoRecordBackplayWindow1
+            // 
+            this.videoRecordBackplayWindow1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.videoRecordBackplayWindow1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoRecordBackplayWindow1.Location = new System.Drawing.Point(0, 25);
+            this.videoRecordBackplayWindow1.Name = "videoRecordBackplayWindow1";
+            this.videoRecordBackplayWindow1.Size = new System.Drawing.Size(800, 435);
+            this.videoRecordBackplayWindow1.TabIndex = 2;
+            this.videoRecordBackplayWindow1.DragDrop += new System.Windows.Forms.DragEventHandler(this.videoRecordBackplayWindow1_DragDrop);
+            this.videoRecordBackplayWindow1.DragEnter += new System.Windows.Forms.DragEventHandler(this.videoRecordBackplayWindow1_DragEnter);
             // 
             // FrmVideoRecordBackplay
             // 

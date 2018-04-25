@@ -98,5 +98,11 @@ namespace VideoRecordPlayer
         {
             this.Close();
         }
+
+        private void trackBar_Scroll(object sender, EventArgs e)
+        {
+            float flotrackBarValue = (float)trackBar.Value / (float)trackBar.Maximum;
+            videoRecordBackplayWindow1.SetVideoRecordPos(flotrackBarValue);
+        }
     }
 }

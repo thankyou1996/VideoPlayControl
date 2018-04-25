@@ -26,7 +26,6 @@ namespace VideoPlayControl.VideoPlay
         bool m_bisHaveThirdStream;
         dvxSdkType.IPCPreViewPara m_IPCPreViewPara = new dvxSdkType.IPCPreViewPara();
         dvxSdkType.RealOpenPara m_hRealOpenPara = new dvxSdkType.RealOpenPara();
-        public IntPtr iiiiiiii = IntPtr.Zero;
 
         public VideoInfo CurrentVideoInfo { get; set; }
         public CameraInfo CurrentCameraInfo { get; set; }
@@ -48,10 +47,10 @@ namespace VideoPlayControl.VideoPlay
             //VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
             //VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
             //throw new NotImplementedException();
-            
+            bool bolResult = false;
             if (DvxHandle == IntPtr.Zero)
             {
-                return true;
+                bolResult = true;
             }
 
             if (CurrentVideoPlaySet.VideoRecordEnable)
@@ -62,229 +61,122 @@ namespace VideoPlayControl.VideoPlay
                 {
                     //MessageBox.Show("停止录像不成功");
                     VideoPlayEventCallBack(Enum_VideoPlayEventType.StopVideoRecordException);
-                    return false;
+                    bolResult = false;
                 }
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.StopVideoRecord);
+                else
+                {
+                    VideoPlayEventCallBack(Enum_VideoPlayEventType.StopVideoRecord);
+                }
+            }
+            else
+            {
+                StateReset();
+
+                SDK_BlueSDK.dvxSecuritySessionAuthClear(DvxHandle);
+                SDK_BlueSDK.dvxDestory(DvxHandle);
+                DvxHandle = IntPtr.Zero;
+                m_ndevType = 0;
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
+                bolResult = true;
             }
 
-
-            StateReset();
-
-            SDK_BlueSDK.dvxSecuritySessionAuthClear(DvxHandle);
-            SDK_BlueSDK.dvxDestory(DvxHandle);
-            DvxHandle = IntPtr.Zero;
-            m_ndevType = 0;
-            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
-            return true;
+            
+            return bolResult;
         }
 
         public bool VideoPlay()
         {
+            bool bolResult = false;
             if (DvxHandle != IntPtr.Zero)
             {
                 //已登录，请注销
                 //return true;
-                goto VideoPlay;
-            }
-
-            _nRet = SDK_BlueSDK.dvxCreate(CurrentVideoInfo.DVSAddress, (ushort)CurrentVideoInfo.DVSConnectPort, (ushort)CurrentVideoInfo.DVSDataPort, CurrentVideoInfo.UserName, CurrentVideoInfo.Password, ref DvxHandle);
-            if (_nRet != (int)dvxSdkType.ReturnError.DVX_OK || DvxHandle == IntPtr.Zero)
-            {
-                //登录失败
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.UserAccessError);
-                return false;
+                bolResult = BlueSkyVideoPlay();
+                //goto VideoPlay;
             }
             else
             {
-                //登录成功
-                dvxSdkType.SystemVersionInfo ver = new dvxSdkType.SystemVersionInfo();
-                dvxSdkType.SystemDescribleInfo m_sysDesInfo = new dvxSdkType.SystemDescribleInfo();
-                _nRet = SDK_BlueSDK.dvxSysVersion(DvxHandle, ref ver);
-                if (_nRet == 0)
+
+
+                _nRet = SDK_BlueSDK.dvxCreate(CurrentVideoInfo.DVSAddress, (ushort)CurrentVideoInfo.DVSConnectPort, (ushort)CurrentVideoInfo.DVSDataPort, CurrentVideoInfo.UserName, CurrentVideoInfo.Password, ref DvxHandle);
+                if (_nRet != (int)dvxSdkType.ReturnError.DVX_OK || DvxHandle == IntPtr.Zero)
                 {
-                    g_IpcDif = 0;
-                    m_ndevType = GetDevType(ver.serial);
-                    if (m_ndevType == 2)  //IPC 获取IPC支持的功能，如宽动态、白平衡等
+                    //登录失败
+                    VideoPlayEventCallBack(Enum_VideoPlayEventType.UserAccessError);
+                    bolResult = false;
+                }
+                else
+                {
+                    //登录成功
+                    dvxSdkType.SystemVersionInfo ver = new dvxSdkType.SystemVersionInfo();
+                    dvxSdkType.SystemDescribleInfo m_sysDesInfo = new dvxSdkType.SystemDescribleInfo();
+                    _nRet = SDK_BlueSDK.dvxSysVersion(DvxHandle, ref ver);
+                    if (_nRet == 0)
                     {
-                        dvxSdkType.SysModulePara sysModule = new dvxSdkType.SysModulePara();
-                        dvxSdkType.AVDescribe avDescribe = new dvxSdkType.AVDescribe();
-                        _nRet = SDK_BlueSDK.dvxSysModulesGet(DvxHandle, ref sysModule);
-                        if (2 <= sysModule.rdver) //B02版本开始可以直接获取设备能力
+                        g_IpcDif = 0;
+                        m_ndevType = GetDevType(ver.serial);
+                        if (m_ndevType == 2)  //IPC 获取IPC支持的功能，如宽动态、白平衡等
+                        {
+                            dvxSdkType.SysModulePara sysModule = new dvxSdkType.SysModulePara();
+                            dvxSdkType.AVDescribe avDescribe = new dvxSdkType.AVDescribe();
+                            _nRet = SDK_BlueSDK.dvxSysModulesGet(DvxHandle, ref sysModule);
+                            if (2 <= sysModule.rdver) //B02版本开始可以直接获取设备能力
+                            {
+                                _nRet = SDK_BlueSDK.dvxSysDescribeEx(DvxHandle, ref m_sysDesInfo);
+                                if ((int)dvxSdkType.ReturnError.DVX_OK == _nRet)
+                                {
+                                    g_IpcDif = m_sysDesInfo.features;
+                                    if (5 == m_sysDesInfo.platform)
+                                    {
+                                        m_isIPCLotus = true;
+                                    }
+                                }
+                                _nRet = SDK_BlueSDK.dvxAVDescrible(DvxHandle, ref avDescribe);
+                                if ((int)dvxSdkType.ReturnError.DVX_OK == _nRet)
+                                {
+                                    if ((0 == (avDescribe.bitstreams & 0x04)) || (true == m_isIPCLotus))
+                                    {
+                                        m_bisHaveThirdStream = false;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                CheckIPCType(ver.model);
+                            }
+                        }
+                        else if (m_ndevType == 1)//Limit D
                         {
                             _nRet = SDK_BlueSDK.dvxSysDescribeEx(DvxHandle, ref m_sysDesInfo);
-                            if ((int)dvxSdkType.ReturnError.DVX_OK == _nRet)
-                            {
-                                g_IpcDif = m_sysDesInfo.features;
-                                if (5 == m_sysDesInfo.platform)
-                                {
-                                    m_isIPCLotus = true;
-                                }
-                            }
-                            _nRet = SDK_BlueSDK.dvxAVDescrible(DvxHandle, ref avDescribe);
-                            if ((int)dvxSdkType.ReturnError.DVX_OK == _nRet)
-                            {
-                                if ((0 == (avDescribe.bitstreams & 0x04)) || (true == m_isIPCLotus))
-                                {
-                                    m_bisHaveThirdStream = false;
-                                }
-                            }
                         }
-                        else
+                    }
+                    dvxSdkType.SystemSerialGet SerialInfo = new dvxSdkType.SystemSerialGet();
+                    _nRet = SDK_BlueSDK.dvxSysSerialGet(DvxHandle, ref SerialInfo);
+                    if (((int)dvxSdkType.ReturnError.DVX_OK) == _nRet && (10 == SerialInfo.version_type))//version_type : 10 加密 DVR
+                    {
+                        Byte[] buf = new Byte[64 * 1024];
+                        int nRealLen = 0;
+                        _nRet = SDK_BlueSDK.dvxUkeyEt199ReadAllInfo(ref buf, 64 * 1024, ref nRealLen);
+                        if ((int)dvxSdkType.ReturnError.DVX_OK == _nRet)
                         {
-                            CheckIPCType(ver.model);
+                            dvxSdkType.UkeyAuthizeParam authParam = new dvxSdkType.UkeyAuthizeParam();
+                            int nValue = 0;
+                            authParam.authLen = (UInt32)(nRealLen > (64 * 1024) ? (64 * 1024) : nRealLen);
+                            authParam.auth = buf;
+                            _nRet = SDK_BlueSDK.dvxSecuritySessionAuthizeSet(DvxHandle, ref authParam, ref nValue);
+
                         }
                     }
-                    else if (m_ndevType == 1)//Limit D
-                    {
-                        _nRet = SDK_BlueSDK.dvxSysDescribeEx(DvxHandle, ref m_sysDesInfo);
-                    }
-                }
-                dvxSdkType.SystemSerialGet SerialInfo = new dvxSdkType.SystemSerialGet();
-                _nRet = SDK_BlueSDK.dvxSysSerialGet(DvxHandle, ref SerialInfo);
-                if (((int)dvxSdkType.ReturnError.DVX_OK) == _nRet && (10 == SerialInfo.version_type))//version_type : 10 加密 DVR
-                {
-                    Byte[] buf = new Byte[64 * 1024];
-                    int nRealLen = 0;
-                    _nRet = SDK_BlueSDK.dvxUkeyEt199ReadAllInfo(ref buf, 64 * 1024, ref nRealLen);
-                    if ((int)dvxSdkType.ReturnError.DVX_OK == _nRet)
-                    {
-                        dvxSdkType.UkeyAuthizeParam authParam = new dvxSdkType.UkeyAuthizeParam();
-                        int nValue = 0;
-                        authParam.authLen = (UInt32)(nRealLen > (64 * 1024) ? (64 * 1024) : nRealLen);
-                        authParam.auth = buf;
-                        _nRet = SDK_BlueSDK.dvxSecuritySessionAuthizeSet(DvxHandle, ref authParam, ref nValue);
 
-                    }
+
                 }
 
-
+                bolResult = BlueSkyVideoPlay();
             }
 
-            VideoPlay:
-            //预览视频
-            if (DvxHandle == IntPtr.Zero)
-            {
-                //listBox1.Items.Insert(0, "当前无登录的DVR!");
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
-                return false;
-            }
-            else
-            {
-                //如果当前正在预览
-                if (RealHandle != IntPtr.Zero)
-                {
-                    //关闭预览
-                    int nRet = SDK_BlueSDK.dvxRealStop(RealHandle);
-                    if (nRet != 0)
-                    {
-                        //listBox1.Items.Insert(0, "停止现场流失败");
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
-
-                        return false;
-                    }
-
-                    nRet = SDK_BlueSDK.dvxRealClose(ref RealHandle);
-                    if (nRet != 0)
-                    {
-                        //listBox1.Items.Insert(0, "关闭现场流失败");
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
-
-                        return false;
-                    }
-
-                    RealHandle = IntPtr.Zero;
-
-                    StateReset();
-                    //关闭成功
-                    //return true;
-                }
-                //else
-                //{
-                if (SDK_BlueSDK.dvxIsLogin(DvxHandle))
-                {
-                    SDK_BlueSDK.dvxLogout(DvxHandle);
-                    if ((int)dvxSdkType.ReturnError.DVX_OK != SDK_BlueSDK.dvxLogin(DvxHandle, CurrentVideoInfo.UserName, CurrentVideoInfo.Password, 10000))
-                    {
-                        //MessageBox.Show("当前设备已断线，并且登录不上");
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.UserAccessError);
-
-                        return false;
-                    }
-
-                }
-
-                //bool bPreviewDlgOK = false;
-                bool bImageEhnace = false;
-                if (m_ndevType != 2)
-                {
-                    bImageEhnace = false;
-
-                    m_hRealOpenPara.channel = (Char)CurrentCameraInfo.Channel;
-                    m_hRealOpenPara.subStream = (Char)0;//主码流
-                    m_hRealOpenPara.transProc = (Char)1;
-
-                    m_hRealOpenPara.transMode = (Char)1;
-                    m_hRealOpenPara.ip = 0;
-
-                }
-                _nRet = SDK_BlueSDK.dvxRealOpen(DvxHandle, ref m_hRealOpenPara, intptrPlayMain, VideoPlayHandle, 1283, ref RealHandle);
-                if (((int)dvxSdkType.ReturnError.DVX_OK) != _nRet || RealHandle == IntPtr.Zero)
-                {
-                    if ((0 == m_hRealOpenPara.channel) && 0x19 == _nRet)
-                    {
-                        //listBox1.Items.Insert(0, "零通道预览失败，请停止设备端本地回放后再试");
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
-
-                        //return false;
-                    }
-                    else
-                    {
-                        //return false;
-                        //listBox1.Items.Insert(0, "启动现场流预览失败");
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
-
-                    }
-
-                    StateReset();
-
-                    return false;
-                }
-
-                _nRet = SDK_BlueSDK.dvxRealImageEnhance(RealHandle, bImageEhnace);
-                if ((int)dvxSdkType.ReturnError.DVX_OK == _nRet)
-                {
-                    m_IPCPreViewPara.bImageEhnace = false;
-                }
-                _nRet = SDK_BlueSDK.dvxRealStart(RealHandle);
-                if ((int)dvxSdkType.ReturnError.DVX_OK != _nRet)
-                {
-                    //listBox1.Items.Insert(0, "开始现场流预览失败");
-                    VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
-
-                    StateReset();
-                    return false;
-                }
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
-
-                if (CurrentVideoPlaySet.VideoRecordEnable)
-                {
-                    //录像
-                    if (RealHandle == IntPtr.Zero)
-                    {
-                        //没有预览
-
-                    }
-                    else
-                    {
-                        BlueSkyVideo_VideoRecordStart(CurrentVideoPlaySet.VideoRecordFilePath);
-                    }
-                }
-
-                return true;
-                //}
-            }
-
-
+            return bolResult;
+            
+            
 
 
         }
@@ -412,6 +304,7 @@ namespace VideoPlayControl.VideoPlay
         /// <returns></returns>
         public bool BlueSkyVideo_VideoRecordStart(string strRecFilePath)
         {
+            bool bolResult = false;
             StringBuilder sbRecFilePath = new StringBuilder();
             if (string.IsNullOrEmpty(strRecFilePath))
             {
@@ -430,17 +323,175 @@ namespace VideoPlayControl.VideoPlay
 
                 strRecFilePath += "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
             }
-            _nRet = SDK_BlueSDK.dvxRealStartSaveAs(RealHandle, strRecFilePath, 1, 1); //avi - 6 brs - 1
+            _nRet = SDK_BlueSDK.dvxRealStartSaveAs(RealHandle, strRecFilePath, 2, 1); //avi - 6 brs - 1
             if ((int)dvxSdkType.ReturnError.DVX_OK != _nRet)
             {
                 //录像启动不成功
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecordException);
-                return false;
+                bolResult = false;
             }
-            VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecord);
-            return true;
-            //bool bolResult = SDK_XMSDK.H264_DVR_StartLocalRecord(m_iPlayhandle, strRecFilePath, Convert.ToInt32(MEDIA_FILE_TYPE.MEDIA_FILE_NONE));
-            //return bolResult;
+            else
+            {
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecord);
+                bolResult = true;
+            }
+
+            return bolResult;
+        }
+
+        /// <summary>
+        /// 视频预览
+        /// </summary>
+        /// <returns></returns>
+        public bool BlueSkyVideoPlay()
+        {
+            bool bolResult = false;
+            //预览视频
+            if (DvxHandle == IntPtr.Zero)
+            {
+                //listBox1.Items.Insert(0, "当前无登录的DVR!");
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
+                bolResult = false;
+            }
+            else
+            {
+                //如果当前正在预览
+                if (RealHandle != IntPtr.Zero)
+                {
+                    //关闭预览
+                    int nRet = SDK_BlueSDK.dvxRealStop(RealHandle);
+                    if (nRet != 0)
+                    {
+                        //listBox1.Items.Insert(0, "停止现场流失败");
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+
+                        bolResult = false;
+                    }
+                    else
+                    {
+                        nRet = SDK_BlueSDK.dvxRealClose(ref RealHandle);
+                        if (nRet != 0)
+                        {
+                            //listBox1.Items.Insert(0, "关闭现场流失败");
+                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+
+                            bolResult = false;
+                        }
+
+                        RealHandle = IntPtr.Zero;
+
+                        StateReset();
+                    }
+                    bolResult = true;
+                    //关闭成功
+                    //return true;
+                }
+                else
+                {
+                    bolResult = true;
+                }
+                //else
+                //{
+                if (SDK_BlueSDK.dvxIsLogin(DvxHandle) && bolResult)
+                {
+                    SDK_BlueSDK.dvxLogout(DvxHandle);
+                    if ((int)dvxSdkType.ReturnError.DVX_OK != SDK_BlueSDK.dvxLogin(DvxHandle, CurrentVideoInfo.UserName, CurrentVideoInfo.Password, 10000))
+                    {
+                        //MessageBox.Show("当前设备已断线，并且登录不上");
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.UserAccessError);
+
+                        bolResult = false;
+                    }
+                    else
+                    {
+                        bolResult = true;
+                    }
+
+                }
+
+                if (bolResult)
+                {
+                    //bool bPreviewDlgOK = false;
+                    bool bImageEhnace = false;
+                    if (m_ndevType != 2)
+                    {
+                        bImageEhnace = false;
+
+                        m_hRealOpenPara.channel = (Char)CurrentCameraInfo.Channel;
+                        m_hRealOpenPara.subStream = (Char)0;//主码流
+                        m_hRealOpenPara.transProc = (Char)1;
+
+                        m_hRealOpenPara.transMode = (Char)1;
+                        m_hRealOpenPara.ip = 0;
+
+                    }
+                    _nRet = SDK_BlueSDK.dvxRealOpen(DvxHandle, ref m_hRealOpenPara, intptrPlayMain, VideoPlayHandle, 1283, ref RealHandle);
+                    if (((int)dvxSdkType.ReturnError.DVX_OK) != _nRet || RealHandle == IntPtr.Zero)
+                    {
+                        if ((0 == m_hRealOpenPara.channel) && 0x19 == _nRet)
+                        {
+                            //listBox1.Items.Insert(0, "零通道预览失败，请停止设备端本地回放后再试");
+                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+
+                            //return false;
+                        }
+                        else
+                        {
+                            //return false;
+                            //listBox1.Items.Insert(0, "启动现场流预览失败");
+                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+
+                        }
+
+                        StateReset();
+
+                        bolResult = false;
+                    }
+                    else
+                    {
+                        _nRet = SDK_BlueSDK.dvxRealImageEnhance(RealHandle, bImageEhnace);
+                        if ((int)dvxSdkType.ReturnError.DVX_OK == _nRet)
+                        {
+                            m_IPCPreViewPara.bImageEhnace = false;
+                        }
+                        _nRet = SDK_BlueSDK.dvxRealStart(RealHandle);
+                        if ((int)dvxSdkType.ReturnError.DVX_OK != _nRet)
+                        {
+                            //listBox1.Items.Insert(0, "开始现场流预览失败");
+                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+
+                            StateReset();
+                            bolResult = false;
+                        }
+                        else
+                        {
+                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+
+                            if (CurrentVideoPlaySet.VideoRecordEnable)
+                            {
+                                //录像
+                                if (RealHandle == IntPtr.Zero)
+                                {
+                                    //没有预览
+
+                                }
+                                else
+                                {
+                                    BlueSkyVideo_VideoRecordStart(CurrentVideoPlaySet.VideoRecordFilePath);
+                                }
+                            }
+
+                            bolResult = true;
+                        }
+                    }
+                }
+
+
+
+
+
+            }
+            return bolResult;
         }
     }
 }
