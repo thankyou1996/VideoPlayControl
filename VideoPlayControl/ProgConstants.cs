@@ -142,6 +142,9 @@ namespace VideoPlayControl
         public const UInt32 c_iHuaMaiSDK_Result_Success = 0;
         #endregion
 
+        #region 海康
+        public static string strHikVideo_RecDicPath = Environment.CurrentDirectory + "\\HikVideoRecFile";
+        #endregion
         #region XMVideo 雄迈
         public static string strXMVideo_RecDicPath = Environment.CurrentDirectory + "\\XMVideoRecFile";
 

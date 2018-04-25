@@ -26,24 +26,25 @@ namespace VideoPlayControl
             int Temp_intIndex1 = Temp_strOperat.LastIndexOf("_");
 
             string Temp_strVideoType = Temp_strOperat.Substring(Temp_intIndex1 + 1, Temp_intIndex - Temp_intIndex1 - 1);
-            switch (Temp_strVideoType)
-            {
-                case "06":
-                    v.VideoRecordType = Enum_VIdeoRecordType.Axis;
-                    break;
-                case "07":
-                    v.VideoRecordType = Enum_VIdeoRecordType.HikDVR;
-                    break;
-                case "08":
-                    v.VideoRecordType = Enum_VIdeoRecordType.XMaiVideo;
-                    break;
-                case "09":
-                    v.VideoRecordType = Enum_VIdeoRecordType.BlueSky;
-                    break;
-                default:
-                    v.VideoRecordType = Enum_VIdeoRecordType.Unrecognized;
-                    return v;
-            }
+            v.VideoRecordType = (Enum_VIdeoRecordType)(Convert.ToInt32(Temp_strVideoType));
+            //switch (Temp_strVideoType)
+            //{
+            //    case "06":
+            //        v.VideoRecordType = Enum_VIdeoRecordType.Axis;
+            //        break;
+            //    case "12":
+            //        v.VideoRecordType = Enum_VIdeoRecordType.HikDVR;
+            //        break;
+            //    case "08":
+            //        v.VideoRecordType = Enum_VIdeoRecordType.XMaiVideo;
+            //        break;
+            //    case "09":
+            //        v.VideoRecordType = Enum_VIdeoRecordType.BlueSky;
+            //        break;
+            //    default:
+            //        v.VideoRecordType = Enum_VIdeoRecordType.Unrecognized;
+            //        return v;
+            //}
 
             Temp_strOperat = Temp_strOperat.Substring(0, Temp_intIndex1);
             Temp_intIndex = Temp_strOperat.LastIndexOf("_");
@@ -71,22 +72,23 @@ namespace VideoPlayControl
             sbVideoRecordFileName.Append(strVideoNum + "_");
             sbVideoRecordFileName.Append(intChannel.ToString().PadLeft(2, '0') + "_");
             sbVideoRecordFileName.Append(DateTime.Now.ToString("yyyyMMddHHmmss") + "_");
+            sbVideoRecordFileName.Append(((int)videoType).ToString().PadLeft(2, '0'));
             switch (videoType)
             {
                 case Enum_VideoType.Axis:
-                    sbVideoRecordFileName.Append("06.bin");
+                    sbVideoRecordFileName.Append(".bin");
                     break;
                 case Enum_VideoType.HikDVR:
-                    sbVideoRecordFileName.Append("07.mp4");
+                    sbVideoRecordFileName.Append(".mp4");
                     break;
                 case Enum_VideoType.XMaiVideo:
-                    sbVideoRecordFileName.Append("08.h264");
+                    sbVideoRecordFileName.Append(".h264");
                     break;
                 case Enum_VideoType.BlueSky:
-                    sbVideoRecordFileName.Append("09.bsr");
+                    sbVideoRecordFileName.Append(".bsr");
                     break;
                 default:
-                    sbVideoRecordFileName.Append("99.mp4");
+                    sbVideoRecordFileName.Append(".mp4");
                     break;
             }
 

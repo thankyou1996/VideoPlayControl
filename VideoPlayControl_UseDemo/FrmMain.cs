@@ -63,7 +63,7 @@ namespace VideoPlayControl_UseDemo
 
 
 
-            btnBlueSkyTestData_Click(sender, e);
+            //btnBlueSkyTestData_Click(sender, e);
 
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using PublicClassCurrency;
@@ -75,24 +76,47 @@ namespace VideoPlayControl.VideoPlay
                 VideoPlayState = Enum_VideoPlayState.InPlayState;
                 if (CurrentVideoPlaySet.VideoRecordEnable)
                 {
-                    if (string.IsNullOrEmpty(CurrentVideoPlaySet.VideoRecordFilePath) || !CurrentVideoPlaySet.VideoRecordFilePath.ToUpper().EndsWith(".mp4"))
-                    {
-                        CurrentVideoPlaySet.VideoRecordFilePath = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
-                    }
-                    if (NET_DVR_SaveRealData(intRet, CurrentVideoPlaySet.VideoRecordFilePath))
-                    {
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecord);
-                    }
-                    else
-                    {
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecordException);
-                    }
+                    StartVideoRecord(CurrentVideoPlaySet.VideoRecordFilePath);
                 }
             }
             return bolResult;
         }
         public void RealDataCallBack(Int32 lRealHandle, UInt32 dwDataType, ref byte pBuffer, UInt32 dwBufSize, IntPtr pUser)
         {
+
+        }
+
+        private bool StartVideoRecord(string strRecFilePath)
+        {
+            bool bolResult = false;
+            StringBuilder sbRecFilePath = new StringBuilder();
+            if (string.IsNullOrEmpty(strRecFilePath))
+            {
+                //不存在路径 使用默认路径 
+                strRecFilePath = ProgConstants.strHikVideo_RecDicPath + "\\" + CurrentVideoInfo.DVSAddress;    //默认路径
+                if (!Directory.Exists(strRecFilePath))
+                {
+                    //文件夹不存在，创建文件夹
+                    Directory.CreateDirectory(strRecFilePath);
+                }
+            }
+            if (!strRecFilePath.EndsWith(".mp4"))
+            {
+                //后缀错误，使用默认文件生成
+                //默认路径格式 [当前工作路径/HikVideoRecFile/DVSAddress/DNSNum_Channnel_起始时间（yyyyMMddHHmmss）_主机类型区分.后缀]
+                strRecFilePath += "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+            }
+            if (NET_DVR_SaveRealData(intRet, strRecFilePath))
+            {
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecord);
+                bolResult = true;
+            }
+            else
+            {
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecordException);
+                bolResult = false;
+            }
+            return bolResult;
 
         }
 

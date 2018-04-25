@@ -586,7 +586,7 @@
         </member>
         <member name="F:PublicClassCurrency.Enum_VideoType.HikDVR">
             <summary>
-            海康DVS 直接访问模式
+            海康DVR 直接访问模式
             </summary>
         </member>
         <member name="F:PublicClassCurrency.Enum_VideoType.XMaiVideo">
