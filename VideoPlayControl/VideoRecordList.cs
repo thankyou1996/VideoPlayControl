@@ -102,15 +102,17 @@ namespace VideoPlayControl
 
             foreach (string s in strsReocrdFilePath)
             {
-                if (
-                    s.ToLower().EndsWith(".mp4")||
-                    s.ToLower().EndsWith(".avi")||
-                    s.ToLower().EndsWith(".bin")        //180128 安讯士录像文件后缀
-                    ||s.ToLower().EndsWith("08.h264")     //180409 雄迈
-                    )
-                {
-                    lststrResult.Add(s);
-                }
+                //if (
+                //    s.ToLower().EndsWith(".mp4")||
+                //    s.ToLower().EndsWith(".avi")||
+                //    s.ToLower().EndsWith(".bin")        //180128 安讯士录像文件后缀
+                //    ||s.ToLower().EndsWith("08.h264")     //180409 雄迈
+                //    )
+                //{
+                //    lststrResult.Add(s);
+                //}
+                //180425 修改为直接添加
+                lststrResult.Add(s);
             }
             return lststrResult;
         }
