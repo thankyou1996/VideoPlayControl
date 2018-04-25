@@ -200,10 +200,16 @@ namespace VideoPlayControl
             {
                 pageTalk.Parent = tabToolbar;
                 cmbTalkDeviceList.SelectedIndex = 0;
+                pblRight_Bottom.Visible = true;
             }
             else
             {
                 pageTalk.Parent = null;
+                if (tabToolbar.TabPages.Count == 0)
+                {
+                    pblRight_Bottom.Visible = false;
+                }
+                
             }
 
             cmbPreset.Items.Clear();
@@ -329,6 +335,19 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.ConnNumMax:
                         sbDisplayInfo.Append("超出设备最大连接数");
                         break;
+                    case Enum_VideoPlayEventType.StartVideoRecord:
+                        sbDisplayInfo.Append("开始视频视频录像");
+                        break;
+                    case Enum_VideoPlayEventType.StartVideoRecordException:
+                        sbDisplayInfo.Append("开始视频视频录像异常");
+                        break;
+                    case Enum_VideoPlayEventType.StopVideoRecord:
+                        sbDisplayInfo.Append("停止视频录像");
+                        break;
+
+                    case Enum_VideoPlayEventType.StopVideoRecordException:
+                        sbDisplayInfo.Append("停止视频录像异常");
+                        break;
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;
@@ -429,6 +448,7 @@ namespace VideoPlayControl
         public void SetPTZVisible(bool bolVisible)
         {
             pagePTZControl.Parent = bolVisible ? tabToolbar : null;
+            pblRight_Bottom.Visible = tabToolbar.TabCount > 0;
         }
         
         #endregion
