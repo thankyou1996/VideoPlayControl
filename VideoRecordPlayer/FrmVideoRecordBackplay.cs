@@ -76,6 +76,7 @@ namespace VideoRecordPlayer
         private void btnClose_Click(object sender, EventArgs e)
         {
             videoRecordBackplayWindow1.CloseVideoRecord();
+            videoRecordBackplayWindow1.Refresh();
         }
 
         private void videoRecordBackplayWindow1_DragDrop(object sender, DragEventArgs e)

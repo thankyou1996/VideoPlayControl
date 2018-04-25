@@ -55,7 +55,7 @@ namespace VideoPlayControl.VideoRecordBackplay
         {
             bool bolResult = false;
             //关闭
-            if ((m_bPlay || m_bPaused) && LocalPlayHandle != IntPtr.Zero)
+            if (/*(m_bPlay || m_bPaused) && */LocalPlayHandle != IntPtr.Zero)
             {
                 SDK_BlueSDK.dvxLocalPlayStop(LocalPlayHandle);
                 SDK_BlueSDK.dvxLocalPlayClose(ref LocalPlayHandle);
@@ -71,7 +71,29 @@ namespace VideoPlayControl.VideoRecordBackplay
 
         public bool OpenVideoRecord()
         {
-            throw new NotImplementedException();
+            bool bolResult = false;
+
+            //正在播放。先停止
+            if (m_bPlay && LocalPlayHandle != IntPtr.Zero)
+            {
+                SDK_BlueSDK.dvxLocalPlayStop(LocalPlayHandle);
+                SDK_BlueSDK.dvxLocalPlayClose(ref LocalPlayHandle);
+                LocalPlayHandle = IntPtr.Zero;
+                m_bPlay = false;
+            }
+            nRet = SDK_BlueSDK.dvxLocalPlayOpen(VideoRecordInfo.RecordPath, intptrPlayWnd, Handle, 1280, ref LocalPlayHandle);
+            if (nRet != (int)dvxSdkType.ReturnError.DVX_OK)
+            {
+                //MessageBox.Show("打开文件失败");
+                bolResult = false;
+                LocalPlayHandle = IntPtr.Zero;
+            }
+            else
+            {
+                bolResult = true;
+            }
+            return bolResult;
+            //throw new NotImplementedException();
         }
 
         public bool PauseVideoRecord()
@@ -113,29 +135,36 @@ namespace VideoPlayControl.VideoRecordBackplay
                 SDK_BlueSDK.dvxLocalPlayPlay(LocalPlayHandle);
                 bolResult = true;
                 m_bPlay = true;
+                m_bPaused = false;
             }
             else
             {
 
                 //播放
                 //正在播放。先停止
-                if (m_bPlay && LocalPlayHandle != IntPtr.Zero)
-                {
-                    SDK_BlueSDK.dvxLocalPlayStop(LocalPlayHandle);
-                    SDK_BlueSDK.dvxLocalPlayClose(ref LocalPlayHandle);
-                    LocalPlayHandle = IntPtr.Zero;
-                    m_bPlay = false;
-                }
+                //if (m_bPlay && LocalPlayHandle != IntPtr.Zero)
+                //{
+                //    SDK_BlueSDK.dvxLocalPlayStop(LocalPlayHandle);
+                //    SDK_BlueSDK.dvxLocalPlayClose(ref LocalPlayHandle);
+                //    LocalPlayHandle = IntPtr.Zero;
+                //    m_bPlay = false;
+                //}
 
-                nRet = SDK_BlueSDK.dvxLocalPlayOpen(VideoRecordInfo.RecordPath, intptrPlayWnd, Handle, 1280, ref LocalPlayHandle);
-                if (nRet != (int)dvxSdkType.ReturnError.DVX_OK)
+                //nRet = SDK_BlueSDK.dvxLocalPlayOpen(VideoRecordInfo.RecordPath, intptrPlayWnd, Handle, 1280, ref LocalPlayHandle);
+                //if (nRet != (int)dvxSdkType.ReturnError.DVX_OK)
+                //{
+                //    //MessageBox.Show("打开文件失败");
+                //    bolResult = false;
+                //}
+                //else
+                //{
+                if (LocalPlayHandle != IntPtr.Zero && m_bPlay == false)
                 {
-                    //MessageBox.Show("打开文件失败");
-                    bolResult = false;
-                }
-                else
-                {
+                    if (m_nStartTime != 0)
+                    {
+                        SDK_BlueSDK.dvxLocalPlaySeek(LocalPlayHandle, m_nStartTime);
 
+                    }
                     nRet = SDK_BlueSDK.dvxLocalPlaySetPlayMode(LocalPlayHandle, 0);
                     nRet = SDK_BlueSDK.dvxLocalPlayPlay(LocalPlayHandle);
                     if (nRet != (int)dvxSdkType.ReturnError.DVX_OK)
@@ -163,6 +192,7 @@ namespace VideoPlayControl.VideoRecordBackplay
                         }
 
                     }
+                    //}
                 }
             }
 
@@ -187,7 +217,7 @@ namespace VideoPlayControl.VideoRecordBackplay
 
                 Int64 pos = (Int64)(fltPos * ((m_nEndTime - m_nStartTime) / 1000));
                 pos = pos + (m_nStartTime / 1000);
-                int i = SDK_BlueSDK.dvxLocalPlaySeek(LocalPlayHandle, pos * 1000);
+                SDK_BlueSDK.dvxLocalPlaySeek(LocalPlayHandle, pos * 1000);
                 bolResult = true;
             }
             currentPlaybackState = Enum_VideoPlaybackState.Playing;
@@ -211,7 +241,7 @@ namespace VideoPlayControl.VideoRecordBackplay
         }
         public void thrGetVideoRecordPos()
         {
-            while (true)
+            while (currentPlaybackState != Enum_VideoPlaybackState.Stopped)
             {
                 if (currentPlaybackState == Enum_VideoPlaybackState.Playing)
                 {
@@ -220,7 +250,7 @@ namespace VideoPlayControl.VideoRecordBackplay
                         Int64 pos = 0;
                         if (SDK_BlueSDK.dvxPlayGetPos(LocalPlayHandle, ref pos) == ((int)dvxSdkType.ReturnError.DVX_OK))
                         {
-                            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1)); 
+                            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
                             Int64 intTime = (m_nEndTime - m_nStartTime) / 1000;
 
                             pos /= 1000;
@@ -237,6 +267,10 @@ namespace VideoPlayControl.VideoRecordBackplay
                             if (dpos == 1)
                             {
                                 currentPlaybackState = Enum_VideoPlaybackState.Stopped;
+
+                                SDK_BlueSDK.dvxLocalPlayStop(LocalPlayHandle);
+                                m_bPlay = false;
+                                //SDK_BlueSDK.dvxLocalPlayClose(ref LocalPlayHandle);
                             }
                         }
                     }
