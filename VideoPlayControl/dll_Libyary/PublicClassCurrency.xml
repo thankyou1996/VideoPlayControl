@@ -616,11 +616,6 @@
             安讯士
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.HikDVR">
-            <summary>
-            海康DVS 直接访问模式
-            </summary>
-        </member>
         <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.XMaiVideo">
             <summary>
             雄迈
@@ -629,6 +624,16 @@
         <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.BlueSky">
             <summary>
             蓝色星际
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.HikDVR">
+            <summary>
+            海康DVS 直接访问模式
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.HikStreamVideo">
+            <summary>
+            海康流媒体模式
             </summary>
         </member>
         <member name="T:PublicClassCurrency.Enum_VideoRecordFileType">

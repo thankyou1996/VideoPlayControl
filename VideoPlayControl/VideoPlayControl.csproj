@@ -157,6 +157,7 @@
     <Compile Include="VideoPlay\IVideoPlay.cs" />
     <Compile Include="VideoPlay\VideoPlay_BuleSky.cs" />
     <Compile Include="VideoPlay\VideoPlay_HikDVR.cs" />
+    <Compile Include="VideoPlay\Video_HikStream.cs" />
     <Compile Include="VideoPTZControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -383,6 +384,20 @@
     <Content Include="Ezviz\YUVProcess.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="HikStream\client.dll" />
+    <Content Include="HikStream\client.h" />
+    <Content Include="HikStream\clntsink.h" />
+    <Content Include="HikStream\DataSync.dll" />
+    <Content Include="HikStream\hpr.dll" />
+    <Content Include="HikStream\IVSReader.dll" />
+    <Content Include="HikStream\mfc71.dll" />
+    <Content Include="HikStream\msvcp71.dll" />
+    <Content Include="HikStream\msvcr71.dll" />
+    <Content Include="HikStream\PlayCtrl.dll" />
+    <Content Include="HikStream\StreamMediaPlayer.exe" />
+    <Content Include="HikStream\StreamTransClient.dll" />
+    <Content Include="HikStream\StrSrcLib.dll" />
+    <Content Include="HikStream\SystemTransform.dll" />
     <Content Include="HIkVideoSDK\AudioRender.dll" />
     <Content Include="HIkVideoSDK\ClientDemo.exe" />
     <Content Include="HIkVideoSDK\ClientDemoDll\calib.dll" />
@@ -645,6 +660,8 @@
     <None Include="Ezviz\udt.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="HikStream\client.lib" />
+    <None Include="HikStream\StrSrcLib.lib" />
     <None Include="HIkVideoSDK\GdiPlus.lib" />
     <None Include="HIkVideoSDK\HCCore.lib" />
     <None Include="HIkVideoSDK\HCNetSDK.lib" />
