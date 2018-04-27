@@ -80,7 +80,7 @@ namespace VideoPlayControl.VideoPlay
                 bolResult = true;
             }
 
-            
+            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
             return bolResult;
         }
 
@@ -91,13 +91,14 @@ namespace VideoPlayControl.VideoPlay
             {
                 //已登录，请注销
                 //return true;
+                VideoPlayState = Enum_VideoPlayState.Connecting;
                 bolResult = BlueSkyVideoPlay();
                 //goto VideoPlay;
             }
             else
             {
 
-
+                
                 _nRet = SDK_BlueSDK.dvxCreate(CurrentVideoInfo.DVSAddress, (ushort)CurrentVideoInfo.DVSConnectPort, (ushort)CurrentVideoInfo.DVSDataPort, CurrentVideoInfo.UserName, CurrentVideoInfo.Password, ref DvxHandle);
                 if (_nRet != (int)dvxSdkType.ReturnError.DVX_OK || DvxHandle == IntPtr.Zero)
                 {
@@ -170,7 +171,7 @@ namespace VideoPlayControl.VideoPlay
 
 
                 }
-
+                VideoPlayState = Enum_VideoPlayState.Connecting;
                 bolResult = BlueSkyVideoPlay();
             }
 
@@ -466,7 +467,7 @@ namespace VideoPlayControl.VideoPlay
                         else
                         {
                             VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
-
+                            VideoPlayState = Enum_VideoPlayState.InPlayState;
                             if (CurrentVideoPlaySet.VideoRecordEnable)
                             {
                                 //录像
