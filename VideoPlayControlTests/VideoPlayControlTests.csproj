@@ -76,6 +76,7 @@
     <Compile Include="SDK_JCSDKTests.cs" />
     <Compile Include="SDK_XMSDKTests.cs" />
     <Compile Include="VideoPlayWindowTests.cs" />
+    <Compile Include="VideoRecordInfoConvertTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

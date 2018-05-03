@@ -29,16 +29,20 @@ namespace VideoPlayControl_UseDemo
             //videoPlayGroupControls_Basic1.bolDisplaySDKEvent = true;
             //videoPlayGroupControls_Basic1.bolDisPlaySDKState = true;
             //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
-            SDKState.CloundSee_SDKInit();
+            //SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit();
-            SDKState.HuaMai_Init();
-            SDKState.XMSDK_Init();
+            //SDKState.SKVideoSDKInit();
+            //SDKState.HuaMai_Init();
+            //SDKState.XMSDK_Init();
+            //SDKState.HikDVRSDK_Init();
+            //SDKState.BlueSkySDK_Init();
             //SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, "192.168.2.10", ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
 
             //HuaMaiVideo_TestData();
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
-            VideoInfo v = TestDataSource.TestDataSource.XMDataSource2();
+            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData1();
+            dicVideoInfos[v.DVSNumber] = v;
+            v = TestDataSource.TestDataSource.GetYSDVSData2();
             dicVideoInfos[v.DVSNumber] = v;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;

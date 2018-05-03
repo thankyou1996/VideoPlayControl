@@ -16,7 +16,7 @@ namespace VideoSDKTest
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmVoiceTest());
+            Application.Run(new FrmRecordPlay());
         }
     }
 }

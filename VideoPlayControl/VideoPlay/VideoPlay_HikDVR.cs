@@ -125,6 +125,7 @@ namespace VideoPlayControl.VideoPlay
             NET_DVR_StopRealPlay(intRet);
             NET_DVR_Logout(_intDVRHwd);
             VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
+            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
             return true;
         }
     }

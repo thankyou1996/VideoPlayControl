@@ -58,6 +58,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmRecordPlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRecordPlay.designer.cs">
+      <DependentUpon>FrmRecordPlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVideoRecordQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVideoRecordQuery.Designer.cs">
+      <DependentUpon>FrmVideoRecordQuery.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVoiceTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +79,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SDK_HikClientSDK.cs" />
+    <EmbeddedResource Include="FrmRecordPlay.resx">
+      <DependentUpon>FrmRecordPlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVideoRecordQuery.resx">
+      <DependentUpon>FrmVideoRecordQuery.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmVoiceTest.resx">
       <DependentUpon>FrmVoiceTest.cs</DependentUpon>
     </EmbeddedResource>

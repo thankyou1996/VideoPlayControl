@@ -52,12 +52,12 @@ namespace VideoPlayControl_UseDemo
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            //SDKState.Ezviz_SDKInit();
+            SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
-            SDKState.HikDVRSDK_Init();
-            SDKState.BlueSkySDK_Init();
+            //SDKState.HikDVRSDK_Init();
+            //SDKState.BlueSkySDK_Init();
 
             Init();
 
@@ -744,10 +744,16 @@ namespace VideoPlayControl_UseDemo
         #region 测试数据相关
         private void btnEzvizTestData_Click(object sender, EventArgs e)
         {
-            Ezviz_TestData();
-            cmbVideoList.SelectedIndex = 0;
-            //bolTestMode = true;
-            //timer1.Enabled = true;
+            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData1();
+            dicVideoInfos[v.DVSNumber] = v;
+            v = TestDataSource.TestDataSource.GetYSDVSData2();
+            dicVideoInfos[v.DVSNumber] = v;
+            VideoListRefresh();
+            //cmbVideoList.SelectedIndex = 0;
+            //Ezviz_TestData();
+            //cmbVideoList.SelectedIndex = 0;
+            ////bolTestMode = true;
+            ////timer1.Enabled = true;
         }
 
         private void btnSKTestData_Click(object sender, EventArgs e)

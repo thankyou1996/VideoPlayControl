@@ -181,6 +181,7 @@
     <Compile Include="VideoRecordList.Designer.cs">
       <DependentUpon>VideoRecordList.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoRemoteBackplay\IVIdeoRemoteBackplay.cs" />
     <Compile Include="VideoTalkControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -33,7 +33,6 @@ namespace VideoPlayControl
         /// 未处于播放状态
         /// </summary>
         NotInPlayState =-1
-
     }
 
 

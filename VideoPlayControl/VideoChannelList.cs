@@ -35,17 +35,7 @@ namespace VideoPlayControl
         /// </summary>
         int intbtnStartY = 1;
 
-
-
-        
-
-       
-
-        
-
-        
-
-        
+        bool bolChannelButtonLoadEnd = false;
         #endregion
         #region 控件自定义属性
         /// <summary>
@@ -190,7 +180,7 @@ namespace VideoPlayControl
 
         private void VideoChannelList_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         /// <summary>
@@ -201,7 +191,7 @@ namespace VideoPlayControl
         {
             CurrentVideoInfo = videoInfo;
             SetVideoInfoCameraInfo();
-            
+
         }
 
         #region 初始化
@@ -210,7 +200,7 @@ namespace VideoPlayControl
         /// </summary>
         public void Init()
         {
-           
+
 
         }
         #endregion
@@ -250,6 +240,7 @@ namespace VideoPlayControl
         /// </summary>
         public void SetVideoInfoCameraInfo()
         {
+            bolChannelButtonLoadEnd = false;
             int intCol = 0;
             int intRow = 0;
             CalculationToButonSize();
@@ -267,8 +258,8 @@ namespace VideoPlayControl
                     //3(x:2,y:63)  4(x:66 y=63)
                     Button btn = new Button();
                     btn.Name = "btn" + kv.Value.Channel.ToString();
-                    btn.Location = new System.Drawing.Point(intbtnStartX + (intChannelButtonWidth * intCol), intbtnStartY + (intChannelButtonHeight * intRow));
-                    btn.Size = new System.Drawing.Size(intChannelButtonWidth, intChannelButtonHeight);
+                    btn.Location = new Point(intbtnStartX + (intChannelButtonWidth * intCol), intbtnStartY + (intChannelButtonHeight * intRow));
+                    btn.Size = new Size(intChannelButtonWidth, intChannelButtonHeight);
                     //btn.Text = "通道" + kv.Value.Channel.ToString();
                     btn.Text = kv.Value.CameraName.ToString();
                     btn.BackColor = Control.DefaultBackColor;
@@ -285,9 +276,31 @@ namespace VideoPlayControl
                     }
                 }
             }
+
+            bolChannelButtonLoadEnd = true;
         }
 
+        public bool RefreshChannelButton()
+        {
+            bool bolResult = false;
+            int intCol = 0;
+            int intRow = 0;
+            CalculationToButonSize();
+            foreach (Button btn in lstbtns)
+            {
+                Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "_" + btn.Text);
+                btn.Location = new Point(intbtnStartX + (intChannelButtonWidth * intCol), intbtnStartY + (intChannelButtonHeight * intRow));
+                btn.Size = new Size(intChannelButtonWidth, intChannelButtonHeight);
+                intCol++;
+                if (intCol >= intChannelButtonColumn)
+                {
+                    intCol = 0;
+                    intRow++;
 
+                }
+            }
+            return bolResult;
+        }
         public void CalculationToButonSize()
         {
             int Temp_intRowCount = CurrentVideoInfo.Cameras.Count / intChannelButtonColumn;
@@ -331,6 +344,13 @@ namespace VideoPlayControl
             ButtonChannel_Click(btn);
         }
 
-        
+        private void VideoChannelList_SizeChanged(object sender, EventArgs e)
+        {
+            if (bolChannelButtonLoadEnd)
+            {
+                //加载完成后才进行触发
+                RefreshChannelButton();
+            }
+        }
     }
 }

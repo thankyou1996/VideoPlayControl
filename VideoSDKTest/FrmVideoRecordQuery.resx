@@ -117,10 +117,45 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="cmsVideoWindow.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>124, 17</value>
-  </metadata>
-  <metadata name="ssPrompt.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnPlaySlow.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAUElEQVRYR+3OQQZAMRAE0bn/pRPhhxH1
+        lx1CPSL0pqYkSa8b39/RFrFCZ4y2iB3qMdoiemjHaIs4Q38vimK0RVGMtiiKXT1godjVAyRJr6uaV4Ux
+        z9YHEzIAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnPlayStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAR0lEQVRYR+3OQQoAIAwDwf7/04pgQSQX
+        D21AdmDPSQAAHo2dTR6wHbkPZG3U+Fk5Naoqo8ZUZdTYWTk1umpjG062YQDAryImDU07xekVvoQAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="btnFast.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAUElEQVRYR+3NQQYAMRAF0b7/pTPChBY1
+        yx8y6tGav6mSJN1mvL+jLWbG9iBtMSvWg7TF9NgK0hazx74uhkK0xVCIthgKHYtPFDoWlyT9UdUDllQx
+        z0yUhi4AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnPlayPause.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAARElEQVRYR+3NMQqAQAADwfv/pxU7mU4h
+        3Q6k2ConSfLD9drDnvPQnvPQnvPQnvPQnvPQnvPQnvPQnvPQnvPQTpLkg3NuRgY7xbzX7pcAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <data name="btnPlayRestart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAQElEQVRYR+3NoQ0AMQDEsO6/dH8Bgz44
+        FkvBOUmSn+5jM5qpGc3UjGZqRjM1o5ma0UzNaKZmNFMzmqkkSR6d8wH3/mOddii1+gAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
 </root>

@@ -52,6 +52,7 @@
             this.Name = "VideoChannelList";
             this.Size = new System.Drawing.Size(138, 164);
             this.Load += new System.EventHandler(this.VideoChannelList_Load);
+            this.SizeChanged += new System.EventHandler(this.VideoChannelList_SizeChanged);
             this.ResumeLayout(false);
 
         }

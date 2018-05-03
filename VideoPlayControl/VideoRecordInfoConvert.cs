@@ -26,6 +26,7 @@ namespace VideoPlayControl
             int Temp_intIndex1 = Temp_strOperat.LastIndexOf("_");
 
             string Temp_strVideoType = Temp_strOperat.Substring(Temp_intIndex1 + 1, Temp_intIndex - Temp_intIndex1 - 1);
+            
             v.VideoRecordType = (Enum_VIdeoRecordType)(Convert.ToInt32(Temp_strVideoType));
             //switch (Temp_strVideoType)
             //{
