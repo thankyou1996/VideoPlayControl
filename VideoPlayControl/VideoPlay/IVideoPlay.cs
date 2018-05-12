@@ -51,11 +51,31 @@ namespace VideoPlayControl.VideoPlay
             get;
             set;
         }
+
+        /// <summary>
+        /// 视频播放窗口宽度
+        /// </summary>
+        int VideoplayWindowWidth
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 视频播放窗口高度
+        /// </summary>
+        int VideoplayWindowHeight
+        {
+            get;
+            set;
+        }
         event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
 
       
         bool VideoPlay();
 
         bool VideoClose();
+
+        bool VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom);
     }
 }

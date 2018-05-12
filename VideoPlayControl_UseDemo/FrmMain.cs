@@ -772,7 +772,7 @@ namespace VideoPlayControl_UseDemo
         }
         private void btnXMTestData1_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.XMDataSource2();
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource1();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
@@ -1202,6 +1202,14 @@ namespace VideoPlayControl_UseDemo
                 timer2.Enabled = true;
 
             }
+        }
+
+        private void btnCloundSeeData1_Click(object sender, EventArgs e)
+        {
+            VideoInfo v = TestDataSource.TestDataSource.GetCloundSeeDVSData1();
+            dicVideoInfos[v.DVSNumber] = v;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
         }
     }
 }

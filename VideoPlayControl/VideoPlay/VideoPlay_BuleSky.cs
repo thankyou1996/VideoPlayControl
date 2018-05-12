@@ -32,7 +32,8 @@ namespace VideoPlayControl.VideoPlay
         public VideoPlaySetting CurrentVideoPlaySet { get; set; }
         public IntPtr intptrPlayMain { get; set; }
         public Enum_VideoPlayState VideoPlayState { get; set; }
-
+        public int VideoplayWindowWidth { get; set; }
+        public int VideoplayWindowHeight { get; set; }
         public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
         private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType)
         {
@@ -182,6 +183,13 @@ namespace VideoPlayControl.VideoPlay
 
         }
 
+
+        public bool VideoSizeChange(int intPosX, int intPosY, int intWidth, int intHeight)
+        {
+            bool bolResult = false;
+
+            return bolResult;
+        }
         /// <summary>
         /// 获取设备类型
         /// </summary>

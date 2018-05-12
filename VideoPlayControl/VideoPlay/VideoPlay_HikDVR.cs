@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using PublicClassCurrency;
 using static VideoPlayControl.SDK_HikClientSDK;
@@ -21,7 +22,8 @@ namespace VideoPlayControl.VideoPlay
         public VideoPlaySetting CurrentVideoPlaySet { get ; set ; }
         public IntPtr intptrPlayMain { get ; set ; }
         public Enum_VideoPlayState VideoPlayState { get ; set ; }
-
+        public int VideoplayWindowWidth { get; set; }
+        public int VideoplayWindowHeight { get; set; }
         public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
         #endregion
         private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType)
@@ -42,44 +44,143 @@ namespace VideoPlayControl.VideoPlay
             bool bolResult = false;
             NET_DVR_DEVICEINFO_V30 dev = new NET_DVR_DEVICEINFO_V30();
             _intDVRHwd = NET_DVR_Login_V30(CurrentVideoInfo.DVSAddress, CurrentVideoInfo.DVSConnectPort, CurrentVideoInfo.UserName, CurrentVideoInfo.Password, ref dev);
-            if (_intDVRHwd < 0)
+            if (_intDVRHwd >= 0)
             {
+                dwAChanTotalNum = (uint)dev.byChanNum;
+                if (dev.byIPChanNum > 0)
+                {
+                    InfoIPChannel();
+                }
+                else
+                {
+                    for (iip = 0; iip < dwAChanTotalNum; iip++)
+                    {
+                        iChannelNum[iip] = iip + (int)dev.byStartChan;
+                    }
+                }
+
+                NET_DVR_PREVIEWINFO lpPreviewInfo = new NET_DVR_PREVIEWINFO();
+                lpPreviewInfo.hPlayWnd = intptrPlayMain;//预览窗口
+                if (dev.byIPChanNum == 0)
+                {
+                    lpPreviewInfo.lChannel = CurrentCameraInfo.Channel;
+                    //SaveNetLog("播放通道" + channel.ToString());
+                }
+                else
+                {
+                    lpPreviewInfo.lChannel = iChannelNum[CurrentCameraInfo.Channel - 1];
+                }
+                lpPreviewInfo.dwStreamType = 0;//码流类型：0-主码流，1-子码流，2-码流3，3-码流4，以此类推
+                lpPreviewInfo.dwLinkMode = 0;//连接方式：0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP 
+                lpPreviewInfo.bBlocked = true; //0- 非阻塞取流，1- 阻塞取流
+
+
+                //NET_DVR_CLIENTINFO cli = new NET_DVR_CLIENTINFO();
+                //cli.lLinkMode = 0;// 设置连接方式  /*  最高位(31)为 0 表示主码流，为 1 表示子码流，0－30 位表示码流连接方式：0：TCP方式,1：UDP 方式,2：多播方式,3 - RTP方式，4—音视频分开 */ 
+                //cli.lChannel = channel + 32;
+                //cli.hPlayWnd = playHandle;
+
+                // 开始播放视频
+                //Thread.Sleep(50);
+
+
+                
+                IntPtr pUser = new IntPtr();
+                REALDATACALLBACK RealData = new REALDATACALLBACK(RealDataCallBack);//预览实时流回调函数
+
+                //intRet = NET_DVR_RealPlay_V30(_intDVRHwd, ref cli, null, pUser, 1);//130814
+                intRet = NET_DVR_RealPlay_V40(_intDVRHwd, ref lpPreviewInfo, null, pUser);//140521
+
+                //NET_DVR_OpenSound(intRet);//140609
+                if (intRet != -1)
+                {
+                    VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+                    VideoPlayState = Enum_VideoPlayState.InPlayState;
+                    if (CurrentVideoPlaySet.VideoRecordEnable)
+                    {
+                        StartVideoRecord(CurrentVideoPlaySet.VideoRecordFilePath);
+                    }
+                }
+                else
+                {
+                    VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+                }
+            }
+            else
+            {
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.DevLoginException);
                 //登陆失败
                 bolResult = false;
             }
 
 
-            NET_DVR_PREVIEWINFO lpPreviewInfo = new NET_DVR_PREVIEWINFO();
-            lpPreviewInfo.hPlayWnd = intptrPlayMain;//预览窗口
-            lpPreviewInfo.lChannel = CurrentCameraInfo.Channel;
-            lpPreviewInfo.dwStreamType = 0;//码流类型：0-主码流，1-子码流，2-码流3，3-码流4，以此类推
-            lpPreviewInfo.dwLinkMode = 0;//连接方式：0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP 
-            lpPreviewInfo.bBlocked = true; //0- 非阻塞取流，1- 阻塞取流
+            
+            return bolResult;
+        }
 
+        private int[] iChannelNum = new int[96];
+        private uint dwAChanTotalNum = 0;
+        private Int32 iip = 0;
+        public void InfoIPChannel()
+        {
 
-            //NET_DVR_CLIENTINFO cli = new NET_DVR_CLIENTINFO();
-            //cli.lLinkMode = 0;// 设置连接方式  /*  最高位(31)为 0 表示主码流，为 1 表示子码流，0－30 位表示码流连接方式：0：TCP方式,1：UDP 方式,2：多播方式,3 - RTP方式，4—音视频分开 */ 
-            //cli.lChannel = channel + 32;
-            //cli.hPlayWnd = playHandle;
+            NET_DVR_IPPARACFG_V40 m_struIpParaCfgV40 = new NET_DVR_IPPARACFG_V40();
+            NET_DVR_DEVICEINFO_V30 DeviceInfo = new NET_DVR_DEVICEINFO_V30();
+            NET_DVR_STREAM_MODE m_struStreamMode = new NET_DVR_STREAM_MODE();
+            NET_DVR_IPCHANINFO m_struChanInfo = new NET_DVR_IPCHANINFO();
 
-            // 开始播放视频
-            //Thread.Sleep(50);
-            IntPtr pUser = new IntPtr();
-            REALDATACALLBACK RealData = new REALDATACALLBACK(RealDataCallBack);//预览实时流回调函数
+            NET_DVR_IPCHANINFO_V40 m_struChanInfoV40 = new NET_DVR_IPCHANINFO_V40();
 
-            //intRet = NET_DVR_RealPlay_V30(_intDVRHwd, ref cli, null, pUser, 1);//130814
-            intRet = NET_DVR_RealPlay_V40(_intDVRHwd, ref lpPreviewInfo, null, pUser);//140521
-            VideoPlayEventCallBack( Enum_VideoPlayEventType.VideoPlay);
-            //NET_DVR_OpenSound(intRet);//140609
-            if (intRet != -1)
+            uint dwSize = (uint)Marshal.SizeOf(m_struIpParaCfgV40);
+
+            IntPtr ptrIpParaCfgV40 = Marshal.AllocHGlobal((Int32)dwSize);
+            Marshal.StructureToPtr(m_struIpParaCfgV40, ptrIpParaCfgV40, false);
+
+            uint dwReturn = 0;
+            if (!NET_DVR_GetDVRConfig(_intDVRHwd, NET_DVR_GET_IPPARACFG_V40, 0, ptrIpParaCfgV40, dwSize, ref dwReturn))
             {
-                VideoPlayState = Enum_VideoPlayState.InPlayState;
-                if (CurrentVideoPlaySet.VideoRecordEnable)
+            }
+            else
+            {
+                m_struIpParaCfgV40 = (NET_DVR_IPPARACFG_V40)Marshal.PtrToStructure(ptrIpParaCfgV40, typeof(NET_DVR_IPPARACFG_V40));
+
+                for (iip = 0; iip < dwAChanTotalNum; iip++)
                 {
-                    StartVideoRecord(CurrentVideoPlaySet.VideoRecordFilePath);
+                    iChannelNum[iip] = iip + (int)DeviceInfo.byStartChan + 1;
+                    //iChannelNum[iip] = iip + (int)DeviceInfo.byStartChan;   
+                }
+
+                byte byStreamType;
+                for (iip = 0; iip < m_struIpParaCfgV40.dwDChanNum; iip++)
+                {
+                    iChannelNum[iip + dwAChanTotalNum] = iip + (int)m_struIpParaCfgV40.dwStartDChan;
+                    byStreamType = m_struIpParaCfgV40.struStreamMode[iip].byGetStreamType;
+                    switch (byStreamType)
+                    {
+                        //目前NVR仅支持0- 直接从设备取流一种方式 NVR supports only one mode: 0- get stream from device directly
+                        case 0:
+                            dwSize = (uint)Marshal.SizeOf(m_struStreamMode);
+                            IntPtr ptrChanInfo = Marshal.AllocHGlobal((Int32)dwSize);
+                            Marshal.StructureToPtr(m_struIpParaCfgV40.struStreamMode[iip].uGetStream, ptrChanInfo, false);
+                            m_struChanInfo = (NET_DVR_IPCHANINFO)Marshal.PtrToStructure(ptrChanInfo, typeof(NET_DVR_IPCHANINFO));
+                            Marshal.FreeHGlobal(ptrChanInfo);
+                            break;
+                        case 6:
+                            IntPtr ptrChanInfoV40 = Marshal.AllocHGlobal((Int32)dwSize);
+                            Marshal.StructureToPtr(m_struIpParaCfgV40.struStreamMode[iip].uGetStream, ptrChanInfoV40, false);
+                            m_struChanInfoV40 = (NET_DVR_IPCHANINFO_V40)Marshal.PtrToStructure(ptrChanInfoV40, typeof(NET_DVR_IPCHANINFO_V40));
+
+                            //列出IP通道 List the IP channel 
+                            //iIPDevID[i] = m_struChanInfoV40.wIPID - iGroupNo * 64 - 1;
+
+                            Marshal.FreeHGlobal(ptrChanInfoV40);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
-            return bolResult;
+
         }
         public void RealDataCallBack(Int32 lRealHandle, UInt32 dwDataType, ref byte pBuffer, UInt32 dwBufSize, IntPtr pUser)
         {
@@ -127,6 +228,13 @@ namespace VideoPlayControl.VideoPlay
             VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
             VideoPlayState = Enum_VideoPlayState.NotInPlayState;
             return true;
+        }
+
+        public bool VideoSizeChange(int intPosX, int intPosY, int intWidth, int intHeight)
+        {
+            bool bolResult = false;
+
+            return bolResult;
         }
     }
 }

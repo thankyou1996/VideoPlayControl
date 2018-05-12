@@ -351,6 +351,11 @@
             <param name="strsKeyField"></param>
             <returns></returns>
         </member>
+        <member name="T:CommonMethod.GetSystemInfo">
+            <summary>
+            获取系统信息
+            </summary>
+        </member>
         <member name="T:CommonMethod.GPSCoordinateConvert">
             <summary>
             GPS经纬度转换
@@ -434,7 +439,7 @@
             <param name="Tag"></param>
             <param name="ex"></param>
         </member>
-        <member name="M:CommonMethod.LogWrite.WriteEventLog(System.String,System.String,System.String)">
+        <member name="M:CommonMethod.LogWrite.WriteEventLog(System.String,System.String)">
             <summary>
             信息记录(输出至文本)
             </summary>
@@ -448,6 +453,20 @@
             <param name="Tag"></param>
             <param name="ex"></param>
             <param name="bolDeBug"></param>
+        </member>
+        <member name="M:CommonMethod.LogWrite.WritExceptionLog(System.String,System.Exception,System.String)">
+            <summary>
+            异常记录(输出至文本)
+            </summary>
+            <param name="Tag"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:CommonMethod.LogWrite.WriteEventLog(System.String,System.String,System.String)">
+            <summary>
+            信息记录(输出至文本)
+            </summary>
+            <param name="logInfo"></param>
+            <param name="logFileName"></param>
         </member>
         <member name="T:CommonMethod.OnlieMapObject">
             <summary>
@@ -628,6 +647,27 @@
             是否为时间数字_秒
             </summary>
             <param name="strNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.XmlUse.AddNodeInfo(System.String,System.String,System.String,System.String[],System.String[])">
+            <summary>
+            添加节点
+            </summary>
+            <param name="strFilePath"></param>
+            <param name="strParentName"></param>
+            <param name="strNodeName"></param>
+            <param name="strsField"></param>
+            <param name="strsValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.XmlUse.GetNodeInfo(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取节点信息
+            </summary>
+            <param name="strFilePath"></param>
+            <param name="strParentName"></param>
+            <param name="strNodeName"></param>
+            <param name="strKeyValue"></param>
             <returns></returns>
         </member>
     </members>

@@ -70,7 +70,7 @@ namespace TestDataSource
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.XMaiVideo;
-            v.DVSAddress = "93c4de073e976f89";
+            v.DVSAddress = "708f8de8e087b0d3";
             v.DVSChannelNum = 1;
             v.DVSConnectPort = 34567;
             v.DVSName = "雄迈";
@@ -78,7 +78,7 @@ namespace TestDataSource
             v.DVSType = "SK8605XM";
             v.HostID = "0008";
             v.UserName = "admin";
-            v.Password = "123456";
+            v.Password = "";
             v.NetworkState = 0;
             for (int i = 0; i < v.DVSChannelNum; i++)
             {
@@ -242,6 +242,39 @@ namespace TestDataSource
             return v;
         }
 
+        #endregion
+
+        #region 云视通
+        /// <summary>
+        /// 博罗0140
+        /// </summary>
+        /// <returns></returns>
+        public static VideoInfo GetCloundSeeDVSData1()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.CloundSee;
+            v.DVSAddress = "X5014851";
+            v.DVSChannelNum = 8;
+            v.DVSConnectPort = 8000;
+            v.DVSName = "云视通DVR测试";
+            v.DVSNumber = "000501";
+            v.DVSType = "SK8605HA";
+            v.HostID = "0005";
+            v.UserName = "admin";
+            v.Password = "";
+            v.NetworkState = 0;
+            for (int i = 1; i <= 8; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i);
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8605HM";
+                c.DVSNumber = "000501";
+                v.Cameras[c.Channel] = c;
+            }
+            return v;
+        }
         #endregion
     }
 }
