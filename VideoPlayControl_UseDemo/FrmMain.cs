@@ -52,10 +52,10 @@ namespace VideoPlayControl_UseDemo
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            SDKState.Ezviz_SDKInit();
+            //SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
-            //SDKState.XMSDK_Init();
+            SDKState.XMSDK_Init();
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
 
@@ -772,7 +772,7 @@ namespace VideoPlayControl_UseDemo
         }
         private void btnXMTestData1_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.XMDataSource1();
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource3();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

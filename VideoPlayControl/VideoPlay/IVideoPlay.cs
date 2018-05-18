@@ -76,6 +76,8 @@ namespace VideoPlayControl.VideoPlay
 
         bool VideoClose();
 
+
+        bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart);
         bool VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom);
     }
 }

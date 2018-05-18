@@ -158,6 +158,7 @@
     <Compile Include="VideoPlay\VideoPlay_AXIS.cs" />
     <Compile Include="VideoPlay\VideoPlay_BuleSky.cs" />
     <Compile Include="VideoPlay\VideoPlay_HikDVR.cs" />
+    <Compile Include="VideoPlay\VideoPlay_XMai.cs" />
     <Compile Include="VideoPlay\Video_HikStream.cs" />
     <Compile Include="VideoPTZControl.cs">
       <SubType>UserControl</SubType>

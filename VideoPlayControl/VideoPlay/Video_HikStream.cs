@@ -27,6 +27,12 @@ namespace VideoPlayControl.VideoPlay
         {
             throw new NotImplementedException();
         }
+
+        public bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool VideoSizeChange(int intPosX, int intPosY, int intWidth, int intHeight)
         {
             bool bolResult = false;
