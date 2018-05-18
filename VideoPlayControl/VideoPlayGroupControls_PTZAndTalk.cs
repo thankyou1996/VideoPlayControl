@@ -348,6 +348,12 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.StopVideoRecordException:
                         sbDisplayInfo.Append("停止视频录像异常");
                         break;
+                    case Enum_VideoPlayEventType.LoginStart:
+                        sbDisplayInfo.Append("设备登陆中");
+                        break;
+                    case Enum_VideoPlayEventType.LoginSuccess:
+                        sbDisplayInfo.Append("设备登陆成功");
+                        break;
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;
