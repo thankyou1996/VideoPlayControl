@@ -69,24 +69,24 @@
             设备头唯一码
             </summary>
         </member>
-        <member name="T:PublicClassCurrency.Enum_CordinateSystem">
+        <member name="T:PublicClassCurrency.Enum_CordinateSystem1">
             <summary>
             坐标系统
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.Enum_CordinateSystem.WGS_84">
+        <member name="F:PublicClassCurrency.Enum_CordinateSystem1.WGS_84">
             <summary>
             大地坐标系统
             GPS坐标
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.Enum_CordinateSystem.GCJ_02">
+        <member name="F:PublicClassCurrency.Enum_CordinateSystem1.GCJ_02">
             <summary>
             火星坐标
             高德地图，腾讯地图
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.Enum_CordinateSystem.BD_09">
+        <member name="F:PublicClassCurrency.Enum_CordinateSystem1.BD_09">
             <summary>
             百度坐标
             百度地图
@@ -258,43 +258,87 @@
             地图点信息
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.Map.MapType.BaiduOnlineMap">
+        <member name="T:PublicClassCurrency.Map.Enum_MapStatus">
+            <summary>
+            地图状态
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Map.MapType1.BaiduOnlineMap">
             <summary>
             百度在线地图
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.Map.MapType.SogouOffLineMap">
+        <member name="F:PublicClassCurrency.Map.MapType1.SogouOffLineMap">
             <summary>
             搜狗离线地图
             </summary>
         </member>
-        <member name="T:PublicClassCurrency.MapPointInfo">
+        <member name="P:PublicClassCurrency.Map.IMapControl.mapType">
+            <summary>
+            地图类型
+            </summary>
+        </member>
+        <member name="E:PublicClassCurrency.Map.IMapControl.MapControlLoadEndEvent">
+            <summary>
+            地图加载完成事件
+            </summary>
+        </member>
+        <member name="M:PublicClassCurrency.Map.IMapControl.SetCenterPoint(PublicClassCurrency.MapPointInfo1)">
+            <summary>
+            设置中心点
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PublicClassCurrency.Map.IMapControl.SetMapLevel(PublicClassCurrency.MapPointInfo1)">
+            <summary>
+            设置地图等级
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PublicClassCurrency.Map.IMapControl.SetMapMarker(PublicClassCurrency.MapPointInfo1,System.String)">
+            <summary>
+            设置标注点信息
+            </summary>
+            <param name="point"></param>
+            <param name="strMarkerPicFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PublicClassCurrency.Map.IMapControl.SetMapMarker(PublicClassCurrency.MapMarkerPointInfo)">
+            <summary>
+            显示标注点信息
+            </summary>
+            <param name="marker"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PublicClassCurrency.MapPointInfo1">
             <summary>
             地图点信息
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.MapPointInfo.dblLon">
+        <member name="F:PublicClassCurrency.MapPointInfo1.dblLon">
             <summary>
             经度
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.MapPointInfo.dblLat">
+        <member name="F:PublicClassCurrency.MapPointInfo1.dblLat">
             <summary>
             纬度
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.MapPointInfo.intMapLevel">
+        <member name="F:PublicClassCurrency.MapPointInfo1.intMapLevel">
             <summary>
             地图等级
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.MapPointInfo.cordinateSyatem">
+        <member name="F:PublicClassCurrency.MapPointInfo1.cordinateSyatem">
             <summary>
             坐标系统
             </summary>
         </member>
-        <!-- 对于成员“M:PublicClassCurrency.MapPointInfo.WGSToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)”忽略有格式错误的 XML 注释 -->
-        <member name="M:PublicClassCurrency.MapPointInfo.WGSToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+        <!-- 对于成员“M:PublicClassCurrency.MapPointInfo1.WGSToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)”忽略有格式错误的 XML 注释 -->
+        <member name="M:PublicClassCurrency.MapPointInfo1.WGSToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
             <summary>
             WGS-84 转换 BD-09
             </summary>
@@ -303,7 +347,7 @@
             <param name="lng"></param>
             <param name="lat"></param>
         </member>
-        <member name="M:PublicClassCurrency.MapPointInfo.GCJToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+        <member name="M:PublicClassCurrency.MapPointInfo1.GCJToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
             <summary>
             GCJ-02 转换 BD-09
             </summary>
@@ -312,7 +356,7 @@
             <param name="lng"></param>
             <param name="lat"></param>
         </member>
-        <member name="M:PublicClassCurrency.MapPointInfo.GCJToWGS_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+        <member name="M:PublicClassCurrency.MapPointInfo1.GCJToWGS_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
             <summary>
              GCJ-02 转换 WGS-84
             </summary>
@@ -321,7 +365,7 @@
             <param name="wgsLon"></param>
             <param name="wgsLat"></param>
         </member>
-        <member name="M:PublicClassCurrency.MapPointInfo.BDToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+        <member name="M:PublicClassCurrency.MapPointInfo1.BDToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
             <summary>
               BD-09 转换 GCJ-02
             </summary>
@@ -330,7 +374,7 @@
             <param name="gcjLon"></param>
             <param name="gcjLat"></param>
         </member>
-        <member name="M:PublicClassCurrency.MapPointInfo.BDToWGS_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+        <member name="M:PublicClassCurrency.MapPointInfo1.BDToWGS_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
             <summary>
             BD-09 转换 WGS-84
             </summary>
@@ -474,16 +518,6 @@
             视频播放时间限制_分 0代表无限制
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.VideoInfo.intNetworkState">
-            <summary>
-            网络状态 大于0在线 0离线 -1状态未明
-            </summary>
-        </member>
-        <member name="P:PublicClassCurrency.VideoInfo.NetworkState">
-            <summary>
-            网络状态 大于0在线 0离线 -1状态未明
-            </summary>
-        </member>
         <member name="F:PublicClassCurrency.VideoInfo.intAutoIntercom">
             <summary>
             自动对讲功能
@@ -526,6 +560,36 @@
             仅作为对讲设备
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intNetworkState">
+            <summary>
+            网络状态 大于0在线 0离线 -1状态未明
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.NetworkState">
+            <summary>
+            网络状态 大于0在线 0离线 -1状态未明
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intLoginState">
+            <summary>
+            设备登陆状态 0表示未登录  1表示已登陆
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.LoginState">
+            <summary>
+            设备登陆状态 0表示未登录  1表示已登陆
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intLoginHandle">
+            <summary>
+            设备登陆句柄
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.LoginHandle">
+            <summary>
+            设备登陆句柄
+            </summary>
+        </member>
         <member name="M:PublicClassCurrency.VideoInfo.SetCameraInfo(System.Int32,System.String)">
             <summary>
             设置摄像头信息
@@ -542,6 +606,11 @@
         <member name="M:PublicClassCurrency.VideoInfo.ExistCameraInfo">
             <summary>
             是否存在摄像头
+            </summary>
+        </member>
+        <member name="E:PublicClassCurrency.VideoInfo.VideoLoginStateChangeEvent">
+            <summary>
+            用户登陆状态改变事件
             </summary>
         </member>
         <member name="T:PublicClassCurrency.Enum_VideoType">

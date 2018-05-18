@@ -1748,9 +1748,12 @@ namespace VideoPlayControl
                     case Enum_VideoType.SKVideo:
                         SKVideo_PTZControl(PTZControl, bolStart);
                         break;
-                    //case Enum_VideoType.XMaiVideo:
-                    //    XMVideo_PTZControl(PTZControl, bolStart);
-                    //    break;
+                    default:
+                        if (iv != null)
+                        {
+                            iv.VideoPTZControl(PTZControl, bolStart);
+                        }
+                        break;
                 }
             }
         }

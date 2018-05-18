@@ -770,13 +770,7 @@ namespace VideoPlayControl_UseDemo
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
         }
-        private void btnXMTestData1_Click(object sender, EventArgs e)
-        {
-            VideoInfo v = TestDataSource.TestDataSource.XMDataSource3();
-            dicVideoInfos[v.DVSNumber] = v;
-            VideoListRefresh();
-            cmbVideoList.SelectedIndex = 0;
-        }
+        
         private void btnHikTestData1_Click(object sender, EventArgs e)
         {
             VideoInfo v = TestDataSource.TestDataSource.GetHikDVSData1();
@@ -1207,6 +1201,21 @@ namespace VideoPlayControl_UseDemo
         private void btnCloundSeeData1_Click(object sender, EventArgs e)
         {
             VideoInfo v = TestDataSource.TestDataSource.GetCloundSeeDVSData1();
+            dicVideoInfos[v.DVSNumber] = v;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+
+        private void btnXMTestData1_Click(object sender, EventArgs e)
+        {
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource4();
+            dicVideoInfos[v.DVSNumber] = v;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+        private void btnXMTestData2_Click(object sender, EventArgs e)
+        {
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource1();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

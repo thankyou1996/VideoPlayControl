@@ -505,7 +505,7 @@ namespace VideoPlayControl.VideoPlay
 
         public bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
         {
-            throw new NotImplementedException();
+            return false;
         }
     }
 }

@@ -30,6 +30,27 @@ namespace VideoPlayControl
         /// </summary>
         VideoTypeNotExists = 4,
 
+
+        /// <summary>
+        /// 设备不存在
+        /// </summary>
+        DeviceNotExist = 14,
+
+
+   
+     
+
+
+     
+
+        #region 视频预览相关
+
+        /// <summary>
+        /// 视频异常
+        /// </summary>
+        VideoPlayException = 13,
+
+
         /// <summary>
         /// 关闭视频信息
         /// </summary>
@@ -61,40 +82,17 @@ namespace VideoPlayControl
         RequestVideoTimeout = 10,
 
         /// <summary>
-        /// 视频设备不在线
-        /// 不在线属于状态,在这里定位为事件方便记录显示
-        /// </summary>
-        VideoDeviceNotOnline = 11,
-
-        /// <summary>
-        /// 用户信息验证失败
-        /// </summary>
-        UserAccessError = 12,
-
-        /// <summary>
-        /// 视频异常
-        /// </summary>
-        VideoPlayException = 13,
-
-        /// <summary>
-        /// 设备不存在
-        /// </summary>
-        DeviceNotExist = 14,
-
-        /// <summary>
-        /// 设备登录异常
-        /// </summary>
-        DevLoginException = 15,
-
-        /// <summary>
         /// 超出设备最大连接数
         /// </summary>
-        ConnNumMax=16,
+        ConnNumMax = 16,
+        #endregion
+
+        #region 视频录制
 
         /// <summary>
         /// 开始视频录制
         /// </summary>
-        StartVideoRecord=17,
+        StartVideoRecord = 17,
 
         /// <summary>
         /// 停止视频录制
@@ -104,11 +102,40 @@ namespace VideoPlayControl
         /// <summary>
         /// 开始视频录制异常
         /// </summary>
-        StartVideoRecordException=19,
+        StartVideoRecordException = 19,
 
         /// <summary>
         /// 停止视频录制正常
         /// </summary>
         StopVideoRecordException = 20,
+
+        #endregion
+
+        #region 设备登陆相关
+
+        /// <summary>
+        /// 设备登陆
+        /// </summary>
+        LoginStart = 21,
+        /// <summary>
+        /// 登陆成功
+        /// </summary>
+        LoginSuccess = 22,
+        /// <summary>
+        /// 设备登录异常
+        /// </summary>
+        DevLoginException = 15,
+        /// <summary>
+        /// 用户信息验证失败
+        /// </summary>
+        UserAccessError = 12,
+
+        /// <summary>
+        /// 视频设备不在线
+        /// 不在线属于状态,在这里定位为事件方便记录显示
+        /// </summary>
+        VideoDeviceNotOnline = 11,
+
+        #endregion
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
+using PublicClassCurrency;
+using System.Threading;
 
 namespace VideoPlayControl
 {
@@ -1176,6 +1178,83 @@ namespace VideoPlayControl
             EXTPTZ_TOTAL,
         };
 
+
+        #endregion
+
+
+        #region 自定义
+        //程序流程 
+        //数据赋值部分
+        //1.代码中创建内存对象存放视频设备信息
+        //2.当雄迈视频设备赋值时与内存对象中的设备对比(不存在添加至内存中) 从数据对象中赋值
+
+        //设备实时浏览部分
+        //1.注册设备状态改变事件
+        //2.调用设备登陆接口()
+        //  2.1 已经登陆则获取登陆句柄，浏览视频 END
+        //3.未登陆则则开启后台线程进行设备登陆
+        //4.后台线程中设置设备登陆状态通过已经注册事件触发试视频预览事件
+
+        /// <summary>
+        ///雄迈视频设备列表 Key(DvsAddress_Connect端口)保证key代表唯一设置
+        /// </summary>
+        public static Dictionary<string, VideoInfo> dicXMVideoList = new Dictionary<string, VideoInfo>();
+
+        /// <summary>
+        /// 雄迈视频设备登陆
+        /// </summary>
+        /// <param name="strVIdeoNumber"></param>
+        /// <returns></returns>
+        public static bool DeviceLogin(string strVIdeoNumber)
+        {
+            bool bolResult = false;
+            if (dicXMVideoList.ContainsKey(strVIdeoNumber))
+            {
+                VideoInfo v = dicXMVideoList[strVIdeoNumber];
+                if (v.LoginState != 1)
+                {
+                    Thread t = new Thread(new ParameterizedThreadStart(XMVideoLogin));
+                    t.IsBackground = true;
+                    t.Start(strVIdeoNumber);
+                }
+                else
+                {
+                    bolResult = true;
+                }
+            }
+            return bolResult;
+        }
+
+        public static void XMVideoLogin(object strVideoNumber)
+        {
+            VideoInfo v = dicXMVideoList[strVideoNumber.ToString()];
+            H264_DVR_DEVICEINFO OutDev;
+            int nError = 0;
+            VideoPlaySetting vPlaySet = new VideoPlaySetting();
+            int lLogin = -1;
+            #region 连接类型选择 
+            vPlaySet.ConnType = CommonMethod.Verification.isIP(v.DVSAddress) ? Enum.Enum_VideoConnType.Direct : Enum.Enum_VideoConnType.Clound;
+            if (vPlaySet.ConnType == Enum.Enum_VideoConnType.Clound)
+            {
+                //雄迈云
+                lLogin = SDK_XMSDK.H264_DVR_Login_Cloud(v.DVSAddress, Convert.ToUInt16(v.DVSConnectPort), v.UserName, v.Password, out OutDev, out nError, "");
+            }
+            else
+            {
+                //默认直连
+                lLogin = SDK_XMSDK.H264_DVR_Login(v.DVSAddress, Convert.ToUInt16(v.DVSConnectPort), v.UserName, v.Password, out OutDev, out nError, SocketStyle.TCPSOCKET);
+            }
+            #endregion
+            v.LoginHandle = lLogin;
+            if (lLogin > 0)
+            {
+                v.LoginState = 1;
+            }
+            else
+            {
+                v.LoginState = -1;
+            }
+        }
 
         #endregion
     }

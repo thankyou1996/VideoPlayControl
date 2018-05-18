@@ -442,6 +442,10 @@ namespace VideoPlayControl
         #endregion
 
         #region 雄迈SDK 
+        
+        
+
+        
         public static Enum_SDKState s_XMSDKState = Enum_SDKState.SDK_Null;
         private static SDK_XMSDK.fDisConnect disCallback;
         public static Enum_SDKState XMSDKState
@@ -468,7 +472,17 @@ namespace VideoPlayControl
 
         private static void DisConnectBackCallFunc(int lLoginID, string pchDVRIP, int nDVRPort, IntPtr dwUser)
         {
-            Console.WriteLine(lLoginID.ToString());
+            int Temp_intResult = -1;
+            foreach (VideoInfo v in SDK_XMSDK.dicXMVideoList.Values)
+            {
+                if (v.LoginHandle == lLoginID)
+                {
+                    //释放登陆信息句柄
+                    Temp_intResult = SDK_XMSDK.H264_DVR_Logout(v.LoginHandle);
+                    v.LoginHandle = -1;
+                    v.LoginState = 0;
+                }
+            }
         }
         /// <summary>
         /// 雄迈SDK 释放

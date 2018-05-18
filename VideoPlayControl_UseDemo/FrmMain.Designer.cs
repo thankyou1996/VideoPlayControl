@@ -33,6 +33,7 @@
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.PageTestData = new System.Windows.Forms.TabPage();
+            this.btnCloundSeeData1 = new System.Windows.Forms.Button();
             this.btnBlueSkyTestData = new System.Windows.Forms.Button();
             this.btnHikTestData1 = new System.Windows.Forms.Button();
             this.btnXMTestData1 = new System.Windows.Forms.Button();
@@ -133,7 +134,7 @@
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.btnCloundSeeData1 = new System.Windows.Forms.Button();
+            this.btnXMTestData2 = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -214,6 +215,7 @@
             this.PageTestData.Controls.Add(this.btnCloundSeeData1);
             this.PageTestData.Controls.Add(this.btnBlueSkyTestData);
             this.PageTestData.Controls.Add(this.btnHikTestData1);
+            this.PageTestData.Controls.Add(this.btnXMTestData2);
             this.PageTestData.Controls.Add(this.btnXMTestData1);
             this.PageTestData.Controls.Add(this.btnHuaMaiTestData);
             this.PageTestData.Controls.Add(this.btnEzvizTestData);
@@ -227,6 +229,16 @@
             this.PageTestData.TabIndex = 0;
             this.PageTestData.Text = "测试数据";
             this.PageTestData.UseVisualStyleBackColor = true;
+            // 
+            // btnCloundSeeData1
+            // 
+            this.btnCloundSeeData1.Location = new System.Drawing.Point(148, 52);
+            this.btnCloundSeeData1.Name = "btnCloundSeeData1";
+            this.btnCloundSeeData1.Size = new System.Drawing.Size(71, 23);
+            this.btnCloundSeeData1.TabIndex = 17;
+            this.btnCloundSeeData1.Text = "云视通";
+            this.btnCloundSeeData1.UseVisualStyleBackColor = true;
+            this.btnCloundSeeData1.Click += new System.EventHandler(this.btnCloundSeeData1_Click);
             // 
             // btnBlueSkyTestData
             // 
@@ -252,9 +264,9 @@
             // 
             this.btnXMTestData1.Location = new System.Drawing.Point(148, 29);
             this.btnXMTestData1.Name = "btnXMTestData1";
-            this.btnXMTestData1.Size = new System.Drawing.Size(72, 23);
+            this.btnXMTestData1.Size = new System.Drawing.Size(50, 23);
             this.btnXMTestData1.TabIndex = 15;
-            this.btnXMTestData1.Text = "雄迈数据";
+            this.btnXMTestData1.Text = "雄迈1";
             this.btnXMTestData1.UseVisualStyleBackColor = true;
             this.btnXMTestData1.Click += new System.EventHandler(this.btnXMTestData1_Click);
             // 
@@ -1244,15 +1256,15 @@
             this.timer2.Interval = 10000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // btnCloundSeeData1
+            // btnXMTestData2
             // 
-            this.btnCloundSeeData1.Location = new System.Drawing.Point(148, 52);
-            this.btnCloundSeeData1.Name = "btnCloundSeeData1";
-            this.btnCloundSeeData1.Size = new System.Drawing.Size(71, 23);
-            this.btnCloundSeeData1.TabIndex = 17;
-            this.btnCloundSeeData1.Text = "云视通";
-            this.btnCloundSeeData1.UseVisualStyleBackColor = true;
-            this.btnCloundSeeData1.Click += new System.EventHandler(this.btnCloundSeeData1_Click);
+            this.btnXMTestData2.Location = new System.Drawing.Point(200, 29);
+            this.btnXMTestData2.Name = "btnXMTestData2";
+            this.btnXMTestData2.Size = new System.Drawing.Size(50, 23);
+            this.btnXMTestData2.TabIndex = 15;
+            this.btnXMTestData2.Text = "雄迈2";
+            this.btnXMTestData2.UseVisualStyleBackColor = true;
+            this.btnXMTestData2.Click += new System.EventHandler(this.btnXMTestData2_Click);
             // 
             // FrmMain
             // 
@@ -1410,6 +1422,7 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCloundSeeData1;
+        private System.Windows.Forms.Button btnXMTestData2;
     }
 }
 
