@@ -374,7 +374,7 @@ namespace VideoPlayControl
         /// <param name="strDisplayInfo"></param>
         public void DisplayRecord(string strDisplayInfo)
         {
-            if (!this.IsDisposed)
+            if (this.IsHandleCreated)
             {
                 try
                 {
@@ -387,12 +387,9 @@ namespace VideoPlayControl
                 catch (Exception ex)
                 {
                     //关闭窗口时关闭视频，萤石设备出现异常
-                    string strTag = this.IsDisposed.ToString();
-                    CommonMethod.LogWrite.WritExceptionLog("VideoPlayControl_DisplayRecord_[" + strDisplayInfo + "][IsDisposed:" + strTag + "]", ex);
+                    CommonMethod.LogWrite.WritExceptionLog("VideoPlayControl_DisplayRecord_[" + strDisplayInfo + "]", ex, ProgParameter.ProgLogAddress);
                 }
-                
             }
-            
         }
 
         /// <summary>

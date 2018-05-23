@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
+using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl
 {
@@ -69,12 +71,12 @@ namespace VideoPlayControl
         [StructLayoutAttribute(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
         public struct st_event
         {
-            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 18, ArraySubType = UnmanagedType.I1)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 30)]
             public byte[] guid;
-            public byte length;
+            public UInt32 length;
             public byte event_code;
-            public Int32 time;
-            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 10, ArraySubType = UnmanagedType.I1)]
+            public UInt32 time;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 10240)]
             public byte[] event_data;
         }
 
@@ -100,8 +102,22 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
+
         #region 接口定义
+ 
+
+        #region 回调信息
+        public delegate void CallBack(UInt32 msg_id, UInt32 arg1, UInt32 arg2, IntPtr data1, UInt32 data1_len, IntPtr data2, UInt32 data2_len);
+
+
+        /// <summary>
+        /// 信息回调
+        /// </summary>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int p_sdkc_reg_msg_callback(CallBack func);
+        #endregion
 
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//码流端口 默认47924
         public static extern int p_sdkc_set_server_av_port(UInt16 av_prort);
@@ -224,7 +240,150 @@ namespace VideoPlayControl
 
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_onvif_ptz_stop(string strGuid, int iChannel);
+
+
+        #region 录像相关
+        /// <summary>
+        /// 查询视频记录
+        /// </summary>
+        /// <param name="guid">GUID</param>
+        /// <param name="channel">通道</param>
+        /// <param name="start_ts">其实时间</param>
+        /// <param name="stop_ts"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int p_sdkc_get_record_time_map(string guid, byte channel, int start_ts, int stop_ts);
+
+
+        #endregion
+
         
+
+
+        #region 自定义接口
+
+        #endregion
+        public static List<RemoteVideoRecordInfo> SKRemoteVideoRecordDataPrasing(string strGUID,string strData)
+        {
+            List<RemoteVideoRecordInfo> result = null;
+            try
+            {
+                int Temp_intIndex = strData.IndexOf("\0");
+                if (Temp_intIndex >0)
+                {
+                    strData = strData.Substring(0, strData.IndexOf("\0"));
+                }
+                
+                //[a:192.168.2.166] [g: SuperAdmin_PB] [c:08] [s(1526886082) e(1526886150)] [s(1526886179) e(1526887395)] [s(1526887503) e(1526889215)] [s(1526889314) e(1526892684)] [s(1526892685) e(1526895368)] [s(1526895368) e(1526898051)] [s(1526898051) e(1526900729)]
+                string strDevAddress = "";
+                int intChannel = 0;
+                string strGData = "";
+                string[] Temp_strData = strData.Split(new char[] { ']', '[' }, StringSplitOptions.RemoveEmptyEntries);
+
+                strDevAddress = Temp_strData[0].Substring(2);
+                strGData = Temp_strData[1].Substring(2);
+                intChannel = Convert.ToInt32(Temp_strData[2].Substring(2));
+                if (Temp_strData.Length > 3)
+                {
+                    result = new List<RemoteVideoRecordInfo>();
+                    for (int i = 3; i < Temp_strData.Length; i++)
+                    {
+                        string[] Temp_strRecordData = Temp_strData[i].Split(new char[] { 's', 'e', '(', ')', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                        long Temp_lStart = Convert.ToInt64(Temp_strRecordData[0]);
+                        long Temp_lEnd = Convert.ToInt64(Temp_strRecordData[1]);
+                        DateTime timStart = CommonMethod.ConvertClass.UnixTimestampToDateTime(Temp_lStart);
+                        DateTime timEnd = CommonMethod.ConvertClass.UnixTimestampToDateTime(Temp_lEnd);
+                        RemoteVideoRecordInfo r = new RemoteVideoRecordInfo
+                        {
+                            VideoGUID = strGUID,
+                            VideoAddress = strDevAddress,
+                            Channel = intChannel,
+                            StartTime = timStart,
+                            EndTime = timEnd
+                        };
+                        r.RemoteVidoRecordName = GetRemoteVideoRecordFileName(r);
+                        result.Add(r);
+                    }
+                }
+            }
+            catch (Exception ex )
+            {
+                CommonMethod.LogWrite.WriteEventLog("SKRemoteVideoRecordDataPrasing", strData, ProgParameter.ProgLogAddress);
+                CommonMethod.LogWrite.WritExceptionLog("SKRemoteVideoRecordDataPrasing", ex, ProgParameter.ProgLogAddress);
+            }
+            return result;
+        }
+
+        public static bool DownLoadRemoteRecord(RemoteVideoRecordInfo remoteVideoRecordInfo, string strDownFileName)
+        {
+            bool bolResult = false;
+            string strUrl = GetDownLoadRemoteRecordUrl(remoteVideoRecordInfo);
+            System.Net.HttpWebRequest Myrq = (System.Net.HttpWebRequest)System.Net.HttpWebRequest.Create(strUrl);
+            //string Temp_strUrl = "http://192.168.2.166/cgi-bin/download.cgi?path=/hdd/normal/VHS_ch09_61-57354AA60831-3136_1526886082.h264&";
+            //System.Net.HttpWebRequest Myrq = (System.Net.HttpWebRequest)System.Net.HttpWebRequest.Create(Temp_strUrl);
+            Myrq.Timeout = 5000;
+            System.Net.HttpWebResponse myrp = null;
+            try
+            {
+                myrp = (System.Net.HttpWebResponse)Myrq.GetResponse();
+            }
+            catch (WebException ex)
+            {
+                if (ex.Status == WebExceptionStatus.Timeout)
+                {
+                    //MessageBox.Show("网络请求超时");
+                    bolResult = false ;
+                    return bolResult;
+                }
+            }
+            long totalBytes = myrp.ContentLength;
+            System.IO.Stream st = myrp.GetResponseStream();
+            System.IO.Stream so = new System.IO.FileStream(strDownFileName, System.IO.FileMode.Create);
+            long totalDownloadedByte = 0;
+            byte[] by = new byte[1024];
+            int osize = st.Read(by, 0, (int)by.Length);
+            while (osize > 0)
+            {
+                totalDownloadedByte = osize + totalDownloadedByte;
+                System.Windows.Forms.Application.DoEvents();
+                so.Write(by, 0, osize);
+                osize = st.Read(by, 0, (int)by.Length);
+            }
+            so.Close();
+            st.Close();
+            return bolResult;
+        }
+
+        /// <summary>
+        /// 获取下载远程地址
+        /// </summary>
+        /// <param name="strAddress"></param>
+        /// <param name="strFileName"></param>
+        /// <returns></returns>
+        public static string GetDownLoadRemoteRecordUrl(RemoteVideoRecordInfo remoteVideoRecordInfo)
+        {
+            StringBuilder sbResult = new StringBuilder();
+            sbResult.Append("http://");
+            sbResult.Append(remoteVideoRecordInfo.VideoAddress);
+            sbResult.Append("/cgi-bin/download.cgi?path=/hdd/normal/");
+            sbResult.Append(remoteVideoRecordInfo.RemoteVidoRecordName + "&");
+            return sbResult.ToString();
+        }
+
+        public static string GetRemoteVideoRecordFileName(RemoteVideoRecordInfo remoteVideoRecordInfo)
+        {
+            //+ (channel + 1).ToString("00") + "_" + Device_guid + "_" + Form1.download_listfile[i].ToString() + ".h264"
+            //VHS_ch01_61 - 57354AA60831 - 3136_1526886080.h264
+            StringBuilder sbResult = new StringBuilder();
+            sbResult.Append("VHS_ch");
+            sbResult.Append((remoteVideoRecordInfo.Channel + 1).ToString("00"));
+            sbResult.Append("_");
+            sbResult.Append(remoteVideoRecordInfo.VideoGUID);
+            sbResult.Append("_");
+            sbResult.Append(CommonMethod.ConvertClass.DateTimeToUnixTimestamp(remoteVideoRecordInfo.StartTime));
+            sbResult.Append(".h264");
+            return sbResult.ToString();
+        }
         #endregion
 
     }

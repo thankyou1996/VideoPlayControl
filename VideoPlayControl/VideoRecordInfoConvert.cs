@@ -67,12 +67,17 @@ namespace VideoPlayControl
 
         public static string GetVideoRecordName(string strVideoNum, int intChannel, Enum_VideoType videoType)
         {
+            return GetVideoRecordName(strVideoNum, intChannel, DateTime.Now, videoType);
+        }
+
+        public static string GetVideoRecordName(string strVideoNum, int intChannel,DateTime timVideoRecordStart, Enum_VideoType videoType)
+        {
             //通用命令规则 770701_09_20171226174241_81.H264
             //DNSNum_Channnel_起始时间（yyyyMMddHHmmss）_主机类型区分.后缀
             StringBuilder sbVideoRecordFileName = new StringBuilder();
             sbVideoRecordFileName.Append(strVideoNum + "_");
             sbVideoRecordFileName.Append(intChannel.ToString().PadLeft(2, '0') + "_");
-            sbVideoRecordFileName.Append(DateTime.Now.ToString("yyyyMMddHHmmss") + "_");
+            sbVideoRecordFileName.Append(timVideoRecordStart.ToString("yyyyMMddHHmmss") + "_");
             sbVideoRecordFileName.Append(((int)videoType).ToString().PadLeft(2, '0'));
             switch (videoType)
             {
@@ -83,6 +88,7 @@ namespace VideoPlayControl
                     sbVideoRecordFileName.Append(".mp4");
                     break;
                 case Enum_VideoType.XMaiVideo:
+                case Enum_VideoType.SKVideo:
                     sbVideoRecordFileName.Append(".h264");
                     break;
                 case Enum_VideoType.BlueSky:

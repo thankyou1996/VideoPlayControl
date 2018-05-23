@@ -9,6 +9,8 @@ namespace VideoPlayControl
     /// </summary>
     public class ProgParameter
     {
+
+        public static string ProgLogAddress = "";
         #region CloundSee(云视通相关参数)
         /// <summary>
         /// 云视通初始化端口

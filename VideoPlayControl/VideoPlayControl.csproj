@@ -104,13 +104,14 @@
     <Compile Include="VideoBackplayWindow.Designer.cs">
       <DependentUpon>VideoBackplayWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoBasicClass\RemoteVideoRecordInfo.cs" />
     <Compile Include="VideoChannelList.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="VideoChannelList.Designer.cs">
       <DependentUpon>VideoChannelList.cs</DependentUpon>
     </Compile>
-    <Compile Include="VideoPlayback\VideoBackPlay_AmpFileParser.cs" />
+    <Compile Include="VideoRecordBackplay\VideoPlayback\VideoBackPlay_AmpFileParser.cs" />
     <Compile Include="VideoPlayGroupControls_PTZAndTalk.cs">
       <SubType>UserControl</SubType>
     </Compile>

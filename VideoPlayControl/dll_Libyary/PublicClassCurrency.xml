@@ -572,12 +572,12 @@
         </member>
         <member name="F:PublicClassCurrency.VideoInfo.intLoginState">
             <summary>
-            设备登陆状态 0表示未登录  1表示已登陆
+            设备登陆状态 -1表示登陆失败 0表示未登录  1表示已登陆
             </summary>
         </member>
         <member name="P:PublicClassCurrency.VideoInfo.LoginState">
             <summary>
-            设备登陆状态 0表示未登录  1表示已登陆
+            设备登陆状态 -1表示登陆失败 0表示未登录  1表示已登陆
             </summary>
         </member>
         <member name="F:PublicClassCurrency.VideoInfo.intLoginHandle">
