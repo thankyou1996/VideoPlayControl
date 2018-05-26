@@ -13408,9 +13408,11 @@ namespace VideoPlayControl
             public byte byDrawFrame;//是否抽帧：0- 不抽帧，1- 抽帧
             public byte byVolumeType;//0-普通录像卷，1-存档卷，适用于CVR设备，普通卷用于通道录像，存档卷用于备份录像
             public byte byVolumeNum;//存档卷号 
-            public byte byRes1;//保留
-            public uint dwFileIndex;//存档卷上的录像文件索引，搜索存档卷录像时返回的值
-            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 24, ArraySubType = UnmanagedType.I1)]
+            public byte byStreamType;//码流类型
+            public byte dwFileIndex;//存档卷上的录像文件索引，搜索存档卷录像时返回的值 
+            public byte byAudioFile;    //回放音频文件：0- 不回放音频文件，1- 回放音频文件，该功能需要设备支持，启动音频回放后只回放音频文件 
+            public byte byCourseFile;//课程文件：0- 否，1- 是
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 22, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes2;    //保留
         }
 

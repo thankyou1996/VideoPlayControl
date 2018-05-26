@@ -520,8 +520,8 @@ void p_vsdk_get_playback_time(char    *path,
   * @retval DLLIMPORT void 
   * ***********************************************************************
   */
-DLLIMPORT 
-void p_vsdk_convert_audio(void);
+DLLIMPORT
+BOOL p_vsdk_convert_audio(const char *in_wav_file, const char *out_g711_file);
 
 /**
   * ***********************************************************************
@@ -658,6 +658,33 @@ int p_vsdk_reg_msg_callback(void *func);
 DLLIMPORT 
 void p_vsdk_reg_dat_callback(void *func);
 
+/**
+  * ***********************************************************************
+  * @brief	注册服务器端录像视频数据回调函数
+  *			
+  *	@param  func: 回调函数指针
+  *
+  * @retval void: 返回未空
+  * 
+  * @attention 参照 "p_pb_video_data_callback" 函数定义进行func函数类型构成
+  * ***********************************************************************
+  */
+DLLIMPORT
+void p_vsdk_reg_pb_video_data_callback(void *func);
+
+/**
+  * ***********************************************************************
+  * @brief	注册服务器端实时视频数据回调函数
+  *			
+  *	@param  func: 回调函数指针
+  *
+  * @retval void: 返回未空
+  * 
+  * @attention 参照 "p_rt_video_data_callback" 函数定义进行func函数类型构成  
+  * ***********************************************************************
+  */
+DLLIMPORT
+void p_vsdk_reg_rt_video_data_callback(void *func);
 
 /**
   * ***********************************************************************
@@ -1232,3 +1259,18 @@ int p_vsdk_update_finger_template(char *guid,
 	                              int  tmplate_length, 
 	                              char *finger_template
 );
+
+/**
+  * ***********************************************************************
+  * @brief  设置呼叫按钮连按限制
+  *			
+  *	@param  ban_time:	要禁用的时长
+  *	@param  ban_cnt:	进入禁用的连按次数
+  *
+  * @retval int:				返回为空
+  *
+  * @attention	: 给出 <= 0的参数，将关闭限制
+  * ***********************************************************************
+  */
+DLLIMPORT
+int p_vsdk_set_call_key_ban(int ban_time, int ban_cnt);

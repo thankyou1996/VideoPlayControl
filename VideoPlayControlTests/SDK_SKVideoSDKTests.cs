@@ -21,7 +21,7 @@ namespace VideoPlayControl.Tests
         List<RemoteVideoRecordInfo> lRemoteVideoRecord;
         public SDK_SKVideoSDKTests()
         {
-            SDK_SKVideoSDK.p_sdkc_init_client("xhcs1", "192.168.2.19", 47624, 47724, 47824, @"d:\");
+            SDK_SKVideoSDK.p_sdkc_init_client("SK-20140902-000000", "127.0.0.1", 47624, 47724, 47824, @"d:\");
         }
         [TestMethod()]
         public void p_sdkc_get_record_time_mapTest()
@@ -135,6 +135,27 @@ namespace VideoPlayControl.Tests
             };
             string Temp_str = SDK_SKVideoSDK.GetRemoteVideoRecordFileName(V);
             Assert.AreEqual(Temp_str, strResult);
+        }
+
+        [TestMethod()]
+        public void p_sdkc_request_download_videoTest()
+        {
+            DateTime timStart = DateTime.Now.AddSeconds(-3000);
+            DateTime timEnd = DateTime.Now.AddSeconds(-2700);
+            long start_time = ConvertClass.DateTimeToUnixTimestamp(timStart);
+            long stop_time = ConvertClass.DateTimeToUnixTimestamp(timEnd);
+            int intCount = 0;
+            while (SDK_SKVideoSDK.p_sdkc_get_online() == 0 && intCount < 10)
+            {
+                Common.Delay_Second(1);
+                intCount++;
+            }
+            string Temp_strDownPath = @"C:\SHIKE_Video\0138\DownloadTest\" + timStart.ToString("yyyy_MM_dd_HH_mm_ss") + ".H264";
+            //string Temp_strDownPath = @"C:\SHIKE_Video\0138\DownloadTest";
+            int intResult = SDK_SKVideoSDK.p_sdkc_request_download_video("61-57354AA60831-3136", 0, (int)start_time, (int)stop_time, Temp_strDownPath);
+            intCount = 0;
+            Common.Delay_Second(30);
+            Assert.AreEqual(intResult, 1);
         }
     }
 }

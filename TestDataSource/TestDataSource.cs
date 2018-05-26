@@ -336,5 +336,35 @@ namespace TestDataSource
             return v;
         }
         #endregion
+
+        #region 时刻测试数据
+        public static VideoInfo GetSKDVSData1()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.CloundSee;
+            v.DVSAddress = "61-57354AA60831-3136";
+            v.DVSChannelNum = 8;
+            v.DVSConnectPort = 8000;
+            v.DVSName = "时刻DVR测试";
+            v.DVSNumber = "013801";
+            v.DVSType = "SK8616";
+            v.HostID = "0138";
+            v.UserName = "admin";
+            v.Password = "sk123456";
+            v.NetworkState = 0;
+            for (int i = 0; i < 16; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i);
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8616";
+                c.DVSNumber = "000501";
+                v.Cameras[c.Channel] = c;
+            }
+            return v;
+        }
+
+        #endregion
     }
 }

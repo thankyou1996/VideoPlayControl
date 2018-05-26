@@ -100,7 +100,7 @@ namespace VideoPlayControl
             public int channel_15;
             public int channel_16;
         }
-
+        
         #endregion
 
         #region 接口定义
@@ -109,7 +109,7 @@ namespace VideoPlayControl
         #region 回调信息
         public delegate void CallBack(UInt32 msg_id, UInt32 arg1, UInt32 arg2, IntPtr data1, UInt32 data1_len, IntPtr data2, UInt32 data2_len);
 
-
+        public delegate void p_dl_video_data_callback (string dguid, string cguid,int channel, IntPtr nalu_data,int nalu_len, IntPtr nalu_idx,uint time_stamp);
         /// <summary>
         /// 信息回调
         /// </summary>
@@ -117,6 +117,12 @@ namespace VideoPlayControl
         /// <returns></returns>
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_reg_msg_callback(CallBack func);
+
+        /// <summary>
+        /// 录像下载回调
+        /// </summary>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void p_vsdk_reg_dl_video_data_callback(p_dl_video_data_callback func);
         #endregion
 
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//码流端口 默认47924
@@ -254,10 +260,25 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_get_record_time_map(string guid, byte channel, int start_ts, int stop_ts);
 
+        #region 录像下载
+
+        /// <summary>
+        /// 录像下载
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <param name="channel"></param>
+        /// <param name="start_ts"></param>
+        /// <param name="stop_ts"></param>
+        /// <param name="save_path"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int p_sdkc_request_download_video(string guid, UInt16 channel, int start_ts, int stop_ts, string save_path);
+        
+        #endregion
 
         #endregion
 
-        
+
 
 
         #region 自定义接口

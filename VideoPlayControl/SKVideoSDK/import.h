@@ -459,6 +459,23 @@ int p_sdkc_set_render(HWND  handle, int enable);
 
 /**
   * ***********************************************************************
+  * @brief	下载音频文件到设备并播放
+  *			
+  *	@param  char * guid:	设备GUID
+  *	@param  char * url:		音频文件地址
+  *
+  * @retval int:		统一结果
+  * 
+  * @attention     
+  * ***********************************************************************
+  */
+DLLIMPORT
+int p_sdkc_play_remote_audio(char	*guid, 
+							 char	*file,
+                             char	*url);
+
+/**
+  * ***********************************************************************
   * @brief	设置网络摄像头PTZ连续移动
   *			
   *	@param  char * guid:	设备GUID
@@ -494,3 +511,38 @@ int p_sdkc_onvif_ptz_continue_move(char	*guid,
 DLLIMPORT
 int p_sdkc_onvif_ptz_stop(char	*guid, 
                                u8	channel);
+/**
+  * ***********************************************************************
+  * @brief	设置音频播放的放大值
+  *			
+  *	@param  int:		播放音量预放大值, 取值0~50
+  *
+  * @retval int:		统一结果
+  * 
+  * @attention     
+  * ***********************************************************************
+  */
+DLLIMPORT
+int p_sdkc_set_out_pre_amp(int amp);
+
+DLLIMPORT
+int p_sdkc_request_download_video(char *guid, u8 channel, int start_ts, int stop_ts, char *save_path);
+
+DLLIMPORT
+int p_sdkc_cancel_download_video(char *guid);
+
+
+/**
+  * ***********************************************************************
+  * @brief	设置录像下载回调接口
+  *			
+  *	@param  int:		
+  *
+  * @retval int:		统一结果
+  * 
+  * @attention     当返回的时间戳是0x00的时候，即录像下载结束, 时间戳0x00的这一帧不为录像数据
+  *					当调用cancel取消录像下载时，需要在外面主动关闭文件，回调的码流即刻关闭
+  * ***********************************************************************
+  */
+DLLIMPORT
+void p_vsdk_reg_dl_video_data_callback(void *func);
