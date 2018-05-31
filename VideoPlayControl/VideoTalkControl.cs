@@ -14,5 +14,7 @@ namespace VideoPlayControl
         {
             InitializeComponent();
         }
+
+        public void SetVides
     }
 }

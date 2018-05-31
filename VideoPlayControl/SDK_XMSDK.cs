@@ -1228,13 +1228,13 @@ namespace VideoPlayControl
         public static void XMVideoLogin(object strVideoNumber)
         {
             VideoInfo v = dicXMVideoList[strVideoNumber.ToString()];
-            H264_DVR_DEVICEINFO OutDev;
+            H264_DVR_DEVICEINFO OutDev=new H264_DVR_DEVICEINFO();
             int nError = 0;
             VideoPlaySetting vPlaySet = new VideoPlaySetting();
             int lLogin = -1;
             #region 连接类型选择 
             vPlaySet.ConnType = CommonMethod.Verification.isIP(v.DVSAddress) ? Enum.Enum_VideoConnType.Direct : Enum.Enum_VideoConnType.Clound;
-            if (vPlaySet.ConnType == Enum.Enum_VideoConnType.Clound)
+            if (vPlaySet.ConnType == Enum.Enum_VideoConnType.Clound) 
             {
                 //雄迈云
                 lLogin = SDK_XMSDK.H264_DVR_Login_Cloud(v.DVSAddress, Convert.ToUInt16(v.DVSConnectPort), v.UserName, v.Password, out OutDev, out nError, "");
@@ -1252,6 +1252,7 @@ namespace VideoPlayControl
             }
             else
             {
+                SDK_XMSDK.H264_DVR_GetLastError();
                 v.LoginState = -1;
             }
         }

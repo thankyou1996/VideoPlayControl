@@ -14136,6 +14136,61 @@ namespace VideoPlayControl
         **********************************************************/
         public delegate void DRAWFUN(int lRealHandle, IntPtr hDc, uint dwUser);
 
+        #region 图片获取相关接口
+
+        /// <summary>
+        /// 查找图片
+        /// </summary>
+        /// <param name="lUserID"></param>
+        /// <param name="lpPICTURE_PARAM"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
+        public static extern int NET_DVR_FindPicture(int lUserID, ref NET_DVR_FIND_PICTURE_PARAM lpPICTURE_PARAM);
+
+        /// <summary>
+        /// 查找下一张图片
+        /// </summary>
+        /// <param name="lFindHandle"></param>
+        /// <param name="lpfind"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
+        public static extern int NET_DVR_FindNextPicture(int lFindHandle, ref NET_DVR_FIND_PICTURE lpfind);
+
+
+        [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
+        public static extern int NET_DVR_GetPicture(int lUserID, string sDVRFileName, string strSavePath);
+        [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
+        public static extern bool NET_DVR_CloseFindPicture(int lFindHandle);
+
+        public static DateTime ConvertToDateTime(NET_DVR_TIME netTime)
+        {
+            DateTime timResult;
+            StringBuilder sb = new StringBuilder();
+            sb.Append(netTime.dwYear);
+            sb.Append(netTime.dwMonth.ToString().PadLeft(2, '0'));
+            sb.Append(netTime.dwDay.ToString().PadLeft(2, '0'));
+            sb.Append(netTime.dwHour.ToString().PadLeft(2, '0'));
+            sb.Append(netTime.dwMinute.ToString().PadLeft(2, '0'));
+            sb.Append(netTime.dwSecond.ToString().PadLeft(2, '0'));
+
+            //dtFormat.ShortDatePattern = "yyyy/MM/dd";
+            timResult = DateTime.ParseExact(sb.ToString(), "yyyyMMddHHmmss", System.Globalization.CultureInfo.CurrentCulture);
+            return timResult;
+        }
+
+        public static NET_DVR_TIME ConvertToNetTime(DateTime tim)
+        {
+            SDK_HikClientSDK.NET_DVR_TIME Stime = new SDK_HikClientSDK.NET_DVR_TIME();
+            Stime.dwYear = uint.Parse(tim.Year.ToString());
+            Stime.dwMonth = uint.Parse(tim.Month.ToString());
+            Stime.dwDay = uint.Parse(tim.Day.ToString());
+            Stime.dwHour = uint.Parse(tim.Hour.ToString());
+            Stime.dwMinute = uint.Parse(tim.Minute.ToString());
+            Stime.dwSecond = uint.Parse(tim.Second.ToString());
+            return Stime;
+        }
+        #endregion
+
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_RigisterDrawFun(int lRealHandle, DRAWFUN fDrawFun, uint dwUser);
 
@@ -14961,8 +15016,8 @@ namespace VideoPlayControl
         //100125
         private bool _isLoginDVR;//是否已直接登录DVR以实现对讲
         private bool _isTalking;//是否正在对讲
-        private int _intDVRHwd=-1;//登录DVR的HWND
-        private int _intTalkHwd=-1;//对讲的HWND
+        private int _intDVRHwd = -1;//登录DVR的HWND
+        private int _intTalkHwd = -1;//对讲的HWND
         //***************
         private delegate int pDataRec(int sid, int iusrdata, int idatatype, IntPtr pdata, int ilen);
         /// <summary>
@@ -14997,24 +15052,24 @@ namespace VideoPlayControl
             HIKS_Destroy(iHsession);
             FiniStreamClientLib();
         }
-       
+
         [DllImport("client.dll")]
         //static extern int HIKS_CreatePlayer(IHikClientAdviseSink pSink, IntPtr pWndSiteHandle, pDataRec pRecFunc, pMsgBack pMsgFunc, int TransMethod);
         private static extern int HIKS_CreatePlayer(int j, IntPtr pWndSiteHandle, pDataRec pRecFunc, pMsgBack pMsgFunc, int TransMethod);
- 
+
         [DllImport("client.dll", EntryPoint = "HIKS_OpenURL", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern int HIKS_OpenURL(int Hsession, string URL, int inuserdata);
 
-        
-        [DllImport("client.dll")]
-        public static extern int HIKS_GetVideoParams(int Hsession, ref int ibri, ref int icon, ref int isat,ref int ihue);
 
-        
+        [DllImport("client.dll")]
+        public static extern int HIKS_GetVideoParams(int Hsession, ref int ibri, ref int icon, ref int isat, ref int ihue);
+
+
         [DllImport("client.dll")]
         public static extern int HIKS_SetVideoParams(int Hsession, int ibri, int icon, int isat, int ihue);
-       
+
         [DllImport("client.dll")]
-        private static extern int HIKS_PTZControl(int Hsession,int ucommand, int iparam1, int iparam2, int iparam3, int iparam4) ;
+        private static extern int HIKS_PTZControl(int Hsession, int ucommand, int iparam1, int iparam2, int iparam3, int iparam4);
 
         /// <summary>
         /// 播放视频
@@ -15024,12 +15079,12 @@ namespace VideoPlayControl
         [DllImport("client.dll")]
         public static extern int HIKS_Play(int Hsession);
 
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="Hsession"></param>
-       /// <param name="bExclusive">是否独占</param>
-       /// <returns></returns>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Hsession"></param>
+        /// <param name="bExclusive">是否独占</param>
+        /// <returns></returns>
         [DllImport("client.dll")]
         public static extern int HIKS_OpenSound(int Hsession, bool bExclusive);
 
@@ -15050,7 +15105,7 @@ namespace VideoPlayControl
         [DllImport("client.dll")]
         public static extern int HIKS_Destroy(int Hsession);
 
-       
+
         public string strDevType//
         {
             get
@@ -15104,7 +15159,7 @@ namespace VideoPlayControl
                 _dvsChannel = value;
             }
         }
-        
+
         public bool SoundOpen
         {
             get
@@ -15118,14 +15173,14 @@ namespace VideoPlayControl
         }
         public int initialize()
         {
-            int intRet=-1;
+            int intRet = -1;
             intRet = InitStreamClientLib();
-            if(intRet<0)
+            if (intRet < 0)
             {
                 _isInit = false;
                 return -1;
             }
-            
+
             return intRet;
         }
         #region 流媒体模式
@@ -15146,57 +15201,57 @@ namespace VideoPlayControl
             GCHandle.Alloc(pdatarec);//代码回收锁定
             pmsgback = new pMsgBack(MyMsgRecCallBack);
             GCHandle.Alloc(pmsgback);//代码回收锁定
-            int intRet=-1;
-            
-                intRet = HIKS_CreatePlayer(0, playHandle, pdatarec, pmsgback, 0);
-                if (intRet < 0)
-                    return -1;
-                else
-                    iHsession = intRet;
+            int intRet = -1;
 
+            intRet = HIKS_CreatePlayer(0, playHandle, pdatarec, pmsgback, 0);
+            if (intRet < 0)
+                return -1;
+            else
+                iHsession = intRet;
+
+            //090423 增加线程
+            ThreadStart starterStartHikUrl = delegate
+            {
+                intRet = HIKS_OpenURL(iHsession, strLinkInfo, 0);
+            };
+            new Thread(starterStartHikUrl).Start();
+
+
+            if (intRet == -1)
+            {
                 //090423 增加线程
-                ThreadStart starterStartHikUrl = delegate
-                {
-                    intRet = HIKS_OpenURL(iHsession, strLinkInfo, 0);
-                };
-                new Thread(starterStartHikUrl).Start();
+                //ThreadStart starterStartHikDes = delegate
+                // {
+                HIKS_Destroy(iHsession);
+                // };
+                //  new Thread(starterStartHikDes).Start();
+
+                return -2;
+            }
 
 
-                if (intRet == -1)
-                {
-                    //090423 增加线程
-                    //ThreadStart starterStartHikDes = delegate
-                    // {
-                    HIKS_Destroy(iHsession);
-                    // };
-                    //  new Thread(starterStartHikDes).Start();
-
-                    return -2;
-                }
-
-
-                Thread.Sleep(100);
-                //090423 增加线程
-                //ThreadStart starterStartHikPly = delegate
-                //{
-                intRet = HIKS_Play(iHsession);
-                //};
-                // new Thread(starterStartHikPly).Start();
+            Thread.Sleep(100);
+            //090423 增加线程
+            //ThreadStart starterStartHikPly = delegate
+            //{
+            intRet = HIKS_Play(iHsession);
+            //};
+            // new Thread(starterStartHikPly).Start();
 
 
 
-                if (intRet >= 0)
-                {
-                    _isPlaying = true;
-                    _dvsNum = dvsnum;
-                    _dvsChannel = channel;
-                }
-                else
-                {
-                    StopLiveVideo(); //iHsession 090928
-                    return -3;
-                }
-            
+            if (intRet >= 0)
+            {
+                _isPlaying = true;
+                _dvsNum = dvsnum;
+                _dvsChannel = channel;
+            }
+            else
+            {
+                StopLiveVideo(); //iHsession 090928
+                return -3;
+            }
+
             return intRet;
         }
         public bool StopLiveVideo()
@@ -15208,11 +15263,11 @@ namespace VideoPlayControl
                 return true;
             else
                 if (HIKS_Destroy(iHsession) > 0)
-                    return true;
-                else
-                {
-                    return false;
-                }
+                return true;
+            else
+            {
+                return false;
+            }
         }
         public bool StopMediaVideo()
         {
@@ -15228,7 +15283,7 @@ namespace VideoPlayControl
             //    {
             //        return false;
             //    }
-            if (HIKS_Stop(iHsession)>0)
+            if (HIKS_Stop(iHsession) > 0)
             {
                 return true;
             }
@@ -15266,7 +15321,7 @@ namespace VideoPlayControl
             {
             }
             else
-            { 
+            {
                 m_struIpParaCfgV40 = (NET_DVR_IPPARACFG_V40)Marshal.PtrToStructure(ptrIpParaCfgV40, typeof(NET_DVR_IPPARACFG_V40));
 
                 for (iip = 0; iip < dwAChanTotalNum; iip++)
@@ -15278,7 +15333,7 @@ namespace VideoPlayControl
                 byte byStreamType;
                 for (iip = 0; iip < m_struIpParaCfgV40.dwDChanNum; iip++)
                 {
-                    iChannelNum[iip + dwAChanTotalNum] = iip + (int)m_struIpParaCfgV40.dwStartDChan; 
+                    iChannelNum[iip + dwAChanTotalNum] = iip + (int)m_struIpParaCfgV40.dwStartDChan;
                     byStreamType = m_struIpParaCfgV40.struStreamMode[iip].byGetStreamType;
                     switch (byStreamType)
                     {
@@ -15316,9 +15371,9 @@ namespace VideoPlayControl
             if (info != null && info != "")
             {
                 StreamWriter sw = new StreamWriter(System.Windows.Forms.Application.StartupPath + "\\CULog\\" + DateTime.Now.ToString("yyyyMMdd") + "(VideoInfo)" + ".log", true, Encoding.Default);
-                    sw.WriteLine(info);
-                    sw.Close();
-                    
+                sw.WriteLine(info);
+                sw.Close();
+
             }
         }
 
@@ -15336,7 +15391,7 @@ namespace VideoPlayControl
         //        StopLiveVideoLink();//130115               
         //    }
         //    NET_DVR_DEVICEINFO_V30 dev = new NET_DVR_DEVICEINFO_V30();
-            
+
         //    _intDVRHwd = NET_DVR_Login_V30(strDVRIP, wDVRPort, strUserName, strPwd, ref dev);
         //    if (_intDVRHwd < 0)
         //    {
@@ -15393,7 +15448,7 @@ namespace VideoPlayControl
 
         //    IntPtr pUser = new IntPtr();
         //    REALDATACALLBACK RealData = new REALDATACALLBACK(RealDataCallBack);//预览实时流回调函数
-             
+
         //    //intRet = NET_DVR_RealPlay_V30(_intDVRHwd, ref cli, null, pUser, 1);//130814 
         //    intRet = NET_DVR_RealPlay_V40(_intDVRHwd, ref lpPreviewInfo, null, pUser);//140521
         //    //intRet = NET_DVR_RealPlay(_intDVRHwd, ref cli);//130814
@@ -15521,8 +15576,8 @@ namespace VideoPlayControl
             //    }
             //return intRet;
         }
-       
-        
+
+
         public bool StopLiveVideoLink()
         {
             try
@@ -15549,7 +15604,7 @@ namespace VideoPlayControl
         public bool StopRealPlay()
         {
             if (NET_DVR_StopRealPlay(iHsession))
-            { 
+            {
                 return true;
             }
             return true;
@@ -15592,7 +15647,7 @@ namespace VideoPlayControl
         {
             if (_isPlaying)
             {
-                return HIKS_GetVideoParams(iHsession,ref ibri,ref icon,ref isat,ref ihue);
+                return HIKS_GetVideoParams(iHsession, ref ibri, ref icon, ref isat, ref ihue);
             }
             else
                 return -1;
@@ -15611,7 +15666,7 @@ namespace VideoPlayControl
         {
             if (_isPlaying)
             {
-                if (HIKS_OpenSound(iHsession, bExclusive) == 0) 
+                if (HIKS_OpenSound(iHsession, bExclusive) == 0)
                 {
                     _isOpenSound = true;
                     return 0;
@@ -15643,35 +15698,15 @@ namespace VideoPlayControl
         {
             //try
             //{
-                
-                if (_isPlaying)
+
+            if (_isPlaying)
+            {
+                if (_isLoginDVR)
                 {
-                    if (_isLoginDVR)
-                    {
-                        if (_isTalking)
-                            return 0;
-                        else
-                        {
-                            VoiceCallBack = new fVoiceDataCallBack(MyRealDataCallBack);
-                            _intTalkHwd = NET_DVR_StartVoiceCom(_intDVRHwd, VoiceCallBack, 0);
-                            NET_DVR_SetVoiceComClientVolume(_intTalkHwd, 65530);
-                            GCHandle.Alloc(VoiceCallBack);
-                            if (_intTalkHwd >= 0)
-                            {
-                                _isTalking = true;
-                                return 0;
-                            }
-                            else
-                                return -1;
-                        }
-                    }
+                    if (_isTalking)
+                        return 0;
                     else
                     {
-                        NET_DVR_Init();
-                        NET_DVR_DEVICEINFO dev = new NET_DVR_DEVICEINFO();
-                        _intDVRHwd=NET_DVR_Login(strDVRIP, wDVRPort, strUserName, strPwd, ref dev);
-                        if (_intDVRHwd < 0) return -1;
-                        _isLoginDVR = true;
                         VoiceCallBack = new fVoiceDataCallBack(MyRealDataCallBack);
                         _intTalkHwd = NET_DVR_StartVoiceCom(_intDVRHwd, VoiceCallBack, 0);
                         NET_DVR_SetVoiceComClientVolume(_intTalkHwd, 65530);
@@ -15686,7 +15721,27 @@ namespace VideoPlayControl
                     }
                 }
                 else
-                    return -1;
+                {
+                    NET_DVR_Init();
+                    NET_DVR_DEVICEINFO dev = new NET_DVR_DEVICEINFO();
+                    _intDVRHwd = NET_DVR_Login(strDVRIP, wDVRPort, strUserName, strPwd, ref dev);
+                    if (_intDVRHwd < 0) return -1;
+                    _isLoginDVR = true;
+                    VoiceCallBack = new fVoiceDataCallBack(MyRealDataCallBack);
+                    _intTalkHwd = NET_DVR_StartVoiceCom(_intDVRHwd, VoiceCallBack, 0);
+                    NET_DVR_SetVoiceComClientVolume(_intTalkHwd, 65530);
+                    GCHandle.Alloc(VoiceCallBack);
+                    if (_intTalkHwd >= 0)
+                    {
+                        _isTalking = true;
+                        return 0;
+                    }
+                    else
+                        return -1;
+                }
+            }
+            else
+                return -1;
             //}
             //catch
             //{
@@ -15727,7 +15782,7 @@ namespace VideoPlayControl
             {
                 return -1;
             }
-          
+
         }
         //**************
         private void MyRealDataCallBack(int lVoiceComHandle, [MarshalAs(UnmanagedType.LPArray)]  byte[] pRecvDataBuffer, uint dwBufSize, byte byAudioFlag, uint dwUser)
@@ -15741,7 +15796,7 @@ namespace VideoPlayControl
         {
             if (_isPlaying)
             {
-                return HIKS_SetVolume(iHsession,volume);
+                return HIKS_SetVolume(iHsession, volume);
             }
             else
                 return -1;
@@ -15760,5 +15815,123 @@ namespace VideoPlayControl
                 return -1;
         }
         //******************
+
+        #region 自定义接口
+
+        public static bool GetDevicePic(PublicClassCurrency.VideoInfo vInfo, DateTime timStart, DateTime timEndTime,string strFolderPtah)
+        {
+            bool bolResult = false;
+
+            SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30();
+            //登录设备
+            int m_lUserID = SDK_HikClientSDK.NET_DVR_Login_V30(vInfo.DVSAddress, vInfo.DVSConnectPort, vInfo.UserName, vInfo.Password, ref DeviceInfo);
+
+            if (m_lUserID >= 0)
+            {
+                NET_DVR_FIND_PICTURE_PARAM para = new NET_DVR_FIND_PICTURE_PARAM();
+                para.dwSize = (uint)Marshal.SizeOf(para);
+                para.lChannel = 1;
+                para.byFileType = 0;
+                para.struStartTime = ConvertToNetTime(timStart);
+                para.struStopTime = ConvertToNetTime(timEndTime);
+                int lFindHandle = SDK_HikClientSDK.NET_DVR_FindPicture(m_lUserID, ref para);
+                if (lFindHandle >= 0)
+                {
+                    if (!Directory.Exists(strFolderPtah))
+                    {
+                        Directory.CreateDirectory(strFolderPtah);
+                    }
+                    bool bolEnd = false;
+                    int Temp_intCount = 1;
+                    NET_DVR_FIND_PICTURE lpFindData = new NET_DVR_FIND_PICTURE();
+                    DateTime Temp_tim = DateTime.Now.AddYears(-10);
+                    while (!bolEnd)
+                    {
+                        long lResult = NET_DVR_FindNextPicture(lFindHandle, ref lpFindData);
+                        switch (lResult)
+                        {
+                            case 1000:
+                                //下载图片
+                                NET_DVR_TIME t = lpFindData.struTime;
+                                StringBuilder sb = new StringBuilder();
+                                DateTime timPic = ConvertToDateTime(lpFindData.struTime);
+                                if (Temp_tim == timPic)
+                                {
+                                    Temp_intCount++;
+                                }
+                                else
+                                {
+                                    Temp_tim = timPic;
+                                    Temp_intCount = 1;
+                                }
+
+                                string strFileName = lpFindData.sFileName;
+                                sb.Append(timPic.ToString("yyyyMMddHHmmss") + "_" + Temp_intCount + "_");
+                                sb.Append(strFileName.Substring(0, strFileName.IndexOf("_")));
+                                string strFilePath = strFolderPtah + "\\" + sb.ToString() + ".jpg";
+                                NET_DVR_GetPicture(m_lUserID, lpFindData.sFileName, strFilePath);
+                                Thread.Sleep(30);
+                                break;
+                            case 1002:
+                                Thread.Sleep(30);
+                                break;
+                            case 1001:  //未查找到 
+                            case 1003:  //查找结束
+                            case 1004:  //查找文件异常
+                                bolEnd = true;
+                                NET_DVR_CloseFindPicture(lFindHandle);
+                                break;
+                        }
+                    }
+                }
+                NET_DVR_Logout_V30(m_lUserID);
+            }
+            return bolResult;
+        }
+
+        public static bool DownloadVideoRecord(PublicClassCurrency.VideoInfo vInfo, int intChannel, DateTime timStart, DateTime timEndTime, string sVideoFileName)
+        {
+            bool bolResult = false;
+            SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30();
+            //登录设备
+            int m_lUserID = SDK_HikClientSDK.NET_DVR_Login_V30(vInfo.DVSAddress, vInfo.DVSConnectPort, vInfo.UserName, vInfo.Password, ref DeviceInfo);
+            SDK_HikClientSDK.NET_DVR_PLAYCOND struDownPara = new SDK_HikClientSDK.NET_DVR_PLAYCOND();
+            struDownPara.dwChannel = (uint)intChannel; //通道号 Channel number  
+            struDownPara.struStartTime = ConvertToNetTime(timStart);
+            struDownPara.struStopTime = ConvertToNetTime(timEndTime);
+            string strFolderPtah = sVideoFileName.Substring(0, sVideoFileName.LastIndexOf("\\"));
+            if (!Directory.Exists(strFolderPtah))
+            {
+                Directory.CreateDirectory(strFolderPtah);
+            }
+            //按时间下载 Download by time
+            Int32 m_lDownHandle = SDK_HikClientSDK.NET_DVR_GetFileByTime_V40(m_lUserID, sVideoFileName, ref struDownPara);
+            uint iOutValue = 0;
+            if (SDK_HikClientSDK.NET_DVR_PlayBackControl_V40(m_lDownHandle, SDK_HikClientSDK.NET_DVR_PLAYSTART, IntPtr.Zero, 0, IntPtr.Zero, ref iOutValue))
+            {
+                bool bolEnd = false;
+                int iPos = 0;
+                while (!bolEnd)
+                {
+                    iPos = SDK_HikClientSDK.NET_DVR_GetDownloadPos(m_lDownHandle);
+                    if (iPos == 100)
+                    {
+                        //下载完成
+                        bolEnd = true;
+                        bolResult = true;
+                    }
+                    else if (iPos == 200)
+                    {
+                        //下载异常
+                        bolEnd = true;
+                    }
+                    Thread.Sleep(50);
+                }
+            }
+            NET_DVR_Logout_V30(m_lUserID);
+            return bolResult;
+        }
+
+        #endregion
     }
 }

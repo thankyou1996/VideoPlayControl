@@ -1215,7 +1215,7 @@ namespace VideoPlayControl_UseDemo
         }
         private void btnXMTestData2_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.XMDataSource2();
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource4();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

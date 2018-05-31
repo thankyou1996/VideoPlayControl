@@ -36,8 +36,38 @@ namespace TestDataSource
             return v;
         }
 
-
+        /// <summary>
+        /// 获取海康数据  天龙
+        /// </summary>
+        /// <returns></returns>
+        public static VideoInfo GetHikData2()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.HikDVR;
+            v.DVSAddress = "192.168.2.13";
+            v.DVSChannelNum = 8;
+            v.DVSConnectPort = 8000;
+            v.DVSName = "海康DVR测试";
+            v.DVSNumber = "000501";
+            v.DVSType = "SK8605HA";
+            v.HostID = "0005";
+            v.UserName = "admin";
+            v.Password = "tl123456";
+            v.NetworkState = 0;
+            for (int i = 1; i <= 8; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i);
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8605HM";
+                c.DVSNumber = "000501";
+                v.Cameras[c.Channel] = c;
+            }
+            return v;
+        }
         #endregion
+
         #region 雄迈数据源
         public static VideoInfo XMDataSource()
         {
@@ -179,7 +209,39 @@ namespace TestDataSource
             return v;
         }
 
+
+        /// <summary>
+        /// 雄迈摇头机
+        /// </summary>
+        /// <returns></returns>
+        public static VideoInfo XMDataSource5()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.XMaiVideo;
+            v.DVSAddress = "5e8a8247d785f432";
+            v.DVSChannelNum = 2;
+            v.DVSConnectPort = 34567;
+            v.DVSName = "雄迈";
+            v.DVSNumber = "000802";
+            v.DVSType = "SK8605XM";
+            v.HostID = "0008";
+            v.UserName = "admin";
+            v.Password = "12345";
+            v.NetworkState = 0;
+            for (int i = 0; i < v.DVSChannelNum; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i + 1);
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8605XM";
+                c.DVSNumber = "000501";
+                v.Cameras[c.Channel] = c;
+            }
+            return v;
+        }
         #endregion
+
         #region TestData_Axis
 
         public static VideoInfo TestData_Axis()
@@ -209,6 +271,7 @@ namespace TestDataSource
             return v;
         }
         #endregion
+
         #region 蓝色星际数据源
         public static VideoInfo BuleSkyDataSource()
         {

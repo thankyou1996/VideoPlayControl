@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using VideoPlayControl.VideoBasicClass;
@@ -281,9 +282,6 @@ namespace VideoPlayControl
 
 
 
-        #region 自定义接口
-
-        #endregion
         public static List<RemoteVideoRecordInfo> SKRemoteVideoRecordDataPrasing(string strGUID,string strData)
         {
             List<RemoteVideoRecordInfo> result = null;
@@ -407,5 +405,20 @@ namespace VideoPlayControl
         }
         #endregion
 
+        #region 自定义接口
+        #region 录像下载相关
+        //Socket mSocket;
+        //SocketAsyncEventArgs saeaSend;
+        //SocketAsyncEventArgs saeaRece;
+        //byte[] bytsSendData = new byte[102400];
+        //byte[] bytsReceData = new byte[102400];
+        //IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse("192.168.2.19"), 6667);
+
+        //public List<string> GetVideoRecordList()
+        //{
+
+        //}
+        #endregion
+        #endregion
     }
 }

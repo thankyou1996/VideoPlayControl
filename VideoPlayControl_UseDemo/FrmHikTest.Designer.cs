@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.videoPlayWindow1 = new VideoPlayControl.VideoPlayWindow();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(489, 233);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(372, 21);
+            this.button1.Location = new System.Drawing.Point(21, 279);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(88, 40);
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // videoPlayWindow1
-            // 
-            this.videoPlayWindow1.BackColor = System.Drawing.SystemColors.Control;
-            this.videoPlayWindow1.Location = new System.Drawing.Point(2, 12);
-            this.videoPlayWindow1.Name = "videoPlayWindow1";
-            this.videoPlayWindow1.Size = new System.Drawing.Size(354, 260);
-            this.videoPlayWindow1.TabIndex = 0;
-            this.videoPlayWindow1.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
             // 
             // FrmHikTest
             // 
@@ -57,17 +57,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(721, 450);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.videoPlayWindow1);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "FrmHikTest";
             this.Text = "FrmHikTest";
             this.Load += new System.EventHandler(this.FrmHikTest_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private VideoPlayControl.VideoPlayWindow videoPlayWindow1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
     }
 }

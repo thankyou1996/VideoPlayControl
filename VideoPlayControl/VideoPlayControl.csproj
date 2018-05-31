@@ -104,7 +104,9 @@
     <Compile Include="VideoBackplayWindow.Designer.cs">
       <DependentUpon>VideoBackplayWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoBasicClass\Base64coder.cs" />
     <Compile Include="VideoBasicClass\RemoteVideoRecordInfo.cs" />
+    <Compile Include="VideoBasicClass\VideoTalkChannel.cs" />
     <Compile Include="VideoChannelList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -695,7 +697,9 @@
     <None Include="XMVideoSDK\NetSdk.exp" />
     <None Include="XMVideoSDK\NetSdk.lib" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="VideoTalk\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
