@@ -105,8 +105,8 @@
       <DependentUpon>VideoBackplayWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="VideoBasicClass\Base64coder.cs" />
+    <Compile Include="VideoBasicClass\Enum_TalkModel.cs" />
     <Compile Include="VideoBasicClass\RemoteVideoRecordInfo.cs" />
-    <Compile Include="VideoBasicClass\VideoTalkChannel.cs" />
     <Compile Include="VideoChannelList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -194,6 +194,8 @@
       <DependentUpon>VideoTalkControl.cs</DependentUpon>
     </Compile>
     <Compile Include="SDK_XMSDK.cs" />
+    <Compile Include="VideoTalk\IVideoTalk.cs" />
+    <Compile Include="VideoTalk\VideoTalk_Shike.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -698,7 +700,15 @@
     <None Include="XMVideoSDK\NetSdk.lib" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="VideoTalk\" />
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -157,5 +157,46 @@ namespace VideoPlayControl.Tests
             Common.Delay_Second(30);
             Assert.AreEqual(intResult, 1);
         }
+
+        [TestMethod()]
+        public void GetPictureForVideoRecordTest()
+        {
+            string strSavePath = @"G:\Test";
+            //bool bolResult = GetPictureForVideoRecord(@"C:\SHIKE_Video\9999\20180531021956\61-57354AA60831-3136_20180531022002_01_bfr10.H264", strSavePath, 10);
+            //bool bolResult = GetPictureForVideoRecord(@"C:\SHIKE_Video\9999\20180531194905\61-57354AA60831-3136_20180531194919_01_bfr10.H264", strSavePath, 5, 1000);
+            string s = @"C:\SHIKE_Video\9999\20180531223110\61-57354AA60831-3136_20180531223118_01_bfr10.H264";
+            bool bolResult = GetPictureForVideoRecord(s, strSavePath, 5, 1000);
+
+            //Thread.Sleep(3000);
+            Assert.IsTrue(bolResult);
+        }
+
+        [TestMethod()]
+        public void testcTest()
+        {
+
+            string strSavePath = @"G:\Test";
+            string strFilePath = @"C:\SHIKE_Video\9999\20180531194905\61-57354AA60831-3136_20180531194919_01_bfr10.H264";
+            //int intCountSecond = GetMediaTimeLenSecond(strFilePath);
+            bool bolResult = RePicname(strSavePath, DateTime.Now, 1, 5);
+
+            Assert.IsTrue(bolResult);
+        }
+
+        [TestMethod()]
+        public void GetChannelByBFRNameTest()
+        {
+            string s = "61-57354AA60831-3136_20180531194919_01_bfr10.H264";
+            int intChannel= GetChannelByBFRName(s);
+            Assert.AreEqual(1, intChannel);
+        }
+
+        [TestMethod()]
+        public void GetEndTimeByBFRNameTest()
+        {
+            string s = "61-57354AA60831-3136_20180531194919_01_bfr10.H264";
+            DateTime tim = GetTimeByBFRName(s);
+            Assert.AreEqual(tim, DateTime.Now);
+        }
     }
 }

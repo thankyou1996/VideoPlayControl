@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl
@@ -419,6 +423,152 @@ namespace VideoPlayControl
 
         //}
         #endregion
+
+        public void SetMultiTalkChannel(int intIndex, ref st_multi_talk talkChannel, int intEnable = 1)
+        {
+            switch (intIndex)
+            {
+                case 0:
+                    talkChannel.channel_1 = intEnable;
+                    break;
+                case 1:
+                    talkChannel.channel_2 = intEnable;
+                    break;
+                case 2:
+                    talkChannel.channel_3 = intEnable;
+                    break;
+                case 3:
+                    talkChannel.channel_4 = intEnable;
+                    break;
+                case 4:
+                    talkChannel.channel_5 = intEnable;
+                    break;
+                case 5:
+                    talkChannel.channel_6 = intEnable;
+                    break;
+                case 6:
+                    talkChannel.channel_7 = intEnable;
+                    break;
+                case 7:
+                    talkChannel.channel_8 = intEnable;
+                    break;
+                case 8:
+                    talkChannel.channel_9 = intEnable;
+                    break;
+                case 9:
+                    talkChannel.channel_10 = intEnable;
+                    break;
+                case 10:
+                    talkChannel.channel_11 = intEnable;
+                    break;
+                case 11:
+                    talkChannel.channel_12 = intEnable;
+                    break;
+                case 12:
+                    talkChannel.channel_13 = intEnable;
+                    break;
+                case 13:
+                    talkChannel.channel_14 = intEnable;
+                    break;
+                case 14:
+                    talkChannel.channel_15 = intEnable;
+                    break;
+                case 15:
+                    talkChannel.channel_16 = intEnable;
+                    break;
+            }
+        }
+
+        public static bool GetPictureForVideoRecord(string strVideoRecord,string strSaveFolder,int intFrequcency,int intDelatTime_Millisecond)
+        {
+            bool bolResult = false;
+            if (!Directory.Exists(strSaveFolder))
+            {
+                Directory.CreateDirectory(strSaveFolder) ;
+            }
+            StringBuilder sbffmpegCmd = new StringBuilder();
+            sbffmpegCmd.Append("ffmpeg.exe ");
+            sbffmpegCmd.Append("-i " + strVideoRecord);
+            sbffmpegCmd.Append(" -f image2 -r " + intFrequcency + " ");
+            sbffmpegCmd.Append(strSaveFolder + "\\b-%03d.jpg");
+            Process p = new Process();
+            p.StartInfo.FileName = "cmd.exe";    //设置要启动的应用程序
+            p.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
+            p.StartInfo.RedirectStandardInput = true;    // 接受来自调用程序的输入信息
+            p.StartInfo.RedirectStandardOutput = true;  //输出信息
+            p.StartInfo.RedirectStandardError = true;   // 输出错误
+            p.StartInfo.CreateNoWindow = true;          //不显示程序窗口
+            p.Start();          //启动程序
+            p.StandardInput.WriteLine(sbffmpegCmd.ToString() + "&exit");//向cmd窗口发送输入信息
+            p.StandardInput.AutoFlush = true;
+            int intCount = 0;
+            while (!(intCount >= intDelatTime_Millisecond))
+            {
+                intCount += 100;
+                Thread.Sleep(100);
+            }
+            //重命名伟规范文件
+            //命令格式 [通道(两位)][时间(yyyyMMddHHmmss自动生成)][序列号]
+            //61 - 57354AA60831 - 3136_20180531194919_01_bfr10
+            string Temp_strFileName = strVideoRecord.Substring(strVideoRecord.LastIndexOf("\\")+1);
+            DateTime timEndTime = GetTimeByBFRName(Temp_strFileName);
+            int intChannel = GetChannelByBFRName(Temp_strFileName);
+            RePicname(strSaveFolder, timEndTime, intChannel, intFrequcency);
+            return bolResult;
+        }
+
+        public static bool RePicname(string strPicPath,DateTime timEnd ,int intChannel,int intFrame)
+        {
+            bool bolResult = false;
+            int intVideoFrame = 15;
+            int intPerSecondNum = intVideoFrame / intFrame; 
+            DirectoryInfo directoryinfo = new DirectoryInfo(strPicPath);
+            FileInfo[] fInfo = directoryinfo.GetFiles();
+            int intFileCount = fInfo.Length;
+            //自己计算时间长度 应该可以通过ffmpeg 计算时间长度
+            int intSecond = intFileCount / intPerSecondNum;
+            DateTime timStart = timEnd.AddSeconds(-intSecond);
+            DateTime timName = timStart;
+            int intCount = 1;
+            foreach (var item in fInfo)
+            {
+                StringBuilder sbFileName = new StringBuilder();
+                sbFileName.Append(intChannel.ToString().PadLeft(2, '0')+"_");
+                sbFileName.Append(timName.ToString("yyyyMMddHHmmss")+"_");
+                sbFileName.Append(intCount++);
+                sbFileName.Append(".jpg");
+                if (intCount > intPerSecondNum)
+                {
+                    timName = timName.AddSeconds(1);
+                    intCount = 1;
+                }
+                string destPath = Path.Combine(strPicPath, sbFileName.ToString());
+                //判断是否重名
+                if (!File.Exists(destPath))
+                {
+                    item.MoveTo(destPath);
+                }
+            }
+            return bolResult;
+        }
+
+        public static int GetChannelByBFRName(string strFileName)
+        {
+            string[] strsValue = strFileName.Split('_');
+            //61-57354AA60831-3136_20180531194919_01_bfr10.H264
+            //DateTime tim = DateTime.ParseExact(strsValue[1], "yyyyMMddHHmmss", CultureInfo.CurrentCulture);
+            int intChannel = Convert.ToInt32(strsValue[2]);
+            return intChannel;
+        }
+
+        public static DateTime  GetTimeByBFRName(string strFileName)
+        {
+            string[] strsValue = strFileName.Split('_');
+            //61-57354AA60831-3136_20180531194919_01_bfr10.H264
+            DateTime tim = DateTime.ParseExact(strsValue[1], "yyyyMMddHHmmss", CultureInfo.CurrentCulture);
+            //int intChannel = Convert.ToInt32(strsValue[2]);
+            return tim;
+        }
         #endregion
     }
 }

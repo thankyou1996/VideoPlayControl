@@ -9,6 +9,11 @@
             摄像头信息
             </summary>
         </member>
+        <member name="P:PublicClassCurrency.CameraInfo.CameraID">
+            <summary>
+            ID
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.CameraInfo.strDVSNumber">
             <summary>
             视频设备编号
@@ -67,6 +72,26 @@
         <member name="P:PublicClassCurrency.CameraInfo.CameraUniqueCode">
             <summary>
             设备头唯一码
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strPlaneMapName">
+            <summary>
+            平面地图名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.PlaneMapName">
+            <summary>
+            平面地图名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.PlaneMapX">
+            <summary>
+            平面地图X
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.PlaneMapY">
+            <summary>
+            平面地图Y
             </summary>
         </member>
         <member name="T:PublicClassCurrency.Enum_CordinateSystem1">
@@ -540,6 +565,11 @@
             摄像头信息
             </summary>
         </member>
+        <member name="P:PublicClassCurrency.VideoInfo.TalkChannel">
+            <summary>
+            对讲通道信息
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.VideoInfo.bolIntercomEnable">
             <summary>
             对讲使能
@@ -798,6 +828,21 @@
         <member name="P:PublicClassCurrency.VideoRecordInfo.FileSize">
             <summary>
             文件大小 byte
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoTalkChannelID">
+            <summary>
+            对讲通道ID
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoTalkChannel">
+            <summary>
+            对讲通道号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoTalkChannelName">
+            <summary>
+            对讲通道名称
             </summary>
         </member>
     </members>
