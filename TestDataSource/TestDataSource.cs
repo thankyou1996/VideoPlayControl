@@ -404,7 +404,7 @@ namespace TestDataSource
         public static VideoInfo GetSKDVSData1()
         {
             VideoInfo v = new VideoInfo();
-            v.VideoType = Enum_VideoType.CloundSee;
+            v.VideoType = Enum_VideoType.SKVideo;
             v.DVSAddress = "61-57354AA60831-3136";
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
@@ -425,9 +425,53 @@ namespace TestDataSource
                 c.DVSNumber = "000501";
                 v.Cameras[c.Channel] = c;
             }
+            for (int i = 0; i < 16; i++)
+            {
+                VideoTalkChannelInfo vt = new VideoTalkChannelInfo();
+                vt.VideoTalkChannel = i;
+                vt.VideoTalkChannelName = "对讲通道" + (i);
+                v.TalkChannel[vt.VideoTalkChannel] = vt;
+            }
             return v;
         }
 
+        /// <summary>
+        /// SK519V
+        /// </summary>
+        /// <returns></returns>
+        public static VideoInfo GetSKDVSData2()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.SKVideo;
+            v.DVSAddress = "71-00F51F012D0C-2830";
+            v.DVSChannelNum = 8;
+            v.DVSConnectPort = 8000;
+            v.DVSName = "时刻DVR测试";
+            v.DVSNumber = "500101";
+            v.DVSType = "SK519V";
+            v.HostID = "5001";
+            v.UserName = "admin";
+            v.Password = "sk123456";
+            v.NetworkState = 0;
+            for (int i = 0; i < 16; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i);
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8616";
+                c.DVSNumber = "000501";
+                v.Cameras[c.Channel] = c;
+            }
+            for (int i = 0; i < 16; i++)
+            {
+                VideoTalkChannelInfo vt = new VideoTalkChannelInfo();
+                vt.VideoTalkChannel = i;
+                vt.VideoTalkChannelName = "对讲通道" + (i);
+                v.TalkChannel[vt.VideoTalkChannel] = vt;
+            }
+            return v;
+        }
         #endregion
     }
 }

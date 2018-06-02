@@ -113,6 +113,11 @@
     <Compile Include="VideoChannelList.Designer.cs">
       <DependentUpon>VideoChannelList.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoEncoderAsync\EncodedVideo.cs" />
+    <Compile Include="VideoEncoderAsync\Encoder.cs" />
+    <Compile Include="VideoEncoderAsync\QuickAudioEncodingCommands.cs" />
+    <Compile Include="VideoEncoderAsync\QuickVideoEncodingCommands.cs" />
+    <Compile Include="VideoEncoderAsync\VideoFile.cs" />
     <Compile Include="VideoRecordBackplay\VideoPlayback\VideoBackPlay_AmpFileParser.cs" />
     <Compile Include="VideoPlayGroupControls_PTZAndTalk.cs">
       <SubType>UserControl</SubType>
@@ -194,6 +199,12 @@
       <DependentUpon>VideoTalkControl.cs</DependentUpon>
     </Compile>
     <Compile Include="SDK_XMSDK.cs" />
+    <Compile Include="VideoTalkControlManyChannel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoTalkControlManyChannel.Designer.cs">
+      <DependentUpon>VideoTalkControlManyChannel.cs</DependentUpon>
+    </Compile>
     <Compile Include="VideoTalk\IVideoTalk.cs" />
     <Compile Include="VideoTalk\VideoTalk_Shike.cs" />
   </ItemGroup>
@@ -240,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VideoTalkControl.resx">
       <DependentUpon>VideoTalkControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoTalkControlManyChannel.resx">
+      <DependentUpon>VideoTalkControlManyChannel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -577,6 +591,7 @@
     <Content Include="PTZIcon\PTZ_Up.png" />
     <Content Include="PTZIcon\PTZ_UpperLeft.png" />
     <Content Include="PTZIcon\PTZ_UpperRight.png" />
+    <Content Include="VideoEncoderAsync\readme.txt" />
     <Content Include="XMVideoSDK\ConfigModule.dll" />
     <Content Include="XMVideoSDK\DecoderSDK.dll" />
     <Content Include="XMVideoSDK\DllDeinterlace.dll" />

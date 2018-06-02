@@ -72,7 +72,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 服务器IP
         /// </summary>
-        public static string strSKVideo_ServerIP = "121.41.87.203";
+        public static string strSKVideo_ServerIP = "192.168.2.19";
 
         /// <summary>
         /// 客户端ID

@@ -165,7 +165,7 @@ namespace VideoPlayControl.Tests
             //bool bolResult = GetPictureForVideoRecord(@"C:\SHIKE_Video\9999\20180531021956\61-57354AA60831-3136_20180531022002_01_bfr10.H264", strSavePath, 10);
             //bool bolResult = GetPictureForVideoRecord(@"C:\SHIKE_Video\9999\20180531194905\61-57354AA60831-3136_20180531194919_01_bfr10.H264", strSavePath, 5, 1000);
             string s = @"C:\SHIKE_Video\9999\20180531223110\61-57354AA60831-3136_20180531223118_01_bfr10.H264";
-            bool bolResult = GetPictureForVideoRecord(s, strSavePath, 5, 1000);
+            bool bolResult = GetPictureForVideoRecord(s, strSavePath, 7, 5000);
 
             //Thread.Sleep(3000);
             Assert.IsTrue(bolResult);
@@ -187,7 +187,7 @@ namespace VideoPlayControl.Tests
         public void GetChannelByBFRNameTest()
         {
             string s = "61-57354AA60831-3136_20180531194919_01_bfr10.H264";
-            int intChannel= GetChannelByBFRName(s);
+            int intChannel = GetChannelByBFRName(s);
             Assert.AreEqual(1, intChannel);
         }
 
@@ -197,6 +197,13 @@ namespace VideoPlayControl.Tests
             string s = "61-57354AA60831-3136_20180531194919_01_bfr10.H264";
             DateTime tim = GetTimeByBFRName(s);
             Assert.AreEqual(tim, DateTime.Now);
+        }
+
+        [TestMethod()]
+        public void testttTest()
+        {
+            testtt();
+            Assert.Fail();
         }
     }
 }

@@ -38,7 +38,6 @@
             this.videoPlayGroupControls_PTZAndTalk1.Name = "videoPlayGroupControls_PTZAndTalk1";
             this.videoPlayGroupControls_PTZAndTalk1.Size = new System.Drawing.Size(800, 450);
             this.videoPlayGroupControls_PTZAndTalk1.TabIndex = 0;
-            this.videoPlayGroupControls_PTZAndTalk1.TlakStatus = 0;
             // 
             // Form1
             // 

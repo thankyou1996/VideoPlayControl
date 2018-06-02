@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
+using VideoEncoder;
 using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl
@@ -424,7 +425,7 @@ namespace VideoPlayControl
         //}
         #endregion
 
-        public void SetMultiTalkChannel(int intIndex, ref st_multi_talk talkChannel, int intEnable = 1)
+        public static st_multi_talk SetMultiTalkChannel(int intIndex, st_multi_talk talkChannel, int intEnable = 1)
         {
             switch (intIndex)
             {
@@ -477,6 +478,7 @@ namespace VideoPlayControl
                     talkChannel.channel_16 = intEnable;
                     break;
             }
+            return talkChannel;
         }
 
         public static bool GetPictureForVideoRecord(string strVideoRecord,string strSaveFolder,int intFrequcency,int intDelatTime_Millisecond)
@@ -520,7 +522,7 @@ namespace VideoPlayControl
         public static bool RePicname(string strPicPath,DateTime timEnd ,int intChannel,int intFrame)
         {
             bool bolResult = false;
-            int intVideoFrame = 15;
+            int intVideoFrame = 28;
             int intPerSecondNum = intVideoFrame / intFrame; 
             DirectoryInfo directoryinfo = new DirectoryInfo(strPicPath);
             FileInfo[] fInfo = directoryinfo.GetFiles();
@@ -568,6 +570,28 @@ namespace VideoPlayControl
             DateTime tim = DateTime.ParseExact(strsValue[1], "yyyyMMddHHmmss", CultureInfo.CurrentCulture);
             //int intChannel = Convert.ToInt32(strsValue[2]);
             return tim;
+        }
+
+        public static void testtt()
+        {
+            VideoEncoder.Encoder enc = new VideoEncoder.Encoder();
+            //ffmpeg.exe的路径，程序会在执行目录（....FFmpeg测试\bin\Debug）下找此文件，
+            enc.FFmpegPath = "ffmpeg.exe";
+            //视频路径
+            string videoFilePath = @"C:\SHIKE_Video\9999\20180531223110\61-57354AA60831-3136_20180531223118_01_bfr10.H264";
+            VideoFile videoFile = new VideoFile(videoFilePath);
+
+            enc.GetVideoInfo(videoFile);
+            TimeSpan totaotp = videoFile.Duration;
+            string totalTime = string.Format("{0:00}:{1:00}:{2:00}", (int)totaotp.TotalHours, totaotp.Minutes, totaotp.Seconds);
+
+            Console.WriteLine("时间长度：{0}", totalTime);
+            Console.WriteLine("高度：{0}", videoFile.Height);
+            Console.WriteLine("宽度：{0}", videoFile.Width);
+            Console.WriteLine("数据速率：{0}", videoFile.VideoBitRate);
+            Console.WriteLine("数据格式：{0}", videoFile.VideoFormat);
+            Console.WriteLine("比特率：{0}", videoFile.BitRate);
+            Console.WriteLine("文件路径：{0}", videoFile.Path);
         }
         #endregion
     }

@@ -20,6 +20,19 @@ namespace VideoPlayControl.VideoTalk
             get;
             set;
         }
+        Enum_TalkStatus CurrentTalkStatus
+        {
+            get;
+            set;
+        }
+        event TalkStausChangedDelegate TalkStausChangedEvent;
+
+        bool TalkStausChanged(object TalkStausChangedValue);
+
+        event StartTalkingDelegate StartTalkingEvent;
+
+        bool StartTalking(object StartTalkingValue);
+
 
         bool SetVideoTalkInfo(VideoInfo videoInfo, VideoTalkChannelInfo talkChannel);
 

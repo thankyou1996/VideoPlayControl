@@ -112,8 +112,11 @@ namespace VideoPlayControl
         {
             return PreViewPwdVerifyEvent(this, strVideoID);
         }
-        
-
+        public event StartTalkingDelegate StartTalkingEvent
+        {
+            add { videoTalkControlManyChannel1.StartTalkingEvent += value; }
+            remove { videoTalkControlManyChannel1.StartTalkingEvent -= value; }
+        }
         #endregion
 
         /// <summary>
@@ -170,48 +173,28 @@ namespace VideoPlayControl
         public void Init_ControlInit1()
         {
             cmbVideoList.Items.Clear();
-            cmbVideoList.Items.Clear();
-            strTalkVideoNum = "";
-            
+            //设备列表
             cmbVideoList.SelectedIndexChanged -= cmbVideolist_SelectedIndexChanged;     //取消事件（防止出现重复注册情况）
             ComboBoxItem cmbItem;
-            ComboBoxItem cmbTalkItem;
             foreach (VideoInfo v in dicCurrentVideoInfos.Values)
             {
-                if (v.IntercomEnable)
+                if (!v.OnlyIntercom)
                 {
-                    cmbTalkItem = new ComboBoxItem(v.DVSNumber, v.DVSName);
-                    cmbTalkDeviceList.Items.Add(cmbTalkItem);
+                    cmbItem = new ComboBoxItem(v.DVSNumber, v.DVSName);
+                    cmbVideoList.Items.Add(cmbItem);
                 }
-                if (v.OnlyIntercom)
-                {
-                    continue;
-                }
-                cmbItem = new ComboBoxItem(v.DVSNumber, v.DVSName);
-                cmbVideoList.Items.Add(cmbItem);
-                    
             }
             if (cmbVideoList.Items.Count > 0)
             {
                 cmbVideoList.SelectedIndexChanged += cmbVideolist_SelectedIndexChanged;     //注册事件
                 cmbVideoList.SelectedIndex = 0;
             }
-            if (cmbTalkDeviceList.Items.Count > 0)
-            {
-                pageTalk.Parent = tabToolbar;
-                cmbTalkDeviceList.SelectedIndex = 0;
-                pblRight_Bottom.Visible = true;
-            }
-            else
-            {
-                pageTalk.Parent = null;
-                if (tabToolbar.TabPages.Count == 0)
-                {
-                    pblRight_Bottom.Visible = false;
-                }
-                
-            }
 
+            //对讲列表
+            bool bolResult = videoTalkControlManyChannel1.SetVideoInfo(dicCurrentVideoInfos);
+            pageTalk.Parent = bolResult ? tabToolbar : null;
+
+            //云台预置点列表
             cmbPreset.Items.Clear();
             for (int i = 1; i < 256; i++)
             {
@@ -585,202 +568,9 @@ namespace VideoPlayControl
             }
         }
         
-        /// <summary>
-        /// 对讲状态
-        /// 0.未处于对讲状态
-        /// 1.对讲  2.喊话 3.侦听
-        /// </summary>
-        public int intTlakStatus = 0;
-        /// <summary>
-        /// 对讲状态
-        /// 0.未处于对讲状态
-        /// 1.对讲  2.喊话 3.侦听
-        /// </summary>
-        public int TlakStatus
-        {
-            get { return intTlakStatus; }
-            set
-            {
-                intTlakStatus = value;
-                switch (intTlakStatus)
-                {
-                    case 0:
-                        btnTalk.Enabled = true;
-                        btnTalk.Text = "开始对讲";
-                        btnShot.Enabled = true;
-                        btnShot.Text = "开始喊话";
-                        btnMonitor.Enabled = true;
-                        btnMonitor.Text = "开始侦听";
-                        break;
-                    case 1:
-                        btnTalk.Enabled = true;
-                        btnTalk.Text = "停止对讲";
-                        btnShot.Enabled = false;
-                        btnShot.Text = "开始喊话";
-                        btnMonitor.Enabled = false;
-                        btnMonitor.Text = "开始侦听";
-                        break;
-                    case 2:
-                        btnTalk.Enabled = false;
-                        btnTalk.Text = "开始对讲";
-                        btnShot.Enabled = true;
-                        btnShot.Text = "停止喊话";
-                        btnMonitor.Enabled = false;
-                        btnMonitor.Text = "开始侦听";
-                        break;
-                    case 3:
-                        btnTalk.Enabled = false;
-                        btnTalk.Text = "开始对讲";
-                        btnShot.Enabled = false;
-                        btnShot.Text = "开始喊话";
-                        btnMonitor.Enabled = true;
-                        btnMonitor.Text = "停止侦听";
-                        break;
-                }
-            }
-        }
+       
 
-        private void btnTalk_Click(object sender, EventArgs e)
-        {
-            if (TlakStatus != 0)
-            {
-                StopTalk();
-            }
-            else
-            {
-                Talk(ProgConstants.c_intSKVideoTalkMode_Talk);
-            }
-        }
-        private void btnShot_Click(object sender, EventArgs e)
-        {
-            if (TlakStatus != 0)
-            {
-                StopTalk();
-            }
-            else
-            {
-                Talk(ProgConstants.c_intSKVideoTalkMode_Shout);
-            }
-        }
-
-        private void btnMonitor_Click(object sender, EventArgs e)
-        {
-            if (TlakStatus != 0)
-            {
-                StopTalk();
-            }
-            else
-            {
-                Talk(ProgConstants.c_intSKVideoTalkMode_Monitor);
-            }
-        }
-
-        public void Talk(int intTalkMode)
-        {
-            if (TlakStatus!=0)
-            {
-                StopTalk();
-            }
-            if (!string.IsNullOrEmpty(strTalkVideoNum))
-            {
-                if (dicCurrentVideoInfos.ContainsKey(strTalkVideoNum))
-                {
-                    VideoInfo v = dicCurrentVideoInfos[strTalkVideoNum];
-                    if (v.DVSType.StartsWith("SK"))
-                    {
-                        SDK_SKVideoSDK.st_multi_talk talkChannel = new SDK_SKVideoSDK.st_multi_talk();
-                        talkChannel.channel_1 = 1;
-                        SDK_SKVideoSDK.p_sdkc_start_multi_talk(v.DVSAddress, ref talkChannel, intTalkMode, 1, 15, 10, "");
-                        TlakStatus = intTalkMode;
-                    }
-                }
-            }
-        }
-
-        public void StopTalk() 
-        {
-            if (!string.IsNullOrEmpty(strTalkVideoNum))
-            {
-                if (dicCurrentVideoInfos.ContainsKey(strTalkVideoNum))
-                {
-                    VideoInfo v = dicCurrentVideoInfos[strTalkVideoNum];
-                    if (v.DVSType.StartsWith("SK"))
-                    {
-                        SDK_SKVideoSDK.p_sdkc_stop_talk(v.DVSAddress);
-                        TlakStatus = 0;
-                    }
-                }
-            }
-        }
-
-
-        private void cmbTalkDeviceList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ComboBoxItem cmbItem = (ComboBoxItem)cmbTalkDeviceList.SelectedItem;
-                strTalkVideoNum = Convert.ToString(cmbItem.ItemValue);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
         
     }
-    ///// <summary>
-    ///// 170120 ComboBox Item
-    ///// value 表示键 display表示显示的值
-    ///// </summary>
-    //public class ComboBoxItem
-    //{
-    //    /// <summary>
-    //    /// ComboBox控件Item
-    //    /// </summary>
-    //    /// <param name="value"></param>
-    //    /// <param name="display"></param>
-    //    public ComboBoxItem(object value, string display)
-    //    {
-    //        this.ItemValue = value;
-    //        this.ItemDisplay = display;
-    //    }
-
-    //    /// <summary>
-    //    /// Item 键
-    //    /// </summary>
-    //    object itemValue;
-
-    //    /// <summary>
-    //    /// Item 键
-    //    /// </summary>
-    //    public object ItemValue
-    //    {
-    //        get { return itemValue; }
-    //        set { itemValue = value; }
-    //    }
-
-    //    /// <summary>
-    //    /// Item 值
-    //    /// </summary>
-    //    string itemDisplay;
-    //    /// <summary>
-    //    /// Item 值
-    //    /// </summary>
-    //    public string ItemDisplay
-    //    {
-    //        get { return itemDisplay; }
-    //        set { itemDisplay = value; }
-    //    }
-
-    //    /// <summary>
-    //    /// 重写 ToString() 方法
-    //    /// </summary>
-    //    /// <returns></returns>
-    //    public override string ToString()
-    //    {
-    //        return ItemDisplay;
-    //    }
-    //}
-
 }

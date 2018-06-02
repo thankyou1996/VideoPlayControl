@@ -70,6 +70,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTalkControlTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTalkControlTest.Designer.cs">
+      <DependentUpon>FrmTalkControlTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCapture.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTalkControlTest.resx">
+      <DependentUpon>FrmTalkControlTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCapture.resx">
       <DependentUpon>FrmCapture.cs</DependentUpon>

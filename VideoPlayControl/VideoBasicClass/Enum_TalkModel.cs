@@ -21,4 +21,25 @@ namespace VideoPlayControl.VideoBasicClass
         /// </summary>
         Talkback=3,
     }
+
+    public enum Enum_TalkStatus
+    {
+        /// <summary>
+        /// 未出于任何状态
+        /// </summary>
+        Null=0,
+        /// <summary>
+        /// 侦听中
+        /// </summary>
+        Interceptioning = 1,
+        /// <summary>
+        /// 喊话中
+        /// </summary>
+        Speraking = 2,
+
+        /// <summary>
+        /// 对讲中
+        /// </summary>
+        Talkbacking = 3,
+    }
 }

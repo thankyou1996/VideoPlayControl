@@ -53,7 +53,7 @@ namespace VideoPlayControl_UseDemo
             SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
             //SDKState.Ezviz_SDKInit();
-            //SDKState.SKVideoSDKInit();
+            SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
             SDKState.XMSDK_Init();
             //SDKState.HikDVRSDK_Init();

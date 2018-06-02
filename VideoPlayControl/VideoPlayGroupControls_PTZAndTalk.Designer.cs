@@ -47,11 +47,7 @@
             this.tabToolbar = new System.Windows.Forms.TabControl();
             this.pagePTZControl = new System.Windows.Forms.TabPage();
             this.pageTalk = new System.Windows.Forms.TabPage();
-            this.btnMonitor = new System.Windows.Forms.Button();
-            this.btnShot = new System.Windows.Forms.Button();
-            this.btnTalk = new System.Windows.Forms.Button();
-            this.pnlPageTalk_Top = new System.Windows.Forms.Panel();
-            this.cmbTalkDeviceList = new System.Windows.Forms.ComboBox();
+            this.videoTalkControlManyChannel1 = new VideoPlayControl.VideoTalkControlManyChannel();
             this.pnlRight_Top = new System.Windows.Forms.Panel();
             this.cmbVideoList = new System.Windows.Forms.ComboBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -66,7 +62,6 @@
             this.tabToolbar.SuspendLayout();
             this.pagePTZControl.SuspendLayout();
             this.pageTalk.SuspendLayout();
-            this.pnlPageTalk_Top.SuspendLayout();
             this.pnlRight_Top.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -243,10 +238,7 @@
             // 
             // pageTalk
             // 
-            this.pageTalk.Controls.Add(this.btnMonitor);
-            this.pageTalk.Controls.Add(this.btnShot);
-            this.pageTalk.Controls.Add(this.btnTalk);
-            this.pageTalk.Controls.Add(this.pnlPageTalk_Top);
+            this.pageTalk.Controls.Add(this.videoTalkControlManyChannel1);
             this.pageTalk.Location = new System.Drawing.Point(4, 22);
             this.pageTalk.Name = "pageTalk";
             this.pageTalk.Padding = new System.Windows.Forms.Padding(3);
@@ -255,56 +247,13 @@
             this.pageTalk.Text = "对讲";
             this.pageTalk.UseVisualStyleBackColor = true;
             // 
-            // btnMonitor
+            // videoTalkControlManyChannel1
             // 
-            this.btnMonitor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMonitor.Location = new System.Drawing.Point(3, 76);
-            this.btnMonitor.Name = "btnMonitor";
-            this.btnMonitor.Size = new System.Drawing.Size(102, 25);
-            this.btnMonitor.TabIndex = 5;
-            this.btnMonitor.Text = "侦听";
-            this.btnMonitor.UseVisualStyleBackColor = true;
-            // 
-            // btnShot
-            // 
-            this.btnShot.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnShot.Location = new System.Drawing.Point(3, 51);
-            this.btnShot.Name = "btnShot";
-            this.btnShot.Size = new System.Drawing.Size(102, 25);
-            this.btnShot.TabIndex = 4;
-            this.btnShot.Text = "喊话";
-            this.btnShot.UseVisualStyleBackColor = true;
-            // 
-            // btnTalk
-            // 
-            this.btnTalk.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTalk.Location = new System.Drawing.Point(3, 26);
-            this.btnTalk.Name = "btnTalk";
-            this.btnTalk.Size = new System.Drawing.Size(102, 25);
-            this.btnTalk.TabIndex = 3;
-            this.btnTalk.Text = "对讲";
-            this.btnTalk.UseVisualStyleBackColor = true;
-            this.btnTalk.Click += new System.EventHandler(this.btnTalk_Click);
-            // 
-            // pnlPageTalk_Top
-            // 
-            this.pnlPageTalk_Top.Controls.Add(this.cmbTalkDeviceList);
-            this.pnlPageTalk_Top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlPageTalk_Top.Location = new System.Drawing.Point(3, 3);
-            this.pnlPageTalk_Top.Name = "pnlPageTalk_Top";
-            this.pnlPageTalk_Top.Size = new System.Drawing.Size(102, 23);
-            this.pnlPageTalk_Top.TabIndex = 1;
-            // 
-            // cmbTalkDeviceList
-            // 
-            this.cmbTalkDeviceList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbTalkDeviceList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTalkDeviceList.FormattingEnabled = true;
-            this.cmbTalkDeviceList.Location = new System.Drawing.Point(0, 0);
-            this.cmbTalkDeviceList.Name = "cmbTalkDeviceList";
-            this.cmbTalkDeviceList.Size = new System.Drawing.Size(102, 20);
-            this.cmbTalkDeviceList.TabIndex = 0;
-            this.cmbTalkDeviceList.SelectedIndexChanged += new System.EventHandler(this.cmbTalkDeviceList_SelectedIndexChanged);
+            this.videoTalkControlManyChannel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoTalkControlManyChannel1.Location = new System.Drawing.Point(3, 3);
+            this.videoTalkControlManyChannel1.Name = "videoTalkControlManyChannel1";
+            this.videoTalkControlManyChannel1.Size = new System.Drawing.Size(102, 99);
+            this.videoTalkControlManyChannel1.TabIndex = 0;
             // 
             // pnlRight_Top
             // 
@@ -357,7 +306,6 @@
             this.tabToolbar.ResumeLayout(false);
             this.pagePTZControl.ResumeLayout(false);
             this.pageTalk.ResumeLayout(false);
-            this.pnlPageTalk_Top.ResumeLayout(false);
             this.pnlRight_Top.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -385,10 +333,6 @@
         private System.Windows.Forms.TabControl tabToolbar;
         private System.Windows.Forms.TabPage pagePTZControl;
         private System.Windows.Forms.TabPage pageTalk;
-        private System.Windows.Forms.Button btnShot;
-        private System.Windows.Forms.Button btnTalk;
-        private System.Windows.Forms.Panel pnlPageTalk_Top;
-        private System.Windows.Forms.ComboBox cmbTalkDeviceList;
-        private System.Windows.Forms.Button btnMonitor;
+        private VideoTalkControlManyChannel videoTalkControlManyChannel1;
     }
 }

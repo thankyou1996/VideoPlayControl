@@ -28,48 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnMonitor = new System.Windows.Forms.Button();
-            this.btnShot = new System.Windows.Forms.Button();
-            this.btnTalk = new System.Windows.Forms.Button();
+            this.btnInterception = new System.Windows.Forms.Button();
+            this.btnSperak = new System.Windows.Forms.Button();
+            this.btnTalkback = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnMonitor
+            // btnInterception
             // 
-            this.btnMonitor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMonitor.Location = new System.Drawing.Point(0, 46);
-            this.btnMonitor.Name = "btnMonitor";
-            this.btnMonitor.Size = new System.Drawing.Size(72, 23);
-            this.btnMonitor.TabIndex = 8;
-            this.btnMonitor.Text = "侦听";
-            this.btnMonitor.UseVisualStyleBackColor = true;
+            this.btnInterception.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInterception.Location = new System.Drawing.Point(0, 48);
+            this.btnInterception.Name = "btnInterception";
+            this.btnInterception.Size = new System.Drawing.Size(72, 24);
+            this.btnInterception.TabIndex = 8;
+            this.btnInterception.Text = "侦听";
+            this.btnInterception.UseVisualStyleBackColor = true;
+            this.btnInterception.Click += new System.EventHandler(this.btnInterception_Click);
             // 
-            // btnShot
+            // btnSperak
             // 
-            this.btnShot.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnShot.Location = new System.Drawing.Point(0, 23);
-            this.btnShot.Name = "btnShot";
-            this.btnShot.Size = new System.Drawing.Size(72, 23);
-            this.btnShot.TabIndex = 7;
-            this.btnShot.Text = "喊话";
-            this.btnShot.UseVisualStyleBackColor = true;
+            this.btnSperak.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSperak.Location = new System.Drawing.Point(0, 24);
+            this.btnSperak.Name = "btnSperak";
+            this.btnSperak.Size = new System.Drawing.Size(72, 24);
+            this.btnSperak.TabIndex = 7;
+            this.btnSperak.Text = "喊话";
+            this.btnSperak.UseVisualStyleBackColor = true;
+            this.btnSperak.Click += new System.EventHandler(this.btnSperak_Click);
             // 
-            // btnTalk
+            // btnTalkback
             // 
-            this.btnTalk.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTalk.Location = new System.Drawing.Point(0, 0);
-            this.btnTalk.Name = "btnTalk";
-            this.btnTalk.Size = new System.Drawing.Size(72, 23);
-            this.btnTalk.TabIndex = 6;
-            this.btnTalk.Text = "对讲";
-            this.btnTalk.UseVisualStyleBackColor = true;
+            this.btnTalkback.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTalkback.Location = new System.Drawing.Point(0, 0);
+            this.btnTalkback.Name = "btnTalkback";
+            this.btnTalkback.Size = new System.Drawing.Size(72, 24);
+            this.btnTalkback.TabIndex = 6;
+            this.btnTalkback.Text = "对讲";
+            this.btnTalkback.UseVisualStyleBackColor = true;
+            this.btnTalkback.Click += new System.EventHandler(this.btnTalkback_Click);
             // 
             // VideoTalkControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnMonitor);
-            this.Controls.Add(this.btnShot);
-            this.Controls.Add(this.btnTalk);
+            this.Controls.Add(this.btnInterception);
+            this.Controls.Add(this.btnSperak);
+            this.Controls.Add(this.btnTalkback);
             this.Name = "VideoTalkControl";
             this.Size = new System.Drawing.Size(72, 72);
             this.ResumeLayout(false);
@@ -78,8 +81,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnMonitor;
-        private System.Windows.Forms.Button btnShot;
-        private System.Windows.Forms.Button btnTalk;
+        private System.Windows.Forms.Button btnInterception;
+        private System.Windows.Forms.Button btnSperak;
+        private System.Windows.Forms.Button btnTalkback;
     }
 }
