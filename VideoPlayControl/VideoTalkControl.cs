@@ -71,18 +71,22 @@ namespace VideoPlayControl
         public bool SetVideoTalkInfo(VideoInfo videoInfo, VideoTalkChannelInfo talkChannel)
         {
             bool bolResult = false;
-            switch (videoInfo.VideoType )
+            if (videoTalk.CurrentVideoInfo == null || videoTalk.CurrentVideoInfo.VideoType != videoInfo.VideoType)
             {
-                case Enum_VideoType.SKVideo:
-                    videoTalk = new VideoTalk_Shike();
-                    videoTalk.TalkStausChangedEvent += VideoTalk_TalkStausChangedEvent;
-                    break;
-                default:    //不存在的设备类型直接报异常
-                    throw new Exception("设备类型异常");
+                switch (videoInfo.VideoType)
+                {
+                    case Enum_VideoType.SKVideo:
+                        videoTalk = new VideoTalk_Shike();
+                        videoTalk.TalkStausChangedEvent += VideoTalk_TalkStausChangedEvent;
+                        break;
+                    default:    //不存在的设备类型直接报异常
+                        throw new Exception("设备类型异常");
+                }
             }
             videoTalk.SetVideoTalkInfo(videoInfo, talkChannel);
             return bolResult;
         }
+
 
         private bool VideoTalk_TalkStausChangedEvent(object sender, object TalkStausChangedValue)
         {

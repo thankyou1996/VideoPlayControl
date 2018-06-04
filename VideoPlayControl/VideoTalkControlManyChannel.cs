@@ -47,9 +47,12 @@ namespace VideoPlayControl
             }
             cmbVideoChannel.ValueMember = "Value";
             cmbVideoChannel.DisplayMember = "Display";
-
             cmbVideoChannel.DataSource = dtSource;
-            cmbVideoChannel.SelectedIndex = 0;
+            if (bolResult)
+            {
+                //设置默认
+                cmbVideoChannel.SelectedIndex = 0;
+            }
             return bolResult;
         }
 

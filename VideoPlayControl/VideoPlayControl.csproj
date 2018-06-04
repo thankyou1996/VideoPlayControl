@@ -107,6 +107,7 @@
     <Compile Include="VideoBasicClass\Base64coder.cs" />
     <Compile Include="VideoBasicClass\Enum_TalkModel.cs" />
     <Compile Include="VideoBasicClass\RemoteVideoRecordInfo.cs" />
+    <Compile Include="VideoBasicClass\SoundClass.cs" />
     <Compile Include="VideoChannelList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,7 +156,7 @@
     <Compile Include="VideoPlayGroupControl_MultiPicture1.Designer.cs">
       <DependentUpon>VideoPlayGroupControl_MultiPicture1.cs</DependentUpon>
     </Compile>
-    <Compile Include="VideoPlaySetting.cs" />
+    <Compile Include="VideoBasicClass\VideoPlaySetting.cs" />
     <Compile Include="VideoPlayWindow.cs">
       <SubType>UserControl</SubType>
     </Compile>

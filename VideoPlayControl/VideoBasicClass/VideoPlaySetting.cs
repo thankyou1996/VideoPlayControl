@@ -37,8 +37,8 @@ namespace VideoPlayControl
             set { bolVideoRecordEnable = value; }
         }
 
-       
-        
+
+
         /// <summary>
         /// 视频录像文件地址
         /// </summary>
@@ -80,7 +80,7 @@ namespace VideoPlayControl
             get { return strPreVideoRecordFilePath; }
             set { strPreVideoRecordFilePath = value; }
         }
-        
+
         /// <summary>
         /// 音频使能
         /// </summary>
@@ -153,5 +153,28 @@ namespace VideoPlayControl
             get { return connType; }
             set { connType = value; }
         }
+
+
+        /// <summary>
+        /// 视频播放时长（0表示无限制）
+        /// </summary>
+        private int intVideoPlayTimeLimit = 0;
+
+        /// <summary>
+        /// 视频播放时长（0表示无限制）
+        /// </summary>
+        public int VideoPlayTimeLimit
+        {
+            get
+            {
+                return intVideoPlayTimeLimit;
+            }
+            set
+            {
+                intVideoPlayTimeLimit = value;
+            }
+        }
+
+
     }
 }

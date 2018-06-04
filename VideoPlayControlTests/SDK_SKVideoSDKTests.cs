@@ -205,5 +205,16 @@ namespace VideoPlayControl.Tests
             testtt();
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void CreatePCMFileTest()
+        {
+            string strG711File = @"C:\SHIKE_Video\SKAlarmAudio\9999\20180602142359\61-57354AA60831-3136_20180602142406_09_bfr10.G711";
+            string strPcmFile= @"C:\SHIKE_Video\SKAlarmAudio\9999\20180602142359\61-57354AA60831-3136_20180602142406_09_bfr10.pcm";
+            string strWavFile = @"C:\SHIKE_Video\SKAlarmAudio\9999\20180602142359\61-57354AA60831-3136_20180602142406_09_bfr10.wav";
+            //SDK_SKVideoSDK.CreatePCMFile(strG711File, strPcmFile);
+            SDK_SKVideoSDK.CreateWAVFile(strG711File, strWavFile);
+            Assert.Fail();
+        }
     }
 }

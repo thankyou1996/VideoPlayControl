@@ -593,6 +593,482 @@ namespace VideoPlayControl
             Console.WriteLine("比特率：{0}", videoFile.BitRate);
             Console.WriteLine("文件路径：{0}", videoFile.Path);
         }
+        private const byte gMaxPacket = 5;
+
+        #region 音频转换相关
+
+        [DllImport("G711Decode.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void SoundDecode(string input, string output);
+
+        [DllImport("G711Decode.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void PlayPcm(string path);
+
+        public static void CreatePCMFile(string strG711FilePath, string strPCMFilePath)
+        {
+            FileStream fileStream = new FileStream(strG711FilePath, FileMode.Open);
+            FileStream tempStream = null;
+            Int64 timeStamp = 0;
+            Int16 dataLength = 0;
+            string deviceGuid = "";
+            SynthesizeClass synthesizeClass = new SynthesizeClass();
+            SoundClass soundClass = new SoundClass();
+            List<SynthesizeClass> synthesizeList = new List<SynthesizeClass>();
+            bool isContain = false; // 记录该设备是否已经存入
+            if (fileStream.Length >= 44)
+            {
+                byte[] buffer = new byte[44];
+                fileStream.Read(buffer, 0, 44);  //跳过前面没有用的44个字节
+                while (fileStream.Position < fileStream.Length)
+                {
+                    if (fileStream.Position + 30 <= fileStream.Length)
+                    {
+                        //录音文件人员
+                        buffer = new byte[30];
+                        fileStream.Read(buffer, 0, 30);
+                        deviceGuid = System.Text.Encoding.Default.GetString(buffer).Split('\0')[0]; // 去掉结束字符
+
+
+                        if (fileStream.Position + 19 <= fileStream.Length)
+                        {
+                            fileStream.Seek(1, SeekOrigin.Current); // 跳过00表示的通道
+
+                            buffer = new byte[8];
+                            fileStream.Read(buffer, 0, 8);
+                            timeStamp = BitConverter.ToInt64(buffer, 0);    //时间戳
+
+                            buffer = new byte[2];
+                            fileStream.Read(buffer, 0, 2);
+                            dataLength = BitConverter.ToInt16(buffer, 0);
+                            buffer = new byte[dataLength];
+
+                            isContain = false;
+
+                            if (fileStream.Position + dataLength <= fileStream.Length) // 后面有数据才开始存储
+                            {
+                                fileStream.Read(buffer, 0, dataLength);
+
+                                soundClass = new SoundClass();
+                                soundClass.soundData = buffer;
+                                soundClass.dataLength = dataLength;
+                                soundClass.timeStamp = timeStamp;
+
+                                for (int i = 0; i < synthesizeList.Count; i++)
+                                {
+                                    if (synthesizeList[i].deviceGuid == deviceGuid)
+                                    {
+                                        isContain = true;
+                                        synthesizeList[i].soundList.Add(soundClass);
+                                    }
+                                }
+
+                                if (isContain == false)
+                                {
+
+                                    synthesizeClass = new SynthesizeClass();
+
+                                    synthesizeClass.soundList = new List<SoundClass>();
+                                    synthesizeClass.deviceGuid = deviceGuid;
+                                    synthesizeClass.soundList.Add(soundClass);
+
+                                    synthesizeList.Add(synthesizeClass);
+                                }
+
+                            }
+
+                        }
+                    }
+                }
+                fileStream.Close();
+                for (int i = 0; i < synthesizeList.Count; i++)
+                {
+                    synthesizeClass = synthesizeList[i];
+                    tempStream = new FileStream(synthesizeClass.deviceGuid + ".tmp", FileMode.OpenOrCreate);
+                    tempStream.Seek(0, SeekOrigin.Begin);
+                    tempStream.SetLength(0);
+                    for (int j = 0; j < synthesizeClass.soundList.Count; j++)
+                    {
+                        tempStream.Seek(0, SeekOrigin.End);
+                        tempStream.Write(synthesizeClass.soundList[j].soundData, 0, synthesizeClass.soundList[j].soundData.Length);
+                        synthesizeClass.soundList[j].soundData = null;
+                    }
+                    tempStream.Close();
+                }
+                GC.Collect();
+                PlayAndSave(synthesizeList, strPCMFilePath);
+            }
+        }
+
+        public void PlayTalkRecord1(string strFilePath)
+        {
+            FileStream fileStream = new FileStream(strFilePath, FileMode.Open);
+            FileStream tempStream = null;
+            Int64 timeStamp = 0;
+            Int16 dataLength = 0;
+            string deviceGuid = "";
+            SynthesizeClass synthesizeClass = new SynthesizeClass();
+            SoundClass soundClass = new SoundClass();
+            List<SynthesizeClass> synthesizeList = new List<SynthesizeClass>();
+            bool isContain = false; // 记录该设备是否已经存入
+            if (fileStream.Length >= 44)
+            {
+                byte[] buffer = new byte[44];
+                fileStream.Read(buffer, 0, 44);  //跳过前面没有用的44个字节
+                while (fileStream.Position < fileStream.Length)
+                {
+                    if (fileStream.Position + 30 <= fileStream.Length)
+                    {
+                        //录音文件人员
+                        buffer = new byte[30];
+                        fileStream.Read(buffer, 0, 30);
+                        deviceGuid = System.Text.Encoding.Default.GetString(buffer).Split('\0')[0]; // 去掉结束字符
+
+
+                        if (fileStream.Position + 19 <= fileStream.Length)
+                        {
+                            fileStream.Seek(1, SeekOrigin.Current); // 跳过00表示的通道
+
+                            buffer = new byte[8];
+                            fileStream.Read(buffer, 0, 8);
+                            timeStamp = BitConverter.ToInt64(buffer, 0);    //时间戳
+
+                            buffer = new byte[2];
+                            fileStream.Read(buffer, 0, 2);
+                            dataLength = BitConverter.ToInt16(buffer, 0);
+                            buffer = new byte[dataLength];
+
+                            isContain = false;
+
+                            if (fileStream.Position + dataLength <= fileStream.Length) // 后面有数据才开始存储
+                            {
+                                fileStream.Read(buffer, 0, dataLength);
+
+                                soundClass = new SoundClass();
+                                soundClass.soundData = buffer;
+                                soundClass.dataLength = dataLength;
+                                soundClass.timeStamp = timeStamp;
+
+                                for (int i = 0; i < synthesizeList.Count; i++)
+                                {
+                                    if (synthesizeList[i].deviceGuid == deviceGuid)
+                                    {
+                                        isContain = true;
+                                        synthesizeList[i].soundList.Add(soundClass);
+                                    }
+                                }
+
+                                if (isContain == false)
+                                {
+
+                                    synthesizeClass = new SynthesizeClass();
+
+                                    synthesizeClass.soundList = new List<SoundClass>();
+                                    synthesizeClass.deviceGuid = deviceGuid;
+                                    synthesizeClass.soundList.Add(soundClass);
+
+                                    synthesizeList.Add(synthesizeClass);
+                                }
+
+                            }
+
+                        }
+                    }
+                }
+                fileStream.Close();
+                for (int i = 0; i < synthesizeList.Count; i++)
+                {
+                    synthesizeClass = synthesizeList[i];
+                    tempStream = new FileStream(synthesizeClass.deviceGuid + ".tmp", FileMode.OpenOrCreate);
+                    tempStream.Seek(0, SeekOrigin.Begin);
+                    tempStream.SetLength(0);
+                    for (int j = 0; j < synthesizeClass.soundList.Count; j++)
+                    {
+                        tempStream.Seek(0, SeekOrigin.End);
+                        tempStream.Write(synthesizeClass.soundList[j].soundData, 0, synthesizeClass.soundList[j].soundData.Length);
+                        synthesizeClass.soundList[j].soundData = null;
+                    }
+                    tempStream.Close();
+                }
+                GC.Collect();
+                PlayAndSave(synthesizeList, strFilePath);
+            }
+        }
+
+        private static void PlayAndSave(List<SynthesizeClass> synthesizeList, string strPCMFilePath)
+        {
+            Int64 minTimeStamp = 0;
+            Int64 maxTimeStamp = 0;
+
+            //WriteLog("分别寻找最短最长时间戳");
+            FindMinAndMaxTimeStamp(synthesizeList, ref minTimeStamp, ref maxTimeStamp);
+            //WriteLog("开始解码");
+            G711ToPcm(synthesizeList, minTimeStamp, maxTimeStamp, strPCMFilePath);
+
+        }
+
+        private static void FindMinAndMaxTimeStamp(List<SynthesizeClass> synthesizeList, ref Int64 minTimeStamp, ref Int64 maxTimeStamp)
+        {
+            if (synthesizeList.Count > 0)
+            {
+                minTimeStamp = synthesizeList[0].soundList[0].timeStamp;
+                maxTimeStamp = minTimeStamp;
+            }
+            for (int i = 0; i < synthesizeList.Count; i++)
+            {
+                if (synthesizeList[i].soundList[0].timeStamp < minTimeStamp)
+                {
+                    minTimeStamp = synthesizeList[i].soundList[0].timeStamp;
+                }
+                if (synthesizeList[i].soundList[synthesizeList[i].soundList.Count - 1].timeStamp > maxTimeStamp)
+                {
+                    maxTimeStamp = synthesizeList[i].soundList[synthesizeList[i].soundList.Count - 1].timeStamp;
+                }
+            }
+        }
+
+
+        private static void G711ToPcm(List<SynthesizeClass> synthesizeList, Int64 minTimestamp, Int64 maxTimestamp, string strPCMFile)
+        {
+            Int64 valTimeStamp = 0;
+            FileStream[] fileStream = null;
+            FileStream outputStream = null;
+            SoundClass soundClass = new SoundClass();
+            SynthesizeClass synthesizeClass = new SynthesizeClass();
+            List<SoundListClass> soundlistClassList = new List<SoundListClass>();
+            SoundListClass soundListClass = new SoundListClass();
+            int[] listIndex = null;  // 记录上一次的索引处，避免重复索引
+            List<SynthesizeClass> syntheClassListBuffer = new List<SynthesizeClass>();
+            byte mixFlag = 0;
+
+            fileStream = new FileStream[synthesizeList.Count];
+            listIndex = new int[fileStream.Length];
+
+            for (int i = 0; i < synthesizeList.Count; i++)
+            {
+                SoundDecode(synthesizeList[i].deviceGuid + ".tmp", synthesizeList[i].deviceGuid + ".pcm");
+                fileStream[i] = new FileStream(synthesizeList[i].deviceGuid + ".pcm", FileMode.Open);
+                fileStream[i].Seek(0, SeekOrigin.Begin);
+                listIndex[i] = 0;
+
+                synthesizeClass = new SynthesizeClass();
+                synthesizeClass.deviceGuid = synthesizeList[i].deviceGuid;
+                synthesizeClass.timeStamp = valTimeStamp;
+                synthesizeClass.soundList = new List<SoundClass>();
+                syntheClassListBuffer.Add(synthesizeClass);
+            }
+
+            valTimeStamp = minTimestamp; // 基准一开始给最小的时间戳
+            //    Console.WriteLine("起始时间戳:" + minTimestamp + "   结束时间戳:" + maxTimestamp);
+            outputStream = new FileStream(strPCMFile, FileMode.OpenOrCreate);
+            outputStream.SetLength(0);
+
+            while (true)
+            {
+                valTimeStamp += 40; // 新的基准加40ms
+
+                if (valTimeStamp >= maxTimestamp)  // 碰到最大的时间戳就跳出去
+                {
+                    break;
+                }
+
+                /*  开始按基准将每条序列填充到新的缓冲区  */
+                for (int i = 0; i < synthesizeList.Count; i++)  // 对所有设备的遍历
+                {
+                    syntheClassListBuffer[i].timeStamp = valTimeStamp;
+
+                    for (int j = listIndex[i]; j < synthesizeList[i].soundList.Count; j++)  // 对每个设备里每个时间块的遍历
+                    {
+                        if (synthesizeList[i].soundList[j].timeStamp < valTimeStamp)
+                        {
+                            soundClass = new SoundClass();
+                            soundClass.soundData = new byte[synthesizeList[i].soundList[j].dataLength * 2];
+                            fileStream[i].Read(soundClass.soundData, 0, soundClass.soundData.Length);
+                            soundClass.timeStamp = synthesizeList[i].soundList[j].timeStamp;
+                            //synthesizeClass.soundList.Add(soundClass);
+                            syntheClassListBuffer[i].soundList.Add(soundClass);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                        listIndex[i]++;
+                    }
+                }
+
+                /* 先扔掉多余的包 */
+                for (int i = 0; i < syntheClassListBuffer.Count; i++)
+                {
+
+                    if (syntheClassListBuffer[i].soundList.Count > gMaxPacket)
+                    {
+                        // Console.ForegroundColor = ConsoleColor.Red;
+                        // Console.WriteLine("设备:" + syntheClassListBuffer[i].deviceGuid + "  时间戳:" + syntheClassListBuffer[i].timeStamp + "  扔掉了" + (syntheClassListBuffer[i].soundList.Count - gMaxPacket).ToString() + "个包");
+                        while (syntheClassListBuffer[i].soundList.Count > gMaxPacket)
+                        {
+                            syntheClassListBuffer[i].soundList.RemoveAt(0);  // 每次都扔掉前面的包
+                        }
+                    }
+
+                }
+
+                EnqueueWrite(syntheClassListBuffer, outputStream, false, ref mixFlag);
+            }
+            mixFlag = 0;
+            while (true)
+            {
+                if (EnqueueWrite(syntheClassListBuffer, outputStream, true, ref mixFlag) == true)
+                {
+                    break;
+                }
+            }
+
+
+            outputStream.Close();
+            for (int i = 0; i < fileStream.Length; i++)
+            {
+                fileStream[i].Close();
+            }
+            //PlayPcm("test.pcm");
+        }
+
+
+        /* 队列写入文件 */
+        private static bool EnqueueWrite(List<SynthesizeClass> syntheClassListBuffer, FileStream outputStream, bool flag, ref byte mixFlag)
+        {
+            /* 开始提取出每个缓冲区的文件并转成16位存储起来 */
+            //Console.ForegroundColor = ConsoleColor.White;
+            //   Console.Write("开始混包:时间戳:" + syntheClassListBuffer[0].timeStamp);
+            byte[] writeData = null;
+            List<short[]> readDataList = new List<short[]>();
+            Int16[] readData = null;
+            Int16[] mixDataList = new short[640 / 2];
+            Int64 mixData = 0;
+            bool result = false;
+
+            for (int j = 0; j < syntheClassListBuffer.Count; j++)
+            {
+
+                if (syntheClassListBuffer[j].soundList.Count > 0)
+                {
+                    //  Console.Write("    " + syntheClassListBuffer[j].deviceGuid + ":" + syntheClassListBuffer[j].soundList[0].timeStamp + "   (" + (syntheClassListBuffer[j].soundList[0].timeStamp - syntheClassListBuffer[j].lastTimestamp).ToString ());
+
+                    ConvertU8ToS16(syntheClassListBuffer[j].soundList[0].soundData, ref readData);
+                    syntheClassListBuffer[j].lastTimestamp = syntheClassListBuffer[j].soundList[0].timeStamp;
+                    syntheClassListBuffer[j].soundList.RemoveAt(0); // 移除第一个包
+
+                    readDataList.Add(readData);
+                }
+                else
+                {
+                    mixFlag++;
+                    if (mixFlag >= syntheClassListBuffer.Count)
+                    {
+                        return true;
+                    }
+                    continue;
+                }
+            }
+
+            if (readDataList.Count == 0)
+            {
+                return false;
+            }
+
+            /* 将存储的16位文件写入文本 */
+
+            for (int j = 0; j < 640 / 2; j++)
+            {
+                mixData = 0;
+                for (int k = 0; k < readDataList.Count; k++)
+                {
+                    mixData += readDataList[k][j];
+                }
+                if (mixData < -32760)
+                    mixData = -32760;
+                if (mixData > 32760)
+                    mixData = 32760;
+                mixDataList[j] = (short)mixData;
+            }
+
+
+            ConvertS16ToU8(mixDataList, ref writeData);
+            outputStream.Seek(0, SeekOrigin.End);
+            outputStream.Write(writeData, 0, writeData.Length);
+
+            return result;
+            //    Console.WriteLine();
+        }
+
+        public static void CreateWAVFile(string strPCMFilePath, string strWAVFilePath)
+        {
+            //SoundDecode(@"E:\Test.G711", @"E:\Test.pcm");
+            //PlayPcm(@"E:\Test.pcm");
+            FileStream file = new FileStream(strPCMFilePath, FileMode.OpenOrCreate);
+            FileStream ouputStream = new FileStream(strWAVFilePath, FileMode.Create);
+            IntPtr ptr = IntPtr.Zero;
+            byte[] waveByte = null;
+            byte[] readByte = null;
+            WaveHeader wave_hdr;
+
+            wave_hdr.main_chunk = 0x46464952;
+            wave_hdr.chunk_type = 0x45564157;
+            wave_hdr.sub_chunk = 0x20746d66;
+            wave_hdr.format_len = 0x10;
+            wave_hdr.format = 0x0001;
+            wave_hdr.channels = 1;
+            wave_hdr.sample_per_sec = 8000;
+            wave_hdr.avg_bytes_per_sec = 16000;
+            wave_hdr.block_align = 0x02;
+            wave_hdr.bits_per_sample = 16;
+            wave_hdr.data_chunk = 0x61746164;
+
+            wave_hdr.length = (uint)(file.Length + 44 - 8);
+            wave_hdr.data_length = wave_hdr.length - 36;
+
+            ptr = Marshal.AllocHGlobal(Marshal.SizeOf(wave_hdr));
+            waveByte = new byte[Marshal.SizeOf(wave_hdr)];
+            Marshal.StructureToPtr(wave_hdr, ptr, true);
+            Marshal.Copy(ptr, waveByte, 0, waveByte.Length);
+
+            ouputStream.Write(waveByte, 0, waveByte.Length);
+            ouputStream.Seek(0, SeekOrigin.End);
+
+            file.Seek(0, SeekOrigin.Begin);
+            readByte = new byte[file.Length];
+            file.Read(readByte, 0, (int)(file.Length));
+
+            ouputStream.Write(readByte, 0, readByte.Length);
+
+
+            //WriteLog("文件保存完成");
+            ouputStream.Close();
+            file.Close();
+        }
+
+        private static void ConvertU8ToS16(byte[] sourceData, ref Int16[] destData)
+        {
+            byte[] tempData = new byte[2];
+            destData = new Int16[sourceData.Length / 2];
+
+            for (int i = 0; i < sourceData.Length; i += 2)
+            {
+                Array.Copy(sourceData, i, tempData, 0, 2);
+                destData[i / 2] = System.BitConverter.ToInt16(tempData, 0);
+            }
+        }
+
+        private static void ConvertS16ToU8(Int16[] sourceData, ref byte[] destData)
+        {
+            byte[] tempData = new byte[2];
+            destData = new byte[sourceData.Length * 2];
+            for (int i = 0; i < sourceData.Length; i++)
+            {
+                tempData = BitConverter.GetBytes(sourceData[i]);
+                tempData.CopyTo(destData, i * 2);
+            }
+        }
+
+        #endregion
+
         #endregion
     }
 }
