@@ -180,7 +180,6 @@ namespace VideoPlayControl.VideoPlay
                     }
                 }
             }
-
         }
         public void RealDataCallBack(Int32 lRealHandle, UInt32 dwDataType, ref byte pBuffer, UInt32 dwBufSize, IntPtr pUser)
         {

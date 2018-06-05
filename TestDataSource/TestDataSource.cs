@@ -426,13 +426,13 @@ namespace TestDataSource
                 c.DVSNumber = "000501";
                 v.Cameras[c.Channel] = c;
             }
-            //for (int i = 0; i < 16; i++)
-            //{
-            //    VideoTalkChannelInfo vt = new VideoTalkChannelInfo();
-            //    vt.VideoTalkChannel = i;
-            //    vt.VideoTalkChannelName = "对讲通道" + (i);
-            //    v.TalkChannel[vt.VideoTalkChannel] = vt;
-            //}
+            for (int i = 0; i < 16; i++)
+            {
+                VideoTalkChannelInfo vt = new VideoTalkChannelInfo();
+                vt.VideoTalkChannel = i;
+                vt.VideoTalkChannelName = "对讲通道" + (i);
+                v.TalkChannel[vt.VideoTalkChannel] = vt;
+            }
             return v;
         }
 
