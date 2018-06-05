@@ -404,6 +404,7 @@ namespace TestDataSource
         public static VideoInfo GetSKDVSData1()
         {
             VideoInfo v = new VideoInfo();
+            //v.OnlyIntercom = true;
             v.VideoType = Enum_VideoType.SKVideo;
             v.DVSAddress = "61-57354AA60831-3136";
             v.DVSChannelNum = 8;
@@ -425,13 +426,13 @@ namespace TestDataSource
                 c.DVSNumber = "000501";
                 v.Cameras[c.Channel] = c;
             }
-            for (int i = 0; i < 16; i++)
-            {
-                VideoTalkChannelInfo vt = new VideoTalkChannelInfo();
-                vt.VideoTalkChannel = i;
-                vt.VideoTalkChannelName = "对讲通道" + (i);
-                v.TalkChannel[vt.VideoTalkChannel] = vt;
-            }
+            //for (int i = 0; i < 16; i++)
+            //{
+            //    VideoTalkChannelInfo vt = new VideoTalkChannelInfo();
+            //    vt.VideoTalkChannel = i;
+            //    vt.VideoTalkChannelName = "对讲通道" + (i);
+            //    v.TalkChannel[vt.VideoTalkChannel] = vt;
+            //}
             return v;
         }
 

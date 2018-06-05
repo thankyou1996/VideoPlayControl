@@ -61,6 +61,7 @@
             // 
             // videoPlayWindow
             // 
+            this.videoPlayWindow.BackColor = System.Drawing.SystemColors.Control;
             this.videoPlayWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoPlayWindow.Location = new System.Drawing.Point(3, 0);
             this.videoPlayWindow.Name = "videoPlayWindow";

@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.videoPlayWindow = new VideoPlayControl.VideoPlayWindow();
-            this.cmsVideoWindow = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsVideoWindow = new System.Windows.Forms.ContextMenuStrip();
             this.tsmi_CloundSeeSetWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.ssPrompt = new System.Windows.Forms.StatusStrip();

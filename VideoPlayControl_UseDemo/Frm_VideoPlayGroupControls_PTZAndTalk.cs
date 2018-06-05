@@ -43,12 +43,13 @@ namespace VideoPlayControl_UseDemo
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
             VideoInfo v = TestDataSource.TestDataSource.GetSKDVSData1();
             dicVideoInfos[v.DVSNumber] = v;
-            v = TestDataSource.TestDataSource.GetSKDVSData2();
-            dicVideoInfos[v.DVSNumber] = v;
+            //v = TestDataSource.TestDataSource.GetSKDVSData2();
+            //dicVideoInfos[v.DVSNumber] = v;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath = Application.StartupPath + "\\AxisVideoRecord";
+            videoPlayGroupControls_PTZAndTalk1.SetPTZVisible(false);
             videoPlayGroupControls_PTZAndTalk1.Init_VideoInfoSet(dicVideoInfos);
             //videoPlayGroupControls_PTZAndTalk1.VideoPlay("", -1);
             videoPlayGroupControls_PTZAndTalk1.StartTalkingEvent += VideoPlayGroupControls_PTZAndTalk1_StartTalkingEvent;

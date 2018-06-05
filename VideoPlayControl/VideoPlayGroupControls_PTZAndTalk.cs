@@ -193,7 +193,7 @@ namespace VideoPlayControl
             //对讲列表
             bool bolResult = videoTalkControlManyChannel1.SetVideoInfo(dicCurrentVideoInfos);
             pageTalk.Parent = bolResult ? tabToolbar : null;
-
+            pblRight_Bottom.Visible = tabToolbar.TabCount > 0;
             //云台预置点列表
             cmbPreset.Items.Clear();
             for (int i = 1; i < 256; i++)
@@ -411,7 +411,10 @@ namespace VideoPlayControl
                 pnlRight_Main.Enabled = true;
                 if (bolAutoPlayVideo)
                 {
-                    VideoChannelListButton_Click(videoChannelList.lstbtns[0], videoChannelList.lstbtns[0]);
+                    if (videoChannelList.lstbtns != null && videoChannelList.lstbtns.Count > 0)
+                    {
+                        VideoChannelListButton_Click(videoChannelList.lstbtns[0], videoChannelList.lstbtns[0]);
+                    }
                 }
             }
             catch (Exception ex)
@@ -567,10 +570,6 @@ namespace VideoPlayControl
                 }
             }
         }
-        
-       
 
-
-        
     }
 }
