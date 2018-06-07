@@ -23,8 +23,8 @@ namespace VideoPlayControl
     /// <summary>
     /// 开始对讲时(前)事件
     /// </summary>
-    /// <param name="sneder"></param>
+    /// <param name="sender"></param>
     /// <param name="StartTalkBeginValue"></param>
     /// <returns></returns>
-    public delegate bool StartTalkingDelegate(object sneder, object StartTalkBeginValue);
+    public delegate bool StartTalkingDelegate(object sender, object StartTalkBeginValue);
 }

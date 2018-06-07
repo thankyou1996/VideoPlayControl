@@ -66,5 +66,9 @@ namespace VideoPlayControl
                 videoTalkControl1.SetVideoTalkInfo(CurrentVideoInfos[Temp_strVideoID], CurrentVideoInfos[Temp_strVideoID].TalkChannel[Temp_intTalkChannel]);
             }
         }
+        public void ControlColse()
+        {
+            videoTalkControl1.StopTalk();
+        }
     }
 }

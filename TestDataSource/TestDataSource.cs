@@ -406,6 +406,7 @@ namespace TestDataSource
             VideoInfo v = new VideoInfo();
             //v.OnlyIntercom = true;
             v.VideoType = Enum_VideoType.SKVideo;
+            v.PTZControlEnable = false;
             v.DVSAddress = "61-57354AA60831-3136";
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
@@ -416,16 +417,16 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "sk123456";
             v.NetworkState = 0;
-            for (int i = 0; i < 16; i++)
-            {
-                CameraInfo c = new CameraInfo();
-                c.CameraName = "摄像头" + (i);
-                c.Channel = i;
-                //c.DVSAddress = "E322213C04245";
-                c.DVSType = "SK8616";
-                c.DVSNumber = "000501";
-                v.Cameras[c.Channel] = c;
-            }
+            //for (int i = 0; i < 16; i++)
+            //{
+            //    CameraInfo c = new CameraInfo();
+            //    c.CameraName = "摄像头" + (i);
+            //    c.Channel = i;
+            //    //c.DVSAddress = "E322213C04245";
+            //    c.DVSType = "SK8616";
+            //    c.DVSNumber = "000501";
+            //    v.Cameras[c.Channel] = c;
+            //}
             for (int i = 0; i < 16; i++)
             {
                 VideoTalkChannelInfo vt = new VideoTalkChannelInfo();

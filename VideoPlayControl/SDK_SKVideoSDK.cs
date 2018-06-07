@@ -139,13 +139,13 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//mode:1，全双工，2，监听，3，喊话
         public static extern void p_sdkc_start_talk(string guid, int channel, int mode, int enable_record, int max_mbyte, int max_min, string rec_file_path);
 
-        
+
         /// <summary>
         /// 多个对讲通道
         /// </summary>
         /// <param name="guid">设备唯一标识码</param>
         /// <param name="channel">对讲通道结构体</param>
-        /// <param name="mode">对讲模式,1，全双工，2，监听，3，喊话</param>
+        /// <param name="mode">对讲模式,,1，全双工，2，喊话，3，监听</param>
         /// <param name="enable_record">是否允许录像 </param>
         /// <param name="max_mbyte">最大录像的大小，MB计数</param>
         /// <param name="max_min">最大的录像时间，分钟计数</param>

@@ -11,7 +11,7 @@ using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl
 {
-    public partial class VideoTalkControl : UserControl, IVideoTalk
+    public partial class VideoTalkControl : UserControl,IVideoTalk
     {
         IVideoTalk videoTalk = new VideoTalk_Shike();
 
@@ -55,10 +55,19 @@ namespace VideoPlayControl
             //throw new NotImplementedException();
         }
 
+        private StartTalkingDelegate startTalkingEvent;
         public event StartTalkingDelegate StartTalkingEvent
         {
-            add { videoTalk.StartTalkingEvent += value; }
-            remove { videoTalk.StartTalkingEvent -= value; }
+            add
+            {
+                videoTalk.StartTalkingEvent += value;
+                startTalkingEvent += value;
+            }
+            remove
+            {
+                videoTalk.StartTalkingEvent -= value;
+                startTalkingEvent -= value;
+            }
         }
 
         public bool StartTalking(object StartTalkingValue)
@@ -78,6 +87,7 @@ namespace VideoPlayControl
                     case Enum_VideoType.SKVideo:
                         videoTalk = new VideoTalk_Shike();
                         videoTalk.TalkStausChangedEvent += VideoTalk_TalkStausChangedEvent;
+                        videoTalk.StartTalkingEvent += startTalkingEvent;
                         break;
                     default:    //不存在的设备类型直接报异常
                         throw new Exception("设备类型异常");

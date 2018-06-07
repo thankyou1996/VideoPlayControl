@@ -193,17 +193,36 @@ namespace VideoPlayControl
             //对讲列表
             bool bolResult = videoTalkControlManyChannel1.SetVideoInfo(dicCurrentVideoInfos);
             pageTalk.Parent = bolResult ? tabToolbar : null;
+            #region 云台信息
+
+            bool bolPTZControlEnable = false;
+            foreach (VideoInfo v in dicCurrentVideoInfos.Values)
+            {
+                if (bolPTZControlEnable)
+                {
+                    break;
+                }
+                bolPTZControlEnable = v.PTZControlEnable;
+            }
+            if (bolPTZControlEnable)
+            {
+                //云台预置点列表
+                cmbPreset.Items.Clear();
+                for (int i = 1; i < 256; i++)
+                {
+                    cmbPreset.Items.Add(i.ToString().PadLeft(2, '0'));
+                }
+                if (videoPlaySet.PreSetPosi > 0)
+                {
+                    cmbPreset.SelectedIndex = videoPlaySet.PreSetPosi - 1;
+                }
+            }
+            else
+            {
+                pagePTZControl.Parent = bolPTZControlEnable ? tabToolbar : null;
+            }
+            #endregion
             pblRight_Bottom.Visible = tabToolbar.TabCount > 0;
-            //云台预置点列表
-            cmbPreset.Items.Clear();
-            for (int i = 1; i < 256; i++)
-            {
-                cmbPreset.Items.Add(i.ToString().PadLeft(2, '0'));
-            }
-            if (videoPlaySet.PreSetPosi > 0)
-            {
-                cmbPreset.SelectedIndex = videoPlaySet.PreSetPosi - 1;
-            }
         }
 
         #endregion
@@ -358,6 +377,25 @@ namespace VideoPlayControl
             videoPlayWindow.VideoPTZControl(PTZControlCmd, bolStart);
         }
 
+        public void VideoChannelListButton_Click(object sender, int intIndex)
+        {
+            if (videoChannelList.lstbtns.Count > intIndex)
+            {
+                Button btn = videoChannelList.lstbtns[intIndex];
+                videoChannelList.ButtonListBackColorReset();
+                btn.BackColor = Color.Red;
+                if (videoPlayWindow.CurrentVideoInfo != null)
+                {
+                    videoPlayWindow.VideoClose();
+                }
+                CurrentCameraInfo = (CameraInfo)btn.Tag;
+                //if(videoPlayWindow.)
+                videoPlayWindow.Init_VideoInfo(dicCurrentVideoInfos[strCurrentVideoID], CurrentCameraInfo, videoPlaySet);
+                videoPlayWindow.VideoPlay();
+            }
+        }
+
+
         /// <summary>
         /// 视频通道点击事件
         /// </summary>
@@ -411,10 +449,7 @@ namespace VideoPlayControl
                 pnlRight_Main.Enabled = true;
                 if (bolAutoPlayVideo)
                 {
-                    if (videoChannelList.lstbtns != null && videoChannelList.lstbtns.Count > 0)
-                    {
-                        VideoChannelListButton_Click(videoChannelList.lstbtns[0], videoChannelList.lstbtns[0]);
-                    }
+                    VideoChannelListButton_Click(videoChannelList, 0);
                 }
             }
             catch (Exception ex)
@@ -522,7 +557,7 @@ namespace VideoPlayControl
             bool bolFlag = true;
             if (intChannel == -1)
             {
-                VideoChannelListButton_Click(videoChannelList, videoChannelList.lstbtns[0]);
+                VideoChannelListButton_Click(videoChannelList, 0);
                 bolFlag = false;
             }
             else
@@ -541,7 +576,7 @@ namespace VideoPlayControl
             if (bolFlag)
             {
                 //无选中通道播放第一通道
-                VideoChannelListButton_Click(videoChannelList, videoChannelList.lstbtns[0]);
+                VideoChannelListButton_Click(videoChannelList, 0);
             }
             //Directory.CreateDirectory
             return intResult;
@@ -555,6 +590,7 @@ namespace VideoPlayControl
         public void ControlClose()
         {
             videoPlayWindow.VideoPlayWindows_Close();
+            videoTalkControlManyChannel1.ControlColse();
         }
 
         #endregion

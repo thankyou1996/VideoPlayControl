@@ -83,27 +83,30 @@ namespace VideoPlayControl.VideoTalk
         public bool StopTalk()
         {
             bool bolResult = false;
-            SDK_SKVideoSDK.p_sdkc_stop_talk(CurrentVideoInfo.DVSAddress);
-            CurrentTalkStatus = Enum_TalkStatus.Null;
+            if (CurrentVideoInfo != null && CurrentTalkStatus == Enum_TalkStatus.Null)
+            {
+                SDK_SKVideoSDK.p_sdkc_stop_talk(CurrentVideoInfo.DVSAddress);
+                CurrentTalkStatus = Enum_TalkStatus.Null;
+            }
             return bolResult;
         }
 
         public static int GetSKTalkModel(Enum_TalkModel talk)
         {
-            //对讲模式,1，全双工，2，监听，3，喊话
+            //对讲模式,1，全双工，2，喊话，3，监听
             int intResult = 1;
             switch (talk)
             {
-                case Enum_TalkModel.Interception:
-                    intResult = 2;
-                    break;
-                case Enum_TalkModel.Sperak:
-                    intResult = 3;
-                    break;
-
                 case Enum_TalkModel.Talkback:
                     intResult = 1;
                     break;
+                case Enum_TalkModel.Sperak:
+                    intResult = 2;
+                    break;
+                case Enum_TalkModel.Interception:
+                    intResult = 3;
+                    break;
+
             }
             return intResult;
         }

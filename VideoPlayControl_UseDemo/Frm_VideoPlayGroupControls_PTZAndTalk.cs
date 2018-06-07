@@ -49,17 +49,19 @@ namespace VideoPlayControl_UseDemo
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath = Application.StartupPath + "\\AxisVideoRecord";
-            videoPlayGroupControls_PTZAndTalk1.SetPTZVisible(false);
+            //videoPlayGroupControls_PTZAndTalk1.SetPTZVisible(false);
+
             videoPlayGroupControls_PTZAndTalk1.Init_VideoInfoSet(dicVideoInfos);
-            //videoPlayGroupControls_PTZAndTalk1.VideoPlay("", -1);
             videoPlayGroupControls_PTZAndTalk1.StartTalkingEvent += VideoPlayGroupControls_PTZAndTalk1_StartTalkingEvent;
+            videoPlayGroupControls_PTZAndTalk1.VideoPlay("", 1);
         }
 
-        private bool VideoPlayGroupControls_PTZAndTalk1_StartTalkingEvent(object sneder, object StartTalkBeginValue)
+        private bool VideoPlayGroupControls_PTZAndTalk1_StartTalkingEvent(object sender, object StartTalkBeginValue)
         {
             bool bolResult = false;
-            IVideoTalk iv = (IVideoTalk)sneder;
-            MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "开始对讲");
+            IVideoTalk iv = (IVideoTalk)sender;
+            //MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "开始对讲");
+            MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "发送命令");
             return bolResult;
         }
 
@@ -191,6 +193,26 @@ namespace VideoPlayControl_UseDemo
         private void Frm_VideoPlayGroupControls_PTZAndTalk_Move(object sender, EventArgs e)
         {
             videoPlayGroupControls_PTZAndTalk1.ControlMove();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            videoPlayGroupControls_PTZAndTalk1.StartTalkingEvent += VideoPlayGroupControls_PTZAndTalk1_StartTalkingEvent1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            videoPlayGroupControls_PTZAndTalk1.StartTalkingEvent -= VideoPlayGroupControls_PTZAndTalk1_StartTalkingEvent1;
+        }
+
+        private bool VideoPlayGroupControls_PTZAndTalk1_StartTalkingEvent1(object sneder, object StartTalkBeginValue)
+        {
+            bool bolResult = false;
+            IVideoTalk iv = (IVideoTalk)sneder;
+            //MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "开始对讲");
+            MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "录音1 ");
+            return bolResult;
         }
     }
 }

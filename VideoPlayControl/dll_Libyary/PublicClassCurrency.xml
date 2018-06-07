@@ -590,6 +590,16 @@
             仅作为对讲设备
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.VideoInfo.bolPTZControlEnable">
+            <summary>
+            云台控制使能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.PTZControlEnable">
+            <summary>
+            云台控制使能
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.VideoInfo.intNetworkState">
             <summary>
             网络状态 大于0在线 0离线 -1状态未明
@@ -843,6 +853,12 @@
         <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoTalkChannelName">
             <summary>
             对讲通道名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoTalkChannelTagInfo">
+            <summary>
+            视频对讲通道标签信息 
+            SK8616:表示门禁标签信息
             </summary>
         </member>
     </members>
