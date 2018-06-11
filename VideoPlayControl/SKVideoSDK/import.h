@@ -546,3 +546,12 @@ int p_sdkc_cancel_download_video(char *guid);
   */
 DLLIMPORT
 void p_vsdk_reg_dl_video_data_callback(void *func);
+
+DLLIMPORT
+void p_vsdk_temp_disable_rt_pb_audio(int disable);
+
+DLLIMPORT
+int p_sdkc_get_set_dev_config(char *guid,
+							  char *cfg_file,
+							  char *cfg_name,
+							  char *cfg_val);

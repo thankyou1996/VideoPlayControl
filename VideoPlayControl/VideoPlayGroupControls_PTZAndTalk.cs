@@ -487,27 +487,15 @@ namespace VideoPlayControl
         /// <param name="strDisplayInfo"></param>
         public void DisplayRecord(string strDisplayInfo)
         {
-            if (!this.IsDisposed)
-            {
-                try
+            if (this.IsHandleCreated)
+            {   
+                //当前窗口句柄已创建
+                //当前控件未被释放
+                this.BeginInvoke(new EventHandler(delegate
                 {
-                    //当前控件未被释放
-                    this.BeginInvoke(new EventHandler(delegate
-                    {
-                        if (!this.IsDisposed)
-                        {
-                            tslblPrompt.Text = strDisplayInfo;
-                        }
-                        
-                    }));
-                }
-                catch (Exception ex)
-                {
-                    //关闭窗口时关闭视频，萤石设备出现异常
-                    string strTag = this.IsDisposed.ToString();
-                    CommonMethod.LogWrite.WritExceptionLog("VideoPlayControl_DisplayRecord_[" + strDisplayInfo + "][IsDisposed:" + strTag + "]", ex);
-                }
-                
+                        tslblPrompt.Text = strDisplayInfo;
+                }));
+                //CommonMethod.LogWrite.WritExceptionLog("VideoPlayControl_DisplayRecord_[" + strDisplayInfo + "]", ex, ProgParameter.ProgLogAddress);
             }
             
         }

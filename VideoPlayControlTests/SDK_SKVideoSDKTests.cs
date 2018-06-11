@@ -21,7 +21,14 @@ namespace VideoPlayControl.Tests
         List<RemoteVideoRecordInfo> lRemoteVideoRecord;
         public SDK_SKVideoSDKTests()
         {
-            SDK_SKVideoSDK.p_sdkc_init_client("SK-20140902-000000", "127.0.0.1", 47624, 47724, 47824, @"d:\");
+            SDK_SKVideoSDK.p_sdkc_init_client("xhcs1", "192.168.2.19", 47624, 47724, 47824, @"d:\");
+            int intValue = 0;
+            //while (!(SDK_SKVideoSDK.p_sdkc_get_online() == 1) && (intValue < 100))
+            //{
+            //    Thread.Sleep(500);
+            //    intValue++;
+            //}
+            string x = "1";
         }
         [TestMethod()]
         public void p_sdkc_get_record_time_mapTest()
@@ -210,11 +217,32 @@ namespace VideoPlayControl.Tests
         public void CreatePCMFileTest()
         {
             string strG711File = @"C:\SHIKE_Video\SKAlarmAudio\9999\20180602142359\61-57354AA60831-3136_20180602142406_09_bfr10.G711";
-            string strPcmFile= @"C:\SHIKE_Video\SKAlarmAudio\9999\20180602142359\61-57354AA60831-3136_20180602142406_09_bfr10.pcm";
+            string strPcmFile = @"C:\SHIKE_Video\SKAlarmAudio\9999\20180602142359\61-57354AA60831-3136_20180602142406_09_bfr10.pcm";
             string strWavFile = @"C:\SHIKE_Video\SKAlarmAudio\9999\20180602142359\61-57354AA60831-3136_20180602142406_09_bfr10.wav";
             //SDK_SKVideoSDK.CreatePCMFile(strG711File, strPcmFile);
             SDK_SKVideoSDK.CreateWAVFile(strG711File, strWavFile);
             Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void p_sdkc_get_set_dev_configTest()
+        {
+            string strValue = "61-57354AA60831-3136";
+            string cfg_file = "/config/rec_enable.cfg";
+            //string cfg_name = "T0S1TS";
+            //string cfg_val = "20_00_45-20_00_45";
+            string cfg_name = "T0S2EN";
+            string cfg_val = "0";
+            int intResult = p_sdkc_get_set_dev_config(strValue, cfg_file, cfg_name, cfg_val);
+            Assert.AreEqual(intResult, 1);
+        }
+
+        [TestMethod()]
+        public void GetGUIDTest()
+        {
+            string strGUID = "6157354AA608313136";
+            string strResult = SDK_SKVideoSDK.GetGUID(strGUID);
+            Assert.AreEqual(strResult, "61-57354AA60831-3136");
         }
     }
 }

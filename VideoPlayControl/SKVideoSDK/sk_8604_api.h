@@ -1274,3 +1274,24 @@ int p_vsdk_update_finger_template(char *guid,
   */
 DLLIMPORT
 int p_vsdk_set_call_key_ban(int ban_time, int ban_cnt);
+
+/**
+  * ***********************************************************************
+  * @brief  上传指定时间范围的报警录像
+  *			
+  *	@param  start_time:	开始时间戳
+  *	@param  stop_time:	结束时间戳
+  *	@param  upload_url:	上传路径
+  *
+  * @retval int:				返回为空
+  *
+  * @attention	: url给出上传的目录，文件名由设备自己决定,通道: 1~16
+				格式: "ARC_ch01_61-385445403930-3736_1527499057.h264"
+					ARC_通道号_设备guid_时间戳.h264
+  * ***********************************************************************
+  */
+DLLIMPORT
+int p_vsdk_upload_alarm_record(char *guid,
+								int start_time,
+								int stop_time,
+								char *upload_url);

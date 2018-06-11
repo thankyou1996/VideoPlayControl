@@ -288,7 +288,6 @@ namespace VideoPlayControl
             CalculationToButonSize();
             foreach (Button btn in lstbtns)
             {
-                Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "_" + btn.Text);
                 btn.Location = new Point(intbtnStartX + (intChannelButtonWidth * intCol), intbtnStartY + (intChannelButtonHeight * intRow));
                 btn.Size = new Size(intChannelButtonWidth, intChannelButtonHeight);
                 intCol++;

@@ -279,25 +279,22 @@ namespace VideoPlayControl
         /// <returns></returns>
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_request_download_video(string guid, UInt16 channel, int start_ts, int stop_ts, string save_path);
-        
-        #endregion
 
         #endregion
 
 
 
-
-        public static List<RemoteVideoRecordInfo> SKRemoteVideoRecordDataPrasing(string strGUID,string strData)
+        public static List<RemoteVideoRecordInfo> SKRemoteVideoRecordDataPrasing(string strGUID, string strData)
         {
             List<RemoteVideoRecordInfo> result = null;
             try
             {
                 int Temp_intIndex = strData.IndexOf("\0");
-                if (Temp_intIndex >0)
+                if (Temp_intIndex > 0)
                 {
                     strData = strData.Substring(0, strData.IndexOf("\0"));
                 }
-                
+
                 //[a:192.168.2.166] [g: SuperAdmin_PB] [c:08] [s(1526886082) e(1526886150)] [s(1526886179) e(1526887395)] [s(1526887503) e(1526889215)] [s(1526889314) e(1526892684)] [s(1526892685) e(1526895368)] [s(1526895368) e(1526898051)] [s(1526898051) e(1526900729)]
                 string strDevAddress = "";
                 int intChannel = 0;
@@ -330,7 +327,7 @@ namespace VideoPlayControl
                     }
                 }
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 CommonMethod.LogWrite.WriteEventLog("SKRemoteVideoRecordDataPrasing", strData, ProgParameter.ProgLogAddress);
                 CommonMethod.LogWrite.WritExceptionLog("SKRemoteVideoRecordDataPrasing", ex, ProgParameter.ProgLogAddress);
@@ -356,7 +353,7 @@ namespace VideoPlayControl
                 if (ex.Status == WebExceptionStatus.Timeout)
                 {
                     //MessageBox.Show("网络请求超时");
-                    bolResult = false ;
+                    bolResult = false;
                     return bolResult;
                 }
             }
@@ -408,6 +405,20 @@ namespace VideoPlayControl
             sbResult.Append(".h264");
             return sbResult.ToString();
         }
+        #endregion
+
+
+        #region 设备参数设置
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        /// <summary>
+        /// 设置设备系统参数
+        /// </summary>
+        /// <param name="strGuid"></param>
+        /// <param name="cfg_file"></param>
+        /// <param name="cfg_name"></param>
+        /// <param name="cfg_val"></param>
+        /// <returns></returns>
+        public static extern int p_sdkc_get_set_dev_config(string strGuid, string cfg_file, string cfg_name,string cfg_val);
         #endregion
 
         #region 自定义接口
@@ -1067,6 +1078,16 @@ namespace VideoPlayControl
             }
         }
 
+        #endregion
+
+        public static string GetGUID(string strGUID)
+        {
+            string strResult = strGUID;
+            strResult = strGUID.Insert(2, "-");
+            int Temp_intIndex = strResult.Length - 4;
+            strResult = strResult.Insert(Temp_intIndex, "-");
+            return strResult;
+        }
         #endregion
 
         #endregion

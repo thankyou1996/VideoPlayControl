@@ -907,7 +907,6 @@ namespace VideoPlayControl
             {
                 string strTag = "";
                 Enum_SDKEventType videoEvType = Enum_SDKEventType.Unrecognized;
-                Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "_" + iMsgType.ToString());
                 switch (iMsgType)
                 {
                     case SDK_EzvizSDK.EzvizMeesageType.INS_PLAY_EXCEPTION:
