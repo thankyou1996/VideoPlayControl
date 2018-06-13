@@ -39,6 +39,5 @@ namespace VideoPlayControl.VideoTalk
         bool StartTlak(Enum_TalkModel talkModel);
 
         bool StopTalk();
-
     }
 }

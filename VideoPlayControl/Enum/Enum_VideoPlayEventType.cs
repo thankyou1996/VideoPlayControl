@@ -85,6 +85,11 @@ namespace VideoPlayControl
         /// 超出设备最大连接数
         /// </summary>
         ConnNumMax = 16,
+        
+        /// <summary>
+        /// 设备码流类型异常
+        /// </summary>
+        DeviceStreamTypeException =101,
         #endregion
 
         #region 视频录制

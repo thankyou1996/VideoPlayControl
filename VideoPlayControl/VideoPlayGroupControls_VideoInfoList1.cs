@@ -59,11 +59,18 @@ namespace VideoPlayControl
                 ComboBoxItem cmbItem;
                 foreach (KeyValuePair<string, PublicClassCurrency.VideoInfo> kv in dicCurrentVideoInfos)
                 {
-                    cmbItem = new ComboBoxItem(kv.Key, kv.Value.DVSName);
-                    cmbVideoList.Items.Add(cmbItem);
+                    if (kv.Value.DVSChannelNum > 0)
+                    {
+                        //大于0 添加
+                        cmbItem = new ComboBoxItem(kv.Key, kv.Value.DVSName);
+                        cmbVideoList.Items.Add(cmbItem);
+                    }
                 }
                 cmbVideoList.SelectedIndexChanged += cmbVideolist_SelectedIndexChanged;     //注册事件
-                cmbVideoList.SelectedIndex = 0;
+                if (cmbVideoList.Items.Count > 0)
+                {
+                    cmbVideoList.SelectedIndex = 0;
+                }
             }
         }
 

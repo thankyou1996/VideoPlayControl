@@ -910,14 +910,26 @@ namespace VideoPlayControl
                 switch (iMsgType)
                 {
                     case SDK_EzvizSDK.EzvizMeesageType.INS_PLAY_EXCEPTION:
+                        switch (iErrorCode)
+                        {
+                            case 2012:
+                                //密码错误 ，自己测试验证，非官方确认
+                                VideoPlayEventCallBack(Enum_VideoPlayEventType.UserAccessError);
+                                break;
+                            case 2651:
+                                VideoPlayEventCallBack(Enum_VideoPlayEventType.DeviceStreamTypeException);
+                                break;
+                            default:
+                                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+                                break;
+                        }
                         if (iErrorCode == 2012)
                         {
-                            //密码错误 ，自己测试验证，非官方确认
-                            VideoPlayEventCallBack(Enum_VideoPlayEventType.UserAccessError);
+                            
                         }
                         else
                         {
-                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+                           
                         }
 
                         break;

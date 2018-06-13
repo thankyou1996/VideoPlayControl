@@ -48,14 +48,14 @@ namespace VideoPlayControl_UseDemo
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            //VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
-            //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
+            VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
+            VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            //SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit();
+            SDKState.Ezviz_SDKInit();
+            //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
-            SDKState.XMSDK_Init();
+            //SDKState.XMSDK_Init();
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
 
@@ -744,10 +744,10 @@ namespace VideoPlayControl_UseDemo
         #region 测试数据相关
         private void btnEzvizTestData_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData1();
+            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData3();
             dicVideoInfos[v.DVSNumber] = v;
-            v = TestDataSource.TestDataSource.GetYSDVSData2();
-            dicVideoInfos[v.DVSNumber] = v;
+            //v = TestDataSource.TestDataSource.GetYSDVSData2();
+            //dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             //cmbVideoList.SelectedIndex = 0;
             //Ezviz_TestData();

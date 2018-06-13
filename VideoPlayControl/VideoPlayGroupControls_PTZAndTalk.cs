@@ -356,6 +356,9 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.LoginSuccess:
                         sbDisplayInfo.Append("设备登陆成功");
                         break;
+                    case Enum_VideoPlayEventType.DeviceStreamTypeException:
+                        sbDisplayInfo.Append("设备码流类型异常");
+                        break;
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;

@@ -11,6 +11,15 @@ namespace VideoPlayControl
 {
     public partial class VideoRecordList : UserControl
     {
+        #region 全局变量
+        private int intRecordCount = 0;
+
+        public int RecordCount
+        {
+            get { return intRecordCount; }
+            set { intRecordCount = value; }
+        }
+        #endregion
         public string strCurrentFolderPath = "";
         
         public VideoRecordList()
@@ -65,6 +74,7 @@ namespace VideoPlayControl
                 List<string> lststrResult = GetEffeciveFile(strsReocrdFilePath);
                 int intFileIndex = lststrResult.Count;
                 string strFileName = "";
+                intRecordCount = lststrResult.Count;
                 foreach (string s in lststrResult)
                 {
                     Panel pnl = new Panel();

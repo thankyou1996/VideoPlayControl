@@ -83,7 +83,7 @@ namespace VideoPlayControl.VideoTalk
         public bool StopTalk()
         {
             bool bolResult = false;
-            if (CurrentVideoInfo != null && CurrentTalkStatus == Enum_TalkStatus.Null)
+            if (CurrentVideoInfo != null && CurrentTalkStatus != Enum_TalkStatus.Null)
             {
                 SDK_SKVideoSDK.p_sdkc_stop_talk(CurrentVideoInfo.DVSAddress);
                 CurrentTalkStatus = Enum_TalkStatus.Null;
