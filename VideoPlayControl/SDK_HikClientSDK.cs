@@ -14491,7 +14491,8 @@ namespace VideoPlayControl
         Output:	
         Return:	
         **********************************************************/
-        public delegate void VOICEDATACALLBACKV30(int lVoiceComHandle, string pRecvDataBuffer, uint dwBufSize, byte byAudioFlag, System.IntPtr pUser);
+        //public delegate void VOICEDATACALLBACKV30(int lVoiceComHandle, string pRecvDataBuffer, uint dwBufSize, byte byAudioFlag, System.IntPtr pUser);
+        public delegate void VOICEDATACALLBACKV30(int lVoiceComHandle, IntPtr pRecvDataBuffer, uint dwBufSize, byte byAudioFlag, System.IntPtr pUser);
 
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern int NET_DVR_StartVoiceCom_V30(int lUserID, uint dwVoiceChan, bool bNeedCBNoEncData, VOICEDATACALLBACKV30 fVoiceDataCallBack, IntPtr pUser);
@@ -14511,7 +14512,8 @@ namespace VideoPlayControl
         public static extern int NET_DVR_StartVoiceCom_MR_V30(int lUserID, uint dwVoiceChan, VOICEDATACALLBACKV30 fVoiceDataCallBack, IntPtr pUser);
 
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
-        public static extern bool NET_DVR_VoiceComSendData(int lVoiceComHandle, string pSendBuf, uint dwBufSize);
+        //public static extern bool NET_DVR_VoiceComSendData(int lVoiceComHandle, string pSendBuf, uint dwBufSize);
+        public static extern bool NET_DVR_VoiceComSendData(int lVoiceComHandle, byte[] pSendBuf, uint dwBufSize);
 
         //语音广播
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]

@@ -36,6 +36,7 @@
             this.btnCloundSeeData1 = new System.Windows.Forms.Button();
             this.btnBlueSkyTestData = new System.Windows.Forms.Button();
             this.btnHikTestData1 = new System.Windows.Forms.Button();
+            this.btnXMTestData2 = new System.Windows.Forms.Button();
             this.btnXMTestData1 = new System.Windows.Forms.Button();
             this.btnHuaMaiTestData = new System.Windows.Forms.Button();
             this.btnEzvizTestData = new System.Windows.Forms.Button();
@@ -134,7 +135,6 @@
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.btnXMTestData2 = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -260,6 +260,16 @@
             this.btnHikTestData1.UseVisualStyleBackColor = true;
             this.btnHikTestData1.Click += new System.EventHandler(this.btnHikTestData1_Click);
             // 
+            // btnXMTestData2
+            // 
+            this.btnXMTestData2.Location = new System.Drawing.Point(200, 29);
+            this.btnXMTestData2.Name = "btnXMTestData2";
+            this.btnXMTestData2.Size = new System.Drawing.Size(50, 23);
+            this.btnXMTestData2.TabIndex = 15;
+            this.btnXMTestData2.Text = "雄迈2";
+            this.btnXMTestData2.UseVisualStyleBackColor = true;
+            this.btnXMTestData2.Click += new System.EventHandler(this.btnXMTestData2_Click);
+            // 
             // btnXMTestData1
             // 
             this.btnXMTestData1.Location = new System.Drawing.Point(148, 29);
@@ -351,6 +361,7 @@
             this.btnStartTalk.TabIndex = 16;
             this.btnStartTalk.Text = "开始对讲";
             this.btnStartTalk.UseVisualStyleBackColor = true;
+            this.btnStartTalk.Click += new System.EventHandler(this.btnStartTalk_Click);
             // 
             // btnStopTest
             // 
@@ -1255,16 +1266,6 @@
             // 
             this.timer2.Interval = 10000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // btnXMTestData2
-            // 
-            this.btnXMTestData2.Location = new System.Drawing.Point(200, 29);
-            this.btnXMTestData2.Name = "btnXMTestData2";
-            this.btnXMTestData2.Size = new System.Drawing.Size(50, 23);
-            this.btnXMTestData2.TabIndex = 15;
-            this.btnXMTestData2.Text = "雄迈2";
-            this.btnXMTestData2.UseVisualStyleBackColor = true;
-            this.btnXMTestData2.Click += new System.EventHandler(this.btnXMTestData2_Click);
             // 
             // FrmMain
             // 

@@ -97,6 +97,7 @@
     <Compile Include="ProgConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SDK_SKVideoSDK.cs" />
+    <Compile Include="SDK_TalkManagerSDK.cs" />
     <Compile Include="UTF8Marsgaler.cs" />
     <Compile Include="VideoBackplayWindow.cs">
       <SubType>UserControl</SubType>
@@ -208,6 +209,7 @@
       <DependentUpon>VideoTalkControlManyChannel.cs</DependentUpon>
     </Compile>
     <Compile Include="VideoTalk\IVideoTalk.cs" />
+    <Compile Include="VideoTalk\VideoTalk_HikStream.cs" />
     <Compile Include="VideoTalk\VideoTalk_Shike.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -593,6 +595,7 @@
     <Content Include="PTZIcon\PTZ_Up.png" />
     <Content Include="PTZIcon\PTZ_UpperLeft.png" />
     <Content Include="PTZIcon\PTZ_UpperRight.png" />
+    <Content Include="TalkManagerSDK\VoiceSDK.dll" />
     <Content Include="VideoEncoderAsync\readme.txt" />
     <Content Include="XMVideoSDK\ConfigModule.dll" />
     <Content Include="XMVideoSDK\DecoderSDK.dll" />
