@@ -1220,5 +1220,10 @@ namespace VideoPlayControl_UseDemo
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
         }
+
+        private void btnStartTalk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

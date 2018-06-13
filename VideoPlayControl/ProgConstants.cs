@@ -53,6 +53,12 @@ namespace VideoPlayControl
         public const string c_strBlueSkyVideoSDKFilePath = "\\BlueSkyVideoSDK\\dvxSdk.dll";
 
         public const string c_strBlueSkyVideoSDKFilePath1 = "\\BlueSkyVideoSDK\\UKeyVerify_Cpp.dll";
+
+        /// <summary>
+        /// 多方通话SDK
+        /// </summary>
+        public const string c_strTalkManagerSDKFilePath = "\\TalkManagerSDK\\VoiceSDK.DLL";
+
         #endregion
 
         #region SDK默认参数
