@@ -175,6 +175,15 @@ namespace VideoPlayControl
             }
         }
 
+        private bool bolAnsyPlay = false;
 
+        /// <summary>
+        /// 异步播放
+        /// </summary>
+        public bool AnsyPlay
+        {
+            get { return bolAnsyPlay; }
+            set { bolAnsyPlay = value; }
+        }
     }
 }

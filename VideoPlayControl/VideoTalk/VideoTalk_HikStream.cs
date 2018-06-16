@@ -25,7 +25,7 @@ namespace VideoPlayControl.VideoTalk
      * 4.关闭多方通话
      * 5.释放多方通话
      */
-    class VideoTalk_HikStream : IVideoTalk
+    public class VideoTalk_HikStream : IVideoTalk
     {
         public VideoInfo CurrentVideoInfo { get; set; }
         public VideoTalkChannelInfo CurrentTalkChannel { get; set; }

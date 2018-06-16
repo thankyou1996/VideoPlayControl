@@ -210,6 +210,7 @@
     </Compile>
     <Compile Include="VideoTalk\IVideoTalk.cs" />
     <Compile Include="VideoTalk\VideoTalk_HikStream.cs" />
+    <Compile Include="VideoTalk\VideoTalk_HikStream_Client.cs" />
     <Compile Include="VideoTalk\VideoTalk_Shike.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -410,20 +411,51 @@
     <Content Include="Ezviz\YUVProcess.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="HikStream\client.dll" />
-    <Content Include="HikStream\client.h" />
-    <Content Include="HikStream\clntsink.h" />
-    <Content Include="HikStream\DataSync.dll" />
-    <Content Include="HikStream\hpr.dll" />
-    <Content Include="HikStream\IVSReader.dll" />
-    <Content Include="HikStream\mfc71.dll" />
-    <Content Include="HikStream\msvcp71.dll" />
-    <Content Include="HikStream\msvcr71.dll" />
-    <Content Include="HikStream\PlayCtrl.dll" />
-    <Content Include="HikStream\StreamMediaPlayer.exe" />
-    <Content Include="HikStream\StreamTransClient.dll" />
-    <Content Include="HikStream\StrSrcLib.dll" />
-    <Content Include="HikStream\SystemTransform.dll" />
+    <Content Include="HikStream\client.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\client.h">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\clntsink.h">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\DataSync.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\hpr.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\IVSReader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\mfc71.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\msvcp71.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\msvcr71.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\PlayCtrl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\StreamMediaPlayer.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\StreamTransClient.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\StrSrcLib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\SystemTransform.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HikStream\VoiceSDK_Forward.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="HIkVideoSDK\AudioRender.dll" />
     <Content Include="HIkVideoSDK\ClientDemo.exe" />
     <Content Include="HIkVideoSDK\ClientDemoDll\calib.dll" />
@@ -595,7 +627,9 @@
     <Content Include="PTZIcon\PTZ_Up.png" />
     <Content Include="PTZIcon\PTZ_UpperLeft.png" />
     <Content Include="PTZIcon\PTZ_UpperRight.png" />
-    <Content Include="TalkManagerSDK\VoiceSDK.dll" />
+    <Content Include="TalkManagerSDK\VoiceSDK.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="VideoEncoderAsync\readme.txt" />
     <Content Include="XMVideoSDK\ConfigModule.dll" />
     <Content Include="XMVideoSDK\DecoderSDK.dll" />
@@ -688,8 +722,12 @@
     <None Include="Ezviz\udt.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="HikStream\client.lib" />
-    <None Include="HikStream\StrSrcLib.lib" />
+    <None Include="HikStream\client.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="HikStream\StrSrcLib.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="HIkVideoSDK\GdiPlus.lib" />
     <None Include="HIkVideoSDK\HCCore.lib" />
     <None Include="HIkVideoSDK\HCNetSDK.lib" />

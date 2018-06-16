@@ -66,7 +66,50 @@ namespace TestDataSource
             }
             return v;
         }
+
+
         #endregion
+
+        #region 海康流媒体
+        /// <summary>
+        /// 海康流媒体  音频转发测试
+        /// </summary>
+        /// <returns></returns>
+        public static VideoInfo GetHikData3_Voice()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.HikDVRStream;
+            v.DVSAddress = "192.168.2.19";
+            v.DVSChannelNum = 8;
+            v.DVSConnectPort = 8081;
+            v.DVSName = "海康DVR测试";
+            v.DVSNumber = "000501";
+            v.DVSType = "SK8605HA";
+            v.HostID = "0005";
+            v.UserName = "admin";
+            v.Password = "tl123456";
+            v.NetworkState = 0;
+            for (int i = 1; i <= 8; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i);
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8605HM";
+                c.DVSNumber = "000501";
+                v.Cameras[c.Channel] = c;
+            }
+            for (int i = 0; i < 16; i++)
+            {
+                VideoTalkChannelInfo vt = new VideoTalkChannelInfo();
+                vt.VideoTalkChannel = i;
+                vt.VideoTalkChannelName = "对讲通道" + (i);
+                v.TalkChannel[vt.VideoTalkChannel] = vt;
+            }
+            return v;
+        }
+        #endregion
+
 
         #region 雄迈数据源
         public static VideoInfo XMDataSource()
@@ -406,7 +449,7 @@ namespace TestDataSource
             v.DVSType = "SK8605HA";
             v.HostID = "0005";
             v.UserName = "";
-            v.Password = "ABCDEF";
+            v.Password = "PTZMIH";
             v.NetworkState = 0;
             for (int i = 1; i <= 8; i++)
             {

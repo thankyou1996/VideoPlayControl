@@ -698,6 +698,11 @@
             海康DVR 直接访问模式
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.HikDVRStream">
+            <summary>
+            海康流媒体模式
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.Enum_VideoType.XMaiVideo">
             <summary>
             雄迈视频SDK

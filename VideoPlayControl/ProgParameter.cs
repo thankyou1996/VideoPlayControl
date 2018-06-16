@@ -103,5 +103,20 @@ namespace VideoPlayControl
         /// </summary>
         public static IntPtr HuaMai_iTree = IntPtr.Zero;
         #endregion
+
+        #region 海康流媒体模式相关参数
+        /// <summary>
+        /// 海康流媒体音频转发服务地址
+        /// </summary>
+        public static string strHikStreamVoiceIP="0.0.0.0";
+        /// <summary>
+        /// 海康流媒体音频转发服务端口
+        /// </summary>
+        public static int intHikStreamVoiceServerPort = 8081;
+        /// <summary>
+        /// 海康流媒体音频转发服务客户端端口
+        /// </summary>。
+        public static int intHikStreamVoiceClientPort = 8082;
+        #endregion
     }
 }

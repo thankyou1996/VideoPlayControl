@@ -923,15 +923,6 @@ namespace VideoPlayControl
                                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
                                 break;
                         }
-                        if (iErrorCode == 2012)
-                        {
-                            
-                        }
-                        else
-                        {
-                           
-                        }
-
                         break;
 
                     case SDK_EzvizSDK.EzvizMeesageType.INS_PLAY_RECONNECT:
@@ -1628,43 +1619,93 @@ namespace VideoPlayControl
         /// </summary>
         public void VideoPlay()
         {
-            if (VideoPlayState == Enum_VideoPlayState.InPlayState || VideoPlayState == Enum_VideoPlayState.Connecting)
+            if (CurrentVideoPlaySet.AnsyPlay)
             {
-                //处于播放状态，释放
-                VideoClose();
+                ThreadStart thrAnsyPlay = delegate//160418
+                {
+                    if (VideoPlayState == Enum_VideoPlayState.InPlayState || VideoPlayState == Enum_VideoPlayState.Connecting)
+                    {
+                        //处于播放状态，释放
+                        VideoClose();
+                    }
+                    intConnCount++;
+                    //VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
+                    switch (CurrentVideoInfo.VideoType)
+                    {
+                        case Enum_VideoType.Unrecognized:
+                            //不做操作
+                            break;
+                        case Enum_VideoType.CloundSee:  //云视通设备
+                            CloundSee_VideoPlay();
+                            break;
+                        case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
+                            IPCWA_VideoPlay();
+                            break;
+                        case Enum_VideoType.Ezviz:
+                            Ezviz_VideoPlay();          //萤石云设备
+                            break;
+                        case Enum_VideoType.SKVideo:
+                            SKVideo_VideoPlay();        //时刻视频设备
+                            break;
+                        case Enum_VideoType.HuaMaiVideo://华迈设备
+                            HuaMaiVideo_VideoPlay();
+                            break;
+                        //case Enum_VideoType.Axis:       //安讯士
+                        //    Axis_VideoPlay();
+                        //    break;
+                        //case Enum_VideoType.XMaiVideo:
+                        //    XMVideo_VideoPlay();
+                        //    break;
+                        default:
+                            iv.VideoPlay();
+                            break;
+                    }                                                                                                                                                                                   //RequestYSLiveVideo(dvsnum.Substring(0, 6), int.Parse(dvsnum.Substring(6, 2)), strDVSType, true, DateTime.Parse(CurrentAlarmInfo.AlarmTime).ToString("yyyyMMddHHmmss"));//170530
+                };
+                new Thread(thrAnsyPlay).Start();
+
+                
             }
-            intConnCount++;
-            //VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
-            switch (CurrentVideoInfo.VideoType)
+            else
             {
-                case Enum_VideoType.Unrecognized:
-                    //不做操作
-                    break;
-                case Enum_VideoType.CloundSee:  //云视通设备
-                    CloundSee_VideoPlay();
-                    break;
-                case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
-                    IPCWA_VideoPlay();
-                    break;
-                case Enum_VideoType.Ezviz:
-                    Ezviz_VideoPlay();          //萤石云设备
-                    break;
-                case Enum_VideoType.SKVideo:
-                    SKVideo_VideoPlay();        //时刻视频设备
-                    break;
-                case Enum_VideoType.HuaMaiVideo://华迈设备
-                    HuaMaiVideo_VideoPlay();
-                    break;
-                //case Enum_VideoType.Axis:       //安讯士
-                //    Axis_VideoPlay();
-                //    break;
-                //case Enum_VideoType.XMaiVideo:
-                //    XMVideo_VideoPlay();
-                //    break;
-                default:
-                    iv.VideoPlay();
-                    break;
+                if (VideoPlayState == Enum_VideoPlayState.InPlayState || VideoPlayState == Enum_VideoPlayState.Connecting)
+                {
+                    //处于播放状态，释放
+                    VideoClose();
+                }
+                intConnCount++;
+                //VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
+                switch (CurrentVideoInfo.VideoType)
+                {
+                    case Enum_VideoType.Unrecognized:
+                        //不做操作
+                        break;
+                    case Enum_VideoType.CloundSee:  //云视通设备
+                        CloundSee_VideoPlay();
+                        break;
+                    case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
+                        IPCWA_VideoPlay();
+                        break;
+                    case Enum_VideoType.Ezviz:
+                        Ezviz_VideoPlay();          //萤石云设备
+                        break;
+                    case Enum_VideoType.SKVideo:
+                        SKVideo_VideoPlay();        //时刻视频设备
+                        break;
+                    case Enum_VideoType.HuaMaiVideo://华迈设备
+                        HuaMaiVideo_VideoPlay();
+                        break;
+                    //case Enum_VideoType.Axis:       //安讯士
+                    //    Axis_VideoPlay();
+                    //    break;
+                    //case Enum_VideoType.XMaiVideo:
+                    //    XMVideo_VideoPlay();
+                    //    break;
+                    default:
+                        iv.VideoPlay();
+                        break;
+                }
             }
+            
         }
 
         /// <summary>

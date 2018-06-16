@@ -618,8 +618,12 @@ namespace VideoPlayControl_UseDemo
                     //处于播放状态
                     videoWindowTest.VideoClose();
                 }
-                //测试界面
-                PlayVideo(videoWindowTest, dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
+                else
+                {
+                    //测试界面
+                    PlayVideo(videoWindowTest, dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
+                }
+                
             }
             else
             {
@@ -628,7 +632,11 @@ namespace VideoPlayControl_UseDemo
                     //处于播放状态
                     lstVideoPlayWindow[intVideoIndex - 1].VideoClose();
                 }
-                PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
+                else
+                {
+                    PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
+                }
+                
             }
         }
 
@@ -744,7 +752,7 @@ namespace VideoPlayControl_UseDemo
         #region 测试数据相关
         private void btnEzvizTestData_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData3();
+            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetYSDVSData2();
             //dicVideoInfos[v.DVSNumber] = v;
@@ -1224,6 +1232,32 @@ namespace VideoPlayControl_UseDemo
         private void btnStartTalk_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnLoopTest_Click(object sender, EventArgs e)
+        {
+            timCurrentChannelLoop.Enabled = !timCurrentChannelLoop.Enabled;
+        }
+
+        private void timCurrentChannelLoop_Tick(object sender, EventArgs e)
+        {
+            if (lstVideoPlayWindow[0].VideoPlayState == Enum_VideoPlayState.InPlayState)
+            {
+                Console.WriteLine(DateTime.Now + "_Close");
+                lstVideoPlayWindow[0].VideoClose();
+
+            }
+            else
+            {
+
+                Console.WriteLine(DateTime.Now + "_Play");
+                lstVideoPlayWindow[0].VideoPlay();
+            }
         }
     }
 }

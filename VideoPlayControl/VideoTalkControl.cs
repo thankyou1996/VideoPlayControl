@@ -86,12 +86,16 @@ namespace VideoPlayControl
                 {
                     case Enum_VideoType.SKVideo:
                         videoTalk = new VideoTalk_Shike();
-                        videoTalk.TalkStausChangedEvent += VideoTalk_TalkStausChangedEvent;
-                        videoTalk.StartTalkingEvent += startTalkingEvent;
+                        
+                        break;
+                    case Enum_VideoType.HikDVRStream:
+                        videoTalk = new VideoTalk_HikStream_Client();
                         break;
                     default:    //不存在的设备类型直接报异常
                         throw new Exception("设备类型异常");
                 }
+                videoTalk.TalkStausChangedEvent += VideoTalk_TalkStausChangedEvent;
+                videoTalk.StartTalkingEvent += startTalkingEvent;
             }
             videoTalk.SetVideoTalkInfo(videoInfo, talkChannel);
             return bolResult;

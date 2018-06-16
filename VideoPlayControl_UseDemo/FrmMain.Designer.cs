@@ -135,6 +135,8 @@
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.btnLoopTest = new System.Windows.Forms.Button();
+            this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -740,6 +742,7 @@
             // 
             // pageVideoInfo
             // 
+            this.pageVideoInfo.Controls.Add(this.btnLoopTest);
             this.pageVideoInfo.Controls.Add(this.label18);
             this.pageVideoInfo.Controls.Add(this.txtVideoRecord);
             this.pageVideoInfo.Controls.Add(this.pnlVideoInfo_Right);
@@ -1264,8 +1267,23 @@
             // 
             // timer2
             // 
-            this.timer2.Interval = 10000;
+            this.timer2.Interval = 3000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // btnLoopTest
+            // 
+            this.btnLoopTest.Location = new System.Drawing.Point(7, 302);
+            this.btnLoopTest.Name = "btnLoopTest";
+            this.btnLoopTest.Size = new System.Drawing.Size(132, 23);
+            this.btnLoopTest.TabIndex = 37;
+            this.btnLoopTest.Text = "当前通道循环测试";
+            this.btnLoopTest.UseVisualStyleBackColor = true;
+            this.btnLoopTest.Click += new System.EventHandler(this.btnLoopTest_Click);
+            // 
+            // timCurrentChannelLoop
+            // 
+            this.timCurrentChannelLoop.Interval = 3000;
+            this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
             // 
             // FrmMain
             // 
@@ -1424,6 +1442,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCloundSeeData1;
         private System.Windows.Forms.Button btnXMTestData2;
+        private System.Windows.Forms.Button btnLoopTest;
+        private System.Windows.Forms.Timer timCurrentChannelLoop;
     }
 }
 

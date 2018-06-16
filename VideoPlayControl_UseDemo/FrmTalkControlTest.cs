@@ -22,14 +22,19 @@ namespace VideoPlayControl_UseDemo
 
         private void FrmTalkControlTest_Load(object sender, EventArgs e)
         {
-            PublicClassCurrency.VideoInfo v = TestDataSource.TestDataSource.GetSKDVSData2();
+            PublicClassCurrency.VideoInfo v = TestDataSource.TestDataSource.GetHikData3_Voice();
             videoTalkControl1.SetVideoTalkInfo(v, v.TalkChannel[1]);
             videoTalkControl1.StartTalkingEvent += VideoTalkControl1_StartTalkingEvent;
-            SDKState.SKVideoSDKInit();
-            while (SDK_SKVideoSDK.p_sdkc_get_online() == 1)
-            {
-                Thread.Sleep(30);
-            }
+            
+            ProgParameter.strHikStreamVoiceIP = "192.168.2.19";
+            ProgParameter.intHikStreamVoiceServerPort = 8081;
+            ProgParameter.intHikStreamVoiceClientPort = 8082;
+            SDKState.HikDVRSDKStream_Init();
+            //SDKState.SKVideoSDKInit();
+            //while (SDK_SKVideoSDK.p_sdkc_get_online() == 1)
+            //{
+            //    Thread.Sleep(30);
+            //}
             Dictionary<string, VideoInfo> dicV = new Dictionary<string, VideoInfo>();
             dicV[v.DVSNumber] = v;
             videoTalkControlManyChannel1.SetVideoInfo(dicV);

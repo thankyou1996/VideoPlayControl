@@ -441,11 +441,47 @@ namespace VideoPlayControl
         }
         #endregion
 
-        #region 雄迈SDK 
-        
-        
+        #region 海康流媒体模式
 
-        
+        public static Enum_SDKState s_HikDVRStreamSDKState = Enum_SDKState.SDK_Null;
+
+        public static Enum_SDKState HikDVRStreamSDKState
+        {
+            get { return s_HikDVRStreamSDKState; }
+            private set
+            {
+                s_HikDVRStreamSDKState = value;
+                SDKStateChange(Enum_VideoType.HikDVRStream, s_HikDVRStreamSDKState);
+            }
+        }
+
+        /// <summary>
+        /// 海康SDK初始化
+        /// </summary>
+        /// <returns></returns>
+        public static Enum_SDKState HikDVRSDKStream_Init()
+        {
+            HikDVRStreamSDKState = SDK_TalkManagerSDK.Init_Client() ? Enum_SDKState.SDK_Init : Enum_SDKState.SDK_InitFail;
+            //HikDVRSDKState = SDK_HikClientSDK.NET_DVR_Init() ? Enum_SDKState.SDK_Init : Enum_SDKState.SDK_InitFail;
+            return HikDVRStreamSDKState;
+        }
+        /// <summary>
+        /// 海康SDK 释放
+        /// </summary>
+        /// <returns></returns>
+        public static Enum_SDKState HikDVRSDKStream_Release()
+        {
+            HikDVRStreamSDKState = SDK_TalkManagerSDK.Dispose_Client() ? Enum_SDKState.SDK_Release : Enum_SDKState.SDK_ReleaseFail;
+            return HikDVRStreamSDKState;
+        }
+        #endregion
+
+
+        #region 雄迈SDK 
+
+
+
+
         public static Enum_SDKState s_XMSDKState = Enum_SDKState.SDK_Null;
         private static SDK_XMSDK.fDisConnect disCallback;
         public static Enum_SDKState XMSDKState
