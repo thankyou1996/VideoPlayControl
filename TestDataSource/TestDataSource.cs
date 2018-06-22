@@ -417,7 +417,7 @@ namespace TestDataSource
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
             v.DVSName = "海康DVR测试";
-            v.DVSNumber = "000502";
+            v.DVSNumber = "000503";
             v.DVSType = "SK8605HA";
             v.HostID = "0005";
             v.UserName = "";
@@ -445,7 +445,7 @@ namespace TestDataSource
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
             v.DVSName = "海康DVR测试";
-            v.DVSNumber = "000502";
+            v.DVSNumber = "000504";
             v.DVSType = "SK8605HA";
             v.HostID = "0005";
             v.UserName = "";

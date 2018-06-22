@@ -120,6 +120,7 @@
     <Compile Include="VideoEncoderAsync\QuickAudioEncodingCommands.cs" />
     <Compile Include="VideoEncoderAsync\QuickVideoEncodingCommands.cs" />
     <Compile Include="VideoEncoderAsync\VideoFile.cs" />
+    <Compile Include="VideoPlay\VideoPlay_Ezviz.cs" />
     <Compile Include="VideoPlay\VideoPlay_Shike.cs" />
     <Compile Include="VideoRecordBackplay\VideoPlayback\VideoBackPlay_AmpFileParser.cs" />
     <Compile Include="VideoPlayGroupControls_PTZAndTalk.cs">

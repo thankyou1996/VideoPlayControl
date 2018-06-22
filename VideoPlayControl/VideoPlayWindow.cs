@@ -869,6 +869,7 @@ namespace VideoPlayControl
             Ezviz_gchMsgBack = GCHandle.Alloc(callBack);
             string strUser = CurrentVideoInfo.DVSAddress + "_" + CurrentCameraInfo.Channel;
             iUser = Marshal.StringToHGlobalAnsi(strUser);
+            VideoPlayState = Enum_VideoPlayState.Connecting;
             intResult = SDK_EzvizSDK.OpenSDK_AllocSessionEx(callBack, iUser, out intptrSessionID, out intLenght);
             if (CurrentVideoPlaySet.VideoRecordEnable)
             {
@@ -940,6 +941,7 @@ namespace VideoPlayControl
                         break;
 
                     case SDK_EzvizSDK.EzvizMeesageType.INS_PLAY_STOP:
+                        
                         VideoPlayState = Enum_VideoPlayState.NotInPlayState;
                         VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
                         break;

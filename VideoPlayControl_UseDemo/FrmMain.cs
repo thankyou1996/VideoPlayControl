@@ -594,6 +594,7 @@ namespace VideoPlayControl_UseDemo
             videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
             videoPlaySet.VideoRecordFilePath = txtVideoRecord.Text;
             videoPlaySet.AutoReconn = false;
+            videoPlaySet.AnsyPlay = true;
             if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
             {
                 string strTimeValue = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -604,7 +605,6 @@ namespace VideoPlayControl_UseDemo
                 sbVideoRecordPath.Append(cameraInfo.Channel.ToString().PadLeft(2, '0') + "_");
                 sbVideoRecordPath.Append(strTimeValue + "_81.H264");
                 videoPlaySet.VideoRecordFilePath = sbVideoRecordPath.ToString();
-
                 StringBuilder sbPreVideoRecordPath = new StringBuilder();
                 sbPreVideoRecordPath.Append("http://121.41.87.203:8008/SK_VideoRecord/");
                 sbPreVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
@@ -752,6 +752,9 @@ namespace VideoPlayControl_UseDemo
         #region 测试数据相关
         private void btnEzvizTestData_Click(object sender, EventArgs e)
         {
+            VideoInfo vv = TestDataSource.TestDataSource.GetYSDVSData1();
+            dicVideoInfos[vv.DVSNumber] = vv;
+
             VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetYSDVSData2();

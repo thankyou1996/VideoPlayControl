@@ -253,6 +253,9 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_onvif_ptz_stop(string strGuid, int iChannel);
 
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public extern static void p_sdkc_play_remote_audio(string guid, string path, string URL);
+
 
         #region 录像相关
         /// <summary>

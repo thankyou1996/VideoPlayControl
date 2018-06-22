@@ -6,16 +6,15 @@ using PublicClassCurrency;
 
 namespace VideoPlayControl.VideoPlay
 {
-    public class VideoPlay_Shike : IVideoPlay
+    public class VideoPlay_Ezviz : IVideoPlay
     {
-        public VideoInfo CurrentVideoInfo { get ; set ; }
-        public CameraInfo CurrentCameraInfo { get ; set ; }
-        public VideoPlaySetting CurrentVideoPlaySet { get ; set ; }
-        public IntPtr intptrPlayMain { get ; set; }
-        public Enum_VideoPlayState VideoPlayState { get ; set ; }
-        public int VideoplayWindowWidth { get; set ; }
-        public int VideoplayWindowHeight { get; set ; }
-
+        public VideoInfo CurrentVideoInfo { get; set; }
+        public CameraInfo CurrentCameraInfo { get; set; }
+        public VideoPlaySetting CurrentVideoPlaySet { get; set; }
+        public IntPtr intptrPlayMain { get; set; }
+        public Enum_VideoPlayState VideoPlayState { get; set; }
+        public int VideoplayWindowWidth { get; set; }
+        public int VideoplayWindowHeight { get; set; }
         public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
 
         public bool VideoClose()
