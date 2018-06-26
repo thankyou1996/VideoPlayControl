@@ -752,10 +752,12 @@ namespace VideoPlayControl_UseDemo
         #region 测试数据相关
         private void btnEzvizTestData_Click(object sender, EventArgs e)
         {
-            VideoInfo vv = TestDataSource.TestDataSource.GetYSDVSData1();
-            dicVideoInfos[vv.DVSNumber] = vv;
+            //VideoInfo vv = TestDataSource.TestDataSource.GetYSDVSData1();
+            //dicVideoInfos[vv.DVSNumber] = vv;
 
-            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
+            //VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
+            //dicVideoInfos[v.DVSNumber] = v;
+            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData5();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetYSDVSData2();
             //dicVideoInfos[v.DVSNumber] = v;

@@ -359,6 +359,9 @@ namespace VideoPlayControl
                     case Enum_VideoPlayEventType.DeviceStreamTypeException:
                         sbDisplayInfo.Append("设备码流类型异常");
                         break;
+                    case Enum_VideoPlayEventType.NoDeviceAuthority:
+                        sbDisplayInfo.Append("无设备权限");
+                        break;
                     default:
                         sbDisplayInfo.Append("未知状态" + evType.ToString());
                         break;

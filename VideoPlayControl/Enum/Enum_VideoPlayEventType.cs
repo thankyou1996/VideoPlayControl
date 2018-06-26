@@ -141,6 +141,10 @@ namespace VideoPlayControl
         /// </summary>
         VideoDeviceNotOnline = 11,
 
+        /// <summary>
+        /// 无设备权限
+        /// </summary>
+        NoDeviceAuthority=301,
         #endregion
     }
 }

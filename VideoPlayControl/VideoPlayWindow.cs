@@ -857,8 +857,17 @@ namespace VideoPlayControl
         {
             int intLenght = 0;
             int intResult = 0;
-            CurrentVideoInfo.NetworkState = SDK_EzvizSDK.GetDevOnlineState(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel);
-            if (CurrentVideoInfo.NetworkState == 0)
+            //CurrentVideoInfo.NetworkState = SDK_EzvizSDK.GetDevOnlineState(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel);
+            int Temp_intResult = SDK_EzvizSDK.GetDevOnlineState(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel);
+            if (Temp_intResult == -2)
+            {
+
+                //设备无权限
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.NoDeviceAuthority);
+                return;
+            }
+            CurrentVideoInfo.NetworkState = Temp_intResult;
+            if (Temp_intResult == 0)
             {
                 //设备离线
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoDeviceNotOnline);
@@ -919,6 +928,9 @@ namespace VideoPlayControl
                                 break;
                             case 2651:
                                 VideoPlayEventCallBack(Enum_VideoPlayEventType.DeviceStreamTypeException);
+                                break;
+                            case 2604:
+                                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoDeviceNotOnline);
                                 break;
                             default:
                                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);

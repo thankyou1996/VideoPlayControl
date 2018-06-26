@@ -240,7 +240,7 @@ namespace VideoPlayControl
 
         /// <summary>
         /// 获取设备是否在线
-        /// 1在线 0离线 -1 状态未明
+        /// 1在线 0离线 -1 状态未明 -2表示表示无设备权限
         /// </summary>
         /// <param name="strDevSerial"></param>
         /// <returns></returns>
@@ -256,28 +256,40 @@ namespace VideoPlayControl
                 IntPtr intptrDevSerial = Marshal.StringToHGlobalAnsi(strDevSerial);
                 IntPtr intptrDevInfo = IntPtr.Zero;
                 int intLength;
-                intResult = SDK_EzvizSDK.OpenSDK_Data_GetDeviceInfo(intptrToken, intptrDevSerial, out intptrDevInfo, out intLength);
-                string strResult = Marshal.PtrToStringAnsi(intptrDevInfo);
-                Temp_strDeviceData = strResult;
-                if (!string.IsNullOrEmpty(strResult))
+                int Temp_intResult = SDK_EzvizSDK.OpenSDK_Data_GetDeviceInfo(intptrToken, intptrDevSerial, out intptrDevInfo, out intLength);
+                if (Temp_intResult != 0)
                 {
-                    JObject Temp_jobject = (JObject)JsonConvert.DeserializeObject(strResult);
-                    JsonRequestResult RequestResult = (JsonRequestResult)Convert.ToInt32(Temp_jobject["result"]["code"]);
-                    if (RequestResult == JsonRequestResult.RequestSuccess)
+                    //接口获取信息失败 状态置为未知
+                    intResult = -1;
+                }
+                else
+                {
+                    string strResult = Marshal.PtrToStringAnsi(intptrDevInfo);
+                    Temp_strDeviceData = strResult;
+                    if (!string.IsNullOrEmpty(strResult))
                     {
-                        //请求成功 赋值
-                        JArray jar = JArray.Parse(Temp_jobject["result"]["data"].ToString());
-                        foreach (JObject jo in jar)
+                        JObject Temp_jobject = (JObject)JsonConvert.DeserializeObject(strResult);
+                        JsonRequestResult RequestResult = (JsonRequestResult)Convert.ToInt32(Temp_jobject["result"]["code"]);
+                        if (RequestResult == JsonRequestResult.RequestSuccess)
                         {
-                            if (intChannel.ToString() == jo["cameraNo"].ToString())
+                            //请求成功 赋值
+                            JArray jar = JArray.Parse(Temp_jobject["result"]["data"].ToString());
+                            foreach (JObject jo in jar)
                             {
-                                intResult = Convert.ToInt32(jo["status"]);
-                                break;
+                                if (intChannel.ToString() == jo["cameraNo"].ToString())
+                                {
+                                    intResult = Convert.ToInt32(jo["status"]);
+                                    break;
+                                }
                             }
+                        }
+                        else if (RequestResult == JsonRequestResult.NoDeviceAuthority)
+                        {
+                            intResult = -2;
                         }
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -285,6 +297,7 @@ namespace VideoPlayControl
                 CommonMethod.LogWrite.WriteEventLog("DevException ", Temp_strDeviceData);
                 intResult = -1;
             }
+            intResult = -1;
             return intResult;
         }
         #endregion
