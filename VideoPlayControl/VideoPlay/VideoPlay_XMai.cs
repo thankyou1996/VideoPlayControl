@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using PublicClassCurrency;
+using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
@@ -70,6 +71,17 @@ namespace VideoPlayControl.VideoPlay
             {
                 VideoPlayEventCallBackEvent(this, eventType);
             }
+        }
+
+        public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
+        public bool VideoPlayCallback(VideoPlayCallbackValue value)
+        {
+            bool bolResult = false;
+            if (VideoPlayCallbackEvent != null)
+            {
+                return VideoPlayCallbackEvent(this, value);
+            }
+            return bolResult;
         }
 
         public bool VideoClose()

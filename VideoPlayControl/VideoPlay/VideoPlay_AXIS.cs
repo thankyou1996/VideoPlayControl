@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AxisMediaParserLib;
 using AxisMediaViewerLib;
 using PublicClassCurrency;
+using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
@@ -24,6 +25,17 @@ namespace VideoPlayControl.VideoPlay
         public int VideoplayWindowHeight { get; set; }
 
         public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
+
+        public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
+        public bool VideoPlayCallback(VideoPlayCallbackValue value)
+        {
+            bool bolResult = false;
+            if (VideoPlayCallbackEvent != null)
+            {
+                return VideoPlayCallbackEvent(this, value);
+            }
+            return bolResult;
+        }
         List<byte> lstVideoRecord = new List<byte>();
         private object objVideoRecordLock = new object();
 

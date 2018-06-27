@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
@@ -70,8 +71,15 @@ namespace VideoPlayControl.VideoPlay
             set;
         }
         event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
+        
+        /// <summary>
+        /// 视频播放事件
+        /// </summary>
+        event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
 
-      
+        bool VideoPlayCallback(VideoPlayCallbackValue value);
+
+
         bool VideoPlay();
 
         bool VideoClose();

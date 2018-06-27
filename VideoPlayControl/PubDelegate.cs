@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl
 {
     /// <summary>
-    /// 视频播放时间回调
+    /// 视频播放事件回调
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="eventType"></param>
     public delegate void VideoPlayEventCallBackDelegate(object sender, Enum_VideoPlayEventType eventType);
+
+    /// <summary>
+    /// 视频播放事件回调V_2.0
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="evValue"></param>
+    /// <returns></returns>
+    public delegate bool VideoPlayCallbackDelegate(object sender, VideoPlayCallbackValue evValue);
+
 
     /// <summary>
     /// 对讲状态改变事件

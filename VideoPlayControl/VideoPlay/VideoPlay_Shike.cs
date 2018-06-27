@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PublicClassCurrency;
+using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
@@ -17,7 +18,16 @@ namespace VideoPlayControl.VideoPlay
         public int VideoplayWindowHeight { get; set ; }
 
         public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
-
+        public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
+        public bool VideoPlayCallback(VideoPlayCallbackValue value)
+        {
+            bool bolResult = false;
+            if (VideoPlayCallbackEvent != null)
+            {
+                return VideoPlayCallbackEvent(this, value);
+            }
+            return bolResult;
+        }
         public bool VideoClose()
         {
             throw new NotImplementedException();

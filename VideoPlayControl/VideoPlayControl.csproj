@@ -109,6 +109,7 @@
     <Compile Include="VideoBasicClass\Enum_TalkModel.cs" />
     <Compile Include="VideoBasicClass\RemoteVideoRecordInfo.cs" />
     <Compile Include="VideoBasicClass\SoundClass.cs" />
+    <Compile Include="VideoBasicClass\VideoPlayEventValue.cs" />
     <Compile Include="VideoChannelList.cs">
       <SubType>UserControl</SubType>
     </Compile>

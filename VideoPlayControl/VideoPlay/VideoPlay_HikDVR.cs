@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using PublicClassCurrency;
+using VideoPlayControl.VideoBasicClass;
 using static VideoPlayControl.SDK_HikClientSDK;
 
 namespace VideoPlayControl.VideoPlay
@@ -33,7 +34,16 @@ namespace VideoPlayControl.VideoPlay
                 VideoPlayEventCallBackEvent(this, eventType);
             }
         }
-
+        public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
+        public bool VideoPlayCallback(VideoPlayCallbackValue value)
+        {
+            bool bolResult = false;
+            if (VideoPlayCallbackEvent != null)
+            {
+                return VideoPlayCallbackEvent(this, value);
+            }
+            return bolResult;
+        }
 
         public bool VideoPlay()
         {

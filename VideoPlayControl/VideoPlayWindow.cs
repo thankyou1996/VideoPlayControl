@@ -153,6 +153,7 @@ namespace VideoPlayControl
             }
         }
 
+
         #endregion
 
         #endregion
@@ -335,6 +336,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.XMaiVideo:
                         iv = new VideoPlay_XMai();
                         break;
+                    case Enum_VideoType.Ezviz:
+                        iv = new VideoPlay_Ezviz();
+                        break;
                 }
             }
             else
@@ -355,6 +359,9 @@ namespace VideoPlayControl
                             break;
                         case Enum_VideoType.XMaiVideo:
                             iv = new VideoPlay_XMai();
+                            break;
+                        case Enum_VideoType.Ezviz:
+                            iv = new VideoPlay_Ezviz();
                             break;
                     }
                 }
@@ -890,7 +897,7 @@ namespace VideoPlayControl
             IntPtr intptrdevSerial = Marshal.StringToHGlobalAnsi(CurrentVideoInfo.DVSAddress);
             //intResult = SDK_EzvizSDK.OpenSDK_SetVideoLevel(intptrSessionID, CurrentCameraInfo.Channel, 0);
             intResult = SDK_EzvizSDK.OpenSDK_StartRealPlayEx(intptrSessionID, intptrPlayMain, intptrdevSerial, CurrentCameraInfo.Channel, CurrentVideoInfo.Password);
-            videoPlayState = Enum_VideoPlayState.InPlayState;
+            //videoPlayState = Enum_VideoPlayState.InPlayState;
             //intResult = SDK_EzvizSDK.OpenSDK_StartRealPlay(intptrSessionID, intptrPlayMain, CurrentCameraInfo.CameraUniqueCode, ProgParameter.strEzviz_AccessToken, 2, null, ProgParameter.strEzviz__AppID, 0);
             if (intResult == 0)
             {
@@ -1361,270 +1368,14 @@ namespace VideoPlayControl
 
 
         #endregion
-        #region HikDVR 海康DVR 直接访问模式
-
-        #region 全局变量
-        int _intDVRHwd;
-        int intRet;
-        #endregion
-
-        #region 基本事件
-        /// <summary>
-        /// 海康视频播放
-        /// </summary>
-        public void HikDVR_VideoPlay()
-        {
-            bool Temp_bolResult = false;
-            NET_DVR_DEVICEINFO_V30 dev = new NET_DVR_DEVICEINFO_V30();
-            _intDVRHwd = NET_DVR_Login_V30(CurrentVideoInfo.DVSAddress, CurrentVideoInfo.DVSConnectPort, CurrentVideoInfo.UserName, CurrentVideoInfo.Password, ref dev);
-            if (_intDVRHwd < 0)
-            {
-                //登陆失败
-                return;
-            }
-
-
-            NET_DVR_PREVIEWINFO lpPreviewInfo = new NET_DVR_PREVIEWINFO();
-            lpPreviewInfo.hPlayWnd = intptrPlayMain;//预览窗口
-            lpPreviewInfo.lChannel = CurrentCameraInfo.Channel;
-            lpPreviewInfo.dwStreamType = 0;//码流类型：0-主码流，1-子码流，2-码流3，3-码流4，以此类推
-            lpPreviewInfo.dwLinkMode = 0;//连接方式：0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP 
-            lpPreviewInfo.bBlocked = true; //0- 非阻塞取流，1- 阻塞取流
-
-
-            //NET_DVR_CLIENTINFO cli = new NET_DVR_CLIENTINFO();
-            //cli.lLinkMode = 0;// 设置连接方式  /*  最高位(31)为 0 表示主码流，为 1 表示子码流，0－30 位表示码流连接方式：0：TCP方式,1：UDP 方式,2：多播方式,3 - RTP方式，4—音视频分开 */ 
-            //cli.lChannel = channel + 32;
-            //cli.hPlayWnd = playHandle;
-
-            // 开始播放视频
-            //Thread.Sleep(50);
-            IntPtr pUser = new IntPtr();
-            REALDATACALLBACK RealData = new REALDATACALLBACK(RealDataCallBack);//预览实时流回调函数
-
-            //intRet = NET_DVR_RealPlay_V30(_intDVRHwd, ref cli, null, pUser, 1);//130814
-            intRet = NET_DVR_RealPlay_V40(_intDVRHwd, ref lpPreviewInfo, null, pUser);//140521
-            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
-            //NET_DVR_OpenSound(intRet);//140609
-            if (intRet != 1)
-            {
-                videoPlayState = Enum_VideoPlayState.InPlayState;
-                if (CurrentVideoPlaySet.VideoRecordEnable)
-                {
-                    if (NET_DVR_SaveRealData(intRet, CurrentVideoPlaySet.VideoRecordFilePath))
-                    {
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecord);
-                    }
-                    else
-                    {
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecordException);
-                    }
-                }
-            }
-            
-        }
-
-        
-
-        /// <summary>
-        /// 海康视频关闭
-        /// </summary>
-        public void HikDVR_VideoClose()
-        {
-            NET_DVR_StopRealPlay(intRet);
-            NET_DVR_Logout(_intDVRHwd);
-            return;
-        }
-        #endregion
-
         #region 回调函数
         public void RealDataCallBack(Int32 lRealHandle, UInt32 dwDataType, ref byte pBuffer, UInt32 dwBufSize, IntPtr pUser)
         {
         }
         #endregion
 
-        #endregion
 
 
-        //#region XMVideo 雄迈SDK
-        //#region 全局变量
-        //int lLogin = -1;
-        //public int m_iPlayhandle;	//play handle
-        //#endregion
-
-        //#region 基本事件
-        ///// <summary>
-        ///// 雄迈视频播放
-        ///// </summary>
-        //private void XMVideo_VideoPlay()
-        //{
-        //    H264_DVR_DEVICEINFO OutDev;
-        //    int nError = 0;
-        //    VideoPlayState = Enum_VideoPlayState.Connecting;
-        //    #region 连接类型选择 
-        //    CurrentVideoPlaySet.ConnType = CommonMethod.Verification.isIP(CurrentVideoInfo.DVSAddress) ? Enum.Enum_VideoConnType.Direct : Enum.Enum_VideoConnType.Clound;
-        //    if (CurrentVideoPlaySet.ConnType == Enum.Enum_VideoConnType.Clound)
-        //    {
-        //        //雄迈云
-        //        lLogin = SDK_XMSDK.H264_DVR_Login_Cloud(CurrentVideoInfo.DVSAddress, Convert.ToUInt16(CurrentVideoInfo.DVSConnectPort), CurrentVideoInfo.UserName, CurrentVideoInfo.Password, out OutDev, out nError, "");
-        //        //lLogin = SDK_XMSDK.H264_DVR_LoginEx_V2(CurrentVideoInfo.DVSAddress, Convert.ToUInt16(CurrentVideoInfo.DVSConnectPort), CurrentVideoInfo.UserName, CurrentVideoInfo.Password, out OutDev,1, out nError, SocketStyle.TCPSOCKET);
-        //        //lLogin = SDK_XMSDK.H264_DVR_Login(CurrentVideoInfo.DVSAddress, Convert.ToUInt16(CurrentVideoInfo.DVSConnectPort), CurrentVideoInfo.UserName, CurrentVideoInfo.Password, out OutDev,  out nError, SocketStyle.PLUGLANSOCKET);
-        //    }
-        //    else
-        //    {
-        //        //默认直连
-        //        lLogin = SDK_XMSDK.H264_DVR_Login(CurrentVideoInfo.DVSAddress, Convert.ToUInt16(CurrentVideoInfo.DVSConnectPort), CurrentVideoInfo.UserName, CurrentVideoInfo.Password, out OutDev, out nError, SocketStyle.TCPSOCKET);
-        //    }
-        //    //lLogin = SDK_XMSDK.H264_DVR_Login("192.168.2.165", 34567, "admin", "123456", out OutDev, out nError, SocketStyle.TCPSOCKET);
-        //    #endregion
-
-        //    if (lLogin <= 0)
-        //    {
-        //        CurrentVideoInfo.NetworkState = 0;//离线
-        //        VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-        //        VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed); //连接异常
-        //        return;
-        //    }
-            
-        //    VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess); //连接成功
-        //    H264_DVR_CLIENTINFO playstru = new H264_DVR_CLIENTINFO();
-        //    playstru.nChannel = CurrentCameraInfo.Channel;
-        //    //playstru.nChannel = 0;
-        //    playstru.nStream =0;
-        //    playstru.nMode = 1;
-        //    playstru.hWnd = intptrPlayMain;
-        //    m_iPlayhandle = SDK_XMSDK.H264_DVR_RealPlay(Convert.ToInt32(lLogin), ref playstru);
-        //    if (m_iPlayhandle > 0)
-        //    {
-        //        CurrentVideoInfo.NetworkState = 1;//在线
-        //        VideoPlayState = Enum_VideoPlayState.InPlayState;
-        //        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay); //连接成功
-        //        if (CurrentVideoPlaySet.VideoRecordEnable)
-        //        {
-        //            XMVideo_VideoRecordStart(CurrentVideoPlaySet.VideoRecordFilePath);
-        //        }
-        //    }
-        //    else
-        //    {
-
-        //        VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-        //        int intResult = SDK_XMSDK.H264_DVR_GetLastError();
-        //        //视频播放异常，后期根据 H264_DVR_GetLastError 获取错误码进行操作及 提示
-        //        switch (intResult)
-        //        {
-        //            case (int)SDK_RET_CODE.H264_DVR_NATCONNET_REACHED_MAX:
-        //                VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnNumMax); //达到最大连接数量
-        //                break;
-        //            default:
-        //                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException); //连接异常
-        //                break;
-        //        }
-        //    }
-        //}
-
-        ///// <summary>
-        ///// 雄迈视频录像
-        ///// </summary>
-        //public bool XMVideo_VideoRecordStart(string strRecFilePath)
-        //{
-        //    StringBuilder sbRecFilePath = new StringBuilder();
-        //    if (string.IsNullOrEmpty(strRecFilePath))
-        //    {
-        //        //不存在路径 使用默认路径 
-        //        strRecFilePath = ProgConstants.strXMVideo_RecDicPath + "\\" + CurrentVideoInfo.DVSAddress;    //默认路径
-        //        if (!Directory.Exists(strRecFilePath))
-        //        {
-        //            //文件夹不存在，创建文件夹
-        //            Directory.CreateDirectory(strRecFilePath);
-        //        }
-        //    }
-        //    if (!strRecFilePath.EndsWith(".h264"))
-        //    {
-        //        //后缀错误，使用默认文件生成
-        //        //默认路径格式 [当前工作路径/XMVideoRecFile/DVSAddress/时间(yyyyMMddHHmmss)_通道号(01)]
-
-        //        strRecFilePath += "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
-        //    }
-        //    bool bolResult = SDK_XMSDK.H264_DVR_StartLocalRecord(m_iPlayhandle, strRecFilePath, Convert.ToInt32(MEDIA_FILE_TYPE.MEDIA_FILE_NONE));
-        //    return bolResult;
-        //}
-
-        ///// <summary>
-        ///// 雄迈视频关闭
-        ///// </summary>
-        //public void XMVideo_VideoClose()
-        //{
-        //    int intResult = -1;
-        //    bool bolResult = false;
-        //    bolResult = SDK_XMSDK.H264_DVR_StopLocalPlay(m_iPlayhandle);   //停止录像
-        //    intResult = SDK_XMSDK.H264_DVR_StopRealPlay(m_iPlayhandle, (uint)intptrPlayMain);
-        //    intResult = SDK_XMSDK.H264_DVR_Logout(lLogin);
-        //    return;
-        //}
-
-
-        ///// <summary>
-        ///// 云台控制
-        ///// </summary>
-        //private void XMVideo_PTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
-        //{
-        //    SDK_XMSDK.PTZ_ControlType XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.EXTPTZ_TOTAL;
-        //    //云台控制类型改变
-        //    switch (PTZControl) //云视通仅 上下
-        //    {
-        //        case Enum_VideoPTZControl.PTZControl_Up:
-        //            XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.TILT_UP;
-        //            break;
-        //        case Enum_VideoPTZControl.PTZControl_Down:
-        //            XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.TILT_DOWN;
-        //            break;
-        //        case Enum_VideoPTZControl.PTZControl_Left:
-        //            XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_LEFT;
-        //            break;
-        //        case Enum_VideoPTZControl.PTZControl_Right:
-        //            XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_RIGHT;
-        //            break;
-        //        case Enum_VideoPTZControl.PTZControl_LeftUp:
-        //            XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_LEFTTOP;
-        //            break;
-        //        case Enum_VideoPTZControl.PTZControl_LeftDown:
-        //            XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_LEFTDOWN;
-        //            break;
-        //        case Enum_VideoPTZControl.PTZControl_RightUp:
-        //            XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_RIGTHTOP;
-        //            break;
-        //        case Enum_VideoPTZControl.PTZControl_RightDown:
-        //            XMVideoPtzType = SDK_XMSDK.PTZ_ControlType.PAN_RIGTHDOWN;
-        //            break;
-        //    }
-        //    if (XMVideoPtzType != SDK_XMSDK.PTZ_ControlType.EXTPTZ_TOTAL)
-        //    {
-
-        //        Console.WriteLine("PTZControl" + "_" + bolStart.ToString());
-        //        //Cono
-        //        //SDK_JCSDK.JCSDK_SendPTZCommand(intCloundSee_ConnID, XMVideoPtzType, bolStart);
-        //        bool bolTemp = !bolStart;
-        //        bool bolResult = SDK_XMSDK.H264_DVR_PTZControl(lLogin, CurrentCameraInfo.Channel, Convert.ToInt32(XMVideoPtzType), bolTemp, CurrentVideoPlaySet.PTZSpeed);
-        //        StringBuilder sbDisplayInfo = new StringBuilder();
-        //        sbDisplayInfo.Append(DateTime.Now.ToString() + "_");
-        //        sbDisplayInfo.Append("PTZContorl");
-        //        sbDisplayInfo.Append("_" + lLogin);
-        //        sbDisplayInfo.Append("_" + CurrentCameraInfo.Channel);
-        //        sbDisplayInfo.Append("_" + XMVideoPtzType.ToString());
-        //        sbDisplayInfo.Append("_" + bolTemp);
-        //        sbDisplayInfo.Append("_" + CurrentVideoPlaySet.PTZSpeed);
-        //        sbDisplayInfo.Append("Result:" + bolResult.ToString());
-        //        Console.WriteLine(sbDisplayInfo.ToString());
-        //    }
-        //}
-
-        //#endregion
-
-        //#region 回调函数
-
-        //#endregion
-
-        //#endregion
 
         #region 基本事件
 
@@ -1652,21 +1403,21 @@ namespace VideoPlayControl
                 case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
                     IPCWA_VideoPlay();
                     break;
-                case Enum_VideoType.Ezviz:
-                    if (CurrentVideoPlaySet.AnsyPlay)
-                    {
-                        ThreadStart thrAnsyPlay = delegate//160418
-                        {
-                            Ezviz_VideoPlay();          //萤石云设备
-                        };
-                            new Thread(thrAnsyPlay).Start();
-                    }
-                    else
-                    {
-                        Ezviz_VideoPlay();          //萤石云设备
-                    }
+                //case Enum_VideoType.Ezviz:
+                //    if (CurrentVideoPlaySet.AnsyPlay)
+                //    {
+                //        ThreadStart thrAnsyPlay = delegate//160418
+                //        {
+                //            Ezviz_VideoPlay();          //萤石云设备
+                //        };
+                //        new Thread(thrAnsyPlay).Start();
+                //    }
+                //    else
+                //    {
+                //        Ezviz_VideoPlay();          //萤石云设备
+                //    }
                     
-                    break;
+                //    break;
                 case Enum_VideoType.SKVideo:
                     SKVideo_VideoPlay();        //时刻视频设备
                     break;
@@ -1733,9 +1484,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.IPCWA:
                         IPCWA_VideoClose();
                         break;
-                    case Enum_VideoType.Ezviz:
-                        Ezviz_VideoClose();
-                        break;
+                    //case Enum_VideoType.Ezviz:
+                    //    Ezviz_VideoClose();
+                    //    break;
                     case Enum_VideoType.SKVideo:
                         SKVideo_VideoClose();
                         break;

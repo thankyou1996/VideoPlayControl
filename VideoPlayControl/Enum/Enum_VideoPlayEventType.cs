@@ -146,5 +146,10 @@ namespace VideoPlayControl
         /// </summary>
         NoDeviceAuthority=301,
         #endregion
+
+        /// <summary>
+        /// 未知
+        /// </summary>
+        Unidentified=99999,
     }
 }
