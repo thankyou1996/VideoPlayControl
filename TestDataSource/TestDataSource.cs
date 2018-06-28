@@ -9,7 +9,7 @@ namespace TestDataSource
     {
 
         #region 海康数据源
-        public static VideoInfo GetHikDVSData1()
+        public static VideoInfo GetHikData1()
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.HikDVR;

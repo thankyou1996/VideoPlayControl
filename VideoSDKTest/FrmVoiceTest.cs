@@ -41,7 +41,7 @@ namespace VideoSDKTest
         {
             bool bolResult = NET_DVR_Init();
             ei = NET_DVR_InitG722Encoder();
-            CurrentVideoInfo = TestDataSource.TestDataSource.GetHikDVSData1();
+            CurrentVideoInfo = TestDataSource.TestDataSource.GetHikData1();
             foreach (CameraInfo c in CurrentVideoInfo.Cameras.Values)
             {
                 CurrentCameraInfo = c;

@@ -42,7 +42,7 @@ namespace VideoPlayControl.VideoPlay
         #region 全局变量 
 
         IntPtr intptrSessionID = IntPtr.Zero;
-        static SDK_EzvizSDK.MsgHandler callBack;
+        SDK_EzvizSDK.MsgHandler callBack;
         static SDK_EzvizSDK.DataCallBack Ezviz_DataCallBack;
         GCHandle Ezviz_gchMsgBack;
         GCHandle Ezviz_gchVideoRecord;
@@ -242,7 +242,7 @@ namespace VideoPlayControl.VideoPlay
                         break;
 
                     case SDK_EzvizSDK.EzvizMeesageType.INS_PLAY_RECONNECT_EXCEPTION:
-
+                        VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
                         break;
 
                     case SDK_EzvizSDK.EzvizMeesageType.INS_PLAY_START:

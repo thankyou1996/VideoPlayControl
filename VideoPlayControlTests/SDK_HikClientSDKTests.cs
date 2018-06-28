@@ -179,9 +179,42 @@ namespace VideoPlayControl.Tests
             DateTime timEnd = DateTime.Parse("2018-05-31 00:47:01");
 
             string sVideoFileName;  //录像文件保存路径和文件名 the path and file name to save      
-            sVideoFileName = @"C:\SHIKE_Video\9999\123\\12331\Downtest_Channel" + timStart.ToString("yyyyMMddHHmmss")+intChannel + ".mp4";
+            sVideoFileName = @"C:\SHIKE_Video\9999\123\\12331\Downtest_Channel" + timStart.ToString("yyyyMMddHHmmss") + intChannel + ".mp4";
             bool bolResut = SDK_HikClientSDK.DownloadVideoRecord(vInfo, intChannel, timStart, timEnd, sVideoFileName);
             Assert.IsTrue(bolResut);
+        }
+
+        [TestMethod()]
+        public void GetDevChannelInfoTest()
+        {
+
+            PublicClassCurrency.VideoInfo vInfo = TestDataSource.TestDataSource.GetHikData1();
+            SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30();
+            //登录设备
+            int m_lUserID = SDK_HikClientSDK.NET_DVR_Login_V30(vInfo.DVSAddress, vInfo.DVSConnectPort, vInfo.UserName, vInfo.Password, ref DeviceInfo);
+            SDK_HikClientSDK.SetDevChannelInfo(ref vInfo, DeviceInfo, m_lUserID);
+            Assert.AreEqual(vInfo.Cameras.Count, 1);
+
+        }
+
+        [TestMethod()]
+        public void NET_DVR_FindFile_V40Test()
+        {
+            PublicClassCurrency.VideoInfo vInfo = TestDataSource.TestDataSource.GetHikData1();
+            SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30();
+            //登录设备
+            int m_lUserID = SDK_HikClientSDK.NET_DVR_Login_V30(vInfo.DVSAddress, vInfo.DVSConnectPort, vInfo.UserName, vInfo.Password, ref DeviceInfo);
+            SDK_HikClientSDK.SetDevChannelInfo(ref vInfo, DeviceInfo, m_lUserID);
+            //CHCNetSDK.NET_DVR_FILECOND_V40 struFileCond_V40 = new CHCNetSDK.NET_DVR_FILECOND_V40();
+            VideoPlayControl.SDK_HikClientSDK.NET_DVR_FILECOND_V40 struFileCond_V40 = new VideoPlayControl.SDK_HikClientSDK.NET_DVR_FILECOND_V40();
+            PublicClassCurrency.CameraInfo[] lstC = vInfo.Cameras.Values.ToArray();
+            struFileCond_V40.lChannel = lstC[0].Channel;
+            struFileCond_V40.dwFileType = 0xff; //0xff-全部，0-定时录像，1-移动侦测，2-报警触发，...
+            struFileCond_V40.dwIsLocked = 0xff; //0-未锁定文件，1-锁定文件，0xff表示所有文件（包括锁定和未锁定）
+            struFileCond_V40.struStartTime = SDK_HikClientSDK.ConvertToNetTime(DateTime.Now.AddDays(-1));
+            struFileCond_V40.struStopTime = SDK_HikClientSDK.ConvertToNetTime(DateTime.Now);
+            int iFindfileHandle = VideoPlayControl.SDK_HikClientSDK.NET_DVR_FindFile_V40(m_lUserID, ref struFileCond_V40);
+            Assert.AreEqual(iFindfileHandle, 0);
         }
     }
 }

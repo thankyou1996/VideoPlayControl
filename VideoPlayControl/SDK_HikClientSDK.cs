@@ -1382,6 +1382,9 @@ namespace VideoPlayControl
             public byte byDiskCtrlNum;//DVR 硬盘控制器个数
             public byte byDiskNum;//DVR 硬盘个数
             public byte byDVRType;//DVR类型, 1:DVR 2:ATM DVR 3:DVS ......
+            /// <summary>
+            /// 模拟通道个数
+            /// </summary>
             public byte byChanNum;//DVR 通道个数
             public byte byStartChan;//起始通道号,例如DVS-1,DVR - 1
             public byte byDecordChans;//DVR 解码路数
@@ -5538,9 +5541,18 @@ namespace VideoPlayControl
             public byte byAlarmOutPortNum;		        //报警输出个数
             public byte byDiskNum;				    //硬盘个数
             public byte byDVRType;				    //设备类型, 1:DVR 2:ATM DVR 3:DVS ......
-            public byte byChanNum;				    //模拟通道个数
+            /// <summary>
+            /// 模拟通道个数
+            /// </summary>
+            public byte byChanNum;
+            /// <summary>
+            /// 模拟通道起始数量
+            /// </summary>
             public byte byStartChan;			        //起始通道号,例如DVS-1,DVR - 1
             public byte byAudioChanNum;                //语音通道数
+            /// <summary>
+            /// 数字通道(低位)
+            /// </summary>
             public byte byIPChanNum;					//最大数字通道个数，低位  
             public byte byZeroChanNum;			//零通道编码个数 //2010-01-16
             public byte byMainProto;			//主码流传输协议类型 0-private, 1-rtsp,2-同时支持private和rtsp
@@ -5582,6 +5594,9 @@ namespace VideoPlayControl
             public byte byMultiStreamProto;//是否支持多码流,按位表示,0-不支持,1-支持,bit1-码流3,bit2-码流4,bit7-主码流，bit-8子码流
             public byte byStartDChan;		//起始数字通道号,0表示无效
             public byte byStartDTalkChan;	//起始数字对讲通道号，区别于模拟对讲通道号，0表示无效
+            /// <summary>
+            /// 数字通道个数（高位） 数字通道数量（高位）*256  + byIPChanNum
+            /// </summary>
             public byte byHighDChanNum;		//数字通道个数，高位
             public byte bySupport4;
             public byte byLanguageType;// 支持语种能力,按位表示,每一位0-不支持,1-支持  
@@ -14162,6 +14177,11 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_CloseFindPicture(int lFindHandle);
 
+        /// <summary>
+        /// 转换为标准时间
+        /// </summary>
+        /// <param name="netTime"></param>
+        /// <returns></returns>
         public static DateTime ConvertToDateTime(NET_DVR_TIME netTime)
         {
             DateTime timResult;
@@ -14178,6 +14198,11 @@ namespace VideoPlayControl
             return timResult;
         }
 
+        /// <summary>
+        /// 转换为海康时间
+        /// </summary>
+        /// <param name="tim"></param>
+        /// <returns></returns>
         public static NET_DVR_TIME ConvertToNetTime(DateTime tim)
         {
             SDK_HikClientSDK.NET_DVR_TIME Stime = new SDK_HikClientSDK.NET_DVR_TIME();
@@ -15294,76 +15319,7 @@ namespace VideoPlayControl
         #endregion
 
 
-        //#region 20140428
-        //public NET_DVR_IPPARACFG_V40 m_struIpParaCfgV40;
-        //public NET_DVR_DEVICEINFO_V30 DeviceInfo;
-        //public NET_DVR_STREAM_MODE m_struStreamMode;
-        //public NET_DVR_IPCHANINFO m_struChanInfo;
-        [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 96, ArraySubType = UnmanagedType.U4)]
-        private int[] iChannelNum = new int[96];
-        private uint dwAChanTotalNum = 0;
-        private Int32 iip = 0;
-        public void InfoIPChannel()
-        {
 
-            NET_DVR_IPPARACFG_V40 m_struIpParaCfgV40 = new NET_DVR_IPPARACFG_V40();
-            NET_DVR_DEVICEINFO_V30 DeviceInfo = new NET_DVR_DEVICEINFO_V30();
-            NET_DVR_STREAM_MODE m_struStreamMode = new NET_DVR_STREAM_MODE();
-            NET_DVR_IPCHANINFO m_struChanInfo = new NET_DVR_IPCHANINFO();
-
-            NET_DVR_IPCHANINFO_V40 m_struChanInfoV40 = new NET_DVR_IPCHANINFO_V40();
-
-            uint dwSize = (uint)Marshal.SizeOf(m_struIpParaCfgV40);
-
-            IntPtr ptrIpParaCfgV40 = Marshal.AllocHGlobal((Int32)dwSize);
-            Marshal.StructureToPtr(m_struIpParaCfgV40, ptrIpParaCfgV40, false);
-
-            uint dwReturn = 0;
-            if (!NET_DVR_GetDVRConfig(_intDVRHwd, NET_DVR_GET_IPPARACFG_V40, 0, ptrIpParaCfgV40, dwSize, ref dwReturn))
-            {
-            }
-            else
-            {
-                m_struIpParaCfgV40 = (NET_DVR_IPPARACFG_V40)Marshal.PtrToStructure(ptrIpParaCfgV40, typeof(NET_DVR_IPPARACFG_V40));
-
-                for (iip = 0; iip < dwAChanTotalNum; iip++)
-                {
-                    iChannelNum[iip] = iip + (int)DeviceInfo.byStartChan + 1;
-                    //iChannelNum[iip] = iip + (int)DeviceInfo.byStartChan;   
-                }
-
-                byte byStreamType;
-                for (iip = 0; iip < m_struIpParaCfgV40.dwDChanNum; iip++)
-                {
-                    iChannelNum[iip + dwAChanTotalNum] = iip + (int)m_struIpParaCfgV40.dwStartDChan;
-                    byStreamType = m_struIpParaCfgV40.struStreamMode[iip].byGetStreamType;
-                    switch (byStreamType)
-                    {
-                        //目前NVR仅支持0- 直接从设备取流一种方式 NVR supports only one mode: 0- get stream from device directly
-                        case 0:
-                            dwSize = (uint)Marshal.SizeOf(m_struStreamMode);
-                            IntPtr ptrChanInfo = Marshal.AllocHGlobal((Int32)dwSize);
-                            Marshal.StructureToPtr(m_struIpParaCfgV40.struStreamMode[iip].uGetStream, ptrChanInfo, false);
-                            m_struChanInfo = (NET_DVR_IPCHANINFO)Marshal.PtrToStructure(ptrChanInfo, typeof(NET_DVR_IPCHANINFO));
-                            Marshal.FreeHGlobal(ptrChanInfo);
-                            break;
-                        case 6:
-                            IntPtr ptrChanInfoV40 = Marshal.AllocHGlobal((Int32)dwSize);
-                            Marshal.StructureToPtr(m_struIpParaCfgV40.struStreamMode[iip].uGetStream, ptrChanInfoV40, false);
-                            m_struChanInfoV40 = (NET_DVR_IPCHANINFO_V40)Marshal.PtrToStructure(ptrChanInfoV40, typeof(NET_DVR_IPCHANINFO_V40));
-
-                            //列出IP通道 List the IP channel 
-                            //iIPDevID[i] = m_struChanInfoV40.wIPID - iGroupNo * 64 - 1;
-
-                            Marshal.FreeHGlobal(ptrChanInfoV40);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-
-        }
         //#endregion
 
 
@@ -15820,7 +15776,7 @@ namespace VideoPlayControl
 
         #region 自定义接口
 
-        public static bool GetDevicePic(PublicClassCurrency.VideoInfo vInfo, DateTime timStart, DateTime timEndTime,string strFolderPtah)
+        public static bool GetDevicePic(PublicClassCurrency.VideoInfo vInfo, DateTime timStart, DateTime timEndTime, string strFolderPtah)
         {
             bool bolResult = false;
 
@@ -15934,6 +15890,163 @@ namespace VideoPlayControl
             return bolResult;
         }
 
+
+        /// <summary>
+        /// 自定义接口，或者设备通道信息
+        /// </summary>
+        /// <param name="vInfo"></param>
+        /// <param name="devInfo"></param>
+        /// <param name="intUserId"></param>
+        /// <returns></returns>
+        public static bool SetDevChannelInfo(ref PublicClassCurrency.VideoInfo vInfo, NET_DVR_DEVICEINFO_V30 devInfo, int intUserId)
+        {
+            //获取通道流程
+            //如果不存在数字通道直接按照原有设备原有信息获取
+            //1.调用 NET_DVR_GetDVRConfig 获取相关信息
+            //2.根据接口返回接口 配置通道信息
+            bool bolResult = false;
+            if (devInfo.byIPChanNum > 0)
+            {
+                //存在数字通道
+                NET_DVR_IPPARACFG_V40 m_struIpParaCfgV40 = new NET_DVR_IPPARACFG_V40();
+                uint dwSize = (uint)Marshal.SizeOf(m_struIpParaCfgV40);
+                IntPtr ptrIpParaCfgV40 = Marshal.AllocHGlobal((Int32)dwSize);
+                Marshal.StructureToPtr(m_struIpParaCfgV40, ptrIpParaCfgV40, false);
+                uint dwReturn = 0;
+                if (NET_DVR_GetDVRConfig(intUserId, NET_DVR_GET_IPPARACFG_V40, 0, ptrIpParaCfgV40, dwSize, ref dwReturn))
+                {
+                    m_struIpParaCfgV40 = (NET_DVR_IPPARACFG_V40)Marshal.PtrToStructure(ptrIpParaCfgV40, typeof(NET_DVR_IPPARACFG_V40));
+                    SetIPChannelInfo(ref vInfo, devInfo, m_struIpParaCfgV40);
+                }
+            }
+            else
+            {
+                SetAnalogChannelInfo(ref vInfo, devInfo);
+            }
+            return bolResult;
+        }
+
+        public static bool SetAnalogChannelInfo(ref PublicClassCurrency.VideoInfo vInfo, NET_DVR_DEVICEINFO_V30 devInfo)
+        {
+            bool bolResult = false;
+            for (int intIndex = 0; intIndex < devInfo.byChanNum; intIndex++)
+            {
+                int Temp_intChannel = intIndex + devInfo.byStartChan;
+                PublicClassCurrency.CameraInfo c;
+                if (vInfo.Cameras.ContainsKey(intIndex + 1))
+                {
+                    c = vInfo.Cameras[intIndex + 1];
+                    c.Channel = intIndex + devInfo.byStartChan;
+                }
+                else
+                {
+                    c = new PublicClassCurrency.CameraInfo
+                    {
+                        Channel = intIndex + devInfo.byStartChan,
+                        CameraName = "模拟通道" + (intIndex + 1)
+                    };
+                }
+
+            }
+            return bolResult;
+        }
+
+
+
+        public static bool SetIPChannelInfo(ref PublicClassCurrency.VideoInfo vInfo, NET_DVR_DEVICEINFO_V30 devInfo, NET_DVR_IPPARACFG_V40 paraInfo)
+        {
+            bool bolResult = false;
+            Dictionary<int, PublicClassCurrency.CameraInfo> dicCameraInfo = new Dictionary<int, PublicClassCurrency.CameraInfo>();
+            //int intIndex = 0;
+            int Temp_intCountIndex = 1;
+            for (int intIndex = 0; intIndex < devInfo.byChanNum; intIndex++)
+            {
+                PublicClassCurrency.CameraInfo c;
+                if (vInfo.Cameras.ContainsKey(Temp_intCountIndex))
+                {
+                    c = vInfo.Cameras[Temp_intCountIndex];
+                    c.Channel = intIndex + devInfo.byStartChan;
+                }
+                else
+                {
+                    c = new PublicClassCurrency.CameraInfo
+                    {
+                        Channel = intIndex + devInfo.byStartChan,
+                        CameraName = "模拟通道" + (intIndex + 1)
+                    };
+                }
+                dicCameraInfo[c.Channel] = c;
+                Temp_intCountIndex++;
+            }
+            for (int intIndex = 0; intIndex < paraInfo.dwDChanNum; intIndex++)
+            {
+                int Temp_intChannel = Convert.ToInt32(intIndex + paraInfo.dwStartDChan);
+                PublicClassCurrency.CameraInfo c;
+                if (vInfo.Cameras.ContainsKey(Temp_intCountIndex))
+                {
+                    c = vInfo.Cameras[Temp_intCountIndex];
+                    c.Channel = Temp_intChannel;
+                }
+                else
+                {
+                    c = new PublicClassCurrency.CameraInfo
+                    {
+                        Channel = Temp_intChannel,
+                        CameraName = "数字通道" + (intIndex + 1)
+                    };
+                }
+                dicCameraInfo[c.Channel] = c;
+                Temp_intCountIndex++;
+            }
+            vInfo.Cameras = dicCameraInfo;
+            return bolResult;
+        }
         #endregion
+
+        #region 自定义接口（旧）
+        //#region 20140428
+        //public NET_DVR_IPPARACFG_V40 m_struIpParaCfgV40;
+        //public NET_DVR_DEVICEINFO_V30 DeviceInfo;
+        //public NET_DVR_STREAM_MODE m_struStreamMode;
+        //public NET_DVR_IPCHANINFO m_struChanInfo;
+        [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 96, ArraySubType = UnmanagedType.U4)]
+        private int[] iChannelNum = new int[96];
+        private uint dwAChanTotalNum = 0;
+        private Int32 iip = 0;
+        public void InfoIPChannel()
+        {
+            NET_DVR_IPPARACFG_V40 m_struIpParaCfgV40 = new NET_DVR_IPPARACFG_V40();
+            NET_DVR_DEVICEINFO_V30 DeviceInfo = new NET_DVR_DEVICEINFO_V30();
+            NET_DVR_STREAM_MODE m_struStreamMode = new NET_DVR_STREAM_MODE();
+            NET_DVR_IPCHANINFO m_struChanInfo = new NET_DVR_IPCHANINFO();
+
+            NET_DVR_IPCHANINFO_V40 m_struChanInfoV40 = new NET_DVR_IPCHANINFO_V40();
+
+            uint dwSize = (uint)Marshal.SizeOf(m_struIpParaCfgV40);
+
+            IntPtr ptrIpParaCfgV40 = Marshal.AllocHGlobal((Int32)dwSize);
+            Marshal.StructureToPtr(m_struIpParaCfgV40, ptrIpParaCfgV40, false);
+            uint dwReturn = 0;
+            if (!NET_DVR_GetDVRConfig(_intDVRHwd, NET_DVR_GET_IPPARACFG_V40, 0, ptrIpParaCfgV40, dwSize, ref dwReturn))
+            {
+
+            }
+            else
+            {
+                m_struIpParaCfgV40 = (NET_DVR_IPPARACFG_V40)Marshal.PtrToStructure(ptrIpParaCfgV40, typeof(NET_DVR_IPPARACFG_V40));
+
+                for (iip = 0; iip < dwAChanTotalNum; iip++)
+                {
+                    iChannelNum[iip] = iip + (int)DeviceInfo.byStartChan + 1;
+                    //iChannelNum[iip] = iip + (int)DeviceInfo.byStartChan;   
+                }
+                for (iip = 0; iip < m_struIpParaCfgV40.dwDChanNum; iip++)
+                {
+                    iChannelNum[iip + dwAChanTotalNum] = iip + (int)m_struIpParaCfgV40.dwStartDChan;
+                }
+            }
+
+        }
+        #endregion 
     }
 }

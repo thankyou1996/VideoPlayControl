@@ -786,7 +786,7 @@ namespace VideoPlayControl_UseDemo
         
         private void btnHikTestData1_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.GetHikDVSData1();
+            VideoInfo v = TestDataSource.TestDataSource.GetHikData1();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
