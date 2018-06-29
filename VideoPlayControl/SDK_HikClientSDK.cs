@@ -14177,43 +14177,7 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_CloseFindPicture(int lFindHandle);
 
-        /// <summary>
-        /// 转换为标准时间
-        /// </summary>
-        /// <param name="netTime"></param>
-        /// <returns></returns>
-        public static DateTime ConvertToDateTime(NET_DVR_TIME netTime)
-        {
-            DateTime timResult;
-            StringBuilder sb = new StringBuilder();
-            sb.Append(netTime.dwYear);
-            sb.Append(netTime.dwMonth.ToString().PadLeft(2, '0'));
-            sb.Append(netTime.dwDay.ToString().PadLeft(2, '0'));
-            sb.Append(netTime.dwHour.ToString().PadLeft(2, '0'));
-            sb.Append(netTime.dwMinute.ToString().PadLeft(2, '0'));
-            sb.Append(netTime.dwSecond.ToString().PadLeft(2, '0'));
-
-            //dtFormat.ShortDatePattern = "yyyy/MM/dd";
-            timResult = DateTime.ParseExact(sb.ToString(), "yyyyMMddHHmmss", System.Globalization.CultureInfo.CurrentCulture);
-            return timResult;
-        }
-
-        /// <summary>
-        /// 转换为海康时间
-        /// </summary>
-        /// <param name="tim"></param>
-        /// <returns></returns>
-        public static NET_DVR_TIME ConvertToNetTime(DateTime tim)
-        {
-            SDK_HikClientSDK.NET_DVR_TIME Stime = new SDK_HikClientSDK.NET_DVR_TIME();
-            Stime.dwYear = uint.Parse(tim.Year.ToString());
-            Stime.dwMonth = uint.Parse(tim.Month.ToString());
-            Stime.dwDay = uint.Parse(tim.Day.ToString());
-            Stime.dwHour = uint.Parse(tim.Hour.ToString());
-            Stime.dwMinute = uint.Parse(tim.Minute.ToString());
-            Stime.dwSecond = uint.Parse(tim.Second.ToString());
-            return Stime;
-        }
+       
         #endregion
 
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
@@ -15775,7 +15739,14 @@ namespace VideoPlayControl
         //******************
 
         #region 自定义接口
-
+        /// <summary>
+        /// 获取设备图片
+        /// </summary>
+        /// <param name="vInfo"></param>
+        /// <param name="timStart"></param>
+        /// <param name="timEndTime"></param>
+        /// <param name="strFolderPtah"></param>
+        /// <returns></returns>
         public static bool GetDevicePic(PublicClassCurrency.VideoInfo vInfo, DateTime timStart, DateTime timEndTime, string strFolderPtah)
         {
             bool bolResult = false;
@@ -15847,6 +15818,15 @@ namespace VideoPlayControl
             return bolResult;
         }
 
+        /// <summary>
+        /// 下载视频文件
+        /// </summary>
+        /// <param name="vInfo"></param>
+        /// <param name="intChannel"></param>
+        /// <param name="timStart"></param>
+        /// <param name="timEndTime"></param>
+        /// <param name="sVideoFileName"></param>
+        /// <returns></returns>
         public static bool DownloadVideoRecord(PublicClassCurrency.VideoInfo vInfo, int intChannel, DateTime timStart, DateTime timEndTime, string sVideoFileName)
         {
             bool bolResult = false;
@@ -15892,7 +15872,7 @@ namespace VideoPlayControl
 
 
         /// <summary>
-        /// 自定义接口，或者设备通道信息
+        /// 自定义接口，获取设备通道信息
         /// </summary>
         /// <param name="vInfo"></param>
         /// <param name="devInfo"></param>
@@ -15926,6 +15906,12 @@ namespace VideoPlayControl
             return bolResult;
         }
 
+        /// <summary>
+        /// 自定义接口，获取设备模拟通道信息
+        /// </summary>
+        /// <param name="vInfo"></param>
+        /// <param name="devInfo"></param>
+        /// <returns></returns>
         public static bool SetAnalogChannelInfo(ref PublicClassCurrency.VideoInfo vInfo, NET_DVR_DEVICEINFO_V30 devInfo)
         {
             bool bolResult = false;
@@ -15951,8 +15937,51 @@ namespace VideoPlayControl
             return bolResult;
         }
 
+        public static List<int> GetChannelInfo(NET_DVR_DEVICEINFO_V30 devInfo, int intUserId)
+        {
+            List<int> lstResult = new List<int>();
+            if (devInfo.byIPChanNum > 0)
+            {
+                //存在数字通道
+                NET_DVR_IPPARACFG_V40 m_struIpParaCfgV40 = new NET_DVR_IPPARACFG_V40();
+                uint dwSize = (uint)Marshal.SizeOf(m_struIpParaCfgV40);
+                IntPtr ptrIpParaCfgV40 = Marshal.AllocHGlobal((Int32)dwSize);
+                Marshal.StructureToPtr(m_struIpParaCfgV40, ptrIpParaCfgV40, false);
+                uint dwReturn = 0;
+                if (NET_DVR_GetDVRConfig(intUserId, NET_DVR_GET_IPPARACFG_V40, 0, ptrIpParaCfgV40, dwSize, ref dwReturn))
+                {
+                    m_struIpParaCfgV40 = (NET_DVR_IPPARACFG_V40)Marshal.PtrToStructure(ptrIpParaCfgV40, typeof(NET_DVR_IPPARACFG_V40));
+                    for (int intIndex = 0; intIndex < devInfo.byChanNum; intIndex++)
+                    {
+                        int Temp_intChannel= intIndex + devInfo.byStartChan;
+                        lstResult.Add(Temp_intChannel);
+                    }
+                    for (int intIndex = 0; intIndex < m_struIpParaCfgV40.dwDChanNum; intIndex++)
+                    {
+                        int Temp_intChannel = Convert.ToInt32(intIndex + m_struIpParaCfgV40.dwStartDChan);
+                        lstResult.Add(Temp_intChannel);
+                    }
+                }
+            }
+            else
+            {
+                for (int intIndex = 0; intIndex < devInfo.byChanNum; intIndex++)
+                {
+                    int Temp_intChannel = intIndex + devInfo.byStartChan;
+                    lstResult.Add(Temp_intChannel);
+                }
+            }
 
+            return lstResult;
+        }
 
+        /// <summary>
+        /// 自定义接口，获取设备IP通道信息
+        /// </summary>
+        /// <param name="vInfo"></param>
+        /// <param name="devInfo"></param>
+        /// <param name="paraInfo"></param>
+        /// <returns></returns>
         public static bool SetIPChannelInfo(ref PublicClassCurrency.VideoInfo vInfo, NET_DVR_DEVICEINFO_V30 devInfo, NET_DVR_IPPARACFG_V40 paraInfo)
         {
             bool bolResult = false;
@@ -16001,6 +16030,46 @@ namespace VideoPlayControl
             vInfo.Cameras = dicCameraInfo;
             return bolResult;
         }
+        
+        /// <summary>
+        /// 自定义接口——转换为标准时间
+        /// </summary>
+        /// <param name="netTime"></param>
+        /// <returns></returns>
+        public static DateTime ConvertToDateTime(NET_DVR_TIME netTime)
+        {
+            DateTime timResult;
+            StringBuilder sb = new StringBuilder();
+            sb.Append(netTime.dwYear);
+            sb.Append(netTime.dwMonth.ToString().PadLeft(2, '0'));
+            sb.Append(netTime.dwDay.ToString().PadLeft(2, '0'));
+            sb.Append(netTime.dwHour.ToString().PadLeft(2, '0'));
+            sb.Append(netTime.dwMinute.ToString().PadLeft(2, '0'));
+            sb.Append(netTime.dwSecond.ToString().PadLeft(2, '0'));
+
+            //dtFormat.ShortDatePattern = "yyyy/MM/dd";
+            timResult = DateTime.ParseExact(sb.ToString(), "yyyyMMddHHmmss", System.Globalization.CultureInfo.CurrentCulture);
+            return timResult;
+        }
+
+
+        /// <summary>
+        /// 转换为海康时间
+        /// </summary>
+        /// <param name="tim"></param>
+        /// <returns></returns>
+        public static NET_DVR_TIME ConvertToNetTime(DateTime tim)
+        {
+            SDK_HikClientSDK.NET_DVR_TIME Stime = new SDK_HikClientSDK.NET_DVR_TIME();
+            Stime.dwYear = uint.Parse(tim.Year.ToString());
+            Stime.dwMonth = uint.Parse(tim.Month.ToString());
+            Stime.dwDay = uint.Parse(tim.Day.ToString());
+            Stime.dwHour = uint.Parse(tim.Hour.ToString());
+            Stime.dwMinute = uint.Parse(tim.Minute.ToString());
+            Stime.dwSecond = uint.Parse(tim.Second.ToString());
+            return Stime;
+        }
+
         #endregion
 
         #region 自定义接口（旧）

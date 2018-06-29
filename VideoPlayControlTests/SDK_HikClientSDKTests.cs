@@ -216,5 +216,22 @@ namespace VideoPlayControl.Tests
             int iFindfileHandle = VideoPlayControl.SDK_HikClientSDK.NET_DVR_FindFile_V40(m_lUserID, ref struFileCond_V40);
             Assert.AreEqual(iFindfileHandle, 0);
         }
+
+        [TestMethod()]
+        public void GetChannelInfoTest()
+        {
+
+        }
+
+        [TestMethod()]
+        public void GetChannelInfoTest1()
+        {
+            PublicClassCurrency.VideoInfo vInfo = TestDataSource.TestDataSource.GetHikData1();
+            SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30();
+            //登录设备
+            int m_lUserID = SDK_HikClientSDK.NET_DVR_Login_V30(vInfo.DVSAddress, vInfo.DVSConnectPort, vInfo.UserName, vInfo.Password, ref DeviceInfo);
+            List<int> lstReuslt = SDK_HikClientSDK.GetChannelInfo(DeviceInfo, m_lUserID);
+            Assert.AreEqual(lstReuslt.Count, 0);
+        }
     }
 }

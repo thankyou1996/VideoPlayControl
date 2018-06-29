@@ -231,7 +231,7 @@ namespace VideoPlayControl.VideoPlay
                                 VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoDeviceNotOnline);
                                 break;
                             default:
-                                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+                                VideoPlayEventCallBack((Enum_VideoPlayEventType)iErrorCode);
                                 break;
                         }
                         break;

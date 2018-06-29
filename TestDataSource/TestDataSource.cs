@@ -497,7 +497,7 @@ namespace TestDataSource
 
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.Ezviz;
-            v.DVSAddress = "201381849";
+            v.DVSAddress = "657693507";
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
             v.DVSName = "海康DVR测试";
@@ -505,7 +505,7 @@ namespace TestDataSource
             v.DVSType = "SK8605HA";
             v.HostID = "0005";
             v.UserName = "";
-            v.Password = "PCFLGY";
+            v.Password = "DRQWGA";
             v.NetworkState = 0;
             for (int i = 1; i <= 8; i++)
             {

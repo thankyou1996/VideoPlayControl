@@ -55,7 +55,7 @@ namespace VideoPlayControl_UseDemo
             SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
-            //SDKState.XMSDK_Init();
+            SDKState.XMSDK_Init();
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
 

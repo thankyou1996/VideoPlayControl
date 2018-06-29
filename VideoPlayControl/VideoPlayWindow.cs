@@ -1368,14 +1368,12 @@ namespace VideoPlayControl
 
 
         #endregion
+
         #region 回调函数
         public void RealDataCallBack(Int32 lRealHandle, UInt32 dwDataType, ref byte pBuffer, UInt32 dwBufSize, IntPtr pUser)
         {
         }
         #endregion
-
-
-
 
         #region 基本事件
 
