@@ -495,7 +495,7 @@ namespace VideoPlayControl
             return talkChannel;
         }
 
-        public static bool GetPictureForVideoRecord(string strVideoRecord,string strSaveFolder,int intFrequcency,int intDelatTime_Millisecond)
+        public static bool GetPictureForVideoRecord(string strVideoRecord,string strSaveFolder,double dblFrequcency,int intDelatTime_Millisecond)
         {
             bool bolResult = false;
             if (!Directory.Exists(strSaveFolder))
@@ -505,7 +505,8 @@ namespace VideoPlayControl
             StringBuilder sbffmpegCmd = new StringBuilder();
             sbffmpegCmd.Append("ffmpeg.exe ");
             sbffmpegCmd.Append("-i " + strVideoRecord);
-            sbffmpegCmd.Append(" -f image2 -r " + intFrequcency + " ");
+            sbffmpegCmd.Append(" -f image2 -r " + dblFrequcency + " ");
+            //sbffmpegCmd.Append(" -f image2 -r 4.5 ");
             sbffmpegCmd.Append(strSaveFolder + "\\b-%03d.jpg");
             Process p = new Process();
             p.StartInfo.FileName = "cmd.exe";    //设置要启动的应用程序
@@ -529,15 +530,17 @@ namespace VideoPlayControl
             string Temp_strFileName = strVideoRecord.Substring(strVideoRecord.LastIndexOf("\\")+1);
             DateTime timEndTime = GetTimeByBFRName(Temp_strFileName);
             int intChannel = GetChannelByBFRName(Temp_strFileName);
-            RePicname(strSaveFolder, timEndTime, intChannel, intFrequcency);
+            RePicname(strSaveFolder, timEndTime, intChannel, dblFrequcency);
             return bolResult;
         }
 
-        public static bool RePicname(string strPicPath,DateTime timEnd ,int intChannel,int intFrame)
+        public static bool RePicname(string strPicPath,DateTime timEnd ,int intChannel,double dblFrame)
         {
             bool bolResult = false;
-            int intVideoFrame = 28;
-            int intPerSecondNum = intVideoFrame / intFrame; 
+            //int intVideoFrame = 30;
+            //int intPerSecondNum = intVideoFrame / intFrame; 
+            //int intPerSecondNum = Convert.ToInt32(dblFrame);
+            int intPerSecondNum = Convert.ToInt32(Math.Round(dblFrame, 0));
             DirectoryInfo directoryinfo = new DirectoryInfo(strPicPath);
             FileInfo[] fInfo = directoryinfo.GetFiles();
             int intFileCount = fInfo.Length;

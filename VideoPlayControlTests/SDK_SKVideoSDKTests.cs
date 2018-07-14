@@ -171,8 +171,8 @@ namespace VideoPlayControl.Tests
             string strSavePath = @"G:\Test";
             //bool bolResult = GetPictureForVideoRecord(@"C:\SHIKE_Video\9999\20180531021956\61-57354AA60831-3136_20180531022002_01_bfr10.H264", strSavePath, 10);
             //bool bolResult = GetPictureForVideoRecord(@"C:\SHIKE_Video\9999\20180531194905\61-57354AA60831-3136_20180531194919_01_bfr10.H264", strSavePath, 5, 1000);
-            string s = @"C:\SHIKE_Video\9999\20180531223110\61-57354AA60831-3136_20180531223118_01_bfr10.H264";
-            bool bolResult = GetPictureForVideoRecord(s, strSavePath, 7, 5000);
+            string s = @"G:\61-573578240A39-3036_20180630184829_09_bfr10.H264";
+            bool bolResult = GetPictureForVideoRecord(s, strSavePath, 4.1, 5000);
 
             //Thread.Sleep(3000);
             Assert.IsTrue(bolResult);

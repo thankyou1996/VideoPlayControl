@@ -757,7 +757,7 @@ namespace VideoPlayControl_UseDemo
 
             //VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData6();
+            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData7();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetYSDVSData2();
             //dicVideoInfos[v.DVSNumber] = v;
