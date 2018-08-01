@@ -1520,9 +1520,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.IPCWA:
                         IPCWA_PTZControl(PTZControl);
                         break;
-                    case Enum_VideoType.Ezviz:
-                        Ezviz_PTZControl(PTZControl, bolStart);
-                        break;
+                    //case Enum_VideoType.Ezviz:
+                    //    Ezviz_PTZControl(PTZControl, bolStart);
+                    //    break;
                     case Enum_VideoType.SKVideo:
                         SKVideo_PTZControl(PTZControl, bolStart);
                         break;

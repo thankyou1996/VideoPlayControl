@@ -107,6 +107,16 @@ namespace VideoPlayControl_UseDemo
             dr["display"] = Enum_VideoType.SKVideo.ToString();
             dtSource.Rows.Add(dr);
 
+            dr = dtSource.NewRow();
+            dr["value"] = Convert.ToInt32(Enum_VideoType.XMaiVideo);
+            dr["display"] = Enum_VideoType.XMaiVideo.ToString();
+            dtSource.Rows.Add(dr);
+
+            //dr = dtSource.NewRow();
+            //dr["value"] = Convert.ToInt32(Enum_VideoType.SKVideo);
+            //dr["display"] = Enum_VideoType.SKVideo.ToString();
+            //dtSource.Rows.Add(dr);
+
 
             cmbVideoType.ValueMember = "value";
             cmbVideoType.DisplayMember = "display";
@@ -1221,7 +1231,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnXMTestData1_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.XMDataSource4();
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource6();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

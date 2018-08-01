@@ -4,6 +4,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using PublicClassCurrency;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace VideoPlayControl
 {
@@ -1252,7 +1253,12 @@ namespace VideoPlayControl
             }
             else
             {
-                SDK_XMSDK.H264_DVR_GetLastError();
+                int intResult = SDK_XMSDK.H264_DVR_GetLastError();
+
+                //if (intResult == -11613)
+                //{
+                //    MessageBox.Show(OutDev.sCloudErrCode);
+                //}
                 v.LoginState = -1;
             }
         }

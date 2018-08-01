@@ -633,16 +633,26 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="VideoEncoderAsync\readme.txt" />
+    <Content Include="XMVideoSDK\AlarmCenter.exe" />
+    <Content Include="XMVideoSDK\ClientDemo.exe" />
+    <Content Include="XMVideoSDK\ClientDemo.pdb" />
+    <Content Include="XMVideoSDK\ConfigDemo.exe" />
     <Content Include="XMVideoSDK\ConfigModule.dll" />
     <Content Include="XMVideoSDK\DecoderSDK.dll" />
     <Content Include="XMVideoSDK\DllDeinterlace.dll" />
     <Content Include="XMVideoSDK\dllh264.dll" />
     <Content Include="XMVideoSDK\H264Play.dll" />
+    <Content Include="XMVideoSDK\H264Play.h" />
+    <Content Include="XMVideoSDK\H264Play.pdb" />
     <Content Include="XMVideoSDK\hi_h264dec_v.dll" />
+    <Content Include="XMVideoSDK\HW_H265dec_Win32D.dll" />
     <Content Include="XMVideoSDK\NetSdk.dll" />
     <Content Include="XMVideoSDK\netsdk.h" />
     <Content Include="XMVideoSDK\NetSdk.pdb" />
     <Content Include="XMVideoSDK\StreamReader.dll" />
+    <Content Include="XMVideoSDK\StreamReader.pdb" />
+    <Content Include="XMVideoSDK\TransparentDemon.exe" />
+    <Content Include="XMVideoSDK\UserInfo.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Axis\AMP41.rar" />
@@ -756,8 +766,14 @@
     <None Include="SKVideoSDK\VLC_SDK.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="XMVideoSDK\ClientDemo.ilk" />
+    <None Include="XMVideoSDK\Config.ini" />
+    <None Include="XMVideoSDK\H264Play.lib" />
+    <None Include="XMVideoSDK\Language\SimpChinese.lang" />
+    <None Include="XMVideoSDK\Language\SimpChinese.lang.bak" />
     <None Include="XMVideoSDK\NetSdk.exp" />
     <None Include="XMVideoSDK\NetSdk.lib" />
+    <None Include="XMVideoSDK\StreamReader.lib" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Shell32">
