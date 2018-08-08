@@ -325,6 +325,11 @@ namespace VideoPlayControl.VideoPlay
             return false;
         }
 
+        public bool VideoPlayEx()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         #endregion

@@ -1233,6 +1233,7 @@ namespace VideoPlayControl
             int nError = 0;
             VideoPlaySetting vPlaySet = new VideoPlaySetting();
             int lLogin = -1;
+            v.LoginState = 0;
             #region 连接类型选择 
             vPlaySet.ConnType = CommonMethod.Verification.isIP(v.DVSAddress) ? Enum.Enum_VideoConnType.Direct : Enum.Enum_VideoConnType.Clound;
             if (vPlaySet.ConnType == Enum.Enum_VideoConnType.Clound) 

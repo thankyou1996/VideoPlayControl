@@ -79,8 +79,17 @@ namespace VideoPlayControl.VideoPlay
 
         bool VideoPlayCallback(VideoPlayCallbackValue value);
 
-
+        /// <summary>
+        /// 视频播放
+        /// </summary>
+        /// <returns></returns>
         bool VideoPlay();
+
+        /// <summary>
+        /// 视频播放异步
+        /// </summary>
+        /// <returns></returns>
+        bool VideoPlayEx();
 
         bool VideoClose();
 

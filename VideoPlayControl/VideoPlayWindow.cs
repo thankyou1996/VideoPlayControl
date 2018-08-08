@@ -1469,7 +1469,8 @@ namespace VideoPlayControl
         /// </summary>
         public void VideoClose()
         {
-            if (VideoPlayState != Enum_VideoPlayState.VideoInfoNull || (iv != null && iv.VideoPlayState != Enum_VideoPlayState.VideoInfoNull))
+            //if (VideoPlayState != Enum_VideoPlayState.VideoInfoNull || (iv != null && iv.VideoPlayState != Enum_VideoPlayState.VideoInfoNull))
+            if(iv != null && iv.VideoPlayState == Enum_VideoPlayState.InPlayState)
             {
                 switch (CurrentVideoInfo.VideoType)
                 {

@@ -47,5 +47,10 @@ namespace VideoPlayControl.VideoPlay
         {
             throw new NotImplementedException();
         }
+
+        public bool VideoPlayEx()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

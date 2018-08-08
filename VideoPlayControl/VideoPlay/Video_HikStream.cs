@@ -51,5 +51,10 @@ namespace VideoPlayControl.VideoPlay
 
             return bolResult;
         }
+
+        public bool VideoPlayEx()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
