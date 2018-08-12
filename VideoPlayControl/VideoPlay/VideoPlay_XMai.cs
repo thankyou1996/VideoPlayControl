@@ -15,6 +15,12 @@ namespace VideoPlayControl.VideoPlay
         #region 全局变量
         int lLogin = -1;
         public int m_iPlayhandle;	//play handle
+        /// <summary>
+        /// 重复播放次数
+        /// </summary>
+        public const int c_intMaxRealPlayNum = 5;
+
+        public bool bolRequestRealVideoFlag = false;
         #endregion
 
         public VideoInfo CurrentVideoInfo
@@ -89,6 +95,7 @@ namespace VideoPlayControl.VideoPlay
             bool bolResule = false;
             int intResult = -1;
             bool bolResult = false;
+            bolRequestRealVideoFlag = false;
             Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "CloseStart");
             bolResult = SDK_XMSDK.H264_DVR_StopLocalPlay(m_iPlayhandle);                        //停止录像
             intResult = SDK_XMSDK.H264_DVR_StopRealPlay(m_iPlayhandle, (uint)intptrPlayMain);   //SDK关闭事件
@@ -137,51 +144,68 @@ namespace VideoPlayControl.VideoPlay
 
         private void VideoRealPlay()
         {
-            VideoPlayEventCallBack(Enum_VideoPlayEventType.RequestConn); //连接异常
+            
             H264_DVR_CLIENTINFO playstru = new H264_DVR_CLIENTINFO();
             playstru.nChannel = CurrentCameraInfo.Channel;
             //playstru.nChannel = 0;
             playstru.nStream = 1;
             playstru.nMode = 0;
             playstru.hWnd = intptrPlayMain;
-            m_iPlayhandle = SDK_XMSDK.H264_DVR_RealPlay(Convert.ToInt32(lLogin), ref playstru);
-            if (m_iPlayhandle > 0)
+            bolRequestRealVideoFlag = true;
+            int Temp_intCount = 0;
+            while (bolRequestRealVideoFlag)
             {
-
-                CurrentVideoInfo.NetworkState = 1;//在线
-                VideoPlayState = Enum_VideoPlayState.InPlayState;
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay); //开始播放
-                if (CurrentVideoPlaySet.VideoRecordEnable)
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.RequestConn);
+                m_iPlayhandle = SDK_XMSDK.H264_DVR_RealPlay(Convert.ToInt32(lLogin), ref playstru);
+                if (m_iPlayhandle > 0)
                 {
-                    XMVideo_VideoRecordStart(CurrentVideoPlaySet.VideoRecordFilePath);
+                    CurrentVideoInfo.NetworkState = 1;//在线
+                    VideoPlayState = Enum_VideoPlayState.InPlayState;
+                    VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay); //开始播放
+                    bolRequestRealVideoFlag = false;
+                    if (CurrentVideoPlaySet.VideoRecordEnable)
+                    {
+                        XMVideo_VideoRecordStart(CurrentVideoPlaySet.VideoRecordFilePath);
+                    }
                 }
-            }
-            else
-            {
-
-                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-                int intResult = SDK_XMSDK.H264_DVR_GetLastError();
-                //视频播放异常，后期根据 H264_DVR_GetLastError 获取错误码进行操作及 提示
-                switch (intResult)
+                else
                 {
-                    case (int)SDK_RET_CODE.H264_DVR_NATCONNET_REACHED_MAX:
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnNumMax); //达到最大连接数量
-                        break;
-                    default:
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException); //视频播放异常
-                        break;
+
+                    VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+                    int intResult = SDK_XMSDK.H264_DVR_GetLastError();
+                    //视频播放异常，后期根据 H264_DVR_GetLastError 获取错误码进行操作及 提示
+                    switch (intResult)
+                    {
+                        case (int)SDK_RET_CODE.H264_DVR_NATCONNET_REACHED_MAX:
+                            VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnNumMax); //达到最大连接数量
+                            break;
+                        default:
+                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException); //视频播放异常
+                            break;
+                    }
+                    Thread.Sleep(1000);
                 }
+                if (Temp_intCount > c_intMaxRealPlayNum || m_iPlayhandle > 0)
+                {
+                    bolRequestRealVideoFlag = false;
+                }
+                Temp_intCount++;
             }
         }
 
         public void VideoLoginStateChanged(object sender ,object VideoLoginStateChangedVideo)
         {
-            if(CurrentVideoInfo.LoginState==1)
+            if (CurrentVideoInfo.LoginState == 1)
             {
                 VideoPlayEventCallBack(Enum_VideoPlayEventType.LoginSuccess); //登陆成功
                 //表示连接成功
                 lLogin = CurrentVideoInfo.LoginHandle;
                 VideoRealPlay();
+            }
+            else if (CurrentVideoInfo.LoginState == 2)
+            {
+                //登陆中
+                VideoPlayEventCallBack(Enum_VideoPlayEventType.LoginStart); //登陆中
             }
             else if (CurrentVideoInfo.LoginState == -1)
             {

@@ -324,7 +324,7 @@ namespace TestDataSource
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.XMaiVideo;
-            v.DVSAddress = "0f8016c0fc483d83";
+            v.DVSAddress = "9f664f6f7e3e96fb";
             v.DVSChannelNum = 2;
             v.DVSConnectPort = 34567;
             v.DVSName = "雄迈";
