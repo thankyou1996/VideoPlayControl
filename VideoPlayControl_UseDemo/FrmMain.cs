@@ -52,7 +52,7 @@ namespace VideoPlayControl_UseDemo
             VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            SDKState.Ezviz_SDKInit();
+            //SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
             SDKState.XMSDK_Init();
@@ -60,7 +60,6 @@ namespace VideoPlayControl_UseDemo
             //SDKState.BlueSkySDK_Init();
 
             Init();
-
 
 
             //btnBlueSkyTestData_Click(sender, e);
@@ -605,6 +604,7 @@ namespace VideoPlayControl_UseDemo
             videoPlaySet.VideoRecordFilePath = txtVideoRecord.Text;
             videoPlaySet.AutoReconn = false;
             videoPlaySet.AnsyPlay = true;
+
             if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
             {
                 string strTimeValue = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -781,6 +781,8 @@ namespace VideoPlayControl_UseDemo
 
         private void btnSKTestData_Click(object sender, EventArgs e)
         {
+
+            int x = SDK_SKVideoSDK.p_sdkc_get_online();
             VideoInfo videoInfo = SKVideo_TestData();
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
             VideoListRefresh();
@@ -957,7 +959,7 @@ namespace VideoPlayControl_UseDemo
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.SKVideo;
-            v.DVSAddress = "61-573539920B39-3036";
+            v.DVSAddress = "71-00F51F012D0C-2830";
             v.DVSChannelNum = 16;
             v.DVSConnectPort = 81;
             v.DVSName = "8604双网口测试";
@@ -1238,7 +1240,7 @@ namespace VideoPlayControl_UseDemo
         }
         private void btnXMTestData2_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.XMDataSource7();
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource2();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

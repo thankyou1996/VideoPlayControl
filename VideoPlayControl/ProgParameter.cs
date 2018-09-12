@@ -72,12 +72,12 @@ namespace VideoPlayControl
         /// <summary>
         /// 服务器IP
         /// </summary>
-        public static string strSKVideo_ServerIP = "192.168.2.19";
+        public static string strSKVideo_ServerIP = "103.10.2.130";
 
         /// <summary>
         /// 客户端ID
         /// </summary>
-        public static string strSKVideo_ClientUGID = "xhcs1";
+        public static string strSKVideo_ClientUGID = "Admin";
 
 
         #endregion

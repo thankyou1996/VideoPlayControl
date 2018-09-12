@@ -757,6 +757,7 @@
     <None Include="SKVideoSDK\ShiKeVideoTestClient.ipdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="SKVideoSDK\VLC_SDK.exp" />
     <None Include="SKVideoSDK\VLC_SDK.iobj">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
