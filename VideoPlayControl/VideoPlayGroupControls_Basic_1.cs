@@ -9,6 +9,7 @@ using PublicClassCurrency;
 using System.IO;
 using System.Threading;
 using static CommonMethod.CommonObject;
+using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl
 {
@@ -81,7 +82,7 @@ namespace VideoPlayControl
         private void VideoPlayGroupControls_Basic_Load(object sender, EventArgs e)
         {
             videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
-            videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBackEvent;
+            videoPlayWindow.VideoPlayCallbackEvent += VideoPlayEventCallBackEvent;
             videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
             videoPTZControl.PTZControlEvent += VideoPTZControl;
         }
@@ -208,8 +209,9 @@ namespace VideoPlayControl
         /// <param name="sender"></param>
         /// <param name="evType"></param>
         /// <param name="strTag"></param>
-        public void VideoPlayEventCallBackEvent(object sender, Enum_VideoPlayEventType evType)
+        public bool VideoPlayEventCallBackEvent(object sender, VideoPlayCallbackValue eventValue)
         {
+            bool bolResult = false;
             if (bolDisplayVideoEvent)
             {
                 StringBuilder sbDisplayInfo = new StringBuilder();
@@ -227,7 +229,7 @@ namespace VideoPlayControl
                     sbDisplayInfo.Append(CurrentCameraInfo.CameraName);
                 }
                 sbDisplayInfo.Append("]");
-                switch (evType)
+                switch (eventValue.evType)
                 {
                     case Enum_VideoPlayEventType.InitEnd:
                         sbDisplayInfo.Append("控件初始化完成");
@@ -267,14 +269,14 @@ namespace VideoPlayControl
                         break;
 
                     default:
-                        sbDisplayInfo.Append("未知状态" + evType.ToString());
+                        sbDisplayInfo.Append("未知状态" + eventValue.evType.ToString());
                         break;
                 }
                 sbDisplayInfo.Append("[" + videoPlayWindow.intConnCount + "]");
 
                 DisplayRecord(sbDisplayInfo.ToString());
             }
-
+            return bolResult;
         }
 
 

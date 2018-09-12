@@ -502,7 +502,7 @@ namespace VideoPlayControl
         {
             disCallback = new SDK_XMSDK.fDisConnect(DisConnectBackCallFunc);
             XMSDKState = SDK_XMSDK.H264_DVR_Init(disCallback, IntPtr.Zero) == 1 ? Enum_SDKState.SDK_Init : Enum_SDKState.SDK_InitFail;
-            SDK_XMSDK.H264_DVR_SetConnectTime(3000, 3);
+            SDK_XMSDK.H264_DVR_SetConnectTime(3000, 1);
             return XMSDKState;
         }
 
@@ -527,6 +527,11 @@ namespace VideoPlayControl
         public static Enum_SDKState XMSDK_Release()
         {
             XMSDKState = SDK_XMSDK.H264_DVR_Cleanup() ? Enum_SDKState.SDK_Release : Enum_SDKState.SDK_ReleaseFail;
+            foreach (VideoInfo v in SDK_XMSDK.dicXMVideoList.Values)
+            {
+                v.LoginHandle = -1;
+                v.LoginState = 0;
+            }
             return XMSDKState;
         }
         #endregion

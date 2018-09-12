@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using VideoPlayControl;
+using VideoPlayControl.VideoBasicClass;
 using VideoPlayControl.VideoPlay;
 
 namespace VideoPlayControl_UseDemo
@@ -163,7 +164,7 @@ namespace VideoPlayControl_UseDemo
             cmbOperAtPreset.SelectedIndex = 0;
             dgvReocrd.MultiSelect = false;
             videoWindowTest.SDKEventCallBackEvent += SDKEventCallBackEvent;
-            videoWindowTest.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
+            videoWindowTest.VideoPlayCallbackEvent += VideoPlayEventCallBack;
             videoPTZControl1.PTZControlEvent += PTZControlEvent;
 
         }
@@ -194,20 +195,22 @@ namespace VideoPlayControl_UseDemo
             }
         }
 
-
-        public void VideoPlayEventCallBack(object sender, Enum_VideoPlayEventType eventType)
+        
+        public bool VideoPlayEventCallBack(object sender, VideoPlayCallbackValue eventValue)
         {
+            bool bolResult = false;
             try
             {
                 VideoPlayWindow v = (VideoPlayWindow)sender;
-                AddRecord(v.CurrentVideoInfo.DVSAddress + "_" + eventType.ToString(), "VideoEvent");
+                AddRecord(v.CurrentVideoInfo.DVSAddress + "_" + eventValue.evType.ToString(), "VideoEvent");
             }
             catch (Exception ex)
             {
                 //转换异常
                 IVideoPlay iv = (IVideoPlay)sender;
-                AddRecord(iv.CurrentVideoInfo.DVSAddress + "_" + eventType.ToString(), "VideoEvent");
+                AddRecord(iv.CurrentVideoInfo.DVSAddress + "_" + eventValue.evType.ToString(), "VideoEvent");
             }
+            return bolResult;
         }
 
         /// <summary>
@@ -333,7 +336,7 @@ namespace VideoPlayControl_UseDemo
                     tlpPlayVIdeoWindows.SetRow(grp, row);
                     tlpPlayVIdeoWindows.SetColumn(grp, col);
                     videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
-                    videoPlayWindow.VideoPlayEventCallBackEvent += VideoPlayEventCallBack;
+                    videoPlayWindow.VideoPlayCallbackEvent += VideoPlayEventCallBack;
                     lstVideoPlayWindow.Add(videoPlayWindow);
                     i++;
                 }

@@ -417,43 +417,135 @@ namespace VideoPlayControl
     }
     public struct H264_DVR_DEVICEINFO
     {
+        /// <summary>
+        ///  软件版本信息
+        /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
-        public string sSoftWareVersion;	///< 软件版本信息
+        public string sSoftWareVersion;
+        /// <summary>
+        /// 硬件版本信息
+        /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
-        public string sHardWareVersion;	///< 硬件版本信息
+        public string sHardWareVersion;
+        /// <summary>
+        /// 加密版本信息
+        /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
-        public string sEncryptVersion;	///< 加密版本信息
-        public SDK_SYSTEM_TIME tmBuildTime;///< 软件创建时间
+        public string sEncryptVersion;
+        /// <summary>
+        /// 软件创建时间
+        /// </summary>
+        public SDK_SYSTEM_TIME tmBuildTime;
+        /// <summary>
+        /// 设备序列号
+        /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
-        public string sSerialNumber;			///< 设备序列号
-        public int byChanNum;				///< 视频输入通道数
-        public int iVideoOutChannel;		///< 视频输出通道数
-        public int byAlarmInPortNum;		///< 报警输入通道数
-        public int byAlarmOutPortNum;		///< 报警输出通道数
-        public int iTalkInChannel;			///< 对讲输入通道数
-        public int iTalkOutChannel;		///< 对讲输出通道数
-        public int iExtraChannel;			///< 扩展通道数	
-        public int iAudioInChannel;		///< 音频输入通道数
-        public int iCombineSwitch;			///< 组合编码通道分割模式是否支持切换
-        public int iDigChannel;		///<数字通道数
-        public ushort uiDeviceRunTime;	///<系统运行时间
-        public SDK_DeviceType deviceTye;	///设备类型
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]                                    ///
-        public string sHardWare;		///<设备型号                                   ///
+        public string sSerialNumber;
+        /// <summary>
+        /// 视频输入通道数
+        /// </summary>
+        public int byChanNum;
+        /// <summary>
+        /// 视频输出通道数
+        /// </summary>
+        public int iVideoOutChannel;
+        /// <summary>
+        /// 报警输入通道数
+        /// </summary>
+        public int byAlarmInPortNum;
+        /// <summary>
+        /// 报警输出通道数
+        /// </summary>
+        public int byAlarmOutPortNum;
+        /// <summary>
+        /// 对讲输入通道数
+        /// </summary>
+        public int iTalkInChannel;
+        /// <summary>
+        /// 对讲输出通道数
+        /// </summary>
+        public int iTalkOutChannel;
+        /// <summary>
+        /// 扩展通道数
+        /// </summary>
+        public int iExtraChannel;
+        /// <summary>
+        /// 音频输入通道数
+        /// </summary>
+        public int iAudioInChannel;
+        /// <summary>
+        /// 组合编码通道分割模式是否支持切换
+        /// </summary>
+        public int iCombineSwitch;
+        /// <summary>
+        /// 数字通道数
+        /// </summary>
+        public int iDigChannel;
+        /// <summary>
+        /// 系统运行时间
+        /// </summary>
+        public uint uiDeviceRunTime;
+        /// <summary>
+        /// 设备类型
+        /// </summary>
+        public SDK_DeviceType deviceTye;
+
+        /// <summary>
+        /// 设备型号
+        /// </summary>
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
+        public string sHardWare;
+        /// <summary>
+        /// 更新日期 例如 2013-09-03 14:15:13
+        /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 20)]
-        public string uUpdataTime;	///<更新日期 例如 2013-09-03 14:15:13
-	    public int uUpdataType;	///<更新内容
-	    public int nLanguage;//国家的语言ID,0英语 1中文 2中文繁体 3韩语 4德语 5葡萄牙语 6俄语
+        public string uUpdataTime;
+        /// <summary>
+        /// 更新内容
+        /// </summary>
+	    public uint uUpdataType;
+        /// <summary>
+        /// 设备型号(底层库从加密里获得，sHardWare针对多个设备用同一个程序这种情况区分不了) 
+        /// </summary>
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 16)]
+        public string sDeviceModel;
+        /// <summary>
+        /// 国家的语言ID,0英语 1中文 2中文繁体 3韩语 4德语 5葡萄牙语 6俄语
+        /// </summary>
+        public int nLanguage;
+        /// <summary>
+        /// 云登陆具体错误内容
+        /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 260)]
-        public string sCloudErrCode;//云登陆具体错误内容
+        public string sCloudErrCode;
+        /// <summary>
+        /// 判断新过来的连接是不是通过代理转发的，如果是那么按照服务器3
+        /// 返回的限制条件来限制。
+        /// status[0] 路数限制:0代表不限制， n代表限制n路
+        /// status[1]码流限制。0 :不限制。1限制不能观看主码流。
+        /// status[2]限制时间。0:不限制。n:限制n分钟。
+        /// status[3]限制码率，目前分为四档。0:不限制。1:限制为CIF 6帧 100K ，后续待定
+        /// status[4]保留位，后续扩充。
+        /// 其中status[0]和status[1]在此处体现。
+        /// status[2]和status[3]在传输码流的过程中体现
+        /// </summary>
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public int[] status;
     }
     public struct H264_DVR_CLIENTINFO
     {
-        public int nChannel;	//通道号
-        public int nStream;	//0表示主码流，为1表示子码流
-        public int nMode;		//0：TCP方式,1：UDP方式,2：多播方式,3 - RTP方式，4-音视频分开(TCP)
+        /// <summary>
+        /// 通道号
+        /// </summary>
+        public int nChannel;    
+        /// <summary>
+        /// 0表示主码流，为1表示子码流
+        /// </summary>
+        public int nStream;	
+        /// <summary>
+        /// 0：TCP方式,1：UDP方式,2：多播方式,3 - RTP方式，4-音视频分开(TCP)
+        /// </summary>
+        public int nMode;
         public int nComType;	//只对组合编码通道有效, 组合编码通道的拼图模式
         public IntPtr hWnd;
     }
@@ -857,6 +949,7 @@ namespace VideoPlayControl
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         public SDK_NetDHCPConfig[] vNetDHCPConfig;
     };
+    
     public class SDK_XMSDK
     {
 
@@ -1026,7 +1119,45 @@ namespace VideoPlayControl
         public static extern bool H264_DVR_PTZControl(int lLoginID, int nChannelNo, int lPTZCommand, bool bStop, long lSpeed);
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
         public static extern bool H264_DVR_PTZControlEx(int lLoginID, int nChannelNo, int lPTZCommand, int lParam1, int lParam2, int lParam3, bool bStop);
+
+        [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
+        public static extern int H264_DVR_Check_Device_Exist_V2(out SDK_SDevicesState pStates, int nTimeout, OnFoundDevCB decCb, IntPtr userData);
+
+
+        #region 枚举
+        /// <summary>
+        /// 设备在线状态查询回调
+        /// </summary>
+        /// <param name="uuid"></param>
+        /// <param name="state"></param>
+        /// <param name="userData"></param>
+        /// <returns></returns>
+        public delegate int OnFoundDevCB(SDK_UUID uuid, int state, IntPtr userData);
+        #endregion
+
         #region 结构体 
+
+        public struct SDK_UUID
+        {
+
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
+            public string uuid;
+        }
+
+        public struct SDK_SDevicesState
+        {
+            /// <summary>
+            /// 设备数量
+            /// </summary>
+            public int nun;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+            public SDK_UUID[] uuid;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+            public int[] state;
+        }
+
+        #endregion
+        #region 枚举
         /// <summary>
         /// 云台操作类型
         /// </summary>
@@ -1179,10 +1310,7 @@ namespace VideoPlayControl
 
             EXTPTZ_TOTAL,
         };
-
-
         #endregion
-
 
         #region 自定义
 
@@ -1229,7 +1357,7 @@ namespace VideoPlayControl
                     t.IsBackground = true;
                     t.Start(strVIdeoNumber);
                 }
-                else
+                if (v.LoginState == 1)
                 {
                     bolResult = true;
                 }

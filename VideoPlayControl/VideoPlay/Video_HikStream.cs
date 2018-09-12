@@ -16,9 +16,7 @@ namespace VideoPlayControl.VideoPlay
         public Enum_VideoPlayState VideoPlayState { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int VideoplayWindowWidth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int VideoplayWindowHeight { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
-
+        
 
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public bool VideoPlayCallback(VideoPlayCallbackValue value)

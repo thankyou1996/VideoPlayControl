@@ -116,12 +116,16 @@ namespace VideoPlayControl
 
         #endregion
 
-        #region 设备登陆相关
+        #region 设备登陆相关  300~400
 
         /// <summary>
         /// 设备登陆
         /// </summary>
         LoginStart = 21,
+        /// <summary>
+        /// 登陆中
+        /// </summary>
+        LogonIn =302,
         /// <summary>
         /// 登陆成功
         /// </summary>

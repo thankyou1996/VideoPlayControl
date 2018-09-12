@@ -35,14 +35,14 @@ namespace VideoPlayControl.VideoPlay
         public Enum_VideoPlayState VideoPlayState { get; set; }
         public int VideoplayWindowWidth { get; set; }
         public int VideoplayWindowHeight { get; set; }
-        public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
-        private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType)
-        {
-            if (VideoPlayEventCallBackEvent != null)
-            {
-                VideoPlayEventCallBackEvent(this, eventType);
-            }
-        }
+        //public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
+        //private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType)
+        //{
+        //    if (VideoPlayEventCallBackEvent != null)
+        //    {
+        //        VideoPlayEventCallBackEvent(this, eventType);
+        //    }
+        //}
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public bool VideoPlayCallback(VideoPlayCallbackValue value)
         {
@@ -71,12 +71,12 @@ namespace VideoPlayControl.VideoPlay
                 if ((int)dvxSdkType.ReturnError.DVX_OK != _nRet)
                 {
                     //MessageBox.Show("停止录像不成功");
-                    VideoPlayEventCallBack(Enum_VideoPlayEventType.StopVideoRecordException);
+                    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.StopVideoRecordException });
                     bolResult = false;
                 }
                 else
                 {
-                    VideoPlayEventCallBack(Enum_VideoPlayEventType.StopVideoRecord);
+                    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.StopVideoRecord });
                 }
             }
             else
@@ -87,7 +87,7 @@ namespace VideoPlayControl.VideoPlay
                 SDK_BlueSDK.dvxDestory(DvxHandle);
                 DvxHandle = IntPtr.Zero;
                 m_ndevType = 0;
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
                 bolResult = true;
             }
 
@@ -114,7 +114,7 @@ namespace VideoPlayControl.VideoPlay
                 if (_nRet != (int)dvxSdkType.ReturnError.DVX_OK || DvxHandle == IntPtr.Zero)
                 {
                     //登录失败
-                    VideoPlayEventCallBack(Enum_VideoPlayEventType.UserAccessError);
+                    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.UserAccessError });
                     bolResult = false;
                 }
                 else
@@ -346,12 +346,12 @@ namespace VideoPlayControl.VideoPlay
             if ((int)dvxSdkType.ReturnError.DVX_OK != _nRet)
             {
                 //录像启动不成功
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecordException);
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.StartVideoRecordException });
                 bolResult = false;
             }
             else
             {
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecord);
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.StartVideoRecord });
                 bolResult = true;
             }
 
@@ -369,7 +369,7 @@ namespace VideoPlayControl.VideoPlay
             if (DvxHandle == IntPtr.Zero)
             {
                 //listBox1.Items.Insert(0, "当前无登录的DVR!");
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnFailed);
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.ConnFailed });
                 bolResult = false;
             }
             else
@@ -382,7 +382,7 @@ namespace VideoPlayControl.VideoPlay
                     if (nRet != 0)
                     {
                         //listBox1.Items.Insert(0, "停止现场流失败");
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+                        VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException });
 
                         bolResult = false;
                     }
@@ -392,8 +392,7 @@ namespace VideoPlayControl.VideoPlay
                         if (nRet != 0)
                         {
                             //listBox1.Items.Insert(0, "关闭现场流失败");
-                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
-
+                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException });
                             bolResult = false;
                         }
 
@@ -417,7 +416,7 @@ namespace VideoPlayControl.VideoPlay
                     if ((int)dvxSdkType.ReturnError.DVX_OK != SDK_BlueSDK.dvxLogin(DvxHandle, CurrentVideoInfo.UserName, CurrentVideoInfo.Password, 10000))
                     {
                         //MessageBox.Show("当前设备已断线，并且登录不上");
-                        VideoPlayEventCallBack(Enum_VideoPlayEventType.UserAccessError);
+                        VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.UserAccessError });
 
                         bolResult = false;
                     }
@@ -450,7 +449,7 @@ namespace VideoPlayControl.VideoPlay
                         if ((0 == m_hRealOpenPara.channel) && 0x19 == _nRet)
                         {
                             //listBox1.Items.Insert(0, "零通道预览失败，请停止设备端本地回放后再试");
-                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException });
 
                             //return false;
                         }
@@ -458,7 +457,7 @@ namespace VideoPlayControl.VideoPlay
                         {
                             //return false;
                             //listBox1.Items.Insert(0, "启动现场流预览失败");
-                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException });
 
                         }
 
@@ -477,14 +476,14 @@ namespace VideoPlayControl.VideoPlay
                         if ((int)dvxSdkType.ReturnError.DVX_OK != _nRet)
                         {
                             //listBox1.Items.Insert(0, "开始现场流预览失败");
-                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException });
 
                             StateReset();
                             bolResult = false;
                         }
                         else
                         {
-                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
                             VideoPlayState = Enum_VideoPlayState.InPlayState;
                             if (CurrentVideoPlaySet.VideoRecordEnable)
                             {

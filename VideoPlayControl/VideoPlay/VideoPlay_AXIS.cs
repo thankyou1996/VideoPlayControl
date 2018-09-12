@@ -24,7 +24,7 @@ namespace VideoPlayControl.VideoPlay
         public int VideoplayWindowWidth { get ; set; }
         public int VideoplayWindowHeight { get; set; }
 
-        public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
+        //public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
 
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public bool VideoPlayCallback(VideoPlayCallbackValue value)

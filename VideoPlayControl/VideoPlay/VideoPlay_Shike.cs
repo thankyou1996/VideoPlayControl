@@ -16,8 +16,7 @@ namespace VideoPlayControl.VideoPlay
         public Enum_VideoPlayState VideoPlayState { get ; set ; }
         public int VideoplayWindowWidth { get; set ; }
         public int VideoplayWindowHeight { get; set ; }
-
-        public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
+        
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public bool VideoPlayCallback(VideoPlayCallbackValue value)
         {

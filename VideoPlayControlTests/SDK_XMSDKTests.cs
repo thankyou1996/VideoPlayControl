@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using PublicClassCurrency;
+using System.Runtime.InteropServices;
 
 namespace VideoPlayControl.Tests
 {
@@ -87,6 +89,43 @@ namespace VideoPlayControl.Tests
             SDK_XMSDK.H264_DVR_Logout(Convert.ToInt32(intResult));
             SDKState.XMSDK_Release();
             Assert.IsTrue(bolResult);
+        }
+
+        [TestMethod()]
+        public void H264_DVR_Check_Device_Exist_V2Test()
+        {
+            int iLogin = -1;
+            int intResult = 0;
+            bool bolResult = false;
+            SDKState.XMSDK_Init();
+            H264_DVR_DEVICEINFO OutDev;
+            int nError = 0;
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource2();
+            SDK_XMSDK.SDK_SDevicesState state = new SDK_XMSDK.SDK_SDevicesState();
+            //state.nun = 32;
+            //state.uuid = new SDK_XMSDK.SDK_UUID[32];
+            //state.uuid[0].uuid = v.DVSAddress;
+            IntPtr iUserData = Marshal.StringToHGlobalAnsi("hongdongcheng");
+            int intResut= SDK_XMSDK.H264_DVR_Check_Device_Exist_V2(out state, 3, new SDK_XMSDK.OnFoundDevCB(OnFoundDevCB) , iUserData);
+            int error = SDK_XMSDK.H264_DVR_GetLastError();
+            iLogin = SDK_XMSDK.H264_DVR_Login_Cloud(v.DVSAddress, 34567, v.UserName, v.Password, out OutDev, out nError, "");
+
+            //H264_DVR_CLIENTINFO playstru = new H264_DVR_CLIENTINFO();
+            //playstru.nChannel = 0;
+            //playstru.nStream = 0;
+            //playstru.nMode = 1;
+            //playstru.hWnd = IntPtr.Zero;
+            //int m_iPlayhandle = SDK_XMSDK.H264_DVR_RealPlay(Convert.ToInt32(iLogin), ref playstru);
+            bolResult = SDK_XMSDK.H264_DVR_PTZControlEx(iLogin, 0, Convert.ToInt32(SDK_XMSDK.PTZ_ControlType.EXTPTZ_POINT_MOVE_CONTROL), 1, 0, 0, false);
+            SDK_XMSDK.H264_DVR_Logout(Convert.ToInt32(intResult));
+            SDKState.XMSDK_Release();
+            Assert.IsTrue(bolResult);
+        }
+
+        public int OnFoundDevCB(SDK_XMSDK.SDK_UUID uuid, int state, IntPtr userData)
+        {
+            string x = "1";
+            return 1;
         }
     }
 }

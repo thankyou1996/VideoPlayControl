@@ -70,14 +70,6 @@ namespace VideoPlayControl.VideoPlay
         public Enum_VideoPlayState VideoPlayState { get; set; }
         public int VideoplayWindowWidth { get; set; }
         public int VideoplayWindowHeight { get; set; }
-        public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
-        private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType)
-        {
-            if (VideoPlayEventCallBackEvent != null)
-            {
-                VideoPlayEventCallBackEvent(this, eventType);
-            }
-        }
 
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public bool VideoPlayCallback(VideoPlayCallbackValue value)
@@ -128,7 +120,7 @@ namespace VideoPlayControl.VideoPlay
             bool bolResule = false;
             currentVideoInfo.VideoLoginStateChangeEvent += VideoLoginStateChanged;//注册事件
             VideoPlayState = Enum_VideoPlayState.Connecting;//状态置为连接中
-            VideoPlayEventCallBack(Enum_VideoPlayEventType.LoginStart); //开始登陆
+            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.LoginStart });//开始登陆
             //如果当前未登录，通过登陆状态改变回调触发实时播放
             //如果已经登陆，直接获取登陆句柄进行实时预览
             string Temp_strKey = GetDevListKey(CurrentVideoInfo);
@@ -155,13 +147,13 @@ namespace VideoPlayControl.VideoPlay
             int Temp_intCount = 0;
             while (bolRequestRealVideoFlag)
             {
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.RequestConn);
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.RequestConn });
                 m_iPlayhandle = SDK_XMSDK.H264_DVR_RealPlay(Convert.ToInt32(lLogin), ref playstru);
                 if (m_iPlayhandle > 0)
                 {
                     CurrentVideoInfo.NetworkState = 1;//在线
                     VideoPlayState = Enum_VideoPlayState.InPlayState;
-                    VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay); //开始播放
+                    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });//开始播放
                     bolRequestRealVideoFlag = false;
                     if (CurrentVideoPlaySet.VideoRecordEnable)
                     {
@@ -177,10 +169,10 @@ namespace VideoPlayControl.VideoPlay
                     switch (intResult)
                     {
                         case (int)SDK_RET_CODE.H264_DVR_NATCONNET_REACHED_MAX:
-                            VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnNumMax); //达到最大连接数量
+                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.ConnNumMax });//达到最大连接数量
                             break;
                         default:
-                            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException); //视频播放异常
+                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException });//视频播放异常
                             break;
                     }
                     Thread.Sleep(1000);
@@ -197,7 +189,7 @@ namespace VideoPlayControl.VideoPlay
         {
             if (CurrentVideoInfo.LoginState == 1)
             {
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.LoginSuccess); //登陆成功
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.LoginSuccess });//登陆成功
                 //表示连接成功
                 lLogin = CurrentVideoInfo.LoginHandle;
                 VideoRealPlay();
@@ -205,12 +197,12 @@ namespace VideoPlayControl.VideoPlay
             else if (CurrentVideoInfo.LoginState == 2)
             {
                 //登陆中
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.LoginStart); //登陆中
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.LogonIn });//登陆中
             }
             else if (CurrentVideoInfo.LoginState == -1)
             {
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.DevLoginException);
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DevLoginException });//登陆异常
                 //TODO 登陆异常  后期完善获取错误码进行信息设置
             }
         }

@@ -7,13 +7,6 @@ using VideoPlayControl.VideoBasicClass;
 namespace VideoPlayControl
 {
     /// <summary>
-    /// 视频播放事件回调
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="eventType"></param>
-    public delegate void VideoPlayEventCallBackDelegate(object sender, Enum_VideoPlayEventType eventType);
-
-    /// <summary>
     /// 视频播放事件回调V_2.0
     /// </summary>
     /// <param name="sender"></param>

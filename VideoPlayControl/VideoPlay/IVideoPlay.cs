@@ -70,8 +70,8 @@ namespace VideoPlayControl.VideoPlay
             get;
             set;
         }
-        event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
-        
+        //event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
+
         /// <summary>
         /// 视频播放事件
         /// </summary>

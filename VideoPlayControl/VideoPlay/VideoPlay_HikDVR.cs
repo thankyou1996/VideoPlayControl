@@ -25,15 +25,7 @@ namespace VideoPlayControl.VideoPlay
         public Enum_VideoPlayState VideoPlayState { get ; set ; }
         public int VideoplayWindowWidth { get; set; }
         public int VideoplayWindowHeight { get; set; }
-        public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
         #endregion
-        private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType)
-        {
-            if (VideoPlayEventCallBackEvent != null)
-            {
-                VideoPlayEventCallBackEvent(this, eventType);
-            }
-        }
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public bool VideoPlayCallback(VideoPlayCallbackValue value)
         {
@@ -104,7 +96,7 @@ namespace VideoPlayControl.VideoPlay
                 //NET_DVR_OpenSound(intRet);//140609
                 if (intRet != -1)
                 {
-                    VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlay);
+                    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
                     VideoPlayState = Enum_VideoPlayState.InPlayState;
                     if (CurrentVideoPlaySet.VideoRecordEnable)
                     {
@@ -113,12 +105,12 @@ namespace VideoPlayControl.VideoPlay
                 }
                 else
                 {
-                    VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoPlayException);
+                    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException });
                 }
             }
             else
             {
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.DevLoginException);
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DevLoginException });
                 //登陆失败
                 bolResult = false;
             }
@@ -218,12 +210,12 @@ namespace VideoPlayControl.VideoPlay
             }
             if (NET_DVR_SaveRealData(intRet, strRecFilePath))
             {
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecord);
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.StartVideoRecord });
                 bolResult = true;
             }
             else
             {
-                VideoPlayEventCallBack(Enum_VideoPlayEventType.StartVideoRecordException);
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.StartVideoRecordException });
                 bolResult = false;
             }
             return bolResult;
@@ -234,7 +226,7 @@ namespace VideoPlayControl.VideoPlay
         {
             NET_DVR_StopRealPlay(intRet);
             NET_DVR_Logout(_intDVRHwd);
-            VideoPlayEventCallBack(Enum_VideoPlayEventType.VideoClose);
+            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
             VideoPlayState = Enum_VideoPlayState.NotInPlayState;
             return true;
         }
