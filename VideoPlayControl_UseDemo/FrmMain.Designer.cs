@@ -84,6 +84,7 @@
             this.pnlRight = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pageVideoInfo = new System.Windows.Forms.TabPage();
+            this.btnLoopTest = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.txtVideoRecord = new System.Windows.Forms.TextBox();
             this.pnlVideoInfo_Right = new System.Windows.Forms.Panel();
@@ -135,7 +136,6 @@
             this.tsslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.btnLoopTest = new System.Windows.Forms.Button();
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
@@ -767,6 +767,16 @@
             this.pageVideoInfo.Text = "视频设备信息";
             this.pageVideoInfo.UseVisualStyleBackColor = true;
             // 
+            // btnLoopTest
+            // 
+            this.btnLoopTest.Location = new System.Drawing.Point(7, 302);
+            this.btnLoopTest.Name = "btnLoopTest";
+            this.btnLoopTest.Size = new System.Drawing.Size(132, 23);
+            this.btnLoopTest.TabIndex = 37;
+            this.btnLoopTest.Text = "当前通道循环测试";
+            this.btnLoopTest.UseVisualStyleBackColor = true;
+            this.btnLoopTest.Click += new System.EventHandler(this.btnLoopTest_Click);
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -1269,16 +1279,6 @@
             // 
             this.timer2.Interval = 3000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // btnLoopTest
-            // 
-            this.btnLoopTest.Location = new System.Drawing.Point(7, 302);
-            this.btnLoopTest.Name = "btnLoopTest";
-            this.btnLoopTest.Size = new System.Drawing.Size(132, 23);
-            this.btnLoopTest.TabIndex = 37;
-            this.btnLoopTest.Text = "当前通道循环测试";
-            this.btnLoopTest.UseVisualStyleBackColor = true;
-            this.btnLoopTest.Click += new System.EventHandler(this.btnLoopTest_Click);
             // 
             // timCurrentChannelLoop
             // 

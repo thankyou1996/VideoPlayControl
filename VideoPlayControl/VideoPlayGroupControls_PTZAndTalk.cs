@@ -353,6 +353,9 @@ namespace VideoPlayControl
                         sbDisplayInfo.Append("停止视频录像异常");
                         break;
                     case Enum_VideoPlayEventType.LoginStart:
+                        sbDisplayInfo.Append("设备开始登陆");
+                        break;
+                    case Enum_VideoPlayEventType.LogonIn:
                         sbDisplayInfo.Append("设备登陆中");
                         break;
                     case Enum_VideoPlayEventType.LoginSuccess:
@@ -365,11 +368,10 @@ namespace VideoPlayControl
                         sbDisplayInfo.Append("无设备权限");
                         break;
                     default:
-                        sbDisplayInfo.Append("未知状态" + eventValue.evType.ToString());
+                        sbDisplayInfo.Append("未知状态:" + eventValue.evType.ToString());
                         break;
                 }
-                sbDisplayInfo.Append("[" + videoPlayWindow.intConnCount + "]");
-                
+                sbDisplayInfo.Append("[" + videoPlayWindow.intConnCount + "]" + eventValue.EventContent);
                 DisplayRecord(sbDisplayInfo.ToString());
             }
             return bolResult;

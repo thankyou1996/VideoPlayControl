@@ -57,6 +57,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
             SDKState.XMSDK_Init();
+            SDK_XMSDK.LoginAbnormalResetEnviron = true;
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
 

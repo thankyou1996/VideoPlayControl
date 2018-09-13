@@ -1121,7 +1121,7 @@ namespace VideoPlayControl
         public static extern bool H264_DVR_PTZControlEx(int lLoginID, int nChannelNo, int lPTZCommand, int lParam1, int lParam2, int lParam3, bool bStop);
 
         [DllImport(ProgConstants.c_strXMVideoSDKFilePath)]
-        public static extern int H264_DVR_Check_Device_Exist_V2(out SDK_SDevicesState pStates, int nTimeout, OnFoundDevCB decCb, IntPtr userData);
+        public static extern int H264_DVR_Check_Device_Exist_V2(ref IntPtr pStates, int nTimeout, OnFoundDevCB decCb, IntPtr userData);
 
 
         #region 枚举
@@ -1132,6 +1132,7 @@ namespace VideoPlayControl
         /// <param name="state"></param>
         /// <param name="userData"></param>
         /// <returns></returns>
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int OnFoundDevCB(SDK_UUID uuid, int state, IntPtr userData);
         #endregion
 
@@ -1314,6 +1315,24 @@ namespace VideoPlayControl
 
         #region 自定义
 
+
+        #region 公用变量
+        #region 登陆异常重置登陆环境
+
+        /// <summary>
+        /// 登陆异常重置登陆环境
+        /// </summary>
+        public static bool LoginAbnormalResetEnviron = false;
+        /// <summary>
+        /// 登陆异常重置登陆环境 参数
+        /// </summary>
+        public static int LoginAbnormalResetEnvironPara = 3;
+
+        #endregion
+
+        #endregion
+
+
         #region 公用常量
         /// <summary>
         /// 重复登陆次数
@@ -1389,16 +1408,27 @@ namespace VideoPlayControl
                     //默认直连
                     lLogin = SDK_XMSDK.H264_DVR_Login(v.DVSAddress, Convert.ToUInt16(v.DVSConnectPort), v.UserName, v.Password, out OutDev, out nError, SocketStyle.TCPSOCKET);
                 }
-                if (lLogin > 0)
+                if (lLogin > 0) //登陆成功
                 {
                     v.LoginHandle = lLogin;
+                    v.LoginPrompt = "登陆成功";
                     v.LoginState = 1;
                 }
-                else
+                else //登陆失败
                 {
                     int intResult = SDK_XMSDK.H264_DVR_GetLastError();
+                    v.LoginPrompt = "登陆失败:code:" + intResult + "(" + OutDev.sCloudErrCode + ")";
                     v.LoginState = -1;
-                    Thread.Sleep(2000);
+                    Thread.Sleep(6000);
+                }
+                if (lLogin <= 0         //登陆失败 
+                    && LoginAbnormalResetEnviron  //启动登陆失败后重置环境 
+                    && LoginAbnormalResetEnvironPara == intLoginCount)    //登陆计数等于设置的重置参数
+                {
+                    //重置视频环境
+                    SDKState.XMSDK_Release(); 
+                    Thread.Sleep(10000);
+                    SDKState.XMSDK_Init();
                 }
                 if (lLogin > 0 || intLoginCount > c_intReLoginNum)
                 {

@@ -90,7 +90,7 @@ namespace VideoPlayControl.Tests
             SDKState.XMSDK_Release();
             Assert.IsTrue(bolResult);
         }
-
+        GCHandle Ezviz_gchMsgBack;
         [TestMethod()]
         public void H264_DVR_Check_Device_Exist_V2Test()
         {
@@ -102,11 +102,22 @@ namespace VideoPlayControl.Tests
             int nError = 0;
             VideoInfo v = TestDataSource.TestDataSource.XMDataSource2();
             SDK_XMSDK.SDK_SDevicesState state = new SDK_XMSDK.SDK_SDevicesState();
-            //state.nun = 32;
-            //state.uuid = new SDK_XMSDK.SDK_UUID[32];
-            //state.uuid[0].uuid = v.DVSAddress;
+            state.nun = 2;
+            state.state = new int[32];
+            state.state[0] = 1;
+            state.state[1] = 1;
+            state.uuid = new SDK_XMSDK.SDK_UUID[32];
+            state.uuid[0].uuid = v.DVSAddress;
+            state.uuid[1].uuid = "4bba3f71cdd143cb";
             IntPtr iUserData = Marshal.StringToHGlobalAnsi("hongdongcheng");
-            int intResut= SDK_XMSDK.H264_DVR_Check_Device_Exist_V2(out state, 3, new SDK_XMSDK.OnFoundDevCB(OnFoundDevCB) , iUserData);
+            SDK_XMSDK.OnFoundDevCB callBack = new SDK_XMSDK.OnFoundDevCB(OnFoundDevCB);
+            Ezviz_gchMsgBack = GCHandle.Alloc(callBack);
+            IntPtr iData = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(SDK_XMSDK.SDK_SDevicesState)));
+            Marshal.StructureToPtr(state, iData, true);
+
+            int intResut= SDK_XMSDK.H264_DVR_Check_Device_Exist_V2(ref iData, 3, callBack, iUserData);
+            var result = Marshal.PtrToStructure(iData, typeof(SDK_XMSDK.SDK_SDevicesState));
+            SDK_XMSDK.SDK_SDevicesState A = (SDK_XMSDK.SDK_SDevicesState)result;
             int error = SDK_XMSDK.H264_DVR_GetLastError();
             iLogin = SDK_XMSDK.H264_DVR_Login_Cloud(v.DVSAddress, 34567, v.UserName, v.Password, out OutDev, out nError, "");
 

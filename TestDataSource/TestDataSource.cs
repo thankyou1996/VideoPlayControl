@@ -169,7 +169,9 @@ namespace TestDataSource
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.XMaiVideo;
-            v.DVSAddress = "a20f4a3d676e7726";
+            //v.DVSAddress = "a20f4a3d676e7726";
+            //v.DVSAddress = "8a8a431994cfdc0b";
+            v.DVSAddress = "e73856058ce4bae0";
             v.DVSChannelNum = 2;
             v.DVSConnectPort = 34567;
             v.DVSName = "雄迈";
@@ -177,7 +179,7 @@ namespace TestDataSource
             v.DVSType = "SK8605XM";
             v.HostID = "0008";
             v.UserName = "admin";
-            v.Password = "lidun110";
+            v.Password = "111111";
             v.NetworkState = 0;
             for (int i = 0; i < v.DVSChannelNum; i++)
             {

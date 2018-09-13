@@ -172,10 +172,10 @@ namespace VideoPlayControl.VideoPlay
                             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.ConnNumMax });//达到最大连接数量
                             break;
                         default:
-                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException });//视频播放异常
+                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException, EventContent = intResult.ToString() });//视频播放异常
                             break;
                     }
-                    Thread.Sleep(1000);
+                    Thread.Sleep(2000);
                 }
                 if (Temp_intCount > c_intMaxRealPlayNum || m_iPlayhandle > 0)
                 {
@@ -184,7 +184,7 @@ namespace VideoPlayControl.VideoPlay
                 Temp_intCount++;
             }
         }
-
+        
         public void VideoLoginStateChanged(object sender ,object VideoLoginStateChangedVideo)
         {
             if (CurrentVideoInfo.LoginState == 1)

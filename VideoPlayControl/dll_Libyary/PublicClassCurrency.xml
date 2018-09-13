@@ -570,6 +570,21 @@
             对讲通道信息
             </summary>
         </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoServerEnable">
+            <summary>
+            视频服务器是否启用
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoServerIP">
+            <summary>
+            视频服务器IP
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoServerPort">
+            <summary>
+            视频服务器端口
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.VideoInfo.bolIntercomEnable">
             <summary>
             对讲使能
@@ -612,12 +627,17 @@
         </member>
         <member name="F:PublicClassCurrency.VideoInfo.intLoginState">
             <summary>
-            设备登陆状态 -1表示登陆失败 0表示未登录  1表示已登陆
+            设备登陆状态 -1表示登陆失败 0表示未登录  1表示已登陆  2表示登陆中
             </summary>
         </member>
         <member name="P:PublicClassCurrency.VideoInfo.LoginState">
             <summary>
-            设备登陆状态 -1表示登陆失败 0表示未登录  1表示已登陆
+            设备登陆状态 -1表示登陆失败 0表示未登录  1表示已登陆  2表示登陆中
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.LoginPrompt">
+            <summary>
+            登陆提示
             </summary>
         </member>
         <member name="F:PublicClassCurrency.VideoInfo.intLoginHandle">
