@@ -7,13 +7,12 @@ namespace VideoPlayControl
     /// <summary>
     /// 程序公用参数
     /// </summary>
-    public class ProgConstants
+    public static class ProgConstants
     {
         #region SDK 文件路径
         /// <summary>
         /// 中维(云视通)SDK
         /// </summary>
-        //public const string c_strCloundSeeSDKFilePath = "\\dll_Libyary\\JCSDK\\JCSDK.dll";
         public const string c_strCloundSeeSDKFilePath = "\\JCSDK\\JCSDK.dll";
         /// <summary>
         /// 萤石云  SDK（旧版本）
@@ -23,13 +22,11 @@ namespace VideoPlayControl
         /// <summary>
         /// 萤石云SDK 
         /// </summary>
-        //public const string c_strEzvizSDKFilePath = "\\dll_Libyary\\Ezviz\\OpenNetStream.dll";
         public const string c_strEzvizSDKFilePath = "\\Ezviz\\OpenNetStream.dll";
         /// <summary>
         /// 华迈SDK 
         /// 只能存在在根目录下
         /// </summary>
-        //public const string c_strHuaMaiSDKFilePath = "\\dll_Libyary\\HuaMai\\hmsdk.dll";
         public const string c_strHuaMaiSDKFilePath = "\\hmsdk.dll";
 
         /// <summary>
@@ -78,14 +75,14 @@ namespace VideoPlayControl
         /// <summary>
         /// 云视通默认录像文件存放地址
         /// </summary>
-        public static string strCloundSee_RecDicPath = Environment.CurrentDirectory + "\\CloundSeeRecFile";
+        public static readonly string strCloundSee_RecDicPath = Environment.CurrentDirectory + "\\CloundSeeRecFile";
         #endregion
 
         #region IPCWA 深圳普顺达
         /// <summary>
         /// 普顺达默认录像文件存放地址
         /// </summary>
-        public static string strIPCWA_RecDicPath = Environment.CurrentDirectory + "\\IPCWARecFile";
+        public static readonly string strIPCWA_RecDicPath = Environment.CurrentDirectory + "\\IPCWARecFile";
         #endregion
 
         #region Ezviz 萤石云
@@ -101,20 +98,21 @@ namespace VideoPlayControl
 
         /// <summary>
         /// AppKey
+        /// 1acd8ddc451f48a4b8b4666716e8f9ce 洪栋城
         /// </summary>
         //public const string c_strEzviz_AppID_Default = "1acd8ddc451f48a4b8b4666716e8f9ce";
         public const string c_strEzviz_AppID_Default = "5b97c1d157474f96b8d4c75b936a0057";//少春
 
-        ///// <summary>
-        ///// AppSecret
-        ///// </summary>
-        //public const string c_strEzviz_AppSecret_Default = "518335cd3421f16a4b4e88164225c432";
+        /// <summary>
+        /// AppSecret
+        /// 518335cd3421f16a4b4e88164225c432 洪栋城
+        /// </summary>
         public const string c_strEzviz_AppSecret_Default = "4318d0cc4c43ca156052ba688bc9006a";  //少春
 
         /// <summary>
         /// 萤石云默认录像文件存放地址
         /// </summary>
-        public static string strEzviz_RecDicPath = Environment.CurrentDirectory + "\\EzvizRecFile";
+        public static readonly string strEzviz_RecDicPath = Environment.CurrentDirectory + "\\EzvizRecFile";
         #endregion
 
         #region HuaMai 华迈
@@ -149,15 +147,15 @@ namespace VideoPlayControl
         #endregion
 
         #region 海康
-        public static string strHikVideo_RecDicPath = Environment.CurrentDirectory + "\\HikVideoRecFile";
+        public readonly  static string strHikVideo_RecDicPath = Environment.CurrentDirectory + "\\HikVideoRecFile";
         #endregion
         #region XMVideo 雄迈
-        public static string strXMVideo_RecDicPath = Environment.CurrentDirectory + "\\XMVideoRecFile";
+        public readonly static string strXMVideo_RecDicPath = Environment.CurrentDirectory + "\\XMVideoRecFile";
 
         #endregion
 
         #region BlueSky 蓝色星际
-        public static string strBlueSkyVideo_RecDicPath = Environment.CurrentDirectory + "\\BlueSkyVideoRecFile";
+        public readonly static string strBlueSkyVideo_RecDicPath = Environment.CurrentDirectory + "\\BlueSkyVideoRecFile";
 
         #endregion
 

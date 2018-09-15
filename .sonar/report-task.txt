@@ -1,0 +1,6 @@
+projectKey=my:project
+serverUrl=http://39.106.144.215:9000
+serverVersion=6.4.0.25310
+dashboardUrl=http://39.106.144.215:9000/dashboard/index/my:project
+ceTaskId=AWXbGiBU-TLp9vSyVqx9
+ceTaskUrl=http://39.106.144.215:9000/api/ce/task?id=AWXbGiBU-TLp9vSyVqx9

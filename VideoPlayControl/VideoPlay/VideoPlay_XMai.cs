@@ -30,7 +30,7 @@ namespace VideoPlayControl.VideoPlay
             {
 
                 string Temp_strKey = GetDevListKey(value);
-                if (currentVideoInfo != null&& SDK_XMSDK.dicXMVideoList.ContainsKey(Temp_strKey))
+                if (currentVideoInfo != null && SDK_XMSDK.dicXMVideoList.ContainsKey(Temp_strKey))
                 {
                     //注销事件
                     SDK_XMSDK.dicXMVideoList[Temp_strKey].VideoLoginStateChangeEvent -= VideoLoginStateChanged;
@@ -136,7 +136,7 @@ namespace VideoPlayControl.VideoPlay
 
         private void VideoRealPlay()
         {
-            
+
             H264_DVR_CLIENTINFO playstru = new H264_DVR_CLIENTINFO();
             playstru.nChannel = CurrentCameraInfo.Channel;
             //playstru.nChannel = 0;
@@ -171,6 +171,17 @@ namespace VideoPlayControl.VideoPlay
                         case (int)SDK_RET_CODE.H264_DVR_NATCONNET_REACHED_MAX:
                             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.ConnNumMax });//达到最大连接数量
                             break;
+                        case (int)SDK_RET_CODE.H264_DVR_INVALID_HANDLE: //句柄错误
+                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException, EventContent = intResult.ToString()+"句柄错误" });//视频播放异常
+                            //退出,重新登陆
+                            //注意: 有可能是后台登陆成功后触发这个错误 重新调用登陆接口打开新线程进行登陆
+                            //将重连播放的标签置为Flase 结束前一个登陆线程
+                            int Temp_intResult = SDK_XMSDK.H264_DVR_Logout(lLogin);
+                            CurrentVideoInfo.LoginHandle = -1;
+                            CurrentVideoInfo.LoginState = 0;
+                            SDK_XMSDK.DeviceLogin(CurrentVideoInfo);
+                            bolRequestRealVideoFlag = false;
+                            break;
                         default:
                             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException, EventContent = intResult.ToString() });//视频播放异常
                             break;
@@ -184,8 +195,8 @@ namespace VideoPlayControl.VideoPlay
                 Temp_intCount++;
             }
         }
-        
-        public void VideoLoginStateChanged(object sender ,object VideoLoginStateChangedVideo)
+
+        public void VideoLoginStateChanged(object sender, object VideoLoginStateChangedVideo)
         {
             if (CurrentVideoInfo.LoginState == 1)
             {
@@ -202,12 +213,12 @@ namespace VideoPlayControl.VideoPlay
             else if (CurrentVideoInfo.LoginState == -1)
             {
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DevLoginException });//登陆异常
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DevLoginException, EventContent = currentVideoInfo.LoginPrompt });//登陆异常
                 //TODO 登陆异常  后期完善获取错误码进行信息设置
             }
         }
 
-        
+
         public bool VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
         {
             return false;

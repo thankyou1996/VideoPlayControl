@@ -1384,6 +1384,7 @@ namespace VideoPlayControl
             return bolResult;
         }
 
+
         public static void XMVideoLogin(object strVideoNumber)
         {
             VideoInfo v = dicXMVideoList[strVideoNumber.ToString()];
@@ -1427,6 +1428,79 @@ namespace VideoPlayControl
                 {
                     //重置视频环境
                     SDKState.XMSDK_Release(); 
+                    Thread.Sleep(10000);
+                    SDKState.XMSDK_Init();
+                }
+                if (lLogin > 0 || intLoginCount > c_intReLoginNum)
+                {
+                    flag = false;
+                }
+                intLoginCount++;
+            }
+        }
+
+        public static bool DeviceLogin(VideoInfo v)
+        {
+            bool bolResult = false;
+            if (dicXMVideoList.ContainsValue(v))
+            {
+                //不处于登陆完成 也不处于登陆中
+                if (v.LoginState != 1 && v.LoginState != 2)
+                {
+                    Thread t = new Thread(new ParameterizedThreadStart(XMVideoLogin1));
+                    t.IsBackground = true;
+                    t.Start(v);
+                }
+                if (v.LoginState == 1)
+                {
+                    bolResult = true;
+                }
+            }
+            return bolResult;
+        }
+        public static void XMVideoLogin1(object objV)
+        {
+            VideoInfo v = (VideoInfo)objV;
+            H264_DVR_DEVICEINFO OutDev = new H264_DVR_DEVICEINFO();
+            int nError = 0;
+            VideoPlaySetting vPlaySet = new VideoPlaySetting();
+            int lLogin = -1;
+
+            vPlaySet.ConnType = CommonMethod.Verification.isIP(v.DVSAddress) ? Enum.Enum_VideoConnType.Direct : Enum.Enum_VideoConnType.Clound;
+            bool flag = true;
+            int intLoginCount = 0;
+            while (flag)
+            {
+                v.LoginState = 2;
+                if (vPlaySet.ConnType == Enum.Enum_VideoConnType.Clound)
+                {
+                    //雄迈云
+                    lLogin = SDK_XMSDK.H264_DVR_Login_Cloud(v.DVSAddress, Convert.ToUInt16(v.DVSConnectPort), v.UserName, v.Password, out OutDev, out nError, "");
+                }
+                else
+                {
+                    //默认直连
+                    lLogin = SDK_XMSDK.H264_DVR_Login(v.DVSAddress, Convert.ToUInt16(v.DVSConnectPort), v.UserName, v.Password, out OutDev, out nError, SocketStyle.TCPSOCKET);
+                }
+                if (lLogin > 0) //登陆成功
+                {
+                    v.LoginHandle = lLogin;
+                    v.LoginPrompt = "登陆成功";
+                    v.LoginState = 1;
+                }
+                else //登陆失败
+                {
+                    int intResult = SDK_XMSDK.H264_DVR_GetLastError();
+                    v.LoginPrompt = "登陆失败:code:" + intResult + "(" + OutDev.sCloudErrCode + ")";
+                    v.LoginState = -1;
+                    Thread.Sleep(6000);
+                }
+                if (lLogin <= 0         //登陆失败 
+                    && LoginAbnormalResetEnviron  //启动登陆失败后重置环境 
+                    && LoginAbnormalResetEnvironPara == intLoginCount)    //登陆计数等于设置的重置参数
+                {
+                    //重置视频环境
+                    SDKState.XMSDK_Release();
                     Thread.Sleep(10000);
                     SDKState.XMSDK_Init();
                 }

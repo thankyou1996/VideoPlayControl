@@ -787,6 +787,34 @@ typedef enum _SDK_CONFIG_TYPE
 	E_SDK_ABILITY_AUDIO_ENCODE_TYPE,		//支持的音频编码格式的种类--SDK_AudioFormatType
 	E_SDK_CFG_NETCOMMONEX,					//双网口配置--SDK_NetCommonConfigEx
 	E_SDK_CFG_NET_MIDDAS,					//集群服务器DAS配置--SDK_DASMidSerInfo
+	E_SDK_OPERATION_NEW_UPGRADE_VERSION_DVR,//DVR在线升级IPC设备获取版本信息--H264_DVR_GetUpgradeVersionV2
+	E_SDK_OPERATION_NEW_UPGRADE_VERSION_DVR_LOCAL,	//DVR本地升级IPC设备获取版本信息--H264_DVR_GetUpgradeVersionV2
+	E_SDK_CFG_DIGITAL_HUMAN_ABILITY,		//获取人形检测能力集--SDK_HumanAbilityAll
+	E_SDK_CONFIG_MOTION_IPC,				//IPC移动侦测配置--SDK_MOTIONCONFIG_ALL
+	E_SDK_GET_INTELL_ABILITY,				//获取智能--SDK_AnalyzeAbilityV2
+	E_SDK_CFG_VIDEO_ANALYZE_PUB,			//SDK_PgsIntellInfo的type为0;智能分析使能与算法种类配置--SDK_AnalyzePub(设置对应的是获取到的通道）			
+	E_SDK_CFG_VIDEO_ANALYZE_PEA,			//SDK_PgsIntellInfo的type为1;智能分析PEA算法配置--SDK_tagPEA_RULE_S（设置对应的是获取到的通道）
+	E_SDK_CFG_VIDEO_ANALYZE_OSC,			//SDK_PgsIntellInfo的type为2;智能分析OSC算法配置--SDK_CONFIG_OSC_RULE（设置对应的是获取到的通道）
+	E_SDK_CFG_VIDEO_ANALYZE_AVD,			//SDK_PgsIntellInfo的type为3;智能分析AVD算法配置--SDK_AVD_RULE_S（设置对应的是获取到的通道）
+	E_SDK_CFG_VIDEO_ANALYZE_PUB_ALL,		//智能分析使能与算法种类配置--SDK_AnalyzePub（可以设置任意通道）
+	E_SDK_CFG_VIDEO_ANALYZE_PEA_ALL,		//智能分析PEA算法配置--SDK_tagPEA_RULE_S（可以设置任意通道）
+	E_SDK_CFG_VIDEO_ANALYZE_OSC_ALL,		//智能分析OSC算法配置--SDK_CONFIG_OSC_RULE（可以设置任意通道）
+	E_SDK_CFG_VIDEO_ANALYZE_AVD_ALL,		//智能分析AVD算法配置--SDK_AVD_RULE_S（可以设置任意通道）
+	E_SDK_CFG_ENCODE_SmartH264V2,			//智能264编码配置--SDK_SmartH264AllV2
+	E_SDK_ABILITY_ENCODE_264,				//h264编码--SDK_SmartH264Ability
+	E_SDK_CFG_ENCODE_H264ABILITY,			//智能264编码能力--SDK_SmartH264Ability
+	E_SDK_CFG_PARKING_LOT_DETECT_PARAM, 	//停车位检测参数--SDK_PgsDetectAll
+	E_SDK_GET_PgsTargetInfoAll,				//获取全部车位状态信息--SDK_PgsTargetInfoAll
+	E_SDK_CUSTOM_INFO,						//用户自定义数据--SDK_PgsCustomInfo
+	E_SDK_CFG_PGS_LEAD_SCREEN,				//车位检测网络控制器配置--SDK_PgsNccu
+	E_SDK_CFG_PGS_LIGHT_CTRL,				//车位引导系统指示灯控制配置--SDK_PgsLightCtrlAll
+	E_SDK_GET_PGSACTIVATIONCODE,			//获取激活--SDK_PgsActivationCode
+	E_SDK_CFG_CHN_DA_MODE_STATE,			//数模切换功能模式配置--SDK_ChnDAModeState
+	E_SDK_ABILITY_CHN_DA_MODE,				//基础模式支持的自定义--SDK_CustomModeAbiltyAll
+	E_SDK_CFG_XMGW_INFO,					//杭州庄贤定制--SDK_xm_gw_info
+	E_SDK_CFG_XMGW_FLOOR_INFO,    			// 杭州庄贤定制--SDK_xm_gw_floorinfo
+	E_SDK_CFG_LIMIT_LOGIN_USERS_NUM,		//最大限制登录用户数--SDK_LimitLoginUsersNum
+	E_SDK_OPERATION_NET_COAXIAL_CTRL,		//ie端同轴控制--SDK_CoaxialCtrlInfo
 }SDK_CONFIG_TYPE;
 
 /// 报警事件码
@@ -1988,6 +2016,9 @@ enum SDK_EncodeFunctionTypes
     SDK_ENCODE_FUNCTION_TYPE_LOW_BITRATE,   	///< 低码流
 	SDK_ENCODE_FUNCTION_TYPE_SmartH264,			///< H264+
 	SDK_ENCODE_FUNCTION_TYPE_INTELLIGENT_ENCODE,///< 智能编码
+	SDK_ENCODE_FUNCTION_TYPE_SmartH264Plus,		///< H264++
+	SDK_ENCODE_FUNCTION_TYPE_SMARTH264V2,		//新的H264+/H264++
+	SDK_ENCODE_FUNCTION_TYPE_CUSTOM_CHN_DA_MODE,///< 自定义数模切换功能
     SDK_ENCODE_FUNCTION_TYPE_NR,
 };
 
@@ -2017,6 +2048,8 @@ enum SDK_AlarmFucntionTypes
 	SDK_ALARM_FUNCTION_TYPE_PIR_DETECT,			///< PIR 检测
 	SDK_ALARM_FUNCTION_TYPE_HUMAN_DETECTION,	//人形检测
 	SDK_ALARM_FUNCTION_TYPE_HUMAN_DETECTIONDVR,	//DVR人形检测
+	SDK_ALARM_FUNCTION_TYPE_NVR_HUMAN_DETECTION,//人形检测NVR
+	SDK_ALARM_FUNCTION_TYPE_NEWVIDEOANALYZEDIGIT,
     SDK_ALARM_FUNCTION_TYPE_NR
 };
 
@@ -2206,6 +2239,11 @@ enum SDK_OtherFunction
 	SDK_OTHER_SUPPORT_SET_RTC_TIME,			//支持RTC时间校正
 	SDK_OTHER_SUPPORT_AUDIO_FORMAT,			//支持音频编码
 	SDK_OTHER_SOFT_PHOTOSENSITIVE,			//软光敏功能
+	SDK_OTHER_SUPPORT_CLOUD_UPGRADE_IPC,	//支持NVR通过云端给IPC升级
+	SDK_OTHER_SUPPORT_FILE_UPGRADE_IPC,		//支持发送文件通过NVR给IPC升级
+	SDK_OTHER_SUPPORT_PARKING_GUIDE_SYSTEM, //支持车位引导功能
+	SDK_OTHER_SUPPORT_LIMIT_NET_LOGIN_USERS,  //限制网络登陆的用户数
+	SDK_OTHER_SUPPORT_COAXIAL_PARAM_CTRL,	  //同轴参数设置
 	SDK_OTHER_NR
 };
 
@@ -2568,7 +2606,7 @@ typedef struct SDK_OSC_RULE_S
     SDK_URP_OSC_RULE_PARA_S stNoParkingRulePara;   	/// 非法停车参数
 }SDK_OSC_RULE_S;
 
-
+/*===================AVD算法精简版====================*/
 typedef struct SDK_AVD_RULE_S
 {
     int iLevel;						    /// 灵敏度档位，1-5档，数值越大越灵敏越易报警
@@ -2582,6 +2620,80 @@ typedef struct SDK_AVD_RULE_S
     int iInterfereEnable;				///< 人为干扰检测使能
     int iPtzLoseCtlEnable;				///< PTZ失控检测使能
 }SDK_AVD_RULE_S;
+/*===================================================*/
+
+/*===================OSC算法精简版====================*/
+typedef struct SDK_URP_OSC_SPECL_REGIONS_S_V2
+{
+	int Valid; 													//是否有效
+	int PointNum;
+	URP_SDK_POINT_S astPoint[SDK_URP_MAX_TRIPWIRE_CNT];
+}SDK_URP_OSC_SPECL_REGIONS_S_V2;
+
+typedef struct SDK_URP_OSC_RULE_PARA_S_V2
+{
+	int TimeMin;												//时间约束
+	int SizeMin;												//最小尺寸
+	int SizeMax; 												//最大尺寸
+	SDK_URP_OSC_SPECL_REGIONS_S_V2 astSpclRgs[NET_MAX_OSC_NUM]; //要处理的区域个数
+}SDK_URP_OSC_RULE_PARA_S_V2;
+
+typedef struct SDK_CONFIG_OSC_RULE
+{
+	int iShowTrack;												//是否显示轨迹
+	int iLevel;													//警戒级别:低级(2), 中级(1), 高级(0)
+	int iAbandumEnable;		   									//物品遗留使能
+	SDK_URP_OSC_RULE_PARA_S_V2 stObjAbandumRulePara;			//物品遗留参数
+	int iStolenEnable;			  								//物品被盗使能
+	SDK_URP_OSC_RULE_PARA_S_V2 stObjStolenRulePara;				//物品被盗参数
+	int iNoParkingEnable;		 								//非法停车使能
+	SDK_URP_OSC_RULE_PARA_S_V2 stNoParkingRulePara;				//非法停车参数
+}SDK_CONFIG_OSC_RULE;
+/*===================================================*/
+
+/*===================PEA算法精简版====================*/
+typedef struct SDK_URP_TRIPWIRE_S_V2
+{
+	int     Valid;									//是否有效
+	int     IsDoubleDirection;						//表示该绊线是否为双向绊线（0：否；1：是）
+	URP_SDK_POINT_S StartPt;						//线段起点
+	URP_SDK_POINT_S EndPt;							//线段终点
+}SDK_URP_TRIPWIRE_S_V2;
+
+/** URP周界检测规则参数 */
+typedef struct SDK_URP_PERIMETER_RULE_PARA_S_V2
+{
+	int  Mode;													//周界模式
+	int  MinDist;												//最小像素距离
+	int  BoundaryPtNum;											//边界点数目
+	URP_SDK_POINT_S  BoundaryPts[SDK_URP_MAX_TRIPWIRE_CNT];		//边界点集合	
+}SDK_URP_PERIMETER_RULE_PARA_S_V2;
+
+/** URP单绊线规则参数*/
+typedef struct SDK_URP_TRIPWIRE_RULE_PARA_S_V2
+{
+	int  MinDist;				//最小像素距离
+	SDK_URP_TRIPWIRE_S_V2 Lines[SDK_URP_MAX_TRIPWIRE_CNT];		//8条单绊线
+}SDK_URP_TRIPWIRE_RULE_PARA_S_V2;
+
+typedef struct SDK_tagPEA_RULE_S
+{
+	int iShowTrack;												// 是否显示轨迹
+	int iLevel;						   							// 警戒级别:低级(2), 中级(1), 高级(0)
+	int iPerimeterEnable;										// 周界规则使能
+	SDK_URP_PERIMETER_RULE_PARA_S_V2	PerimeterRulePara;		// 周界检测
+	int iTripWireEnable;										// 单绊线规则使能
+	SDK_URP_TRIPWIRE_RULE_PARA_S_V2		TripwireRulePara;		// 单绊线检测
+}SDK_tagPEA_RULE_S;
+/*===================================================*/
+
+//==================智能分析中通用配置====================
+typedef struct SDK_AnalyzePub
+{
+	bool bEnable;			//智能分析是否使能
+	int moduleType;			//当前选择的算法模块
+}SDK_AnalyzePub;
+/*=======================================================*/
 
 /** 坐标点 */
 typedef struct SDK_URP_IMP_POINT_S
@@ -2740,6 +2852,19 @@ typedef struct SDK_ANALYZEABILITY
 	char uIntelBCT[NET_MAX_MSK_SIZE];	//智能BCT支持，位对应通道
 	UINT uAlgorithmBCT;					//BCT支持的算法类型
 }SDK_ANALYZEABILITY;
+
+//智能分析能力
+typedef struct SDK_AnalyzeAbilityV2
+{
+	unsigned int uIntelPEA; //智能PEA支持，位对应通道
+	unsigned int uAlgorithmPEA;//PEA支持的算法类型，例如拌线
+	unsigned int uIntelOSC; //智能OSC支持，位对应通道
+	unsigned int uAlgorithmOSC;//OSC支持的算法类型
+	unsigned int uIntelAVD; //智能AVD支持，位对应通道
+	unsigned int uAlgorithmAVD;//AVD支持的算法类型
+	unsigned int uIntelCPC; //人流量记数支持，位对应通道
+	unsigned int uAlgorithmCPC;//CPC支持的算法类型
+}SDK_AnalyzeAbilityV2;
 
 ///< 动态检测设置
 typedef struct SDK_MOTIONCONFIG
@@ -3064,6 +3189,7 @@ enum SDK_File_Type
     SDK_PIC_MANUAL,       //手动图片
     SDK_PIC_IDXIMG,		  //索引图片
 	SDK_PIC_KSIMG,		  //旷视图片
+	SDK_PIC_CARNO,		  //车牌识别
     SDK_TYPE_NUM
 };
 
@@ -5218,6 +5344,41 @@ typedef struct SDK_SmartH264ParamAll
 	 SDK_SmartH264Param SmartH264All[NET_MAX_CHANNUM];
 }SDK_SmartH264ParamAll;
 
+typedef struct SDK_SmartH264PlusParam
+{
+	int SmartH264Plus;
+}SDK_SmartH264PlusParam;
+
+typedef struct SDK_SmartH264PlusParamAll
+{
+	SDK_SmartH264PlusParam SmartH264PlusAll[NET_MAX_CHANNUM];
+}SDK_SmartH264PlusParamAll;
+
+typedef enum SDK_H264Choose
+{
+	SDK_SMARTH264,
+	SDK_SMARTH264Plus,
+}SDK_H264Choose;
+
+//h264++智能编码
+typedef struct SDK_SmartH264V2
+{
+	SDK_SmartH264Param Smart264V2[2];
+	SDK_SmartH264PlusParam Smart264PlusV2[2];
+}SDK_SmartH264V2;
+
+typedef struct SDK_SmartH264AllV2
+{
+	SDK_SmartH264V2 Smart264AllV2[NET_MAX_CHANNUM];
+}SDK_SmartH264AllV2;
+
+typedef struct SDK_SmartH264Ability
+{
+	unsigned int uIntel264[2];
+	unsigned int uIntel264Plus[2];
+}SDK_SmartH264Ability;
+
+
 typedef struct SDK_WifiInfo
 {
 	char ssid[32];			//无线SSID信息
@@ -5260,6 +5421,16 @@ struct SDK_SnapConfigAll
 {
 	SDK_SnapSchedule vSnapScheduleAll[NET_MAX_CHANNUM];
 };
+
+//通道数模状态
+struct  SDK_ChnDAModeState
+{
+	bool bUserCustomMode;		//是否使用自定义模式
+	int  ChnTotalNum;			//通道总路数
+	char  ChnMode[NET_MAX_MSK_SIZE/2]; //通道类型掩码，模拟通道类型为1，数字通道类型为0
+};
+
+
 // 缩略图
 struct SDK_BreviaryConfig
 {
@@ -5351,6 +5522,7 @@ typedef struct SDK_NetBreviaryPic
 {
 	int iChannel;  //通道号
 	int iNumJpg; //请求获取的图片数
+	char type[32];;	//文件类型
 	SDK_SYSTEM_TIME startTime;
 	SDK_SYSTEM_TIME endTime;
 }SDK_NetBreviaryPic;
@@ -5499,6 +5671,62 @@ enum SDK_INTEL_PUSH_IMG_TYPE
 	SDK_INTEL_PUSH_IMG_TYPE_NR			//表示两种图都要
 };
 
+/*======================车位上报信息========================*/
+
+//车位状态：
+//E_PGS_SPACE_STATE_FIXED_Y	  专有车位   占用
+//E_PGS_SPACE_STATE_FIXED_N   专有车位   未占用
+//E_PGS_SPACE_STATE_GENERAL_Y 普通车位   占用
+//E_PGS_SPACE_STATE_GENERAL_N 普通车位   未占用
+enum SDK_E_PGS_SPACE_STATE
+{
+	E_PGS_SPACE_STATE_FIXED_Y,
+	E_PGS_SPACE_STATE_FIXED_N,
+	E_PGS_SPACE_STATE_GENERAL_Y,
+	E_PGS_SPACE_STATE_GENERAL_N,
+	E_PGS_SPACE_STATE_ALL
+};
+
+//车位相关信息
+typedef struct SDK_PgsRect
+{
+	int iLftX;
+	int iTopY;
+	int iRgnWid;
+	int iRgnHgt;
+}SDK_PgsRect;
+
+typedef struct SDK_CarInfo
+{
+	int iState;				//车位状态:参考枚举 E_PGS_SPACE_STATE
+	char pPlateCode[32];	//车牌号码，尾部有字符串结束符"\0" ,字符编码格式为Utf8,有车时为车牌号，无车时为"无车",有车但未检测到车牌时"无牌车"
+	char pPlateColor[4];	//车牌颜色，黄蓝黑白等,"无"代表未知，字符串结束符"\0"，字符编码格式为Utf8
+	SDK_PgsRect rect;		//检测框的坐标信息
+}SDK_CarInfo;
+
+typedef struct SDK_PgsTargetInfo
+{
+	int iChannel;				//通道号
+	SDK_CarInfo carInfo[3];		//每个相机检测三个车位，以相机拍摄为当前视角，从左到右，对应关系为(carInfo[0]--左)、(carInfo[1]--中)、(carInfo[2]--右)
+}SDK_PgsTargetInfo;
+/*======================车位上报信息==========================*/
+
+/*======================车位全部信息==========================*/
+
+typedef struct SDK_PgsTargetInfoAll
+{
+	SDK_PgsTargetInfo info[16];
+}SDK_PgsTargetInfoAll;
+/*======================车位全部信息==========================*/
+
+/*======================用户自定义数据==========================*/
+typedef struct SDK_PgsCustomInfo
+{
+	int iChannel;		//通道号
+	char pData[20];		//自定义数据内容--设备限制最多只能传16个字节
+}SDK_PgsCustomInfo;
+/*======================用户自定义数据==========================*/
+
 //车牌区域
 typedef struct SDK_RECT_S
 {
@@ -5538,35 +5766,47 @@ typedef struct SDK_LPR_TARGET_INFO	//车牌识别
 
 typedef struct SDK_IA_COMM_RES_S
 {
-	char resultType; //识别类型类型  0:车牌  1:人脸识别  
-	char picSubType; //0:大图  1:小图
-	char picFormat;  //0:jpg  1:bmp   2:yuv
-	char tagNum;		//目标个数
-	unsigned int framID;	//帧ID
+	char resultType;			//识别类型类型  0:车牌  1:人脸识别  
+	char picSubType;			//0:大图  1:小图
+	char picFormat;				//0:jpg  1:bmp   2:yuv
+	char tagNum;				//目标个数
+	unsigned int framID;		//帧ID
+#ifdef Psg						//车位检测内容
+	char timestamp[5];			//时间戳，月日时分秒分别占一个字节
+	char resv[7];
+#else							//旷视定制内容
 	unsigned int tagsec;		//事件发生时的时间秒
 	unsigned int tagusec;		//事件发生时的时间微妙
 	char channel;				//通道号
 	char reserved[3];
+#endif
 }SDK_IA_COMM_RES_S;
 
-typedef struct SDK_IA_LPR_REC_S		//车牌识别
+typedef struct SDK_IA_LPR_REC_S			//车牌识别
 {
 	SDK_IA_COMM_RES_S comm;
 	int iCount;
-	void *pTargetInfo;  // LPR_TARGET_INFO
+	void *pTargetInfo;					// LPR_TARGET_INFO
 }SDK_IA_LPR_REC_S;
 
-typedef struct SDK_IA_FR_REC_S		//人脸检测
+typedef struct SDK_IA_FR_REC_S			//人脸检测
 {
 	SDK_IA_COMM_RES_S comm;
-	int index;			//当前图片的索引号
-	void *pTargetInfo;  // FR_TARGET_INFO
+	int index;							//当前图片的索引号
+	void *pTargetInfo;					// FR_TARGET_INFO
 }SDK_IA_FR_REC_S;
+
+typedef struct SDK_IA_Pgs_REC_S			//车位检测
+{
+	SDK_IA_COMM_RES_S comm;				//数据内容
+	void *pTargetInfo;					// 指向结构体SDK_PgsTargetInfo
+}SDK_IA_Pgs_REC_S;
 
 typedef enum SDK_PushData_IA_Type
 {
 	SDK_PUSHDATA_IA_PLATE,
 	SDK_PUSHDATA_IA_FACE,
+	SDK_PUSHDATA_IA_PSG,
 }SDK_PushData_IA_Type;
 
 typedef struct SDK_PushRetData
@@ -6185,16 +6425,40 @@ typedef struct SDK_CustomURLCfg
 	char ppincode[NAME_TOKEN_LEN];//PIN码
 }SDK_CustomURLCfg;
 
+enum SDK_MultiNet_Mode_Type
+{
+	MultiNet_Mode_SingleNetCard,		///< 单网卡模式
+	MultiNet_Mode_LoadBalancing,		///< 负载均衡模式
+	MultiNet_Mode_FaultTolerance,		///< 容错模式
+	MultiNet_Mode_NR,
+};
+
+enum SDK_MultiNet_Route_Type 
+{
+	MultiNet_Route_eth0,				///< 优先eth0 
+	MultiNet_Route_eth1,				///< 优先eth1 
+	MultiNet_Route_NR,
+};
+
+enum SDK_MultiNet_Ability_Type 
+{
+	MultiNet_Ability_Normal,			///< 即普通单网口设备，需要忽略结构体NetCommonConfigEx内的配置
+	MultiNet_Ability_Dual,				///< 真实双网口 example:eth0+eth1
+	MultiNet_Ability_VirtualDual,		///< 虚拟双网口 example:eth0+eth0:1
+	MultiNet_Ability_NR,
+};
+
 typedef struct SDK_NetCommonConfigEx
 {
-	CONFIG_IPAddress HostIP;		//主机IP
-	CONFIG_IPAddress Submask;		//子网掩码
-	CONFIG_IPAddress Gateway;		//网关IP
-	SDK_IPAddressV6	IPv6;			//IPv6
-	char sMac[NET_MAX_MAC_LEN];			//MAC地址
-	int BondMode;					//0:单网卡模式，即未启用bond 1:负载均衡模式 2:容错模式
-	bool bPriorityRoute;			//true:eth1路由优先
-	char Reserve[127];				//保留
+	CONFIG_IPAddress		HostIP;				///< 主机IP
+	CONFIG_IPAddress		Submask;			///< 子网掩码
+	CONFIG_IPAddress		Gateway;			///< 网关IP
+	SDK_IPAddressV6			IPv6;				///< IPv6
+	char					sMac[NET_MAX_MAC_LEN];	///< MAC地址
+	int						BondMode;			///< 网络模式，见枚举SDK_MultiNet_Mode_Type（设置之后需重启才生效）
+	int						PriorityRoute;		///< 优先路由，见枚举SDK_MultiNet_Route_Type
+	int						EthernetAbility;	///< 网络能力，见枚举SDK_MultiNet_Ability_Type(设置不保存)
+	char					Reserved[120];		///< 保留
 }SDK_NetCommonConfigEx;
 
 typedef struct SDK_hiIVE_RECT_S
@@ -6308,6 +6572,163 @@ typedef struct SDK_DASMidSerInfo
 	char serAddr[NET_NAME_PASSWORD_LEN];
 	char resv[4];
 }SDK_DASMidSerInfo;
+
+/// IE端和手机端发来的云升级通道号
+typedef struct SDK_CloudUpgradeChannel
+{
+	int iChannel;	//通道号
+}SDK_CloudUpgradeChannel;
+
+//人形检测能力配置
+typedef struct SDK_HumanAbility
+{
+	bool bHumanDection;				//人形检测能力
+	bool bSupportAlarmLinkLight;	//灯光提示能力
+	bool bSupportAlarmVoiceTips;	//语音提示能力
+}SDK_HumanAbility;
+
+typedef struct SDK_HumanAbilityAll
+{
+	SDK_HumanAbility vHumanAbilityAll[NET_MAX_CHANNUM];
+}SDK_HumanAbilityAll;
+
+typedef struct SDK_PgsIntellAbinfo
+{
+	int	iChannel;
+}SDK_PgsIntellAbinfo;
+
+typedef struct SDK_PgsIntellInfo
+{
+	int	iChannel;
+	int intellType;
+}SDK_PgsIntellInfo;
+
+//车位检测
+typedef struct SDK_PgsDetectParam
+{
+	int iDefaultL;//默认字母，比如"A" 
+	int iDefaultP;// 默认汉字，比如"浙" ,采用gb2312编码
+	int iPlateType;
+	SDK_PgsRect stPgsRect[MAX_PLATE_NUM];//待检测区域
+	int iMaxWidth;//最大车牌
+	int iMinWidth;//最小车牌
+	int iParkingLotNum;//待检测车位数
+}SDK_PgsDetectParam;
+
+typedef struct SDK_PgsDetect
+{
+	bool bEnable;
+	SDK_PgsDetectParam stPgsParam;
+	bool bErrorParkAlarm;//异常停车报警使能
+}SDK_PgsDetect;
+
+//停车位检测
+typedef struct SDK_PgsDetectAll
+{
+	SDK_PgsDetect vPgsDetect[64];
+}SDK_PgsDetectAll;
+
+//车位检测网络控制器(和引导屏udp通信)
+typedef struct SDK_PgsNccu
+{
+	int iUdpPort;	///< UDP侦听端口
+	int iUdpDestPort;//UDP目的端口
+}SDK_PgsNccu;
+
+enum SDK_E_PGS_SCENE
+{
+	SDK_E_PGS_PLANE_GARAGE,	//平面车库
+	SDK_E_PGS_STEREO_GARAGE,//立体车库
+};
+
+typedef struct SDK_PgsLightCtrl
+{
+	int iRegionNo;		//控制的区域编号
+	int iLightNum;		//控制的区域对应指示灯的个数
+}SDK_PgsLightCtrl;
+
+typedef struct SDK_PgsLightCtrlAll
+{
+	int iScene;		//应用场景: 参考枚举 E_PGS_SCENE
+	SDK_PgsLightCtrl vPgsLightCtrl[64];
+}SDK_PgsLightCtrlAll;
+
+typedef struct SDK_PgsActivationCode
+{
+	char pCode[24];//激活码
+}SDK_PgsActivationCode;
+
+typedef struct SDK_CustomModeAbilty
+{
+	char SplitMsk[NET_MAX_MSK_SIZE/2]; //每种模式对应的分割模式
+	int	DigitalChnMax;		//最大数字通道数
+	int	AnalogChnMax;		//最大模拟通道数
+	int	TotalChnMax;			//最大总通道数
+}SDK_CustomModeAbilty;
+
+typedef struct SDK_CustomModeAbiltyAll
+{
+	int nCustomMode;		//实际支持的模式
+	SDK_CustomModeAbilty CustomMode[MAX_HVR_CHNCAP_CHN];		//所有模式的汇总
+}SDK_CustomModeAbiltyAll;
+
+//杭州庄贤
+typedef struct SDK_xm_gw_info
+{
+	char osd_text_head[256];
+	int down_floor; // 0-9
+	int up_floor; //1-240
+	int begin_floor;
+	int osd_x; //the osd x 
+	int osd_y; //the osd y 
+	int baudrate; //485 波特率
+	bool isenable; //是否叠加字符
+	bool isrs485; //485 or io choose 
+}SDK_xm_gw_info;
+
+typedef struct SDK_xm_gw_flooritem
+{
+	int id;
+	bool isenable; // enable
+	char name[64]; 
+}SDK_xm_gw_flooritem;
+
+typedef struct SDK_xm_gw_floorinfo
+{
+	int count; // default 0 
+	SDK_xm_gw_flooritem xgw[256];
+}SDK_xm_gw_floorinfo;
+
+typedef enum 
+{
+	IO_A,
+	IO_B,
+}SDK_IO_NAME;
+
+typedef struct SDK_LimitLoginUsersNum
+{
+	int LimitLoginUsers;			//最大登录用户个数
+}SDK_LimitLoginUsersNum;
+
+enum SDK_NET_COAXIALCTRL_CMD
+{
+	SDK_NET_COAXIALCTRL_CMD_SET = 1,
+	SDK_NET_COAXIALCTRL_CMD_UP,
+	SDK_NET_COAXIALCTRL_CMD_DOWN,
+	SDK_NET_COAXIALCTRL_CMD_LEFT,
+	SDK_NET_COAXIALCTRL_CMD_RIGHT,
+	SDK_NET_COAXIALCTRL_CMD_INIT
+};
+
+//通过netip控制同轴
+typedef struct SDK_CoaxialCtrlInfo
+{
+	int iChannel;
+	int cmdType;		//命令类型，0:默认值，表示使用NET_COAXIALCTRL_CMD 命令，1:表示启用字符串命令
+	int cmd;
+	char strCmd[64];	//字符串命令，兼容 FvideoCoaxialV2 接口
+	int strCmdLen;
+}SDK_CoaxialCtrlInfo;
 
 // 数据上传通道回调函数原型
 typedef void (CALL_METHOD *fUploadDataCallBack) (long lLoginID, long UploadType, char *pBuffer, unsigned long dwBufSize, unsigned long dwUser);
@@ -6848,6 +7269,20 @@ H264_DVR_API int CALL_METHOD H264_DVR_GetDownloadPos(long lFileHandle);
 */
 H264_DVR_API long CALL_METHOD H264_DVR_Upgrade(long lLoginID, char *sFileName, int nType DEF_0_PARAM, fUpgradeCallBack cbUpgrade DEF_0_PARAM, long dwUser DEF_0_PARAM);
 
+/* 
+	描述:DVR本地升级前端
+	参数:
+		lLoginID[in]: 登陆句柄
+		sFileName[in]:升级文件路径
+		nchannel[in]: 升级的通道号
+		cbUpgrade[in]:升级进度回调
+		dwUser[in]:	  回调函数参数
+	返回值:
+		>0或<0: 成功
+		=0:		失败
+*/
+H264_DVR_API long CALL_METHOD H264_DVR_UpgradeV2(long lLoginID, char *sFileName, int nchannel, fUpgradeCallBack cbUpgrade DEF_0_PARAM, long dwUser DEF_0_PARAM);
+
 /*
 	描述:得到升级状态
 	参数:
@@ -6909,7 +7344,7 @@ H264_DVR_API bool CALL_METHOD H264_DVR_PTZControlEx(long lLoginID,int nChannelNo
 	描述:设备控制 
 	参数:
 		lLoginID[in]:登陆句柄
-		type[in]:	 控制类型,0 重启设备，1 清除日志 2 关机 3.恢复记录日志 4.停止记录日志
+		type[in]:	 控制类型,0 重启设备，1 清除日志 2 关机 3.恢复记录日志 4.停止记录日志 5.仅记录日志到内存，不保存flash
 		waittime[in]:等待时间
 	返回值:
 		true: 成功
@@ -7614,6 +8049,18 @@ H264_DVR_API long CALL_METHOD H264_DVR_Upgrade_Cloud(long lLoginID, SDK_CloudUpg
 */
 H264_DVR_API long CALL_METHOD H264_DVR_Upgrade_Cloud_V2(long lLoginID, SDK_CloudUpgradeStartReq *sUpgradeVer, int nType DEF_0_PARAM, fUpgradeCallBack cbUpgrade DEF_0_PARAM, long dwUser DEF_0_PARAM);
 /*
+	描述:NVR通过云端给IPC升级
+	参数:
+		lLoginID[in]:	登陆句柄
+		nchannel[in]:	需要升级的通道
+		cbUpgrade[out]:	升级进度返回
+	返回值:
+		=0:成功
+		<0:失败
+*/
+H264_DVR_API long CALL_METHOD H264_DVR_Upgrade_CloudEX(long lLoginID, int nchannel, fUpgradeCallBack cbUpgrade DEF_0_PARAM, long dwUser DEF_0_PARAM);
+
+/*
 	描述:停止云升级
 	参数:
 		lHandle[in]:云升级句柄
@@ -7832,6 +8279,25 @@ H264_DVR_API long CALL_METHOD H264_DVR_GetUpgradeVersion(long lLoginID,SDK_Cloud
 	
 														 char * lpOutBuffer,unsigned long dwOutBufferSize,unsigned long* lpBytesReturned,int waittime/*=500*/);
 
+/*
+	描述:通过NVR获取前端的设备信息
+	参数: 
+	lLoginID[int]:		 登录句柄
+	nchannel[in]:		 请求升级的通道号
+	ntype[in]:			 0-云升级版本信息;
+						 1-本地升级版本信息
+	lpOutBuffer[out]:    设备版本的信息:
+						 在线对应的结构体SDK_CloudUpgradeVersionRep;
+						 本地对应的结构体H264_DVR_DEVICEINFO
+	dwOutBufferSize[out]:设备版本信息的大小
+	lpBytesReturned[out]:接收到的大小
+	waittime：等待时间
+	返回值:
+	=0:成功
+	<0:失败
+	相关函数：H264_DVR_Upgrade_CloudEX
+*/
+H264_DVR_API long CALL_METHOD H264_DVR_GetUpgradeVersionV2(long lLoginID, int nchannel, int ntype, char * lpOutBuffer,unsigned long dwOutBufferSize,unsigned long* lpBytesReturned,int waittime/*=500*/);
 
 typedef int (*OnFoundDevCB)(char * uuid,int state,int userData);
 /*
@@ -7860,6 +8326,22 @@ H264_DVR_API bool CALL_METHOD H264_DVR_Set_UUid(char* uuid);
 		pBuffer:返回的图片数据
 */
 H264_DVR_API bool CALL_METHOD H264_DVR_GetNetPic(long lLoginID, SDK_NetBreviaryPic* pNetBreviaryPic, char* pBuffer, int nBufLen, int *pPicLen);
+
+/*
+		缩略图数据回调：
+		pBuffer[out]:			图片数据
+		nBuflen[out]:			图片大小
+		AllPicNumber[out]:		下载的图片数--请求的数量在查询范围内为请求数，请求数大于查询数为实际数
+*/
+typedef  void ( CALL_METHOD *pfGetSnapPicCallBack)(char* pBuffer, int nBufLen, int AllPicNumber, long dwUser);
+/*
+	描述：获取缩略图
+	参数：
+		lLoginID[int]:		登录句柄
+		pNetBreviaryPic:	请求获取的信息
+		snapBuffer:			回调图片数据
+*/
+H264_DVR_API bool CALL_METHOD H264_DVR_GetNetPicV2(long lLoginID, SDK_NetBreviaryPic* pNetBreviaryPic, pfGetSnapPicCallBack snapBuf, long dwUser DEF_0_PARAM);
 /* 
 	描述:亿嘉和Visca协议修改，设置和获取倍率焦距等
 	参数:
@@ -7963,7 +8445,69 @@ H264_DVR_API bool CALL_METHOD H264_DVR_SendToDevice(char* szBuf, int nBufLen, in
 */
 H264_DVR_API bool CALL_METHOD H264_DVR_EncryptPassword(char * outputPswBuf, char * inputPswBuf);
 
+/*
+	描述:得到配置的json格式
+	参数:
+		lLoginID[in]:	     登陆句柄
+		strName[in]:	     json名
+		MsgID[in]:			 消息ID--1042
+		nChannelNO[in]:		 通道号,-1:得到全通道配置,0-n:得到单个通道的配置,从0开始
+		lpOutBuffer[out]:	 接收json缓冲
+		dwOutBufferSize[in]: 接收缓冲大小
+		lpBytesReturned[out]:得到的缓冲大小(字节)
+		waittime[in]:		 等待时间
+	返回值:
+		=1:成功
+		<0:失败
+*/
+H264_DVR_API long CALL_METHOD H264_DVR_GetDevConfig_JsonV2(long lLoginID, const char* strName, int MsgID, int nChannelNO,char * lpOutBuffer,unsigned long dwOutBufferSize,unsigned long* lpBytesReturned,int waittime DEF_PARAM(1000));
 
+/*
+	描述:设置配置的json格式
+	参数:
+		lLoginID[in]:	     登陆句柄
+		strName[in]:	     json名
+		MsgID[in]:			 消息ID--1040
+		nChannelNO[in]:		 通道号,-1:得到全通道配置,0-n:得到单个通道的配置,从0开始
+		lpInBuffer[in]:		 设置的json字符串
+		lpInBufferlen[in]:	 设置的json字符串大小
+		waittime[in]:		 等待时间
+	返回值:
+		=1:成功
+		<0:失败
+*/
+H264_DVR_API long CALL_METHOD H264_DVR_SetDevConfig_JsonV2(long lLoginID, const char* strName, int MsgID, int nChannelNO, char * lpInBuffer, int lpInBufferlen, int waittime DEF_PARAM(1000));
+
+/*
+	描述:获取对应通道智能配置
+	参数: 
+	lLoginID[int]:				登录句柄
+	IntellInfo[int]	:			请求的通道智能信息
+	lpOutBuffer[out];			设备版本的信息
+	dwOutBufferSize[out]:		设备版本的大小
+	lpBytesReturned[out]:		接收到的大小
+	waittime：					等待时间
+	返回值:
+	=0:成功
+	<0:失败
+*/
+H264_DVR_API long CALL_METHOD H264_DVR_GetIntellInfo(long lLoginID, SDK_PgsIntellInfo* IntellInfo, 
+	
+														 char * lpOutBuffer,unsigned long dwOutBufferSize,unsigned long* lpBytesReturned,int waittime);
+
+/*
+	描述:获取指定通道的车位图片
+	参数:
+		lLoginID[in]: 登陆句柄
+		nChannel[in]: 通道号
+		pBuffer[out]: 接收缓冲
+		nBufLen[in]:  接收缓冲的大小
+		pPicLen[in]:  实际返回的大小
+	返回值:
+		true: 成功
+		false:失败
+*/
+H264_DVR_API bool CALL_METHOD H264_DVR_GetPsgImage(long lLoginID, int nChannel, char *pBuffer, int nBufLen, int *pPicLen);
 #ifdef _NAMESPACE_
 }
 #endif
