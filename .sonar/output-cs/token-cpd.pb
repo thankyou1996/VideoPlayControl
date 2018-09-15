@@ -1062,43 +1062,43 @@ uG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 $str 
 ) 
 ] 
-[ 
-assembly 	
-:	 
+[ 
+assembly 	
+:	 
 
 
-ComVisible 
-( 
-false 
-) 
-] 
-[ 
-assembly 	
-:	 
+ComVisible 
+( 
+false 
+) 
+] 
+[ 
+assembly 	
+:	 
 
-Guid 
-( 
-$str 6
-)6 7
-]7 8
-["" 
-assembly"" 	
-:""	 
-
-AssemblyVersion"" 
-("" 
-$str"" $
-)""$ %
-]""% &
+Guid 
+( 
+$str 6
+)6 7
+]7 8
 [## 
 assembly## 	
 :##	 
+
+AssemblyVersion## 
+(## 
+$str## $
+)##$ %
+]##% &
+[$$ 
+assembly$$ 	
+:$$	 
 
-AssemblyFileVersion## 
-(## 
-$str## (
-)##( )
-]##) *£"
+AssemblyFileVersion$$ 
+($$ 
+$str$$ (
+)$$( )
+]$$) *£"
 {G:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\Properties\Resources.Designer.cs
 	namespace 	
 VideoPlayControl

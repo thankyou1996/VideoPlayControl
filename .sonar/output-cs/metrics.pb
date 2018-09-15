@@ -1,5 +1,5 @@
-‚
-tG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\Enum\Enum_SDKEventType.cs(R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0j	 !"%&'r
+·
+tG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\Enum\Enum_SDKEventType.cs(R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0j	 !"%&'r
 #(*+Ÿ
 pG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\Enum\Enum_SDKState.cs(R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0j	 !"r
 #%&Í
@@ -17,8 +17,8 @@ kG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 #(-249DINU\ahnsz~Éàçíñôû™Ø¥∏πí
 kG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\ProgParameter.cs(0R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0j<	!"#&'(+,-567:;<?@ACDEHIJMNOVWX[\]`abefglmnpqrtuvr
 $).08=BFKPY^choswyz⁄
-uG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\Properties\AssemblyInfo.csR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0j !r	
-"#˛
+uG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\Properties\AssemblyInfo.csR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0j !"r	
+#$˛
 {G:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\Properties\Resources.Designer.cs 8@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=3;2=1;4=0;6=0;8=0;10=0;12=0j#$%1234r  !&'()*+,-./56789:;<=>?xœ
 iG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\PubDelegate.cs(R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0j	
 r !™

@@ -32,47 +32,47 @@ kG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S125Remove this commented out code.gg \à!
 kG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\ProgParameter.cs^
 S2223KChange the visibility of 'ProgLogAddress' or make it 'const' or 'readonly'. +b
-S2223OChange the visibility of 'strEzviz__PlatForm' or make it 'const' or 'readonly'.$$ /W
-S1104DMake this field 'private' and encapsulate it in a 'public' property. 0W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.$$ [h
-S2223UChange the visibility of 'strCloundSee_TempDicPath' or make it 'const' or 'readonly'. 5b
-S2223OChange the visibility of 'strEzviz_AppSecret' or make it 'const' or 'readonly'... /W
-S1104DMake this field 'private' and encapsulate it in a 'public' property. aW
-S1104DMake this field 'private' and encapsulate it in a 'public' property... \d
-S2223QChange the visibility of 'strEzviz_AccessToken' or make it 'const' or 'readonly'.00 1W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.00 vg
-S2223TChange the visibility of 'uintSKVideo_ControlPort' or make it 'const' or 'readonly'.88 4W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.88 <l
-S2223YChange the visibility of 'intCloundSee_intLocStartPort' or make it 'const' or 'readonly'. 6b
 S2223OChange the visibility of 'strEzviz__AuthAddr' or make it 'const' or 'readonly'. /W
-S1104DMake this field 'private' and encapsulate it in a 'public' property. eW
-S1104DMake this field 'private' and encapsulate it in a 'public' property. [e
-S2223RChange the visibility of 'uintSKVideo_VideoPort' or make it 'const' or 'readonly'.== 2_
-S2223LChange the visibility of 'strEzviz__AppID' or make it 'const' or 'readonly'.)) ,W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. 0W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. [l
+S2223YChange the visibility of 'intCloundSee_intLocStartPort' or make it 'const' or 'readonly'. 6d
+S2223QChange the visibility of 'strEzviz_AccessToken' or make it 'const' or 'readonly'.00 1W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.00 vb
+S2223OChange the visibility of 'strEzviz_AppSecret' or make it 'const' or 'readonly'... /h
+S2223UChange the visibility of 'strCloundSee_TempDicPath' or make it 'const' or 'readonly'. 5W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. eb
+S2223OChange the visibility of 'strEzviz__PlatForm' or make it 'const' or 'readonly'.$$ /W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. aW
+S1104DMake this field 'private' and encapsulate it in a 'public' property... \g
+S2223TChange the visibility of 'uintSKVideo_ControlPort' or make it 'const' or 'readonly'.88 4W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.$$ [W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.88 <e
+S2223RChange the visibility of 'uintSKVideo_VideoPort' or make it 'const' or 'readonly'.== 2W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.== :e
 S2223RChange the visibility of 'uintSKVideo_AudioPort' or make it 'const' or 'readonly'.BB 2W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.)) UW
 S1104DMake this field 'private' and encapsulate it in a 'public' property.BB :b
-S2223OChange the visibility of 'uintSKVideo_AVPort' or make it 'const' or 'readonly'.FF /c
-S2223PChange the visibility of 'strSKVideo_ServerIP' or make it 'const' or 'readonly'.KK 0W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.FF 7W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.KK Ae
+S2223OChange the visibility of 'uintSKVideo_AVPort' or make it 'const' or 'readonly'.FF /W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.FF 7c
+S2223PChange the visibility of 'strSKVideo_ServerIP' or make it 'const' or 'readonly'.KK 0e
 S2223RChange the visibility of 'strSKVideo_ClientUGID' or make it 'const' or 'readonly'.PP 2W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.KK AW
 S1104DMake this field 'private' and encapsulate it in a 'public' property.PP <l
-S2223YChange the visibility of 'strHuaMaiLoginInfo_LoginName' or make it 'const' or 'readonly'.YY 9k
+S2223YChange the visibility of 'strHuaMaiLoginInfo_LoginName' or make it 'const' or 'readonly'.YY 9W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.YY Fk
 S2223XChange the visibility of 'strHuaMaiLoginInfo_LoginPwd' or make it 'const' or 'readonly'.^^ 8W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.YY FW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.^^ Cc
-S2223PChange the visibility of 'strHikStreamVoiceIP' or make it 'const' or 'readonly'.oo 0^
-S2223KChange the visibility of 'HuaMai_iServer' or make it 'const' or 'readonly'.cc +W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.oo :\
+S1104DMake this field 'private' and encapsulate it in a 'public' property.^^ C_
+S2223LChange the visibility of 'strEzviz__AppID' or make it 'const' or 'readonly'.)) ,W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.)) U^
+S2223KChange the visibility of 'HuaMai_iServer' or make it 'const' or 'readonly'.cc +\
 S2223IChange the visibility of 'HuaMai_iTree' or make it 'const' or 'readonly'.hh )W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.cc 9k
 S2223XChange the visibility of 'intHikStreamVoiceServerPort' or make it 'const' or 'readonly'.ss 5W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.hh 7k
 S2223XChange the visibility of 'intHikStreamVoiceClientPort' or make it 'const' or 'readonly'.ww 5W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.ss <W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.ww <b
+S1104DMake this field 'private' and encapsulate it in a 'public' property.ww <c
+S2223PChange the visibility of 'strHikStreamVoiceIP' or make it 'const' or 'readonly'.oo 0W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.oo :b
 S1118OAdd a 'protected' constructor or the 'static' keyword to the class declaration.
 
  ‚
@@ -94,12 +94,15 @@ fG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S2223HChange the visibility of 's_BlueState' or make it 'const' or 'readonly'.
 úú$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úú$ Hf
-S101TRename class 'SDKState' to match camel case naming rules, consider using 'SdkState'.  U
+úú$ HU
 S1854@Remove this useless assignment to local variable 'Temp_iResult'.
 íí XU
 S1854@Remove this useless assignment to local variable 'Temp_iResult'.
-ëë ZD
+ëë ZW
+S1854BRemove this useless assignment to local variable 'Temp_intResult'.
+ˇˇ #W
+S1854BRemove this useless assignment to local variable 'Temp_intResult'.
+ÖÖ# MD
 S1172/Remove this unused method parameter 'pchDVRIP'.
 ˝˝A PD
 S1172/Remove this unused method parameter 'nDVRPort'.
@@ -107,23 +110,20 @@ fG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1172-Remove this unused method parameter 'dwUser'.
 ˝˝` mA
 S1481,Remove this unused 'iResult' local variable.
-”” W
-S1854BRemove this useless assignment to local variable 'Temp_intResult'.
-ˇˇ #W
-S1854BRemove this useless assignment to local variable 'Temp_intResult'.
-ÖÖ# Mo
+”” o
 S1450ZRemove the 'disCallback' field and declare it as a local variable in the relevant methods.
-ÊÊ- 8ÛN
+ÊÊ- 8f
+S101TRename class 'SDKState' to match camel case naming rules, consider using 'SdkState'.  ÛN
 iG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\SDK_BlueSDK.csd
 S1118OAdd a 'protected' constructor or the 'static' keyword to the class declaration.
 ÿÿ 3
 S125Remove this commented out code.
 ••$ R3
 S125Remove this commented out code.
-©©$ vm
+©©$ vW
+S1104DMake this field 'private' and encapsulate it in a 'public' property. m
 S101YRename class 'SDK_BlueSDK' to match camel case naming rules, consider using 'SdkBlueSdk'.
 ÿÿ W
-S1104DMake this field 'private' and encapsulate it in a 'public' property. W
 S1104DMake this field 'private' and encapsulate it in a 'public' property. W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.   !W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.&&  W
@@ -231,21 +231,19 @@ iG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡¡ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈≈ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…… (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕÕ (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+’’ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —— (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’’ $Y
+…… (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·· &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸŸ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›› -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·· &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÂÂ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -253,11 +251,9 @@ iG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÌÌ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÒÒ "Y
+˜˜ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ıı (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜˜ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÖÖ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -271,19 +267,17 @@ iG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ££  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©© Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÆÆ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+©© Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞∞ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ºº !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬¬ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŒŒ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”” !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÒÒ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿÿ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -297,23 +291,29 @@ iG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÓÓ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≈≈ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚÚ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆˆ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ŒŒ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜˜ u
 S101aRename struct 'IPCPreViewPara' to match camel case naming rules, consider using 'IpcPreViewPara'.
 „„ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑÑ Y
+òò Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ââ  Y
+ÑÑ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 éé  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìì Y
+ââ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òò j
+¬¬ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ìì j
 S101XRename class 'dvxSdkType' to match camel case naming rules, consider using 'DvxSdkType'.		 º
 jG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\SDK_EzvizSDK.cst
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
@@ -373,26 +373,7 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S125Remove this commented out code.
 û1û1 3
 S125Remove this commented out code.
-ª1ª1 3
-S125Remove this commented out code.
-‚<‚< 93
-S125Remove this commented out code.
-õ>õ>. 83
-S125Remove this commented out code.
-¶>¶>. 83
-S125Remove this commented out code.
-ÂCÂC' L3
-S125Remove this commented out code.
-äDäD' L3
-S125Remove this commented out code.
-˛M˛M- N4
-S125Remove this commented out code.ëNëN* õ3
-S125Remove this commented out code.
-ÙOÙO (3
-S125Remove this commented out code.
-•P•P$ >3
-S125Remove this commented out code.
-ò]ò]* 3]
+ª1ª1 ]
 S2223HChange the visibility of '_strDevType' or make it 'const' or 'readonly'.
 ïuïu (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -400,43 +381,47 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S2292DMake this an auto-implemented property and remove its backing field.
 åvåv Y
 S2292DMake this an auto-implemented property and remove its backing field.
-≤v≤v Y
+¶v¶v 3
+S125Remove this commented out code.
+‚<‚< 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆∆ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »» $Y
-S2292DMake this an auto-implemented property and remove its backing field.
-¶v¶v Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …… %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-   &Y
+ÀÀ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÀÀ $3
-S125Remove this commented out code.
-÷b÷b "Y
+   &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃÃ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –– "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—— #Y
+ŒŒ $Y
+S2292DMake this an auto-implemented property and remove its backing field.
+≤v≤v Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ““ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”” Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-÷÷  Y
+—— #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+’’  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+÷÷  3
+S125Remove this commented out code.
+õ>õ>. 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›› Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁﬁ Y
+ﬁﬁ 3
+S125Remove this commented out code.
+¶>¶>. 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŒŒ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂﬂ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡‡ x
+ﬂﬂ !x
 S101dRename struct 'NET_DVR_PLATE_RET' to match camel case naming rules, consider using 'NetDvrPlateRet'.
 ƒƒ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -452,9 +437,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊÊ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’’  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁÁ %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡‡ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËË $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -466,9 +451,7 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÒÒ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÚÚ /t
-S101`Rename struct 'NET_DVR_CCD_CFG' to match camel case naming rules, consider using 'NetDvrCcdCfg'.
-€€ %Y
+ÚÚ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛÛ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -480,21 +463,25 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜˜ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¯¯ "Y
+¯¯ "t
+S101`Rename struct 'NET_DVR_CCD_CFG' to match camel case naming rules, consider using 'NetDvrCcdCfg'.
+€€ %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˘˘ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙˙ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚˚ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘˘ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸¸ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝˝ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇˇ 0Y
+˛˛ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ä	Ä	 .Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇˇ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Å	Å	 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -518,73 +505,71 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ç	ç	 ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+é	é	 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 è	è	 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛˛ "Y
+ê	ê	 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ë	ë	 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 í	í	 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ê	ê	 $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ï	ï	 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-î	î	 2Y
+ì	ì	 (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñ	ñ	  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ó	ó	 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ï	ï	 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ò	ò	 )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ö	ö	 3
-S125Remove this commented out code.
-ÄiÄi0 8Y
+ö	ö	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢	¢	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ì	ì	 (Y
+£	£	 .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §	§	 .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •	•	 +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-é	é	 '{
-S101gRename struct 'tagCAMERAPARAMCFG' to match camel case naming rules, consider using 'TagCameraparamcfg'.
-ÌÌ 'Y
+¶	¶	 ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®	®	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ø	Ø	% 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£	£	 .u
+∞	∞	 /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+±	±	 +{
+S101gRename struct 'tagCAMERAPARAMCFG' to match camel case naming rules, consider using 'TagCameraparamcfg'.
+ÌÌ 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≤	≤	 +u
 S101aRename struct 'tagIMAGEREGION' to match camel case naming rules, consider using 'TagImageregion'.
 †	†	 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞	∞	 /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±	±	 +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤	≤	 +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥	¥	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫	∫	 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶	¶	 ,y
-S101eRename struct 'tagIMAGESUBPARAM' to match camel case naming rules, consider using 'TagImagesubparam'.
-≠	≠	 &Y
+∫	∫	 3
+S125Remove this commented out code.
+ÂCÂC' LY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ω	Ω	& 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ø	ø	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆	∆	 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«	«	 s
+∆	∆	 y
+S101eRename struct 'tagIMAGESUBPARAM' to match camel case naming rules, consider using 'TagImagesubparam'.
+≠	≠	 &3
+S125Remove this commented out code.
+äDäD' Ls
 S101_Rename struct 'tagIMAGEPARAM' to match camel case naming rules, consider using 'TagImageparam'.
 ∏	∏	 #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+«	«	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »	»	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -596,13 +581,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 “	“	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”	”	 o
-S101[Rename struct 'NET_DVR_TIME' to match camel case naming rules, consider using 'NetDvrTime'.
-ƒ	ƒ	 "Y
+”	”	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘	‘	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’	’	 Y
+’	’	 o
+S101[Rename struct 'NET_DVR_TIME' to match camel case naming rules, consider using 'NetDvrTime'.
+ƒ	ƒ	 "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷	÷	  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -618,11 +603,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚	‚	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„	„	 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰	‰	 v
+„	„	 v
 S101bRename struct 'NET_DVR_TIME_V30' to match camel case naming rules, consider using 'NetDvrTimeV30'.
 –	–	 &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‰	‰	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Â	Â	  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -634,11 +619,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ô	Ô	 "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-		 "t
+		 "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ò	Ò	 !t
 S101`Rename struct 'NET_DVR_TIME_EX' to match camel case naming rules, consider using 'NetDvrTimeEx'.
 ﬂ	ﬂ	 %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ò	Ò	 !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ä
 Ä
@@ -646,13 +631,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Å
 Å
- !y
-S101eRename struct 'NET_DVR_SCHEDTIME' to match camel case naming rules, consider using 'NetDvrSchedtime'.
-Ï	Ï	 'Y
+ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ç
 Ç
- Y
+ y
+S101eRename struct 'NET_DVR_SCHEDTIME' to match camel case naming rules, consider using 'NetDvrSchedtime'.
+Ï	Ï	 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+à
+à
+ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 í
 í
@@ -660,25 +649,25 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101gRename struct 'NET_DVR_STRUCTHEAD' to match camel case naming rules, consider using 'NetDvrStructhead'.
 ˛	˛	 (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-à
-à
- $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 î
 î
  'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñ
-ñ
- Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ú
 ú
  $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ñ
+ñ
+ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶
 ¶
- /Y
+ /å
+S101xRename struct 'NET_DVR_HANDLEEXCEPTION_V41' to match camel case naming rules, consider using 'NetDvrHandleexceptionV41'.
+Ü
+Ü
+ 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ß
 ß
@@ -686,11 +675,7 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©
 ©
- 'å
-S101xRename struct 'NET_DVR_HANDLEEXCEPTION_V41' to match camel case naming rules, consider using 'NetDvrHandleexceptionV41'.
-Ü
-Ü
- 1Y
+ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤
 ≤
@@ -710,23 +695,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒ
 ƒ
- $å
+ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ã
+Ã
+ 'å
 S101xRename struct 'NET_DVR_HANDLEEXCEPTION_V30' to match camel case naming rules, consider using 'NetDvrHandleexceptionV30'.
 ∞
 ∞
  1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ã
-Ã
- 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”
 ”
- Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-÷
-÷
- Ö
+ Ö
 S101qRename struct 'NET_DVR_HANDLEEXCEPTION' to match camel case naming rules, consider using 'NetDvrHandleexception'.
 ¬
 ¬
@@ -735,6 +716,10 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ’
 ’
  "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+÷
+÷
+ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ◊
 ◊
@@ -748,13 +733,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ⁄
  'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›
-›
- ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹
 ‹
  +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+›
+›
+ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁ
 ﬁ
@@ -768,10 +753,6 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ‡
  )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·
-·
- (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚
 ‚
  )Y
@@ -783,6 +764,10 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ‰
 ‰
  "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·
+·
+ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Â
 Â
@@ -800,13 +785,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 Ë
  !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ï
+Ï
+ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ì
 Ì
  #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ï
-Ï
- !Y
+Ó
+Ó
+ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ô
 Ô
@@ -828,29 +817,29 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 Û
  #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ó
-Ó
- %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝
 ˝
  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅÅ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çç" +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÅÅ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 éé" /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èè &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êê "y
+èè &y
 S101eRename struct 'NET_DVR_DEVICECFG' to match camel case naming rules, consider using 'NetDvrDevicecfg'.
 —
 —
  'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëë Y
+êê "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ëë s
+S101_Rename struct 'NET_DVR_IPADDR' to match camel case naming rules, consider using 'NetDvrIpaddr'.
+¯
+¯
+ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ìì #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -860,37 +849,31 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 üü $~
 S101jRename struct 'NET_DVR_ETHERNET_V30' to match camel case naming rules, consider using 'NetDvrEthernetV30'.
-ãã *Y
+ãã *w
+S101cRename struct 'NET_DVR_ETHERNET' to match camel case naming rules, consider using 'NetDvrEthernet'.
+öö &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†† &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°° "s
-S101_Rename struct 'NET_DVR_IPADDR' to match camel case naming rules, consider using 'NetDvrIpaddr'.
-¯
-¯
- $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™™ Y
+î	î	 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ££ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨¨ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆÆ (w
-S101cRename struct 'NET_DVR_ETHERNET' to match camel case naming rules, consider using 'NetDvrEthernet'.
-öö &Y
+ÆÆ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ØØ" -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂∂ w
+†† &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∂∂ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏∏* 6w
 S101cRename struct 'NET_DVR_PPPOECFG' to match camel case naming rules, consider using 'NetDvrPppoecfg'.
 ®® &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏∏* 6Y
+ªª" 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫∫$ ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ªª" 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩΩ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -900,15 +883,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿¿ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡¡" 6Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬¬" 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈≈ )Y
+ƒƒ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡¡" 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆∆ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒƒ &Y
+≈≈ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ««" 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -928,59 +911,57 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷÷ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊◊ z
+◊◊ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ŸŸ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+€€  z
 S101fRename struct 'NET_DVR_NETCFG_V30' to match camel case naming rules, consider using 'NetDvrNetcfgV30'.
 ¥¥ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹‹ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŸŸ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁﬁ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂﬂ" 33
-S125Remove this commented out code.
-∂n∂n PY
+ﬂﬂ" 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡‡" 6Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€€  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ··" 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËË Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÈÈ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÍÍ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎÎ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÏÏ Y
+ÈÈ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÔÔ" 7Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓÓ, 8Ç
+ÏÏ Ç
 S101nRename struct 'NET_DVR_ETHERNET_MULTI' to match camel case naming rules, consider using 'NetDvrEthernetMulti'.
 –– ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 " 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÒÒ" 5Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚÚ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛÛ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙÙ *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¯¯ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜˜ )Y
+ÒÒ" 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆˆ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÔÔ" 7Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˜˜ )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÓÓ, 8Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+°° "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘˘ %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¯¯ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚˚  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -988,29 +969,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝˝$ -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇˇ  4
-S125Remove this commented out code.ÜqÜq é3
-S125Remove this commented out code.
-âqâq yY
+ˇˇ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÜÜ 4
-S125Remove this commented out code.ìqìq òY
+àà& 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+™™ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ää 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àà& 23
-S125Remove this commented out code.
-®q®q sY
+ÜÜ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ãã )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çç %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èè &~
-S101jRename struct 'NET_DVR_NETCFG_MULTI' to match camel case naming rules, consider using 'NetDvrNetcfgMulti'.
-ÊÊ *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëë $Y
+èè &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ìì  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1018,35 +991,39 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ññ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òò $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öö (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùù #Y
+òò $~
+S101jRename struct 'NET_DVR_NETCFG_MULTI' to match camel case naming rules, consider using 'NetDvrNetcfgMulti'.
+ÊÊ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úú "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ùù #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ££ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §§ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+©© %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •• %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ßß  Y
+ëë $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®®" -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©© %Y
+ßß  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´´  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠≠ $s
-S101_Rename struct 'NET_DVR_NETCFG' to match camel case naming rules, consider using 'NetDvrNetcfg'.
-ÑÑ $Y
+≠≠ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ØØ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±± #Y
+±± #s
+S101_Rename struct 'NET_DVR_NETCFG' to match camel case naming rules, consider using 'NetDvrNetcfg'.
+ÑÑ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥≥ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1054,9 +1031,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µµ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑∑ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ææ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∑∑ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 øø %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1070,31 +1047,27 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101`Rename struct 'NET_DVR_SIP_CFG' to match camel case naming rules, consider using 'NetDvrSipCfg'.
 °° %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈≈  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»»  Y
+≈≈  Å
+S101mRename struct 'NET_DVR_IP_VIEW_DEVCFG' to match camel case naming rules, consider using 'NetDvrIpViewDevcfg'.
+ºº ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œœ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –– &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆∆ *Å
-S101mRename struct 'NET_DVR_IP_VIEW_DEVCFG' to match camel case naming rules, consider using 'NetDvrIpViewDevcfg'.
-ºº ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —— &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ““ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’’ Y
+”” *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”” *Ü
+»»  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‹‹ Ü
 S101rRename struct 'NET_DVR_IP_VIEW_AUDIO_CFG' to match camel case naming rules, consider using 'NetDvrIpViewAudioCfg'.
 ÕÕ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹‹ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›› ,Y
+∆∆ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁﬁ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1104,9 +1077,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „„ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÂÂ (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊÊ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂÂ (Y
+›› ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËË  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1117,8 +1092,6 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ÙÙ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ıı *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜˜ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘˘ Ñ
 S101pRename struct 'NET_DVR_IP_VIEW_CALL_CFG' to match camel case naming rules, consider using 'NetDvrIpViewCallCfg'.
@@ -1142,101 +1115,112 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ãã )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-îî )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìì 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïï ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óó &z
+ìì 'z
 S101fRename struct 'NET_DVR_MOTION_V30' to match camel case naming rules, consider using 'NetDvrMotionV30'.
 ˇˇ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òò+ >Y
+îî )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úú )Y
+ïï ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+óó &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+òò+ >Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öö' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-££ )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§§ 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶¶ -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•• 0s
+úú )s
 S101_Rename struct 'NET_DVR_MOTION' to match camel case naming rules, consider using 'NetDvrMotion'.
 êê $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®®/ EY
+˜˜ 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+§§ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßß .Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+®®/ EY
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¶¶ -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+•• 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™™' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±± )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥≥ 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤≤ 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥¥ -Ä
+≤≤ 0Ä
 S101lRename struct 'NET_DVR_HIDEALARM_V30' to match camel case naming rules, consider using 'NetDvrHidealarmV30'.
 °° +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µµ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¥¥ -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≥≥ 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂∂+ AY
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏∏' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 øø ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿¿/ BY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏∏' 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬¬' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…… ,y
-S101eRename struct 'NET_DVR_HIDEALARM' to match camel case naming rules, consider using 'NetDvrHidealarm'.
-ØØ 'Y
+…… ,3
+S125Remove this commented out code.
+˛M˛M- NY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-  + >z
-S101fRename struct 'NET_DVR_VILOST_V30' to match camel case naming rules, consider using 'NetDvrVilostV30'.
-ΩΩ (Y
+  + >4
+S125Remove this commented out code.ëNëN* õY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃÃ' 4Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+££ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”” +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘‘ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’’ (s
-S101_Rename struct 'NET_DVR_VILOST' to match camel case naming rules, consider using 'NetDvrVilost'.
-«« $Y
+’’ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷÷ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹‹ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›› "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂﬂ u
-S101aRename struct 'NET_DVR_SHELTER' to match camel case naming rules, consider using 'NetDvrShelter'.
-—— %Y
+’’ 3
+S125Remove this commented out code.
+ÙOÙO (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁﬁ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÊÊ q
-S101]Rename struct 'NET_DVR_COLOR' to match camel case naming rules, consider using 'NetDvrColor'.
-⁄⁄ #Y
+ÙÙ *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+›› "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂﬂ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÊÊ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ËË #3
+S125Remove this commented out code.
+•P•P$ >y
+S101eRename struct 'NET_DVR_HIDEALARM' to match camel case naming rules, consider using 'NetDvrHidealarm'.
+ØØ 'z
+S101fRename struct 'NET_DVR_VILOST_V30' to match camel case naming rules, consider using 'NetDvrVilostV30'.
+ΩΩ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈÈ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ËË #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎÎ (Y
+ÎÎ (q
+S101]Rename struct 'NET_DVR_COLOR' to match camel case naming rules, consider using 'NetDvrColor'.
+⁄⁄ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÌÌ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÓÓ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔÔ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1244,55 +1228,51 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚÚ& -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓÓ +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆˆ) 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯¯ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇˇ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛˛ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸¸ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÙÙ& 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-éé "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÜÜ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝˝ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-áá #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óó Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙˙% 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôô #Y
+¸¸ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˝˝ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˛˛ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇˇ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÜÜ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+áá #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+éé "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çç %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-öö %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õõ $z
-S101fRename struct 'NET_DVR_PICCFG_V30' to match camel case naming rules, consider using 'NetDvrPiccfgV30'.
-‰‰ (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 êê Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùù $Y
+óó Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ôô #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+öö %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+õõ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úú "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ûû Y
+ùù $z
+S101fRename struct 'NET_DVR_PICCFG_V30' to match camel case naming rules, consider using 'NetDvrPiccfgV30'.
+‰‰ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 †† &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢¢ +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °° +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¢¢ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §§" ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1300,17 +1280,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®®% 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+™™ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÆÆ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨¨% 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™™ $Y
+ØØ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞∞ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±± !Y
+¨¨% 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏∏ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+±± !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ûû Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ππ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1322,23 +1306,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »» #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+   $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀÀ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃÃ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕÕ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-   $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œœ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ØØ &x
+—— +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+””" ,x
 S101dRename struct 'NET_DVR_PICCFG_EX' to match camel case naming rules, consider using 'NetDvrPiccfgEx'.
 ïï 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –– +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—— +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ’’" ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1352,19 +1336,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹‹ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-””" ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›› )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂﬂ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡‡ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·· &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚‚ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈÈ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·· &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÍÍ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1388,21 +1370,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÇÇ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÉÉ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑÑ &s
+ÉÉ &s
 S101_Rename struct 'NET_DVR_PICCFG' to match camel case naming rules, consider using 'NetDvrPiccfg'.
 ƒƒ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÖÖ ,Y
+ÑÑ &u
+S101aRename struct 'NET_DVR_SHELTER' to match camel case naming rules, consider using 'NetDvrShelter'.
+—— %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÜÜ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-áá $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àà &Y
+àà &s
+S101_Rename struct 'NET_DVR_VILOST' to match camel case naming rules, consider using 'NetDvrVilost'.
+«« $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ää Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÖÖ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ëë Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1412,19 +1396,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îî0 CY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïï0 ;ç
+ïï0 ;Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+úú $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ùù $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ûû %ç
 S101yRename struct 'NET_DVR_COMPRESSION_INFO_V30' to match camel case naming rules, consider using 'NetDvrCompressionInfoV30'.
 ıı 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úú $ä
+üü $ä
 S101vRename struct 'NET_DVR_COMPRESSIONCFG_V30' to match camel case naming rules, consider using 'NetDvrCompressioncfgV30'.
 èè 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ûû %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-üü $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùù $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 †† &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1432,19 +1416,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™™ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+´´, :Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨¨, 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥≥ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´´, :Ü
+≥≥ $Ü
 S101rRename struct 'NET_DVR_COMPRESSION_INFO' to match camel case naming rules, consider using 'NetDvrCompressionInfo'.
 öö .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥¥ $É
+¥¥ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+µµ %É
 S101oRename struct 'NET_DVR_COMPRESSIONCFG' to match camel case naming rules, consider using 'NetDvrCompressioncfg'.
 ®® ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µµ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂∂ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1460,15 +1444,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈≈ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-««/ :Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆∆/ =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŒŒ% 3Y
+««/ :Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œœ $ã
+ŒŒ% 3ã
 S101wRename struct 'NET_DVR_COMPRESSION_INFO_EX' to match camel case naming rules, consider using 'NetDvrCompressionInfoEx'.
 ±± 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+œœ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —— &à
 S101tRename struct 'NET_DVR_COMPRESSIONCFG_EX' to match camel case naming rules, consider using 'NetDvrCompressioncfgEx'.
@@ -1476,27 +1460,29 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿÿ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŸŸ $}
-S101iRename struct 'NET_DVR_RECORDSCHED' to match camel case naming rules, consider using 'NetDvrRecordsched'.
-ÃÃ )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄⁄ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·· y
+ŸŸ $y
 S101eRename struct 'NET_DVR_RECORDDAY' to match camel case naming rules, consider using 'NetDvrRecordday'.
 ÷÷ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚‚  Y
+⁄⁄ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÁÁ $Y
+·· }
+S101iRename struct 'NET_DVR_RECORDSCHED' to match camel case naming rules, consider using 'NetDvrRecordsched'.
+ÃÃ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊÊ) 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÁÁ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËË 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‚‚  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈÈ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÍÍ 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‰‰' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎÎ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1504,63 +1490,63 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÌÌ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓÓ 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔÔ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
- "Y
+ÓÓ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘˘ Y
+ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚÚ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙˙  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸¸' 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇˇ $z
-S101fRename struct 'NET_DVR_RECORD_V30' to match camel case naming rules, consider using 'NetDvrRecordV30'.
-ﬂﬂ (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛˛) 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰‰' 4Y
+¸¸' 4Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˘˘ z
+S101fRename struct 'NET_DVR_RECORD_V30' to match camel case naming rules, consider using 'NetDvrRecordV30'.
+ﬂﬂ (3
+S125Remove this commented out code.
+ò]ò]* 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇˇ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄÄ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-áá s
+áá Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ââ $s
 S101_Rename struct 'NET_DVR_RECORD' to match camel case naming rules, consider using 'NetDvrRecord'.
 ˜˜ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ââ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èè Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-íí  ~
+èè ~
 S101jRename struct 'NET_DVR_PTZ_PROTOCOL' to match camel case naming rules, consider using 'NetDvrPtzProtocol'.
 ÖÖ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ëë* 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+íí  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îî Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úú Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùù "s
-S101_Rename struct 'NET_DVR_PTZCFG' to match camel case naming rules, consider using 'NetDvrPtzcfg'.
-çç $Y
+ùù "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ûû !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-üü !Y
+üü !s
+S101_Rename struct 'NET_DVR_PTZCFG' to match camel case naming rules, consider using 'NetDvrPtzcfg'.
+çç $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ††  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °° %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢¢ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ££ )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¢¢ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •• %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1570,13 +1556,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞∞ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+±± "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤≤ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±± "Ç
+≥≥ !Ç
 S101nRename struct 'NET_DVR_DECODERCFG_V30' to match camel case naming rules, consider using 'NetDvrDecodercfgV30'.
 öö ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥≥ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥¥  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1586,19 +1572,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑∑ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ππ %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ªª %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ΩΩ $Y
+ππ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒƒ" .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈≈" -{
+≈≈" -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ΩΩ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+áá $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+«« &{
 S101gRename struct 'NET_DVR_DECODERCFG' to match camel case naming rules, consider using 'NetDvrDecodercfg'.
 ÆÆ (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«« &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …… #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1612,28 +1600,25 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œœ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–– 4
-S125Remove this commented out code.»u»u òY
+–– Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ““ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄⁄ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‹‹ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁﬁ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡‡ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹‹ "z
+‚‚ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+„„ !z
 S101fRename struct 'NET_DVR_PPPCFG_V30' to match camel case naming rules, consider using 'NetDvrPppcfgV30'.
 ¬¬ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚‚ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„„ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰‰  3
-S125Remove this commented out code.
-ÕvÕv Y
+‰‰  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÂÂ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1641,39 +1626,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁÁ 3
 S125Remove this commented out code.
-ÔvÔv 3
-S125Remove this commented out code.
-ÒvÒv 3
-S125Remove this commented out code.
-˚v˚v 3
-S125Remove this commented out code.
-˝v˝v 3
-S125Remove this commented out code.
-°w°w !Y
+÷b÷b "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÈÈ *3
-S125Remove this commented out code.
-ŒwŒw s
-S101_Rename struct 'NET_DVR_PPPCFG' to match camel case naming rules, consider using 'NetDvrPppcfg'.
-◊◊ $Y
+ÈÈ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÒÒ !s
+S101_Rename struct 'NET_DVR_PPPCFG' to match camel case naming rules, consider using 'NetDvrPppcfg'.
+◊◊ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÛÛ  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚÚ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÛÛ  3
-S125Remove this commented out code.
-µxµx Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙÙ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ıı "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸¸ 3
-S125Remove this commented out code.
-≤y≤y I3
-S125Remove this commented out code.
-øyøy MY
+¸¸ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝˝( 1~
 S101jRename struct 'NET_DVR_SINGLE_RS232' to match camel case naming rules, consider using 'NetDvrSingleRS232'.
@@ -1681,25 +1650,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄÄ& 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÒÒ !Y
+ÙÙ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇˇ Y
+áá Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-áá 3
-S125Remove this commented out code.
-ÜzÜz Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àà "~
-S101jRename struct 'NET_DVR_RS232CFG_V30' to match camel case naming rules, consider using 'NetDvrRS232CfgV30'.
-˙˙ *Y
+àà "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ââ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ää !Y
+ää !~
+S101jRename struct 'NET_DVR_RS232CFG_V30' to match camel case naming rules, consider using 'NetDvrRS232CfgV30'.
+˙˙ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãã  3
-S125Remove this commented out code.
-≥z≥z Y
+ãã  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 åå %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1707,9 +1670,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 éé" /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+îî *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïï 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-îî *w
+õõ *w
 S101cRename struct 'NET_DVR_RS232CFG' to match camel case naming rules, consider using 'NetDvrRS232Cfg'.
 ÖÖ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1717,27 +1682,27 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101pRename struct 'NET_DVR_PRESETCHAN_INFO' to match camel case naming rules, consider using 'NetDvrPresetchanInfo'.
 íí -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õõ *Y
+ˇˇ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢¢ ,Ñ
+¢¢ ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+££ $Ñ
 S101pRename struct 'NET_DVR_CRUISECHAN_INFO' to match camel case naming rules, consider using 'NetDvrCruisechanInfo'.
 ôô -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-££ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™™ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠≠ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨¨ &à
+™™ à
 S101tRename struct 'NET_DVR_PTZTRACKCHAN_INFO' to match camel case naming rules, consider using 'NetDvrPtztrackchanInfo'.
 †† /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆÆ 'Y
+¨¨ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠≠ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ØØ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞∞ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÆÆ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±± $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1749,43 +1714,35 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ææ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√√ *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿¿' 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈≈ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆∆ -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«« -3
-S125Remove this commented out code.
-ı|ı| Y
+≈≈ )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+«« -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+√√ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ……- ?Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÃÃ -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀÀ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÃÃ -3
-S125Remove this commented out code.
-≤}≤} 7Y
+œœ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒŒ- ?Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œœ /3
-S125Remove this commented out code.
-Õ}Õ} :Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ——/ ?Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”” 3
-S125Remove this commented out code.
-Ó}Ó} NY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄⁄ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›› #Y
+”” Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹‹ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+›› #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁﬁ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1793,13 +1750,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ··/ BY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÂÂ )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „„' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂÂ )Ç
+ÁÁ (Ç
 S101nRename struct 'NET_DVR_ALARMINCFG_V40' to match camel case naming rules, consider using 'NetDvrAlarmincfgV40'.
 ®® ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÁÁ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈÈ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1821,71 +1778,67 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛˛ -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÜÜ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄÄ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÜÜ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 àà Ç
 S101nRename struct 'NET_DVR_ALARMINCFG_V30' to match camel case naming rules, consider using 'NetDvrAlarmincfgV30'.
 ÿÿ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-çç *
-S101kRename struct 'STRUCT_ALARM_CHANNEL' to match camel case naming rules, consider using 'StructAlarmChannel'.
-ÑÑ *Y
+çç *u
+S101aRename struct 'STRUCT_IO_ALARM' to match camel case naming rules, consider using 'StructIoAlarm'.
+˙˙ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 èè Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôô# .u
-S101aRename struct 'STRUCT_ALARM_HD' to match camel case naming rules, consider using 'StructAlarmHd'.
-ãã %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 óó $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ôô# .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õõ( 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ùù# 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-££ #u
-S101aRename struct 'STRUCT_IO_ALARM' to match camel case naming rules, consider using 'StructIoAlarm'.
-˙˙ %Y
+££ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§§# 0Å
-S101mRename struct 'UNION_ALARMINFO_FIXED' to match camel case naming rules, consider using 'UnionAlarminfoFixed'.
-ìì +Y
+§§# 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-••) 3â
-S101uRename struct 'NET_DVR_ALRAM_FIXED_HEADER' to match camel case naming rules, consider using 'NetDvrAlramFixedHeader'.
-°° 0Y
+••) 33
+S125Remove this commented out code.
+ÄiÄi0 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´´. BY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨¨ $Ä
-S101lRename struct 'NET_DVR_ALARMINFO_V40' to match camel case naming rules, consider using 'NetDvrAlarminfoV40'.
-©© +Y
+¨¨ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥≥ Y
+≥≥ 
+S101kRename struct 'STRUCT_ALARM_CHANNEL' to match camel case naming rules, consider using 'StructAlarmChannel'.
+ÑÑ *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+µµ &u
+S101aRename struct 'STRUCT_ALARM_HD' to match camel case naming rules, consider using 'StructAlarmHd'.
+ãã %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂∂ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µµ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑∑ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏∏ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ππ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫∫+ >Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ºº' 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ææ )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬¬ $Y
+ππ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿¿ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ºº' 4Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¬¬ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒƒ (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ææ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆∆ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1895,49 +1848,55 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —— Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-““ +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‘‘  Y
+““ +Å
+S101mRename struct 'UNION_ALARMINFO_FIXED' to match camel case naming rules, consider using 'UnionAlarminfoFixed'.
+ìì +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ◊◊ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿÿ '{
-S101gRename struct 'NET_DVR_ALARMINCFG' to match camel case naming rules, consider using 'NetDvrAlarmincfg'.
-±± (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷÷ 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‘‘  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÿÿ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸŸ/ BY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€€' 4Y
+€€' 4{
+S101gRename struct 'NET_DVR_ALARMINCFG' to match camel case naming rules, consider using 'NetDvrAlarmincfg'.
+±± (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›› )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂﬂ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÊÊ #Y
+ÊÊ #â
+S101uRename struct 'NET_DVR_ALRAM_FIXED_HEADER' to match camel case naming rules, consider using 'NetDvrAlramFixedHeader'.
+°° 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÁÁ *à
-S101tRename struct 'NET_DVR_ANALOG_ALARMINCFG' to match camel case naming rules, consider using 'NetDvrAnalogAlarmincfg'.
-œœ /Y
+ÁÁ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈÈ -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÌÌ #Y
+ÎÎ .3
+S125Remove this commented out code.
+∂n∂n PY
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÌÌ #à
+S101tRename struct 'NET_DVR_ANALOG_ALARMINCFG' to match camel case naming rules, consider using 'NetDvrAnalogAlarmincfg'.
+œœ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔÔ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎÎ .Y
+üü 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ûû Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-üü 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ††" .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢¢ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®® "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¢¢ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©© )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1949,9 +1908,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±± %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰‰  Y
+‰‰  4
+S125Remove this commented out code.ÜqÜq é3
+S125Remove this commented out code.
+âqâq y4
+S125Remove this commented out code.ìqìq òY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÊÊ #Y
+ÊÊ #3
+S125Remove this commented out code.
+®q®q sY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈÈ" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1963,33 +1928,33 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙˙  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚˚ !Y
+˚˚ !Ä
+S101lRename struct 'NET_DVR_ALARMINFO_V30' to match camel case naming rules, consider using 'NetDvrAlarminfoV30'.
+‰‰ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸¸ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝˝ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇˇ #Y
+ˇˇ #y
+S101eRename struct 'NET_DVR_IPDEVINFO' to match camel case naming rules, consider using 'NetDvrIpdevinfo'.
+‚‚ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÅÅ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÉÉ "Ä
-S101lRename struct 'NET_DVR_ALARMINFO_V30' to match camel case naming rules, consider using 'NetDvrAlarminfoV30'.
-‰‰ +Y
+ÉÉ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÑÑ" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÖÖ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑÑ" (y
-S101eRename struct 'NET_DVR_IPDEVINFO' to match camel case naming rules, consider using 'NetDvrIpdevinfo'.
-‚‚ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 áá  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ññ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óó É
-S101oRename struct 'NET_DVR_ALARM_HOT_SPARE' to match camel case naming rules, consider using 'NetDvrAlarmHotSpare'.
-úú -Y
+óó Ä
+S101lRename struct 'NET_DVR_ALARMINFO_V40' to match camel case naming rules, consider using 'NetDvrAlarminfoV40'.
+©© +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òò !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -1997,21 +1962,24 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öö 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ßß Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úú Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ßß Ä
+S101lRename struct 'NET_DVR_IPDEVINFO_V31' to match camel case naming rules, consider using 'NetDvrIpdevinfoV31'.
+¯¯ +É
+S101oRename struct 'NET_DVR_ALARM_HOT_SPARE' to match camel case naming rules, consider using 'NetDvrAlarmHotSpare'.
+úú -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©©' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´´ ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠≠( 6Ä
-S101lRename struct 'NET_DVR_IPDEVINFO_V31' to match camel case naming rules, consider using 'NetDvrIpdevinfoV31'.
-¯¯ +{
+´´ ,{
 S101gRename struct 'NET_DVR_IPCHANINFO' to match camel case naming rules, consider using 'NetDvrIpchaninfo'.
 îî (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈≈ Y
+≠≠( 6Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≈≈ 4
+S125Remove this commented out code.»u»u òY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ««+ 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2019,45 +1987,63 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀÀ( 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚‚  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰‰ y
+‚‚  3
+S125Remove this commented out code.
+ÕvÕv y
 S101eRename struct 'NET_DVR_IPPARACFG' to match camel case naming rules, consider using 'NetDvrIpparacfg'.
 •• 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂÂ" .Y
+‰‰ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÂÂ" .3
+S125Remove this commented out code.
+ÔvÔv 3
+S125Remove this commented out code.
+ÒvÒv 3
+S125Remove this commented out code.
+˚v˚v Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊÊ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÁÁ %Y
+ÁÁ %3
+S125Remove this commented out code.
+˝v˝v Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÍÍ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÈÈ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÏÏ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓÓ +Y
+ÈÈ #3
+S125Remove this commented out code.
+°w°w !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÚÚ $Ä
+ÚÚ $3
+S125Remove this commented out code.
+ŒwŒw Ä
 S101lRename struct 'NET_DVR_IPPARACFG_V31' to match camel case naming rules, consider using 'NetDvrIpparacfgV31'.
 √√ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÓÓ +3
+S125Remove this commented out code.
+µxµx Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛÛ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıı  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÜÜ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ââ" +Y
+ıı  3
+S125Remove this commented out code.
+≤y≤y IY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 àà  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ää "Y
+ââ" +3
+S125Remove this commented out code.
+øyøy MY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ãã &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÏÏ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ää "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çç  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2065,15 +2051,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îî "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïï !Y
+ïï !3
+S125Remove this commented out code.
+ÜzÜz Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÜÜ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ññ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óó #Y
+óó #3
+S125Remove this commented out code.
+≥z≥z Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òò %Ñ
-S101pRename struct 'NET_DVR_IPSERVER_STREAM' to match camel case naming rules, consider using 'NetDvrIpserverStream'.
-‡‡ -Y
+òò %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôô $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2081,9 +2071,7 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õõ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úú $í
-S101~Rename struct 'NET_DVR_STREAM_MEDIA_SERVER_CFG' to match camel case naming rules, consider using 'NetDvrStreamMediaServerCfg'.
-ÑÑ 5Y
+úú $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ûû Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2091,39 +2079,49 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢¢ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™™ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §§ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+™™ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´´3 HY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨¨) 8
-S101kRename struct 'NET_DVR_DEV_CHAN_INFO' to match camel case naming rules, consider using 'NetDvrDevChanInfo'.
-ëë +Y
+¨¨) 83
+S125Remove this commented out code.
+ı|ı| Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤≤  
-S101kRename struct 'NET_DVR_PU_STREAM_CFG' to match camel case naming rules, consider using 'NetDvrPuStreamCfg'.
-®® +Y
+≤≤  Ñ
+S101pRename struct 'NET_DVR_IPSERVER_STREAM' to match camel case naming rules, consider using 'NetDvrIpserverStream'.
+‡‡ -3
+S125Remove this commented out code.
+≤}≤} 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µµ" 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥¥  Y
+¥¥  
+S101kRename struct 'NET_DVR_PU_STREAM_CFG' to match camel case naming rules, consider using 'NetDvrPuStreamCfg'.
+®® +3
+S125Remove this commented out code.
+Õ}Õ} :Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂∂ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑∑ 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏∏ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫∫ 'Y
+∏∏ 3
+S125Remove this commented out code.
+Ó}Ó} N
+S101kRename struct 'NET_DVR_DEV_CHAN_INFO' to match camel case naming rules, consider using 'NetDvrDevChanInfo'.
+ëë +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ππ" .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øø %Y
+∫∫ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ºº  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ææ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+øø %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿¿ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2133,27 +2131,25 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆∆ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«« "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ……  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
    !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÀÀ 'Y
+«« "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÃÃ #Y
+ÀÀ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕÕ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÃÃ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ››  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂﬂ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡‡ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·· Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂﬂ  y
-S101eRename struct 'NET_DVR_ALARMINFO' to match camel case naming rules, consider using 'NetDvrAlarminfo'.
-¶¶ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚‚ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2161,19 +2157,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔÔ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙÙ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÒÒ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛÛ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıı #Y
+ÙÙ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¯¯ 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜˜ !É
+ıı #É
 S101oRename struct 'NET_DVR_DDNS_STREAM_CFG' to match camel case naming rules, consider using 'NetDvrDdnsStreamCfg'.
 ∞∞ -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˜˜ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¯¯ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙˙  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2187,9 +2183,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101kRename struct 'NET_DVR_PU_STREAM_URL' to match camel case naming rules, consider using 'NetDvrPuStreamUrl'.
 €€ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïï  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÉÉ  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ïï  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ññ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2197,53 +2193,53 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òò !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôô 'Y
+öö #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õõ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-öö #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ùù Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´´ 'Y
+ôô 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •• !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ØØ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞∞, 6Ä
+´´ 'Ä
 S101lRename struct 'NET_DVR_HKDDNS_STREAM' to match camel case naming rules, consider using 'NetDvrHkddnsStream'.
 ÌÌ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ΩΩ Ç
-S101nRename struct 'NET_DVR_IPCHANINFO_V40' to match camel case naming rules, consider using 'NetDvrIpchaninfoV40'.
-ìì ,Y
+ØØ Ö
+S101qRename struct 'NET_DVR_GET_STREAM_UNION' to match camel case naming rules, consider using 'NetDvrGetStreamUnion'.
+°° .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ææ "Y
+∞∞, 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øø "Y
+ΩΩ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿¿ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡¡ $|
+øø "|
 S101hRename struct 'NET_DVR_STREAM_MODE' to match camel case naming rules, consider using 'NetDvrStreamMode'.
 ©© )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒƒ ,Y
+¿¿ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-««+ 8Ö
-S101qRename struct 'NET_DVR_GET_STREAM_UNION' to match camel case naming rules, consider using 'NetDvrGetStreamUnion'.
-°° .Y
+¡¡ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ææ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ƒƒ ,Ç
+S101nRename struct 'NET_DVR_IPCHANINFO_V40' to match camel case naming rules, consider using 'NetDvrIpchaninfoV40'.
+ìì ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+««+ 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
   ) 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕÕ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‘‘ #Ä
+‘‘ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+◊◊  (Ä
 S101lRename struct 'NET_DVR_IPPARACFG_V40' to match camel case naming rules, consider using 'NetDvrIpparacfgV40'.
 ªª +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊◊  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸŸ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2253,21 +2249,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚‚ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„„ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂÂ Ä
+„„ "Ä
 S101lRename struct 'NET_DVR_ALARMINFO_DEV' to match camel case naming rules, consider using 'NetDvrAlarminfoDev'.
 ““ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÂÂ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÒÒ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÛÛ, >É
-S101oRename struct 'NET_DVR_IPALARMOUTINFO' to match camel case naming rules, consider using 'NetDvrIpalarmoutinfo'.
-‡‡ ,Y
+ÛÛ, >Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÇÇ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÉÉ "Y
+ÉÉ "É
+S101oRename struct 'NET_DVR_IPALARMOUTINFO' to match camel case naming rules, consider using 'NetDvrIpalarmoutinfo'.
+‡‡ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÖÖ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2275,17 +2271,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çç *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èè0 BÅ
+èè0 BY
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ëë Å
 S101mRename struct 'NET_DVR_IPALARMOUTCFG' to match camel case naming rules, consider using 'NetDvrIpalarmoutcfg'.
 ÔÔ +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëë Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôô !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òò à
 S101tRename struct 'NET_DVR_IPALARMOUTCFG_V40' to match camel case naming rules, consider using 'NetDvrIpalarmoutcfgV40'.
 ää /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ôô !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õõ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2293,59 +2289,61 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §§+ <Å
 S101mRename struct 'NET_DVR_IPALARMININFO' to match camel case naming rules, consider using 'NetDvrIpalarmininfo'.
-ññ +Y
+ññ +ä
+S101vRename struct 'NET_DVR_IPALARMOUTINFO_V40' to match camel case naming rules, consider using 'NetDvrIpalarmoutinfoV40'.
+ÄÄ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™™ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´´ !
 S101kRename struct 'NET_DVR_IPALARMINCFG' to match camel case naming rules, consider using 'NetDvrIpalarmincfg'.
-†† *ä
-S101vRename struct 'NET_DVR_IPALARMOUTINFO_V40' to match camel case naming rules, consider using 'NetDvrIpalarmoutinfoV40'.
-ÄÄ 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥≥ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥¥ )Y
+†† *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠≠ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂∂/ @à
+≥≥ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¥¥ )à
 S101tRename struct 'NET_DVR_IPALARMININFO_V40' to match camel case naming rules, consider using 'NetDvrIpalarmininfoV40'.
 ®® /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∂∂/ @Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏∏ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿¿' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬¬ ,Ü
+¬¬ ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ƒƒ( 6Ü
 S101rRename struct 'NET_DVR_IPALARMINCFG_V40' to match camel case naming rules, consider using 'NetDvrIpalarmincfgV40'.
 ±± .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒƒ( 6Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆∆+ <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»», >Y
+»», >í
+S101~Rename struct 'NET_DVR_STREAM_MEDIA_SERVER_CFG' to match camel case naming rules, consider using 'NetDvrStreamMediaServerCfg'.
+ÑÑ 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ––+ 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-““ ,}
-S101iRename struct 'NET_DVR_IPALARMINFO' to match camel case naming rules, consider using 'NetDvrIpalarminfo'.
-ΩΩ )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‘‘( 6Y
+““ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷÷+ <Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‘‘( 6}
+S101iRename struct 'NET_DVR_IPALARMINFO' to match camel case naming rules, consider using 'NetDvrIpalarminfo'.
+ΩΩ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿÿ, >Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂﬂ+ 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·· ,Ñ
+·· ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+„„( 6Ñ
 S101pRename struct 'NET_DVR_IPALARMINFO_V31' to match camel case naming rules, consider using 'NetDvrIpalarminfoV31'.
 ÕÕ -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„„( 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÂÂ+ <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2353,79 +2351,77 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈÈ Ñ
 S101pRename struct 'NET_DVR_IPALARMINFO_V40' to match camel case naming rules, consider using 'NetDvrIpalarminfoV40'.
-‹‹ -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛˛ t
+‹‹ -t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ÏÏ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇˇ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅÅ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÄÄ #Y
+˛˛ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÇÇ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÉÉ  Y
+ÅÅ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑÑ $Y
+ˇˇ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÖÖ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÜÜ !Y
+ÄÄ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 áá #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ää %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ââ  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 èè )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÉÉ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 êê *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ââ  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òò Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-íí  Y
+ÜÜ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôô !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õõ' 1Y
+ÑÑ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢¢ #x
+òò Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¢¢ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+õõ' 1x
 S101dRename struct 'NET_DVR_SINGLE_HD' to match camel case naming rules, consider using 'NetDvrSingleHd'.
 ¸¸ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§§ )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶¶ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨¨ q
+§§ )q
 S101]Rename struct 'NET_DVR_HDCFG' to match camel case naming rules, consider using 'NetDvrHdcfg'.
 ññ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠≠ 'Y
+¶¶ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆÆ 'â
+¨¨ â
 S101uRename struct 'NET_DVR_SINGLE_HDGROUP_V40' to match camel case naming rules, consider using 'NetDvrSingleHdgroupV40'.
 †† 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠≠ 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÆÆ 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞∞0 ?Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ππ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤≤ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ªª (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ππ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩΩ É
 S101oRename struct 'NET_DVR_HDGROUP_CFG_V40' to match camel case naming rules, consider using 'NetDvrHdgroupCfgV40'.
-™™ -Ç
+™™ -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+√√ Ç
 S101nRename struct 'NET_DVR_SINGLE_HDGROUP' to match camel case naming rules, consider using 'NetDvrSingleHdgroup'.
 ∑∑ ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√√ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒƒ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2443,65 +2439,61 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿÿ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€€ 'w
-S101cRename struct 'NET_DVR_SCALECFG' to match camel case naming rules, consider using 'NetDvrScalecfg'.
-ÀÀ &Y
+€€ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄⁄ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁﬁ' 7Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡‡ Y
+ﬁﬁ' 7w
+S101cRename struct 'NET_DVR_SCALECFG' to match camel case naming rules, consider using 'NetDvrScalecfg'.
+ÀÀ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁÁ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÈÈ 'Y
+‡‡ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍÍ 'Ñ
-S101pRename struct 'NET_DVR_ALARMOUTCFG_V30' to match camel case naming rules, consider using 'NetDvrAlarmoutcfgV30'.
-÷÷ -Y
+ÍÍ 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÈÈ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÌÌ' 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙÙ Y
+ÙÙ Ñ
+S101pRename struct 'NET_DVR_ALARMOUTCFG_V30' to match camel case naming rules, consider using 'NetDvrAlarmoutcfgV30'.
+÷÷ -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ıı '}
 S101iRename struct 'NET_DVR_ALARMOUTCFG' to match camel case naming rules, consider using 'NetDvrAlarmoutcfg'.
 ÂÂ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆˆ %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜˜ %Y
+íí  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘˘ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚˚ Y
+˜˜ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÇÇ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˚˚ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÉÉ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑÑ %Ç
-S101nRename struct 'NET_DVR_PREVIEWCFG_V30' to match camel case naming rules, consider using 'NetDvrPreviewcfgV30'.
-ÚÚ ,Y
+ÑÑ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÖÖ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-éé %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 áá %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êê ${
-S101gRename struct 'NET_DVR_PREVIEWCFG' to match camel case naming rules, consider using 'NetDvrPreviewcfg'.
-ÄÄ (Y
+éé %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 èè Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òò "Y
+êê $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôô %u
-S101aRename struct 'NET_DVR_VGAPARA' to match camel case naming rules, consider using 'NetDvrVgapara'.
-åå %Y
+ˆˆ %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ôô %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+òò "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õõ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2509,55 +2501,57 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢¢ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®® %Ç
-S101nRename struct 'NET_DVR_MATRIXPARA_V30' to match camel case naming rules, consider using 'NetDvrMatrixparaV30'.
-ïï ,{
-S101gRename struct 'NET_DVR_MATRIXPARA' to match camel case naming rules, consider using 'NetDvrMatrixpara'.
-üü (Y
+®® %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+©© (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+™™ )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+´´ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨¨ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠≠ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´´ "q
-S101]Rename struct 'NET_DVR_VOOUT' to match camel case naming rules, consider using 'NetDvrVoout'.
-¶¶ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ππ% 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©© (Y
+ÆÆ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µµ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ªª, :Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆÆ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™™ )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑∑# ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒƒ Y
+ππ% 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ΩΩ Y
+ªª, :y
+S101eRename struct 'NET_DVR_ALARMINFO' to match camel case naming rules, consider using 'NetDvrAlarminfo'.
+¶¶ 'u
+S101aRename struct 'NET_DVR_VGAPARA' to match camel case naming rules, consider using 'NetDvrVgapara'.
+åå %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆∆# ,Y
+ΩΩ Ç
+S101nRename struct 'NET_DVR_MATRIXPARA_V30' to match camel case naming rules, consider using 'NetDvrMatrixparaV30'.
+ïï ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-……& 4~
+ƒƒ ~
 S101jRename struct 'NET_DVR_VIDEOOUT_V30' to match camel case naming rules, consider using 'NetDvrVideooutV30'.
 ≥≥ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »»% 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—— #w
+……& 4w
 S101cRename struct 'NET_DVR_VIDEOOUT' to match camel case naming rules, consider using 'NetDvrVideoout'.
 ¬¬ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”” #Y
+—— #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ’’ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·· 'Y
+”” #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∆∆# ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·· 'Ç
+S101nRename struct 'NET_DVR_PREVIEWCFG_V30' to match camel case naming rules, consider using 'NetDvrPreviewcfgV30'.
+ÚÚ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÒÒ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2567,13 +2561,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜˜ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘˘ ,Y
+˘˘ ,{
+S101gRename struct 'NET_DVR_MATRIXPARA' to match camel case naming rules, consider using 'NetDvrMatrixpara'.
+üü (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚˚ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝˝ 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇˇ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄÄ" ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2581,35 +2575,37 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÉÉ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àà &Y
+ˇˇ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ââ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ää %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+àà &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 åå Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îî #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òò &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ññ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥¥ +Y
+òò &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §§ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¥¥ +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂∂ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏∏ ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫∫ ,
+∏∏ ,
 S101kRename struct 'NET_DVR_USER_INFO_V40' to match camel case naming rules, consider using 'NetDvrUserInfoV40'.
 ŒŒ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ææ )Y
+∫∫ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ºº *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ææ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿¿ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2633,37 +2629,37 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹‹ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁﬁ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÂÂ ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁﬁ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁÁ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛÛ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙÙ *
+ÙÙ *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˆˆ !
 S101kRename struct 'NET_DVR_USER_INFO_V30' to match camel case naming rules, consider using 'NetDvrUserInfoV30'.
 ëë +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆˆ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯¯ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄÄ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÇÇ #}
+ÑÑ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+åå '}
 S101iRename struct 'NET_DVR_USER_INFO_EX' to match camel case naming rules, consider using 'NetDvrUserInfoEx'.
 ◊◊ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑÑ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-åå 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôô !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢¢ Y
+ÇÇ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õõ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¢¢ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ££ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2671,55 +2667,55 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101dRename struct 'NET_DVR_USER_INFO' to match camel case naming rules, consider using 'NetDvrUserInfo'.
 ˝˝ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨¨ v
+¨¨ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÆÆ+ 3v
 S101bRename struct 'NET_DVR_USER_V40' to match camel case naming rules, consider using 'NetDvrUserV40'.
 †† &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆÆ+ 3Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µµ v
-S101bRename struct 'NET_DVR_USER_V30' to match camel case naming rules, consider using 'NetDvrUserV30'.
-™™ &Y
+µµ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑∑* 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ææ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿¿' /t
+ææ v
+S101bRename struct 'NET_DVR_USER_V30' to match camel case naming rules, consider using 'NetDvrUserV30'.
+™™ &t
 S101`Rename struct 'NET_DVR_USER_EX' to match camel case naming rules, consider using 'NetDvrUserEx'.
 ≥≥ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«« Y
+¿¿' /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»» %o
+«« o
 S101[Rename struct 'NET_DVR_USER' to match camel case naming rules, consider using 'NetDvrUser'.
 ºº "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
   1 DY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”” Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’’1 HÄ
-S101lRename struct 'NET_DVR_EXCEPTION_V40' to match camel case naming rules, consider using 'NetDvrExceptionV40'.
-≈≈ +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›› Ä
-S101lRename struct 'NET_DVR_EXCEPTION_V30' to match camel case naming rules, consider using 'NetDvrExceptionV30'.
-—— +Y
+»» %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃÃ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂﬂ- DY
+”” Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+’’1 HÄ
+S101lRename struct 'NET_DVR_EXCEPTION_V30' to match camel case naming rules, consider using 'NetDvrExceptionV30'.
+—— +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+›› Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂﬂ- DÄ
+S101lRename struct 'NET_DVR_EXCEPTION_V40' to match camel case naming rules, consider using 'NetDvrExceptionV40'.
+≈≈ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁÁ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ËË &Y
+ËË &y
+S101eRename struct 'NET_DVR_EXCEPTION' to match camel case naming rules, consider using 'NetDvrException'.
+€€ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈÈ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍÍ y
-S101eRename struct 'NET_DVR_EXCEPTION' to match camel case naming rules, consider using 'NetDvrException'.
-€€ 'Y
+ÍÍ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎÎ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2731,15 +2727,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÓÓ$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÚÚ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛÛ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÖÖ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÚÚ Y
+ÜÜ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 áá (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÜÜ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 àà $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2751,9 +2747,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ìì  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïï (Y
+îî #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úú Y
+ïï (Ü
+S101rRename struct 'NET_DVR_CHANNELSTATE_V30' to match camel case naming rules, consider using 'NetDvrChannelstateV30'.
+ÂÂ .Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+úú 
+S101kRename struct 'NET_DVR_CHANNELSTATE' to match camel case naming rules, consider using 'NetDvrChannelstate'.
+ÉÉ *y
+S101eRename struct 'NET_DVR_DISKSTATE' to match camel case naming rules, consider using 'NetDvrDiskstate'.
+ëë 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ùù &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2767,23 +2771,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶¶ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-îî #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®® -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞∞ Ü
-S101rRename struct 'NET_DVR_CHANNELSTATE_V30' to match camel case naming rules, consider using 'NetDvrChannelstateV30'.
-ÂÂ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™™ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±± (Y
+∞∞ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤≤ (Ä
+±± (Ä
 S101lRename struct 'NET_DVR_WORKSTATE_V40' to match camel case naming rules, consider using 'NetDvrWorkstateV40'.
-öö +
-S101kRename struct 'NET_DVR_CHANNELSTATE' to match camel case naming rules, consider using 'NetDvrChannelstate'.
-ÉÉ *Y
+öö +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≤≤ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥¥  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2795,21 +2793,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √√' 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡¡ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈≈. <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «« )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-   &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …… *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+   &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃÃ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒŒ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„„ &Y
+„„ &{
+S101gRename struct 'NET_DVR_PREVIEWCFG' to match camel case naming rules, consider using 'NetDvrPreviewcfg'.
+ÄÄ (à
+S101tRename struct 'NET_DVR_GETWORKSTATE_COND' to match camel case naming rules, consider using 'NetDvrGetworkstateCond'.
+ÆÆ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÂÂ' 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2817,13 +2817,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈÈ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎÎ *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏÏ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÎÎ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚˚  *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸¸ #Y
+¸¸ #Ä
+S101lRename struct 'NET_DVR_WORKSTATE_V30' to match camel case naming rules, consider using 'NetDvrWorkstateV30'.
+øø +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝˝ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2835,11 +2837,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÉÉ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑÑ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÖÖ $Y
+ÑÑ !y
+S101eRename struct 'NET_DVR_WORKSTATE' to match camel case naming rules, consider using 'NetDvrWorkstate'.
+·· 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÜÜ %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÖÖ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 áá &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2853,25 +2857,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ìì #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óó "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïï $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôô )à
-S101tRename struct 'NET_DVR_GETWORKSTATE_COND' to match camel case naming rules, consider using 'NetDvrGetworkstateCond'.
-ÆÆ /Y
+óó "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öö "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õõ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úú $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùù %t
+õõ !t
 S101`Rename struct 'NET_DVR_LOG_V30' to match camel case naming rules, consider using 'NetDvrLogV30'.
 ˘˘ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ôô )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ùù %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ûû &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+úú $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •• $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -2881,163 +2883,161 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®®  +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞∞  +y
-S101eRename struct 'NET_DVR_WORKSTATE' to match camel case naming rules, consider using 'NetDvrWorkstate'.
-·· 'Y
+∞∞  +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™™ Y
+™™ m
+S101YRename struct 'NET_DVR_LOG' to match camel case naming rules, consider using 'NetDvrLog'.
+èè !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≥≥" ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤≤ #ô
 S101ÑRename struct 'NET_DVR_ALARMHOST_SEARCH_LOG_PARAM' to match camel case naming rules, consider using 'NetDvrAlarmhostSearchLogParam'.
 ££ 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µµ $m
-S101YRename struct 'NET_DVR_LOG' to match camel case naming rules, consider using 'NetDvrLog'.
-èè !Y
+¥¥ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+µµ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂∂  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏∏ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ππ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥≥" ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥¥ $Y
+∏∏ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ªª Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒƒ  á
-S101sRename struct 'NET_DVR_ALARMHOST_LOG_RET' to match camel case naming rules, consider using 'NetDvrAlarmhostLogRet'.
-ÆÆ /Y
+ƒƒ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-——  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙÙ  ä
+——  ä
 S101vRename struct 'NET_DVR_ALARMOUTSTATUS_V30' to match camel case naming rules, consider using 'NetDvrAlarmoutstatusV30'.
 ¡¡ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıı !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆˆ É
+ÙÙ  á
+S101sRename struct 'NET_DVR_ALARMHOST_LOG_RET' to match camel case naming rules, consider using 'NetDvrAlarmhostLogRet'.
+ÆÆ /É
 S101oRename struct 'NET_DVR_ALARMOUTSTATUS' to match camel case naming rules, consider using 'NetDvrAlarmoutstatus'.
 ŒŒ ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ıı !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˆˆ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜˜  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯¯ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘˘ "Y
+˘˘ "q
+S101]Rename struct 'NET_DVR_VOOUT' to match camel case naming rules, consider using 'NetDvrVoout'.
+¶¶ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚˚ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸¸ &Y
+˛˛ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÅÅ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄÄ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛˛ $Y
+¸¸ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ââ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êê y
-S101eRename struct 'NET_DVR_TRADEINFO' to match camel case naming rules, consider using 'NetDvrTradeinfo'.
-ÚÚ 'Y
+êê Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ìì !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 íí  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìì !Å
+îî #y
+S101eRename struct 'NET_DVR_TRADEINFO' to match camel case naming rules, consider using 'NetDvrTradeinfo'.
+ÚÚ 'Å
 S101mRename struct 'NET_DVR_FRAMETYPECODE' to match camel case naming rules, consider using 'NetDvrFrametypecode'.
 ÜÜ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-îî #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïï +Ä
-S101lRename struct 'NET_DVR_WORKSTATE_V30' to match camel case naming rules, consider using 'NetDvrWorkstateV30'.
-øø +Y
+ïï +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ññ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-öö .Y
+ôô 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òò ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôô 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úú .y
-S101eRename struct 'NET_DVR_DISKSTATE' to match camel case naming rules, consider using 'NetDvrDiskstate'.
-ëë 'Y
+õõ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ùù .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õõ 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ûû ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-††+ 8}
-S101iRename struct 'NET_DVR_FRAMEFORMAT' to match camel case naming rules, consider using 'NetDvrFrameformat'.
-éé )s
-S101_Rename struct 'NET_DVR_FILTER' to match camel case naming rules, consider using 'NetDvrFilter'.
-¶¶ $Y
+úú .Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+††+ 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®®  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞∞  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©© Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫∫ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ªª) 6Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑∑ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ºº) 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ææ  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈≈ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™™ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-««  }
-S101iRename struct 'NET_DVR_IDENTIFICAT' to match camel case naming rules, consider using 'NetDvrIdentificat'.
-µµ )Y
+¨¨ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÆÆ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∑∑ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∞∞  }
+S101iRename struct 'NET_DVR_FRAMEFORMAT' to match camel case naming rules, consider using 'NetDvrFrameformat'.
+éé )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+öö .Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏∏ !s
+S101_Rename struct 'NET_DVR_FILTER' to match camel case naming rules, consider using 'NetDvrFilter'.
+¶¶ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ºº) 4Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ªª) 6Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∫∫ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≈≈ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ææ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »» #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-……) 6Y
+««  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+……) 6}
+S101iRename struct 'NET_DVR_IDENTIFICAT' to match camel case naming rules, consider using 'NetDvrIdentificat'.
+µµ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
    )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÀÀ %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃÃ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨¨ Y
+ÀÀ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒŒ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’’ $Y
+ÿÿ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊◊  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿÿ #Ü
+’’ $Ü
 S101rRename struct 'NET_DVR_PACKAGE_LOCATION' to match camel case naming rules, consider using 'NetDvrPackageLocation'.
 √√ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŸŸ #Y
+◊◊  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄⁄ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €€ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁﬁ) 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ››  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂﬂ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ŸŸ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡‡ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3047,99 +3047,105 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏÏ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎÎ  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÌÌ Ç
+ÎÎ  Ç
 S101nRename struct 'NET_DVR_PACKAGE_LENGTH' to match camel case naming rules, consider using 'NetDvrPackageLength'.
 ”” ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁﬁ) 4Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÌÌ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÔÔ  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡¡ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜˜ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˘˘ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆˆ ~
 S101jRename struct 'NET_DVR_OSD_POSITION' to match camel case naming rules, consider using 'NetDvrOsdPosition'.
 ÁÁ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÔÔ  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯¯ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘˘ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚˚ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝˝ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÄÄ %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇˇ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÄÄ %Y
+ââ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÇÇ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏∏ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ââ "|
-S101hRename struct 'NET_DVR_DATE_FORMAT' to match camel case naming rules, consider using 'NetDvrDateFormat'.
-ÙÙ )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆÆ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìì %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ãã  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+åå "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 éé  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êê $Y
+êê $|
+S101hRename struct 'NET_DVR_DATE_FORMAT' to match camel case naming rules, consider using 'NetDvrDateFormat'.
+ÙÙ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 íí +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ìì %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ññ )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ïï  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òò  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 †† #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-üü #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °° )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïï  Y
+üü #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-åå "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-££ ~
-S101jRename struct 'NET_DVRT_TIME_FORMAT' to match camel case naming rules, consider using 'NetDvrtTimeFormat'.
-áá *Y
+££ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©©, ?Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™™( 7Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´´) 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨¨) 4Y
+™™( 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠≠ (Y
+¨¨) 4~
+S101jRename struct 'NET_DVRT_TIME_FORMAT' to match camel case naming rules, consider using 'NetDvrtTimeFormat'.
+áá *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠≠ (Ñ
+S101pRename struct 'NET_DVR_OVERLAY_CHANNEL' to match camel case naming rules, consider using 'NetDvrOverlayChannel'.
+úú -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µµ, ?Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∂∂' 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ØØ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂∂' 3â
-S101uRename struct 'NET_DVR_ATM_PACKAGE_ACTION' to match camel case naming rules, consider using 'NetDvrAtmPackageAction'.
-ßß 0Y
+∑∑( 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ππ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øø, 4Ö
-S101qRename struct 'NET_DVR_ATM_PACKAGE_DATE' to match camel case naming rules, consider using 'NetDvrAtmPackageDate'.
-≥≥ .Y
+øø, 4â
+S101uRename struct 'NET_DVR_ATM_PACKAGE_ACTION' to match camel case naming rules, consider using 'NetDvrAtmPackageAction'.
+ßß 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿¿( 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡¡( 7Y
+¡¡( 7Ö
+S101qRename struct 'NET_DVR_ATM_PACKAGE_DATE' to match camel case naming rules, consider using 'NetDvrAtmPackageDate'.
+≥≥ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√√ Ö
-S101qRename struct 'NET_DVR_ATM_PACKAGE_TIME' to match camel case naming rules, consider using 'NetDvrAtmPackageTime'.
-ΩΩ .Y
+√√ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+……, ?Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
   * ;Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3147,51 +3153,43 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃÃ) 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŒŒ Y
+ŒŒ Ö
+S101qRename struct 'NET_DVR_ATM_PACKAGE_TIME' to match camel case naming rules, consider using 'NetDvrAtmPackageTime'.
+ΩΩ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’’' 9â
-S101uRename struct 'NET_DVR_ATM_PACKAGE_OTHERS' to match camel case naming rules, consider using 'NetDvrAtmPackageOthers'.
-«« 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊◊. <Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŸŸ0 CY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ññ )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄⁄. <Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€€. >Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-……, ?Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁﬁ, 4Ñ
-S101pRename struct 'NET_DVR_OVERLAY_CHANNEL' to match camel case naming rules, consider using 'NetDvrOverlayChannel'.
-úú -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡‡  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÊÊ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹‹+ :Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÁÁ  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-››, 4Y
+’’' 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷÷" ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+◊◊. <Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+⁄⁄. <Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ŸŸ0 CY
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+€€. >â
+S101uRename struct 'NET_DVR_ATM_PACKAGE_OTHERS' to match camel case naming rules, consider using 'NetDvrAtmPackageOthers'.
+«« 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡‡  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁﬁ, 4ï
+S101ÄRename struct 'NET_DVR_ATM_USER_DEFINE_PROTOCOL' to match camel case naming rules, consider using 'NetDvrAtmUserDefineProtocol'.
+”” 6Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËË #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍÍ  Y
+‹‹+ :Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÏÏ "Y
+››, 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑∑( 7Y
+ÊÊ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÁÁ  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+4 MY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔÔ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓÓ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎÎ" +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3199,75 +3197,79 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘˘ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÓÓ  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÍÍ  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚˚  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Å Å  %ã
 S101wRename struct 'NET_DVR_ATM_FRAMEFORMAT_V30' to match camel case naming rules, consider using 'NetDvrAtmFrameformatV30'.
-‰‰ 1Å
-S101mRename struct 'NET_DVR_ATM_PROTO_TYPE' to match camel case naming rules, consider using 'NetDvrAtmProtoType'.
-˜˜ ,Y
+‰‰ 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÏÏ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 É É , <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 â â  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ä ä * ;Å
-S101mRename struct 'NET_DVR_ATM_PROTO_LIST' to match camel case naming rules, consider using 'NetDvrAtmProtoList'.
-ˇˇ ,Y
+ä ä * ;Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ã ã * >Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 å å * :Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ç ç * =Y
+ç ç * =Å
+S101mRename struct 'NET_DVR_ATM_PROTO_LIST' to match camel case naming rules, consider using 'NetDvrAtmProtoList'.
+ˇˇ ,Å
+S101mRename struct 'NET_DVR_ATM_PROTO_TYPE' to match camel case naming rules, consider using 'NetDvrAtmProtoType'.
+˜˜ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-é é * 9~
-S101jRename struct 'NET_DVR_ATM_PROTOCOL' to match camel case naming rules, consider using 'NetDvrAtmProtocol'.
-á á  *Y
+é é * 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ó ó  %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ú ú  "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ù ù  (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õ õ  )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ô ô  'Y
+ú ú  "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-û û  &Y
+ô ô  '~
+S101jRename struct 'NET_DVR_ATM_PROTOCOL' to match camel case naming rules, consider using 'NetDvrAtmProtocol'.
+á á  *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ù ù  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 † †  &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ß ß  %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-© ©  '}
-S101iRename struct 'NET_DVR_DECODERINFO' to match camel case naming rules, consider using 'NetDvrDecoderinfo'.
-î î  )Y
+© ©  'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨ ¨  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´ ´  )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠ ≠  "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Æ Æ  &Y
+≠ ≠  "}
+S101iRename struct 'NET_DVR_DECODERINFO' to match camel case naming rules, consider using 'NetDvrDecoderinfo'.
+î î  )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ø Ø  &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-± ±  &Y
+Æ Æ  &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿ ¿  "Y
+± ±  &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ø ø   Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¿ ¿  "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+´ ´  )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬ ¬  #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒ ƒ  #
+ƒ ƒ  #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≈ ≈  !
 S101kRename struct 'NET_DVR_DECODERSTATE' to match camel case naming rules, consider using 'NetDvrDecoderstate'.
 § §  *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈ ≈  !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆ ∆  "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3275,29 +3277,27 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Œ Œ  #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+“ “  "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 — —  $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“ “  "Y
+Ÿ Ÿ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 – – ) 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ÿ Ÿ  }
+⁄ ⁄  $}
 S101iRename struct 'NET_DVR_DECCHANINFO' to match camel case naming rules, consider using 'NetDvrDecchaninfo'.
 º º  )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄ ⁄  $u
+‹ ‹ % 0u
 S101aRename struct 'NET_DVR_DECINFO' to match camel case naming rules, consider using 'NetDvrDecinfo'.
 Ã Ã  %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹ ‹ % 0ï
-S101ÄRename struct 'NET_DVR_ATM_USER_DEFINE_PROTOCOL' to match camel case naming rules, consider using 'NetDvrAtmUserDefineProtocol'.
-”” 6Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰ ‰  )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Á Á  &Y
+Ê Ê  $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ê Ê  $s
+Á Á  &s
 S101_Rename struct 'NET_DVR_DECCFG' to match camel case naming rules, consider using 'NetDvrDeccfg'.
 ◊ ◊  $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3309,13 +3309,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ú Ú & 7w
 S101cRename struct 'NET_DVR_PORTINFO' to match camel case naming rules, consider using 'NetDvrPortinfo'.
-‚ ‚  &Y
+‚ ‚  &u
+S101aRename struct 'NET_DVR_PORTCFG' to match camel case naming rules, consider using 'NetDvrPortcfg'.
+Ó Ó  %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯ ¯  !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˙ ˙  #u
-S101aRename struct 'NET_DVR_PORTCFG' to match camel case naming rules, consider using 'NetDvrPortcfg'.
-Ó Ó  %Y
+˙ ˙  #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸ ¸  #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3325,27 +3325,29 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ö!Ö! Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-á!á! $e
-S101QRename struct 'bytime' to match camel case naming rules, consider using 'Bytime'.
-ˆ ˆ  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 à!à! &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+á!á! $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 í!í! $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+â!â! #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ê!ê! $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-â!â! #j
-S101VRename struct 'mode_size' to match camel case naming rules, consider using 'ModeSize'.
-å!å! #Y
+ú!ú! "e
+S101QRename struct 'bytime' to match camel case naming rules, consider using 'Bytime'.
+ˆ ˆ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ú!ú! "Y
+û û  &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 û!û!  É
 S101oRename struct 'NET_DVR_PLAYREMOTEFILE' to match camel case naming rules, consider using 'NetDvrPlayremotefile'.
 É!É! ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ü!ü! "Y
+ü!ü! "j
+S101VRename struct 'mode_size' to match camel case naming rules, consider using 'ModeSize'.
+å!å! #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 †!†! !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3353,87 +3355,87 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢!¢! "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ø!Ø!" *Y
+´!´!" +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠!≠!" +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´!´!" +Y
+Ø!Ø!" *i
+S101URename struct 'userInfo' to match camel case naming rules, consider using 'UserInfo'.
+®!®! &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂!∂!" *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ª!ª!  )i
-S101URename struct 'userInfo' to match camel case naming rules, consider using 'UserInfo'.
-®!®! &i
 S101URename struct 'fileInfo' to match camel case naming rules, consider using 'FileInfo'.
 ≥!≥! &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ω!Ω!" +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø!ø!" +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿!¿!( 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡!¡!( 4i
+Ω!Ω!" +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ø!ø!" +i
 S101URename struct 'timeInfo' to match camel case naming rules, consider using 'TimeInfo'.
 π!π! &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡!¡!( 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  ! ! Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ã!Ã!+ <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+’!’! %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘!‘! %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’!’! %m
-S101YRename struct 'objectInfo' to match camel case naming rules, consider using 'ObjectInfo'.
-•!•! $Y
+◊!◊! -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷!÷! -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊!◊! -y
+Ÿ!Ÿ! !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡!‡! m
+S101YRename struct 'objectInfo' to match camel case naming rules, consider using 'ObjectInfo'.
+•!•! $É
+S101oRename struct 'NET_DVR_SHOWSTRINGINFO' to match camel case naming rules, consider using 'NetDvrShowstringinfo'.
+“!“! ,y
 S101eRename struct 'NET_DVR_DECSTATUS' to match camel case naming rules, consider using 'NetDvrDecstatus'.
 »!»! 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡!‡! Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ÿ!Ÿ! !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚!‚!, :É
-S101oRename struct 'NET_DVR_SHOWSTRINGINFO' to match camel case naming rules, consider using 'NetDvrShowstringinfo'.
-“!“! ,Y
+‚!‚!, :Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 È!È! Ç
 S101nRename struct 'NET_DVR_SHOWSTRING_V30' to match camel case naming rules, consider using 'NetDvrShowstringV30'.
 ﬁ!ﬁ! ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Î!Î!, :Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ú!Ú! Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Î!Î!, :Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ù!Ù!, :Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛!˛! Å
 S101mRename struct 'NET_DVR_DECCHANSTATUS' to match camel case naming rules, consider using 'NetDvrDecchanstatus'.
-ö!ö! +Y
+ö!ö! +{
+S101gRename struct 'NET_DVR_SHOWSTRING' to match camel case naming rules, consider using 'NetDvrShowstring'.
+!! (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ä"Ä" "q
-S101]Rename struct 'struReceiver' to match camel case naming rules, consider using 'StruReceiver'.
-˚!˚! "Y
+Ä"Ä" "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ü"Ü" Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-à"à" "Y
+à"à" "q
+S101]Rename struct 'struReceiver' to match camel case naming rules, consider using 'StruReceiver'.
+˚!˚! "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ä"ä" #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñ"ñ" %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ò"ò" %Ä
+ä"ä" #Ä
 S101lRename struct 'NET_DVR_SHOWSTRING_EX' to match camel case naming rules, consider using 'NetDvrShowstringEx'.
 Á!Á! +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õ"õ"" 0{
-S101gRename struct 'NET_DVR_SHOWSTRING' to match camel case naming rules, consider using 'NetDvrShowstring'.
-!! (Y
+ñ"ñ" %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ò"ò" %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+õ"õ"" 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ù"ù" $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3445,39 +3447,39 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °"°" #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ê"ê" #Y
+£"£" Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 í"í" &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£"£" m
+ê"ê" #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+™"™" m
 S101YRename struct 'struSender' to match camel case naming rules, consider using 'StruSender'.
 ç"ç" $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™"™" Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨"¨" $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Æ"Æ" 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞"∞" &~
-S101jRename struct 'NET_DVR_EMAILCFG_V30' to match camel case naming rules, consider using 'NetDvrEmailcfgV30'.
-Ñ"Ñ" *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±"±" *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∞"∞" &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Æ"Æ" 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥"≥" Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫"∫" Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ª"ª"  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-4 MY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-æ"æ" Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ω"Ω" Y
+ª"ª"  ~
+S101jRename struct 'NET_DVR_EMAILCFG_V30' to match camel case naming rules, consider using 'NetDvrEmailcfgV30'.
+Ñ"Ñ" *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 º"º" "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ω"Ω" |
+S101hRename struct 'NET_DVR_CRUISE_PARA' to match camel case naming rules, consider using 'NetDvrCruisePara'.
+®"®" )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+æ"æ" Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈"≈" Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3485,15 +3487,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »"»" #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…"…" !y
+Ã"Ã"% 3y
 S101eRename struct 'NET_DVR_TIMEPOINT' to match camel case naming rules, consider using 'NetDvrTimepoint'.
 ∏"∏" 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ã"Ã"% 3Y
+Õ"Õ"% 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 À"À"  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Õ"Õ"% 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ◊"◊" "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3503,19 +3503,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101gRename struct 'NET_DVR_ZONEANDDST' to match camel case naming rules, consider using 'NetDvrZoneanddst'.
 √"√" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‚"‚" -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·"·" &w
 S101cRename struct 'NET_DVR_JPEGPARA' to match camel case naming rules, consider using 'NetDvrJpegpara'.
 “"“" &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚"‚" -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ô"Ô" #Y
+‰"‰" )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ê"Ê" $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ó"Ó" $Y
+…"…" !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰"‰" )Y
+Ô"Ô" #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ó"Ó" $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 "" #y
 S101eRename struct 'NET_DVR_AUXOUTCFG' to match camel case naming rules, consider using 'NetDvrAuxoutcfg'.
@@ -3529,19 +3531,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ù"Ù" "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+É#É# $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆ"ˆ" Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛"˛" #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ä#Ä# #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-É#É# $u
-S101aRename struct 'NET_DVR_NTPPARA' to match camel case naming rules, consider using 'NetDvrNtppara'.
-Î"Î" %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ç#Ç# %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ö#Ö# Y
+Ö#Ö# u
+S101aRename struct 'NET_DVR_NTPPARA' to match camel case naming rules, consider using 'NetDvrNtppara'.
+Î"Î" %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ã#ã# #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3561,11 +3563,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ó#ó# Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ü#ü# #|
+ü#ü# #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+°#°# #|
 S101hRename struct 'NET_DVR_DDNSPARA_EX' to match camel case naming rules, consider using 'NetDvrDdnsparaEx'.
 â#â# )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°#°# #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £#£# %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3583,15 +3585,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101URename struct 'struDDNS' to match camel case naming rules, consider using 'StruDdns'.
 ú#ú# Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥#≥# &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µ#µ#  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ω#Ω# #~
+≥#≥# &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ω#Ω# #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ø#ø# #~
 S101jRename struct 'NET_DVR_DDNSPARA_V30' to match camel case naming rules, consider using 'NetDvrDdnsparaV30'.
 ¨#¨# *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø#ø# #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡#¡# %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3603,8 +3605,6 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …#…# )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-À#À# Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 “#“# Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘#‘#  Y
@@ -3613,43 +3613,45 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷#÷#$ 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿ#ÿ# y
-S101eRename struct 'NET_DVR_EMAILPARA' to match camel case naming rules, consider using 'NetDvrEmailpara'.
-∫#∫# 'Y
+ÿ#ÿ# Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡#‡# (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚#‚# 'y
-S101eRename struct 'NET_DVR_NETAPPCFG' to match camel case naming rules, consider using 'NetDvrNetappcfg'.
-–#–# 'Y
+‚#‚# 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ì#Ì# z
+À#À# y
+S101eRename struct 'NET_DVR_EMAILPARA' to match camel case naming rules, consider using 'NetDvrEmailpara'.
+∫#∫# 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ì#Ì# Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ô#Ô#( 8z
 S101fRename struct 'NET_DVR_SINGLE_NFS' to match camel case naming rules, consider using 'NetDvrSingleNfs'.
 ›#›# (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ô#Ô#( 8Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Å$Å$  s
-S101_Rename struct 'NET_DVR_NFSCFG' to match camel case naming rules, consider using 'NetDvrNfscfg'.
-Î#Î# $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇ#ˇ# Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ñ$Ñ$" -Y
+Ä$Ä$ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ü$Ü$ (Y
+Å$Å$  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ñ$Ñ$" -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 É$É$ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ç$ç$ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ä$Ä$ "Y
+Ü$Ü$ (s
+S101_Rename struct 'NET_DVR_NFSCFG' to match camel case naming rules, consider using 'NetDvrNfscfg'.
+Î#Î# $y
+S101eRename struct 'NET_DVR_NETAPPCFG' to match camel case naming rules, consider using 'NetDvrNetappcfg'.
+–#–# 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 é$é$ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-è$è$ Y
+ê$ê$ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ê$ê$ x
+è$è$ x
 S101dRename struct 'NET_DVR_ISCSI_CFG' to match camel case naming rules, consider using 'NetDvrIscsiCfg'.
 ˝#˝# 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3665,37 +3667,37 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µ$µ$ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-º$º$  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ω$Ω$ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-æ$æ$ !z
+º$º$  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+æ$æ$ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ø$ø$ 'z
 S101fRename struct 'NET_DVR_CRUISE_RET' to match camel case naming rules, consider using 'NetDvrCruiseRet'.
 ú$ú$ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø$ø$ '~
+¿$¿$ #~
 S101jRename struct 'NET_DVR_NETCFG_OTHER' to match camel case naming rules, consider using 'NetDvrNetcfgOther'.
 ≠$≠$ *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿$¿$ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬$¬$ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒ$ƒ$ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆$∆$ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Õ$Õ$ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Œ$Œ$* 9Ç
+∆$∆$ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Œ$Œ$* 9Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‘$‘$ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+’$’$ "Ç
 S101nRename struct 'NET_DVR_MATRIX_DECINFO' to match camel case naming rules, consider using 'NetDvrMatrixDecinfo'.
 π$π$ ,â
 S101uRename struct 'NET_DVR_MATRIX_DYNAMIC_DEC' to match camel case naming rules, consider using 'NetDvrMatrixDynamicDec'.
 À$À$ 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‘$‘$ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’$’$ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷$÷$ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3703,41 +3705,41 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁ$ﬁ$ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂ$ﬂ$* 9Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡$‡$ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·$·$  )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂ$ﬂ$* 9ê
+‚$‚$  (ê
 S101|Rename struct 'NET_DVR_MATRIX_DEC_CHAN_STATUS' to match camel case naming rules, consider using 'NetDvrMatrixDecChanStatus'.
 “$“$ 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚$‚$  (Y
+‰$‰$ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ï$Ï$* 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Î$Î$  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ù$Ù$ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰$‰$ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ï$Ï$* 9å
-S101xRename struct 'NET_DVR_MATRIX_DEC_CHAN_INFO' to match camel case naming rules, consider using 'NetDvrMatrixDecChanInfo'.
-‹$‹$ 2Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Û$Û$ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆ$ˆ$0 ?Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝$˝$  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛$˛$  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇ$ˇ$  ä
+Û$Û$ ä
 S101vRename struct 'NET_DVR_MATRIX_DECCHANINFO' to match camel case naming rules, consider using 'NetDvrMatrixDecchaninfo'.
 È$È$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ä%Ä% ã
+Ù$Ù$ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˝$˝$  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˛$˛$  å
+S101xRename struct 'NET_DVR_MATRIX_DEC_CHAN_INFO' to match camel case naming rules, consider using 'NetDvrMatrixDecChanInfo'.
+‹$‹$ 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˆ$ˆ$0 ?Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇ$ˇ$  ã
 S101wRename struct 'NET_DVR_MATRIX_LOOP_DECINFO' to match camel case naming rules, consider using 'NetDvrMatrixLoopDecinfo'.
 Ò$Ò$ 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ä%Ä% Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Å%Å% #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3753,9 +3755,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101XRename struct 'TTY_CONFIG' to match camel case naming rules, consider using 'TtyConfig'.
 ˚$˚$  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ò%ò% &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ô%ô% (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ò%ò% &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ú%ú% 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3775,9 +3777,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ø%Ø% Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±%±%  Y
+≤%≤% "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤%≤% "í
+±%±%  í
 S101~Rename struct 'NET_DVR_MATRIX_TRAN_CHAN_CONFIG' to match camel case naming rules, consider using 'NetDvrMatrixTranChanConfig'.
 †%†% 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3785,21 +3787,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥%¥% !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂%∂% #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏%∏% #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 π%π% "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ª%ª%  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫%∫%  )Y
+∂%∂% #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ω%Ω% #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√%√% ê
-S101|Rename struct 'NET_DVR_MATRIX_DEC_REMOTE_PLAY' to match camel case naming rules, consider using 'NetDvrMatrixDecRemotePlay'.
-≠%≠% 4Y
+√%√% Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∫%∫%  )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒ%ƒ% !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3807,13 +3807,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 À%À% Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ã%Ã% )†
-S101ãRename struct 'NET_DVR_MATRIX_DEC_REMOTE_PLAY_CONTROL' to match camel case naming rules, consider using 'NetDvrMatrixDecRemotePlayControl'.
-¡%¡% <Y
+Ã%Ã% )ê
+S101|Rename struct 'NET_DVR_MATRIX_DEC_REMOTE_PLAY' to match camel case naming rules, consider using 'NetDvrMatrixDecRemotePlay'.
+≠%≠% 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Õ%Õ% .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Œ%Œ% .Y
+Œ%Œ% .†
+S101ãRename struct 'NET_DVR_MATRIX_DEC_REMOTE_PLAY_CONTROL' to match camel case naming rules, consider using 'NetDvrMatrixDecRemotePlayControl'.
+¡%¡% <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œ%œ% %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3821,39 +3823,37 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —%—% %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”%”% Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄%⁄% &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€%€% &Y
+”%”% Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›%›%" -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂ%ﬂ% û
+€%€% &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂ%ﬂ% Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Â%Â% (û
 S101âRename struct 'NET_DVR_MATRIX_DEC_REMOTE_PLAY_STATUS' to match camel case naming rules, consider using 'NetDvrMatrixDecRemotePlayStatus'.
 …%…% ;Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Â%Â% (ä
+Î%Î% +ä
 S101vRename struct 'NET_DVR_MATRIX_PASSIVEMODE' to match camel case naming rules, consider using 'NetDvrMatrixPassivemode'.
 ÿ%ÿ% 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ò%Ò% ,Y
+Û%Û%" 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ú%Ú% Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ù%Ù% (Y
+Ò%Ò% ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ı%ı% 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Û%Û%" 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆ%ˆ% Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘%˘% $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Î%Î% +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜%˜% 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˘%˘% $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚%˚% $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3867,19 +3867,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101ÅRename struct 'NET_DVR_MATRIX_TRAN_CHAN_INFO_V30' to match camel case naming rules, consider using 'NetDvrMatrixTranChanInfoV30'.
 „%„% 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-á&á& Y
+Ù%Ù% (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-â&â&3 ?Y
+á&á& Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 è&è&  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+â&â&3 ?Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ê&ê&3 GY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ë&ë&) 8ö
-S101ÖRename struct 'NET_DVR_MATRIX_TRAN_CHAN_CONFIG_V30' to match camel case naming rules, consider using 'NetDvrMatrixTranChanConfigV30'.
-Å&Å& 9Y
+ë&ë&) 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ó&ó& å
+ó&ó& ö
+S101ÖRename struct 'NET_DVR_MATRIX_TRAN_CHAN_CONFIG_V30' to match camel case naming rules, consider using 'NetDvrMatrixTranChanConfigV30'.
+Å&Å& 9å
 S101xRename struct 'NET_DVR_MATRIX_CHAN_INFO_V30' to match camel case naming rules, consider using 'NetDvrMatrixChanInfoV30'.
 ç&ç& 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3887,49 +3889,47 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ö&ö&2 AY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ú&ú& Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢&¢& Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£&£&3 GY
+§&§&) 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§&§&) 8í
+•&•& "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ú&ú& í
 S101~Rename struct 'NET_DVR_MATRIX_LOOP_DECINFO_V30' to match camel case naming rules, consider using 'NetDvrMatrixLoopDecinfoV30'.
 ï&ï& 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•&•& "|
-S101hRename struct 'NET_DVR_CRUISE_PARA' to match camel case naming rules, consider using 'NetDvrCruisePara'.
-®"®" )Y
+£&£&3 GY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶&¶&  )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ß&ß&  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™&™& 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©&©& #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´&´&. =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+™&™& 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µ&µ& Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠&≠& Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑&∑& #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂&∂& !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏&∏& !ì
-S101Rename struct 'NET_DVR_MATRIX_DEC_CHAN_INFO_V30' to match camel case naming rules, consider using 'NetDvrMatrixDecChanInfoV30'.
-†&†& 6Y
+∑&∑& #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠&≠& Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏&∏& !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 π&π& !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ª&ª& )Y
+æ&æ& !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ª&ª& )ì
+S101Rename struct 'NET_DVR_MATRIX_DEC_CHAN_INFO_V30' to match camel case naming rules, consider using 'NetDvrMatrixDecChanInfoV30'.
+†&†& 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ω&Ω& )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-æ&æ& !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ø&ø& "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3937,11 +3937,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬&¬&  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ƒ&ƒ& -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∆&∆& *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+»&»& )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ & &  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —&—& &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 “&“& &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆&∆& *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”&”& #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3953,23 +3959,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ◊&◊& Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒ&ƒ& -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»&»& )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷&÷&  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€&€& "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄&⁄&  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ú&Ú& &~
-S101jRename struct 'NET_DVR_DISP_LOGOCFG' to match camel case naming rules, consider using 'NetDvrDispLogocfg'.
-œ&œ& *Y
+€&€& "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ú&Ú& &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Û&Û& $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ù&Ù& $Y
+Ù&Ù& $~
+S101jRename struct 'NET_DVR_DISP_LOGOCFG' to match camel case naming rules, consider using 'NetDvrDispLogocfg'.
+œ&œ& *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ı&ı& &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -3983,55 +3985,55 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸&¸& "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝&˝& "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚&˚&  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛&˛& Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˝&˝& "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇ&ˇ& Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ä'Ä' %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-É'É' !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ç'Ç'  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ö'Ö'  â
+É'É' !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ö'Ö'  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˚&˚&  â
 S101uRename struct 'NET_DVR_MATRIX_CHAN_STATUS' to match camel case naming rules, consider using 'NetDvrMatrixChanStatus'.
 && 0t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ¡'¡' "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Õ'Õ' )~
-S101jRename struct 'UNION_VIDEOPLATFORM' to match camel case naming rules, consider using 'UnionVideoplatform'.
-…'…' )t
+Õ'Õ' )t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 å'å' Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄'⁄' Y
+⁄'⁄' ~
+S101jRename struct 'UNION_VIDEOPLATFORM' to match camel case naming rules, consider using 'UnionVideoplatform'.
+…'…' )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€'€' Y
+‘'‘' Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‘'‘' Ñ
+€'€' Ñ
 S101pRename struct 'UNION_NOTVIDEOPLATFORM' to match camel case naming rules, consider using 'UnionNotvideoplatform'.
 —'—' ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹'‹' (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›'›' 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‹'‹' (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁ'ﬁ' %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂ'ﬂ' $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·'·' 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚'‚' 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ò'Ò' #Y
+·'·' 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ú'Ú' Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ò'Ò' #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ï'Ï'+ <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4041,27 +4043,29 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „'„' /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘'˘' Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¯'¯' $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚'˚' $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝'˝' 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ä(Ä( $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ç(Ç(  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˙'˙' %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇ'ˇ' #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-é(é(0 Ai
+¯'¯' $i
 S101URename struct 'struDiff' to match camel case naming rules, consider using 'StruDiff'.
 Â'Â' "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˘'˘' Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˙'˙' %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˚'˚' $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ä(Ä( $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇ'ˇ' #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˝'˝' 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 å(å( Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ç(Ç(  Ü
+S101rRename struct 'NET_DVR_VGA_DISP_CHAN_CFG' to match camel case naming rules, consider using 'NetDvrVgaDispChanCfg'.
+ÿ'ÿ' /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+é(é(0 AY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ê(ê(. @Ö
 S101qRename struct 'NET_DVR_DISP_CHAN_STATUS' to match camel case naming rules, consider using 'NetDvrDispChanStatus'.
@@ -4075,9 +4079,7 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ó(ó( Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-û(û( Ü
-S101rRename struct 'NET_DVR_VGA_DISP_CHAN_CFG' to match camel case naming rules, consider using 'NetDvrVgaDispChanCfg'.
-ÿ'ÿ' /Y
+û(û( Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ü(ü( !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4087,45 +4089,45 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢(¢( Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥(≥( Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥(¥( ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µ(µ( %ê
 S101|Rename struct 'NET_DVR_PASSIVEDECODE_CONTROL' to match camel case naming rules, consider using 'NetDvrPassivedecodeControl'.
 ú(ú( 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑(∑( Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”(”( 'ë
+∑(∑( ë
 S101}Rename struct 'NET_DVR_MATRIX_DECCHAN_CONTROL' to match camel case naming rules, consider using 'NetDvrMatrixDecchanControl'.
 ±(±( 4Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+”(”( 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≥(≥( Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ’(’( #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘(‘( Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊(◊(  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿ(ÿ(" 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ÿ(Ÿ( (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+◊(◊(  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹(‹(" 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€(€(  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›(›(" 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+€(€(  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂ(ﬂ( #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·(·( #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+„(„( %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Â(Â( %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Á(Á( 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„(„( %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ì(Ì( Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4143,15 +4145,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙(˙(2 AY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-É)É) #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸(¸( Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ñ)Ñ) #Ñ
+Ç)Ç) Ñ
 S101pRename struct 'NET_DVR_LOOPPLAN_SUBCFG' to match camel case naming rules, consider using 'NetDvrLoopplanSubcfg'.
 ı(ı( -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ç)Ç) Y
+É)É) #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ñ)Ñ) #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ü)Ü) Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4165,15 +4167,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ê)ê)  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-í)í) #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-î)î) #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ï)ï) Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+í)í) #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñ)ñ) !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ò)ò)  Y
+î)î) #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 û)û) 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4185,51 +4185,51 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢)¢) Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+®)®) Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©)©)( 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™)™)) 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®)®) 
+¨)¨) 
 S101kRename struct 'NET_DVR_ASSOCIATECFG' to match camel case naming rules, consider using 'NetDvrAssociatecfg'.
 ú)ú) *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±)±)% 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤)≤) $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨)¨) Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥)≥) #Å
+≤)≤) $Å
 S101mRename struct 'NET_DVR_DYNAMICDECODE' to match camel case naming rules, consider using 'NetDvrDynamicdecode'.
 ¶)¶) +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂)∂)) 7Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µ)µ) Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ª)ª) Y
+∂)∂)) 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ω)Ω)) 8}
+≥)≥) #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ª)ª) }
 S101iRename struct 'NET_DVR_DECODESCHED' to match camel case naming rules, consider using 'NetDvrDecodesched'.
 Ø)Ø) )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ω)Ω)) 8Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈)≈) Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø)ø) Y
+ò)ò)  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆)∆) +{
+ø)ø) {
 S101gRename struct 'NET_DVR_PLANDECODE' to match camel case naming rules, consider using 'NetDvrPlandecode'.
 π)π) (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∆)∆) +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «)«) -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …)…) &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-À)À) Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘)‘) 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’)’) !Y
+À)À) Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷)÷) #ê
 S101|Rename struct 'NET_DVR_VIDEOPLATFORM_ABILITY' to match camel case naming rules, consider using 'NetDvrVideoplatformAbility'.
@@ -4241,23 +4241,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄)⁄), 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂ)ﬂ) !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡)‡) !à
-S101tRename struct 'NET_DVR_SUBSYSTEM_ABILITY' to match camel case naming rules, consider using 'NetDvrSubsystemAbility'.
-—)—) /Y
+‡)‡) !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·)·) "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚)‚) !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰)‰) #Y
+‰)‰) #à
+S101tRename struct 'NET_DVR_SUBSYSTEM_ABILITY' to match camel case naming rules, consider using 'NetDvrSubsystemAbility'.
+—)—) /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Â)Â) !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ê)Ê) !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ë)Ë) &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ê)Ê) !Y
+’)’) !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Î)Î) %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4265,23 +4265,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ì)Ì)  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ı)ı) Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚)˚) Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸)¸) +â
+ı)ı) â
 S101uRename struct 'struDecoderSystemAbility' to match camel case naming rules, consider using 'StruDecoderSystemAbility'.
 ›)›) .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝)˝) -Y
+˚)˚) Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇ)ˇ) ,o
+¸)¸) +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂ)ﬂ) !o
 S101[Rename struct 'struAbility' to match camel case naming rules, consider using 'StruAbility'.
 Ò)Ò) !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛)˛) $Y
+˝)˝) -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ä*Ä* -Y
+˛)˛) $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Å*Å* 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4289,13 +4287,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 É*É* -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇ)ˇ) ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ñ*Ñ* *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ü*Ü* 0Y
+Ä*Ä* -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 á*á* +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ö*Ö* )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ü*Ü* 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 à*à* +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4305,7 +4307,7 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ã*ã* +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ç*ç* +Y
+å*å* *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 é*é* +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4313,11 +4315,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 í*í* !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ë*ë*/ CY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ì*ì* !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-å*å* *Y
+ë*ë*/ CY
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+î*î* (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ï*ï* $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4327,35 +4329,37 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ò*ò* &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ô*ô* &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-î*î* (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ö*ö* -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õ*õ* ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£*£* #Y
+ô*ô* &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ù*ù*  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+£*£* #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §*§* &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ç*ç* +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •*•* !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ß*ß* Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠*≠* Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Æ*Æ*  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ø*Ø* Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±*±* *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞*∞* ò
+≠*≠* ò
 S101ÉRename struct 'NET_DVR_VIDEOPLATFORM_ABILITY_V40' to match camel case naming rules, consider using 'NetDvrVideoplatformAbilityV40'.
 ˘)˘) 7Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∞*∞* Ö
+S101qRename struct 'NET_DVR_SINGLESCREENCFG' to match camel case naming rules, consider using 'NetDvrSinglescreencfg'.
+°*°* -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+±*±* *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤*≤* -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4365,11 +4369,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µ*µ*  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-π*π*- CY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ª*ª* %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 º*º* %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+π*π*- CY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æ*æ*  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4401,219 +4405,215 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚*‚* $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-È*È* Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „*„* &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Í*Í*/ AY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Î*Î*/ CY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+È*È* Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ú*Ú* !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Û*Û* !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ù*Ù* "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ı*ı* "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Û*Û* !Ö
-S101qRename struct 'NET_DVR_SINGLESCREENCFG' to match camel case naming rules, consider using 'NetDvrSinglescreencfg'.
-°*°* -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝*˝* $ä
+ı*ı* "w
+S101cRename struct 'NET_DVR_EMAILCFG' to match camel case naming rules, consider using 'NetDvrEmailcfg'.
+À*À* &ä
 S101vRename struct 'NET_DVR_COMPRESSIONCFG_NEW' to match camel case naming rules, consider using 'NetDvrCompressioncfgNew'.
 Á*Á* 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛*˛* %s
-S101_Rename struct 'NET_DVR_PTZPOS' to match camel case naming rules, consider using 'NetDvrPtzpos'.
-** $Y
+¸*¸* $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇ*ˇ* %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Å+Å+ %Y
+˛*˛* %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ä+Ä+ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸*¸* $Y
+ˇ*ˇ* %s
+S101_Rename struct 'NET_DVR_PTZPOS' to match camel case naming rules, consider using 'NetDvrPtzpos'.
+** $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-à+à+ w
-S101cRename struct 'NET_DVR_EMAILCFG' to match camel case naming rules, consider using 'NetDvrEmailcfg'.
-À*À* &Y
+Å+Å+ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-â+â+ Y
+à+à+ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ã+ã+ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
- & &  w
+â+â+ w
 S101cRename struct 'NET_DVR_PTZSCOPE' to match camel case naming rules, consider using 'NetDvrPtzscope'.
 ˙*˙* &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ó+ó+ )u
-S101aRename struct 'NET_DVR_RTSPCFG' to match camel case naming rules, consider using 'NetDvrRtspcfg'.
-Ü+Ü+ %Y
+ã+ã+ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˝*˝* $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ï+ï+ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñ+ñ+ (Y
+ñ+ñ+ (u
+S101aRename struct 'NET_DVR_RTSPCFG' to match camel case naming rules, consider using 'NetDvrRtspcfg'.
+Ü+Ü+ %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ó+ó+ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ò+ò+ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ô+ô+ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ö+ö+ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õ+õ+ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£+£+ 'Y
+ö+ö+ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §+§+ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ß+ß+ !Y
+•+•+ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶+¶+ !{
+£+£+ 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¶+¶+ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ß+ß+ !{
 S101gRename struct 'NET_DVR_DEVICEINFO' to match camel case naming rules, consider using 'NetDvrDeviceinfo'.
 í+í+ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´+´+ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞+∞+ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ø+Ø+ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µ+µ+ %Y
+∞+∞+ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥+¥+ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+µ+µ+ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂+∂+ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑+∑+ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏+∏+ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡+¡+ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏+∏+ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …+…+ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —+—+ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄+⁄+ *Y
+“+“+ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €+€+ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“+“+ "Y
+⁄+⁄+ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹+‹+ (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡+‡+ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•+•+ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·+·+ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚+‚+ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Á+Á+  Ç
+‡+‡+ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Á+Á+  t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+Ú+Ú+  Ç
 S101nRename struct 'NET_DVR_DEVICEINFO_V30' to match camel case naming rules, consider using 'NetDvrDeviceinfoV30'.
 †+†+ ,t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ˘+˘+ t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-Ú+Ú+  t
+É,É,  t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-É,É,  Y
+ä,ä, "t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+Î+Î+ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-í,í, !t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ä,ä, "Y
+í,í, !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ì,ì, "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 î,î, "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ï,ï, &t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-Î+Î+ +Y
+ï,ï, &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ú,ú, 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ù,ù, *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-û,û, *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ü,ü, +{
+ú,ú, '{
 S101gRename struct 'NET_DVR_CLIENTINFO' to match camel case naming rules, consider using 'NetDvrClientinfo'.
 ê,ê, (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†,†, (Y
+û,û, *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢,¢, +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £,£, (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§,§, )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •,•, *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ù,ù, *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+°,°, ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+§,§, )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶,¶, +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ß,ß, (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+®,®, &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©,©, #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ü,ü, +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™,™, /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨,¨, Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥,≥, %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥,¥, (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µ,µ, (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂,∂, )w
+µ,µ, (w
 S101cRename struct 'NET_DVR_SDKSTATE' to match camel case naming rules, consider using 'NetDvrSdkstate'.
 ö,ö, &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°,°, ,Y
+≥,≥, %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∂,∂, )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑,∑, &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-π,π, )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏,∏, *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫,∫, &Y
+π,π, )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ª,ª, 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®,®, &Y
+∫,∫, &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 º,º, (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ω,Ω, )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ø,ø, Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆,∆, %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø,ø, Y
+«,«, %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »,», &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«,«, %Y
+…,…, )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  , , &s
 S101_Rename struct 'NET_DVR_SDKABL' to match camel case naming rules, consider using 'NetDvrSdkabl'.
 ±,±, $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…,…, )Y
+À,À, 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ã,Ã, 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-À,À, 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Õ,Õ, 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Œ,Œ, Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —,—, 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+”,”, %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –,–, 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4627,8 +4627,6 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €,€, $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”,”, %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›,›,  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰,‰,  Y
@@ -4639,15 +4637,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Á,Á, Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+È,È, Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ë,Ë, Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Í,Í,  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-È,È, u
+Ò,Ò, u
 S101aRename struct 'NET_DVR_ALARMER' to match camel case naming rules, consider using 'NetDvrAlarmer'.
 ƒ,ƒ, %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ò,Ò, Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ú,Ú,  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4657,79 +4655,81 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101jRename struct 'NET_DVR_DISPLAY_PARA' to match camel case naming rules, consider using 'NetDvrDisplayPara'.
 ‚,‚, *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛,˛,  -w
-S101cRename struct 'NET_DVR_CARDINFO' to match camel case naming rules, consider using 'NetDvrCardinfo'.
-Ô,Ô, &Y
+˛,˛,  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝,˝, #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇ,ˇ,  ,Y
+ˇ,ˇ,  ,w
+S101cRename struct 'NET_DVR_CARDINFO' to match camel case naming rules, consider using 'NetDvrCardinfo'.
+Ô,Ô, &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ä-Ä- "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-à-à- #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 â-â-  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ä-ä-  ,x
+à-à- #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ä-ä-  ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ã-ã- "x
 S101dRename struct 'NET_DVR_FIND_DATA' to match camel case naming rules, consider using 'NetDvrFindData'.
 ˙,˙, 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ã-ã- "Y
+ç-ç- "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 é-é-  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ç-ç- "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 è-è- "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-í-í- Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ú-ú-  ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õ-õ-  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ù-ù- "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ü-ü- "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†-†-  ~
-S101jRename struct 'NET_DVR_FINDDATA_V30' to match camel case naming rules, consider using 'NetDvrFinddataV30'.
-Ö-Ö- *Y
+í-í- Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ö-ö- #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°-°- "Y
+ù-ù- "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£-£- %Y
+ú-ú-  ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ü-ü- "~
+S101jRename struct 'NET_DVR_FINDDATA_V30' to match camel case naming rules, consider using 'NetDvrFinddataV30'.
+Ö-Ö- *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+†-†-  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+†,†, (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §-§- Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+£-£- %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •-•- #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ß-ß-  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞-∞-  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ø-Ø- #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±-±-  ,Y
+∞-∞-  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥-¥- "~
-S101jRename struct 'NET_DVR_FINDDATA_V40' to match camel case naming rules, consider using 'NetDvrFinddataV40'.
-ó-ó- *Y
+±-±-  ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤-≤- "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ß-ß-  ~
+S101jRename struct 'NET_DVR_FINDDATA_V40' to match camel case naming rules, consider using 'NetDvrFinddataV40'.
+ó-ó- *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+º-º- "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ª-ª- Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-º-º- "Ä
-S101lRename struct 'NET_DVR_FINDDATA_CARD' to match camel case naming rules, consider using 'NetDvrFinddataCard'.
-¨-¨- +Y
+°-°- "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¥-¥- "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æ-æ- "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø-ø- #Y
+ø-ø- #Ä
+S101lRename struct 'NET_DVR_FINDDATA_CARD' to match camel case naming rules, consider using 'NetDvrFinddataCard'.
+¨-¨- +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬-¬-  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4741,41 +4741,41 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 À-À- Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ã-Ã- Y
+Œ-Œ- Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Õ-Õ- w
+Ã-Ã- w
 S101cRename struct 'NET_DVR_FILECOND' to match camel case naming rules, consider using 'NetDvrFilecond'.
 π-π- &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Œ-Œ- Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂ-ﬂ- |
-S101hRename struct 'NET_DVR_POINT_FRAME' to match camel case naming rules, consider using 'NetDvrPointFrame'.
-»-»- )Y
+Õ-Õ- Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ’-’- &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+◊-◊- |
+S101hRename struct 'NET_DVR_POINT_FRAME' to match camel case naming rules, consider using 'NetDvrPointFrame'.
+»-»- )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁ-ﬁ- à
 S101tRename struct 'NET_DVR_COMPRESSION_AUDIO' to match camel case naming rules, consider using 'NetDvrCompressionAudio'.
 ”-”- /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊-◊- Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡-‡- "Y
+ﬂ-ﬂ- Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·-·- !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡-‡- "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚-‚- (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „-„- Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Í-Í- Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 È-È- Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Í-Í- t
+Ï-Ï-% /t
 S101`Rename struct 'NET_DVR_AP_INFO' to match camel case naming rules, consider using 'NetDvrApInfo'.
 €-€- %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ï-Ï-% /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Û-Û- $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4785,11 +4785,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜-˜- #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘-˘- Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙-˙- $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚-˚- !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˘-˘- Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝-˝- #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4815,29 +4815,29 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 î.î. Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ö.ö. &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õ.õ. "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ú.ú. %s
-S101_Rename struct 'UNION_EAP_TTLS' to match camel case naming rules, consider using 'UnionEapTtls'.
-á.á. $Y
+ö.ö. &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ú.ú. %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ù.ù. #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ü.ü. )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°.°. $Y
+ü.ü. )s
+S101_Rename struct 'UNION_EAP_TTLS' to match camel case naming rules, consider using 'UnionEapTtls'.
+á.á. $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £.£. $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •.•. Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´.´. &Y
+°.°. $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠.≠.  s
 S101_Rename struct 'UNION_EAP_PEAP' to match camel case naming rules, consider using 'UnionEapPeap'.
 ò.ò. $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+´.´. &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ø.Ø. $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4849,53 +4849,53 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ω.Ω." *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿.¿.! (q
-S101]Rename struct 'UNION_EAP_TLS' to match camel case naming rules, consider using 'UnionEapTls'.
-©.©. #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆.∆. (u
-S101aRename struct 'WIFI_AUTH_PARAM' to match camel case naming rules, consider using 'WifiAuthParam'.
-∑.∑. %Y
+¿.¿.! (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «.«. #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ».». !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+À.À. "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ….….  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-À.À. "Y
+∆.∆. (q
+S101]Rename struct 'UNION_EAP_TLS' to match camel case naming rules, consider using 'UnionEapTls'.
+©.©. #j
+S101VRename struct 'UNION_WEP' to match camel case naming rules, consider using 'UnionWep'.
+ƒ.ƒ. u
+S101aRename struct 'WIFI_AUTH_PARAM' to match camel case naming rules, consider using 'WifiAuthParam'.
+∑.∑. %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —.—. #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+”.”. "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘.‘. %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”.”. "j
-S101VRename struct 'UNION_WEP' to match camel case naming rules, consider using 'UnionWep'.
-ƒ.ƒ. q
-S101]Rename struct 'UNION_WPA_PSK' to match camel case naming rules, consider using 'UnionWpaPsk'.
-œ.œ. #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄.⁄. %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €.€. "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+⁄.⁄. %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›.›. Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁ.ﬁ.# -Y
+ﬁ.ﬁ.# -q
+S101]Rename struct 'UNION_WPA_PSK' to match camel case naming rules, consider using 'UnionWpaPsk'.
+œ.œ. #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰.‰.( 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ê.Ê.  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Á.Á. s
+Ê.Ê.  s
 S101_Rename struct 'UNION_WPA_WPA2' to match camel case naming rules, consider using 'UnionWpaWpa2'.
 ÿ.ÿ. $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ë.Ë. "Y
+Á.Á. Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ì.Ì.! $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ..% ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ë.Ë. "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Û.Û.& .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4907,51 +4907,51 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ç/Ç/ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-É/É/ #{
-S101gRename struct 'NET_DVR_WIFI_CFG_EX' to match camel case naming rules, consider using 'NetDvrWifiCfgEx'.
-‚.‚. )Y
+É/É/ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ü/Ü/ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ö/Ö/  Y
+Ö/Ö/  {
+S101gRename struct 'NET_DVR_WIFI_CFG_EX' to match camel case naming rules, consider using 'NetDvrWifiCfgEx'.
+‚.‚. )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-à/à/ v
+à/à/ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+é/é/ v
 S101bRename struct 'NET_DVR_WIFI_CFG' to match camel case naming rules, consider using 'NetDvrWifiCfg'.
 ¯.¯. &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-é/é/ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 è/è/ .ã
 S101wRename struct 'NET_DVR_WIFI_CONNECT_STATUS' to match camel case naming rules, consider using 'NetDvrWifiConnectStatus'.
-Ä/Ä/ 1Ä
-S101lRename struct 'NET_DVR_WIFI_WORKMODE' to match camel case naming rules, consider using 'NetDvrWifiWorkmode'.
-å/å/ +Y
+Ä/Ä/ 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ó/ó/ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ò/ò/ !Y
+ò/ò/ !Ä
+S101lRename struct 'NET_DVR_WIFI_WORKMODE' to match camel case naming rules, consider using 'NetDvrWifiWorkmode'.
+å/å/ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ô/ô/ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õ/õ/ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+•/•/ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ö/ö/ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 û/û/ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•/•/ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ß/ß/& 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞/∞/ w
+©/©/ w
 S101cRename struct 'NET_VCA_CTRLINFO' to match camel case naming rules, consider using 'NetVcaCtrlinfo'.
 ï/ï/ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©/©/ u
+∞/∞/ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+±/±/ $u
 S101aRename struct 'NET_VCA_CTRLCFG' to match camel case naming rules, consider using 'NetVcaCtrlcfg'.
 £/£/ %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±/±/ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤/≤/ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4963,13 +4963,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂/∂/ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏/∏/ $Y
+∑/∑/ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+π/π/ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫/∫/ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑/∑/ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ª/ª/ +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏/∏/ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 º/º/ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -4985,9 +4987,7 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒ/ƒ/ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆/∆/ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-π/π/ (|
+∆/∆/ |
 S101hRename struct 'NET_VCA_DEV_ABILITY' to match camel case naming rules, consider using 'NetVcaDevAbility'.
 Æ/Æ/ )t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
@@ -5019,15 +5019,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶0¶0 !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∞0∞0 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©0©0 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞0∞0 Ü
-S101rRename struct 'NET_VCA_BEHAVIOR_ABILITY' to match camel case naming rules, consider using 'NetVcaBehaviorAbility'.
-†0†0 .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤0≤0 $Y
+±0±0 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥0≥0 &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≤0≤0 $Ü
+S101rRename struct 'NET_VCA_BEHAVIOR_ABILITY' to match camel case naming rules, consider using 'NetVcaBehaviorAbility'.
+†0†0 .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µ0µ0 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5037,17 +5039,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101hRename struct 'NET_DVR_ITS_ABILITY' to match camel case naming rules, consider using 'NetDvrItsAbility'.
 Æ0Æ0 )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±0±0 %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »0»0 q
 S101]Rename struct 'NET_VCA_POINT' to match camel case naming rules, consider using 'NetVcaPoint'.
 æ0æ0 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…0…0 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
  0 0 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-À0À0  o
+À0À0  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+…0…0 o
 S101[Rename struct 'NET_VCA_RECT' to match camel case naming rules, consider using 'NetVcaRect'.
 ∆0∆0 "t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
@@ -5057,95 +5057,93 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 Ô0Ô0 *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ö1ö1! *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õ1õ1! (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´1´1 "o
-S101[Rename struct 'NET_VCA_LINE' to match camel case naming rules, consider using 'NetVcaLine'.
-ò1ò1 "Y
+´1´1 "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠1≠1# *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥1≥1  /u
-S101aRename struct 'NET_VCA_POLYGON' to match camel case naming rules, consider using 'NetVcaPolygon'.
-®1®1 %Y
+≥1≥1  /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥1¥1' 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µ1µ1 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂1∂1 %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆1∆1# -Y
+∂1∂1 %o
+S101[Rename struct 'NET_VCA_LINE' to match camel case naming rules, consider using 'NetVcaLine'.
+ò1ò1 "u
+S101aRename struct 'NET_VCA_POLYGON' to match camel case naming rules, consider using 'NetVcaPolygon'.
+®1®1 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏1∏1  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»1»1 Ç
-S101nRename struct 'NET_VCA_TRAVERSE_PLANE' to match camel case naming rules, consider using 'NetVcaTraversePlane'.
-±1±1 ,Y
+∆1∆1# -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –1–1# -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—1—1 #o
+—1—1 #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+»1»1 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+“1“1 %o
 S101[Rename struct 'NET_VCA_AREA' to match camel case naming rules, consider using 'NetVcaArea'.
 ƒ1ƒ1 "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“1“1 %Y
+ö1ö1! *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”1”1 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹1‹1# -Y
+’1’1 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’1’1 y
-S101eRename struct 'NET_VCA_INTRUSION' to match camel case naming rules, consider using 'NetVcaIntrusion'.
-Œ1Œ1 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂ1ﬂ1 Y
+‹1‹1# -Ç
+S101nRename struct 'NET_VCA_TRAVERSE_PLANE' to match camel case naming rules, consider using 'NetVcaTraversePlane'.
+±1±1 ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›1›1 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ê1Ê1# -s
+ﬂ1ﬂ1 y
+S101eRename struct 'NET_VCA_INTRUSION' to match camel case naming rules, consider using 'NetVcaIntrusion'.
+Œ1Œ1 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ê1Ê1# -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Á1Á1 #s
 S101_Rename struct 'NET_VCA_LOITER' to match camel case naming rules, consider using 'NetVcaLoiter'.
 ⁄1⁄1 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 È1È1 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ò1Ò1 #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 11# -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Û1Û1 x
+Ò1Ò1 #x
 S101dRename struct 'NET_VCA_TAKE_LEFT' to match camel case naming rules, consider using 'NetVcaTakeLeft'.
 ‰1‰1 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Á1Á1 #u
-S101aRename struct 'NET_VCA_PARKING' to match camel case naming rules, consider using 'NetVcaParking'.
-Ó1Ó1 %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˙1˙1# -Y
+Û1Û1 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚1˚1 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˙1˙1# -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸1¸1 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝1˝1 Y
+˝1˝1 u
+S101aRename struct 'NET_VCA_PARKING' to match camel case naming rules, consider using 'NetVcaParking'.
+Ó1Ó1 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ü2Ü2# -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇ1ˇ1 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 á2á2 !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ä2ä2 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-â2â2 m
-S101YRename struct 'NET_VCA_RUN' to match camel case naming rules, consider using 'NetVcaRun'.
-¯1¯1 !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ë2ë2# -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-í2í2 #~
-S101jRename struct 'NET_VCA_HIGH_DENSITY' to match camel case naming rules, consider using 'NetVcaHighDensity'.
-Ñ2Ñ2 *Y
+í2í2 #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+â2â2 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ì2ì2 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5157,15 +5155,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 û2û2 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†2†2 Ç
-S101nRename struct 'NET_VCA_VIOLENT_MOTION' to match camel case naming rules, consider using 'NetVcaViolentMotion'.
-è2è2 ,Y
+†2†2 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇ1ˇ1 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ß2ß2# -|
-S101hRename struct 'NET_VCA_REACH_HIGHT' to match camel case naming rules, consider using 'NetVcaReachHight'.
-õ2õ2 )Y
+ß2ß2# -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®2®2 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5173,67 +5165,69 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™2™2 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≥2≥2# -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨2¨2 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥2¥2 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µ2µ2 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥2≥2# -r
-S101^Rename struct 'NET_VCA_GET_UP' to match camel case naming rules, consider using 'NetVcaGetUp'.
-•2•2 $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑2∑2 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-æ2æ2# -o
+æ2æ2# -m
+S101YRename struct 'NET_VCA_RUN' to match camel case naming rules, consider using 'NetVcaRun'.
+¯1¯1 !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ø2ø2 #o
 S101[Rename struct 'NET_VCA_LEFT' to match camel case naming rules, consider using 'NetVcaLeft'.
 ±2±2 "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø2ø2 #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿2¿2 %Y
+¿2¿2 %Ç
+S101nRename struct 'NET_VCA_VIOLENT_MOTION' to match camel case naming rules, consider using 'NetVcaViolentMotion'.
+è2è2 ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬2¬2 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»2»2# -o
+»2»2# -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+…2…2 #o
 S101[Rename struct 'NET_VCA_TAKE' to match camel case naming rules, consider using 'NetVcaTake'.
 º2º2 "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…2…2 #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 À2À2 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“2“2 x
-S101dRename struct 'NET_VCA_OVER_TIME' to match camel case naming rules, consider using 'NetVcaOverTime'.
-∆2∆2 '|
-S101hRename struct 'NET_VCA_HUMAN_ENTER' to match camel case naming rules, consider using 'NetVcaHumanEnter'.
-œ2œ2 )Y
+“2“2 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ÿ2Ÿ2# -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄2⁄2 #Y
+Ÿ2Ÿ2# -|
+S101hRename struct 'NET_VCA_REACH_HIGHT' to match camel case naming rules, consider using 'NetVcaReachHight'.
+õ2õ2 )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €2€2 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›2›2 Y
+⁄2⁄2 #x
+S101dRename struct 'NET_VCA_OVER_TIME' to match camel case naming rules, consider using 'NetVcaOverTime'.
+∆2∆2 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰2‰2# -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ê2Ê2 %Y
+Â2Â2 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ë2Ë2 v
+›2›2 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ê2Ê2 %v
 S101bRename struct 'NET_VCA_STICK_UP' to match camel case naming rules, consider using 'NetVcaStickUp'.
-◊2◊2 &u
+◊2◊2 &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ë2Ë2 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ô2Ô2# -|
+S101hRename struct 'NET_VCA_HUMAN_ENTER' to match camel case naming rules, consider using 'NetVcaHumanEnter'.
+œ2œ2 )u
 S101aRename struct 'NET_VCA_SCANNER' to match camel case naming rules, consider using 'NetVcaScanner'.
 ‚2‚2 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Â2Â2 #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ô2Ô2# -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 22 %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ò2Ò2 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ú2Ú2 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5241,15 +5235,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸2¸2# -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ı2ı2 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝2˝2 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛2˛2 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ı2ı2 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ä3Ä3 Ç
+Ò2Ò2 &Ç
 S101nRename struct 'NET_VCA_LEAVE_POSITION' to match camel case naming rules, consider using 'NetVcaLeavePosition'.
 Ì2Ì2 ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ä3Ä3 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 á3á3# -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5259,13 +5255,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101]Rename struct 'NET_VCA_TRAIL' to match camel case naming rules, consider using 'NetVcaTrail'.
 ˙2˙2 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-í3í3 "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ã3ã3 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ì3ì3 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-î3î3 #x
+í3í3 "x
 S101dRename struct 'NET_VCA_FALL_DOWN' to match camel case naming rules, consider using 'NetVcaFallDown'.
 Ö3Ö3 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5273,71 +5267,77 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñ3ñ3 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ò3ò3 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 û3û3 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ü3ü3 0Ç
+ü3ü3 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ò3ò3 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¢3¢3* ;Ç
 S101nRename struct 'NET_VCA_AUDIO_ABNORMAL' to match camel case naming rules, consider using 'NetVcaAudioAbnormal'.
 ê3ê3 ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢3¢3* ;Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °3°3  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §3§3' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•3•3/ BY
+î3î3 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶3¶3 -Y
+•3•3/ BY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ß3ß3 *Ñ
 S101pRename struct 'NET_DVR_AUDIO_EXCEPTION' to match camel case naming rules, consider using 'NetDvrAudioException'.
 ú3ú3 -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´3´3  Y
+¶3¶3 -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥3¥3 ~
-S101jRename struct 'NET_VCA_TOILET_TARRY' to match camel case naming rules, consider using 'NetVcaToiletTarry'.
-Ø3Ø3 *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ª3ª3  Y
+¥3¥3 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©3©3 )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ω3Ω3 Y
+±3±3# -~
+S101jRename struct 'NET_VCA_TOILET_TARRY' to match camel case naming rules, consider using 'NetVcaToiletTarry'.
+Ø3Ø3 *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±3±3# -Y
+´3´3  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√3√3# -z
-S101fRename struct 'NET_VCA_YARD_TARRY' to match camel case naming rules, consider using 'NetVcaYardTarry'.
-∏3∏3 (Y
+≤3≤3  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫3∫3# -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ª3ª3  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ω3Ω3 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+√3√3# -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒ3ƒ3 (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ã3Ã3# -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆3∆3 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Œ3Œ3 %Y
+∆3∆3 z
+S101fRename struct 'NET_VCA_YARD_TARRY' to match camel case naming rules, consider using 'NetVcaYardTarry'.
+∏3∏3 (~
+S101jRename struct 'NET_VCA_HIGH_DENSITY' to match camel case naming rules, consider using 'NetVcaHighDensity'.
+Ñ2Ñ2 *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Õ3Õ3 (Ö
 S101qRename struct 'NET_VCA_ADV_REACH_HEIGHT' to match camel case naming rules, consider using 'NetVcaAdvReachHeight'.
 ¡3¡3 .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–3–3 â
-S101uRename struct 'NET_VCA_ADV_TRAVERSE_PLANE' to match camel case naming rules, consider using 'NetVcaAdvTraversePlane'.
- 3 3 0Y
+Œ3Œ3 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ÿ3Ÿ3 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€3€3* ;Y
+–3–3 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›3›3  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ã3Ã3# -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+€3€3* ;â
+S101uRename struct 'NET_VCA_ADV_TRAVERSE_PLANE' to match camel case naming rules, consider using 'NetVcaAdvTraversePlane'.
+ 3 3 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂ3ﬂ3% 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ÿ3Ÿ3 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·3·3" ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5347,11 +5347,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Á3Á3 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+È3È3( 7Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Î3Î3* ;Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ì3Ì3' 5Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-È3È3( 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ô3Ô3" +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5364,8 +5364,6 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ˜3˜3% 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘3˘3$ /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤3≤3  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚3˚3# .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5389,25 +5387,27 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õ4õ4 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-û4û4  ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ù4ù4 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+û4û4  ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ü4ü4  +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶4¶4  |
 S101hRename struct 'NET_VCA_EVENT_UNION' to match camel case naming rules, consider using 'NetVcaEventUnion'.
-’3’3 )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™4™4 $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®4®4 Y
+’3’3 )|
+S101hRename struct 'NET_VCA_SIZE_FILTER' to match camel case naming rules, consider using 'NetVcaSizeFilter'.
+ò4ò4 )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´4´4" -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨4¨4' 2|
-S101hRename struct 'NET_VCA_SIZE_FILTER' to match camel case naming rules, consider using 'NetVcaSizeFilter'.
-ò4ò4 )Y
+®4®4 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+™4™4 $t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+è4è4 $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¨4¨4' 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠4≠4' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5417,47 +5417,47 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤4≤4 )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-π4π4 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫4∫4 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 º4º4 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ω4Ω4$ 4v
-S101bRename struct 'NET_VCA_ONE_RULE' to match camel case naming rules, consider using 'NetVcaOneRule'.
-§4§4 &Y
+Ω4Ω4$ 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø4ø4& .Y
+π4π4 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ø4ø4& .r
+S101^Rename struct 'NET_VCA_GET_UP' to match camel case naming rules, consider using 'NetVcaGetUp'.
+•2•2 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆4∆4 "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »4»4 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œ4œ4 %u
-S101aRename struct 'NET_VCA_RULECFG' to match camel case naming rules, consider using 'NetVcaRulecfg'.
-∑4∑4 %Y
+œ4œ4 %v
+S101bRename struct 'NET_VCA_ONE_RULE' to match camel case naming rules, consider using 'NetVcaOneRule'.
+§4§4 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –4–4 &Ñ
 S101pRename struct 'NET_VCA_FILTER_STRATEGY' to match camel case naming rules, consider using 'NetVcaFilterStrategy'.
-ƒ4ƒ4 -t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-è4è4 $Y
+ƒ4ƒ4 -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“4“4  Y
+“4“4  u
+S101aRename struct 'NET_VCA_RULECFG' to match camel case naming rules, consider using 'NetVcaRulecfg'.
+∑4∑4 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”4”4 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’4’4  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹4‹4  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+’4’4  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂ4ﬂ4 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁ4ﬁ4  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·4·4 $â
+ﬁ4ﬁ4  â
 S101uRename struct 'NET_VCA_RULE_TRIGGER_PARAM' to match camel case naming rules, consider using 'NetVcaRuleTriggerParam'.
 Õ4Õ4 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·4·4 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚4‚4" -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5469,15 +5469,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ê4Ê4' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Í4Í4 %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 È4È4 )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Í4Í4 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ì4Ì4+ =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ó4Ó4. >Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ï4Ï4  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ó4Ó4. >Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 44 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5487,35 +5487,37 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘4˘4 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˙4˙4 )}
-S101iRename struct 'NET_VCA_ONE_RULE_V41' to match camel case naming rules, consider using 'NetVcaOneRuleV41'.
-⁄4⁄4 *Y
+˙4˙4 )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚4˚4 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸4¸4$ 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-á5á5 Y
+¸4¸4$ 4}
+S101iRename struct 'NET_VCA_ONE_RULE_V41' to match camel case naming rules, consider using 'NetVcaOneRuleV41'.
+⁄4⁄4 *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛4˛4* 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ä5Ä5 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+á5á5 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 à5à5  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ä5ä5 |
+ä5ä5 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ë5ë5  |
 S101hRename struct 'NET_VCA_RULECFG_V41' to match camel case naming rules, consider using 'NetVcaRulecfgV41'.
-ı4ı4 )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ë5ë5  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-í5í5 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ì5ì5 &|
+ı4ı4 )|
 S101hRename struct 'NET_VCA_TARGET_INFO' to match camel case naming rules, consider using 'NetVcaTargetInfo'.
 Ö5Ö5 )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ï5ï5 $Y
+í5í5 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ì5ì5 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñ5ñ5" -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ï5ï5 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ó5ó5' 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5529,25 +5531,25 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101dRename struct 'NET_VCA_RULE_INFO' to match camel case naming rules, consider using 'NetVcaRuleInfo'.
 è5è5 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ä5Ä5 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®5®5 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™5™5 !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´5´5% 1Y
+©5©5 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨5¨5' 5v
 S101bRename struct 'NET_VCA_DEV_INFO' to match camel case naming rules, consider using 'NetVcaDevInfo'.
 ú5ú5 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©5©5 &Y
+™5™5 !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠5≠5$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Æ5Æ5 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ø5Ø5 !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+´5´5% 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+±5±5 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥5¥5  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5563,121 +5565,123 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ø5ø5 'z
 S101fRename struct 'NET_VCA_RULE_ALARM' to match camel case naming rules, consider using 'NetVcaRuleAlarm'.
-¶5¶5 (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±5±5 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡5¡5 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œ5œ5 !t
+¶5¶5 (t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-≈5≈5 $x
-S101dRename struct 'NET_VCA_DRAW_MODE' to match camel case naming rules, consider using 'NetVcaDrawMode'.
-π5π5 'I
+≈5≈5 $I
 S23444Rename this enumeration to remove the 'ENUM' suffix.
 ≈5≈5 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡5¡5 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Œ5Œ5 !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—5—5 Y
+œ5œ5 !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+—5—5 x
+S101dRename struct 'NET_VCA_DRAW_MODE' to match camel case naming rules, consider using 'NetVcaDrawMode'.
+π5π5 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿ5ÿ5 !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄5⁄5  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€5€5 "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂ5ﬂ5 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹5‹5 #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁ5ﬁ5 (á
+€5€5 "á
 S101sRename struct 'NET_DVR_OBJECT_COLOR_COND' to match camel case naming rules, consider using 'NetDvrObjectColorCond'.
 Ã5Ã5 /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·5·5  Y
+⁄5⁄5  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‹5‹5 #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+›5›5 $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁ5ﬁ5 (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂ5ﬂ5 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ë5Ë5! *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·5·5  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 È5È5 *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Î5Î5 m
+Î5Î5 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ú5Ú5 m
 S101YRename struct 'NET_DVR_PIC' to match camel case naming rules, consider using 'NetDvrPic'.
 ÷5÷5 !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ú5Ú5 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Û5Û5  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ù5Ù5 #â
+Û5Û5  â
 S101uRename struct 'NET_DVR_OBJECT_COLOR_UNION' to match camel case naming rules, consider using 'NetDvrObjectColorUnion'.
 Ê5Ê5 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆ5ˆ5  Y
+Ù5Ù5 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜5˜5. 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘5˘5  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-á6á6 "t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-˝5˝5 "~
+ˆ5ˆ5  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+á6á6 "~
 S101jRename struct 'NET_DVR_OBJECT_COLOR' to match camel case naming rules, consider using 'NetDvrObjectColor'.
 55 *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-à6à6  I
+à6à6  t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+˝5˝5 "I
 S23444Rename this enumeration to remove the 'ENUM' suffix.
 ˝5˝5 "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ä6ä6  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ã6ã6# .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ç6ç6  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 î6î6 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ç6ç6  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñ6ñ6% -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ä6ä6  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ò6ò6  u
 S101aRename struct 'NET_DVR_AUXAREA' to match camel case naming rules, consider using 'NetDvrAuxarea'.
-Ö6Ö6 %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›5›5 $~
+Ö6Ö6 %~
 S101jRename struct 'NET_DVR_AUXAREA_LIST' to match camel case naming rules, consider using 'NetDvrAuxareaList'.
 í6í6 *t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ú6ú6 &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ß6ß6 I
+ú6ú6 &I
 S23444Rename this enumeration to remove the 'ENUM' suffix.
 ú6ú6 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™6™6 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥6≥6 "Y
+ß6ß6 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤6≤6 #Ü
+≥6≥6 "Ü
 S101rRename struct 'NET_DVR_CHANNEL_WORKMODE' to match camel case naming rules, consider using 'NetDvrChannelWorkmode'.
 •6•6 .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µ6µ6  Y
+≤6≤6 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫6∫6 !u
-S101aRename struct 'NET_DVR_CHANNEL' to match camel case naming rules, consider using 'NetDvrChannel'.
-Ø6Ø6 %Y
+®6®6 "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+µ6µ6  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑6∑6 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∫6∫6 !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+π6π6 #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 º6º6  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≈6≈6 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «6«6 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…6…6# 4Y
+…6…6# 4u
+S101aRename struct 'NET_DVR_CHANNEL' to match camel case naming rules, consider using 'NetDvrChannel'.
+Ø6Ø6 %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–6–6 "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-π6π6 #ã
+–6–6 "ã
 S101wRename struct 'NET_DVR_SLAVE_CHANNEL_UNION' to match camel case naming rules, consider using 'NetDvrSlaveChannelUnion'.
 ¡6¡6 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5685,49 +5689,41 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 “6“6  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®6®6 "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ’6’6  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈6≈6 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›6›6 ã
-S101wRename struct 'NET_DVR_SLAVE_CHANNEL_PARAM' to match camel case naming rules, consider using 'NetDvrSlaveChannelParam'.
-Œ6Œ6 1Y
+›6›6 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂ6ﬂ61 >Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·6·6 á
+·6·6 ã
+S101wRename struct 'NET_DVR_SLAVE_CHANNEL_PARAM' to match camel case naming rules, consider using 'NetDvrSlaveChannelParam'.
+Œ6Œ6 1á
 S101sRename struct 'NET_DVR_SLAVE_CHANNEL_CFG' to match camel case naming rules, consider using 'NetDvrSlaveChannelCfg'.
-€6€6 /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¯6¯6 !t
+€6€6 /t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-Â6Â6 "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘6˘6 #I
+Â6Â6 "I
 S23444Rename this enumeration to remove the 'ENUM' suffix.
 Â6Â6 "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ç7Ç7 #Y
+¯6¯6 !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚6˚6 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ç7Ç7 #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 É7É7 %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ñ7Ñ7 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ö7Ö7 Å
 S101mRename struct 'NET_DVR_VQD_EVENT_COND' to match camel case naming rules, consider using 'NetDvrVqdEventCond'.
 ˆ6ˆ6 ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ñ7Ñ7 #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ü7Ü7 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 à7à7  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-è7è7 É
-S101oRename struct 'NET_DVR_VQD_EVENT_PARAM' to match camel case naming rules, consider using 'NetDvrVqdEventParam'.
-Ä7Ä7 -Y
+è7è7 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ê7ê7  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5735,23 +5731,27 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 í7í7  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñ7ñ7/ =Y
+˘6˘6 #É
+S101oRename struct 'NET_DVR_VQD_EVENT_PARAM' to match camel case naming rules, consider using 'NetDvrVqdEventParam'.
+Ä7Ä7 -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ï7ï7' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°7°7 Y
+ñ7ñ7/ =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ò7ò7 )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ö7ö7  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§7§7 Å
-S101mRename struct 'NET_DVR_VQD_EVENT_RULE' to match camel case naming rules, consider using 'NetDvrVqdEventRule'.
-ç7ç7 ,Y
+°7°7 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢7¢7  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´7´7 Y
+§7§7 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+´7´7 Å
+S101mRename struct 'NET_DVR_VQD_EVENT_RULE' to match camel case naming rules, consider using 'NetDvrVqdEventRule'.
+ç7ç7 ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨7¨7 !Ç
 S101nRename struct 'NET_DVR_BASELINE_SCENE' to match camel case naming rules, consider using 'NetDvrBaselineScene'.
@@ -5763,11 +5763,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂7∂7 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏7∏7 !Y
+∑7∑7 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑7∑7 &ù
-S101àRename struct 'NET_DVR_CONTROL_BASELINE_SCENE_PARAM' to match camel case naming rules, consider using 'NetDvrControlBaselineSceneParam'.
-©7©7 :Y
+∏7∏7 !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 π7π7$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -5775,89 +5773,93 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 º7º7 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ª7ª7 #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ω7Ω7  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø7ø7 Y
+Ω7Ω7  ù
+S101àRename struct 'NET_DVR_CONTROL_BASELINE_SCENE_PARAM' to match camel case naming rules, consider using 'NetDvrControlBaselineSceneParam'.
+©7©7 :Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆7∆7! *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ø7ø7 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «7«7" ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…7…7 Y
+ª7ª7 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –7–7 "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“7“7 x
+…7…7 x
 S101dRename struct 'NET_DVR_VQD_ALARM' to match camel case naming rules, consider using 'NetDvrVqdAlarm'.
 ¥7¥7 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‘7‘7& 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€7€7 v
+“7“7 v
 S101bRename struct 'NET_DVR_CB_POINT' to match camel case naming rules, consider using 'NetDvrCbPoint'.
 ƒ7ƒ7 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+€7€7 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹7‹7  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‘7‘7& 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›7›7 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁ7ﬁ7 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂ7ﬂ7 ì
+ﬁ7ﬁ7 'ì
 S101Rename struct 'NET_DVR_TRACK_CALIBRATION_PARAM' to match camel case naming rules, consider using 'NetDvrTrackCalibrationParam'.
 Œ7Œ7 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡7‡73 ?Y
+ﬂ7ﬂ7 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ó7Ó7! .t
+‡7‡73 ?t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-‰7‰7 x
+‰7‰7 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ó7Ó7! .Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˜7˜7 x
 S101dRename struct 'NET_DVR_TRACK_CFG' to match camel case naming rules, consider using 'NetDvrTrackCfg'.
 Ÿ7Ÿ7 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-77 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¯7¯7 #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘7˘7 &Ö
+¯7¯7 #Ö
 S101qRename struct 'NET_DVR_MANUAL_CTRL_INFO' to match camel case naming rules, consider using 'NetDvrManualCtrlInfo'.
 Ï7Ï7 .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜7˜7 Y
+˘7˘7 &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚7˚7 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Å8Å8 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 É8É80 >Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ä8ä8 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Å8Å8 $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+å8å8 m
+S101YRename struct 'uModeParam' to match camel case naming rules, consider using 'UModeParam'.
+˝7˝7 $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ç8ç8$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ï8ï8  m
-S101YRename struct 'uModeParam' to match camel case naming rules, consider using 'UModeParam'.
-˝7˝7 $z
-S101fRename struct 'NET_DVR_TRACK_MODE' to match camel case naming rules, consider using 'NetDvrTrackMode'.
-ı7ı7 (Y
+ï8ï8  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ö8ö8" -z
+ó8ó8  z
 S101fRename struct 'NET_DVR_ALARM_JPEG' to match camel case naming rules, consider using 'NetDvrAlarmJpeg'.
 à8à8 (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-å8å8 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õ8õ8' 2Y
+ö8ö8" -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ô8ô8 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ú8ú8' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+õ8õ8' 2z
+S101fRename struct 'NET_DVR_TRACK_MODE' to match camel case naming rules, consider using 'NetDvrTrackMode'.
+ı7ı7 (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 û8û8  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶8¶8' /x
+¶8¶8' /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠8≠8 x
 S101dRename struct 'NET_IVMS_ONE_RULE' to match camel case naming rules, consider using 'NetIvmsOneRule'.
 ì8ì8 'w
 S101cRename struct 'NET_IVMS_RULECFG' to match camel case naming rules, consider using 'NetIvmsRulecfg'.
@@ -5865,129 +5867,125 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Æ8Æ8 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞8∞8 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±8±8$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠8≠8 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫8∫8% -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ª8ª8) 5
-S101kRename struct 'NET_IVMS_BEHAVIORCFG' to match camel case naming rules, consider using 'NetIvmsBehaviorcfg'.
-´8´8 *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬8¬8 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-À8À8  y
-S101eRename struct 'NET_IVMS_DEVSCHED' to match camel case naming rules, consider using 'NetIvmsDevsched'.
-∏8∏8 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒ8ƒ8' 3{
-S101gRename struct 'NET_IVMS_STREAMCFG' to match camel case naming rules, consider using 'NetIvmsStreamcfg'.
-¿8¿8 (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Œ8Œ8# .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Õ8Õ8 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’8’8 |
-S101hRename struct 'NET_VCA_MASK_REGION' to match camel case naming rules, consider using 'NetVcaMaskRegion'.
-…8…8 )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊8◊8 Y
+∞8∞8 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥8≥8& 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ÿ8Ÿ8) 1Ö
-S101qRename struct 'NET_VCA_MASK_REGION_LIST' to match camel case naming rules, consider using 'NetVcaMaskRegionList'.
-”8”8 .Y
+∫8∫8% -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·8·8  Y
+¬8¬8 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ª8ª8) 5
+S101kRename struct 'NET_IVMS_BEHAVIORCFG' to match camel case naming rules, consider using 'NetIvmsBehaviorcfg'.
+´8´8 *y
+S101eRename struct 'NET_IVMS_DEVSCHED' to match camel case naming rules, consider using 'NetIvmsDevsched'.
+∏8∏8 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+À8À8  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ƒ8ƒ8' 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Œ8Œ8# .{
+S101gRename struct 'NET_IVMS_STREAMCFG' to match camel case naming rules, consider using 'NetIvmsStreamcfg'.
+¿8¿8 (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Õ8Õ8 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+’8’8 Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+◊8◊8 |
+S101hRename struct 'NET_VCA_MASK_REGION' to match camel case naming rules, consider using 'NetVcaMaskRegion'.
+…8…8 )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ÿ8Ÿ8) 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡8‡8 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰8‰8# .Y
+·8·8  Ö
+S101qRename struct 'NET_VCA_MASK_REGION_LIST' to match camel case naming rules, consider using 'NetVcaMaskRegionList'.
+”8”8 .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „8„8  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ì8Ì8 Y
+‰8‰8# .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ô8Ô8. 6~
+Ê8Ê8  ~
 S101jRename struct 'NET_VCA_ENTER_REGION' to match camel case naming rules, consider using 'NetVcaEnterRegion'.
 ﬁ8ﬁ8 *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ê8Ê8  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆ8ˆ8 á
+Ô8Ô8. 6á
 S101sRename struct 'NET_IVMS_MASK_REGION_LIST' to match camel case naming rules, consider using 'NetIvmsMaskRegionList'.
 Î8Î8 /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ì8Ì8 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯8¯8* 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇ8ˇ8 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ó8ó8  Ä
+Ç9Ç9$ 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Å9Å9 Ä
 S101lRename struct 'NET_IVMS_ENTER_REGION' to match camel case naming rules, consider using 'NetIvmsEnterRegion'.
 Ù8Ù8 +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Å9Å9 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ç9Ç9$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 â9â9 |
 S101hRename struct 'NET_IVMS_ALARM_JPEG' to match camel case naming rules, consider using 'NetIvmsAlarmJpeg'.
 ˝8˝8 )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ä9ä92 @Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ã9ã9' 4Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˆ8ˆ8 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 å9å9$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ï9ï9 #{
+ä9ä92 @{
 S101gRename struct 'NET_IVMS_SEARCHCFG' to match camel case naming rules, consider using 'NetIvmsSearchcfg'.
 á9á9 (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ó9ó9 #Y
+ï9ï9 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ô9ô9  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ó9ó9 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £9£90 GY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °9°9 é
 S101zRename struct 'NET_DVR_IDENTIFICATION_PARAM' to match camel case naming rules, consider using 'NetDvrIdentificationParam'.
-í9í9 2Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©9©9 #á
+í9í9 2á
 S101sRename struct 'NET_DVR_MOUNT_PARAM_UNION' to match camel case naming rules, consider using 'NetDvrMountParamUnion'.
 ù9ù9 /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´9´9 Y
+©9©9 #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨9¨9- 8É
-S101oRename struct 'NET_DVR_NAS_MOUNT_PARAM' to match camel case naming rules, consider using 'NetDvrNasMountParam'.
-ß9ß9 -Y
+¨9¨9- 8Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+´9´9 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂9∂9+ <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥9¥9 Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø9ø9" 1Y
+¥9¥9 É
+S101oRename struct 'NET_DVR_NAS_MOUNT_PARAM' to match camel case naming rules, consider using 'NetDvrNasMountParam'.
+ß9ß9 -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æ9æ9  ì
 S101Rename struct 'NET_DVR_MOUNTMETHOD_PARAM_UNION' to match camel case naming rules, consider using 'NetDvrMountmethodParamUnion'.
 ∞9∞9 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ø9ø9" 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡9¡9 $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√9√9  å
-S101xRename struct 'NET_DVR_SINGLE_NET_DISK_INFO' to match camel case naming rules, consider using 'NetDvrSingleNetDiskInfo'.
-ª9ª9 2Y
+√9√9  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 À9À9 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Õ9Õ92 B|
+Õ9Õ92 Bå
+S101xRename struct 'NET_DVR_SINGLE_NET_DISK_INFO' to match camel case naming rules, consider using 'NetDvrSingleNetDiskInfo'.
+ª9ª9 2|
 S101hRename struct 'NET_DVR_NET_DISKCFG' to match camel case naming rules, consider using 'NetDvrNetDiskcfg'.
 …9…9 )t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
@@ -5995,95 +5993,93 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ·9·9 ,t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-Ó9Ó9 't
+Ó9Ó9 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+°:°: t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ä:ä: *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §:§: !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°:°: Y
+£:£: Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶:¶: Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£:£: Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂:∂: %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆:∆: &Y
+∏:∏: Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»:»: Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏:∏: y
-S101eRename struct 'EVENT_ALARM_BYBIT' to match camel case naming rules, consider using 'EventAlarmBybit'.
-≥:≥: 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-÷:÷: (}
-S101iRename struct 'EVENT_ALARM_BYVALUE' to match camel case naming rules, consider using 'EventAlarmByvalue'.
-√:√: )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿ:ÿ: Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ê:Ê: )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ë:Ë: |
+∆:∆: &|
 S101hRename struct 'NET_DVR_STREAM_INFO' to match camel case naming rules, consider using 'NetDvrStreamInfo'.
 ü:ü: )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+»:»: Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+÷:÷: (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÿ:ÿ: y
+S101eRename struct 'EVENT_ALARM_BYBIT' to match camel case naming rules, consider using 'EventAlarmBybit'.
+≥:≥: '}
+S101iRename struct 'EVENT_ALARM_BYVALUE' to match camel case naming rules, consider using 'EventAlarmByvalue'.
+√:√: )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ê:Ê: )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ë:Ë: Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜:˜:  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆ:ˆ: "
+ˆ:ˆ: "{
+S101gRename struct 'EVENT_MOTION_BYBIT' to match camel case naming rules, consider using 'EventMotionBybit'.
+”:”: (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˘:˘:  
 S101kRename struct 'EVENT_MOTION_BYVALUE' to match camel case naming rules, consider using 'EventMotionByvalue'.
 „:„: *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘:˘:  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 à;à;  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 á;á; #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ä;ä; u
+ä;ä; Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ñ;ñ; #u
 S101aRename struct 'EVENT_VCA_BYBIT' to match camel case naming rules, consider using 'EventVcaBybit'.
 Û:Û: %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñ;ñ; #Y
+ò;ò; Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ò;ò; y
+§;§;  y
 S101eRename struct 'EVENT_VCA_BYVALUE' to match camel case naming rules, consider using 'EventVcaByvalue'.
 Ñ;Ñ; '}
 S101iRename struct 'EVENT_INQUEST_PARAM' to match camel case naming rules, consider using 'EventInquestParam'.
 î;î; )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§;§;  Y
+¥;¥; Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≥;≥; "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶;¶; Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥;¥; Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂;∂; Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥;≥; "Å
-S101mRename struct 'EVENT_VCADETECT_BYBIT' to match camel case naming rules, consider using 'EventVcadetectBybit'.
-°;°; +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡;¡;' 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬;¬; !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√;√; )Ö
+¬;¬; !Ö
 S101qRename struct 'EVENT_VCADETECT_BYVALUE' to match camel case naming rules, consider using 'EventVcadetectByvalue'.
 ∞;∞; -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+√;√; )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈;≈; Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡;¡;' 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘;‘;% 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-÷;÷;' <Y
+“;“; Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿ;ÿ;& 5Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“;“; 
+÷;÷;' <
 S101kRename struct 'EVENT_STREAMID_PARAM' to match camel case naming rules, consider using 'EventStreamidParam'.
 ø;ø; *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÿ;ÿ;& 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄;⁄;( >Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6103,147 +6099,151 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ì;Ì; $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ó;Ó;  -{
-S101gRename struct 'EVENT_MOTION_BYBIT' to match camel case naming rules, consider using 'EventMotionBybit'.
-”:”: (Y
+Ó;Ó;  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ô;Ô;  +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ;; "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ò;Ò; Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Û;Û; Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ù;Ù;& 1{
+Ò;Ò; {
 S101gRename struct 'SEARCH_EVENT_UNION' to match camel case naming rules, consider using 'SearchEventUnion'.
 Œ;Œ; (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝;˝; Y
+Ù;Ù;& 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ä<ä< â
+Û;Û; Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˚;˚; #â
 S101uRename struct 'NET_DVR_SEARCH_EVENT_PARAM' to match camel case naming rules, consider using 'NetDvrSearchEventParam'.
 Í;Í; 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-à<à< "u
+à<à< "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˝;˝; u
 S101aRename struct 'EVENT_ALARM_RET' to match camel case naming rules, consider using 'EventAlarmRet'.
 ˘;˘; %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ï<ï<  w
+ä<ä< Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ï<ï<  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ñ<ñ<  w
 S101cRename struct 'EVENT_MOTION_RET' to match camel case naming rules, consider using 'EventMotionRet'.
 Ü<Ü< &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñ<ñ<  Y
+ò<ò<  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ö<ö< $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ò<ò<  Y
+õ<õ<' -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®<®< #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©<©< $Y
+©<©< $q
+S101]Rename struct 'EVENT_VCA_RET' to match camel case naming rules, consider using 'EventVcaRet'.
+ì<ì< #Å
+S101mRename struct 'EVENT_VCADETECT_BYBIT' to match camel case naming rules, consider using 'EventVcadetectBybit'.
+°;°; +y
+S101eRename struct 'EVENT_INQUEST_RET' to match camel case naming rules, consider using 'EventInquestRet'.
+¶<¶< 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õ<õ<' -Y
+∂;∂; Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´<´<  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨<¨< #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠<≠< %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Æ<Æ< 'q
-S101]Rename struct 'EVENT_VCA_RET' to match camel case naming rules, consider using 'EventVcaRet'.
-ì<ì< #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞<∞<  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿<¿< 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬<¬<  Y
+77 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ω<Ω< $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æ<æ< &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚;˚; #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒ<ƒ< $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈<≈< #y
-S101eRename struct 'EVENT_INQUEST_RET' to match camel case naming rules, consider using 'EventInquestRet'.
-¶<¶< 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«<«< Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’<’<# /Y
+¨<¨< #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ø<ø< "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊<◊<$ 1Y
+¿<¿< 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ÿ<Ÿ<! +{
+¬<¬<  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∞<∞<  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ƒ<ƒ< $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≈<≈< #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+«<«< Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+’<’<# /{
 S101gRename struct 'EVENT_STREAMID_RET' to match camel case naming rules, consider using 'EventStreamidRet'.
 ª<ª< (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+◊<◊<$ 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ÿ<Ÿ<! +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+€<€<% 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›<›<& 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Í<Í< $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€<€<% 3Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Î<Î< $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ì<Ì<  +w
-S101cRename struct 'SEARCH_EVENT_RET' to match camel case naming rules, consider using 'SearchEventRet'.
-“<“< &Y
+Ï<Ï<  -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ì<Ì<  +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ô<Ô<  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ò<Ò< Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ï<Ï<  -Y
+Ò<Ò< w
+S101cRename struct 'SEARCH_EVENT_RET' to match camel case naming rules, consider using 'SearchEventRet'.
+“<“< &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ú<Ú<$ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 å=å= !t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-Ä=Ä= %Ö
-S101qRename struct 'NET_DVR_SEARCH_EVENT_RET' to match camel case naming rules, consider using 'NetDvrSearchEventRet'.
-Ë<Ë< .Y
+Ä=Ä= %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ó=ó=% 1Y
+é=é=  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ê=ê=" -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ô=ô= Y
+ó=ó=% 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-é=é=  x
+ô=ô= x
 S101dRename struct 'NET_DVR_RECT_LIST' to match camel case naming rules, consider using 'NetDvrRectList'.
-ä=ä= 'Ñ
-S101pRename struct 'NET_DVR_PDC_CALIBRATION' to match camel case naming rules, consider using 'NetDvrPdcCalibration'.
-ï=ï= -t
+ä=ä= 'Ö
+S101qRename struct 'NET_DVR_SEARCH_EVENT_RET' to match camel case naming rules, consider using 'NetDvrSearchEventRet'.
+Ë<Ë< .t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ù=ù= Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶=¶= &Y
+¶=¶= &Ñ
+S101pRename struct 'NET_DVR_PDC_CALIBRATION' to match camel case naming rules, consider using 'NetDvrPdcCalibration'.
+ï=ï= -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨=¨= %Y
+ß=ß= %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠=≠= !Y
+®=®= 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´=´= &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™=™= Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¨=¨= %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠=≠= !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂=∂= "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-π=π=! /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫=∫=! -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏=∏= Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®=®= 'Y
+π=π=! /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∫=∫=! -~
+S101jRename struct 'NET_DVR_CAMERA_PARAM' to match camel case naming rules, consider using 'NetDvrCameraParam'.
+§=§= *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ª=ª= Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6252,102 +6252,100 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 «=«=( 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆=∆=* 9~
-S101jRename struct 'NET_DVR_CAMERA_PARAM' to match camel case naming rules, consider using 'NetDvrCameraParam'.
-§=§= *ñ
-S101ÅRename struct 'NET_DVR_BEHAVIOR_OUT_CALIBRATION' to match camel case naming rules, consider using 'NetDvrBehaviorOutCalibration'.
-¬=¬= 6Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…=…= Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—=—=  +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄=⁄= &
-S101kRename struct 'NET_DVR_IN_CAL_SAMPLE' to match camel case naming rules, consider using 'NetDvrInCalSample'.
-œ=œ= +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ß=ß= %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›=›=( 7Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹=‹=+ 8Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂ=ﬂ= ~
 S101jRename struct 'NET_DVR_LINE_SEGMENT' to match camel case naming rules, consider using 'NetDvrLineSegment'.
 ¥=¥= *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+“=“=( 7Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+…=…= ñ
+S101ÅRename struct 'NET_DVR_BEHAVIOR_OUT_CALIBRATION' to match camel case naming rules, consider using 'NetDvrBehaviorOutCalibration'.
+¬=¬= 6Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+⁄=⁄= &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+›=›=( 7
+S101kRename struct 'NET_DVR_IN_CAL_SAMPLE' to match camel case naming rules, consider using 'NetDvrInCalSample'.
+œ=œ= +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‹=‹=+ 8Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂ=ﬂ= Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ê=Ê= "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-È=È= ì
+Æ<Æ< 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+—=—=  +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ë=Ë=# ,ì
 S101Rename struct 'NET_DVR_BEHAVIOR_IN_CALIBRATION' to match camel case naming rules, consider using 'NetDvrBehaviorInCalibration'.
 ÿ=ÿ= 5Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ë=Ë=# ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Í=Í=  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ï=Ï=  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“=“=( 7Y
+ˆ=ˆ= Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙=˙=4 NY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¯=¯=+ =Ñ
-S101pRename struct 'NET_DVR_ITS_CALIBRATION' to match camel case naming rules, consider using 'NetDvrItsCalibration'.
-‰=‰= -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸=¸=3 LY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛=˛=+ =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆ=ˆ= Y
+¯=¯=+ =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ö>Ö> Y
+Ö>Ö> ì
+S101Rename struct 'NET_DVR_CALIBRATION_PRARM_UNION' to match camel case naming rules, consider using 'NetDvrCalibrationPrarmUnion'.
+Ú=Ú= 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ü>Ü>  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-á>á> )ì
-S101Rename struct 'NET_DVR_CALIBRATION_PRARM_UNION' to match camel case naming rules, consider using 'NetDvrCalibrationPrarmUnion'.
-Ú=Ú= 5Y
+á>á> )Ñ
+S101pRename struct 'NET_DVR_ITS_CALIBRATION' to match camel case naming rules, consider using 'NetDvrItsCalibration'.
+‰=‰= -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 â>â>  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ä>ä>3 BY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ì>ì>! /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 å>å>  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ö>ö> Y
+ì>ì>! /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠<≠< %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 î>î>! -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õ>õ>  Ñ
-S101pRename struct 'NET_DVR_CALIBRATION_CFG' to match camel case naming rules, consider using 'NetDvrCalibrationCfg'.
-É>É> -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-û>û># .Y
+ö>ö> Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ù>ù>  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ü>ü>/ Aã
+û>û># .Ñ
+S101pRename struct 'NET_DVR_CALIBRATION_CFG' to match camel case naming rules, consider using 'NetDvrCalibrationCfg'.
+É>É> -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ü>ü>/ AY
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+õ>õ>  ã
 S101wRename struct 'NET_DVR_PDC_ENTER_DIRECTION' to match camel case naming rules, consider using 'NetDvrPdcEnterDirection'.
 ë>ë> 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •>•> Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶>¶>  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®>®>  }
+¶>¶>  }
 S101iRename struct 'NET_DVR_PDC_RULE_CFG' to match camel case naming rules, consider using 'NetDvrPdcRuleCfg'.
 ò>ò> *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+®>®>  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©>©># .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™>™>/ AY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Æ>Æ># 5Y
+≠>≠># 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨>¨>% 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+™>™>/ AY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞>∞> Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6355,11 +6353,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏>∏> &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫>∫> Ñ
+∫>∫> Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¿>¿> Ñ
 S101pRename struct 'NET_DVR_PDC_RULE_CFG_V41' to match camel case naming rules, consider using 'NetDvrPdcRuleCfgV41'.
 £>£> .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿>¿> Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡>¡> !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6369,39 +6367,39 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …>…> Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠>≠># 3Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
- > >  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ã>Ã>  ê
+ > >  ê
 S101|Rename struct 'NET_DVR_SYN_CHANNEL_NAME_PARAM' to match camel case naming rules, consider using 'NetDvrSynChannelNameParam'.
 æ>æ> 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ã>Ã>  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Œ>Œ>% -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊>◊>' 5Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–>–> Y
+Æ>Æ># 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷>÷> Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ÿ>Ÿ> Y
+◊>◊>' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂ>ﬂ> Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+–>–> Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡>‡> #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·>·> !Y
+·>·> !á
+S101sRename struct 'NET_DVR_RESET_COUNTER_CFG' to match camel case naming rules, consider using 'NetDvrResetCounterCfg'.
+«>«> /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ÿ>Ÿ> á
+S101sRename struct 'NET_DVR_VCA_CTRLINFO_COND' to match camel case naming rules, consider using 'NetDvrVcaCtrlinfoCond'.
+‘>‘> /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚>‚> 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „>„> Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰>‰> %á
-S101sRename struct 'NET_DVR_RESET_COUNTER_CFG' to match camel case naming rules, consider using 'NetDvrResetCounterCfg'.
-«>«> /á
-S101sRename struct 'NET_DVR_VCA_CTRLINFO_COND' to match camel case naming rules, consider using 'NetDvrVcaCtrlinfoCond'.
-‘>‘> /Y
+‰>‰> %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ë>Ë> Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6421,37 +6419,37 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101oRename struct 'NET_DVR_PDC_TARGET_INFO' to match camel case naming rules, consider using 'NetDvrPdcTargetInfo'.
 è?è? -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-û?û?- ;Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 †?†?  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ß?ß? &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®?®? !ä
+ß?ß? &ä
 S101vRename struct 'NET_DVR_PDC_TARGET_IN_FRAME' to match camel case naming rules, consider using 'NetDvrPdcTargetInFrame'.
 ò?ò? 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+®?®? !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+û?û?- ;Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™?™? Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞?∞?  'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±?±?  %v
+∞?∞?  'v
 S101bRename struct 'UNION_STATFRAME' to match camel case naming rules, consider using 'UnionStatframe'.
 •?•? %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥?≥? Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-π?π? t
-S101`Rename struct 'UNION_STATTIME' to match camel case naming rules, consider using 'UnionStattime'.
-Æ?Æ? $Y
+±?±?  %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+È=È= Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫?∫? Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ª?ª? !Y
+π?π? Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ω?Ω?  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æ?æ?$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ω?Ω?  Y
+ª?ª? !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …?…? "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6461,9 +6459,7 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «?«?& 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ã?Ã?  u
-S101aRename struct 'uStatModeParam' to match camel case naming rules, consider using 'UStatModeParam'.
-¿?¿? (Y
+Ã?Ã?  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”?”?  'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6471,19 +6467,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ’?’? "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-÷?÷? "Å
-S101mRename struct 'NET_DVR_PDC_ALRAM_INFO' to match camel case naming rules, consider using 'NetDvrPdcAlramInfo'.
-∑?∑? ,Y
+÷?÷? "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿ?ÿ?  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂ?ﬂ?  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·?·?  x
-S101dRename struct 'NET_DVR_PDC_QUERY' to match camel case naming rules, consider using 'NetDvrPdcQuery'.
-—?—? 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰?‰?" ,Y
+·?·?  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „?„? +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6491,55 +6481,61 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ï?Ï? Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‰?‰?" ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ì?Ì?( 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ó?Ó?# 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-??  ~
-S101jRename struct 'NET_DVR_PTZ_POSITION' to match camel case naming rules, consider using 'NetDvrPtzPosition'.
-‹?‹? *Y
+??  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆ?ˆ? á
-S101sRename struct 'NET_DVR_POSITION_RULE_CFG' to match camel case naming rules, consider using 'NetDvrPositionRuleCfg'.
-Í?Í? /Y
+ˆ?ˆ? Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜?˜?( 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯?¯?' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˙?˙? Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘?˘? %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˙?˙? Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚?˚? (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-É@É@  Y
+˝?˝?  t
+S101`Rename struct 'UNION_STATTIME' to match camel case naming rules, consider using 'UnionStattime'.
+Æ?Æ? $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝?˝?  Y
+É@É@  é
+S101zRename struct 'NET_DVR_POSITION_RULE_CFG_V41' to match camel case naming rules, consider using 'NetDvrPositionRuleCfgV41'.
+Ù?Ù? 3u
+S101aRename struct 'uStatModeParam' to match camel case naming rules, consider using 'UStatModeParam'.
+¿?¿? (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ü@Ü@" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 á@á@" *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ö@Ö@  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-â@â@" +Y
+à@à@" *x
+S101dRename struct 'NET_DVR_PDC_QUERY' to match camel case naming rules, consider using 'NetDvrPdcQuery'.
+—?—? 'á
+S101sRename struct 'NET_DVR_POSITION_RULE_CFG' to match camel case naming rules, consider using 'NetDvrPositionRuleCfg'.
+Í?Í? /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-à@à@" *é
-S101zRename struct 'NET_DVR_POSITION_RULE_CFG_V41' to match camel case naming rules, consider using 'NetDvrPositionRuleCfgV41'.
-Ù?Ù? 3Y
+â@â@" +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ã@ã@  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ü@Ü@" (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ë@ë@ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-í@í@ |
-S101hRename struct 'NET_DVR_LIMIT_ANGLE' to match camel case naming rules, consider using 'NetDvrLimitAngle'.
-Å@Å@ )Y
+í@í@ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ì@ì@  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ï@ï@  Y
+ï@ï@  |
+S101hRename struct 'NET_DVR_LIMIT_ANGLE' to match camel case naming rules, consider using 'NetDvrLimitAngle'.
+Å@Å@ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ú@ú@ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6551,37 +6547,37 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °@°@, =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£@£@  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™@™@  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´@´@ $â
+´@´@ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+£@£@  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¥@¥@ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠@≠@ â
 S101uRename struct 'NET_DVR_POSITION_TRACK_CFG' to match camel case naming rules, consider using 'NetDvrPositionTrackCfg'.
-ö@ö@ 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠@≠@ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥@¥@ á
+ö@ö@ 0á
 S101sRename struct 'NET_DVR_PATROL_SCENE_INFO' to match camel case naming rules, consider using 'NetDvrPatrolSceneInfo'.
 ®@®@ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂@∂@/ BY
+ø@ø@ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¿@¿@ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏@∏@ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø@ø@ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿@¿@ )Ñ
+¡@¡@ (Ñ
 S101pRename struct 'NET_DVR_PATROL_TRACKCFG' to match camel case naming rules, consider using 'NetDvrPatrolTrackcfg'.
 ≤@≤@ -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡@¡@ (Y
+¬@¬@ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √@√@ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬@¬@ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒ@ƒ@ %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∂@∂@/ BY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈@≈@ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6605,21 +6601,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 Í@Í@ &t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-Ò@Ò@ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òAòA t
+Ò@Ò@ $~
+S101jRename struct 'NET_DVR_PTZ_POSITION' to match camel case naming rules, consider using 'NetDvrPtzPosition'.
+‹?‹? *t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 àAàA  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+òAòA Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôAôA Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õAõA  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-üAüA  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶A¶A! /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ùAùA% 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+üAüA  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßAßA! -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6631,11 +6629,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞A∞A  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤A≤A $Y
+≥A≥A% 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥A¥A# .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥A≥A% 6Y
+≤A≤A $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ªAªA Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩAΩA& .v
 S101bRename struct 'NET_DVR_ONE_LANE' to match camel case naming rules, consider using 'NetDvrOneLane'.
@@ -6643,17 +6643,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 øAøA  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ªAªA Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆A∆A *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «A«A -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…A…A +v
+∆A∆A *v
 S101bRename struct 'NET_DVR_LANE_CFG' to match camel case naming rules, consider using 'NetDvrLaneCfg'.
 πAπA &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»A»A )Y
+…A…A +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  A A -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6661,11 +6657,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃAÃA *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+»A»A )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕAÕA 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒAŒA -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œAœA /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –A–A "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6673,15 +6669,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸAŸA  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+€A€A  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁAﬁA #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›A›A $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂAﬂA' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡A‡A# .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€A€A  x
-S101dRename struct 'NET_DVR_AID_PARAM' to match camel case naming rules, consider using 'NetDvrAidParam'.
-ƒAƒA 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·A·A% 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6689,21 +6685,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰A‰A/ =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁAﬁA #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊAÊA )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+œAœA /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔAÔA Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ËAËA  Y
+AA $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚAÚA  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-AA $Y
+ÛAÛA$ 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÛAÛA$ 4}
-S101iRename struct 'NET_DVR_ONE_AID_RULE' to match camel case naming rules, consider using 'NetDvrOneAidRule'.
-◊A◊A *Y
+ËAËA  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ıAıA* 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6713,9 +6707,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄBÄB  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÇBÇB $|
-S101hRename struct 'NET_DVR_AID_RULECFG' to match camel case naming rules, consider using 'NetDvrAidRulecfg'.
-ÌAÌA )Y
+ÇBÇB $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÉBÉB #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÑBÑB' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6729,55 +6723,57 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ãBãB )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+çBçB  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îBîB Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïBïB $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-çBçB  Y
+òBòB$ 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 óBóB  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òBòB$ 4Ñ
+öBöB. 9Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+úBúB  Å
+S101mRename struct 'NET_DVR_PDC_ALRAM_INFO' to match camel case naming rules, consider using 'NetDvrPdcAlramInfo'.
+∑?∑? ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+£B£B  Ñ
 S101pRename struct 'NET_DVR_ONE_AID_RULE_V41' to match camel case naming rules, consider using 'NetDvrOneAidRuleV41'.
 ¸A¸A .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-öBöB. 9Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÉBÉB #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úBúB  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£B£B  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§B§B  É
-S101oRename struct 'NET_DVR_AID_RULECFG_V41' to match camel case naming rules, consider using 'NetDvrAidRulecfgV41'.
-íBíB -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶B¶B  Y
+§B§B  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßBßB "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¶B¶B  É
+S101oRename struct 'NET_DVR_AID_RULECFG_V41' to match camel case naming rules, consider using 'NetDvrAidRulecfgV41'.
+íBíB -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®B®B' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©B©B# 2Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨B¨B/ =Y
+©B©B# 2}
+S101iRename struct 'NET_DVR_ONE_AID_RULE' to match camel case naming rules, consider using 'NetDvrOneAidRule'.
+◊A◊A *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´B´B' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆBÆB  Y
+¨B¨B/ =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µBµB Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑B∑B* 8Y
+ÆBÆB  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-πBπB  }
+πBπB  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¿B¿B  }
 S101iRename struct 'NET_DVR_ONE_TPS_RULE' to match camel case naming rules, consider using 'NetDvrOneTpsRule'.
-°B°B *|
+°B°B *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∑B∑B* 8|
 S101hRename struct 'NET_DVR_TPS_RULECFG' to match camel case naming rules, consider using 'NetDvrTpsRulecfg'.
 ≥B≥B )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿B¿B  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡B¡B  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6797,23 +6793,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 “B“B Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+÷B÷B Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘B‘B. <Ñ
 S101pRename struct 'NET_DVR_ONE_TPS_RULE_V41' to match camel case naming rules, consider using 'NetDvrOneTpsRuleV41'.
 æBæB .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-÷B÷B Y
+›B›B  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›B›B  É
+ﬂBﬂB  É
 S101oRename struct 'NET_DVR_TPS_RULECFG_V41' to match camel case naming rules, consider using 'NetDvrTpsRulecfgV41'.
 –B–B -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂBﬂB  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·B·B $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚B‚B !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „B„B% /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·B·B $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰B‰B $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6821,61 +6817,61 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁBÁB  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓBÓB Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔBÔB &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÓBÓB Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 BB !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÒBÒB$ /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚBÚB$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÒBÒB$ /v
+ÙBÙB  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÛBÛB $v
 S101bRename struct 'NET_DVR_AID_INFO' to match camel case naming rules, consider using 'NetDvrAidInfo'.
 €B€B &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÛBÛB $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙBÙB  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆBˆB Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝B˝B! )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇBˇB  Y
+˛B˛B! )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛B˛B! )x
+ˇBˇB  x
 S101dRename struct 'NET_DVR_AID_ALARM' to match camel case naming rules, consider using 'NetDvrAidAlarm'.
 ÏBÏB 'z
 S101fRename struct 'NET_DVR_LANE_QUEUE' to match camel case naming rules, consider using 'NetDvrLaneQueue'.
-˚B˚B (t
+˚B˚B (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+èCèC  t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ÇCÇC *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èCèC  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 éCéC $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ëCëC "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 íCíC Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 êCêC "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìCìC $Y
+ìCìC $x
+S101dRename struct 'NET_DVR_AID_PARAM' to match camel case naming rules, consider using 'NetDvrAidParam'.
+ƒAƒA 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îCîC &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñCñC &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïCïC %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óCóC +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëCëC "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òCòC& 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ñCñC &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôCôC! 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °C°C  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+óCóC +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £C£C( 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6883,29 +6879,31 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™C™C &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õCõC  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨C¨C$ /Y
+ïCïC %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´C´C !z
 S101fRename struct 'NET_DVR_LANE_PARAM' to match camel case naming rules, consider using 'NetDvrLaneParam'.
-ãCãC (Y
+ãCãC (v
+S101bRename struct 'NET_DVR_TPS_INFO' to match camel case naming rules, consider using 'NetDvrTpsInfo'.
+üCüC &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¨C¨C$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠C≠C$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ØCØC  x
 S101dRename struct 'NET_DVR_TPS_ALARM' to match camel case naming rules, consider using 'NetDvrTpsAlarm'.
-ßCßC 'Y
+ßCßC 't
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+≤C≤C 2I
+S23444Rename this enumeration to remove the 'ENUM' suffix.
+≤C≤C 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¿C¿C  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 øCøC $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿C¿C  t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-≤C≤C 2v
-S101bRename struct 'NET_DVR_TPS_INFO' to match camel case naming rules, consider using 'NetDvrTpsInfo'.
-üCüC &I
-S23444Rename this enumeration to remove the 'ENUM' suffix.
-≤C≤C 2Y
+¡C¡C "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬C¬C &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6913,11 +6911,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒCƒC "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡C¡C "Y
+≈C≈C !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆C∆C $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈C≈C !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «C«C &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6929,41 +6925,43 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀCÀC *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÕCÕC $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œCœC& 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃCÃC &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŒCŒC &Y
+ÕCÕC $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 “C“C  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿCÿC  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–C–C! 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄C⁄C, 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹C‹C Y
+–C–C! 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„C„C Å
+‹C‹C Å
 S101mRename struct 'NET_DVR_LANE_PARAM_V41' to match camel case naming rules, consider using 'NetDvrLaneParamV41'.
 ºCºC ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰C‰C  Y
+ŒCŒC &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂCÂC #}
+„C„C }
 S101iRename struct 'NET_DVR_TPS_INFO_V41' to match camel case naming rules, consider using 'NetDvrTpsInfoV41'.
 ÷C÷C *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‰C‰C  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÂCÂC #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊCÊC %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁCÁC #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÈCÈC $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÍCÍC# 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÈCÈC $Y
+ÎCÎC $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏCÏC %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -6971,93 +6969,93 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔCÔC' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÒCÒC' 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚCÚC/ =Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎCÎC $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÙCÙC )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıCıC )Y
+ÓCÓC$ 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝C˝C  Y
+ÒCÒC' 4Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+õCõC  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜C˜C  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛C˛C %Y
+˝C˝C  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ıCıC )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇCˇC "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÄDÄD  Y
+˛C˛C %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÇDÇD ä
-S101vRename struct 'NET_DVR_FACEDETECT_RULECFG' to match camel case naming rules, consider using 'NetDvrFacedetectRulecfg'.
-·C·C 0Y
+ÄDÄD  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 àDàD Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 äDäD #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓCÓC$ 4|
-S101hRename struct 'NET_DVR_FACE_PIPCFG' to match camel case naming rules, consider using 'NetDvrFacePipcfg'.
-˚C˚C )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãDãD %Y
+ÇDÇD Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 âDâD  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+åDåD #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ãDãD %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 èDèD# 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êDêD $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-îDîD' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 éDéD $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+êDêD $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ëDëD %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 íDíD #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ìDìD$ 4Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+îDîD' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñDñD' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 óDóD/ =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôDôD )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öDöD )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-åDåD #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëDëD %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õDõD Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ôDôD )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úDúD %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-üDüD Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶D¶D &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ùDùD' 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+üDüD Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •D•D Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßDßD !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìDìD$ 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©D©D $Y
+¶D¶D &|
+S101hRename struct 'NET_DVR_AID_RULECFG' to match camel case naming rules, consider using 'NetDvrAidRulecfg'.
+ÌAÌA )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´D´D$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™D™D' 5ë
-S101}Rename struct 'NET_DVR_FACEDETECT_RULECFG_V41' to match camel case naming rules, consider using 'NetDvrFacedetectRulecfgV41'.
-ÜDÜD 4Y
+™D™D' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨D¨D $Y
+©D©D $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¨D¨D $ä
+S101vRename struct 'NET_DVR_FACEDETECT_RULECFG' to match camel case naming rules, consider using 'NetDvrFacedetectRulecfg'.
+·C·C 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠D≠D &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÆDÆD #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∞D∞D  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±D±D (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7065,27 +7063,27 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥D≥D Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞D∞D  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ºDºD Y
+µDµD  ë
+S101}Rename struct 'NET_DVR_FACEDETECT_RULECFG_V41' to match camel case naming rules, consider using 'NetDvrFacedetectRulecfgV41'.
+ÜDÜD 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩDΩD !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ºDºD Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æDæD &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µDµD  Ü
-S101rRename struct 'NET_DVR_FACEDETECT_ALARM' to match camel case naming rules, consider using 'NetDvrFacedetectAlarm'.
-£D£D .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈D≈D  á
-S101sRename struct 'NET_DVR_EVENT_PARAM_UNION' to match camel case naming rules, consider using 'NetDvrEventParamUnion'.
-πDπD /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«D«D Y
+≈D≈D  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  D D #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…D…D $Y
+«D«D Ü
+S101rRename struct 'NET_DVR_FACEDETECT_ALARM' to match camel case naming rules, consider using 'NetDvrFacedetectAlarm'.
+£D£D .Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+…D…D $á
+S101sRename struct 'NET_DVR_EVENT_PARAM_UNION' to match camel case naming rules, consider using 'NetDvrEventParamUnion'.
+πDπD /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀDÀD- 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7099,35 +7097,35 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €D€D Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹D‹D &É
-S101oRename struct 'NET_DVR_EVENT_INFO_LIST' to match camel case naming rules, consider using 'NetDvrEventInfoList'.
-œDœD -Y
+‹D‹D &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›D›D !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁDﬁD$ /Y
+ﬁDﬁD$ /É
+S101oRename struct 'NET_DVR_EVENT_INFO_LIST' to match camel case naming rules, consider using 'NetDvrEventInfoList'.
+œDœD -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂDﬂD+ <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·D·D  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËDËD  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·D·D  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎDÎD !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÏDÏD% 6Y
+ÍDÍD  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍDÍD  É
+ÏDÏD% 6É
 S101oRename struct 'NET_DVR_RULE_INFO_ALARM' to match camel case naming rules, consider using 'NetDvrRuleInfoAlarm'.
 ŸDŸD -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÓDÓD  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıDıD Å
+ıDıD Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˜D˜D, 9Å
 S101mRename struct 'NET_DVR_ONE_SCENE_TIME' to match camel case naming rules, consider using 'NetDvrOneSceneTime'.
 ÊDÊD ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜D˜D, 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘D˘D Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7137,9 +7135,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101mRename struct 'NET_DVR_SCENE_TIME_CFG' to match camel case naming rules, consider using 'NetDvrSceneTimeCfg'.
 ÛDÛD ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑEÑE !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÉEÉE  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÑEÑE !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÜEÜE %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7147,23 +7145,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 àEàE #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëEëE Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 äEäE  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ëEëE Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ìEìE+ 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úEúE 
+ïEïE 
 S101kRename struct 'NET_DVR_ONE_SCENE_CFG' to match camel case naming rules, consider using 'NetDvrOneSceneCfg'.
 ˛D˛D +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïEïE x
-S101dRename struct 'NET_DVR_SCENE_CFG' to match camel case naming rules, consider using 'NetDvrSceneCfg'.
-èEèE 'Y
+úEúE Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ùEùE !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ûEûE !Y
+ûEûE !x
+S101dRename struct 'NET_DVR_SCENE_CFG' to match camel case naming rules, consider using 'NetDvrSceneCfg'.
+èEèE 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßEßE Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7171,45 +7169,47 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®E®E Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™E™E z
+™E™E Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+±E±E !z
 S101fRename struct 'NET_DVR_SCENE_COND' to match camel case naming rules, consider using 'NetDvrSceneCond'.
-öEöE (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±E±E !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥E¥E #Ç
+öEöE (Ç
 S101nRename struct 'NET_DVR_FORENSICS_MODE' to match camel case naming rules, consider using 'NetDvrForensicsMode'.
 •E•E ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥E≥E %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂E∂E  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑E∑E" ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿E¿E Y
+∂E∂E  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¥E¥E #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 πEπE  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡E¡E &Y
+¿E¿E Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡E¡E &z
+S101fRename struct 'NET_DVR_SCENE_INFO' to match camel case naming rules, consider using 'NetDvrSceneInfo'.
+ØEØE (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬E¬E !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √E√E$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒEƒE$ /z
-S101fRename struct 'NET_DVR_SCENE_INFO' to match camel case naming rules, consider using 'NetDvrSceneInfo'.
-ØEØE (Y
+ƒEƒE$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈E≈E& 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «E«E  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆E∆E $Y
+–E–E Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …E…E Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–E–E Y
+—E—E &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+“E“E !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”E”E$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7217,13 +7217,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101kRename struct 'NET_DVR_AID_ALARM_V41' to match camel case naming rules, consider using 'NetDvrAidAlarmV41'.
 æEæE +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—E—E &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷E÷E Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“E“E !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹E‹E 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+›E›E 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁEﬁE )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7235,95 +7233,97 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·E·E &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚E‚E $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›E›E 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰E‰E Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÏEÏE 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÌEÌE  |
 S101hRename struct 'NET_DVR_VCA_VERSION' to match camel case naming rules, consider using 'NetDvrVcaVersion'.
 ⁄E⁄E )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-EE |
+ˆEˆE Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˜E˜E  |
 S101hRename struct 'NET_DVR_PLATE_PARAM' to match camel case naming rules, consider using 'NetDvrPlateParam'.
 ÍEÍE )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜E˜E  Y
+˚E˚E$ 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯E¯E $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙E˙E  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚E˚E$ 4Y
+‚E‚E $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸E¸E' 5Y
+∆E∆E $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝E˝E+ 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇEˇE' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅFÅF )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÉFÉF Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 äFäF #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆEˆE Y
+¸E¸E' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãFãF w
-S101cRename struct 'NET_DVR_PLATECFG' to match camel case naming rules, consider using 'NetDvrPlatecfg'.
-ÙEÙE &Y
+ãFãF Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 åFåF  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÅFÅF )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çFçF $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-éFéF 'Y
+éFéF '|
+S101hRename struct 'NET_DVR_FACE_PIPCFG' to match camel case naming rules, consider using 'NetDvrFacePipcfg'.
+˚C˚C )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+EE w
+S101cRename struct 'NET_DVR_PLATECFG' to match camel case naming rules, consider using 'NetDvrPlatecfg'.
+ÙEÙE &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ëFëF  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êFêF Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ìFìF "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ïFïF #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õFõF Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ùFùF !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úFúF &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùFùF !z
+ûFûF$ /z
 S101fRename struct 'NET_DVR_PLATE_INFO' to match camel case naming rules, consider using 'NetDvrPlateInfo'.
 àFàF (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ûFûF$ /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†F†F $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 üFüF& 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £F£F  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¢F¢F Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨F¨F Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+†F†F $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠F≠F $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢F¢F Ü
+ØFØF Ü
 S101rRename struct 'NET_DVR_PLATERECO_RESULE' to match camel case naming rules, consider using 'NetDvrPlaterecoResule'.
 ôFôF .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ØFØF Y
+∂F∂F Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂F∂F v
+∑F∑F 'v
 S101bRename struct 'NET_DVR_IO_INCFG' to match camel case naming rules, consider using 'NetDvrIoIncfg'.
 ™F™F &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïFïF #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑F∑F 'Y
+πFπF $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏F∏F %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-πFπF $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫F∫F #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7333,31 +7333,29 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩFΩF "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øFøF Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆F∆F Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+øFøF Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »F»F %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…F…F (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «F«F Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
- F F *x
-S101dRename struct 'NET_DVR_IO_OUTCFG' to match camel case naming rules, consider using 'NetDvrIoOutcfg'.
-¥F¥F 'Y
+…F…F (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ F F *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀFÀF *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃFÃF #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÕFÕF %Y
+ÕFÕF %x
+S101dRename struct 'NET_DVR_IO_OUTCFG' to match camel case naming rules, consider using 'NetDvrIoOutcfg'.
+¥F¥F 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –F–F *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒFŒF !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œFœF #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 “F“F Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7367,9 +7365,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €F€F "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›F›F &Y
+‹F‹F )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹F‹F )~
+›F›F &~
 S101jRename struct 'NET_DVR_FLASH_OUTCFG' to match camel case naming rules, consider using 'NetDvrFlashOutcfg'.
 ƒFƒF *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7377,19 +7375,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂFﬂF $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÊFÊF  Y
+œFœF #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „F„F *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÊFÊF  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÂFÂF *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·F·F  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÁFÁF (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈFÈF $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËFËF 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÁFÁF (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎFÎF  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7399,21 +7399,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÙFÙF !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıFıF )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆFˆF *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜F˜F "
-S101kRename struct 'NET_DVR_LIGHTSNAPCFG' to match camel case naming rules, consider using 'NetDvrLightsnapcfg'.
-◊F◊F *Y
+ıFıF )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˜F˜F "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯F¯F "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘F˘F $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˙F˙F $Y
+˚F˚F $
+S101kRename struct 'NET_DVR_LIGHTSNAPCFG' to match camel case naming rules, consider using 'NetDvrLightsnapcfg'.
+◊F◊F *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚F˚F $Y
+˙F˙F $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝F˝F *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7425,17 +7425,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 âGâG 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-äGäG (Ö
+ãGãG )Ö
 S101qRename struct 'NET_DVR_MEASURESPEEDCFG' to match camel case naming rules, consider using 'NetDvrMeasurespeedcfg'.
 FF -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-åGåG "Y
+äGäG (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çGçG $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãGãG )}
-S101iRename struct 'NET_DVR_VIDEOEFFECT' to match camel case naming rules, consider using 'NetDvrVideoeffect'.
-ÜGÜG )Y
+åGåG "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+éGéG +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+èGèG #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 óGóG %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7443,31 +7445,29 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öGöG &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-éGéG +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôGôG Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°G°G *o
-S101[Rename struct 'NET_DVR_GAIN' to match camel case naming rules, consider using 'NetDvrGain'.
-îGîG "Y
+°G°G *}
+S101iRename struct 'NET_DVR_VIDEOEFFECT' to match camel case naming rules, consider using 'NetDvrVideoeffect'.
+ÜGÜG )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶G¶G /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ßGßG /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èGèG #Y
+ßGßG /o
+S101[Rename struct 'NET_DVR_GAIN' to match camel case naming rules, consider using 'NetDvrGain'.
+îGîG "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©G©G Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞G∞G &
-S101kRename struct 'NET_DVR_WHITEBALANCE' to match camel case naming rules, consider using 'NetDvrWhitebalance'.
-üGüG *Y
+∞G∞G &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±G±G +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥G¥G *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µGµG )Y
+µGµG )
+S101kRename struct 'NET_DVR_WHITEBALANCE' to match camel case naming rules, consider using 'NetDvrWhitebalance'.
+üGüG *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥G≥G Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7475,27 +7475,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩGΩG $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+æGæG #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 øGøG #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿G¿G *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-æGæG #w
+¬G¬G w
 S101cRename struct 'NET_DVR_EXPOSURE' to match camel case naming rules, consider using 'NetDvrExposure'.
 ÆGÆG &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …G…G ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬G¬G Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÃGÃG #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕGÕG !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  G G /m
 S101YRename struct 'NET_DVR_WDR' to match camel case naming rules, consider using 'NetDvrWdr'.
 ªGªG !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œGœG /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –G–G /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7505,33 +7501,37 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘G‘G &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿGÿG (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂGﬂG 0Y
+’G’G $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷G÷G $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡G‡G .Y
+ÿGÿG (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’G’G $Y
+œGœG /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂGﬂG 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡G‡G .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚G‚G Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈGÈG 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍGÍG (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÏGÏG  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÌGÌG $w
+ÃGÃG #w
 S101cRename struct 'NET_DVR_DAYNIGHT' to match camel case naming rules, consider using 'NetDvrDaynight'.
 «G«G &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓGÓG $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÔGÔG $
+ÍGÍG (
 S101kRename struct 'NET_DVR_GAMMACORRECT' to match camel case naming rules, consider using 'NetDvrGammacorrect'.
 ›G›G *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÏGÏG  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÌGÌG $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÓGÓG $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÔGÔG $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 GG $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7539,13 +7539,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘G˘G 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚G˚G 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸G¸G 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙G˙G 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝G˝G 4y
+˚G˚G 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˝G˝G 4Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¸G¸G 'y
 S101eRename struct 'NET_DVR_BACKLIGHT' to match camel case naming rules, consider using 'NetDvrBacklight'.
 ÁGÁG 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7555,33 +7555,33 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 âHâH &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àHàH (Y
+ÄHÄH Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÏEÏE 'Y
+ãHãH .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 äHäH &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-åHåH .Y
+åHåH .}
+S101iRename struct 'NET_DVR_NOISEREMOVE' to match camel case naming rules, consider using 'NetDvrNoiseremove'.
+˜G˜G )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÄHÄH Y
+àHàH (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+éHéH Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïHïH Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñHñH' 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ôHôH$ 0}
+S101iRename struct 'NET_DVR_CMOSMODECFG' to match camel case naming rules, consider using 'NetDvrCmosmodecfg'.
+ÖHÖH )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 óHóH  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-éHéH Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òHòH( 8Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôHôH$ 0Y
+úHúH$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öHöH( 8Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õHõH &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úHúH$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ùHùH% 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7593,6 +7593,8 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °H°H  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+õHõH &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £H£H )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢H¢H %Y
@@ -7601,11 +7603,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •H•H "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-πHπH )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶H¶H )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+πHπH )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫H∫H $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+òHòH( 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ªHªH $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7619,7 +7623,7 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿H¿H %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãHãH .Y
+¡H¡H' 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬H¬H &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7631,53 +7635,53 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃHÃH Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡H¡H' 6Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕHÕH Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œHœH Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷H÷H  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ◊H◊H Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+œHœH Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡H‡H ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸHŸH Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚H‚H Y
+‚H‚H É
+S101oRename struct 'NET_DVR_CAMERAPARAMCFG' to match camel case naming rules, consider using 'NetDvrCameraparamcfg'.
+ìHìH ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈHÈH Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍHÍH $Y
+ÍHÍH $á
+S101sRename struct 'NET_DVR_CORRIDOR_MODE_CCD' to match camel case naming rules, consider using 'NetDvrCorridorModeCcd'.
+ﬁHﬁH /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏHÏH Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÛHÛH Y
+ÛHÛH Ä
+S101lRename struct 'NET_DVR_SMARTIR_PARAM' to match camel case naming rules, consider using 'NetDvrSmartirParam'.
+ÁHÁH +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÙHÙH 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆHˆH }
-S101iRename struct 'NET_DVR_NOISEREMOVE' to match camel case naming rules, consider using 'NetDvrNoiseremove'.
-˜G˜G )w
+ˆHˆH w
 S101cRename struct 'NET_DVR_DEFOGCFG' to match camel case naming rules, consider using 'NetDvrDefogcfg'.
  H H &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝H˝H Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛H˛H' 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇHˇH  (ñ
-S101ÅRename struct 'NET_DVR_ELECTRONICSTABILIZATION' to match camel case naming rules, consider using 'NetDvrElectronicstabilization'.
-‘H‘H 5Y
+ˇHˇH  (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˝H˝H |
+S101hRename struct 'NET_DVR_PIRIS_PARAM' to match camel case naming rules, consider using 'NetDvrPirisParam'.
+ÒHÒH )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄIÄI( 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÅIÅI$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÇIÇI( 8}
-S101iRename struct 'NET_DVR_CMOSMODECFG' to match camel case naming rules, consider using 'NetDvrCmosmodecfg'.
-ÖHÖH )Y
+ÇIÇI( 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÉIÉI &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7693,9 +7697,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 âIâI  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãIãI )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 äIäI %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ãIãI )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 åIåI "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7713,23 +7717,25 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úIúI &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùIùI +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ûIûI )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-üIüI %Y
+ùIùI +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†I†I' 6Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°I°I &Y
+êFêF Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢I¢I $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+°I°I &ñ
+S101ÅRename struct 'NET_DVR_ELECTRONICSTABILIZATION' to match camel case naming rules, consider using 'NetDvrElectronicstabilization'.
+‘H‘H 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £I£I 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §I§I #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •I•I$ 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+†I†I' 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶I¶I3 NY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7739,35 +7745,29 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©I©I *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤I≤I &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥I≥I &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥I¥I) 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µIµI' 5Y
+∑I∑I  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑I∑I  t
+≤I≤I &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+üIüI %t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ªIªI #à
-S101tRename struct 'NET_DVR_CAMERAPARAMCFG_EX' to match camel case naming rules, consider using 'NetDvrCameraparamcfgEx'.
-˚H˚H /|
-S101hRename struct 'NET_DVR_PIRIS_PARAM' to match camel case naming rules, consider using 'NetDvrPirisParam'.
-ÒHÒH )t
+ªIªI #t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ≈I≈I "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÁIÁI t
+µIµI' 5Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ËIËI %t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 —I—I %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ËIËI %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍIÍI Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈIÈI $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎIÎI Y
+ÍIÍI Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏIÏI  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7775,7 +7775,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÓIÓI %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÁIÁI Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔIÔI *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÎIÎI Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÒIÒI  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7783,25 +7787,25 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ıIıI Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÇJÇJ Y
+ÉJÉJ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÉJÉJ $~
-S101jRename struct 'NET_DVR_VEHICLE_INFO' to match camel case naming rules, consider using 'NetDvrVehicleInfo'.
-ÂIÂI *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑJÑJ #É
-S101oRename struct 'NET_DVR_CAMERAPARAMCFG' to match camel case naming rules, consider using 'NetDvrCameraparamcfg'.
-ìHìH ,Y
+ÑJÑJ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÖJÖJ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÜJÜJ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÇJÇJ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+àJàJ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 âJâJ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 äJäJ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãJãJ "Y
+ãJãJ "~
+S101jRename struct 'NET_DVR_VEHICLE_INFO' to match camel case naming rules, consider using 'NetDvrVehicleInfo'.
+ÂIÂI *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 åJåJ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7809,29 +7813,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 éJéJ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àJàJ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 èJèJ %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êJêJ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ëJëJ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-íJíJ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìJìJ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îJîJ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+êJêJ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïJïJ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òJòJ& 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ôJôJ( 7Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 óJóJ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öJöJ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôJôJ( 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õJõJ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7849,73 +7847,75 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÆJÆJ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+íJíJ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ØJØJ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞J∞J &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±J±J '~
-S101jRename struct 'NET_DVR_PLATE_RESULT' to match camel case naming rules, consider using 'NetDvrPlateResult'.
-ÄJÄJ *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤J≤J %Y
+±J±J 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥J≥J +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≤J≤J %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥J¥J *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µJµJ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂J∂J ,Y
+∂J∂J ,~
+S101jRename struct 'NET_DVR_PLATE_RESULT' to match camel case naming rules, consider using 'NetDvrPlateResult'.
+ÄJÄJ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑J∑J *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏J∏J )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 πJπJ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ªJªJ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øJøJ (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩJΩJ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡J¡J  Y
+øJøJ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «J«J Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏J∏J )Ö
-S101qRename struct 'NET_DVR_IMAGEOVERLAYCFG' to match camel case naming rules, consider using 'NetDvrImageoverlaycfg'.
-¶J¶J -Y
+¡J¡J  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »J»J )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …J…J #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
- J J 'á
-S101sRename struct 'NET_DVR_CORRIDOR_MODE_CCD' to match camel case naming rules, consider using 'NetDvrCorridorModeCcd'.
-ﬁHﬁH /Y
+ J J 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÃJÃJ )Y
+ÃJÃJ )Ö
+S101qRename struct 'NET_DVR_IMAGEOVERLAYCFG' to match camel case naming rules, consider using 'NetDvrImageoverlaycfg'.
+¶J¶J -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒJŒJ  u
 S101aRename struct 'NET_DVR_SNAPCFG' to match camel case naming rules, consider using 'NetDvrSnapcfg'.
 ≈J≈J %t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-—J—J (t
+—J—J (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‚J‚J t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ŸJŸJ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚J‚J Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„J„J !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰J‰J "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÂJÂJ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊJÊJ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂJÂJ 'Y
+ÁJÁJ -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËJËJ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈJÈJ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+„J„J !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÍJÍJ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -7947,55 +7947,53 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çKçK +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-éKéK 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êKêK Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÁJÁJ -~
+éKéK '~
 S101jRename struct 'NET_DVR_SNAP_ABILITY' to match camel case naming rules, consider using 'NetDvrSnapAbility'.
-‡J‡J *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óKóK( 8Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôKôK %{
+‡J‡J *à
+S101tRename struct 'NET_DVR_CAMERAPARAMCFG_EX' to match camel case naming rules, consider using 'NetDvrCameraparamcfgEx'.
+˚H˚H /ç
+S101yRename struct 'NET_ITC_ICR_TIMESWITCH_PARAM' to match camel case naming rules, consider using 'NetItcIcrTimeswitchParam'.
+îKîK 2{
 S101gRename struct 'NET_ITC_ICRTIMECFG' to match camel case naming rules, consider using 'NetItcIcrtimecfg'.
 äKäK (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õKõK ç
-S101yRename struct 'NET_ITC_ICR_TIMESWITCH_PARAM' to match camel case naming rules, consider using 'NetItcIcrTimeswitchParam'.
-îKîK 2Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢K¢K %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£K£K 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•K•K Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨K¨K %ë
+ìJìJ "ë
 S101}Rename struct 'NET_ITC_ICR_MANUALSWITCH_PARAM' to match camel case naming rules, consider using 'NetItcIcrManualswitchParam'.
 üKüK 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆKÆK ç
+£K£K 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ôKôK %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¨K¨K %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÆKÆK Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¢K¢K %ç
 S101yRename struct 'NET_ITC_ICR_AOTOSWITCH_PARAM' to match camel case naming rules, consider using 'NetItcIcrAotoswitchParam'.
 ©K©K 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µKµK Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑K∑K2 EY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂K∂K0 AY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏K∏K0 AY
+óKóK( 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-æKæK Y
+∑K∑K2 EY
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏K∏K0 AY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 øKøK $É
 S101oRename struct 'NET_ITC_ICR_PARAM_UNION' to match camel case naming rules, consider using 'NetItcIcrParamUnion'.
 ≤K≤K -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬K¬K+ 4Y
+æKæK Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡K¡K Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¬K¬K+ 4Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+…K…K $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”K”K  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8004,8 +8002,6 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ºKºK $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ’K’K #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…K…K $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ◊K◊K -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8023,31 +8019,29 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈKÈK #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍKÍK  Y
+•K•K Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎKÎK !É
+ÎKÎK !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÍKÍK  É
 S101oRename struct 'NET_DVR_TRIGCOORDINATE' to match camel case naming rules, consider using 'NetDvrTrigcoordinate'.
-ÊKÊK ,Ä
-S101lRename struct 'NET_DVR_SMARTIR_PARAM' to match camel case naming rules, consider using 'NetDvrSmartirParam'.
-ÁHÁH +Y
+ÊKÊK ,t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+ÓKÓK %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôLôL Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òLòL t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ÓKÓK %
+òLòL 
 S101kRename struct 'NET_DVR_GEOGLOCATION' to match camel case naming rules, consider using 'NetDvrGeoglocation'.
 ïLïL *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©L©L t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ùLùL Y
+©L©L Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™L™L  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´L´L #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨L¨L !Y
+´L´L #t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+ùLùL Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠L≠L "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8063,17 +8057,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µLµL -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂L∂L 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑L∑L (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏L∏L &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤L≤L &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∂L∂L 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 πLπL ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫L∫L -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¨L¨L !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ªLªL +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8083,15 +8075,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 øLøL 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+æLæL 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏L∏L &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿L¿L !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡L¡L  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√L√L &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬L¬L &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-æLæL 1Y
+√L√L &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ƒLƒL (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈L≈L #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8099,11 +8095,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «L«L( 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∑L∑L (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …L…L $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒLƒL (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÕLÕL  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”L”L Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8111,17 +8105,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘L‘L %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÕLÕL  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷L÷L  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ◊L◊L #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿLÿL $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŸLŸL %u
+ŸLŸL %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+⁄L⁄L (u
 S101aRename struct 'NET_DVR_VTPARAM' to match camel case naming rules, consider using 'NetDvrVtparam'.
 ßLßL %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄L⁄L (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €L€L #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8141,49 +8137,49 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÍLÍL #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÌLÌL !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏLÏL  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÌLÌL !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔLÔL #Å
 S101mRename struct 'NET_DVR_SNAPENABLECFG' to match camel case naming rules, consider using 'NetDvrSnapenablecfg'.
 —L—L +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÒLÒL #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚLÚL "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛLÛL %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÒLÒL #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÙLÙL %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ıLıL %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñMñM #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜L˜L Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïMïM %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ßMßM #Y
+ñMñM #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶M¶M %s
+¶M¶M %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ßMßM #s
 S101_Rename struct 'NET_DVR_FTPCFG' to match camel case naming rules, consider using 'NetDvrFtpcfg'.
-ÁLÁL $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©M©M ~
+ÁLÁL $~
 S101jRename struct 'NET_DVR_PICTURE_NAME' to match camel case naming rules, consider using 'NetDvrPictureName'.
 íMíM *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞M∞M !É
-S101oRename struct 'NET_DVR_PICTURE_NAME_EX' to match camel case naming rules, consider using 'NetDvrPictureNameEx'.
-£M£M -Y
+©M©M Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±M±M !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤M≤M "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥M≥M !Y
+≥M≥M !É
+S101oRename struct 'NET_DVR_PICTURE_NAME_EX' to match camel case naming rules, consider using 'NetDvrPictureNameEx'.
+£M£M -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∞M∞M !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥M¥M )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8191,63 +8187,63 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æMæM $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ΩMΩM& 2ç
+ΩMΩM& 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+øMøM )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¿M¿M( 7ç
 S101yRename struct 'NET_DVR_SERIAL_CATCHPIC_PARA' to match camel case naming rules, consider using 'NetDvrSerialCatchpicPara'.
 ÆMÆM 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿M¿M( 7Y
+¡M¡M "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬M¬M Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √M√M (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡M¡M "Y
+∆M∆M0 <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈M≈M  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆M∆M0 <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «M«M0 <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …M…M +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øMøM )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀMÀM 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”M”M Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŸMŸM Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€M€M &|
+ŸMŸM |
 S101hRename struct 'NET_DVR_JPEGCFG_V30' to match camel case naming rules, consider using 'NetDvrJpegcfgV30'.
 πMπM )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹M‹M "{
+€M€M &{
 S101gRename struct 'NET_DVR_MANUALSNAP' to match camel case naming rules, consider using 'NetDvrManualsnap'.
 –M–M (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›M›M #Y
+‹M‹M "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁMﬁM #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂMﬂM -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡M‡M &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚M‚M )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·M·M Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓMÓM #Y
+‚M‚M )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÂMÂM #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰M‰M" .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂMﬂM -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔMÔM &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 MM &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÓMÓM #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+›M›M #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÒMÒM  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8259,33 +8255,33 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚M˚M -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÄNÄN 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛M˛M 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅNÅN &Y
+ÄNÄN 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝M˝M  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÅNÅN &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÇNÇN )s
 S101_Rename struct 'NET_DVR_SPRCFG' to match camel case naming rules, consider using 'NetDvrSprcfg'.
 ◊M◊M $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-äNäN Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÑNÑN Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+äNäN Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ãNãN %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-åNåN )s
+åNåN )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+éNéN$ 1s
 S101_Rename struct 'NET_DVR_PLCCFG' to match camel case naming rules, consider using 'NetDvrPlccfg'.
 ˜M˜M $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëNëN (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-éNéN$ 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 êNêN$ 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ëNëN (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 íNíN $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8293,15 +8289,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïNïN %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñNñN "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìNìN (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 óNóN %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ñNñN "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öNöN +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôNôN )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+êKêK Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õNõN "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8309,185 +8305,189 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 üNüN  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ìNìN (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •N•N Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶N¶N "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®N®N %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©N©N "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™N™N $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨N¨N É
+¨N¨N Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+©N©N "É
 S101oRename struct 'NET_DVR_DEVICESTATECFG' to match camel case naming rules, consider using 'NetDvrDevicestatecfg'.
 àNàN ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´N´N *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∞N∞N Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+®N®N %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠N≠N &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÆNÆN $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞N∞N Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-πNπN Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬N¬N Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√N√N "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ªNªN $É
+πNπN É
 S101oRename struct 'NET_DVR_POSTEPOLICECFG' to match camel case naming rules, consider using 'NetDvrPostepolicecfg'.
 £N£N ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈N≈N( 1z
+ªNªN $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¬N¬N Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+√N√N "z
 S101fRename struct 'NET_DVR_PROTO_TYPE' to match camel case naming rules, consider using 'NetDvrProtoType'.
 ∑N∑N (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≈N≈N( 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «N«N Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—N—N, @Å
+“N“N !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+—N—N, @Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+”N”N #Å
 S101mRename struct 'NET_DVR_IPC_PROTO_LIST' to match camel case naming rules, consider using 'NetDvrIpcProtoList'.
 ¿N¿N ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”N”N #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“N“N !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ’N’N Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁNﬁN !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›N›N' 7ò
+ﬂNﬂN #ò
 S101ÉRename struct 'NET_DVR_TRAVERSE_PLANE_SEARCHCOND' to match camel case naming rules, consider using 'NetDvrTraversePlaneSearchcond'.
 ŒNŒN 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂNﬂN #Y
+›N›N' 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·N·N é
-S101zRename struct 'NET_DVR_INTRUSION_SEARCHCOND' to match camel case naming rules, consider using 'NetDvrIntrusionSearchcond'.
-⁄N⁄N 2Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍNÍN Y
+·N·N Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔNÔN5 IY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÒNÒN0 AY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÌNÌN 'Y
+ÍNÍN Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¯N¯N õ
-S101ÜRename struct 'NET_DVR_AREA_SMARTSEARCH_COND_UNION' to match camel case naming rules, consider using 'NetDvrAreaSmartsearchCondUnion'.
-ÊNÊN 9Y
+ÌNÌN 'é
+S101zRename struct 'NET_DVR_INTRUSION_SEARCHCOND' to match camel case naming rules, consider using 'NetDvrIntrusionSearchcond'.
+⁄N⁄N 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¯N¯N Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘N˘N (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¸N¸N  õ
+S101ÜRename struct 'NET_DVR_AREA_SMARTSEARCH_COND_UNION' to match camel case naming rules, consider using 'NetDvrAreaSmartsearchCondUnion'.
+ÊNÊN 9Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝N˝N  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸N¸N  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛N˛N  +Y
+ˇNˇN7 GY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄOÄO %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇNˇN7 GY
+˛N˛N  +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÇOÇO  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 àOàO  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-âOâO  +â
-S101uRename struct 'NET_DVR_SMART_SEARCH_PARAM' to match camel case naming rules, consider using 'NetDvrSmartSearchParam'.
-ˆNˆN 0Y
+âOâO  +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ãOãO Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-íOíO" (Ö
+íOíO" (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ìOìO â
+S101uRename struct 'NET_DVR_SMART_SEARCH_PARAM' to match camel case naming rules, consider using 'NetDvrSmartSearchParam'.
+ˆNˆN 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ïOïO Ö
 S101qRename struct 'NET_DVR_SMART_SEARCH_RET' to match camel case naming rules, consider using 'NetDvrSmartSearchRet'.
 ÜOÜO .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìOìO Y
+•O•O Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïOïO Y
+úOúO %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úOúO %â
+ûOûO â
 S101uRename struct 'NET_DVR_IPSAN_SERACH_PARAM' to match camel case naming rules, consider using 'NetDvrIpsanSerachParam'.
 êOêO 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ûOûO Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•O•O Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßOßO "Ö
 S101qRename struct 'NET_DVR_IPSAN_SERACH_RET' to match camel case naming rules, consider using 'NetDvrIpsanSerachRet'.
 ôOôO .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©O©O 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®O®O Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+©O©O 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠O≠O )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨O¨O 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ØOØO ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆOÆO +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞O∞O .Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¨O¨O 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±O±O &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥O≥O (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤O≤O )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ØOØO ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≥O≥O (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥O¥O )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µOµO "Y
+∂O∂O "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑O∑O (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏O∏O %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫O∫O !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-πOπO !Y
+ÆOÆO +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ªOªO !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ºOºO #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ΩOΩO %Y
+∏O∏O %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+πOπO !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∫O∫O !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æOæO  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿O¿O #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡O¡O "Y
+õKõK Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬O¬O #Y
+ΩOΩO %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √O√O %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒOƒO !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÕOÕO %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øOøO  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒOŒO !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œOœO %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÕOÕO %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –O–O "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+øOøO  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ◊O◊O "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂O∂O "Y
+¬O¬O #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+⁄O⁄O "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹O‹O .Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ŸOŸO 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›O›O (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8499,59 +8499,55 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·O·O 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄O⁄O "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „O„O  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎOÎO Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÏOÏO  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔOÔO &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÏOÏO  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÓOÓO  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛOÛO (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆOˆO  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŸOŸO 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝O˝O Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛O˛O! *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇOˇO Y
+ˆOˆO  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄPÄP 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÇPÇP &Y
+ˇOˇO Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˛O˛O! *Ä
+S101lRename struct 'NET_DVR_DEVICECFG_V40' to match camel case naming rules, consider using 'NetDvrDevicecfgV40'.
+£O£O +}
+S101iRename struct 'NET_DVR_ZEROCHANCFG' to match camel case naming rules, consider using 'NetDvrZerochancfg'.
+ÈOÈO )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ãPãP Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-åPåP  Y
+ÇPÇP &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑPÑP Ä
-S101lRename struct 'NET_DVR_DEVICECFG_V40' to match camel case naming rules, consider using 'NetDvrDevicecfgV40'.
-£O£O +Y
+ÑPÑP Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-éPéP  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èPèP "~
+åPåP  ~
 S101jRename struct 'NET_DVR_ZERO_ZOOMCFG' to match camel case naming rules, consider using 'NetDvrZeroZoomcfg'.
 ˚O˚O *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êPêP %}
-S101iRename struct 'NET_DVR_ZEROCHANCFG' to match camel case naming rules, consider using 'NetDvrZerochancfg'.
-ÈOÈO )Y
+èPèP "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+éPéP  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+êPêP %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 íPíP )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îPîP *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óPóP 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñPñP &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+óPóP 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôPôP $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8561,67 +8557,69 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £P£P "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§P§P "u
-S101aRename struct 'NET_DVR_SNMPCFG' to match camel case naming rules, consider using 'NetDvrSnmpcfg'.
-âPâP %Y
+§P§P "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •P•P "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ßPßP Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©P©P $Y
+ßPßP u
+S101aRename struct 'NET_DVR_SNMPCFG' to match camel case naming rules, consider using 'NetDvrSnmpcfg'.
+âPâP %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´P´P $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤P≤P Y
+©P©P $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥P≥P "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥P¥P "|
+¥P¥P "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≤P≤P Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+µPµP "|
 S101hRename struct 'NET_DVR_SNMPv3_USER' to match camel case naming rules, consider using 'NetDvrSnmPv3User'.
 üPüP )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µPµP "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏P∏P %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑P∑P  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫P∫P )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øPøP 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ºPºP *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∫P∫P )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡P¡P  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+æPæP &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬P¬P' 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √P√P' 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-æPæP &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈P≈P $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”P”P" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘P‘P Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’P’P &Y
+”P”P" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊P◊P +|
+øPøP '|
 S101hRename struct 'NET_DVR_SNMPCFG_V30' to match camel case naming rules, consider using 'NetDvrSnmpcfgV30'.
 ∞P∞P )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+’P’P &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+◊P◊P +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+⁄P⁄P !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸPŸP $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+µOµO "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹P‹P #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›P›P" 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁPﬁP" 3Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄P⁄P !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂPﬂP" 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8641,45 +8639,45 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 PP& 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘P˘P "Y
+˜P˜P $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜P˜P $w
+¯P¯P" +w
 S101cRename struct 'NET_DVR_SADPINFO' to match camel case naming rules, consider using 'NetDvrSadpinfo'.
 —P—P &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¯P¯P" +Ä
+˘P˘P "Ä
 S101lRename struct 'NET_DVR_SADPINFO_LIST' to match camel case naming rules, consider using 'NetDvrSadpinfoList'.
 ÈPÈP +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 áQáQ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-äQäQ #|
+˚P˚P Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+äQäQ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+âQâQ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+åQåQ |
 S101hRename struct 'NET_DVR_SADP_VERIFY' to match camel case naming rules, consider using 'NetDvrSadpVerify'.
 ÙPÙP )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚P˚P x
-S101dRename struct 'NET_DVR_DESC_NODE' to match camel case naming rules, consider using 'NetDvrDescNode'.
-ÖQÖQ 'Y
+íQíQ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ìQìQ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïQïQ' 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-åQåQ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤Q≤Q !Ü
-S101rRename struct 'NET_DVR_DISKABILITY_LIST' to match camel case naming rules, consider using 'NetDvrDiskabilityList'.
-êQêQ .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-âQâQ $Y
+≤Q≤Q !x
+S101dRename struct 'NET_DVR_DESC_NODE' to match camel case naming rules, consider using 'NetDvrDescNode'.
+ÖQÖQ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥Q¥Q* 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑Q∑Q $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂Q∂Q #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-íQíQ Y
+∑Q∑Q $Ü
+S101rRename struct 'NET_DVR_DISKABILITY_LIST' to match camel case naming rules, consider using 'NetDvrDiskabilityList'.
+êQêQ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏Q∏Q "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8687,33 +8685,33 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿Q¿Q Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡Q¡Q  -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈Q≈Q $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒQƒQ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬Q¬Q  ,á
+¡Q¡Q  -á
 S101sRename struct 'NET_DVR_BACKUP_NAME_PARAM' to match camel case naming rules, consider using 'NetDvrBackupNameParam'.
 ∞Q∞Q /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¬Q¬Q  ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ƒQƒQ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≈Q≈Q $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆Q∆Q "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…Q…Q Y
+«Q«Q #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«Q«Q #á
+…Q…Q á
 S101sRename struct 'NET_DVR_BACKUP_TIME_PARAM' to match camel case naming rules, consider using 'NetDvrBackupTimeParam'.
 æQæQ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „Q„Q %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÊQÊQ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂQÂQ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ËQËQ' 3t
+ÊQÊQ !t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ÃQÃQ ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ËQËQ' 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÂQÂQ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÒQÒQ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8723,17 +8721,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101jRename struct 'NET_DVR_ABILITY_LIST' to match camel case naming rules, consider using 'NetDvrAbilityList'.
 ·Q·Q *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚Q˚Q $í
-S101~Rename struct 'NET_DVR_COMPRESSIONCFG_ABILITY' to match camel case naming rules, consider using 'NetDvrCompressioncfgAbility'.
-ÔQÔQ 4Y
+˚Q˚Q $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸Q¸Q "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝Q˝Q "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛Q˛Q  Y
+˛Q˛Q  í
+S101~Rename struct 'NET_DVR_COMPRESSIONCFG_ABILITY' to match camel case naming rules, consider using 'NetDvrCompressioncfgAbility'.
+ÔQÔQ 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÜRÜR $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÄRÄR Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 áRáR &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8741,43 +8741,41 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 âRâR "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãRãR $Ç
+äRäR $Ç
 S101nRename struct 'NET_DVR_HOLIDATE_MODEA' to match camel case naming rules, consider using 'NetDvrHolidateModea'.
 ˘Q˘Q ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-äRäR $Y
+ãRãR $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çRçR Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ìRìR $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îRîR "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìRìR $Y
+ñRñR "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïRïR "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñRñR "Ç
+óRóR  Ç
 S101nRename struct 'NET_DVR_HOLIDATE_MODEB' to match camel case naming rules, consider using 'NetDvrHolidateModeb'.
 ÑRÑR ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óRóR  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òRòR  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £R£R* 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+•R•R* 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßRßR* 3Ç
 S101nRename struct 'NET_DVR_HOLIDATE_MODEC' to match camel case naming rules, consider using 'NetDvrHolidateModec'.
-ëRëR ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°R°R  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÄRÄR Ç
+ëRëR ,Ç
 S101nRename struct 'NET_DVR_HOLIDATE_UNION' to match camel case naming rules, consider using 'NetDvrHolidateUnion'.
-úRúR ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•R•R* 3t
+úRúR ,t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ™R™R "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+°R°R  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥R¥R  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8787,43 +8785,41 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑R∑R  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒRƒR Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫R∫R  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆R∆R+ ;Y
+ºRºR  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ƒRƒR Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∆R∆R+ ;Ä
+S101lRename struct 'NET_DVR_HOLIDAY_PARAM' to match camel case naming rules, consider using 'NetDvrHolidayParam'.
+≤R≤R +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »R»R Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œRœR Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ºRºR  Ä
-S101lRename struct 'NET_DVR_HOLIDAY_PARAM' to match camel case naming rules, consider using 'NetDvrHolidayParam'.
-≤R≤R +Y
+—R—R' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—R—R' 4á
+”R”R  á
 S101sRename struct 'NET_DVR_HOLIDAY_PARAM_CFG' to match camel case naming rules, consider using 'NetDvrHolidayParamCfg'.
 ¬R¬R /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸRŸR Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+⁄R⁄R% /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹R‹R) 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁRﬁR Ç
-S101nRename struct 'NET_DVR_HOLIDAY_HANDLE' to match camel case naming rules, consider using 'NetDvrHolidayHandle'.
-ÕRÕR ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”R”R  Ç
-S101nRename struct 'NET_DVR_HOLIDAY_RECORD' to match camel case naming rules, consider using 'NetDvrHolidayRecord'.
-◊R◊R ,Y
+ﬁRﬁR Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊRÊR" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄R⁄R% /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁRÁR Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÈRÈR Y
+ÈRÈR Ç
+S101nRename struct 'NET_DVR_HOLIDAY_RECORD' to match camel case naming rules, consider using 'NetDvrHolidayRecord'.
+◊R◊R ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔRÔR Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8835,21 +8831,27 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÙRÙR& 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆRˆR Y
+ˇRˇR Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇRˇR |
-S101hRename struct 'NET_DVR_LINK_STATUS' to match camel case naming rules, consider using 'NetDvrLinkStatus'.
-ÌRÌR )Y
+ˆRˆR Ç
+S101nRename struct 'NET_DVR_HOLIDAY_HANDLE' to match camel case naming rules, consider using 'NetDvrHolidayHandle'.
+ÕRÕR ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄSÄS !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅSÅS $Y
+ÅSÅS $|
+S101hRename struct 'NET_DVR_LINK_STATUS' to match camel case naming rules, consider using 'NetDvrLinkStatus'.
+ÌRÌR )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÇSÇS  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÖSÖS( 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÑSÑS  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÜSÜS" 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+èSèS Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 êSêS  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8857,61 +8859,57 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ëSëS Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÖSÖS( 4|
+ìSìS  |
 S101hRename struct 'NET_DVR_ONE_BONDING' to match camel case naming rules, consider using 'NetDvrOneBonding'.
 ˝R˝R )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìSìS  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èSèS Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïSïS) 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óSóS  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 üSüS #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢S¢S #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °S°S  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£S£S #Ñ
+¢S¢S #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+§S§S $Ñ
 S101pRename struct 'NET_DVR_NETWORK_BONDING' to match camel case naming rules, consider using 'NetDvrNetworkBonding'.
 çSçS -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§S§S $Y
+£S£S #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ØSØS& 2z
-S101fRename struct 'NET_DVR_DISK_QUOTA' to match camel case naming rules, consider using 'NetDvrDiskQuota'.
-ùSùS (Y
+óSóS  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞S∞S& 5Y
+•S•S $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÆSÆS Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®S®S  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ØSØS& 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¶S¶S $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∞S∞S& 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤S≤S Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏S∏S$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-πSπS %Å
+πSπS %z
+S101fRename struct 'NET_DVR_DISK_QUOTA' to match camel case naming rules, consider using 'NetDvrDiskQuota'.
+ùSùS (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ºSºS Å
 S101mRename struct 'NET_DVR_DISK_QUOTA_CFG' to match camel case naming rules, consider using 'NetDvrDiskQuotaCfg'.
 ¨S¨S ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆSÆS Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ºSºS Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶S¶S $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•S•S $Ç
-S101nRename struct 'NET_DVR_TIMING_CAPTURE' to match camel case naming rules, consider using 'NetDvrTimingCapture'.
-∂S∂S ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √S√S  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈S≈S Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŒSŒS .Y
+ŒSŒS .Ç
+S101nRename struct 'NET_DVR_TIMING_CAPTURE' to match camel case naming rules, consider using 'NetDvrTimingCapture'.
+∂S∂S ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –S–S "Ö
 S101qRename struct 'NET_DVR_REL_CAPTURE_CHAN' to match camel case naming rules, consider using 'NetDvrRelCaptureChan'.
@@ -8927,9 +8925,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €S€S2 DY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁSﬁS %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›S›S2 DY
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁSﬁS %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂSﬂS "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -8937,71 +8935,71 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁSÁS$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ËSËS %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎSÎS. @á
 S101sRename struct 'NET_DVR_EVENT_CAPTURE_V40' to match camel case naming rules, consider using 'NetDvrEventCaptureV40'.
 ÷S÷S /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-SS "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔSÔS. @Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+SS "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚSÚS Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯S¯S Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ËSËS %Ä
+˙S˙S- =Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˘S˘S* ;Ä
 S101lRename struct 'NET_DVR_EVENT_CAPTURE' to match camel case naming rules, consider using 'NetDvrEventCapture'.
 ÂSÂS +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘S˘S* ;Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˙S˙S- =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸S¸S  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÇTÇT Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÉTÉT* ;å
+ÉTÉT* ;Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÑTÑT) 9å
 S101xRename struct 'NET_DVR_JPEG_CAPTURE_CFG_V40' to match camel case naming rules, consider using 'NetDvrJpegCaptureCfgV40'.
 ˆSˆS 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑTÑT) 9Y
+åTåT 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÜTÜT  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-åTåT 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çTçT %Ö
 S101qRename struct 'NET_DVR_JPEG_CAPTURE_CFG' to match camel case naming rules, consider using 'NetDvrJpegCaptureCfg'.
 ÄTÄT .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïTïT% 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 èTèT Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñTñT %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òTòT |
+ïTïT% 4|
 S101hRename struct 'NET_DVR_CAPTURE_DAY' to match camel case naming rules, consider using 'NetDvrCaptureDay'.
 äTäT )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-üTüT Y
+òTòT Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†T†T  Ä
-S101lRename struct 'NET_DVR_CAPTURE_SCHED' to match camel case naming rules, consider using 'NetDvrCaptureSched'.
-ìTìT +Y
+†T†T  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+üTüT Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢T¢T  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§T§T) 7Y
+§T§T) 7Ä
+S101lRename struct 'NET_DVR_CAPTURE_SCHED' to match camel case naming rules, consider using 'NetDvrCaptureSched'.
+ìTìT +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßTßT' 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™T™T *Y
+¶T¶T+ ;Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©T©T+ ;Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶T¶T+ ;Y
+™T™T *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨T¨T Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9009,13 +9007,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥T≥T !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥T¥T "Ü
-S101rRename struct 'NET_DVR_SCHED_CAPTURECFG' to match camel case naming rules, consider using 'NetDvrSchedCapturecfg'.
-ùTùT .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂T∂T Y
+¥T¥T "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ºTºT Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∂T∂T Ü
+S101rRename struct 'NET_DVR_SCHED_CAPTURECFG' to match camel case naming rules, consider using 'NetDvrSchedCapturecfg'.
+ùTùT .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩTΩT &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9027,11 +9025,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »T»T Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…T…T  -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
  T T "x
 S101dRename struct 'NET_DVR_FLOW_INFO' to match camel case naming rules, consider using 'NetDvrFlowInfo'.
 ∫T∫T 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+…T…T  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃTÃT  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9041,31 +9039,31 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸTŸT (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€T€T Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„T„T ~
+€T€T ~
 S101jRename struct 'NET_DVR_RECORD_LABEL' to match camel case naming rules, consider using 'NetDvrRecordLabel'.
-∆T∆T *Y
+∆T∆T *Ç
+S101nRename struct 'NET_DVR_LABEL_IDENTIFY' to match camel case naming rules, consider using 'NetDvrLabelIdentify'.
+÷T÷T ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰T‰T Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂTÂT Ç
-S101nRename struct 'NET_DVR_LABEL_IDENTIFY' to match camel case naming rules, consider using 'NetDvrLabelIdentify'.
-÷T÷T ,Y
+„T„T Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÂTÂT Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊTÊT #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËTËT, 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍTÍT  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 TT* 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÚTÚT  É
+ÍTÍT  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÚTÚT  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÙTÙT $É
 S101oRename struct 'NET_DVR_DEL_LABEL_PARAM' to match camel case naming rules, consider using 'NetDvrDelLabelParam'.
 ·T·T -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙTÙT $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆTˆT  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9073,93 +9071,95 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛T˛T Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇTˇT  -Y
+ˇTˇT  -É
+S101oRename struct 'NET_DVR_MOD_LABEL_PARAM' to match camel case naming rules, consider using 'NetDvrModLabelParam'.
+ÓTÓT -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄUÄU  ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÉUÉU #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÇUÇU $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÖUÖU Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÉUÉU #É
-S101oRename struct 'NET_DVR_MOD_LABEL_PARAM' to match camel case naming rules, consider using 'NetDvrModLabelParam'.
-ÓTÓT -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-çUçU $Y
+èUèU* ;Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 éUéU  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èUèU* ;z
+çUçU $z
 S101fRename struct 'NET_DVR_FIND_LABEL' to match camel case naming rules, consider using 'NetDvrFindLabel'.
 ˚T˚T (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëUëU  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òUòU Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ëUëU  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôUôU Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-öUöU "Ç
-S101nRename struct 'NET_DVR_FINDLABEL_DATA' to match camel case naming rules, consider using 'NetDvrFindlabelData'.
-äUäU ,Y
+¡O¡O "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ûUûU "Y
+öUöU "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 †U†U  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢U¢U "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £U£U  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§U§U  ,Y
+¢U¢U "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+§U§U  ,Ç
+S101nRename struct 'NET_DVR_FINDLABEL_DATA' to match camel case naming rules, consider using 'NetDvrFindlabelData'.
+äUäU ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶U¶U  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ØUØU #â
-S101uRename struct 'NET_DVR_FIND_PICTURE_PARAM' to match camel case naming rules, consider using 'NetDvrFindPictureParam'.
-ñUñU 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±U±U "Y
+ØUØU #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞U∞U  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+±U±U "â
+S101uRename struct 'NET_DVR_FIND_PICTURE_PARAM' to match camel case naming rules, consider using 'NetDvrFindPictureParam'.
+ñUñU 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥U≥U "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ΩUΩU Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µUµU Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æUæU  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ΩUΩU Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿U¿U* 5Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬U¬U #~
+¿U¿U* 5~
 S101jRename struct 'NET_DVR_FIND_PICTURE' to match camel case naming rules, consider using 'NetDvrFindPicture'.
 ¨U¨U *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √U√U $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒUƒU "Y
+¬U¬U #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆U∆U Y
+ƒUƒU "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃUÃU Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŒUŒU &Y
+∆U∆U Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕUÕU !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–U–U Y
+ŒUŒU &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—U—U. <ç
+–U–U ç
 S101yRename struct 'NET_DVR_BACKUP_PICTURE_PARAM' to match camel case naming rules, consider using 'NetDvrBackupPictureParam'.
 ªUªU 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+—U—U. <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›U›U %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁUﬁU 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂUﬂU )à
+ﬂUﬂU )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·U·U #à
 S101tRename struct 'NET_DVR_COMPRESSION_LIMIT' to match camel case naming rules, consider using 'NetDvrCompressionLimit'.
  U U /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9167,23 +9167,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚U‚U #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·U·U #Y
+ÍUÍU Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÎUÎU %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰U‰U Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎUÎU %~
-S101jRename struct 'NET_DVR_VIDEO_EFFECT' to match camel case naming rules, consider using 'NetDvrVideoEffect'.
-€U€U *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÓUÓU( 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÌUÌU  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍUÍU Y
+UU  ~
+S101jRename struct 'NET_DVR_VIDEO_EFFECT' to match camel case naming rules, consider using 'NetDvrVideoEffect'.
+€U€U *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆUˆU !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-UU  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜U˜U (â
 S101uRename struct 'NET_DVR_VIDEO_INPUT_EFFECT' to match camel case naming rules, consider using 'NetDvrVideoInputEffect'.
@@ -9195,103 +9193,105 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄVÄV Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅVÅV !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÇVÇV #Ä
+ÅVÅV !Ä
 S101lRename struct 'NET_DVR_VIDEOPARA_V40' to match camel case naming rules, consider using 'NetDvrVideoparaV40'.
 ÙUÙU +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÇVÇV #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÑVÑV Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 äVäV Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ãVãV !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑVÑV Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-åVåV !â
+èVèV" (â
 S101uRename struct 'NET_DVR_DEFAULT_VIDEO_COND' to match camel case naming rules, consider using 'NetDvrDefaultVideoCond'.
 ˛U˛U 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èVèV" (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êVêV Y
+åVåV !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 éVéV  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëVëV "Y
+êVêV Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìVìV  Y
+ëVëV "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôVôV !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ìVìV  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+õVõV  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úVúV" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùVùV Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õVõV  â
+ùVùV â
 S101uRename struct 'NET_DVR_ENCODE_JOINT_PARAM' to match camel case naming rules, consider using 'NetDvrEncodeJointParam'.
 àVàV 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ûVûV "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 üVüV 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ûVûV "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßVßV Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°V°V  Y
+®V®V &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®V®V &ã
-S101wRename struct 'NET_DVR_VCA_CHAN_WORKSTATUS' to match camel case naming rules, consider using 'NetDvrVcaChanWorkstatus'.
-óVóV 1Y
+°V°V  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©V©V !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´V´V1 BY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠V≠V Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µVµV )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏V∏V 'â
+µVµV )ã
+S101wRename struct 'NET_DVR_VCA_CHAN_WORKSTATUS' to match camel case naming rules, consider using 'NetDvrVcaChanWorkstatus'.
+óVóV 1â
 S101uRename struct 'NET_DVR_VCA_DEV_WORKSTATUS' to match camel case naming rules, consider using 'NetDvrVcaDevWorkstatus'.
 •V•V 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠V≠V Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏V∏V 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫V∫V Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡V¡V Ö
-S101qRename struct 'UNION_VIDEOPLATFORM_V40' to match camel case naming rules, consider using 'UnionVideoplatformV40'.
-±V±V -ã
-S101wRename struct 'UNION_NOTVIDEOPLATFORM_V40' to match camel case naming rules, consider using 'UnionNotvideoplatformV40'.
-æVæV 0Y
+¡V¡V Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «V«V Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»V»V Y
+»V»V Ö
+S101qRename struct 'UNION_VIDEOPLATFORM_V40' to match camel case naming rules, consider using 'UnionVideoplatformV40'.
+±V±V -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…V…V (Y
+…V…V (ã
+S101wRename struct 'UNION_NOTVIDEOPLATFORM_V40' to match camel case naming rules, consider using 'UnionNotvideoplatformV40'.
+æVæV 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  V V 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀVÀV %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÃVÃV $Y
+œVœV 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+–V–V /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒVŒV 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œVœV 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —V—V Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”V”V #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„V„V Y
+ÃVÃV $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›V›V/ @Y
+„V„V Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄V⁄V #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡V‡V2 FY
+›V›V/ @Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–V–V /Y
+ûUûU "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡V‡V2 FY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈVÈV %i
 S101URename struct 'struDiff' to match camel case naming rules, consider using 'StruDiff'.
@@ -9301,155 +9301,153 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÙVÙV Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıVıV !ç
+ıVıV !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˆVˆV $ç
 S101yRename struct 'NET_DVR_VGA_DISP_CHAN_CFG_V40' to match camel case naming rules, consider using 'NetDvrVgaDispChanCfgV40'.
 ≈V≈V 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆVˆV $á
+˜V˜V $á
 S101sRename struct 'NET_DVR_V6SUBSYSTEMPARAM' to match camel case naming rules, consider using 'NetDvrV6Subsystemparam'.
 ÁVÁV .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜V˜V $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘V˘V Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅWÅW Y
+ÇWÇW 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÇWÇW 'ì
+ÉWÉW &ì
 S101Rename struct 'NET_DVR_CORRECT_DEADPIXEL_PARAM' to match camel case naming rules, consider using 'NetDvrCorrectDeadpixelParam'.
 ÚVÚV 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÉWÉW &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÑWÑW !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-éWéW Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÜWÜW" .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àWàW  Y
+éWéW Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëWëW Y
+èWèW "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õWõW #{
+àWàW  {
 S101gRename struct 'NET_DVR_REDAREACFG' to match camel case naming rules, consider using 'NetDvrRedareacfg'.
 ˇVˇV (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èWèW "Ö
+ëWëW Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ùWùW Ö
 S101qRename struct 'NET_DVR_HISTORICDATACFG' to match camel case naming rules, consider using 'NetDvrHistoricdatacfg'.
 åWåW -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùWùW Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶W¶W Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§W§W "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨W¨W %~
+õWõW #~
 S101jRename struct 'NET_DVR_INQUEST_ROOM' to match camel case naming rules, consider using 'NetDvrInquestRoom'.
 ôWôW *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠W≠W %Ñ
+§W§W "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¶W¶W Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¨W¨W %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠W≠W %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ØWØW Ñ
 S101pRename struct 'NET_DVR_INQUEST_MESSAGE' to match camel case naming rules, consider using 'NetDvrInquestMessage'.
 °W°W -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ØWØW Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂W∂W3 Cè
-S101{Rename struct 'NET_DVR_INQUEST_SENSOR_DEVICE' to match camel case naming rules, consider using 'NetDvrInquestSensorDevice'.
-™W™W 3Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫W∫W Y
+∂W∂W3 CY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑W∑W $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∫W∫W è
+S101{Rename struct 'NET_DVR_INQUEST_SENSOR_DEVICE' to match camel case naming rules, consider using 'NetDvrInquestSensorDevice'.
+™W™W 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡W¡W "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒWŒW "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡W¡W "ã
+œWœW 'ã
 S101wRename struct 'NET_DVR_INQUEST_SENSOR_INFO' to match camel case naming rules, consider using 'NetDvrInquestSensorInfo'.
 ≥W≥W 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œWœW 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –W–W (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —W—W 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”W”W Y
+ÀWÀW )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆W∆W %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÀWÀW )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŸWŸW $k
+”W”W k
 S101WRename struct 'uCalcMode' to match camel case naming rules, consider using 'UCalcMode'.
 √W√W #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄W⁄W "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€W€W (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹W‹W/ =á
+⁄W⁄W "á
 S101sRename struct 'NET_DVR_INQUEST_ROOM_INFO' to match camel case naming rules, consider using 'NetDvrInquestRoomInfo'.
 æWæW /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁWﬁW/ BY
+ŸWŸW $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡W‡W Y
+€W€W (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‹W‹W/ =Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÅWÅW Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊWÊW  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÁWÁW  ,ã
-S101wRename struct 'NET_DVR_INQUEST_SYSTEM_INFO' to match camel case naming rules, consider using 'NetDvrInquestSystemInfo'.
-◊W◊W 1Y
+‡W‡W Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÁWÁW  ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËWËW #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍWÍW %Y
+ÈWÈW $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎWÎW #Y
+ÎWÎW #ã
+S101wRename struct 'NET_DVR_INQUEST_SYSTEM_INFO' to match camel case naming rules, consider using 'NetDvrInquestSystemInfo'.
+◊W◊W 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÍWÍW %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÌWÌW Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛWÛW #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıWıW4 Eë
-S101}Rename struct 'NET_DVR_INQUEST_RESUME_SEGMENT' to match camel case naming rules, consider using 'NetDvrInquestResumeSegment'.
-‰W‰W 4Y
+ıWıW4 EY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝W˝W %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜W˜W Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-âXâX $ç
-S101yRename struct 'NET_DVR_INQUEST_RESUME_EVENT' to match camel case naming rules, consider using 'NetDvrInquestResumeEvent'.
-ÒWÒW 2Y
+âXâX $ë
+S101}Rename struct 'NET_DVR_INQUEST_RESUME_SEGMENT' to match camel case naming rules, consider using 'NetDvrInquestResumeSegment'.
+‰W‰W 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 äXäX (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãXãX *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìXìX Y
+ãXãX *ç
+S101yRename struct 'NET_DVR_INQUEST_RESUME_EVENT' to match camel case naming rules, consider using 'NetDvrInquestResumeEvent'.
+ÒWÒW 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çXçX Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îXîX  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úXúX Y
+ìXìX Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñXñX Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÈWÈW $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùXùX  ë
+úXúX ë
 S101}Rename struct 'NET_DVR_INQUEST_DEVICE_VERSION' to match camel case naming rules, consider using 'NetDvrInquestDeviceVersion'.
-˚W˚W 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-üXüX Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•X•X Å
+˚W˚W 4Å
 S101mRename struct 'NET_DVR_DISK_RAID_INFO' to match camel case naming rules, consider using 'NetDvrDiskRaidInfo'.
 ëXëX ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ùXùX  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+•X•X Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+üXüX Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßXßX $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9459,45 +9457,47 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´X´X Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤X≤X Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥X≥X !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥X¥X "z
+≤X≤X z
 S101fRename struct 'NET_DVR_IPC_PASSWD' to match camel case naming rules, consider using 'NetDvrIpcPasswd'.
 £X£X (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µXµX #Y
+≥X≥X !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¥X¥X "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁWﬁW/ BY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂X∂X #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏X∏X Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øXøX Y
+¿X¿X" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿X¿X" (á
+µXµX #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡X¡X á
 S101sRename struct 'NET_DEVICE_NET_USING_INFO' to match camel case naming rules, consider using 'NetDeviceNetUsingInfo'.
 ∞X∞X /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡X¡X Y
+øXøX Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+√X√X Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  X X Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√X√X z
+ÀXÀX  ,z
 S101fRename struct 'NET_DVR_IPC_NETCFG' to match camel case naming rules, consider using 'NetDvrIpcNetcfg'.
 ΩXΩX (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÀXÀX  ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃXÃX  *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŒXŒX $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–X–X# 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕXÕX !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ŒXŒX $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œXœX &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+–X–X# 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿXÿX Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9505,25 +9505,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄X⁄X  *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹X‹X Y
+“X“X Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“X“X x
+‹X‹X x
 S101dRename struct 'NET_DVR_TIME_LOCK' to match camel case naming rules, consider using 'NetDvrTimeLock'.
-»X»X 't
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ÈXÈX )|
+»X»X '|
 S101hRename struct 'NET_DVR_LOCK_RETURN' to match camel case naming rules, consider using 'NetDvrLockReturn'.
 ÷X÷X )t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ·X·X 't
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ÛXÛX +Y
+ÈXÈX )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛X˛X Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇXˇX 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅYÅY  Y
+ˇXˇX 't
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+ÛXÛX +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÉYÉY (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9539,9 +9537,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101hRename struct 'NET_DVR_BONJOUR_CFG' to match camel case naming rules, consider using 'NetDvrBonjourCfg'.
 ¸X¸X )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êYêY %Y
+ÅYÅY  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 íYíY $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+êYêY %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îYîY $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9561,25 +9561,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢Y¢Y #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§Y§Y  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £Y£Y Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+§Y§Y  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨Y¨Y Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠Y≠Y $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶Y¶Y Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÆYÆY  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠Y≠Y $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞Y∞Y t
 S101`Rename struct 'NET_DVR_QOS_CFG' to match camel case naming rules, consider using 'NetDvrQosCfg'.
 úYúY %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏Y∏Y #x
-S101dRename struct 'NET_DVR_HTTPS_CFG' to match camel case naming rules, consider using 'NetDvrHttpsCfg'.
-™Y™Y 'Y
+∏Y∏Y #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫Y∫Y !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9587,9 +9585,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æYæY (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿Y¿Y  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬Y¬Y &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¿Y¿Y  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ƒYƒY !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9597,9 +9595,7 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃYÃY Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÕYÕY #x
-S101dRename struct 'NET_DVR_CERT_NAME' to match camel case naming rules, consider using 'NetDvrCertName'.
-µYµY 'Y
+ÕYÕY #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒYŒY #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9609,17 +9605,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸYŸY Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄Y⁄Y& 3z
-S101fRename struct 'NET_DVR_CERT_PARAM' to match camel case naming rules, consider using 'NetDvrCertParam'.
- Y Y (Y
+⁄Y⁄Y& 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €Y€Y #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁYﬁY% 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›Y›Y "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂYﬂY% 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁYﬁY% 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡Y‡Y# 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·Y·Y# .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9627,11 +9623,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „Y„Y &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂYÂY &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊYÊY  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁYÁY ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÂYÂY &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈYÈY Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9645,47 +9641,45 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯Y¯Y 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˙Y˙Y x
-S101dRename struct 'NET_DVR_CERT_INFO' to match camel case naming rules, consider using 'NetDvrCertInfo'.
-◊Y◊Y 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄZÄZ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡Y‡Y# 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÉZÉZ )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÇZÇZ &ã
-S101wRename struct 'NET_DVR_CHANS_RECORD_STATUS' to match camel case naming rules, consider using 'NetDvrChansRecordStatus'.
-ÔYÔY 1Y
+˙Y˙Y Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÅZÅZ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÇZÇZ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÉZÉZ )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÑZÑZ 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-çZçZ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïZïZ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÜZÜZ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èZèZ1 ?Y
+çZçZ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñZñZ &ï
-S101ÄRename struct 'NET_DVR_CHAN_GROUP_RECORD_STATUS' to match camel case naming rules, consider using 'NetDvrChanGroupRecordStatus'.
-ãZãZ 6Y
+èZèZ1 ?x
+S101dRename struct 'NET_DVR_HTTPS_CFG' to match camel case naming rules, consider using 'NetDvrHttpsCfg'.
+™Y™Y 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óZóZ  Y
+ïZïZ &x
+S101dRename struct 'NET_DVR_CERT_INFO' to match camel case naming rules, consider using 'NetDvrCertInfo'.
+◊Y◊Y 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òZòZ !à
+ñZñZ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+óZóZ  à
 S101tRename struct 'NET_DVR_IP_ALARM_GROUP_NUM' to match camel case naming rules, consider using 'NetDvrIpAlarmGroupNum'.
-˛Y˛Y 0u
-S101aRename struct 'NET_DVR_RECTCFG' to match camel case naming rules, consider using 'NetDvrRectcfg'.
-ìZìZ %Y
+˛Y˛Y 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+òZòZ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 üZüZ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†Z†Z Y
+†Z†Z ã
+S101wRename struct 'NET_DVR_CHANS_RECORD_STATUS' to match camel case naming rules, consider using 'NetDvrChansRecordStatus'.
+ÔYÔY 1u
+S101aRename struct 'NET_DVR_RECTCFG' to match camel case naming rules, consider using 'NetDvrRectcfg'.
+ìZìZ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °Z°Z "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9695,61 +9689,71 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §Z§Z# *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•Z•Z 'Y
+¶Z¶Z &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+•Z•Z 'x
+S101dRename struct 'NET_DVR_CERT_NAME' to match camel case naming rules, consider using 'NetDvrCertName'.
+µYµY 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+®Z®Z Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÆZÆZ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶Z¶Z &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞Z∞Z$ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤Z≤Z  s
+≤Z≤Z  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏Z∏Z s
 S101_Rename struct 'NET_DVR_WINCFG' to match camel case naming rules, consider using 'NetDvrWincfg'.
 ùZùZ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏Z∏Z Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-πZπZ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫Z∫Z' 5y
+πZπZ #y
 S101eRename struct 'NET_DVR_ALLWINCFG' to match camel case naming rules, consider using 'NetDvrAllwincfg'.
 ¨Z¨Z 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ªZªZ Y
+∫Z∫Z' 5Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ªZªZ ï
+S101ÄRename struct 'NET_DVR_CHAN_GROUP_RECORD_STATUS' to match camel case naming rules, consider using 'NetDvrChanGroupRecordStatus'.
+ãZãZ 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩZΩZ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈Z≈Z %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«Z«Z "{
+»Z»Z "{
 S101gRename struct 'NET_DVR_SCREENZOOM' to match camel case naming rules, consider using 'NetDvrScreenzoom'.
 ∂Z∂Z (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+«Z«Z "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …Z…Z "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÀZÀZ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®Z®Z Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  Z Z Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÀZÀZ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃZÃZ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÕZÕZ %Y
+ÕZÕZ %z
+S101fRename struct 'NET_DVR_CERT_PARAM' to match camel case naming rules, consider using 'NetDvrCertParam'.
+ Y Y (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒZŒZ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»Z»Z "Y
+—Z—Z  /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –Z–Z  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—Z—Z  /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹Z‹Z $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”Z”Z "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂZﬂZ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁZﬁZ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+’Z’Z  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡Z‡Z $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9759,8 +9763,6 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101mRename struct 'NET_MATRIX_CAMERAINFO' to match camel case naming rules, consider using 'NetMatrixCamerainfo'.
 √Z√Z +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂZﬂZ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „Z„Z %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰Z‰Z "Y
@@ -9769,29 +9771,27 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁZÁZ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÔZÔZ" -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈZÈZ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ZZ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÔZÔZ" -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÒZÒZ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÛZÛZ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’Z’Z  É
+ÛZÛZ É
 S101oRename struct 'NET_MATRIX_MONITORINFO' to match camel case naming rules, consider using 'NetMatrixMonitorinfo'.
 ⁄Z⁄Z ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘Z˘Z $á
+˘Z˘Z $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˙Z˙Z +á
 S101sRename struct 'NET_MATRIX_DIGITALMATRIX' to match camel case naming rules, consider using 'NetMatrixDigitalmatrix'.
 ÌZÌZ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˙Z˙Z +Y
+˝Z˝Z( 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸Z¸Z  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝Z˝Z( 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇZˇZ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9799,35 +9799,35 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 à[à[+ ;Ö
 S101qRename struct 'NET_MATRIX_ANALOGMATRIX' to match camel case naming rules, consider using 'NetMatrixAnalogmatrix'.
-˜Z˜Z -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-è[è[ w
+˜Z˜Z -w
 S101cRename struct 'NET_MATRIX_UNION' to match camel case naming rules, consider using 'NetMatrixUnion'.
 É[É[ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ê[ê[ "Y
+è[è[ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ì[ì[ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-í[í[ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-î[î[ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ó[ó[$ 3Y
+ê[ê[ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñ[ñ[  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ò[ò[ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ó[ó[$ 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+í[í[ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ô[ô[ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+î[î[ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 û[û[  /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+õ[õ[ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ù[ù[ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 †[†[ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õ[õ[ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®[®[ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9835,31 +9835,33 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´[´[ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨[¨[ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™[™[ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠[≠[  Y
+¨[¨[ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥[¥[ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂[∂[ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑[∑[ !Å
+≠[≠[  Å
 S101mRename struct 'NET_MATRIX_MATRIXINFO' to match camel case naming rules, consider using 'NetMatrixMatrixinfo'.
 ç[ç[ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¥[¥[ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∑[∑[ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∂[∂[ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏[∏[ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-π[π[ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫[∫[ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ª[ª[ "{
+π[π[ "{
 S101gRename struct 'NET_DVR_MATRIXLIST' to match camel case naming rules, consider using 'NetDvrMatrixlist'.
 ¶[¶[ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∫[∫[ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ª[ª[ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 º[º[ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ω[Ω[ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æ[æ[  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9871,55 +9873,55 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Õ[Õ[ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
- [ [ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Œ[Œ[ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ã[Ã[ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ [ [ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –[–[ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ã[Ã[ #
+◊[◊[ 
 S101kRename struct 'NET_MATRIX_UARTPARAM' to match camel case naming rules, consider using 'NetMatrixUartparam'.
 ≤[≤[ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊[◊[ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ÿ[Ÿ[ %
-S101kRename struct 'NET_MATRIX_USERPARAM' to match camel case naming rules, consider using 'NetMatrixUserparam'.
-∆[∆[ *Y
+Ÿ[Ÿ[ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄[⁄[ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹[‹[ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €[€[ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ω[Ω[ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡[‡[  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Î[Î[ 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-È[È[ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Á[Á[ Y
+‹[‹[ !
+S101kRename struct 'NET_MATRIX_USERPARAM' to match camel case naming rules, consider using 'NetMatrixUserparam'.
+∆[∆[ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁ[ﬁ[ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ò[Ò[ ë
+Á[Á[ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡[‡[  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+È[È[ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Î[Î[ 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ì[Ì[ /ë
 S101}Rename struct 'NET_MATRIX_RESOURSEGROUPPARAM' to match camel case naming rules, consider using 'NetMatrixResoursegroupparam'.
-’[’[ 3â
-S101uRename struct 'NET_MATRIX_USERGROUPPARAM' to match camel case naming rules, consider using 'NetMatrixUsergroupparam'.
-Â[Â[ /Y
+’[’[ 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ô[Ô[ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ò[Ò[ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜[˜[ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯[¯[ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ì[Ì[ /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ô[Ô[ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙[˙[ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˚[˚[ "â
+S101uRename struct 'NET_MATRIX_USERGROUPPARAM' to match camel case naming rules, consider using 'NetMatrixUsergroupparam'.
+Â[Â[ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸[¸[ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9929,8 +9931,6 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇ[ˇ[ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚[˚[ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ä\Ä\ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Å\Å\ (Y
@@ -9939,21 +9939,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 É\É\ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ã\ã\ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 å\å\ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ã\ã\ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ç\ç\ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-é\é\  Å
+é\é\  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ó\ó\ Å
 S101mRename struct 'NET_MATRIX_TRUNKPARAM' to match camel case naming rules, consider using 'NetMatrixTrunkparam'.
-ı[ı[ +Ü
+ı[ı[ +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ò\ò\ *Ü
 S101rRename struct 'NET_DVR_MATRIX_TRUNKLIST' to match camel case naming rules, consider using 'NetDvrMatrixTrunklist'.
 á\á\ .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ó\ó\ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ò\ò\ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ö\ö\ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9961,23 +9961,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °\°\ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¢\¢\ 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £\£\ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §\§\ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢\¢\ '
+•\•\ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¶\¶\ .
 S101kRename struct 'NET_DVR_PROTO_TYPE_EX' to match camel case naming rules, consider using 'NetDvrProtoTypeEx'.
 ï\ï\ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•\•\ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶\¶\ .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ß\ß\ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®\®\ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©\©\ %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+™\™\ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´\´\ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9985,9 +9985,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠\≠\ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ø\Ø\+ :Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞\∞\ *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ø\Ø\+ :Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤\≤\+ <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -9999,25 +9999,27 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æ\æ\' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ø\ø\# 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆\∆\ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«\«\ "ê
+®\®\ &ê
 S101|Rename struct 'NET_DVR_MATRIXMANAGE_ABIILITY' to match camel case naming rules, consider using 'NetDvrMatrixmanageAbiility'.
 û\û\ 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™\™\ *ä
+∆\∆\ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ø\ø\# 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+«\«\ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+»\»\ &ä
 S101vRename struct 'NET_VCA_SINGLE_FACESNAPCFG' to match camel case naming rules, consider using 'NetVcaSingleFacesnapcfg'.
 π\π\ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»\»\ &Y
+…\…\ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  \ \ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-À\À\ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ã\Ã\ )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+À\À\ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Õ\Õ\ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10026,6 +10028,8 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 œ\œ\$ 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —\—\0 8Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+⁄\⁄\ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €\€\ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10037,27 +10041,25 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁ\ﬁ\ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄\⁄\ }
+ﬂ\ﬂ\' 5Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·\·\$ /}
 S101iRename struct 'NET_VCA_FACESNAPCFG' to match camel case naming rules, consider using 'NetVcaFacesnapcfg'.
 ƒ\ƒ\ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡\‡\  (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂ\ﬂ\' 5Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·\·\$ /Y
+‚\‚\ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „\„\ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…\…\ 'Y
+Ê\Ê\ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Á\Á\ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ê\Ê\ "Y
+Â\Â\ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ô\Ô\$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ó\Ó\ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Â\Â\ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ò\Ò\ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10065,23 +10067,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯\¯\ #Ñ
 S101pRename struct 'NET_VCA_FACESNAP_RESULT' to match camel case naming rules, consider using 'NetVcaFacesnapResult'.
-ÿ\ÿ\ -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ô\Ô\$ /Ä
+ÿ\ÿ\ -Ä
 S101lRename struct 'NET_DVR_DEFOCUS_ALARM' to match camel case naming rules, consider using 'NetDvrDefocusAlarm'.
 Ï\Ï\ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘\˘\ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚\‚\ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙\˙\ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚\˚\$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-É]É] Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝\˝\ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡\‡\  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ñ]Ñ]$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10089,69 +10087,71 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101zRename struct 'NET_DVR_AUDIOEXCEPTION_ALARM' to match camel case naming rules, consider using 'NetDvrAudioexceptionAlarm'.
 ı\ı\ 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+É]É] Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 å]å] Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ç]ç]  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-é]é] "ì
+ç]ç]  ì
 S101Rename struct 'NET_BUTTON_DOWN_EXCEPTION_ALARM' to match camel case naming rules, consider using 'NetButtonDownExceptionAlarm'.
 Å]Å] 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ë]ë]  Y
+é]é] "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ó]ó] Y
+ë]ë]  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ê]ê] Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ò]ò]  Y
+ó]ó] Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ô]ô] %}
-S101iRename struct 'NET_VCA_FD_IMAGE_CFG' to match camel case naming rules, consider using 'NetVcaFdImageCfg'.
-ä]ä] *Y
+ô]ô] %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ò]ò]  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ú]ú]' 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ù]ù]# .Y
+õ]õ]  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ù]ù]# .}
+S101iRename struct 'NET_VCA_FD_IMAGE_CFG' to match camel case naming rules, consider using 'NetVcaFdImageCfg'.
+ä]ä] *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 û]û]( 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 †]†]  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶]¶] "Y
+®]®]  +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ß]ß] #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´]´]  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™]™] Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®]®]  +Å
+¶]¶] "Å
 S101mRename struct 'NET_VCA_FD_PROCIMG_CFG' to match camel case naming rules, consider using 'NetVcaFdProcimgCfg'.
 ï]ï] ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õ]õ]  Y
+™]™] Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+´]´]  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤]≤] !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±]±] |
-S101hRename struct 'NET_VCA_SUB_PROCIMG' to match camel case naming rules, consider using 'NetVcaSubProcimg'.
-§]§] )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¥]¥] Y
+±]±] Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µ]µ] %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ω]Ω] "Y
+¥]¥] |
+S101hRename struct 'NET_VCA_SUB_PROCIMG' to match camel case naming rules, consider using 'NetVcaSubProcimg'.
+§]§] )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑]∑]) 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ω]Ω] "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æ]æ] "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡]¡]  á
+¿]¿] á
 S101sRename struct 'NET_VCA_FD_PROCIMG_RESULT' to match camel case naming rules, consider using 'NetVcaFdProcimgResult'.
 Ø]Ø] /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿]¿] Y
+¡]¡]  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬]¬]  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10169,61 +10169,63 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘]‘] %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’]’] !~
+’]’] !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+÷]÷] #~
 S101jRename struct 'NET_VCA_REGISTER_PIC' to match camel case naming rules, consider using 'NetVcaRegisterPic'.
 ∆]∆] *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-÷]÷] #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿ]ÿ] Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂ]ﬂ] }
+ﬂ]ﬂ] Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡]‡] )}
 S101iRename struct 'NET_DVR_AREAINFOCFG' to match camel case naming rules, consider using 'NetDvrAreainfocfg'.
 —]—] )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡]‡] )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚]‚] %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Â]Â]' 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰]‰]  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-È]È]  Y
+‚]‚] %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ô]Ô] Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Á]Á] -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ]] )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ô]Ô] Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ú]Ú] *Ñ
 S101pRename struct 'NET_VCA_HUMAN_ATTRIBUTE' to match camel case naming rules, consider using 'NetVcaHumanAttribute'.
 ›]›] -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ù]Ù] (Y
+˜]˜]' 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆ]ˆ]  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜]˜]' 6Y
+Ù]Ù] (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˘]˘] -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚]˚] Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ç^Ç^ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘]˘] -å
-S101xRename struct 'NET_VCA_HUMANATTRIBUTE_COND' to match camel case naming rules, consider using 'NetVcaHumanattributeCond'.
-Ì]Ì] 1Y
+È]È]  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 É^É^ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ñ^Ñ^ !å
+S101xRename struct 'NET_VCA_HUMANATTRIBUTE_COND' to match camel case naming rules, consider using 'NetVcaHumanattributeCond'.
+Ì]Ì] 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ö^Ö^ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ü^Ü^ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ñ^Ñ^ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 à^à^  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+â^â^+ 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ã^ã^ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10233,25 +10235,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 î^î^* ;Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-â^â^+ 8Ç
-S101nRename struct 'NET_VCA_BLACKLIST_INFO' to match camel case naming rules, consider using 'NetVcaBlacklistInfo'.
-Ä^Ä^ ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ï^ï^ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ó^ó^- <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ü^ü^ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†^†^ !Ç
+ô^ô^ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+†^†^ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+°^°^ Ç
 S101nRename struct 'NET_VCA_BLACKLIST_PARA' to match camel case naming rules, consider using 'NetVcaBlacklistPara'.
 ë^ë^ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°^°^ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢^¢^ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ô^ô^ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §^§^  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10267,11 +10265,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞^∞^ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤^≤^- =Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏^∏^ !Y
+≤^≤^- =Ç
+S101nRename struct 'NET_VCA_BLACKLIST_INFO' to match camel case naming rules, consider using 'NetVcaBlacklistInfo'.
+Ä^Ä^ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 π^π^  -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∏^∏^ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫^∫^  ,Ä
 S101lRename struct 'NET_VCA_BLACKLIST_PIC' to match camel case naming rules, consider using 'NetVcaBlacklistPic'.
@@ -10283,15 +10283,15 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈^≈^ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆^∆^  ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«^«^ $Ü
+∆^∆^  ,Ü
 S101rRename struct 'NET_VCA_FIND_PICTURECOND' to match camel case naming rules, consider using 'NetVcaFindPicturecond'.
 ∂^∂^ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…^…^ Y
+«^«^ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 À^À^ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+…^…^ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —^—^ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10307,9 +10307,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €^€^  +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›^›^ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Â^Â^' 5Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+›^›^ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Á^Á^( 7|
 S101hRename struct 'NET_VCA_NORMAL_FIND' to match camel case naming rules, consider using 'NetVcaNormalFind'.
@@ -10329,97 +10329,93 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘^˘^) 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¯^¯^ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙^˙^. 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Å_Å_ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-É_É_ 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ç_Ç_ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+É_É_ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ñ_Ñ_ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ö_Ö_$ /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¯^¯^ ñ
+Ö_Ö_$ /ñ
 S101ÅRename struct 'NET_VCA_FIND_PICTURECOND_ADVANCE' to match camel case naming rules, consider using 'NetVcaFindPicturecondAdvance'.
 Ò^Ò^ 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 á_á_ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+à_à_ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+è_è_ )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 é_é_* ;Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-è_è_ )ã
-S101wRename struct 'NET_VCA_FACESNAP_INFO_ALARM' to match camel case naming rules, consider using 'NetVcaFacesnapInfoAlarm'.
-ˇ^ˇ^ 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ë_ë_ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 í_í_ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ô_ô_ Y
+ë_ë_ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ö_ö_ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õ_õ_/ ;ç
+ô_ô_ ã
+S101wRename struct 'NET_VCA_FACESNAP_INFO_ALARM' to match camel case naming rules, consider using 'NetVcaFacesnapInfoAlarm'.
+ˇ^ˇ^ 1ç
 S101yRename struct 'NET_VCA_BLACKLIST_INFO_ALARM' to match camel case naming rules, consider using 'NetVcaBlacklistInfoAlarm'.
 å_å_ 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+õ_õ_/ ;Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ö_ö_ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ú_ú_0 AY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 û_û_ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+•_•_ (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §_§_* ;Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-à_à_ "Y
+ß_ß_ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ß_ß_ ç
+≠_≠_ &ç
 S101yRename struct 'NET_VCA_FACESNAP_MATCH_ALARM' to match camel case naming rules, consider using 'NetVcaFacesnapMatchAlarm'.
 ó_ó_ 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠_≠_ &ï
-S101ÄRename struct 'NET_VCA_BLACKLIST_INFO_ALARM_LOG' to match camel case naming rules, consider using 'NetVcaBlacklistInfoAlarmLog'.
-¢_¢_ 6Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Æ_Æ_ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ø_Ø_ 'Y
+Ø_Ø_ 'ï
+S101ÄRename struct 'NET_VCA_BLACKLIST_INFO_ALARM_LOG' to match camel case naming rules, consider using 'NetVcaBlacklistInfoAlarmLog'.
+¢_¢_ 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞_∞_$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤_≤_ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+π_π_ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏_∏_ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫_∫_3 BY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-π_π_ $í
-S101~Rename struct 'NET_VCA_FACESNAP_INFO_ALARM_LOG' to match camel case naming rules, consider using 'NetVcaFacesnapInfoAlarmLog'.
-´_´_ 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ª_ª_4 HY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ω_Ω_ Y
+∫_∫_3 Bí
+S101~Rename struct 'NET_VCA_FACESNAP_INFO_ALARM_LOG' to match camel case naming rules, consider using 'NetVcaFacesnapInfoAlarmLog'.
+´_´_ 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•_•_ (Y
+Ω_Ω_ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √_√_ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒ_ƒ_ $ï
-S101ÄRename struct 'NET_VCA_FACESNAP_MATCH_ALARM_LOG' to match camel case naming rules, consider using 'NetVcaFacesnapMatchAlarmLog'.
-∂_∂_ 6Y
+ƒ_ƒ_ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈_≈_ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»_»_ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆_∆_ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Œ_Œ_ Y
+»_»_ ï
+S101ÄRename struct 'NET_VCA_FACESNAP_MATCH_ALARM_LOG' to match camel case naming rules, consider using 'NetVcaFacesnapMatchAlarmLog'.
+∂_∂_ 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œ_œ_ %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–_–_ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”_”_ #à
 S101tRename struct 'NET_VCA_FACEMATCH_PICCOND' to match camel case naming rules, consider using 'NetVcaFacematchPiccond'.
@@ -10428,6 +10424,8 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 “_“_ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘_‘_ (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+–_–_ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄_⁄_ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10447,11 +10445,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ë_Ë_ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Í_Í_  ú
+Î_Î_ $ú
 S101áRename struct 'NET_VCA_BLACKLIST_FASTREGISTER_PARA' to match camel case naming rules, consider using 'NetVcaBlacklistFastregisterPara'.
 ÿ_ÿ_ 9Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Î_Î_ $Y
+Í_Í_  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ï_Ï_ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10459,23 +10457,25 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ó_Ó_  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜_˜_) 5|
+˜_˜_) 5Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Œ_Œ_ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇ_ˇ_ |
 S101hRename struct 'NET_VCA_SINGLE_PATH' to match camel case naming rules, consider using 'NetVcaSinglePath'.
 ‰_‰_ )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘_˘_ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Å`Å` %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇ_ˇ_ 
+˘_˘_ 
 S101kRename struct 'NET_VCA_SAVE_PATH_CFG' to match camel case naming rules, consider using 'NetVcaSavePathCfg'.
 Û_Û_ +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Å`Å` %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ç`Ç`  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ä`Ä`" (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 É`É` Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Ä`Ä`" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ö`Ö` #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10483,87 +10483,89 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©`©` &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+â`â`  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™`™` %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨`¨` Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Æ`Æ` $Å
+¨`¨` Å
 S101mRename struct 'NET_DVR_DEV_ACCESS_CFG' to match camel case naming rules, consider using 'NetDvrDevAccessCfg'.
 ˝_˝_ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-â`â`  Y
+Æ`Æ` $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µ`µ` "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂`∂` #É
+∏`∏` É
 S101oRename struct 'NET_DVR_DISPWINDOWMODE' to match camel case naming rules, consider using 'NetDvrDispwindowmode'.
 ß`ß` ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏`∏` Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫`∫` -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬`¬` +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡`¡` .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√`√` $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒ`ƒ` $w
+¡`¡` .w
 S101cRename struct 'NET_DVR_DISPINFO' to match camel case naming rules, consider using 'NetDvrDispinfo'.
 ≥`≥` &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¬`¬` +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∂`∂` #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ƒ`ƒ` $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+√`√` $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ã`Ã` Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∆`∆` Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Õ`Õ` !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Œ`Œ` %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œ`œ` #{
+Œ`Œ` %{
 S101gRename struct 'NET_DVR_SCREENINFO' to match camel case naming rules, consider using 'NetDvrScreeninfo'.
 ø`ø` (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+œ`œ` #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”`”`$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —`—`  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‘`‘`$ /Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ’`’`$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-÷`÷`$ /Y
+‘`‘`$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ÿ`Ÿ`& 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿ`ÿ`, 8Y
+÷`÷`$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄`⁄` +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹`‹`  Y
+ÿ`ÿ`, 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Ï`Ï` Y
+‹`‹`  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 Ó`Ó`! 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ``$ 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆`∆` â
+Ï`Ï` â
 S101uRename struct 'NET_DVR_MATRIX_ABILITY_V41' to match camel case naming rules, consider using 'NetDvrMatrixAbilityV41'.
  ` ` 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜`˜` )Y
+˜`˜` )Ç
+S101nRename struct 'NET_DVR_VIDEO_PLATFORM' to match camel case naming rules, consider using 'NetDvrVideoPlatform'.
+Ë`Ë` ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙`˙`# /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˘`˘` )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸`¸` Ç
-S101nRename struct 'NET_DVR_VIDEO_PLATFORM' to match camel case naming rules, consider using 'NetDvrVideoPlatform'.
-Ë`Ë` ,Y
+¸`¸` Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+äaäa Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÉaÉa Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-äaäa Y
+ãaãa Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 åaåa (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10575,17 +10577,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 êaêa $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+îaîa /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ìaìa 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-îaîa /Y
+íaía 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ñaña #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óaóa* 2Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïaïa Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òaòa %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+óaóa* 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öaöa  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10597,9 +10599,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §a§a $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãaãa Y
+¶a¶a 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶a¶a 'Ç
+®a®a #Ç
 S101nRename struct 'NET_DVR_MATRIX_VOUTCFG' to match camel case naming rules, consider using 'NetDvrMatrixVoutcfg'.
 àaàa ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10607,13 +10609,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨a¨a "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®a®a #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆaÆa  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´a´a  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-íaía 'Y
+ïaïa Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÆaÆa  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µaµa Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10623,55 +10623,55 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ºaºa )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+øaøa +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æaæa *å
 S101xRename struct 'NET_DVR_DISP_CHAN_STATUS_V41' to match camel case naming rules, consider using 'NetDvrDispChanStatusV41'.
 üaüa 2Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øaøa +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡a¡a Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »a»a Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…a…a" (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
  a a "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÀaÀa !Y
+…a…a" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÃaÃa !í
+ÃaÃa !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÀaÀa !í
 S101~Rename struct 'NET_DVR_DECODER_WORK_STATUS_V41' to match camel case naming rules, consider using 'NetDvrDecoderWorkStatusV41'.
 ≥a≥a 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒaŒa #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–a–a #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—a—a "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 “a“a  )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”a”a  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’a’a #Y
+—a—a "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+–a–a #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ◊a◊a Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·a·a &ò
-S101ÉRename struct 'NET_DVR_MATRIX_DEC_REMOTE_PLAY_V41' to match camel case naming rules, consider using 'NetDvrMatrixDecRemotePlayV41'.
-∆a∆a 8Y
+‡a‡a &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+’a’a #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·a·a &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚a‚a  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„a„a !Ä
-S101lRename struct 'NET_DVR_RECTCFG_SCENE' to match camel case naming rules, consider using 'NetDvrRectcfgScene'.
-ﬁaﬁa +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡a‡a &Y
+„a„a !ò
+S101ÉRename struct 'NET_DVR_MATRIX_DEC_REMOTE_PLAY_V41' to match camel case naming rules, consider using 'NetDvrMatrixDecRemotePlayV41'.
+∆a∆a 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈaÈa  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÏaÏa  Y
+ÍaÍa !Ä
+S101lRename struct 'NET_DVR_RECTCFG_SCENE' to match camel case naming rules, consider using 'NetDvrRectcfgScene'.
+ﬁaﬁa +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÌaÌa %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10691,21 +10691,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ıaıa $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÏaÏa  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜a˜a 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˘a˘a )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˝a˝a Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛a˛a  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸a¸a )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝a˝a Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅbÅb# +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍaÍa !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄbÄb  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘a˘a )Y
+ÅbÅb# +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ábáb" (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10715,59 +10715,57 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 äbäb 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãbãb #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 åbåb %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-çbçb $Y
+ãbãb #
+S101kRename struct 'NET_DVR_SCENEDISPCFG' to match camel case naming rules, consider using 'NetDvrScenedispcfg'.
+ÁaÁa *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èbèb Y
+çbçb $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ëbëb #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öböb Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìbìb #
-S101kRename struct 'NET_DVR_SCENEDISPCFG' to match camel case naming rules, consider using 'NetDvrScenedispcfg'.
-ÁaÁa *Y
+ìbìb #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ùbùb" +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ûbûb "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úbúb  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ûbûb "ä
+übüb &ä
 S101vRename struct 'NET_DVR_DEV_CHAN_INFO_SCENE' to match camel case naming rules, consider using 'NetDvrDevChanInfoScene'.
 ÖbÖb 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °b°b  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-übüb &Y
+®b®b/ >Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßbßb9 MY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®b®b/ >û
-S101âRename struct 'NET_DVR_STREAM_MEDIA_SERVER_CFG_SCENE' to match camel case naming rules, consider using 'NetDvrStreamMediaServerCfgScene'.
-òbòb ;Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆbÆb  ä
-S101vRename struct 'NET_DVR_PU_STREAM_CFG_SCENE' to match camel case naming rules, consider using 'NetDvrPuStreamCfgScene'.
-•b•b 1Y
+ÆbÆb  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±b±b9 NY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞b∞b Y
+∞b∞b û
+S101âRename struct 'NET_DVR_STREAM_MEDIA_SERVER_CFG_SCENE' to match camel case naming rules, consider using 'NetDvrStreamMediaServerCfgScene'.
+òbòb ;Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤b≤b/ >Y
+≤b≤b/ >ä
+S101vRename struct 'NET_DVR_PU_STREAM_CFG_SCENE' to match camel case naming rules, consider using 'NetDvrPuStreamCfgScene'.
+•b•b 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 πbπb #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ªbªb  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øbøb  è
+ΩbΩb4 Aè
 S101{Rename struct 'NET_DVR_CYC_SUR_CHAN_ELE_SCENE' to match camel case naming rules, consider using 'NetDvrCycSurChanEleScene'.
 ¨b¨b 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ΩbΩb4 AY
+øbøb  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆b∆b &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10785,25 +10783,25 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕbÕb Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿbÿb/ EY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒbŒb (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄b⁄b5 GY
+ÿbÿb/ EY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·b·b *å
+⁄b⁄b5 Gå
 S101xRename struct 'NET_DVR_DECODECHANCFG_SCENE' to match camel case naming rules, consider using 'NetDvrDecodechancfgScene'.
 ƒbƒb 1Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡b‡b "m
-S101YRename struct 'STRUDECCFG' to match camel case naming rules, consider using 'Strudeccfg'.
-“b“b  Y
+‡b‡b "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+·b·b *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚b‚b 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „b„b Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÊbÊb( 5Y
+ÊbÊb( 5m
+S101YRename struct 'STRUDECCFG' to match camel case naming rules, consider using 'Strudeccfg'.
+“b“b  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÂbÂb$ .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10811,35 +10809,33 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ıbıb 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜b˜b  Y
+ÙbÙb $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¯b¯b &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙbÙb $Y
+˜b˜b  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘b˘b 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚b˚b  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸b¸b *ä
+˘b˘b 'ä
 S101vRename struct 'NET_DVR_BIGSCREENCFG_SCENE' to match camel case naming rules, consider using 'NetDvrBigscreencfgScene'.
 ﬁbﬁb 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¸b¸b *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝b˝b (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛b˛b )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãcãc Y
+˚b˚b  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 åcåc 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-çcçc *Y
+ãcãc Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 écéc 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-êcêc Y
+çcçc *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-öcöc Y
+êcêc Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôcôc Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10847,37 +10843,35 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úcúc #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùcùc "Ñ
+öcöc Ñ
 S101pRename struct 'NET_DVR_MATRIX_SCENECFG' to match camel case naming rules, consider using 'NetDvrMatrixScenecfg'.
 bb -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ûcûc# *Y
+ùcùc "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ücüc "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°c°c  ë
-S101}Rename struct 'NET_DVR_BIGSCREENASSOCIATECFG' to match camel case naming rules, consider using 'NetDvrBigscreenassociatecfg'.
-âcâc 3Y
+†c†c Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+°c°c  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢c¢c Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £c£c %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•c•c  Y
+ûcûc# *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ´c´c Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†c†c Y
+•c•c  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨c¨c $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ØcØc  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆcÆc Y
+∞c∞c !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞c∞c !Ä
-S101lRename struct 'NET_DVR_SCREEN_WINCFG' to match camel case naming rules, consider using 'NetDvrScreenWincfg'.
-ócóc +Y
+ÆcÆc Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±c±c  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10885,43 +10879,51 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫c∫c Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ºcºc  u
+ºcºc  ë
+S101}Rename struct 'NET_DVR_BIGSCREENASSOCIATECFG' to match camel case naming rules, consider using 'NetDvrBigscreenassociatecfg'.
+âcâc 3u
 S101aRename struct 'NET_DVR_WINLIST' to match camel case naming rules, consider using 'NetDvrWinlist'.
 ©c©c %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æcæc &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¿c¿c+ 5Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »c»c Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬c¬c  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
- c c' 5Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÃcÃc y
+ c c' 5y
 S101eRename struct 'NET_DVR_LAYOUTCFG' to match camel case naming rules, consider using 'NetDvrLayoutcfg'.
 ∑c∑c 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿c¿c+ 5|
+¬c¬c  Ä
+S101lRename struct 'NET_DVR_SCREEN_WINCFG' to match camel case naming rules, consider using 'NetDvrScreenWincfg'.
+ócóc +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÃcÃc |
 S101hRename struct 'NET_DVR_LAYOUT_LIST' to match camel case naming rules, consider using 'NetDvrLayoutList'.
-∆c∆c )Y
+∆c∆c )t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+—c—c $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „c„c Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰c‰c t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-—c—c $Y
+ÂcÂc !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊcÊc "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈcÈc' 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍcÍc) 5Y
+‰c‰c Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËcËc "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÍcÍc) 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎcÎc #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏcÏc *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÌcÌc &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÓcÓc &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10933,23 +10935,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛcÛc %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÌcÌc &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙c˙c Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸c¸c, ?Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛c˛c Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙcÙc Y
+¸c¸c, ?Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂcÂc !Y
+ÙcÙc Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÜdÜd Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ádád !É
-S101oRename struct 'NET_DVR_INPUTSTREAMCFG' to match camel case naming rules, consider using 'NetDvrInputstreamcfg'.
-·c·c ,Ü
+ádád !Ü
 S101rRename struct 'NET_DVR_INPUTSTREAM_LIST' to match camel case naming rules, consider using 'NetDvrInputstreamList'.
 ¯c¯c .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -10957,63 +10953,71 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ãdãd' 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìdìd Y
+âdâd  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çdçd  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îdîd $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïdïd $}
+ìdìd É
+S101oRename struct 'NET_DVR_INPUTSTREAMCFG' to match camel case naming rules, consider using 'NetDvrInputstreamcfg'.
+·c·c ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ïdïd $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ñdñd (}
 S101iRename struct 'NET_DVR_OUTPUTPARAM' to match camel case naming rules, consider using 'NetDvrOutputparam'.
 ÑdÑd )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-âdâd  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òdòd  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôdôd' 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñdñd (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õdõd #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®d®d ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùdùd  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßdßd Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+®d®d ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©d©d $y
 S101eRename struct 'NET_DVR_OUTPUTCFG' to match camel case naming rules, consider using 'NetDvrOutputcfg'.
 ëdëd 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ùdùd  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+´d´d 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ™d™d &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨d¨d $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´d´d 'Y
+ÆdÆd  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ØdØd 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±d±d )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≥d≥d( 7Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞d∞d 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µdµd  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥d≥d( 7Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ºdºd Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ædæd  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩdΩd #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ædæd  é
-S101zRename struct 'NET_DVR_SCREENSERVER_ABILITY' to match camel case naming rules, consider using 'NetDvrScreenserverAbility'.
-•d•d 2Y
+èbèb Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡d¡d (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ødød  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿d¿d !Y
+¿d¿d !é
+S101zRename struct 'NET_DVR_SCREENSERVER_ABILITY' to match camel case naming rules, consider using 'NetDvrScreenserverAbility'.
+•d•d 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬d¬d 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11023,91 +11027,85 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆d∆d  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«d«d +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …d…d )Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆdÆd  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
- d d$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »d»d (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀdÀd$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ d d$ /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃdÃd$ 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+«d«d +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕdÕd$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œdœd !Y
+”d”d *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŒdŒd %Y
+“d“d *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 –d–d %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —d—d 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”d”d *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‘d‘d +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-“d“d *Y
+÷d÷d  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›d›d #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡d¡d (Y
+ŒdŒd %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁdﬁd $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-÷d÷d  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂdﬂd %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+œdœd !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ·d·d Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËdËd. ?Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍdÍd- BY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 dd "ê
 S101|Rename struct 'NET_DVR_SCREENCONTROL_ABILITY' to match camel case naming rules, consider using 'NetDvrScreencontrolAbility'.
 ∫d∫d 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÒdÒd #â
+‘d‘d +â
 S101uRename struct 'NET_DVR_ANALOGINPUTSTATUS' to match camel case naming rules, consider using 'NetDvrAnaloginputstatus'.
 €d€d /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÙdÙd- <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˆdˆd  Y
+ÒdÒd #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÛdÛd  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¸d¸d Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇdˇd }
+˛d˛d }
 S101iRename struct 'NET_DVR_INPUTSTATUS' to match camel case naming rules, consider using 'NetDvrInputstatus'.
 ÓdÓd )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛d˛d Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÄeÄe !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅeÅe  à
+ˆdˆd  à
 S101tRename struct 'NET_DVR_INPUTSTATUS_UNION' to match camel case naming rules, consider using 'NetDvrInputstatusUnion'.
 ÂdÂd /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¸d¸d Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇdˇd Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÅeÅe  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÛdÛd  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 áeáe Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-âeâe #Y
+ÍdÍd- BY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-äeäe &â
+ÄeÄe !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+àeàe #â
 S101uRename struct 'NET_DVR_SCREENINPUTSTATUS' to match camel case naming rules, consider using 'NetDvrScreeninputstatus'.
 ˙d˙d /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àeàe #Y
+âeâe #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãeãe Y
+äeäe &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 åeåe (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11121,9 +11119,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 óeóe $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òeòe É
-S101oRename struct 'NET_DVR_SCREENALARMCFG' to match camel case naming rules, consider using 'NetDvrScreenalarmcfg'.
-ÖeÖe ,Y
+ãeãe Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+òeòe Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öeöe *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11131,41 +11129,43 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¢e¢e" -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£e£e z
+£e£e É
+S101oRename struct 'NET_DVR_SCREENALARMCFG' to match camel case naming rules, consider using 'NetDvrScreenalarmcfg'.
+ÖeÖe ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+•e•e z
 S101fRename struct 'NET_DVR_MATRIX_CFG' to match camel case naming rules, consider using 'NetDvrMatrixCfg'.
 ìeìe (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•e•e Y
+´e´e 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´e´e 'Å
+¨e¨e 'Å
 S101mRename struct 'NET_DVR_DIGITALSCREEN' to match camel case naming rules, consider using 'NetDvrDigitalscreen'.
 †e†e +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨e¨e 'Y
+ÆeÆe Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ØeØe& 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆeÆe 
-S101kRename struct 'NET_DVR_ANALOGSCREEN' to match camel case naming rules, consider using 'NetDvrAnalogscreen'.
-©e©e *Y
+∏e∏e( 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂e∂e) :Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∏e∏e( 8Y
+æeæe Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-æeæe ~
+¿e¿e !
+S101kRename struct 'NET_DVR_ANALOGSCREEN' to match camel case naming rules, consider using 'NetDvrAnalogscreen'.
+©e©e *Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+øeøe ~
 S101jRename struct 'NET_DVR_SCREEN_UNION' to match camel case naming rules, consider using 'NetDvrScreenUnion'.
 ≥e≥e *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿e¿e !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øeøe Y
+¡e¡e $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬e¬e $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √e√e $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡e¡e $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≈e≈e  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11173,23 +11173,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 …e…e #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÃeÃe( 7Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÀeÀe "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒeŒe #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÃeÃe( 7Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œeœe  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÕeÕe "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÀeÀe "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —e—e  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÿeÿe %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸeŸe  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÕeÕe "à
-S101tRename struct 'NET_DVR_SCREEN_SCREENINFO' to match camel case naming rules, consider using 'NetDvrScreenScreeninfo'.
-ºeºe /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹e‹e $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11199,15 +11197,21 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÊeÊe Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÁeÁe |
+ËeËe "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÁeÁe à
+S101tRename struct 'NET_DVR_SCREEN_SCREENINFO' to match camel case naming rules, consider using 'NetDvrScreenScreeninfo'.
+ºeºe /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÈeÈe $|
 S101hRename struct 'NET_DVR_BASEMAP_CFG' to match camel case naming rules, consider using 'NetDvrBasemapCfg'.
 ÷e÷e )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ËeËe "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÈeÈe $Y
+ÍeÍe $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎeÎe $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÏeÏe $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÌeÌe $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11215,23 +11219,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔeÔe &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÏeÏe $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÛeÛe !Y
+ÒeÒe  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ee &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıeıe $Y
+ÚeÚe !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜e˜e Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÒeÒe  Y
+ÛeÛe !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛e˛e Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇeˇe #s
-S101_Rename struct 'NET_DVR_OSDCFG' to match camel case naming rules, consider using 'NetDvrOsdcfg'.
-‰e‰e $Y
+ıeıe $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇeˇe #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÅfÅf  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11239,9 +11239,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÖfÖf  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍeÍe $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÚeÚe !Ç
+˜e˜e s
+S101_Rename struct 'NET_DVR_OSDCFG' to match camel case naming rules, consider using 'NetDvrOsdcfg'.
+‰e‰e $Ç
 S101nRename struct 'NET_DVR_SERIAL_CONTROL' to match camel case naming rules, consider using 'NetDvrSerialControl'.
 ¸e¸e ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11249,21 +11249,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 äfäf (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢f¢f #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õfõf Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-£f£f Y
+¢f¢f #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¨f¨f &Y
+£f£f Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •f•f ç
 S101yRename struct 'NET_DVR_INPUT_INTERFACE_CTRL' to match camel case naming rules, consider using 'NetDvrInputInterfaceCtrl'.
 ófóf 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¨f¨f &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≠f≠f â
 S101uRename struct 'NET_DVR_DISPLAY_COLOR_CTRL' to match camel case naming rules, consider using 'NetDvrDisplayColorCtrl'.
 †f†f 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ØfØf Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂f∂f0 =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11273,21 +11275,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101{Rename struct 'NET_DVR_DISPLAY_POSITION_CTRL' to match camel case naming rules, consider using 'NetDvrDisplayPositionCtrl'.
 ™f™f 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ØfØf Y
+ΩfΩf Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √f√f Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ΩfΩf ç
+ƒfƒf !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≈f≈f "ç
 S101yRename struct 'NET_DVR_SCREEN_CONTROL_PARAM' to match camel case naming rules, consider using 'NetDvrScreenControlParam'.
 ≥f≥f 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒfƒf !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈f≈f "Y
+«f«f  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »f»f0 @Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«f«f  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  f f  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11295,11 +11295,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 “f“f "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-”f”f &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‘f‘f $Ç
+”f”f &Ç
 S101nRename struct 'NET_DVR_SCREEN_CONTROL' to match camel case naming rules, consider using 'NetDvrScreenControl'.
 ¡f¡f ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‘f‘f $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ’f’f "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11311,47 +11311,49 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ⁄f⁄f Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÌfÌf â
-S101uRename struct 'NET_DVR_SCREEN_CONTROL_V41' to match camel case naming rules, consider using 'NetDvrScreenControlV41'.
-œfœf 0t
+ÌfÌf Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÓfÓf t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ‚f‚f -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓfÓf Y
+ÔfÔf #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ff %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÛfÛf #Y
+ff %â
+S101uRename struct 'NET_DVR_SCREEN_CONTROL_V41' to match camel case naming rules, consider using 'NetDvrScreenControlV41'.
+œfœf 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚfÚf  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÛfÛf #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ıfıf  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚f˚f Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÔfÔf #Y
+˛f˛f# +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝f˝f Y
+ÖgÖg Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛f˛f# +x
+˝f˝f x
 S101dRename struct 'NET_DVR_PLAN_INFO' to match camel case naming rules, consider using 'NetDvrPlanInfo'.
 ÎfÎf 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÖgÖg z
+ÜgÜg z
 S101fRename struct 'NET_DVR_CYCLE_TIME' to match camel case naming rules, consider using 'NetDvrCycleTime'.
 ˘f˘f (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÜgÜg Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ágág "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 àgàg  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ågåg# +Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 âgâg Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ågåg# +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ãgãg $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ègèg #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 égég( 5Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11359,21 +11361,19 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ìgìg  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õgõg Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úgúg "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ègèg #v
-S101bRename struct 'NET_DVR_PLAN_CFG' to match camel case naming rules, consider using 'NetDvrPlanCfg'.
-ÉgÉg &Y
+õgõg Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ùgùg !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ûgûg  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°g°g  Y
+†g†g  v
+S101bRename struct 'NET_DVR_PLAN_CFG' to match camel case naming rules, consider using 'NetDvrPlanCfg'.
+ÉgÉg &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†g†g  Y
+°g°g  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 £g£g  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11381,9 +11381,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÆgÆg Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ØgØg Y
+≠g≠g #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠g≠g #x
+ØgØg x
 S101dRename struct 'NET_DVR_PLAN_LIST' to match camel case naming rules, consider using 'NetDvrPlanList'.
 ôgôg 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11391,25 +11391,27 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±g±g &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥g≥g  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫g∫g Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ªgªg %Y
+≥g≥g  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ºgºg %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩgΩg "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 øgøg Ä
 S101lRename struct 'NET_DVR_CONTROL_PARAM' to match camel case naming rules, consider using 'NetDvrControlParam'.
-©g©g +á
-S101sRename struct 'NET_DVR_DEVICE_RUN_STATUS' to match camel case naming rules, consider using 'NetDvrDeviceRunStatus'.
-∏g∏g /Y
+©g©g +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ªgªg %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆g∆g Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»g»g %Y
+…g…g 'á
+S101sRename struct 'NET_DVR_DEVICE_RUN_STATUS' to match camel case naming rules, consider using 'NetDvrDeviceRunStatus'.
+∏g∏g /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…g…g 'Y
+»g»g %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀgÀg  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11419,53 +11421,53 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‘g‘g (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-’g’g  â
-S101uRename struct 'NET_DVR_ACCESS_CAMERA_INFO' to match camel case naming rules, consider using 'NetDvrAccessCameraInfo'.
-ƒgƒg 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷g÷g +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ºgºg %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿgÿg Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁgﬁg á
+ÿgÿg á
 S101sRename struct 'NET_DVR_AUDIO_INPUT_PARAM' to match camel case naming rules, consider using 'NetDvrAudioInputParam'.
 “g“g /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂgﬂg $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡g‡g Y
+’g’g  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‚g‚g Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ËgËg á
-S101sRename struct 'NET_DVR_CAMERA_DEHAZE_CFG' to match camel case naming rules, consider using 'NetDvrCameraDehazeCfg'.
-‹g‹g /Y
+ËgËg Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÈgÈg )Y
+‡g‡g Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÈgÈg )â
+S101uRename struct 'NET_DVR_ACCESS_CAMERA_INFO' to match camel case naming rules, consider using 'NetDvrAccessCameraInfo'.
+ƒgƒg 0Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂgﬂg $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÍgÍg !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÌgÌg  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏgÏg  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÌgÌg  á
+S101sRename struct 'NET_DVR_CAMERA_DEHAZE_CFG' to match camel case naming rules, consider using 'NetDvrCameraDehazeCfg'.
+‹g‹g /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁgﬁg Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔgÔg  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àhàh á
+âhâh Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+àhàh Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ãhãh á
 S101sRename struct 'NET_DVR_INPUT_SIGNAL_LIST' to match camel case naming rules, consider using 'NetDvrInputSignalList'.
 ÊgÊg /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-âhâh Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãhãh Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëhëh ï
-S101ÄRename struct 'NET_DVR_RECORD_TIME_SPAN_INQUIRY' to match camel case naming rules, consider using 'NetDvrRecordTimeSpanInquiry'.
-ÜhÜh 6Y
+ëhëh Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 íhíh  ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ìhìh  *ï
+S101ÄRename struct 'NET_DVR_RECORD_TIME_SPAN_INQUIRY' to match camel case naming rules, consider using 'NetDvrRecordTimeSpanInquiry'.
+ÜhÜh 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îhîh Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11473,57 +11475,55 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úhúh Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ùhùh "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ûhûh %Ö
 S101qRename struct 'NET_DVR_RECORD_TIME_SPAN' to match camel case naming rules, consider using 'NetDvrRecordTimeSpan'.
 èhèh .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ühüh .Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùhùh "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °h°h Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®h®h !ï
-S101ÄRename struct 'NET_DVR_DRAWFRAME_DISK_QUOTA_CFG' to match camel case naming rules, consider using 'NetDvrDrawframeDiskQuotaCfg'.
-öhöh 6Y
+ühüh .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ©h©h "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+®h®h !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+´h´h ï
+S101ÄRename struct 'NET_DVR_DRAWFRAME_DISK_QUOTA_CFG' to match camel case naming rules, consider using 'NetDvrDrawframeDiskQuotaCfg'.
+öhöh 6Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤h≤h Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´h´h v
+µhµh" ,v
 S101bRename struct 'NET_DVR_NAT_PORT' to match camel case naming rules, consider using 'NetDvrNatPort'.
 ¶h¶h &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥h≥h %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¥h¥h $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µhµh" ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑h∑h$ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂h∂h$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìhìh  *Y
+∑h∑h$ /Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≥h≥h %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏h∏h$ 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ªhªh !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫h∫h &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 æhæh$ 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿h¿h Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩhΩh  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∫h∫h &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¿h¿h Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «h«h !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…h…h 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »h»h 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+…h…h 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
  h h  t
 S101`Rename struct 'NET_DVR_NAT_CFG' to match camel case naming rules, consider using 'NetDvrNatCfg'.
@@ -11535,89 +11535,89 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒhŒh Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁhﬁh !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷h÷h- 8Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂhﬂh  -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿhÿh Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡h‡h  ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁhﬁh !É
+ÿhÿh É
 S101oRename struct 'NET_DVR_UPNP_PORT_STATE' to match camel case naming rules, consider using 'NetDvrUpnpPortState'.
-≈h≈h -Å
+≈h≈h -Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂhﬂh  -Å
 S101mRename struct 'NET_DVR_UPNP_NAT_STATE' to match camel case naming rules, consider using 'NetDvrUpnpNatState'.
 ”h”h ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·h·h #Y
+‡h‡h  ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍhÍh Y
+·h·h #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „h„h Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎhÎh' 1Y
+ÍhÍh Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏhÏh  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓhÓh w
+ÎhÎh' 1w
 S101cRename struct 'NET_DVR_PLAYCOND' to match camel case naming rules, consider using 'NetDvrPlaycond'.
 ‹h‹h &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÔhÔh #Y
+ÌhÌh  +Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÓhÓh Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 hh $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÒhÒh #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÌhÌh  +Y
+ÔhÔh #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛhÛh #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÚhÚh $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ıhıh $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÒhÒh #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝h˝h )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˜h˜h  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄiÄi *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇhˇh Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜h˜h  v
+äiäi' 6v
 S101bRename struct 'NET_DVR_VOD_PARA' to match camel case naming rules, consider using 'NetDvrVodPara'.
-ËhËh &}
+ËhËh &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+àiài !}
 S101iRename struct 'NET_DVR_ATMFINDINFO' to match camel case naming rules, consider using 'NetDvrAtmfindinfo'.
 ˚h˚h )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-äiäi' 6Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àiài !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 êiêi !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëiëi "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙhÙh #ë
+ëiëi "ë
 S101}Rename struct 'NET_DVR_SPECIAL_FINDINFO_UNION' to match camel case naming rules, consider using 'NetDvrSpecialFindinfoUnion'.
 ÑiÑi 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÚhÚh $Y
+ìiìi #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 íiíi "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ìiìi #Y
+ÙhÙh #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïiïi %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ñiñi  -Y
+óiói  ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ôiôi "Y
+ñiñi  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öiöi %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-õiõi -Y
+ôiôi "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úiúi #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òiòi #Y
+õiõi -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 üiüi2 BY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11627,27 +11627,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®i®i !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™i™i ~
+™i™i Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∞i∞i" (~
 S101jRename struct 'NET_DVR_FILECOND_V40' to match camel case naming rules, consider using 'NetDvrFilecondV40'.
 éiéi *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞i∞i" (Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óiói  ,}
+≤i≤i }
 S101iRename struct 'NET_DVR_AES_KEY_INFO' to match camel case naming rules, consider using 'NetDvrAesKeyInfo'.
 •i•i *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤i≤i Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫i∫i Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ªiªi !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ΩiΩi 't
+ªiªi !t
 S101`Rename struct 'NET_DVR_POE_CFG' to match camel case naming rules, consider using 'NetDvrPoeCfg'.
 ÆiÆi %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿i¿i )Y
+ΩiΩi 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 øiøi  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11657,11 +11653,13 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √i√i #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈i≈i #Y
+¿i¿i )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∆i∆i $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 «i«i &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≈i≈i #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »i»i "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11677,11 +11675,11 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷i÷i "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-◊i◊i  Ñ
+◊i◊i  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÿiÿi 'Ñ
 S101pRename struct 'NET_DVR_CUSTOM_PROTOCAL' to match camel case naming rules, consider using 'NetDvrCustomProtocal'.
 ∏i∏i -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿiÿi 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸiŸi %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11689,9 +11687,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €i€i $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁiﬁi Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎiÎi Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁiﬁi Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏiÏi !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11699,29 +11697,29 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔiÔi }
 S101iRename struct 'NET_DVR_PREVIEWINFO' to match camel case naming rules, consider using 'NetDvrPreviewinfo'.
-—i—i )Ñ
+—i—i )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¯i¯i "Ñ
 S101pRename struct 'NET_ITS_OVERLAPCFG_COND' to match camel case naming rules, consider using 'NetItsOverlapcfgCond'.
 ÈiÈi -Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘i˘i 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜i˜i  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙i˙i "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¯i¯i "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸i¸i Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÖjÖj %Y
+˘i˘i 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÜjÜj $Y
+ÑjÑj7 EY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ájáj &ó
+ÖjÖj %ó
 S101ÇRename struct 'NET_ITS_OVERLAP_SINGLE_ITEM_PARAM' to match camel case naming rules, consider using 'NetItsOverlapSingleItemParam'.
 ÙiÙi 7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑjÑj7 EY
+ÜjÜj $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ájáj &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 àjàj 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11733,9 +11731,9 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 éjéj %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èjèj %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 çjçj  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+èjèj %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 êjêj $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11743,23 +11741,23 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 öjöj  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+újúj #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ûjûj )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 †j†j %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-újúj #â
+¢j¢j )â
 S101uRename struct 'NET_ITS_OVERLAP_ITEM_PARAM' to match camel case naming rules, consider using 'NetItsOverlapItemParam'.
 ÅjÅj 0Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¢j¢j )Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §j§j #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶j¶j  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®j®j +Y
+òiòi #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-™j™j +Y
+®j®j +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨j¨j Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11769,17 +11767,17 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∑j∑j. =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∂j∂j  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∏j∏j. =â
 S101uRename struct 'NET_ITS_OVERLAP_INFO_PARAM' to match camel case naming rules, consider using 'NetItsOverlapInfoParam'.
 ójój 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂j∂j  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫j∫j Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡j¡j Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¬j¬j Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡j¡j Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 √j√j '|
 S101hRename struct 'NET_ITS_OVERLAP_CFG' to match camel case naming rules, consider using 'NetItsOverlapCfg'.
@@ -11803,77 +11801,81 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸjŸj $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹j‹j0 <Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €j€j Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‹j‹j0 <Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „j„j! .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂjÂj r
-S101^Rename struct 'NET_DVR_LF_CFG' to match camel case naming rules, consider using 'NetDvrLfCfg'.
-’j’j $Y
+ÂjÂj Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏjÏj "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓjÓj ä
-S101vRename struct 'NET_DVR_LF_MANUAL_CTRL_INFO' to match camel case naming rules, consider using 'NetDvrLfManualCtrlInfo'.
-·j·j 1Y
+ÓjÓj r
+S101^Rename struct 'NET_DVR_LF_CFG' to match camel case naming rules, consider using 'NetDvrLfCfg'.
+’j’j $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÙjÙj å
+ÙjÙj Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ıjıj #å
 S101xRename struct 'NET_DVR_LF_TRACK_TARGET_INFO' to match camel case naming rules, consider using 'NetDvrLfTrackTargetInfo'.
 ÍjÍj 2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıjıj #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜j˜j Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇjˇj3 AY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝j˝j $m
-S101YRename struct 'uModeParam' to match camel case naming rules, consider using 'UModeParam'.
-˘j˘j $Y
+˝j˝j $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅkÅk4 Ct
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-çkçk '
+ÅkÅk4 CY
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˜j˜j 
 S101kRename struct 'NET_DVR_LF_TRACK_MODE' to match camel case naming rules, consider using 'NetDvrLfTrackMode'.
-ÚjÚj +t
+ÚjÚj +ä
+S101vRename struct 'NET_DVR_LF_MANUAL_CTRL_INFO' to match camel case naming rules, consider using 'NetDvrLfManualCtrlInfo'.
+·j·j 1t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ïkïk (Y
+çkçk 't
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+ïkïk (t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+°k°k $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨k¨k  .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÆkÆk (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ØkØk *t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-°k°k $Y
+≠k≠k  2Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∞k∞k %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥k≥k Y
+±k±k %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠k≠k  2Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µkµk (Y
+µkµk (m
+S101YRename struct 'uModeParam' to match camel case naming rules, consider using 'UModeParam'.
+˘j˘j $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿k¿k' 6Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡k¡k' 6Y
+ØkØk *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»k»k |
+≥k≥k Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+»k»k Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+…k…k $|
 S101hRename struct 'NET_VCA_PLATE_PARAM' to match camel case naming rules, consider using 'NetVcaPlateParam'.
-™k™k )y
+™k™k )Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡k¡k' 6y
 S101eRename struct 'NET_VCA_PLATEINFO' to match camel case naming rules, consider using 'NetVcaPlateinfo'.
 ækæk 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…k…k $Y
+ÀkÀk Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃkÃk$ 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÀkÀk Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕkÕk% 2Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+–k–k/ =Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œkœk' 4Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -11881,96 +11883,94 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸkŸk( 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–k–k/ =Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±k±k %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€k€k# .w
-S101cRename struct 'NET_VCA_PLATECFG' to match camel case naming rules, consider using 'NetVcaPlatecfg'.
-∆k∆k &Y
+€k€k# .Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹k‹k  -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁkﬁk Y
+⁄k⁄k" ,w
+S101cRename struct 'NET_VCA_PLATECFG' to match camel case naming rules, consider using 'NetVcaPlatecfg'.
+∆k∆k &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂkﬂk $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·k·k "Y
+™j™j +Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„k„k "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎkÎk &Y
+ﬁkﬁk Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÍkÍk Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÏkÏk !z
-S101fRename struct 'NET_VCA_PLATE_INFO' to match camel case naming rules, consider using 'NetVcaPlateInfo'.
-◊k◊k (Y
+·k·k "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÏkÏk !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÌkÌk "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÎkÎk &z
+S101fRename struct 'NET_VCA_PLATE_INFO' to match camel case naming rules, consider using 'NetVcaPlateInfo'.
+◊k◊k (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔkÔk  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÚkÚk $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄k⁄k" ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÒkÒk( 5Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ıkık! 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÙkÙk  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇkˇk! /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÄlÄl! -~
-S101jRename struct 'NET_VCA_PLATE_RESULT' to match camel case naming rules, consider using 'NetVcaPlateResult'.
-ËkËk *Y
+ÄlÄl! -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÅlÅl Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÉlÉl Y
+ÉlÉl ~
+S101jRename struct 'NET_VCA_PLATE_RESULT' to match camel case naming rules, consider using 'NetVcaPlateResult'.
+ËkËk *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 äläl Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãlãl  ~
+ãlãl  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+çlçl ~
 S101jRename struct 'NET_VCA_LINE_SEGMENT' to match camel case naming rules, consider using 'NetVcaLineSegment'.
 ˝k˝k *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-çlçl Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èlèl* 1Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıkık! '
+èlèl* 1
 S101kRename struct 'NET_VCA_LINE_SEG_LIST' to match camel case naming rules, consider using 'NetVcaLineSegList'.
 àlàl +t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-õlõl !U
-S107@Method has 8 parameters, which is greater than the 7 authorized.ÜnÜnA €x
-S1871cEither merge this branch with the identical one on line 15254 or change one of the implementations.
-ôwôw O
+õlõl !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+„k„k "U
+S107@Method has 8 parameters, which is greater than the 7 authorized.ÜnÜnA €N
+S11179Rename 'intRet' which hides the field with the same name.
+øvøv O
 S1854:Remove this useless assignment to local variable 'intRet'.
-øvøv N
-S11179Rename 'intRet' which hides the field with the same name.
-øvøv é
+øvøv é
 S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.
-»w»w $N
+»w»w $x
+S1871cEither merge this branch with the identical one on line 15254 or change one of the implementations.
+ôwôw N
 S11179Rename 'intRet' which hides the field with the same name.
-€v€v j
+€v€v H
+S34593Remove unassigned field 'intRet', or set its value.
+ÃwÃw j
 S2696UMake the enclosing instance method 'static' or remove this set on the 'static' field.
-·v·v é
+·v·v g
+S3776RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.
+ÉzÉz $é
 S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.
 ﬁzﬁz 'g
-S3776RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.
-ÉzÉz $7
-S2933"Make 'dwAChanTotalNum' 'readonly'.
-”}”} $g
 S3776RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.
 Ü{Ü{ 'J
 S18545Remove this useless assignment to local variable 'c'.
 π|π| :I
 S14814Remove this unused 'Temp_intChannel' local variable.
-∞|∞| #H
-S34593Remove unassigned field 'intRet', or set its value.
-ÃwÃw =
+∞|∞| #7
+S2933"Make 'dwAChanTotalNum' 'readonly'.
+”}”} $=
 S108)Either remove or fill this block of code.
 ‰}Ê} ;
 S1481&Remove this unused 't' local variable.
@@ -11980,37 +11980,33 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S14813Remove this unused 'm_struChanInfo' local variable.
 ⁄}⁄} -K
 S14816Remove this unused 'm_struChanInfoV40' local variable.
-‹}‹}# 4u
-S101cRename class 'SDK_HikClientSDK' to match camel case naming rules, consider using 'SdkHikClientSdk'.		 !q
+‹}‹}# 4q
 S1450\Remove the 'VoiceCallBack' field and declare it as a local variable in the relevant methods.
-ÇzÇz (l
-S1450WRemove the 'pdatarec' field and declare it as a local variable in the relevant methods.
-ùuùu !g
+ÇzÇz (g
 S1450RRemove the 'iip' field and declare it as a local variable in the relevant methods.
 ‘}‘} l
+S1450WRemove the 'pdatarec' field and declare it as a local variable in the relevant methods.
+ùuùu !l
 S1450WRemove the 'pmsgback' field and declare it as a local variable in the relevant methods.
-ûuûu !ÖD
+ûuûu !u
+S101cRename class 'SDK_HikClientSDK' to match camel case naming rules, consider using 'SdkHikClientSdk'.		 !ÖD
 hG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\SDK_HuaMai.csY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-—— Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€€ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÂÂ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷÷ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡‡ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÍÍ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÔÔ #Y
+ÂÂ "x
+S101dRename struct '_LOGIN_SERVER_INFO' to match camel case naming rules, trim underscores from the name.
+«« (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+€€ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡‡ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 áá Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãã x
-S101dRename struct '_LOGIN_SERVER_INFO' to match camel case naming rules, trim underscores from the name.
-«« (Y
+ÃÃ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 èè #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -12028,7 +12024,9 @@ hG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨¨ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±± Y
+±± 3
+S125Remove this commented out code.
+·· bY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂∂  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -12036,37 +12034,53 @@ hG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿¿ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆∆ /Y
+∆∆ /3
+S125Remove this commented out code.
+ºº WY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˜˜ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸¸ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÅÅ  "Y
+ÅÅ  "3
+S125Remove this commented out code.
+ÚÚ 3
+S125Remove this commented out code.
+…… Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïï !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-öö &p
+ïï !3
+S125Remove this commented out code.
+€€ p
 S101\Rename struct '_USER_INFO' to match camel case naming rules, trim underscores from the name.
-ÇÇ  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-üü  'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©© s
+ÇÇ  s
 S101_Rename struct '_CONNECT_INFO' to match camel case naming rules, trim underscores from the name.
 ÚÚ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+öö &3
+S125Remove this commented out code.
+ÖÖ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+üü  '3
+S125Remove this commented out code.
+≤≤ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §§ %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+©© Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≈≈ )3
+S125Remove this commented out code.
+¯¯ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÆÆ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈≈ )w
+   #w
 S101cRename struct '_OPEN_VIDEO_PARAM' to match camel case naming rules, trim underscores from the name.
 êê 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-   #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œœ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+—— Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €€ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -12074,41 +12088,43 @@ hG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101]Rename struct '_FRAME_DATA' to match camel case naming rules, trim underscores from the name.
 ¿¿ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍÍ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÂÂ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔÔ ,Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÍÍ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÔÔ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚˚ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÄÄ  *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÖÖ "q
+ÖÖ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ää #q
 S101]Rename struct '_FRAME_Info' to match camel case naming rules, trim underscores from the name.
 ÷÷ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-îî !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ää #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 èè Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+°°  "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¶¶ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°°  "s
-S101_Rename struct 'OPEN_VIDEO_RES' to match camel case naming rules, consider using 'OpenVideoRes'.
-ˆˆ $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≤≤ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑∑ t
+∑∑ s
+S101_Rename struct 'OPEN_VIDEO_RES' to match camel case naming rules, consider using 'OpenVideoRes'.
+ˆˆ $t
 S101`Rename struct 'DISPLAY_OPTION' to match camel case naming rules, consider using 'DisplayOption'.
 úú $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡¡ #Y
+îî !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ºº  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¡¡ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀÀ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -12120,17 +12136,13 @@ hG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰‰ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÓÓ %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈÈ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÓÓ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÛÛ  +y
 S101eRename struct '_LOCAL_RECORD_PARAM' to match camel case naming rules, trim underscores from the name.
 ≠≠ )t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-êê "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÃÃ t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ØØ t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
@@ -12138,37 +12150,25 @@ hG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ··  t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+êê "t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ˙˙ t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-îî  3
-S125Remove this commented out code.
-·· bt
+îî  t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ßß  t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ºº  3
-S125Remove this commented out code.
-ºº W3
-S125Remove this commented out code.
-ÚÚ t
+ºº  t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-—— 3
-S125Remove this commented out code.
-…… 3
-S125Remove this commented out code.
-€€ 3
-S125Remove this commented out code.
-ÖÖ 3
-S125Remove this commented out code.
-≤≤ 3
-S125Remove this commented out code.
-¯¯ t
+—— t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ·· #t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ®®  t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-÷÷  A
+÷÷  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ãã A
 S1144,Remove the unused private field 'video_fmt'.
 ∆∆ #A
 S1144,Remove the unused private field 'audio_fmt'.
@@ -12176,68 +12176,100 @@ hG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101WRename class 'SDK_HuaMai' to match camel case naming rules, consider using 'SdkHuaMai'. "˜
 gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\SDK_JCSDK.csY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øø 2
-S125Remove this commented out code.	44 üY
+ππ  (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∆∆ $s
+¡¡ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ææ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+øø s
 S101_Rename struct 'PJCDeviceInfo' to match camel case naming rules, consider using 'PjcDeviceInfo'.
 ∑∑ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«« $Y
+∆∆ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+«« $e
+S101QRename struct 'LPRECT' to match camel case naming rules, consider using 'Lprect'.
+ºº Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 »» !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¿¿ 3
-S125Remove this commented out code.
-™™ fY
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÕÕ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ææ u
+ŒŒ u
 S101aRename struct 'PJCStreamFrame' to match camel case naming rules, consider using 'PjcStreamFrame'.
 ƒƒ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŒŒ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œœ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–– Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —— Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+–– Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ““ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”” Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‘‘ 3
-S125Remove this commented out code.
-˚˚ UY
+‘‘ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŸŸ $o
-S101[Rename struct 'PJCRawFrame' to match camel case naming rules, consider using 'PjcRawFrame'.
-ÀÀ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‹‹ Y
+ŸŸ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €€ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ππ  (Y
+‹‹ o
+S101[Rename struct 'PJCRawFrame' to match camel case naming rules, consider using 'PjcRawFrame'.
+ÀÀ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂﬂ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁﬁ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¡¡ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂﬂ "e
-S101QRename struct 'LPRECT' to match camel case naming rules, consider using 'Lprect'.
-ºº Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡‡ "y
 S101eRename struct 'PJCLanDeviceInfo' to match camel case naming rules, consider using 'PjcLanDeviceInfo'.
-÷÷ &t
+÷÷ &2
+S125Remove this commented out code.	44 ü3
+S125Remove this commented out code.
+™™ ft
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ÔÔ  g
+ÔÔ  3
+S125Remove this commented out code.
+˚˚ UY
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¿¿ g
 S101URename class 'SDK_JCSDK' to match camel case naming rules, consider using 'SdkJcsdk'. ∏1
-lG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\SDK_SKVideoSDK.cs3
+lG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\SDK_SKVideoSDK.csW
+S1104DMake this field 'private' and encapsulate it in a 'public' property.;; $W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.CC "W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.== !W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.HH W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.FF s
+S101aRename struct 'client_info_all' to match camel case naming rules, consider using 'ClientInfoAll'.55 %W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.JJ W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.QQ W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.RR  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.SS "u
+S101cRename struct 'client_info_lite' to match camel case naming rules, consider using 'ClientInfoLite'.@@ &W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.99& 7W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.TT W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.\\  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.]]  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.^^  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.VV $W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.__  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.bb  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.aa  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.``  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.cc  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.dd  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.ff !f
+S101TRename struct 'st_event' to match camel case naming rules, consider using 'StEvent'.NN W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.ee !W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.jj !W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.ii !W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.gg !W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.kk !W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.hh !o
+S101]Rename struct 'st_multi_talk' to match camel case naming rules, consider using 'StMultiTalk'.ZZ #3
 S125Remove this commented out code.
 ‹‹ _3
 S125Remove this commented out code.
@@ -12246,63 +12278,31 @@ lG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ÊÊ y4
 S125Remove this commented out code.⁄⁄ è3
 S125Remove this commented out code.
-ÊÊ 0W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.99& 7W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.;; $W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.== !3
+ÊÊ 03
 S125Remove this commented out code.
 ≠≠ 3
 S125Remove this commented out code.
-˝˝ 7W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.CC "s
-S101aRename struct 'client_info_all' to match camel case naming rules, consider using 'ClientInfoAll'.55 %3
+˝˝ 73
 S125Remove this commented out code.
-úú %W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.FF W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.HH 3
+úú %3
 S125Remove this commented out code.
 ¬¬ m3
 S125Remove this commented out code.
-ÃÃ =W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.JJ W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.QQ W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.RR  u
-S101cRename struct 'client_info_lite' to match camel case naming rules, consider using 'ClientInfoLite'.@@ &W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.SS "W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.TT W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.VV $W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.\\  W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.]]  f
-S101TRename struct 'st_event' to match camel case naming rules, consider using 'StEvent'.NN W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.^^  3
+ÃÃ =3
 S125Remove this commented out code.
-≤≤ &W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.__  3
+≤≤ &3
 S125Remove this commented out code.
-¥¥ W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.``  W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.aa  W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.cc  W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.bb  W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.dd  3
+¥¥ 3
 S125Remove this commented out code.
-ÌÌ ZW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.ee !W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.ff !W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.gg !W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.hh !3
+ÌÌ Z3
 S125Remove this commented out code.
 áá H3
 S125Remove this commented out code.
-òò FW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.ii !W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.jj !W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.kk !3
+òò F3
 S125Remove this commented out code.
 ≥≥ "3
 S125Remove this commented out code.
-ªª ;o
-S101]Rename struct 'st_multi_talk' to match camel case naming rules, consider using 'StMultiTalk'.ZZ #4
+ªª ;4
 S125Remove this commented out code.…… ˛3
 S125Remove this commented out code.
 ˜˜ &3
@@ -12310,58 +12310,58 @@ lG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ¸¸ ;3
 S125Remove this commented out code.
 ££ !V
-S107AMethod has 10 parameters, which is greater than the 7 authorized.ÂÂ5 Ê;
+S107AMethod has 10 parameters, which is greater than the 7 authorized.ÂÂ5 Ê=
+S1940(Use the opposite operator ('<') instead.
+ää :J
+S12155Refactor the code to remove this use of 'GC.Collect'.
+…… g
+S3776RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.
+ÔÔ (J
+S12155Refactor the code to remove this use of 'GC.Collect'.
+®® g
+S3776RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.
+ŒŒ #;
 S1905&Remove this unnecessary cast to 'int'.
 ( +;
 S1905&Remove this unnecessary cast to 'int'.
-ˆˆ( +D
+ˆˆ( +q
+S101_Rename class 'SDK_SKVideoSDK' to match camel case naming rules, consider using 'SdkSkVideoSdk'. g
+S3776RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.
+ŒŒ %D
 S1481/Remove this unused 'totalBytes' local variable.
-ÎÎ =
-S1940(Use the opposite operator ('<') instead.
-ää :q
-S101_Rename class 'SDK_SKVideoSDK' to match camel case naming rules, consider using 'SdkSkVideoSdk'. J
-S12155Refactor the code to remove this use of 'GC.Collect'.
-…… @
-S1172+Remove this unused method parameter 'flag'.
-∏∏o xJ
-S12155Refactor the code to remove this use of 'GC.Collect'.
-®® ?
+ÎÎ ?
 S1125*Remove the unnecessary Boolean literal(s).
 ©©1 6S
 S1854>Remove this useless assignment to local variable 'soundClass'.
 ˜˜" 4X
 S1854CRemove this useless assignment to local variable 'synthesizeClass'.
-ˆˆ, Cg
-S3776RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.
-ÔÔ (?
+ˆˆ, C?
 S1125*Remove the unnecessary Boolean literal(s).
 àà1 6S
 S1854>Remove this useless assignment to local variable 'soundClass'.
 ÷÷" 4X
 S1854CRemove this useless assignment to local variable 'synthesizeClass'.
-’’, Cg
-S3776RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.
-ŒŒ #?
+’’, C?
 S1125*Remove the unnecessary Boolean literal(s).
 ßßY `X
 S1854CRemove this useless assignment to local variable 'synthesizeClass'.
 ‘‘, CS
 S1854>Remove this useless assignment to local variable 'soundClass'.
-””" 4g
-S3776RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.
-ŒŒ %L
-S18547Remove this useless assignment to local variable 'ptr'.
-ÄÄ $Q
+””" 4Q
 S1854<Remove this useless assignment to local variable 'tempData'.
-∂∂ )R
+∂∂ )L
+S18547Remove this useless assignment to local variable 'ptr'.
+ÄÄ $R
 S1854=Remove this useless assignment to local variable 'strResult'.
-√√ &L
+√√ &@
+S1172+Remove this unused method parameter 'flag'.
+∏∏o x0
+S3626Remove this redundant jump.
+ÿÿ L
 S14817Remove this unused 'soundlistClassList' local variable.
 ’’! 3H
 S14813Remove this unused 'soundListClass' local variable.
-÷÷ )0
-S3626Remove this redundant jump.
-ÿÿ Ì
+÷÷ )Ì
 pG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\SDK_TalkManagerSDK.cst
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 óó t
@@ -12375,17 +12375,13 @@ pG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S101gRename class 'SDK_TalkManagerSDK' to match camel case naming rules, consider using 'SdkTalkManagerSdk'.		 #ıÍ
 gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\SDK_XMSDK.cst
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-‘‘  t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ÎÎ 't
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-¡¡  n
-S101ZRename struct 'SDK_GainCfg' to match camel case naming rules, consider using 'SdkGainCfg'.
-çç Y
+‘‘  Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+èè Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 êê Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èè Y
+úú 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ùù Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -12393,29 +12389,23 @@ gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ûû Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úú 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-€€ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ›› Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 üü Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†† Y
+ﬁﬁ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁﬁ t
+†† n
+S101ZRename struct 'SDK_GainCfg' to match camel case naming rules, consider using 'SdkGainCfg'.
+çç Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬂﬂ t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-…… Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂﬂ q
+ÈÈ "q
 S101]Rename struct 'H264_DVR_TIME' to match camel case naming rules, consider using 'H264DvrTime'.
 ÿÿ t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-›› t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ÛÛ &t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ÈÈ "Y
+ÛÛ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰‰ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -12429,17 +12419,27 @@ gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÈÈ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÍÍ 
-S101kRename struct 'SDK_VIDEOCOLOR_PARAM' to match camel case naming rules, consider using 'SdkVideocolorParam'.
-‚‚ &t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-““ !Y
+ÍÍ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ññ  Y
+€€ 
+S101kRename struct 'SDK_VIDEOCOLOR_PARAM' to match camel case naming rules, consider using 'SdkVideocolorParam'.
+‚‚ &3
+S125Remove this commented out code.
+éé '3
+S125Remove this commented out code.
+ìì 3Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ññ  3
+S125Remove this commented out code.
+¥¥ '3
+S125Remove this commented out code.
+ππ 3Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 óó !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-òò Y
+òò t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+›› Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ôô  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -12447,43 +12447,45 @@ gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õõ -Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ûû Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 úú %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-££ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄⁄ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ûû Y
+†† !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 üü !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†† !Y
+££ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 •• Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 °° Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ßß Y
+¶¶ !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ßß 3
+S125Remove this commented out code.
+““  ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ®®  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶¶ !Y
+©© Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÓÓ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
- Y
+ÔÔ$ ,Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÔÔ$ ,v
-S101bRename struct 'SDK_CameraParam' to match camel case naming rules, consider using 'SdkCameraParam'.
-îî !t
+ t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ÑÑ "t
+ÑÑ "v
+S101bRename struct 'SDK_CameraParam' to match camel case naming rules, consider using 'SdkCameraParam'.
+îî !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ıı t
 S101`Rename struct 'SDK_VIDEOCOLOR' to match camel case naming rules, consider using 'SdkVideocolor'.
 ÏÏ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıı Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©© x
+⁄⁄ x
 S101dRename struct 'CONFIG_IPAddress' to match camel case naming rules, consider using 'ConfigIpAddress'.
 ÚÚ "t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
@@ -12491,33 +12493,26 @@ gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
 ≥≥ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®® &3
-S125Remove this commented out code.
-éé '3
-S125Remove this commented out code.
-ìì 3t
+®® &t
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ππ 3
-S125Remove this commented out code.
-¥¥ 'Y
+ππ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞∞! 03
-S125Remove this commented out code.
-ππ 3Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıı  -|
+∞∞! 0|
 S101hRename struct 'SDK_AllCameraParam' to match camel case naming rules, consider using 'SdkAllCameraParam'.
 ≠≠ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠≠ &Å
+ıı  -t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+¡¡  Å
 S101mRename struct 'SDK_CONFIG_VIDEOCOLOR' to match camel case naming rules, consider using 'SdkConfigVideocolor'.
 ÚÚ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘˘ Y
+≠≠ &r
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'. Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÔÔ %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–– Y
+–– t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+…… Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —— Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -12525,201 +12520,191 @@ gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”” !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‘‘ Y
+˘˘ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-öö Y
+‘‘ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ’’ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÷÷ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≤≤ %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ◊◊ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿÿ 3
-S125Remove this commented out code.
-““  ,Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂∂ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŸŸ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÿÿ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≤≤ %Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 µµ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÒÒ $Y
+∂∂ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∂∂ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑∑  Y
+∑∑  p
+S101\Rename struct 'CHANNEL_INFO' to match camel case naming rules, consider using 'ChannelInfo'.
+ÃÃ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ﬁﬁ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ∫∫ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚˚ Y
+ﬂﬂ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ªª Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ºº p
-S101\Rename struct 'CHANNEL_INFO' to match camel case naming rules, consider using 'ChannelInfo'.
-ÃÃ Y
+˚˚ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‡‡ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ºº Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ΩΩ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¸¸ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ææ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ΩΩ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 øø Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¿¿ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√√ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬂﬂ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬¬ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‡‡ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ƒƒ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈≈ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ﬁﬁ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ªª #Y
+˝˝ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡¡ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˇˇ  &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝˝ Y
+¬¬ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÅÅ  'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ùù Y
+√√ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øø Y
+ƒƒ t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+““ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÉÉ  'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-√√ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÖÖ Y
+≈≈ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 áá Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-«« #Y
+ââ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÛÛ (Y
+ÖÖ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ãã Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+çç Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+èè Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ëë Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+îî Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ªª #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+óó "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+øø Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+‚‚ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+√√ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+«« #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÀÀ $Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ââ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãã Y
+˛˛ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œœ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ”” "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-çç Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ◊◊  Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-èè Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 €€ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ëë Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˛˛ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬂﬂ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-îî Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-óó "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-„„ Y
+„„ t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+ÎÎ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 áá Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àà Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚‚ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úú Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÁÁ #Y
+ÎÎ 'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ââ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-««  Y
+àà Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-üü v
+««  v
 S101bRename struct 'SDK_ExposureCfg' to match camel case naming rules, consider using 'SdkExposureCfg'.
 ÖÖ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 õõ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ıı &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÒÒ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÎÎ 'Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‰‰ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-°° !s
+‰‰ !s
 S101_Rename struct 'PACKET_INFO_EX' to match camel case naming rules, consider using 'PacketInfoEx'.
 ≥≥  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÃÃ Y
+ÊÊ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŒŒ Y
+ÒÒ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÕÕ Ä
+ÕÕ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ŒŒ Ä
 S101lRename struct 'SDK_CONFIG_NET_COMMON' to match camel case naming rules, consider using 'SdkConfigNetCommon'.
 ˘˘ 'Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÃÃ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+öö Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 —— Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˆˆ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˙˙ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜˜ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÊÊ  i
+˙˙ i
 S101URename struct 'DSTPoint' to match camel case naming rules, consider using 'DstPoint'.
    Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–– Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-œœ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-££ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§§ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇˇ "Y
+–– t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+ºº Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ËË Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÈÈ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+œœ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÍÍ  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÎÎ( /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÈÈ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÏÏ# 0Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-££ Y
+ÔÔ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÌÌ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+££ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+úú Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ••  &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇˇ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ùù Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ßß  'Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -12731,156 +12716,97 @@ gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ØØ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶¶ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ßß  &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-©© $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘˘ *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-®® $Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µµ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑∑ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-÷÷ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∫∫ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´´ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ΩΩ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±± Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ≥≥ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àà #Y
+∑∑ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ŸŸ z
-S101fRename struct 'SDK_NetWifiConfig' to match camel case naming rules, consider using 'SdkNetWifiConfig'.
-òò #Y
+∫∫ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-⁄⁄  Y
+ΩΩ "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÿÿ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˚˚ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
- Y
+µµ t
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
+œœ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÔÔ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÆÆ Y
+´´ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+÷÷ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÒÒ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+üü Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ŸŸ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+àà #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÿÿ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+⁄⁄  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡¡ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-›› $Y
+áá Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+àà Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÚÚ "~
+S101jRename struct 'SDK_NetKeyBoardData' to match camel case naming rules, consider using 'SdkNetKeyBoardData'.
+ÖÖ %Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ïï Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+°° !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÛÛ (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+åå Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‹‹ "Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+çç Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+›› $h
+S101TRename struct 'DEV_INFO' to match camel case naming rules, consider using 'DevInfo'.
+‹‹ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ﬁﬁ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˝˝ (Y
+·· Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‡‡ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÚÚ "Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-·· Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-‚‚ Y
+≈≈ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 „„ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ‰‰ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∞∞ }
-S101iRename struct 'H264_DVR_DEVICEINFO' to match camel case naming rules, consider using 'H264DvrDeviceinfo'.
-¢¢ %Y
+‚‚ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÂÂ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÊÊ Y
+ÊÊ }
+S101iRename struct 'H264_DVR_DEVICEINFO' to match camel case naming rules, consider using 'H264DvrDeviceinfo'.
+¢¢ %x
+S101dRename struct 'SDK_NetAlarmInfo' to match camel case naming rules, consider using 'SdkNetAlarmInfo'.
+ää "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÁÁ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ËË h
-S101TRename struct 'DEV_INFO' to match camel case naming rules, consider using 'DevInfo'.
-‹‹ z
-S101fRename struct 'SDK_NetDHCPConfig' to match camel case naming rules, consider using 'SdkNetDhcpConfig'.
-¨¨ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≈≈ y
-S101eRename struct 'SDK_CONFIG_NORMAL' to match camel case naming rules, consider using 'SdkConfigNormal'.
-‘‘ #Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-úú Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-áá Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-†† Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-àà Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-§§ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-•• Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇˇ $~
-S101jRename struct 'SDK_NetKeyBoardData' to match camel case naming rules, consider using 'SdkNetKeyBoardData'.
-ÖÖ %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¶¶ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-´´ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-»» Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ØØ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-±± |
-S101hRename struct 'SDK_SystemFunction' to match camel case naming rules, consider using 'SdkSystemFunction'.
-ÏÏ $r
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'. Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠≠ }
-S101iRename struct 'H264_DVR_CLIENTINFO' to match camel case naming rules, consider using 'H264DvrClientinfo'.
-óó %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-åå Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≥≥ Ö
-S101qRename struct 'SDK_CONFIG_NET_COMMON_V2' to match camel case naming rules, consider using 'SdkConfigNetCommonV2'.
-üü *Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-µµ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-çç Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∑∑ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-∂∂# 1x
-S101dRename struct 'SDK_NetAlarmInfo' to match camel case naming rules, consider using 'SdkNetAlarmInfo'.
-ää "v
-S101bRename struct 'SDK_TIMESECTION' to match camel case naming rules, consider using 'SdkTimesection'.
-®® !Ä
-S101lRename struct 'SDK_NetDHCPConfigAll' to match camel case naming rules, consider using 'SdkNetDhcpConfigAll'.
-≥≥ &Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ëë Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˜˜ Y
+ËË Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 íí Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 îî Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ïï Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ìì Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -12888,27 +12814,81 @@ gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 óó Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ïï Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+££ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 òò Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ºº Y
+§§ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÖÖ Y
+úú y
+S101eRename struct 'SDK_CONFIG_NORMAL' to match camel case naming rules, consider using 'SdkConfigNormal'.
+‘‘ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘˘ u
+´´ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+†† Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠≠ u
 S101aRename struct 'SDK_SYSTEM_TIME' to match camel case naming rules, consider using 'SdkSystemTime'.
 èè !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+§§ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+»» Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ØØ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+•• Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ıı &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¶¶ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+±± Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≥≥ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+µµ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∑∑ Ö
+S101qRename struct 'SDK_CONFIG_NET_COMMON_V2' to match camel case naming rules, consider using 'SdkConfigNetCommonV2'.
+üü *}
+S101iRename struct 'H264_DVR_CLIENTINFO' to match camel case naming rules, consider using 'H264DvrClientinfo'.
+óó %v
+S101bRename struct 'SDK_TIMESECTION' to match camel case naming rules, consider using 'SdkTimesection'.
+®® !Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˜˜ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÁÁ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ßß  &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¶¶ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+®® $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+©© $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˜˜ #Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ºº Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ΩΩ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ææ &Y
+ææ &z
+S101fRename struct 'SDK_NetWifiConfig' to match camel case naming rules, consider using 'SdkNetWifiConfig'.
+òò #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÜÜ Y
+øø $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+˘˘ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˙˙ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-áá Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-øø $Y
+ÆÆ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˚˚ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -12916,68 +12896,92 @@ gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˝˝ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ˇˇ !Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ˛˛  Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ââ Y
+ˇˇ !Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-¬¬ Y
+˘˘ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¡¡ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ãã !y
+∞∞ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+¬¬ z
+S101fRename struct 'SDK_NetDHCPConfig' to match camel case naming rules, consider using 'SdkNetDhcpConfig'.
+¨¨ #y
 S101eRename struct 'H264_DVR_FINDINFO' to match camel case naming rules, consider using 'H264DvrFindinfo'.
 ∫∫ #Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-çç j
-S101VRename struct 'DDNS_INFO' to match camel case naming rules, consider using 'DdnsInfo'.
-ÙÙ z
-S101fRename struct 'SDK_NetWifiDevice' to match camel case naming rules, consider using 'SdkNetWifiDevice'.
-ÇÇ #Y
+˚˚ &Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-…… Y
+˝˝ (Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+∂∂# 1Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ˇˇ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+…… r
+S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.KK j
+S101VRename struct 'DDNS_INFO' to match camel case naming rules, consider using 'DdnsInfo'.
+ÙÙ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
    Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-íí Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-îî  1Ä
-S101lRename struct 'SDK_NetWifiDeviceAll' to match camel case naming rules, consider using 'SdkNetWifiDeviceAll'.
-êê &Y
+ÕÕ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ÃÃ Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÕÕ *Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ŒŒ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œœ Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-–– t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-ºº z
+–– Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÜÜ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÖÖ |
+S101hRename struct 'SDK_SystemFunction' to match camel case naming rules, consider using 'SdkSystemFunction'.
+ÏÏ $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+áá Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ââ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ãã !z
 S101fRename struct 'H264_DVR_FILE_DATA' to match camel case naming rules, consider using 'H264DvrFileData'.
-«« $r
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.KK t
-S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'.
-œœ k
+«« $Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+çç Ä
+S101lRename struct 'SDK_NetDHCPConfigAll' to match camel case naming rules, consider using 'SdkNetDhcpConfigAll'.
+≥≥ &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+íí Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+îî  1k
 S2223VChange the visibility of 'LoginAbnormalResetEnviron' or make it 'const' or 'readonly'.
 ≠
 ≠
- 4Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-≠
-≠
- <o
+ 4o
 S2223ZChange the visibility of 'LoginAbnormalResetEnvironPara' or make it 'const' or 'readonly'.
 ±
 ±
  7Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
+≠
+≠
+ <Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ±
 ±
- ;`
+ ;z
+S101fRename struct 'SDK_NetWifiDevice' to match camel case naming rules, consider using 'SdkNetWifiDevice'.
+ÇÇ #[
+S2386FUse an immutable collection or reduce the accessibility of this field.
+œ
+œ
+4 hÄ
+S101lRename struct 'SDK_NetWifiDeviceAll' to match camel case naming rules, consider using 'SdkNetWifiDeviceAll'.
+êê &`
 S2223KChange the visibility of 'dicXMVideoList' or make it 'const' or 'readonly'.
 œ
 œ
@@ -12985,17 +12989,13 @@ gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 œ
 œ
-4 h[
-S2386FUse an immutable collection or reduce the accessibility of this field.
-œ
-œ
 4 hY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-˘˘ h
+˘˘ Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+Å	Å	 h
 S101TRename struct 'SDK_UUID' to match camel case naming rules, consider using 'SdkUuid'.
 ıı Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-Å	Å	 Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 É	É	 "Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
@@ -13019,16 +13019,26 @@ gG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ªª O
 S1854:Remove this useless assignment to local variable 'OutDev'.
 ∏∏' BÓ
-kG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\UTF8Marsgaler.csp
-S101^Rename class 'UTF8Marshaler' to match camel case naming rules, consider using 'Utf8Marshaler'.		 å
-S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation. &˚
+kG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\UTF8Marsgaler.cså
+S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation. &p
+S101^Rename class 'UTF8Marshaler' to match camel case naming rules, consider using 'Utf8Marshaler'.		 ˚
 qG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoBackplayWindow.cs3
 S125Remove this commented out code.
 ¨¨ &3
 S125Remove this commented out code.
 ‚‚ 1W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.mm 5å
-S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.ss -4
+S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.ss -g
+S3776RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.
+éé !H
+S11443Remove the unused private field 'm_nFastTypeLocal'.
+∏∏ !H
+S11443Remove the unused private field 'm_nSlowTypeLocal'.
+ππ !Q
+S1144<Remove the unused private method 'XMVideo_PauseVideoRecord'.
+…Õ 	R
+S1144=Remove the unused private method 'XMVideo_SetVideoRecordPos'.
+–‘ 	4
 S2933Make 'playbackRate' 'readonly'.
 èè $3
 S2933Make 'seekingLock' 'readonly'.
@@ -13044,44 +13054,29 @@ qG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S3241JChange return type to 'void'; not a single caller uses the returned value.
 √√ <
 S1905'Remove this unnecessary cast to 'long'.
-ÊÊ) -g
-S3776RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.
-éé !H
-S11443Remove the unused private field 'm_nFastTypeLocal'.
-∏∏ !H
-S11443Remove the unused private field 'm_nSlowTypeLocal'.
-ππ !Q
-S1144<Remove the unused private method 'XMVideo_PauseVideoRecord'.
-…Õ 	R
-S1144=Remove the unused private method 'XMVideo_SetVideoRecordPos'.
-–‘ 	I
+ÊÊ) -I
 S1125'System.Exception' should not be thrown by user code.
-œœ* 35
-S3440 Remove this useless conditional.
-ÈÈ 7D
+œœ* 3D
 S1481/Remove this unused 'timeFormat' local variable.
-ˇˇ E
+ˇˇ 5
+S3440 Remove this useless conditional.
+ÈÈ 7E
 S11720Remove this unused method parameter 'lPlayHand'.
 ‹‹ +A
 S1172,Remove this unused method parameter 'nUser'.
 ‹‹- 7‘
-yG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoBasicClass\Base64coder.csG
-S11354Complete the task associated to this 'TODO' comment. 3
-S125Remove this commented out code.
-¢¢ "Y
+yG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoBasicClass\Base64coder.csY
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
-íí (I
+íí (G
+S11354Complete the task associated to this 'TODO' comment. I
 S11354Complete the task associated to this 'TODO' comment.
-öö W
+öö 3
+S125Remove this commented out code.
+¢¢ "W
 S1104DMake this field 'private' and encapsulate it in a 'public' property. (;
-S108)Either remove or fill this block of code../ ,
-S2933Make 'source' 'readonly'. ,
-S2933Make 'length' 'readonly'. -
-S2933Make 'length2' 'readonly'. 0
-S2933Make 'blockCount' 'readonly'. 2
-S2933Make 'paddingCount' 'readonly'. 1
-S1643Use a StringBuilder instead.
-¡¡ >V
+S108)Either remove or fill this block of code../ =
+S108)Either remove or fill this block of code.
+µµ V
 S2486CHandle the exception or explain in a comment why it can be ignored.-/ .
 S2933Make 'source' 'readonly'.
 ëë .
@@ -13092,86 +13087,91 @@ yG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S2933Make 'blockCount' 'readonly'.
 îî 4
 S2933Make 'paddingCount' 'readonly'.
-ïï =
-S108)Either remove or fill this block of code.
-µµ X
+ïï ,
+S2933Make 'source' 'readonly'. ,
+S2933Make 'length' 'readonly'. -
+S2933Make 'length2' 'readonly'. 0
+S2933Make 'blockCount' 'readonly'. 2
+S2933Make 'paddingCount' 'readonly'. X
 S2486CHandle the exception or explain in a comment why it can be ignored.
-¥µ n
-S101ZRename class 'Base64coder' to match camel case naming rules, consider using 'Base64Coder'.
-èè r
-S1871_Either merge this case with the identical one on line 106 or change one of the implementations.oo #k
+¥µ k
 S1450VRemove the 'length3' field and declare it as a local variable in the relevant methods.
-ìì $n
+ìì $1
+S1643Use a StringBuilder instead.
+¡¡ >r
+S1871_Either merge this case with the identical one on line 106 or change one of the implementations.oo #l
+S1450WRemove the 'bytinput' field and declare it as a local variable in the relevant methods.
+ëë n
+S1450YRemove the 'bytDecoder' field and declare it as a local variable in the relevant methods.
+ìì  n
 S1450YRemove the 'charEncode' field and declare it as a local variable in the relevant methods.
 íí  n
 S1450YRemove the 'baseDecode' field and declare it as a local variable in the relevant methods.
 îî 'n
-S1450YRemove the 'bytDecoder' field and declare it as a local variable in the relevant methods.
-ìì  l
-S1450WRemove the 'bytinput' field and declare it as a local variable in the relevant methods.
-ëë Ê
+S101ZRename class 'Base64coder' to match camel case naming rules, consider using 'Base64Coder'.
+èè Ê
 |G:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoBasicClass\Enum_TalkModel.csr
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'. r
 S2342_Rename this enumeration to match the regular expression: '^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$'. Œ
 ÉG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoBasicClass\RemoteVideoRecordInfo.csW
 S2292DMake this an auto-implemented property and remove its backing field. "W
-S2292DMake this an auto-implemented property and remove its backing field.)) W
-S2292DMake this an auto-implemented property and remove its backing field.DD (W
 S2292DMake this an auto-implemented property and remove its backing field. W
+S2292DMake this an auto-implemented property and remove its backing field.DD (W
 S2292DMake this an auto-implemented property and remove its backing field.RR !W
 S2292DMake this an auto-implemented property and remove its backing field.`` W
 S2292DMake this an auto-implemented property and remove its backing field.77 *W
+S2292DMake this an auto-implemented property and remove its backing field.)) W
 S2292DMake this an auto-implemented property and remove its backing field.nn !Ú
 xG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoBasicClass\SoundClass.csW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.!!  W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.&& W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.$$  W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.   W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.'' $W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.## W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.(( 'W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.  W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.%% W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.!!  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.$$  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.## W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.'' $W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.(( 'W
 S1104DMake this field 'private' and encapsulate it in a 'public' property... !W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.55 %W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.77  W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.88 !W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.?? W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.   W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.  W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.CC W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.AA W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.>> W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.FF  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.DD W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.GG &W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.EE W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.HH #W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.GG &W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.JJ "W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.LL W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.II W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.DD W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.MM l
-S101ZRename struct 'WAVE_Header' to match camel case naming rules, consider using 'WaveHeader'.<< ∂
+S1104DMake this field 'private' and encapsulate it in a 'public' property.AA W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.JJ "W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.FF  W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.MM W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.LL l
+S101ZRename struct 'WAVE_Header' to match camel case naming rules, consider using 'WaveHeader'.<< W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.>> ∂
 ÅG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoBasicClass\VideoPlayEventValue.csW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.' TW
-S1104DMake this field 'private' and encapsulate it in a 'public' property. 'ç
+S1104DMake this field 'private' and encapsulate it in a 'public' property. 'W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.' Tç
 
 ~G:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoBasicClass\VideoPlaySetting.csW
-S2292DMake this an auto-implemented property and remove its backing field. W
+S2292DMake this an auto-implemented property and remove its backing field.22 )W
 S2292DMake this an auto-implemented property and remove its backing field."" %W
 S2292DMake this an auto-implemented property and remove its backing field.@@ "W
-S2292DMake this an auto-implemented property and remove its backing field.22 )W
 S2292DMake this an auto-implemented property and remove its backing field.NN ,W
+S2292DMake this an auto-implemented property and remove its backing field.[[ &W
+S2292DMake this an auto-implemented property and remove its backing field. W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.vv 5W
-S2292DMake this an auto-implemented property and remove its backing field.mm W
 S2292DMake this an auto-implemented property and remove its backing field.zz *Y
 S2292DMake this an auto-implemented property and remove its backing field.
 ââ Y
 S2292DMake this an auto-implemented property and remove its backing field.
-óó" *Y
+¶¶ %W
+S2292DMake this an auto-implemented property and remove its backing field.mm Y
 S2292DMake this an auto-implemented property and remove its backing field.
-¶¶ %Y
+∑∑ Y
 S2292DMake this an auto-implemented property and remove its backing field.
-∑∑ W
-S2292DMake this an auto-implemented property and remove its backing field.[[ &í
+óó" *í
 nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoChannelList.csW
 S1104DMake this field 'private' and encapsulate it in a 'public' property. )3
 S125Remove this commented out code.
@@ -13180,20 +13180,20 @@ nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S2292DMake this an auto-implemented property and remove its backing field.JJ 23
 S125Remove this commented out code.
 áá DW
-S2292DMake this an auto-implemented property and remove its backing field.XX &W
 S1104DMake this field 'private' and encapsulate it in a 'public' property. #W
-S2292DMake this an auto-implemented property and remove its backing field.gg %Y
-S1104DMake this field 'private' and encapsulate it in a 'public' property.
-ÑÑ -W
+S2292DMake this an auto-implemented property and remove its backing field.XX &W
+S2292DMake this an auto-implemented property and remove its backing field.gg %W
 S2292DMake this an auto-implemented property and remove its backing field.vv &Y
+S1104DMake this field 'private' and encapsulate it in a 'public' property.
+ÑÑ -Y
 S2292DMake this an auto-implemented property and remove its backing field.
-ÜÜ ,2
-S2933Make 'intbtnStartX' 'readonly'. 2
-S2933Make 'intbtnStartY' 'readonly'.$$ é
+ÜÜ ,é
 S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.
 …… é
 S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.
-µµ *B
+µµ *2
+S2933Make 'intbtnStartX' 'readonly'. 2
+S2933Make 'intbtnStartY' 'readonly'.$$ B
 S1481-Remove this unused 'funcName' local variable.
 ££ #C
 S1481.Remove this unused 'camerInfo' local variable.
@@ -13202,17 +13202,17 @@ wG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S108)Either remove or fill this block of code.
 ∆∆ X
 S2486CHandle the exception or explain in a comment why it can be ignored.
-∆∆ O
+∆∆ Q
+S1117<Rename 'Params' which hides the property with the same name.
+◊◊ O
 S1854:Remove this useless assignment to local variable 'output'.
 ÿÿ .O
 S1854:Remove this useless assignment to local variable 'output'.
-‚‚ +Q
-S1117<Rename 'Params' which hides the property with the same name.
-◊◊ Q
-S1117<Rename 'Params' which hides the property with the same name.
-ïï 1
+‚‚ +1
 S1116Remove this empty statement.
-„„- .¬
+„„- .Q
+S1117<Rename 'Params' which hides the property with the same name.
+ïï ¬
 äG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoEncoderAsync\QuickAudioEncodingCommands.csb
 S1118OAdd a 'protected' constructor or the 'static' keyword to the class declaration. +Y
 S2223FChange the visibility of 'MP396Kbps' or make it 'const' or 'readonly'. &W
@@ -13224,80 +13224,80 @@ wG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S2223GChange the visibility of 'MP3128Kbps' or make it 'const' or 'readonly'. 'W
 S1104DMake this field 'private' and encapsulate it in a 'public' property. AÃ1
 äG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoEncoderAsync\QuickVideoEncodingCommands.csG
-S11354Complete the task associated to this 'TODO' comment.$$ a
-S2223NChange the visibility of 'FLVLowQualityQCIF' or make it 'const' or 'readonly'.// .1
-S125Remove this commented out code.'' 6c
-S2223PChange the visibility of 'FLVMediumQualityCIF' or make it 'const' or 'readonly'.00 0a
-S2223NChange the visibility of 'FLVHighQualityVGA' or make it 'const' or 'readonly'.11 .f
-S2223SChange the visibility of 'FLVVeryHighQualitySVGA' or make it 'const' or 'readonly'.22 3p
-S2223]Change the visibility of 'FLVMediumQualityKeepOriginalSize' or make it 'const' or 'readonly'.55 =n
-S2223[Change the visibility of 'FLVHighQualityKeepOriginalSize' or make it 'const' or 'readonly'.66 ;m
-S2223ZChange the visibility of 'FLVLowQualityKeepOriginalSize' or make it 'const' or 'readonly'.44 :X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	// ©r
-S2223_Change the visibility of 'FLVVeryHighQualityKeepOriginalSize' or make it 'const' or 'readonly'.77 ?X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	66 ÆX
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	44 ÆX
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	22 ∞X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	55 ∞X
+S11354Complete the task associated to this 'TODO' comment.$$ 1
+S125Remove this commented out code.'' 6a
+S2223NChange the visibility of 'FLVLowQualityQCIF' or make it 'const' or 'readonly'.// .X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	// ©_
+S3457LThe format string might be wrong, the following arguments are unused: 'CIF'.55@ Mp
+S2223]Change the visibility of 'FLVMediumQualityKeepOriginalSize' or make it 'const' or 'readonly'.55 =X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	55 ∞a
+S2223NChange the visibility of 'FLVHighQualityVGA' or make it 'const' or 'readonly'.11 .c
+S2223PChange the visibility of 'FLVMediumQualityCIF' or make it 'const' or 'readonly'.00 0X
 S1104DMake this field 'private' and encapsulate it in a 'public' property.	00 ™X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	77 µX
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	11 ®f
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	11 ®_
+S3457LThe format string might be wrong, the following arguments are unused: 'VGA'.66> Kn
+S2223[Change the visibility of 'FLVHighQualityKeepOriginalSize' or make it 'const' or 'readonly'.66 ;`
+S3457MThe format string might be wrong, the following arguments are unused: 'QVGA'.44= Jm
+S2223ZChange the visibility of 'FLVLowQualityKeepOriginalSize' or make it 'const' or 'readonly'.44 :X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	66 ÆX
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	44 Æf
+S2223SChange the visibility of 'FLVVeryHighQualitySVGA' or make it 'const' or 'readonly'.22 3X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	22 ∞`
+S3457MThe format string might be wrong, the following arguments are unused: 'SVGA'.77B Or
+S2223_Change the visibility of 'FLVVeryHighQualityKeepOriginalSize' or make it 'const' or 'readonly'.77 ?f
 S2223SChange the visibility of 'THREEGPLowQualitySQCIF' or make it 'const' or 'readonly'.:: 3X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	:: ¡`
-S3457MThe format string might be wrong, the following arguments are unused: 'QVGA'.44= Jh
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	77 µX
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	:: ¡h
 S2223UChange the visibility of 'THREEGPMediumQualityQCIF' or make it 'const' or 'readonly'.;; 5X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	;; º_
-S3457LThe format string might be wrong, the following arguments are unused: 'CIF'.55@ Me
-S2223RChange the visibility of 'THREEGPHighQualityCIF' or make it 'const' or 'readonly'.<< 2_
-S3457LThe format string might be wrong, the following arguments are unused: 'VGA'.66> Km
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	;; ºe
+S2223RChange the visibility of 'THREEGPHighQualityCIF' or make it 'const' or 'readonly'.<< 2`
+S3457MThe format string might be wrong, the following arguments are unused: 'QVGA'.>>= Jm
 S2223ZChange the visibility of 'MP4LowQualityKeepOriginalSize' or make it 'const' or 'readonly'.>> :X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	<< ∫p
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	<< ∫X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	>> Æ_
+S3457LThe format string might be wrong, the following arguments are unused: 'CIF'.??@ Mp
 S2223]Change the visibility of 'MP4MediumQualityKeepOriginalSize' or make it 'const' or 'readonly'.?? =X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	>> ÆX
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	?? ∞n
-S2223[Change the visibility of 'MP4HighQualityKeepOriginalSize' or make it 'const' or 'readonly'.@@ ;`
-S3457MThe format string might be wrong, the following arguments are unused: 'SVGA'.77B Oa
-S2223NChange the visibility of 'MP4LowQualityQVGA' or make it 'const' or 'readonly'.BB .c
-S2223PChange the visibility of 'MP4MediumQualityCIF' or make it 'const' or 'readonly'.CC 0X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	@@ Æa
-S2223NChange the visibility of 'MP4HighQualityVGA' or make it 'const' or 'readonly'.DD .X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	?? ∞_
+S3457LThe format string might be wrong, the following arguments are unused: 'VGA'.@@> Kn
+S2223[Change the visibility of 'MP4HighQualityKeepOriginalSize' or make it 'const' or 'readonly'.@@ ;a
+S2223NChange the visibility of 'MP4LowQualityQVGA' or make it 'const' or 'readonly'.BB .X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	@@ ÆX
 S1104DMake this field 'private' and encapsulate it in a 'public' property.	BB ©a
+S2223NChange the visibility of 'MP4HighQualityVGA' or make it 'const' or 'readonly'.DD .X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	DD ®c
+S2223PChange the visibility of 'MP4MediumQualityCIF' or make it 'const' or 'readonly'.CC 0a
 S2223NChange the visibility of 'WMVLowQualityQVGA' or make it 'const' or 'readonly'.GG .X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	CC ™_
-S3457LThe format string might be wrong, the following arguments are unused: 'CIF'.??@ Mc
-S2223PChange the visibility of 'WMVMediumQualityCIF' or make it 'const' or 'readonly'.HH 0`
-S3457MThe format string might be wrong, the following arguments are unused: 'QVGA'.>>= Ja
-S2223NChange the visibility of 'WMVHighQualityVGA' or make it 'const' or 'readonly'.II .X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	GG æf
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	CC ™X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	GG æb
+S1118OAdd a 'protected' constructor or the 'static' keyword to the class declaration. +c
+S2223PChange the visibility of 'WMVMediumQualityCIF' or make it 'const' or 'readonly'.HH 0X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	HH øa
+S2223NChange the visibility of 'WMVHighQualityVGA' or make it 'const' or 'readonly'.II .f
 S2223SChange the visibility of 'WMVVeryHighQualitySVGA' or make it 'const' or 'readonly'.JJ 3X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	HH øX
 S1104DMake this field 'private' and encapsulate it in a 'public' property.	II ΩX
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	JJ ≈X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	DD ®_
-S3457LThe format string might be wrong, the following arguments are unused: 'VGA'.@@> Km
-S2223ZChange the visibility of 'WMVLowQualityKeepOriginalSize' or make it 'const' or 'readonly'.LL :p
-S2223]Change the visibility of 'WMVMediumQualityKeepOriginalSize' or make it 'const' or 'readonly'.MM =X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	LL √X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	MM ≈n
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	JJ ≈`
+S3457MThe format string might be wrong, the following arguments are unused: 'QVGA'.LL= Jm
+S2223ZChange the visibility of 'WMVLowQualityKeepOriginalSize' or make it 'const' or 'readonly'.LL :X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	LL √_
+S3457LThe format string might be wrong, the following arguments are unused: 'CIF'.MM@ Mp
+S2223]Change the visibility of 'WMVMediumQualityKeepOriginalSize' or make it 'const' or 'readonly'.MM =_
+S3457LThe format string might be wrong, the following arguments are unused: 'VGA'.NN> Kn
 S2223[Change the visibility of 'WMVHighQualityKeepOriginalSize' or make it 'const' or 'readonly'.NN ;X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	NN √r
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	MM ≈X
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	NN √`
+S3457MThe format string might be wrong, the following arguments are unused: 'SVGA'.OOB Or
 S2223_Change the visibility of 'WMVVeryHighQualityKeepOriginalSize' or make it 'const' or 'readonly'.OO ?X
-S1104DMake this field 'private' and encapsulate it in a 'public' property.	OO  b
-S1118OAdd a 'protected' constructor or the 'static' keyword to the class declaration. +_
-S3457LThe format string might be wrong, the following arguments are unused: 'CIF'.MM@ M`
-S3457MThe format string might be wrong, the following arguments are unused: 'QVGA'.LL= J_
-S3457LThe format string might be wrong, the following arguments are unused: 'VGA'.NN> K`
-S3457MThe format string might be wrong, the following arguments are unused: 'SVGA'.OOB OÊ
+S1104DMake this field 'private' and encapsulate it in a 'public' property.	OO  Ê
 yG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoEncoderAsync\VideoFile.csW
 S2292DMake this an auto-implemented property and remove its backing field.
 
  G
 S1125'System.Exception' should not be thrown by user code... #G
 S1125'System.Exception' should not be thrown by user code.22 #ﬂ
-mG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPTZControl.cs;
-S1172(Remove this unused method parameter 'e'.==< Lt
+mG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPTZControl.cst
 S101bRename class 'VideoPTZControl' to match camel case naming rules, consider using 'VideoPtzControl'. (;
-S1172(Remove this unused method parameter 'e'.DD: Jß
+S1172(Remove this unused method parameter 'e'.DD: J;
+S1172(Remove this unused method parameter 'e'.==< Lß
 rG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlay\IVideoPlay.cs1
 S125Remove this commented out code.II K…
 vG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlay\VideoPlay_AXIS.cs1
@@ -13306,25 +13306,25 @@ vG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S125Remove this commented out code.
 ‹‹ 3
 S125Remove this commented out code.
-´´ 78
+´´ 7E
+S11440Remove the unused private method 'CreateBitmap'.
+∞¡ 	9
+S3264&Remove this unused event or invoke it./ E8
 S2933%Make 'objVideoRecordLock' 'readonly'.(( )D
+S1172/Remove this unused method parameter 'cookieID'.
+ÖÖ& 2q
+S101_Rename class 'VideoPlay_AXIS' to match camel case naming rules, consider using 'VideoPlayAxis'. D
 S1172/Remove this unused method parameter 'cookieID'.
 øø# /D
 S1172/Remove this unused method parameter 'cookieID'.
-ËË# /9
-S3264&Remove this unused event or invoke it./ ED
-S1172/Remove this unused method parameter 'cookieID'.
-ÖÖ& 2E
-S11440Remove the unused private method 'CreateBitmap'.
-∞¡ 	q
-S101_Rename class 'VideoPlay_AXIS' to match camel case naming rules, consider using 'VideoPlayAxis'. ≥
-yG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlay\VideoPlay_BuleSky.csW
-S1104DMake this field 'private' and encapsulate it in a 'public' property. 1
+ËË# /≥
+yG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlay\VideoPlay_BuleSky.cs1
 S125Remove this commented out code.&& R1
 S125Remove this commented out code.:: J1
 S125Remove this commented out code.II 11
 S125Remove this commented out code.hh 1
-S125Remove this commented out code.kk !3
+S125Remove this commented out code.kk !W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. 3
 S125Remove this commented out code.
 ÛÛ 93
 S125Remove this commented out code.
@@ -13346,33 +13346,33 @@ yG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S125Remove this commented out code.
    +3
 S125Remove this commented out code.
-ﬁﬁ D5
-S2933"Make 'VideoPlayHandle' 'readonly'. 6
-S2933#Make 'm_IPCPreViewPara' 'readonly'." 29
-S3264&Remove this unused event or invoke it.../ Ew
-S101eRename class 'VideoPlay_BuleSky' to match camel case naming rules, consider using 'VideoPlayBuleSky'. "=
+ﬁﬁ D=
 S108)Either remove or fill this block of code.
-⁄‹ g
-S1450TRemove the '_nRet' field and declare it as a local variable in the relevant methods. v
-S1450cRemove the 'm_bisHaveThirdStream' field and declare it as a local variable in the relevant methods. !?
-S1125*Remove the unnecessary Boolean literal(s).
-ïïR YP
-S1854=Remove this useless assignment to local variable 'bolResult'.vv %e
-S3776RRefactor this method to reduce its Cognitive Complexity from 60 to the 15 allowed.bb v
-S1871aEither merge this branch with the identical one on line 450 or change one of the implementations.
-…Œ D
-S1066/Merge this if statement with the enclosing one.
-ïï$ &R
-S1854=Remove this useless assignment to local variable 'bolResult'.
-ÉÉ" )R
-S1854=Remove this useless assignment to local variable 'bolResult'.
-åå& -g
+⁄‹ e
+S3776RRefactor this method to reduce its Cognitive Complexity from 60 to the 15 allowed.bb g
 S3776RRefactor this method to reduce its Cognitive Complexity from 57 to the 15 allowed.
 ÌÌ $g
 S3776RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.
-ÏÏ  G
+ÏÏ  9
+S3264&Remove this unused event or invoke it.../ E5
+S2933"Make 'VideoPlayHandle' 'readonly'. 6
+S2933#Make 'm_IPCPreViewPara' 'readonly'." 2v
+S1450cRemove the 'm_bisHaveThirdStream' field and declare it as a local variable in the relevant methods. !g
+S1450TRemove the '_nRet' field and declare it as a local variable in the relevant methods. w
+S101eRename class 'VideoPlay_BuleSky' to match camel case naming rules, consider using 'VideoPlayBuleSky'. "D
+S1066/Merge this if statement with the enclosing one.
+ïï$ &G
 S14812Remove this unused 'sbRecFilePath' local variable.
-«« 'Y
+«« 'v
+S1871aEither merge this branch with the identical one on line 450 or change one of the implementations.
+…Œ R
+S1854=Remove this useless assignment to local variable 'bolResult'.
+ÉÉ" )R
+S1854=Remove this useless assignment to local variable 'bolResult'.
+åå& -?
+S1125*Remove the unnecessary Boolean literal(s).
+ïïR YP
+S1854=Remove this useless assignment to local variable 'bolResult'.vv %Y
 S2589DChange this condition so that it does not always evaluate to 'true'.
 ùù9 Bö
 wG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlay\VideoPlay_Ezviz.cs4
@@ -13383,7 +13383,20 @@ wG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S125Remove this commented out code.
 ¸¸ N3
 S125Remove this commented out code.
-¥¥ 8t
+¥¥ 8W
+S2589DChange this condition so that it does not always evaluate to 'true'.22 (W
+S2589DChange this condition so that it does not always evaluate to 'true'.99 0A
+S1481,Remove this unused 'strUser' local variable.
+≈≈ R
+S1854=Remove this useless assignment to local variable 'intResult'.
+™™ pR
+S1854=Remove this useless assignment to local variable 'intResult'.
+∞∞ l9
+S3264&Remove this unused event or invoke it./ E_
+S3241JChange return type to 'void'; not a single caller uses the returned value.
+éé j
+S2696UMake the enclosing instance method 'static' or remove this set on the 'static' field.
+ÆÆ $t
 S1871_Either merge this case with the identical one on line 251 or change one of the implementations.
 ÄÇ t
 S1871_Either merge this case with the identical one on line 251 or change one of the implementations.
@@ -13409,25 +13422,12 @@ wG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1871_Either merge this case with the identical one on line 251 or change one of the implementations.
 ¨Æ M
 S11218Extract the assignment of 'strTag' from this expression.
-≤≤$ %_
-S3241JChange return type to 'void'; not a single caller uses the returned value.
-éé W
-S2589DChange this condition so that it does not always evaluate to 'true'.22 (W
-S2589DChange this condition so that it does not always evaluate to 'true'.99 0A
-S1481,Remove this unused 'strUser' local variable.
-ÃÃ R
-S1854=Remove this useless assignment to local variable 'intResult'.
-™™ pR
-S1854=Remove this useless assignment to local variable 'intResult'.
-∞∞ l9
-S3264&Remove this unused event or invoke it./ Es
-S101aRename class 'VideoPlay_Ezviz' to match camel case naming rules, consider using 'VideoPlayEzviz'.  j
-S2696UMake the enclosing instance method 'static' or remove this set on the 'static' field.
-ÆÆ $A
-S1481,Remove this unused 'strUser' local variable.
-≈≈ t
+≤≤$ %t
 S1450aRemove the 'Ezviz_DataCallBack' field and declare it as a local variable in the relevant methods.%%) ;j
-S1450WRemove the 'callBack' field and declare it as a local variable in the relevant methods.$$  (ƒ
+S1450WRemove the 'callBack' field and declare it as a local variable in the relevant methods.$$  (s
+S101aRename class 'VideoPlay_Ezviz' to match camel case naming rules, consider using 'VideoPlayEzviz'.  A
+S1481,Remove this unused 'strUser' local variable.
+ÃÃ ƒ
 xG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlay\VideoPlay_HikDVR.cs1
 S125Remove this commented out code.EE >1
 S125Remove this commented out code.PP D3
@@ -13436,22 +13436,22 @@ xG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S125Remove this commented out code.
 ∞∞ Xé
 S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.
-∫∫ $1
-S2933Make 'iChannelNum' 'readonly'.{{ !9
-S3264&Remove this unused event or invoke it./ Eu
-S101cRename class 'VideoPlay_HikDVR' to match camel case naming rules, consider using 'VideoPlayHikDvr'. !=
+∫∫ $e
+S3776RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(( =
 S108)Either remove or fill this block of code.
-èê e
-S1450RRemove the 'iip' field and declare it as a local variable in the relevant methods.}} Z
+èê 9
+S3264&Remove this unused event or invoke it./ E1
+S2933Make 'iChannelNum' 'readonly'.{{ !G
+S14812Remove this unused 'sbRecFilePath' local variable.
+¬¬ 'e
+S1450RRemove the 'iip' field and declare it as a local variable in the relevant methods.}} u
+S101cRename class 'VideoPlay_HikDVR' to match camel case naming rules, consider using 'VideoPlayHikDvr'. !Z
 S1854ERemove this useless assignment to local variable 'm_struChanInfoV40'.
 ÜÜ5 SW
 S1854BRemove this useless assignment to local variable 'm_struChanInfo'.
 ÑÑ. H[
 S1854ERemove this useless assignment to local variable 'm_struChanInfoV40'.≠≠. éX
-S1854BRemove this useless assignment to local variable 'm_struChanInfo'.ßß+ Äe
-S3776RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(( G
-S14812Remove this unused 'sbRecFilePath' local variable.
-¬¬ '@
+S1854BRemove this useless assignment to local variable 'm_struChanInfo'.ßß+ Ä@
 S1481-Remove this unused 'RealData' local variable.[[! )©
 wG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlay\VideoPlay_Shike.cs9
 S3264&Remove this unused event or invoke it./ Es
@@ -13459,11 +13459,11 @@ wG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 
   ‚
 vG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlay\VideoPlay_XMai.cs1
-S125Remove this commented out code.ll C3
-S125Remove this commented out code.
-éé $I
+S125Remove this commented out code.ll CI
 S11354Complete the task associated to this 'TODO' comment.
-ŸŸ 9
+ŸŸ 3
+S125Remove this commented out code.
+éé $9
 S3264&Remove this unused event or invoke it.JJ/ Eq
 S101_Rename class 'VideoPlay_XMai' to match camel case naming rules, consider using 'VideoPlayXMai'.
  P
@@ -13474,120 +13474,119 @@ vG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ≥≥  .G
 S14812Remove this unused 'sbRecFilePath' local variable.
 ùù '»
-wG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlay\Video_HikStream.cs9
-S3264&Remove this unused event or invoke it./ EM
+wG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlay\Video_HikStream.csM
 S1144:Remove the unused private property 'VideoplayWindowWidth'. N
-S1144;Remove the unused private property 'VideoplayWindowHeight'. s
+S1144;Remove the unused private property 'VideoplayWindowHeight'. 9
+S3264&Remove this unused event or invoke it./ Es
 S101aRename class 'Video_HikStream' to match camel case naming rules, consider using 'VideoHikStream'.
 
   ™
 ÑG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayGroupControl_ExtendedControl .cs†
 S101çRename class 'VideoPlayGroupControl_ExtendedControl' to match camel case naming rules, consider using 'VideoPlayGroupControlExtendedControl'. >¶
 ÅG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayGroupControl_MultiPicture1.csW
-S1104DMake this field 'private' and encapsulate it in a 'public' property. 8W
-S1104DMake this field 'private' and encapsulate it in a 'public' property. -W
-S1104DMake this field 'private' and encapsulate it in a 'public' property. .W
-S1104DMake this field 'private' and encapsulate it in a 'public' property. 1W
 S1104DMake this field 'private' and encapsulate it in a 'public' property. 1W
-S1104DMake this field 'private' and encapsulate it in a 'public' property. 7å
+S1104DMake this field 'private' and encapsulate it in a 'public' property. -W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. 8W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. .W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. 7W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. 1å
 S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation."" =,
 S2933Make 'dicWin' 'readonly'.) /.
 S2933Make 'dicVideo' 'readonly'.# +ú
 S101âRename class 'VideoPlayGroupControl_MultiPicture1' to match camel case naming rules, consider using 'VideoPlayGroupControlMultiPicture1'. <ﬂ
 zG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayGroupControls_Basic.csW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.// /W
-S1104DMake this field 'private' and encapsulate it in a 'public' property. ,W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.- gW
 S1104DMake this field 'private' and encapsulate it in a 'public' property.%% .W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.44 /W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.** .W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. ,W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.>> +W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.   +3
+S1104DMake this field 'private' and encapsulate it in a 'public' property.99  E3
 S125Remove this commented out code.
 …… OW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.99  E;
-S1481&Remove this unused 'v' local variable.
-««  !I
+S1104DMake this field 'private' and encapsulate it in a 'public' property.   +W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.// /W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.- gW
+S1104DMake this field 'private' and encapsulate it in a 'public' property.44 /D
+S1066/Merge this if statement with the enclosing one.
+—— I
 S34454Consider using 'throw;' to preserve the stack trace.
 ·· ç
-S101{Rename class 'VideoPlayGroupControls_Basic' to match camel case naming rules, consider using 'VideoPlayGroupControlsBasic'. 5D
-S1066/Merge this if statement with the enclosing one.
-—— g
+S101{Rename class 'VideoPlayGroupControls_Basic' to match camel case naming rules, consider using 'VideoPlayGroupControlsBasic'. 5;
+S1481&Remove this unused 'v' local variable.
+««  !g
 S3776RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.
 †† D
 S1066/Merge this if statement with the enclosing one.
 ‰‰ €
 |G:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayGroupControls_Basic_1.csW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.%% .W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.99  EW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.** .W
-S1104DMake this field 'private' and encapsulate it in a 'public' property. ,3
+S1104DMake this field 'private' and encapsulate it in a 'public' property.A {W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. ,W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.// /3
 S125Remove this commented out code.
 «« OW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.   +W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.A {W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.44 /W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.// /W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.>> +I
-S34454Consider using 'throw;' to preserve the stack trace.
-ﬂﬂ ;
-S1481&Remove this unused 'v' local variable.
-»»  !ê
-S101~Rename class 'VideoPlayGroupControls_Basic_1' to match camel case naming rules, consider using 'VideoPlayGroupControlsBasic1'. 7D
-S1066/Merge this if statement with the enclosing one.
-œœ ;
-S1481&Remove this unused 'v' local variable.
-µµ  !g
-S3776RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.
-íí ë
-G:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayGroupControls_PTZAndTalk.csW
 S1104DMake this field 'private' and encapsulate it in a 'public' property.%% .W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.// /W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.- gW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.** .W
-S1104DMake this field 'private' and encapsulate it in a 'public' property. ,W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.44 /W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.   +W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.99  EW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.>> +3
+S1104DMake this field 'private' and encapsulate it in a 'public' property.** .W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.>> +D
+S1066/Merge this if statement with the enclosing one.
+œœ I
+S34454Consider using 'throw;' to preserve the stack trace.
+ﬂﬂ ê
+S101~Rename class 'VideoPlayGroupControls_Basic_1' to match camel case naming rules, consider using 'VideoPlayGroupControlsBasic1'. 7;
+S1481&Remove this unused 'v' local variable.
+»»  !g
+S3776RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.
+íí ;
+S1481&Remove this unused 'v' local variable.
+µµ  !ë
+G:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayGroupControls_PTZAndTalk.csW
+S1104DMake this field 'private' and encapsulate it in a 'public' property.44 /W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.- gW
+S1104DMake this field 'private' and encapsulate it in a 'public' property.// /W
+S1104DMake this field 'private' and encapsulate it in a 'public' property. ,3
 S125Remove this commented out code.
 ºº O4
-S125Remove this commented out code.˝˝ ñ5
-S2933"Make 'strTalkVideoNum' 'readonly'.DD g
+S125Remove this commented out code.˝˝ ñW
+S1104DMake this field 'private' and encapsulate it in a 'public' property.** .W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.   +W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.%% .E
+S11442Remove the unused private field 'strTalkVideoNum'.DD $W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.99  EW
+S1104DMake this field 'private' and encapsulate it in a 'public' property.>> +g
 S3776RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.
-ÆÆ %E
-S11442Remove the unused private field 'strTalkVideoNum'.DD $ò
-S101ÖRename class 'VideoPlayGroupControls_PTZAndTalk' to match camel case naming rules, consider using 'VideoPlayGroupControlsPtzAndTalk'. :;
+ÆÆ %;
 S1481&Remove this unused 'v' local variable.
-ÑÑ  !I
+ÑÑ  !5
+S2933"Make 'strTalkVideoNum' 'readonly'.DD ò
+S101ÖRename class 'VideoPlayGroupControls_PTZAndTalk' to match camel case naming rules, consider using 'VideoPlayGroupControlsPtzAndTalk'. :D
+S1066/Merge this if statement with the enclosing one.
+ƒƒ I
 S34454Consider using 'throw;' to preserve the stack trace.
-‘‘ Ç
+‘‘ g
+S3776RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.
+îî Ç
 S2583mChange this condition so that it does not always evaluate to 'false'; some subsequent code is never executed.
 ﬂﬂ( ;D
 S1066/Merge this if statement with the enclosing one.
-ƒƒ D
-S1066/Merge this if statement with the enclosing one.
-ŸŸ g
-S3776RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.
-îî ô
+ŸŸ ô
 ÉG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayGroupControls_VideoInfoList1.csW
 S1104DMake this field 'private' and encapsulate it in a 'public' property.%% )W
 S1104DMake this field 'private' and encapsulate it in a 'public' property.##A {1
 S125Remove this commented out code.// 8@
-S1172-Remove this unused method parameter 'sender'.' 4G
-S34454Consider using 'throw;' to preserve the stack trace.nn †
-S101çRename class 'VideoPlayGroupControls_VideoInfoList1' to match camel case naming rules, consider using 'VideoPlayGroupControlsVideoInfoList1'. >ƒ
+S1172-Remove this unused method parameter 'sender'.' 4†
+S101çRename class 'VideoPlayGroupControls_VideoInfoList1' to match camel case naming rules, consider using 'VideoPlayGroupControlsVideoInfoList1'. >G
+S34454Consider using 'throw;' to preserve the stack trace.nn ƒ
 mG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayWindow.cs3
 S125Remove this commented out code.
-ÉÉ RW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.(( +3
+ÉÉ R3
 S125Remove this commented out code.
-¬¬ =3
+¬¬ =W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.## )3
 S125Remove this commented out code.
 ªª I3
 S125Remove this commented out code.
-…… EW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.## )3
+…… E3
 S125Remove this commented out code.
 ¸¸ F3
 S125Remove this commented out code.
@@ -13595,11 +13594,12 @@ mG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S125Remove this commented out code.
 √√ %3
 S125Remove this commented out code.
-ŒŒ !3
-S125Remove this commented out code.
-˛˛ /`
+ŒŒ !W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.(( +`
 S2223KChange the visibility of 'gEventCallback' or make it 'const' or 'readonly'.
-¨¨2 @Y
+¨¨2 @3
+S125Remove this commented out code.
+˛˛ /Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 ¨¨2 G3
 S125Remove this commented out code.
@@ -13607,9 +13607,11 @@ mG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S125Remove this commented out code.
 €€ 3
 S125Remove this commented out code.
-ÔÔ '3
+ÔÔ 'W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.DD  L3
 S125Remove this commented out code.
-ü	ü	 T3
+ü	ü	 TW
+S1104DMake this field 'private' and encapsulate it in a 'public' property.II 3
 S125Remove this commented out code.
 ≠	≠	 -3
 S125Remove this commented out code.
@@ -13629,20 +13631,22 @@ mG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S125Remove this commented out code.
 Ø
 Ø
- (W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.II W
-S1104DMake this field 'private' and encapsulate it in a 'public' property.DD  LY
+ (Y
 S1104DMake this field 'private' and encapsulate it in a 'public' property.
 §§ +J
 S17515Remove this 'break' statement or make it conditional.
-ÂÂ *
-S2933Make 'intx' 'readonly'. 4
-S2933!Make 'lstVideoRecord' 'readonly'.QQ !8
-S2933%Make 'objVideoRecordLock' 'readonly'.RR )J
+ÂÂ J
 S17515Remove this 'break' statement or make it conditional.
-óó 0
+óó :
+S1144'Remove the unused private field 'intx'. D
+S11441Remove the unused private field 'lstVideoRecord'.QQ 5H
+S11445Remove the unused private field 'objVideoRecordLock'.RR 9J
+S11445Remove the unused private method 'IPCWA_VideoRecord'.
+îº 	0
 S3626Remove this redundant jump.
-   j
+   M
+S11218Extract the assignment of 'strTag' from this expression.
+ÅÅ  !j
 S2696UMake the enclosing instance method 'static' or remove this set on the 'static' field.
 ‘‘ C
 S1172.Remove this unused method parameter 'nLinkID'.
@@ -13651,28 +13655,24 @@ mG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 ‡‡Z gB
 S1172-Remove this unused method parameter 'pData2'.
 ‡‡i vF
-S11720Remove this unused method parameter 'pUserData'.‡‡x àM
-S11218Extract the assignment of 'strTag' from this expression.
-ÅÅ  !;
+S11720Remove this unused method parameter 'pUserData'.‡‡x à;
 S3264&Remove this unused event or invoke it.
-°°/ E:
-S1144'Remove the unused private field 'intx'. D
-S11441Remove the unused private field 'lstVideoRecord'.QQ 5H
-S11445Remove the unused private field 'objVideoRecordLock'.RR 9J
-S11445Remove the unused private method 'IPCWA_VideoRecord'.
-îº 	W
+°°/ E*
+S2933Make 'intx' 'readonly'. 4
+S2933!Make 'lstVideoRecord' 'readonly'.QQ !8
+S2933%Make 'objVideoRecordLock' 'readonly'.RR )W
 S1854BRemove this useless assignment to local variable 'strRecFilePath'.
 ßß 9W
 S1854BRemove this useless assignment to local variable 'strRecFilePath'.
-∏∏ 9P
+∏∏ 9é
+S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.
+∫∫ $P
 S1854;Remove this useless assignment to local variable 'iResult'.
 ÅÅ HP
 S1854;Remove this useless assignment to local variable 'iResult'.
 ÄÄ `A
 S1172,Remove this unused method parameter 'iUser'.
-ññ5 Aé
-S1186yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.
-∫∫ $Æ
+ññ5 AÆ
 õG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoRecordBackplay\VideoPlayback\VideoBackPlay_AmpFileParser.cs;
 S108)Either remove or fill this block of code.Z\ ã
 S101yRename class 'VideoBackPlay_AmpFileParser' to match camel case naming rules, consider using 'VideoBackPlayAmpFileParser'.%%
@@ -13680,16 +13680,16 @@ mG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S1481.Remove this unused 'positions' local variable.
 ˝˝ ì
 äG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoRecordBackplay\VideoRecordBackplay_AXIS.cs1
-S125Remove this commented out code.66 w6
-S2933#Make 'm_nFastTypeLocal' 'readonly'.VV 6
-S2933#Make 'm_nSlowTypeLocal' 'readonly'.WW ]
-S3241JChange return type to 'void'; not a single caller uses the returned value. 9
-S3264&Remove this unused event or invoke it.2 JC
-S11720Remove this unused method parameter 'lPlayHand'.hh +?
-S1172,Remove this unused method parameter 'nUser'.hh- 7F
+S125Remove this commented out code.66 wF
 S11443Remove the unused private field 'm_nFastTypeLocal'.VV !F
 S11443Remove the unused private field 'm_nSlowTypeLocal'.WW !F
-S11443Remove the unused private method 'FileEndCallBack'.hn 	Ö
+S11443Remove the unused private method 'FileEndCallBack'.hn 	C
+S11720Remove this unused method parameter 'lPlayHand'.hh +?
+S1172,Remove this unused method parameter 'nUser'.hh- 79
+S3264&Remove this unused event or invoke it.2 J6
+S2933#Make 'm_nFastTypeLocal' 'readonly'.VV 6
+S2933#Make 'm_nSlowTypeLocal' 'readonly'.WW ]
+S3241JChange return type to 'void'; not a single caller uses the returned value. Ö
 S101sRename class 'VideoRecordBackplay_AXIS' to match camel case naming rules, consider using 'VideoRecordBackplayAxis'.		
  "a
 S1244LDo not check floating point equality with exact values, use a range instead.
@@ -13708,47 +13708,47 @@ mG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S125Remove this commented out code.
 ÖÖ 03
 S125Remove this commented out code.
-ëë  U,
+ëë  Ug
+S3776RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.
+ÄÄ #g
+S3776RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.
+ÚÚ (9
+S3264&Remove this unused event or invoke it.--2 J,
 S2933Make 'Handle' 'readonly'. ]
-S3241JChange return type to 'void'; not a single caller uses the returned value... 9
-S3264&Remove this unused event or invoke it.--2 Jã
+S3241JChange return type to 'void'; not a single caller uses the returned value... f
+S1450SRemove the 'nRet' field and declare it as a local variable in the relevant methods. ã
 S101yRename class 'VideoRecordBackplay_BlueSky' to match camel case naming rules, consider using 'VideoRecordBackplayBlueSky'.
 
 
- %?
-S1125*Remove the unnecessary Boolean literal(s).
-°°A Fg
-S3776RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.
-ÄÄ #f
-S1450SRemove the 'nRet' field and declare it as a local variable in the relevant methods. g
+ %g
 S3604TRemove the member initializer, all constructors set an initial value for the member. #a
 S1244LDo not check floating point equality with exact values, use a range instead.
-ãã% 'g
-S3776RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.
-ÚÚ (D
+ãã% 'D
 S1066/Merge this if statement with the enclosing one.
-¯¯ C
+¯¯ ?
+S1125*Remove the unnecessary Boolean literal(s).
+°°A FC
 S1481.Remove this unused 'startTime' local variable.
 ˝˝, 5ì
 äG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoRecordBackplay\VideoRecordBackplay_XMAI.cs1
-S125Remove this commented out code.66 w6
-S2933#Make 'm_nFastTypeLocal' 'readonly'.VV 6
-S2933#Make 'm_nSlowTypeLocal' 'readonly'.WW ]
-S3241JChange return type to 'void'; not a single caller uses the returned value. C
-S11720Remove this unused method parameter 'lPlayHand'.hh +?
-S1172,Remove this unused method parameter 'nUser'.hh- 79
-S3264&Remove this unused event or invoke it.2 JF
+S125Remove this commented out code.66 wF
 S11443Remove the unused private field 'm_nFastTypeLocal'.VV !F
 S11443Remove the unused private field 'm_nSlowTypeLocal'.WW !F
-S11443Remove the unused private method 'FileEndCallBack'.hn 	Ö
+S11443Remove the unused private method 'FileEndCallBack'.hn 	C
+S11720Remove this unused method parameter 'lPlayHand'.hh +?
+S1172,Remove this unused method parameter 'nUser'.hh- 79
+S3264&Remove this unused event or invoke it.2 J6
+S2933#Make 'm_nFastTypeLocal' 'readonly'.VV 6
+S2933#Make 'm_nSlowTypeLocal' 'readonly'.WW ]
+S3241JChange return type to 'void'; not a single caller uses the returned value. Ö
 S101sRename class 'VideoRecordBackplay_XMAI' to match camel case naming rules, consider using 'VideoRecordBackplayXmai'.		
  "a
 S1244LDo not check floating point equality with exact values, use a range instead.
 éé  "Ã
 wG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoRecordBackplayWindow.csW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.$ -=
-S1172*Remove this unused method parameter 'obj'.) 39
-S3264&Remove this unused event or invoke it.2 JÄ
+S1104DMake this field 'private' and encapsulate it in a 'public' property.$ -9
+S3264&Remove this unused event or invoke it.2 J=
+S1172*Remove this unused method parameter 'obj'.) 3Ä
 tG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoRecordInfoConvert.csb
 S1118OAdd a 'protected' constructor or the 'static' keyword to the class declaration. '1
 S125Remove this commented out code. (q
@@ -13759,21 +13759,21 @@ mG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 S125Remove this commented out code... 1
 S125Remove this commented out code.EE 1
 S125Remove this commented out code.yy á
-{G:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoTalk\VideoTalk_HikStream.csW
-S1104DMake this field 'private' and encapsulate it in a 'public' property.AA7 A3
+{G:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoTalk\VideoTalk_HikStream.cs3
 S125Remove this commented out code.
 ÄÄ .3
 S125Remove this commented out code.
-∂∂ /
-S2933Make 'VoiceData' 'readonly'.FF. 70
-S2933Make 'listByteCH' 'readonly'.ZZ 9
-S3264&Remove this unused event or invoke it.11. C9
-S3264&Remove this unused event or invoke it.22* ;e
-S3776RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.ss {
-S101iRename class 'VideoTalk_HikStream' to match camel case naming rules, consider using 'VideoTalkHikStream'. $B
-S1066/Merge this if statement with the enclosing one.}} D
+∂∂ W
+S1104DMake this field 'private' and encapsulate it in a 'public' property.AA7 Ae
+S3776RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.ss D
 S1066/Merge this if statement with the enclosing one.
-¬¬ Ü
+¬¬ 9
+S3264&Remove this unused event or invoke it.11. C9
+S3264&Remove this unused event or invoke it.22* ;B
+S1066/Merge this if statement with the enclosing one.}} /
+S2933Make 'VoiceData' 'readonly'.FF. 70
+S2933Make 'listByteCH' 'readonly'.ZZ {
+S101iRename class 'VideoTalk_HikStream' to match camel case naming rules, consider using 'VideoTalkHikStream'. $Ü
 ÇG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoTalk\VideoTalk_HikStream_Client.cs9
 S3264&Remove this unused event or invoke it.. C9
 S3264&Remove this unused event or invoke it.* ;à
@@ -13787,6 +13787,6 @@ wG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\Video
 
   Ω
 nG:\Working\Maintenance\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoTalkControl.cs1
-S125Remove this commented out code.77 2O
-S1172<Remove this unused method parameter 'TalkStausChangedValue'.iiD `G
-S1125'System.Exception' should not be thrown by user code.__" +
+S125Remove this commented out code.77 2G
+S1125'System.Exception' should not be thrown by user code.__" +O
+S1172<Remove this unused method parameter 'TalkStausChangedValue'.iiD `
