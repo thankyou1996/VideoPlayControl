@@ -56,6 +56,10 @@ namespace VideoPlayControl
         /// </summary>
         public const string c_strTalkManagerSDKFilePath = "\\TalkManagerSDK\\VoiceSDK.DLL";
 
+        /// <summary>
+        /// 宇视SDK 
+        /// </summary>
+        public const string c_strIMOSSDKFilePath = "\\IMOSSDK\\imos_sdk.dll";
         #endregion
 
         #region SDK默认参数

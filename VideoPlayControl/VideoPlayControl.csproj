@@ -81,7 +81,7 @@
     <Compile Include="Enum\Enum_VideoPlayState.cs" />
     <Compile Include="Enum\Enum_VideoPTZControl.cs" />
     <Compile Include="PubDelegate.cs" />
-    <Compile Include="SDKInterface\IMOSSDK.cs" />
+    <Compile Include="SDKInterface\SDK_IMOSSDK.cs" />
     <Compile Include="SDKInterface\SDK_BlueSDK.cs" />
     <Compile Include="SDKInterface\SDK_HikClientSDK.cs" />
     <Compile Include="ProgParameter.cs" />
