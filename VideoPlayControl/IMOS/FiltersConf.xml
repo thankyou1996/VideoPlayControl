@@ -1,0 +1,1800 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<imosxp>
+    <manufacture name="h3c-v3">
+        <service type="net">
+        	<source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="ts">xp_ts_file_source.dll</filter>
+                <filter attr="cds_ts">xp_cds_file_source.dll</filter>
+                <filter attr="h3c-v3">xp_ts_file_source.dll</filter>
+                <filter attr="ipc-jpeg">xp_image_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="audio">
+            <packet>
+                <filter>xp_stream_process.dll</filter>
+            </packet>
+	    	<parser>
+                <filter>xp_stream_process.dll</filter>
+            </parser>
+        </service>
+    </manufacture>
+	<manufacture name="ONVIF-H265">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="guobiao">
+        <service type="net">
+        	<source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="ts">xp_ts_file_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="audio">
+            <packet>
+                <filter>xp_stream_process.dll</filter>
+            </packet>
+	    	<parser>
+                <filter>xp_stream_process.dll</filter>
+            </parser>
+        </service>
+    </manufacture>
+    <manufacture name="ga_h264">
+        <service type="net">
+        	<source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="ts">xp_ts_file_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="audio">
+            <packet>
+                <filter>xp_stream_process.dll</filter>
+            </packet>
+	    	<parser>
+                <filter>xp_stream_process.dll</filter>
+            </parser>
+        </service>
+    </manufacture>
+    <manufacture name="h3c-v1">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	   	 	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="h3crd">xp_default_file_source.dll</filter>
+                <filter attr="uvrd">xp_default_file_source.dll</filter>
+		<filter attr="video">xp_default_file_source.dll</filter>
+            </source>
+	   	 	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+	<manufacture name="rtp-raw">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+			<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+	<manufacture name="empty-imply">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_default_stream</filter>
+                <filter attr="tcp">xp_default_stream</filter>
+            </source>
+	    	<split>
+                <filter>xp_default_stream</filter>
+            </split>
+            <decoder>
+                <filter>xp_default_stream</filter>
+            </decoder>
+            <render>
+                <filter>xp_default_stream</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="default">xp_default_stream</filter>
+            </source>
+	    	    <split>
+                <filter>xp_default_stream</filter>
+            </split>
+            <decoder>
+                <filter>xp_default_stream</filter>
+            </decoder>
+            <render>
+                <filter>xp_default_stream</filter>
+            </render>
+        </service>
+        <service type="input">
+            <source>
+                <filter>xp_default_stream</filter>
+            </source>
+	    	    <split>
+                <filter>xp_default_stream</filter>
+            </split>
+            <decoder>
+                <filter>xp_default_stream</filter>
+            </decoder>
+            <render>
+                <filter>xp_default_stream</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="aproud-sivx">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="ts">xp_ts_file_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="aproud-onu">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="hikvision-self">
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_hik_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_hik_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_hik_stream.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="hikvision-v3">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_hik_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_hik_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_hik_stream.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_hik_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_hik_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_hik_stream.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="hik">xp_hik_file.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_hik_file.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_hik_file.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_hik_file.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="h3crdhikvision-v3">
+		<service type="file">
+            <source>
+                <filter attr="h3crdhikvision-v3">xp_thirdpart_bk_file_source.dll</filter>
+				<filter attr="videohikvision-v3">xp_thirdpart_bk_file_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_hik_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_hik_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_hik_stream.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="h3crddahua-v3">
+		<service type="file">
+            <source>
+                <filter attr="h3crddahua-v3">xp_thirdpart_bk_file_source.dll</filter>
+				<filter attr="videodahua-v3">xp_thirdpart_bk_file_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dahua_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dahua_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dahua_stream.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="hikvision-v1">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_hik_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_hik_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_hik_stream.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_hik_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_hik_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_hik_stream.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+	<manufacture name="hikvision-mega">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_hik_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_hik_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_hik_stream.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_hik_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_hik_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_hik_stream.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="dahua-self">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dahua_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dahua_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dahua_stream.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dahua_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dahua_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dahua_stream.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="dahua-v3">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dahua_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dahua_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dahua_stream.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dahua_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dahua_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dahua_stream.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="dh">xp_dahua_file.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dahua_file.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dahua_file.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dahua_file.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="dahua-dav">
+        <service type="file">
+            <source>
+                <filter attr="DAV">xp_dahua_file_dav.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dahua_file_dav.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dahua_file_dav.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dahua_file_dav.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="dahua-v1">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dahua_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dahua_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dahua_stream.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dahua_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dahua_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dahua_stream.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="alec">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_alec_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_alec_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_alec_stream.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	   	 	<split>
+                <filter>xp_alec_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_alec_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_alec_stream.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="mobotix">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_mobotix_realtime.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_mobotix_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_mobotix_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_mobotix_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="mobotix">xp_mobotix_realtime.dll</filter>
+            </source>
+	    	    <split>
+                <filter>xp_mobotix_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_mobotix_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_mobotix_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="input">
+            <source>
+                <filter>xp_mobotix_realtime.dll</filter>
+            </source>
+	    	    <split>
+                <filter>xp_mobotix_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_mobotix_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_mobotix_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="yaan-v3">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="ts">xp_ts_file_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+	<manufacture name="h3crdyaan-v3">
+		<service type="file">
+            <source>
+                <filter attr="h3crddahua-v3">xp_thirdpart_bk_file_source.dll</filter>
+				<filter attr="videodahua-v3">xp_thirdpart_bk_file_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="nanzi">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_nz_filter.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_nz_filter.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_nz_filter.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_nz_filter.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_nz_filter.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_nz_filter.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="nz">xp_nz_filter.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_nz_filter.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_nz_filter.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_nz_filter.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="sony">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="onvif-mpeg4">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="ONVIF1.0">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="ONVIF2.0">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="ONVIF2.1">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+	<manufacture name="standard-rtp">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+	<manufacture name="guodian">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="samsung">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="ruiming-self">
+			<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_rm_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_rm_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_rm_stream.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="ruiming">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_rm_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_rm_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_rm_stream.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_rm_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_rm_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_rm_stream.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="TDY-SWALLOW">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_tdwy_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_tdwy_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_tdwy_stream.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_tdwy_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_tdwy_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_tdwy_stream.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="tdwy">xp_tdwy_file.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_tdwy_file.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_tdwy_file.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_tdwy_file.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="tiandy">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_tiandy_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_tiandy_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_tiandy_stream.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_tiandy_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_tiandy_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_tiandy_stream.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="tdwy">xp_tdwy_file.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_tdwy_file.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_tdwy_file.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_tdwy_file.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="DMA-SWALLOW">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dma_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dma_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dma_stream.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dma_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dma_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dma_stream.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="dma">xp_dma_file.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dma_file.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dma_file.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dma_file.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="axis">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="ts-file">
+        <service type="file">
+            <source>
+                <filter attr="ts">xp_ts_file_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+   	<manufacture name="ffmpeg">
+        <service type="file">
+            <source>
+                <filter attr="ffmpeg">xp_ffmpeg_file.dll</filter>
+            </source>
+	    	    <split>
+                <filter>xp_ffmpeg_file.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_ffmpeg_file.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_ffmpeg_file.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="KEDACOM">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	          <split>
+                <filter>xp_keda_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_keda_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_keda_stream.dll</filter>
+            </render>
+        </service>
+       <service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_keda_stream.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_keda_stream.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_keda_stream.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="panasonic">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+			<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+	<manufacture name="xtxk">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+			<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    			<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+    </manufacture>
+    <manufacture name="kedacom-97">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_anhui.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_anhui.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_anhui.dll</filter>
+            </render>
+        </service>
+	<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_anhui.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_anhui.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_anhui.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="not">xp_anhui.dll </filter>
+            </source>
+	    <split>
+                <filter>xp_anhui.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_anhui.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_anhui.dll</filter>
+            </render>
+        </service>
+	</manufacture>
+    <manufacture name="HW">
+        <service type="net">
+            <source>
+                <filter attr="udp">xp_net_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_anhui.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_anhui.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_anhui.dll</filter>
+            </render>
+        </service>
+	<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_anhui.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_anhui.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_anhui.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="not">xp_anhui.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_anhui.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_anhui.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_anhui.dll</filter>
+            </render>
+        </service>
+</manufacture>
+	<manufacture name="imos">
+        <service type="net">
+        	<source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="ts">xp_ts_file_source.dll</filter>
+                <filter attr="h3c-v3">xp_ts_file_source.dll</filter>
+                <filter attr="ipc-jpeg">xp_image_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="audio">
+            <packet>
+                <filter>xp_stream_process.dll</filter>
+            </packet>
+	    	<parser>
+                <filter>xp_stream_process.dll</filter>
+            </parser>
+        </service>
+    </manufacture>
+    <manufacture name="hxht-p-v2">
+        <service type="net">
+        	<source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="ts">xp_ts_file_source.dll</filter>
+                <filter attr="h3c-v3">xp_ts_file_source.dll</filter>
+                <filter attr="ipc-jpeg">xp_image_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="audio">
+            <packet>
+                <filter>xp_stream_process.dll</filter>
+            </packet>
+	    	<parser>
+                <filter>xp_stream_process.dll</filter>
+            </parser>
+        </service>
+    </manufacture>
+    <manufacture name="hxht-s">
+        <service type="net">
+        	<source>
+                <filter attr="udp">xp_net_source.dll</filter>
+                <filter attr="tcp">xp_tcp_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+		<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="file">
+            <source>
+                <filter attr="ts">xp_ts_file_source.dll</filter>
+                <filter attr="h3c-v3">xp_ts_file_source.dll</filter>
+                <filter attr="ipc-jpeg">xp_image_source.dll</filter>
+            </source>
+	    	<split>
+                <filter>xp_dsp_realtime.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_dsp_realtime.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_dsp_realtime.dll</filter>
+            </render>
+        </service>
+        <service type="audio">
+            <packet>
+                <filter>xp_stream_process.dll</filter>
+            </packet>
+	    	<parser>
+                <filter>xp_stream_process.dll</filter>
+            </parser>
+        </service>
+    </manufacture>
+   <manufacture name="imos_db33_templet">
+		<service type="net">
+			<source>
+			  	<filter attr="udp">xp_db33_filter.dll</filter>
+			</source>
+			<split>
+			  	<filter>xp_db33_filter.dll</filter>
+			</split>
+			<decoder>
+			  	<filter>xp_db33_filter.dll</filter>
+			</decoder>
+			<render>
+			  	<filter>xp_db33_filter.dll</filter>
+			</render>
+		</service>
+		<service type="file">
+		<source>
+		  	<filter attr="imos_db33_templet">xp_db33_filter.dll</filter>
+		</source>
+		<split>
+		  	<filter>xp_db33_filter.dll</filter>
+		</split>
+		<decoder>
+		  	<filter>xp_db33_filter.dll</filter>
+		</decoder>
+		<render>
+		  	<filter>xp_db33_filter.dll</filter>
+		</render>
+		</service>
+	</manufacture>
+	<templetmap>
+		<templet name = "imos_db33_templet">
+			<plug name = "bit" subtype = "new" prefixname = "">bit_v3.dll</plug>
+			<plug name = "npplaysdk-v3" subtype = "new" prefixname = "">npplaysdk.dll</plug>
+			<plug name = "crearo" subtype = "new" prefixname = "">NwMedia2Play.dll </plug>
+			<plug name = "dahua" subtype = "new" prefixname = "">dahua_v3.dll</plug>
+			<plug name = "hikvision" subtype = "new" prefixname = "">hikvision_v3.dll</plug>
+			<plug name = "liyuan" subtype = "new" prefixname = "">liyuan_v1.dll</plug>
+			<plug name = "xinchan" subtype = "new" prefixname = "">xinchan_v1.dll</plug>
+			<plug name = "zjbell" subtype = "new" prefixname = "">zb-v1_db33.dll</plug>
+			<plug name = "zjbell5301" subtype = "new" prefixname = "">EV5301_db33.dll</plug>
+			<plug name = "pqtel" subtype = "new" prefixname = "">pqtel_v2_Decoder.dll</plug>
+		</templet>
+  </templetmap>
+    <manufacture name="imos_imos_template">
+	<service type="net">
+		<source>
+		  	<filter attr="udp">xp_net_source.dll</filter>
+		  	<filter attr="tcp">xp_tcp_source.dll</filter>
+		</source>
+		<split>
+		  	<filter>xp_imos_filter.dll</filter>
+		</split>
+		<decoder>
+		  	<filter>xp_imos_filter.dll</filter>
+		</decoder>
+		<render>
+		  	<filter>xp_imos_filter.dll</filter>
+		</render>
+	</service>
+	<service type="input">
+            <source>
+                <filter>xp_ts_input_source.dll</filter>
+            </source>
+	    <split>
+                <filter>xp_imos_filter.dll</filter>
+            </split>
+            <decoder>
+                <filter>xp_imos_filter.dll</filter>
+            </decoder>
+            <render>
+                <filter>xp_imos_filter.dll</filter>
+            </render>
+        </service>
+	<service type="file">
+		<source>
+		  	<filter attr="imos_imos_template">xp_imos_filter.dll</filter>
+		</source>
+		<split>
+		  	<filter>xp_imos_filter.dll</filter>
+		</split>
+		<decoder>
+		  	<filter>xp_imos_filter.dll</filter>
+		</decoder>
+		<render>
+		  	<filter>xp_imos_filter.dll</filter>
+		</render>
+	</service>
+  </manufacture>
+    <templetmap>
+	<templet name = "imos_imos_template">
+		  <plug name = "hxht" subtype = "" prefixname = "">xp_imos_filter_hxht.dll</plug>
+			<plug name = "hanbang" subtype = "" prefixname = "">xp_imos_filter_hanbang.dll</plug>
+			<plug name = "beier" subtype = "" prefixname = "">xp_imos_filter_beier.dll</plug>
+			<plug name = "yaan" subtype = "" prefixname = "">xp_imos_filter_yaan.dll</plug>
+			<plug name = "hxht_real" subtype = "" prefixname = "">xp_imos_filter_hxht_real.dll</plug>
+			<plug name = "zte8000" subtype = "" prefixname = "">xp_imos_filter_ZTE8000.dll</plug>
+			<plug name = "zteyaan" subtype = "" prefixname = "">xp_imos_filter_ZTEYAAN.dll</plug>
+			<plug name = "chuangxiangweiye" subtype = "" prefixname = "">xp_imos_filter_chuangxiangweiye.dll</plug>
+			<plug name = "xingwangruijie" subtype = "" prefixname = "">xp_imos_filter_xingwangruijie.dll</plug>
+			<plug name = "beierxin" subtype = "" prefixname = "">xp_imos_filter_beierxin.dll</plug>
+			<plug name = "wenan" subtype = "" prefixname = "">xp_imos_filter_wenan.dll</plug>
+			<plug name = "chengfeng" subtype = "" prefixname = "">xp_imos_filter_chengfeng.dll</plug>
+			<plug name = "bluesky-zh" subtype = "" prefixname = "">xp_imos_filter_bluesky.dll</plug>
+			<plug name = "langchi" subtype = "" prefixname = "">xp_imos_filter_langchi.dll</plug>
+			<plug name = "huanghe" subtype = "" prefixname = "">xp_imos_filter_huanghe.dll</plug>
+			<plug name = "svac" subtype = "" prefixname = "">xp_imos_filter_zxw_svac.dll</plug>
+			<plug name = "mp6" subtype = "" prefixname = "">xp_imos_filter_huanghe.dll</plug>
+			<plug name = "600" subtype = "" prefixname = "">xp_imos_filter_zhongweishiji.dll</plug>
+			<plug name = "samsung-imos" subtype = "" prefixname = "">xp_imos_filter_samsung.dll</plug>
+			<plug name = "newtiandy" subtype = "" prefixname = "">xp_imos_filter_newtiandy.dll</plug>
+			<plug name = "utc" subtype = "" prefixname = "">xp_imos_filter_UTC.dll</plug>
+			<plug name = "znyt" subtype = "" prefixname = "">xp_imos_filter_znyt.dll</plug>
+			<plug name = "huatu" subtype = "" prefixname = "">xp_imos_filter_huatu.dll</plug>
+			<plug name = "haiyangwang" subtype = "" prefixname = "">xp_imos_filter_haiyangwang.dll</plug>
+	</templet>
+  </templetmap>
+</imosxp>
