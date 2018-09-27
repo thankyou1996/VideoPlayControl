@@ -684,6 +684,7 @@ namespace TestDataSource
             }
             return v;
         }
+     
 
         /// <summary>
         /// SK519V
@@ -713,6 +714,41 @@ namespace TestDataSource
                 c.DVSNumber = "000501";
                 v.Cameras[c.Channel] = c;
             }
+            for (int i = 0; i < 16; i++)
+            {
+                VideoTalkChannelInfo vt = new VideoTalkChannelInfo();
+                vt.VideoTalkChannel = i;
+                vt.VideoTalkChannelName = "对讲通道" + (i);
+                v.TalkChannel[vt.VideoTalkChannel] = vt;
+            }
+            return v;
+        }
+        public static VideoInfo GetSKDVSData3()
+        {
+            VideoInfo v = new VideoInfo();
+            //v.OnlyIntercom = true;
+            v.VideoType = Enum_VideoType.SKVideo;
+            v.PTZControlEnable = false;
+            v.DVSAddress = "61-57356B140B39-3036";
+            v.DVSChannelNum = 8;
+            v.DVSConnectPort = 8000;
+            v.DVSName = "时刻DVR测试";
+            v.DVSNumber = "013801";
+            v.DVSType = "SK8616";
+            v.HostID = "0138";
+            v.UserName = "admin";
+            v.Password = "sk123456";
+            v.NetworkState = 0;
+            //for (int i = 0; i < 16; i++)
+            //{
+            //    CameraInfo c = new CameraInfo();
+            //    c.CameraName = "摄像头" + (i);
+            //    c.Channel = i;
+            //    //c.DVSAddress = "E322213C04245";
+            //    c.DVSType = "SK8616";
+            //    c.DVSNumber = "000501";
+            //    v.Cameras[c.Channel] = c;
+            //}
             for (int i = 0; i < 16; i++)
             {
                 VideoTalkChannelInfo vt = new VideoTalkChannelInfo();

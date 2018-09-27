@@ -10,7 +10,7 @@ namespace VideoPlayControl
     public class ProgParameter
     {
 
-        public static string ProgLogAddress = "";
+        public static string ProgLogAddress = Environment.CurrentDirectory + "//UserData/VideoPlayControlLog";
         #region CloundSee(云视通相关参数)
         /// <summary>
         /// 云视通初始化端口

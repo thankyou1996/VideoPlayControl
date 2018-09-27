@@ -323,11 +323,11 @@ int p_sdkc_reg_msg_callback(void *func);
   * @brief	录像设备回放函数
   *			
   *	@param  char * guid:	设备GUID
-  *	@param  u8 channel:		设备视频通道号
+  *	@param  u8 channl:		设备视频通道号
   *	@param  u32 start_ts:	视频开始时间戳
   *	@param  HWND handle:	窗口句柄
   *
-  * @retval int:		统一结果
+  * @retval int:		统一结果e
   * 
   * @attention     
   * ***********************************************************************

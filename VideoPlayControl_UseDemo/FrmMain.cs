@@ -53,7 +53,7 @@ namespace VideoPlayControl_UseDemo
             VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            //SDKState.Ezviz_SDKInit();
+            SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
             SDKState.XMSDK_Init();
@@ -771,7 +771,7 @@ namespace VideoPlayControl_UseDemo
 
             //VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData7();
+            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData2();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetYSDVSData2();
             //dicVideoInfos[v.DVSNumber] = v;

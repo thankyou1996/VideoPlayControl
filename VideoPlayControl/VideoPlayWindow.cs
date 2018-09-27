@@ -1193,18 +1193,12 @@ namespace VideoPlayControl
                     case Enum_VideoType.IPCWA:
                         IPCWA_VideoClose();
                         break;
-                    //case Enum_VideoType.Ezviz:
-                    //    Ezviz_VideoClose();
-                    //    break;
                     case Enum_VideoType.SKVideo:
                         SKVideo_VideoClose();
                         break;
                     case Enum_VideoType.HuaMaiVideo:
                         HuaMaiVideo_VideoClose();
                         break;
-                    //case Enum_VideoType.XMaiVideo:
-                    //    XMVideo_VideoClose();
-                    //    break;
                     default:
                         iv.VideoClose();
                         break;

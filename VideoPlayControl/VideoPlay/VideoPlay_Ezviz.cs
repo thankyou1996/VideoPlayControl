@@ -34,15 +34,17 @@ namespace VideoPlayControl.VideoPlay
 
         IntPtr intptrSessionID = IntPtr.Zero;
         SDK_EzvizSDK.MsgHandler callBack;
-        static SDK_EzvizSDK.DataCallBack Ezviz_DataCallBack;
+        SDK_EzvizSDK.DataCallBack Ezviz_DataCallBack;
         GCHandle Ezviz_gchMsgBack;
         GCHandle Ezviz_gchVideoRecord;
         IntPtr iUser = IntPtr.Zero;
+        string strUser = "";
         List<byte> lstVideoRecord = new List<byte>();
         #endregion
 
         public bool VideoClose()
         {
+            CommonMethod.LogWrite.WriteEventLog("EzvizLog", "VideClose", ProgParameter.ProgLogAddress);
             bool bolResult = false;
             SDK_EzvizSDK.OpenSDK_StopRealPlayEx(intptrSessionID);
             SDK_EzvizSDK.OpenSDK_FreeSession(intptrSessionID.ToString());
@@ -63,6 +65,7 @@ namespace VideoPlayControl.VideoPlay
             {
                 lstVideoRecord = new List<byte>();
             }
+            intptrSessionID = IntPtr.Zero;
             return bolResult;
         }
 
@@ -123,19 +126,22 @@ namespace VideoPlayControl.VideoPlay
 
         public bool VideoPlay()
         {
+            CommonMethod.LogWrite.WriteEventLog("EzvizLog", "VidePlay1_" + CurrentVideoInfo.DVSNumber + CurrentVideoInfo.DVSAddress, ProgParameter.ProgLogAddress);
+            if (intptrSessionID != IntPtr.Zero)
+            {
+                //句柄不为空，先进行视频
+                VideoClose();
+            }
+            CommonMethod.LogWrite.WriteEventLog("EzvizLog", "VidePlay2_" + CurrentVideoInfo.DVSNumber + CurrentVideoInfo.DVSAddress, ProgParameter.ProgLogAddress);
             bool bolResult = false;
-            if (CurrentVideoPlaySet.AnsyPlay)
-            {
-                ThreadStart thrAnsyPlay = delegate//160418
-                {
-                    Ezviz_VideoPlay();          //萤石云设备
-                };
-                new Thread(thrAnsyPlay).Start();
-            }
-            else
-            {
+            //if (CurrentVideoPlaySet.AnsyPlay)
+            //{
+            //    VideoPlayEx();
+            //}
+            //else
+            //{
                 Ezviz_VideoPlay();          //萤石云设备
-            }
+            //}
             return bolResult;
         }
 
@@ -149,7 +155,6 @@ namespace VideoPlayControl.VideoPlay
             int Temp_intResult = SDK_EzvizSDK.GetDevOnlineState(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel);
             if (Temp_intResult == -2)
             {
-
                 //设备无权限
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.NoDeviceAuthority });
                 return bolResult;
@@ -164,7 +169,7 @@ namespace VideoPlayControl.VideoPlay
             //状态未明进行连接
             callBack = new SDK_EzvizSDK.MsgHandler(Ezviz_MsgCallback);
             Ezviz_gchMsgBack = GCHandle.Alloc(callBack);
-            string strUser = CurrentVideoInfo.DVSAddress + "_" + CurrentCameraInfo.Channel;
+            strUser = CurrentVideoInfo.DVSAddress + "_" + CurrentCameraInfo.Channel;
             iUser = Marshal.StringToHGlobalAnsi(strUser);
             VideoPlayState = Enum_VideoPlayState.Connecting;
             intResult = SDK_EzvizSDK.OpenSDK_AllocSessionEx(callBack, iUser, out intptrSessionID, out intLenght);
@@ -201,8 +206,8 @@ namespace VideoPlayControl.VideoPlay
         /// <param name="pUser"></param>
         public void Ezviz_MsgCallback(IntPtr intptrSessionId, SDK_EzvizSDK.EzvizMeesageType iMsgType, uint iErrorCode, string pMessageInfo, IntPtr pUser)
         {
-            string strUser = Marshal.PtrToStringAnsi(pUser);
-            if (iUser == pUser)
+            string Temp_strUserName = Marshal.PtrToStringAnsi(pUser);
+            if (Temp_strUserName == strUser)
             {
                 string strTag = "";
                 Enum_SDKEventType videoEvType = Enum_SDKEventType.Unrecognized;
@@ -374,7 +379,13 @@ namespace VideoPlayControl.VideoPlay
 
         public bool VideoPlayEx()
         {
-            throw new NotImplementedException();
+            bool bolResult = false;
+            ThreadStart thrAnsyPlay = delegate//160418
+            {
+                Ezviz_VideoPlay();          //萤石云设备
+            };
+            new Thread(thrAnsyPlay).Start();
+            return bolResult;
         }
     }
 }

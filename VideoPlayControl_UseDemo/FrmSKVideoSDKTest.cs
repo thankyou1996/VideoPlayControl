@@ -30,12 +30,12 @@ namespace VideoPlayControl_UseDemo
 
         private void FrmSKVideoSDKTest_Load(object sender, EventArgs e)
         {
-            CurrentVideoInfo = TestDataSource.TestDataSource.GetSKDVSData1();
+            CurrentVideoInfo = TestDataSource.TestDataSource.GetSKDVSData3();
 
             p_msg_demo_callback = new CallBack(callback);
             SDK_SKVideoSDK.p_sdkc_reg_msg_callback(p_msg_demo_callback);
             
-            SDK_SKVideoSDK.p_sdkc_init_client("xhcs1", "127.0.0.1", 47624, 47724, 47824, @"d:\");
+            SDK_SKVideoSDK.p_sdkc_init_client("SuperAdmin", "192.168.2.19", 47624, 47724, 47824, @"d:\");
             while (SDK_SKVideoSDK.p_sdkc_get_online() == 0)
             {
                 Common.Delay_Second(1);
@@ -44,7 +44,7 @@ namespace VideoPlayControl_UseDemo
             DateTime timEnd = DateTime.Now.AddSeconds(-2700);
             long intStartTime = ConvertClass.DateTimeToUnixTimestamp(timStart);
             long intEndTimt= ConvertClass.DateTimeToUnixTimestamp(timEnd);
-            //SDK_SKVideoSDK.p_sdkc_start_playback_av(CurrentVideoInfo.DVSAddress, 0, Convert.ToUInt32(intStartTime), pictureBox1.Handle);
+            SDK_SKVideoSDK.p_sdkc_start_playback_av(CurrentVideoInfo.DVSAddress, 0, Convert.ToUInt32(intStartTime), pictureBox1.Handle);
 
             p_vsdk_reg_dl_video_data_callback = new p_dl_video_data_callback(callback_download);
             SDK_SKVideoSDK.p_vsdk_reg_dl_video_data_callback(p_vsdk_reg_dl_video_data_callback);
