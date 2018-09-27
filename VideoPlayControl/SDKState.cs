@@ -478,10 +478,7 @@ namespace VideoPlayControl
 
 
         #region 雄迈SDK 
-
-
-
-
+        
         public static Enum_SDKState s_XMSDKState = Enum_SDKState.SDK_Null;
         private static SDK_XMSDK.fDisConnect disCallback;
         public static Enum_SDKState XMSDKState
@@ -558,6 +555,58 @@ namespace VideoPlayControl
             BlueSkySDKState = SDK_BlueSDK.dvxSdkDeInit() == 0 ? Enum_SDKState.SDK_Release : Enum_SDKState.SDK_ReleaseFail;
             return BlueSkySDKState;
         }
+        #endregion
+
+        #region  宇视视频SDK IMOS
+        public static SDK_IMOSSDK.LOGIN_INFO_S IMOSLoginInfo ;
+
+
+        public static Enum_SDKState s_IMOSSDKState = Enum_SDKState.SDK_Null;
+        public static Enum_SDKState IMOSSDKState
+        {
+            get { return s_IMOSSDKState; }
+            private set
+            {
+                s_IMOSSDKState = value;
+                SDKStateChange(Enum_VideoType.IMOS, s_IMOSSDKState);
+            }
+        }
+
+        /// <summary>
+        /// 宇视SDK初始化
+        /// 需要注意：宇视支持多个服务器登陆，当前仅考虑单个服务器情况
+        /// </summary>
+        /// <returns></returns>
+        public static Enum_SDKState IMOSSDK_Init(string ServerAddress,string CltAddress,string LoginName,string LoginPwd)
+        {
+            UInt32 ulRet = 0;
+            uint srvPort = 8800;
+
+            //1.初始化
+            ulRet = SDK_IMOSSDK.IMOS_Initiate("N/A", srvPort, 1, 1);
+            //2.加密密码
+            IntPtr ptr_MD_Pwd = Marshal.AllocHGlobal(sizeof(char) * SDK_IMOSSDK.IMOS_PASSWD_ENCRYPT_LEN);
+            ulRet = SDK_IMOSSDK.IMOS_Encrypt(LoginPwd, (UInt32)LoginPwd.Length, ptr_MD_Pwd);
+            String MD_PWD = Marshal.PtrToStringAnsi(ptr_MD_Pwd);
+            Marshal.FreeHGlobal(ptr_MD_Pwd);
+            //3.登录方法
+            IntPtr ptrLoginInfo = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(SDK_IMOSSDK.LOGIN_INFO_S)));
+            ulRet = SDK_IMOSSDK.IMOS_LoginEx(LoginName, MD_PWD, ServerAddress, CltAddress, ptrLoginInfo);
+            IMOSLoginInfo = (SDK_IMOSSDK.LOGIN_INFO_S)Marshal.PtrToStructure(ptrLoginInfo, typeof(SDK_IMOSSDK.LOGIN_INFO_S));
+            Marshal.FreeHGlobal(ptrLoginInfo);
+            return IMOSSDKState;
+        }
+        /// <summary>
+        /// 宇视SDK 释放
+        /// </summary>
+        /// <returns></returns>
+        public static Enum_SDKState IMOSSDK_Release()
+        {
+            SDK_IMOSSDK.IMOS_LogoutEx(ref IMOSLoginInfo.stUserLoginIDInfo);
+            SDK_IMOSSDK.IMOS_CleanUp(IntPtr.Zero);
+            return IMOSSDKState;
+        }
+
         #endregion
 
         public static void VideoSDKRelease()

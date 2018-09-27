@@ -60,6 +60,11 @@ namespace VideoPlayControl
         /// 宇视SDK 
         /// </summary>
         public const string c_strIMOSSDKFilePath = "\\IMOSSDK\\imos_sdk.dll";
+
+        /// <summary>
+        /// 宇视SDK frame
+        /// </summary>
+        public const string c_strIMOSSDKFrameFilePath = "\\IMOSSDK\\xp_frame.dll";
         #endregion
 
         #region SDK默认参数

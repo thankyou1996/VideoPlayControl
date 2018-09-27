@@ -733,6 +733,11 @@
             蓝色星际
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.IMOS">
+            <summary>
+            宇视视频
+            </summary>
+        </member>
         <member name="T:PublicClassCurrency.Enum_VIdeoRecordType">
             <summary>
             录像类型
