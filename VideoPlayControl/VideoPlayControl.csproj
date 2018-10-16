@@ -192,6 +192,7 @@
     <Compile Include="VideoRecordBackplay\IVideoRecordBackplay.cs" />
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_AXIS.cs" />
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_BlueSky.cs" />
+    <Compile Include="VideoRecordBackplay\VideoRecordBackplay_IMOS.cs" />
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_XMAI.cs" />
     <Compile Include="VideoRecordInfoConvert.cs" />
     <Compile Include="VideoRecordList.cs">
@@ -520,230 +521,678 @@
     <Content Include="HuaMai\swscale-2.dll" />
     <Content Include="HuaMai\utility.dll" />
     <Content Include="HuaMai\xml.dll" />
-    <Content Include="IMOS\BarrelAdjust.dll" />
-    <Content Include="IMOS\bp_cmd.dll" />
-    <Content Include="IMOS\bp_commu.dll" />
-    <Content Include="IMOS\bp_dao.dll" />
-    <Content Include="IMOS\bp_dbif.dll" />
-    <Content Include="IMOS\bp_dm.dll" />
-    <Content Include="IMOS\bp_log.dll" />
-    <Content Include="IMOS\bp_stream.dll" />
-    <Content Include="IMOS\bp_system.dll" />
-    <Content Include="IMOS\bp_util.dll" />
-    <Content Include="IMOS\cc_common.dll" />
-    <Content Include="IMOS\cc_gm.dll" />
-    <Content Include="IMOS\cc_im.dll" />
-    <Content Include="IMOS\cc_init.dll" />
-    <Content Include="IMOS\cc_nm.dll" />
-    <Content Include="IMOS\cc_po.dll" />
-    <Content Include="IMOS\cc_qm.dll" />
-    <Content Include="IMOS\cc_rm.dll" />
-    <Content Include="IMOS\cc_rt.dll" />
-    <Content Include="IMOS\cc_rtspadpt.dll" />
-    <Content Include="IMOS\cc_sipadpt.dll" />
-    <Content Include="IMOS\cc_sm.dll" />
-    <Content Include="IMOS\cdslib.dll" />
-    <Content Include="IMOS\cds_bp.dll" />
-    <Content Include="IMOS\cds_cache.dll" />
-    <Content Include="IMOS\cds_client.dll" />
-    <Content Include="IMOS\cds_cph.dll" />
-    <Content Include="IMOS\cds_extlib.dll" />
-    <Content Include="IMOS\cds_fc.dll" />
-    <Content Include="IMOS\cds_fsmg.dll" />
-    <Content Include="IMOS\cds_iscsi2.dll" />
-    <Content Include="IMOS\cds_mapred.dll" />
-    <Content Include="IMOS\cds_md.dll" />
-    <Content Include="IMOS\cds_md5.dll" />
-    <Content Include="IMOS\cds_mm.dll" />
-    <Content Include="IMOS\cds_mr.dll" />
-    <Content Include="IMOS\cds_mt.dll" />
-    <Content Include="IMOS\cds_nd.dll" />
-    <Content Include="IMOS\cds_po.dll" />
-    <Content Include="IMOS\cds_queue.dll" />
-    <Content Include="IMOS\cds_rr.dll" />
-    <Content Include="IMOS\cds_sdk.dll" />
-    <Content Include="IMOS\cds_socket.dll" />
-    <Content Include="IMOS\cds_tree.dll" />
-    <Content Include="IMOS\cds_uiadpt.dll" />
-    <Content Include="IMOS\cds_volmg.dll" />
-    <Content Include="IMOS\comerr32.dll" />
-    <Content Include="IMOS\cppasn1.dll" />
-    <Content Include="IMOS\ctm_client.dll" />
-    <Content Include="IMOS\dsp_audio_aac.dll" />
-    <Content Include="IMOS\dsp_audio_aac_enc.dll" />
-    <Content Include="IMOS\dsp_audio_g711.dll" />
-    <Content Include="IMOS\dsp_h264_enc.dll" />
-    <Content Include="IMOS\dsp_h264_gpu_trans.dll" />
-    <Content Include="IMOS\dsp_ie_deshake.dll" />
-    <Content Include="IMOS\dsp_image_convert.dll" />
-    <Content Include="IMOS\dsp_rtplay.dll" />
-    <Content Include="IMOS\dsp_stitch.dll" />
-    <Content Include="IMOS\dsp_video_filter.dll" />
-    <Content Include="IMOS\dsp_video_h264.dll" />
-    <Content Include="IMOS\dsp_video_h264_1.dll" />
-    <Content Include="IMOS\dsp_video_mjpeg.dll" />
-    <Content Include="IMOS\dsp_video_mpeg2.dll" />
-    <Content Include="IMOS\dsp_video_mpeg4.dll" />
-    <Content Include="IMOS\FiltersConf.xml" />
-    <Content Include="IMOS\FiltersConf_3000.xml" />
-    <Content Include="IMOS\fisheye_rectify.dll" />
-    <Content Include="IMOS\freetype.dll" />
-    <Content Include="IMOS\gssapi32.dll" />
-    <Content Include="IMOS\H3C.dll" />
-    <Content Include="IMOS\H3CDecodeSdk.dll" />
-    <Content Include="IMOS\h3c_v3.dll" />
-    <Content Include="IMOS\ia_client_lib.dll" />
-    <Content Include="IMOS\ia_gpu_common.dll" />
-    <Content Include="IMOS\ia_gpu_decoder.dll" />
-    <Content Include="IMOS\ia_gpu_encoder.dll" />
-    <Content Include="IMOS\ia_gpu_interface.dll" />
-    <Content Include="IMOS\ia_gpu_vpp.dll" />
-    <Content Include="IMOS\ImageCombine.dll" />
-    <Content Include="IMOS\imcp_ace.dll" />
-    <Content Include="IMOS\imf.dll" />
-    <Content Include="IMOS\imosproxy.exe" />
-    <Content Include="IMOS\imos_ace.dll" />
-    <Content Include="IMOS\IMOS_DEMO_CSharp.exe" />
-    <Content Include="IMOS\IMOS_DEMO_MFC.exe" />
-    <Content Include="IMOS\imos_mdp.dll" />
-    <Content Include="IMOS\imos_ptz.dll" />
-    <Content Include="IMOS\imos_sdk.dll" />
-    <Content Include="IMOS\imos_sdp.dll" />
-    <Content Include="IMOS\imos_ts.dll" />
-    <Content Include="IMOS\imos_tucl.dll" />
-    <Content Include="IMOS\imos_xp_transcode.dll" />
-    <Content Include="IMOS\imos_xp_transcode_32.dll" />
-    <Content Include="IMOS\imos_xp_transcode_64.dll" />
-    <Content Include="IMOS\isf_stitcher_imos.dll" />
-    <Content Include="IMOS\itc_common.dll" />
-    <Content Include="IMOS\itc_sdk.dll" />
-    <Content Include="IMOS\k5sprt32.dll" />
-    <Content Include="IMOS\krb5_32.dll" />
-    <Content Include="IMOS\libcphbm.dll" />
-    <Content Include="IMOS\libcphdm.dll" />
-    <Content Include="IMOS\libcphmas.dll" />
-    <Content Include="IMOS\libcphms.dll" />
-    <Content Include="IMOS\libcphts.dll" />
-    <Content Include="IMOS\libcphvm.dll" />
-    <Content Include="IMOS\libcurl.dll" />
-    <Content Include="IMOS\libcurl4update.dll" />
-    <Content Include="IMOS\libdsplpr.dll" />
-    <Content Include="IMOS\libeay32.dll" />
-    <Content Include="IMOS\libiconv-2.dll" />
-    <Content Include="IMOS\libimgenc.dll" />
-    <Content Include="IMOS\libintl-8.dll" />
-    <Content Include="IMOS\libmp_comm.dll" />
-    <Content Include="IMOS\libmp_sd.dll" />
-    <Content Include="IMOS\libmp_server.dll" />
-    <Content Include="IMOS\libmp_sp.dll" />
-    <Content Include="IMOS\libmp_transcode.dll" />
-    <Content Include="IMOS\libmp_vodadpt.dll" />
-    <Content Include="IMOS\libpq.dll" />
-    <Content Include="IMOS\libts_util.dll" />
-    <Content Include="IMOS\libunimycloud.dll" />
-    <Content Include="IMOS\libunimycloudclient.dll" />
-    <Content Include="IMOS\libunimycloudhttpcurl.dll" />
-    <Content Include="IMOS\libunistun.dll" />
-    <Content Include="IMOS\libxml2.dll" />
-    <Content Include="IMOS\libxml3.dll" />
-    <Content Include="IMOS\libxml_XP.dll" />
-    <Content Include="IMOS\log4net.dll" />
-    <Content Include="IMOS\media_decoder.dll" />
-    <Content Include="IMOS\media_encoder.dll" />
-    <Content Include="IMOS\MPPV3_PicPostProc.dll" />
-    <Content Include="IMOS\mp_bm.dll" />
-    <Content Include="IMOS\mp_bm_rm.dll" />
-    <Content Include="IMOS\mp_comm.dll" />
-    <Content Include="IMOS\mp_rd.dll" />
-    <Content Include="IMOS\mp_rt.dll" />
-    <Content Include="IMOS\mp_server.dll" />
-    <Content Include="IMOS\mp_sp.dll" />
-    <Content Include="IMOS\mp_sp_rt.dll" />
-    <Content Include="IMOS\mp_utils.dll" />
-    <Content Include="IMOS\mp_vod.dll" />
-    <Content Include="IMOS\msvcp100.dll" />
-    <Content Include="IMOS\msvcp120.dll" />
-    <Content Include="IMOS\msvcr100.dll" />
-    <Content Include="IMOS\msvcr120.dll" />
-    <Content Include="IMOS\mw_ptzlib.dll" />
-    <Content Include="IMOS\opencv_calib3d2410.dll" />
-    <Content Include="IMOS\opencv_core2410.dll" />
-    <Content Include="IMOS\opencv_features2d2410.dll" />
-    <Content Include="IMOS\opencv_flann2410.dll" />
-    <Content Include="IMOS\opencv_highgui2410.dll" />
-    <Content Include="IMOS\opencv_imgproc2410.dll" />
-    <Content Include="IMOS\ProtocolConf.xml" />
-    <Content Include="IMOS\pthreadVC2.dll" />
-    <Content Include="IMOS\ResistLostPktConf.xml" />
-    <Content Include="IMOS\SDL.dll" />
-    <Content Include="IMOS\sps_alarm.dll" />
-    <Content Include="IMOS\sps_car.dll" />
-    <Content Include="IMOS\sps_cloud_sdk.dll" />
-    <Content Include="IMOS\sps_common.dll" />
-    <Content Include="IMOS\sps_daadpt.dll" />
-    <Content Include="IMOS\sps_dao.dll" />
-    <Content Include="IMOS\sps_defencearea.dll" />
-    <Content Include="IMOS\sps_dev.dll" />
-    <Content Include="IMOS\sps_door.dll" />
-    <Content Include="IMOS\sps_float.dll" />
-    <Content Include="IMOS\sps_sdk.dll" />
-    <Content Include="IMOS\spversion.xml" />
-    <Content Include="IMOS\ssleay32.dll" />
-    <Content Include="IMOS\Thrift.dll" />
-    <Content Include="IMOS\trap.dll" />
-    <Content Include="IMOS\vhdtool.dll" />
-    <Content Include="IMOS\videoCardCheck.dll" />
-    <Content Include="IMOS\VideoDecoder_Uniview.dll" />
-    <Content Include="IMOS\Xalan-C_1_11.dll" />
-    <Content Include="IMOS\XalanMessages_1_11.dll" />
-    <Content Include="IMOS\xerces-c_3_1.dll" />
-    <Content Include="IMOS\xp_alec_stream.dll" />
-    <Content Include="IMOS\xp_anhui.dll" />
-    <Content Include="IMOS\xp_cc_rt.dll" />
-    <Content Include="IMOS\xp_cds_file_source.dll" />
-    <Content Include="IMOS\xp_common.dll" />
-    <Content Include="IMOS\xp_dahua_file.dll" />
-    <Content Include="IMOS\xp_dahua_file_dav.dll" />
-    <Content Include="IMOS\xp_dahua_stream.dll" />
-    <Content Include="IMOS\xp_dahua_stream_sdc.dll" />
-    <Content Include="IMOS\xp_db33_filter.dll" />
-    <Content Include="IMOS\xp_decoder_hxht.dll" />
-    <Content Include="IMOS\xp_default_file_source.dll" />
-    <Content Include="IMOS\xp_default_stream.dll" />
-    <Content Include="IMOS\xp_dma_file.dll" />
-    <Content Include="IMOS\xp_dma_stream.dll" />
-    <Content Include="IMOS\xp_dsp_realtime.dll" />
-    <Content Include="IMOS\xp_enc_avi.dll" />
-    <Content Include="IMOS\xp_enc_mp4.dll" />
-    <Content Include="IMOS\xp_ffmpeg_file.dll" />
-    <Content Include="IMOS\xp_frame.dll" />
-    <Content Include="IMOS\xp_hik_file.dll" />
-    <Content Include="IMOS\xp_hik_stream.dll" />
-    <Content Include="IMOS\xp_hik_stream_sdc.dll" />
-    <Content Include="IMOS\xp_image_source.dll" />
-    <Content Include="IMOS\xp_imos_filter.dll" />
-    <Content Include="IMOS\xp_keda_stream.dll" />
-    <Content Include="IMOS\xp_mobotix_realtime.dll" />
-    <Content Include="IMOS\xp_mp2.dll" />
-    <Content Include="IMOS\xp_msg_dispatch.dll" />
-    <Content Include="IMOS\xp_net_source.dll" />
-    <Content Include="IMOS\xp_nz_filter.dll" />
-    <Content Include="IMOS\xp_parser_h3cv1.dll" />
-    <Content Include="IMOS\xp_parser_ps.dll" />
-    <Content Include="IMOS\xp_parser_rfc3984.dll" />
-    <Content Include="IMOS\xp_player.dll" />
-    <Content Include="IMOS\xp_rm_stream.dll" />
-    <Content Include="IMOS\xp_rtsp.dll" />
-    <Content Include="IMOS\xp_sip.dll" />
-    <Content Include="IMOS\xp_stream_process.dll" />
-    <Content Include="IMOS\xp_tcp_source.dll" />
-    <Content Include="IMOS\xp_tdwy_file.dll" />
-    <Content Include="IMOS\xp_tdwy_stream.dll" />
-    <Content Include="IMOS\xp_thirdpart_bk_file_source.dll" />
-    <Content Include="IMOS\xp_tiandy_stream.dll" />
-    <Content Include="IMOS\xp_ts_file_source.dll" />
-    <Content Include="IMOS\xp_ts_input_source.dll" />
-    <Content Include="IMOS\xp_wave.dll" />
+    <Content Include="IMOS\BarrelAdjust.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\bp_cmd.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\bp_commu.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\bp_dao.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\bp_dbif.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\bp_dm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\bp_log.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\bp_stream.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\bp_system.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\bp_util.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_gm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_im.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_init.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_nm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_po.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_qm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_rm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_rt.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_rtspadpt.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_sipadpt.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cc_sm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cdslib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_bp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_cache.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_client.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_cph.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_extlib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_fc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_fsmg.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_iscsi2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_mapred.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_md.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_md5.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_mm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_mr.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_mt.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_nd.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_po.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_queue.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_rr.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_sdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_socket.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_tree.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_uiadpt.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cds_volmg.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\comerr32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\cppasn1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\ctm_client.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_audio_aac.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_audio_aac_enc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_audio_g711.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_h264_enc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_h264_gpu_trans.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_ie_deshake.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_image_convert.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_rtplay.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_stitch.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_video_filter.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_video_h264.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_video_h264_1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_video_mjpeg.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_video_mpeg2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\dsp_video_mpeg4.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\FiltersConf.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\FiltersConf_3000.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\fisheye_rectify.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\freetype.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\gssapi32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\H3C.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\H3CDecodeSdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\h3c_v3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\ia_client_lib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\ia_gpu_common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\ia_gpu_decoder.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\ia_gpu_encoder.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\ia_gpu_interface.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\ia_gpu_vpp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\ImageCombine.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imcp_ace.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imf.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imosproxy.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imos_ace.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\IMOS_DEMO_CSharp.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\IMOS_DEMO_MFC.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imos_mdp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imos_ptz.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imos_sdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imos_sdp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imos_ts.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imos_tucl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imos_xp_transcode.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imos_xp_transcode_32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\imos_xp_transcode_64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\isf_stitcher_imos.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\itc_common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\itc_sdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\k5sprt32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\krb5_32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libcphbm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libcphdm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libcphmas.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libcphms.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libcphts.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libcphvm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libcurl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libcurl4update.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libdsplpr.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libeay32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libiconv-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libimgenc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libintl-8.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libmp_comm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libmp_sd.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libmp_server.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libmp_sp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libmp_transcode.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libmp_vodadpt.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libpq.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libts_util.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libunimycloud.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libunimycloudclient.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libunimycloudhttpcurl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libunistun.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libxml2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libxml3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\libxml_XP.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\log4net.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\media_decoder.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\media_encoder.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\MPPV3_PicPostProc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\mp_bm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\mp_bm_rm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\mp_comm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\mp_rd.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\mp_rt.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\mp_server.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\mp_sp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\mp_sp_rt.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\mp_utils.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\mp_vod.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\msvcp100.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\msvcp120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\msvcr100.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\mw_ptzlib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\opencv_calib3d2410.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\opencv_core2410.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\opencv_features2d2410.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\opencv_flann2410.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\opencv_highgui2410.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\opencv_imgproc2410.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\ProtocolConf.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\pthreadVC2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\ResistLostPktConf.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\SDL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\sps_alarm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\sps_car.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\sps_cloud_sdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\sps_common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\sps_daadpt.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\sps_dao.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\sps_defencearea.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\sps_dev.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\sps_door.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\sps_float.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\sps_sdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\spversion.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\ssleay32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\Thrift.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\trap.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\vhdtool.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\videoCardCheck.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\VideoDecoder_Uniview.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\Xalan-C_1_11.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\XalanMessages_1_11.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xerces-c_3_1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_alec_stream.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_anhui.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_cc_rt.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_cds_file_source.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_dahua_file.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_dahua_file_dav.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_dahua_stream.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_dahua_stream_sdc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_db33_filter.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_decoder_hxht.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_default_file_source.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_default_stream.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_dma_file.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_dma_stream.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_dsp_realtime.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_enc_avi.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_enc_mp4.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_ffmpeg_file.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_frame.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_hik_file.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_hik_stream.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_hik_stream_sdc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_image_source.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_imos_filter.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_keda_stream.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_mobotix_realtime.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_mp2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_msg_dispatch.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_net_source.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_nz_filter.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_parser_h3cv1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_parser_ps.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_parser_rfc3984.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_player.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_rm_stream.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_rtsp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_sip.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_stream_process.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_tcp_source.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_tdwy_file.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_tdwy_stream.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_thirdpart_bk_file_source.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_tiandy_stream.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_ts_file_source.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_ts_input_source.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IMOS\xp_wave.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="IPCWA\AxInterop.RASPLAYEROCXLib.dll" />
     <Content Include="IPCWA\Interop.RASPLAYEROCXLib.dll" />
     <Content Include="JCSDK\demo.exe">

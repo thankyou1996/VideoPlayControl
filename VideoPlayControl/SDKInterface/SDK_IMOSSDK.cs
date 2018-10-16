@@ -440,15 +440,15 @@ namespace VideoPlayControl
         public struct USER_LOGIN_ID_INFO_S
         {
             /** 用户编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_USER_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_USER_CODE_LEN)]
             public byte[] szUserCode;
 
             /** 用户登录ID，是用户登录后服务器分配的，它是标记一次用户登录的唯一标识 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szUserLoginCode;
 
             /** 用户登录的客户端IP地址 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szUserIpAddress;
         }
 
@@ -464,11 +464,11 @@ namespace VideoPlayControl
             public USER_LOGIN_ID_INFO_S stUserLoginIDInfo;
 
             /** 用户所属组织编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DOMAIN_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DOMAIN_CODE_LEN)]
             public byte[] szOrgCode;
 
             /** 用户所属域名称 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szDomainName;
 
             /** 用户所属域类型, 取值为#MM_DOMAIN_SUBTYPE_LOCAL_PHYSICAL和#MM_DOMAIN_SUBTYPE_LOCAL_VIRTUAL */
@@ -484,36 +484,36 @@ namespace VideoPlayControl
         public struct XP_INFO_S
         {
             /** XP编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DEVICE_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DEVICE_CODE_LEN)]
             public byte[] szXpCode;
 
             /** 屏号 */
             public UInt32 ulScreenIndex;
 
             /** XP第一窗格编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szXpFirstWndCode;
 
             /** 语音对讲编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szVoiceTalkCode;
 
             /** 语音广播编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szVoiceBroadcastCode;
 
             /** SIP通信地址类型，#IMOS_IPADDR_TYPE_IPV4为IPv4类型; #IMOS_IPADDR_TYPE_IPV6为IPv6类型 */
             public UInt32 ulSipAddrType;
 
             /** SIP服务器通信IP地址，仅在使用XP的时候有效 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szSipIpAddress;
 
             /** SIP服务器通信端口号 */
             public UInt32 ulSipPort;
 
             /** 本域服务器编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DEVICE_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DEVICE_CODE_LEN)]
             public byte[] szServerCode;
 
         }
@@ -533,7 +533,7 @@ namespace VideoPlayControl
             public UInt32 ulLogicFlag;
 
             /** 查询条件 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_QUERY_DATA_MAX_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_QUERY_DATA_MAX_LEN)]
             public byte[] szQueryData;
         }
 
@@ -550,7 +550,7 @@ namespace VideoPlayControl
             public UInt32 ulItemNum;
 
             /** 查询条件数组 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_QUERY_ITEM_MAX_NUM)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_QUERY_ITEM_MAX_NUM)]
             public QUERY_CONDITION_ITEM_S[] astQueryConditionList;
         }
 
@@ -599,11 +599,11 @@ namespace VideoPlayControl
         public struct ORG_RES_QUERY_ITEM_S
         {
             /** 资源编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szResCode;
 
             /** 资源名称 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szResName;
 
             /** 资源类型，取值范围为#IMOS_TYPE_E */
@@ -626,7 +626,7 @@ namespace VideoPlayControl
             public UInt32 ulResIsBeShare;
 
             /** 资源所属组织编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DOMAIN_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DOMAIN_CODE_LEN)]
             public byte[] szOrgCode;
 
             /** 支持的流数目，仅当资源类型为摄像机时有效，0:无效值，1:单流，2:双流 */
@@ -643,7 +643,7 @@ namespace VideoPlayControl
             public UInt32 ulPresetValue;
 
             /** 预置位描述, 需要填写 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DESC_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DESC_LEN)]
             public byte[] szPresetDesc;
         }
 
@@ -672,7 +672,7 @@ namespace VideoPlayControl
         [StructLayout(LayoutKind.Sequential)]
         public struct PLAY_WND_INFO_S
         {
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szPlayWndCode;
         }
 
@@ -680,11 +680,11 @@ namespace VideoPlayControl
         public struct TIME_SLICE_S
         {
             /** 开始时间 格式为"hh:mm:ss"或"YYYY-MM-DD hh:mm:ss", 视使用情况而定 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_TIME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_TIME_LEN)]
             public byte[] szBeginTime;
 
             /** 结束时间 格式为"hh:mm:ss"或"YYYY-MM-DD hh:mm:ss", 视使用情况而定 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_TIME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_TIME_LEN)]
             public byte[] szEndTime;
         }
 
@@ -692,7 +692,7 @@ namespace VideoPlayControl
         public struct REC_QUERY_INFO_S
         {
             /** 摄像头编码*/
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szCamCode;
 
             /** 检索的起始/结束时间 */
@@ -717,22 +717,22 @@ namespace VideoPlayControl
         public struct RECORD_FILE_INFO_S
         {
             /** 文件名 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_FILE_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_FILE_NAME_LEN)]
             public byte[] szFileName;
 
             /** 文件起始时间, 满足"%Y-%m-%d %H:%M:%S"格式, 长度限定为24字符 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_TIME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_TIME_LEN)]
             public byte[] szStartTime;
 
             /** 文件结束时间, 满足"%Y-%m-%d %H:%M:%S"格式, 长度限定为24字符 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_TIME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_TIME_LEN)]
             public byte[] szEndTime;
 
             /** 文件大小, 目前暂不使用 */
             public UInt32 ulSize;
 
             /** 描述信息, 可不填 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DESC_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DESC_LEN)]
             public byte[] szSpec;
         }
 
@@ -740,18 +740,18 @@ namespace VideoPlayControl
         public struct GET_URL_INFO_S
         {
             /** 摄像机编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szCamCode;
 
             /** 录像文件名 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_FILE_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_FILE_NAME_LEN)]
             public byte[] szFileName;
 
             /** 录像的起始/结束时间, 其中的时间格式为"YYYY-MM-DD hh:mm:ss" */
             public TIME_SLICE_S stRecTimeSlice;
 
             /** 客户端IP地址 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szClientIp;
         }
 
@@ -759,7 +759,7 @@ namespace VideoPlayControl
         public struct VOD_SEVER_IPADDR_S
         {
             /** RTSP服务器IP地址 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szServerIp;
 
             /** RTSP服务器端口 */
@@ -774,7 +774,7 @@ namespace VideoPlayControl
         public struct URL_INFO_S
         {
             /** URL地址*/
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IE_URL_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IE_URL_LEN)]
             public byte[] szURL;
 
             /** 点播服务器的IP地址和端口 */
@@ -789,11 +789,11 @@ namespace VideoPlayControl
         public struct EC_INFO_S
         {
             /** EC编码, EC的唯一标识 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DEVICE_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DEVICE_CODE_LEN)]
             public byte[] szECCode;
 
             /** EC名称 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szECName;
 
             /** EC类型，取值为#IMOS_DEVICE_TYPE_E, 合法取值参见#ulChannum参数的说明 */
@@ -826,7 +826,7 @@ namespace VideoPlayControl
             public UInt32 ulEnableAlarm;
 
             /** EC所属组织编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DOMAIN_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DOMAIN_CODE_LEN)]
             public byte[] szOrgCode;
 
             /** 时间同步方式，默认为1，表示使用H3C的私有同步方式；2表示NTP的同步方式 */
@@ -861,23 +861,23 @@ namespace VideoPlayControl
             public UInt32 ulAudioinSource;
 
             /** 语音对讲资源编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szAudioCommCode;
 
             /** 语音广播资源编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szAudioBroadcastCode;
 
             /** 设备访问密码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_PASSWD_ENCRYPT_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_PASSWD_ENCRYPT_LEN)]
             public byte[] szDevPasswd;
 
             /** 设备描述, 目前该字段未使用 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DESC_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DESC_LEN)]
             public byte[] szDevDesc;
 
             /** EC的IP地址, 添加及修改EC不需填写该参数, 查询EC信息时返回该字段 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szECIPAddr;
 
             /** EC的在线状态,添加及修改EC不需填写该参数, 查询EC信息时返回该字段, 1为在线; 0为离线 */
@@ -892,11 +892,11 @@ namespace VideoPlayControl
         public struct EC_QUERY_ITEM_S
         {
             /** EC编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DEVICE_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DEVICE_CODE_LEN)]
             public byte[] szECCode;
 
             /** EC名称 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szECName;
 
             /** EC类型，取值为#IMOS_DEVICE_TYPE_E */
@@ -906,11 +906,11 @@ namespace VideoPlayControl
             public UInt32 ulDevaddrtype;
 
             /** 设备地址 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szDevAddr;
 
             /** 所属组织编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DOMAIN_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DOMAIN_CODE_LEN)]
             public byte[] szOrgCode;
 
             /** 设备是否在线取值为#IMOS_DEV_STATUS_ONLINE或#IMOS_DEV_STATUS_OFFLINE，在imos_def.h中定义 */
@@ -940,11 +940,11 @@ namespace VideoPlayControl
         public struct DC_INFO_S
         {
             /** DC编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DEVICE_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DEVICE_CODE_LEN)]
             public byte[] szDCCode;
 
             /** DC名称 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szDCName;
 
             /** DC类型, 取值为#IMOS_DEVICE_TYPE_E, 合法取值参见#ulChannum参数的说明 */
@@ -971,7 +971,7 @@ namespace VideoPlayControl
             public UInt32 ulEnableAlarm;
 
             /** 所属组织编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DOMAIN_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DOMAIN_CODE_LEN)]
             public byte[] szOrgCode;
 
             /** 时间同步方式，默认为1，表示使用H3C的私有同步方式；2表示NTP的同步方式 */
@@ -996,15 +996,15 @@ namespace VideoPlayControl
             public UInt32 ulEncodeSet;
 
             /** 设备访问密码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_PASSWD_ENCRYPT_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_PASSWD_ENCRYPT_LEN)]
             public byte[] szDevPasswd;
 
             /** 设备描述, 目前该字段未使用 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DESC_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DESC_LEN)]
             public byte[] szDevDesc;
 
             /** DC的IP地址,添加及修改DC不需填写该参数,查询DC信息时会返回该字段 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szDCIPAddr;
 
             /** EC的在线状态,添加及修改EC不需填写该参数, 查询EC信息时返回该字段, 1为在线; 0为离线 */
@@ -1019,11 +1019,11 @@ namespace VideoPlayControl
         public struct DC_QUERY_ITEM_S
         {
             /** DC编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DEVICE_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DEVICE_CODE_LEN)]
             public byte[] szDCCode;
 
             /** DC名称 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szDCName;
 
             /** DC类型，取值为#IMOS_DEVICE_TYPE_E */
@@ -1033,11 +1033,11 @@ namespace VideoPlayControl
             public UInt32 ulDevaddrtype;
 
             /** DC设备地址 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szDevAddr;
 
             /** DC所属组织编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DOMAIN_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DOMAIN_CODE_LEN)]
             public byte[] szOrgCode;
 
             /** 设备是否在线, 取值为#IMOS_DEV_STATUS_ONLINE或#IMOS_DEV_STATUS_OFFLINE，在imos_def.h中定义 */
@@ -1067,18 +1067,18 @@ namespace VideoPlayControl
         public struct CAMERA_INFO_S
         {
             /** 摄像机编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szCameraCode;
 
             /** 摄像机名称 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szCameraName;
 
             /** 摄像机类型, 取值为#CAMERA_TYPE_E */
             public UInt32 ulCameraType;
 
             /** 摄像机描述, 可不填 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DESC_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DESC_LEN)]
             public byte[] szCameraDesc;
 
             /** 云台控制协议, 目前支持的包括:PELCO-D, PELCO-P, ALEC, VISCA, ALEC_PELCO-D, ALEC_PELCO-P, MINKING_PELCO-D, MINKING_PELCO-P */
@@ -1106,15 +1106,15 @@ namespace VideoPlayControl
             public UInt32 ulAutoGuard;
 
             /** 设备描述, 可不填 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DESC_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DESC_LEN)]
             public byte[] szDevDesc;
 
             /** EC编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DEVICE_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DEVICE_CODE_LEN)]
             public byte[] szECCode;
 
             /** EC的IP地址,在绑定及修改Camera时,不需填写,查询Camera信息时会返回该字段 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szECIPAddr;
 
             /** 所在EC通道索引号, 视具体情况而定 */
@@ -1151,11 +1151,11 @@ namespace VideoPlayControl
         public struct VIN_CHANNEL_S
         {
             /** 视频输入通道描述 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DESC_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DESC_LEN)]
             public byte[] szVinChannelDesc;
 
             /** 组播地址 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szMulticastAddr;
 
             /** 组播端口,范围为：10002-65534，且必须为偶数 */
@@ -1169,7 +1169,7 @@ namespace VideoPlayControl
             public UInt32 ulUseMSNum;
 
             /** MS编码列表 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = (IMOSSDK.IMOS_MS_MAX_NUM_PER_CHANNEL * IMOSSDK.IMOS_DEVICE_CODE_LEN))]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = (IMOS_MS_MAX_NUM_PER_CHANNEL * IMOS_DEVICE_CODE_LEN))]
             public byte[,] aszMSCode;
 
             /** 是否启动图像遮挡检测告警, 1为启动; 0为不启动 */
@@ -1298,11 +1298,11 @@ namespace VideoPlayControl
         public struct DETECT_AREA_S
         {
             /** 遮挡检测区域 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DETECT_AREA_MAXNUM)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DETECT_AREA_MAXNUM)]
             public VIDEO_AREA_S[] astCoverDetecArea;
 
             /** 运动检测区域 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DETECT_AREA_MAXNUM)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DETECT_AREA_MAXNUM)]
             public VIDEO_AREA_S[] astMotionDetecArea;
         }
 
@@ -1310,7 +1310,7 @@ namespace VideoPlayControl
         public struct DEV_CHANNEL_INDEX_S
         {
             /** 设备编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DEVICE_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DEVICE_CODE_LEN)]
             public byte[] szDevCode;
 
             /** 设备类型，当设备为编码器时, 取值为#IMOS_TYPE_EC; 当设备为解码器时, 取值为#IMOS_TYPE_DC */
@@ -1324,19 +1324,19 @@ namespace VideoPlayControl
         public struct SCREEN_INFO_S
         {
             /** 监视器编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szScreenCode;
 
             /** 监视器名称 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szScreenName;
 
             /** 监视器描述, 可不填 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DESC_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DESC_LEN)]
             public byte[] szDevDesc;
 
             /**  DC的IP地址, 在绑定及修改Screen时, 不需填写; 查询Screen信息时会返回该字段 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szDCIPAddr;
 
             /** 保留字段 */
@@ -1351,7 +1351,7 @@ namespace VideoPlayControl
             public UInt32 ulVoutChannelindex;
 
             /** 逻辑输出通道描述, 可不填 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DESC_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DESC_LEN)]
             public byte[] szVoutChannelDesc;
 
             /** 是否使能, 1为使能; 0为不使能 */
@@ -1414,14 +1414,14 @@ namespace VideoPlayControl
             public UInt32 ulOsdType1;
 
             /** 第一个(主)场名OSD内容，对文字，该值为字符串，最长为20字符。对图片，该值为OSD图片编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szOsdString1;
 
             /** 第二个(辅)场名OSD类型, 取值为#IMOS_INFO_OSD_TYPE_E */
             public UInt32 ulOsdType2;
 
             /** 第二个(辅)场名OSD内容，对文字，该值为字符串，最长为20字符。对图片，该值为OSD图片编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szOsdString2;
 
             /** (第一个和第二个)场名OSD之间的切换时间, 单位为秒, 取值为0~300。取值为0, 表示只显示第一个(主)OSD */
@@ -1441,25 +1441,25 @@ namespace VideoPlayControl
             /// <summary>
             /// 告警事件编码
             /// </summary>
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] byAlarmEventCode;
 
             /// <summary>
             /// 告警源编码
             /// </summary>
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DEVICE_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DEVICE_CODE_LEN)]
             public byte[] byAlarmSrcCode;
 
             /// <summary>
             /// 告警源名称
             /// </summary>
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] byAlarmSrcName;
 
             /// <summary>
             /// 使能后名字
             /// </summary>
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] byActiveName;
 
             /// <summary>
@@ -1475,13 +1475,13 @@ namespace VideoPlayControl
             /// <summary>
             /// 告警触发时间
             /// </summary>
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_TIME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_TIME_LEN)]
             public byte[] byAlarmTime;
 
             /// <summary>
             /// 告警描述信息
             /// </summary>
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_DESC_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_DESC_LEN)]
             public byte[] byAlarmDesc;
 
         }
@@ -1489,7 +1489,7 @@ namespace VideoPlayControl
         public struct OSD_MASK_AREA_S
         {
             /** 遮盖区域 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_MASK_AREA_MAXNUM)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_MASK_AREA_MAXNUM)]
             public VIDEO_AREA_S[] astMaskArea;
         }
 
@@ -1500,7 +1500,7 @@ namespace VideoPlayControl
             public OSD_TIME_S stOSDTime;
 
             /** 场名OSD */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_OSD_NAME_MAXNUM)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_OSD_NAME_MAXNUM)]
             public OSD_NAME_S[] astOSDName;
 
             /** 遮盖区域 */
@@ -1554,7 +1554,7 @@ namespace VideoPlayControl
             public UInt32 ulVideoStreamNum;
 
             /** 视频流信息数组 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_STREAM_MAXNUM)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_STREAM_MAXNUM)]
             public VIDEO_STREAM_S[] astVideoStream;
 
             /** 检测区域，包含运动检测以及遮挡检测区域 */
@@ -1584,7 +1584,7 @@ namespace VideoPlayControl
         [StructLayout(LayoutKind.Sequential)]
         public struct XP_RUN_INFO_EX_S
         {
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public Byte[] szPortCode;     /**< 通道资源编码 */
 
             public UInt32 ulErrCode;
@@ -1597,11 +1597,11 @@ namespace VideoPlayControl
             public DEV_CHANNEL_INDEX_S stECChannelIndex;
 
             /** 摄像机编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szCamCode;
 
             /** 摄像机名称 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szCamName;
 
             /** 摄像机类型, 取值为#CAMERA_TYPE_E */
@@ -1615,7 +1615,7 @@ namespace VideoPlayControl
             public UInt32 ulPtzAddrCode;
 
             /** 组播地址 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_IPADDR_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_IPADDR_LEN)]
             public byte[] szMulticastAddr;
 
             /** 组播端口, 范围为：10002-65534 */
@@ -1633,11 +1633,11 @@ namespace VideoPlayControl
             public DEV_CHANNEL_INDEX_S stDCChannelIndex;
 
             /** 监视器编码 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_RES_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_RES_CODE_LEN)]
             public byte[] szScrCode;
 
             /** 监视器名称 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szScrName;
 
             /** 保留字段 */
@@ -1652,7 +1652,7 @@ namespace VideoPlayControl
             public UInt32 ulSplitScrMode;
 
             /** 分屏编码(全屏时有效) */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_CODE_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_CODE_LEN)]
             public byte[] szSplitScrCode;
 
             /** 是否"自动切换主辅流"(#BOOL_TRUE 是,#BOOL_FALSE 否)  */
@@ -1670,7 +1670,7 @@ namespace VideoPlayControl
             public ORG_RES_QUERY_ITEM_S stResItemV1;
 
             /** 资源所属组织的名称 */
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOSSDK.IMOS_NAME_LEN)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = IMOS_NAME_LEN)]
             public byte[] szOrgName;
 
             /** 资源属性信息，对于资源类型是摄像机时，取值为#CAMERA_ATTRIBUTE_E，其他资源类型该字段暂未使用 */
@@ -1689,7 +1689,7 @@ namespace VideoPlayControl
             {
                 RES_ITEM_V2_S stRes_V2 = new RES_ITEM_V2_S();
                 stRes_V2.stResItemV1 = stRes;
-                stRes_V2.szOrgName = new byte[IMOSSDK.IMOS_NAME_LEN];
+                stRes_V2.szOrgName = new byte[IMOS_NAME_LEN];
                 stRes_V2.szReserve = new byte[184];
                 stRes_V2.ulDevEncodeSet = 0;
                 stRes_V2.ulResAttribute = 0;
@@ -1697,480 +1697,477 @@ namespace VideoPlayControl
             }
         }
 
-        public class IMOSSDK
+        public const int IMOS_NAME_LEN = 64;
+
+        public const int IMOS_CODE_LEN = 48;
+
+        public const int IMOS_IPADDR_LEN = 64;
+
+        /*@brief 资源编码信息字符串长度*/
+        public const int IMOS_RES_CODE_LEN = IMOS_CODE_LEN;
+
+        /*@brief 设备编码信息字符串长度*/
+        public const int IMOS_DEVICE_CODE_LEN = IMOS_CODE_LEN;
+
+        /*@brief 用户编码信息字符串长度*/
+        public const int IMOS_USER_CODE_LEN = IMOS_CODE_LEN;
+
+        /*@brief 域编码信息字符串长度*/
+        public const int IMOS_DOMAIN_CODE_LEN = IMOS_CODE_LEN;
+
+        /*@brief 域名称信息字符串长度 */
+        public const int IMOS_DOMAIN_NAME_LEN = IMOS_NAME_LEN;
+
+        /*@brief 权限编码信息字符串长度*/
+        public const int IMOS_AUTH_CODE_LEN = IMOS_CODE_LEN;
+
+        //每次查询时返回的最大符合条件的结果的个数
+        public const int QUERY_ITEM_MAX = 200;
+
+        /*@brief imos_time 时间信息字符串长度 "2008-10-02 09:25:33.001 GMT" */
+        public const int IMOS_TIME_LEN = 32;
+
+        /*@brief 文件名长度 */
+        public const int IMOS_FILE_NAME_LEN = 64;
+
+        public const uint ERR_XP_FAIL_TO_SETUP_PROTOCOL = 0x0007B0;      /**< 建立流控协商失败 */
+        public const uint ERR_XP_FAIL_TO_PLAY_PROTOCOL = 0x0007B1;      /**< 流控协商播放失败 */
+        public const uint ERR_XP_FAIL_TO_PAUSE_PROTOCOL = 0x0007B2;      /**< 流控协商暂停失败 */
+        public const uint ERR_XP_FAIL_TO_STOP_PROTOCOL = 0x0007B3;      /**< 停止流控协商失败 */
+        public const uint ERR_XP_RTSP_COMPLETE = 0x0007B4;      /**< RTSP播放或下载完成 */
+        public const uint ERR_XP_RTSP_ABNORMAL_TEATDOWN = 0x0007B5;      /**< RTSP异常下线，服务器读取文件错误或数据被覆写 */
+        public const uint ERR_XP_RTSP_KEEP_LIVE_TIME_OUT = 0x0007B6;      /**< RTSP保活失败 */
+        public const uint ERR_XP_RTSP_ENCODE_CHANGE = 0x0007B7;      /**< RTSP中码流格式切换 */
+        public const uint ERR_XP_RTSP_DISCONNECT = 0x0007B8;      /**< RTSP连接断开，点播回放或下载已自动终止，请检查网络 */
+
+        public const uint ERR_XP_DISK_CAPACITY_WARN = 0x00079B;      /**< 硬盘剩余空间低于阈值 */
+        public const uint ERR_XP_DISK_CAPACITY_NOT_ENOUGH = 0x00079C;     /**< 硬盘剩余空间不足，无法继续业务 */
+        public const uint ERR_XP_FAIL_TO_WRITE_FILE = 0x000723;     /**< 写文件操作失败 */
+        public const uint ERR_XP_FAIL_TO_PROCESS_MEDIA_DATA = 0x0007A9;   /**< 媒体数据处理失败 */
+        public const uint ERR_XP_NOT_SUPPORT_MEDIA_ENCODE_TYPE = 0x000735;/**< 播放通道的媒体编码格式不支持此操作 */
+        public const uint ERR_XP_MEDIA_RESOLUTION_CHANGE = 0x000736;      /**< 播放通道的媒体流分辨率发生变化 */
+
+        /*@brief imos_description 描述信息字符串长度 */
+        public const int IMOS_DESC_LEN = (128 * 3);
+
+        public const int IMOS_IE_URL_LEN = 512;
+
+        public const int IMOS_PASSWD_ENCRYPT_LEN = 64;
+
+        public const int IMOS_QUERY_ITEM_MAX_NUM = 16;
+
+        public const int IMOS_QUERY_DATA_MAX_LEN = 64;
+
+        public const int IMOS_DEV_STATUS_ONLINE = 1;
+
+        public const int IMOS_DEV_STATUS_OFFLINE = 2;
+
+        public const int IMOS_STREAM_MAXNUM = 2;
+
+        public const int IMOS_MS_MAX_NUM_PER_CHANNEL = 1;
+
+        public const int IMOS_DETECT_AREA_MAXNUM = 4;
+
+        public const int IMOS_MASK_AREA_MAXNUM = 4;
+
+        public const int IMOS_OSD_NAME_MAXNUM = 1;
+
+
+
+        public static LOGIN_INFO_S stLoginInfo;
+        public static XP_INFO_S stXpInfo;
+        public static PLAY_WND_INFO_S[] astPlayWndInfo = new PLAY_WND_INFO_S[25];
+
+
+        public static System.Timers.Timer timerKeepalive;
+
+        public delegate void MethodInvoke1<T>(T Param);
+
+        public static string UTF8ToUnicode(byte[] bufferIn)
         {
 
-            public const int IMOS_NAME_LEN = 64;
-
-            public const int IMOS_CODE_LEN = 48;
-
-            public const int IMOS_IPADDR_LEN = 64;
-
-            /*@brief 资源编码信息字符串长度*/
-            public const int IMOS_RES_CODE_LEN = IMOS_CODE_LEN;
-
-            /*@brief 设备编码信息字符串长度*/
-            public const int IMOS_DEVICE_CODE_LEN = IMOS_CODE_LEN;
-
-            /*@brief 用户编码信息字符串长度*/
-            public const int IMOS_USER_CODE_LEN = IMOS_CODE_LEN;
-
-            /*@brief 域编码信息字符串长度*/
-            public const int IMOS_DOMAIN_CODE_LEN = IMOS_CODE_LEN;
-
-            /*@brief 域名称信息字符串长度 */
-            public const int IMOS_DOMAIN_NAME_LEN = IMOS_NAME_LEN;
-
-            /*@brief 权限编码信息字符串长度*/
-            public const int IMOS_AUTH_CODE_LEN = IMOS_CODE_LEN;
-
-            //每次查询时返回的最大符合条件的结果的个数
-            public const int QUERY_ITEM_MAX = 200;
-
-            /*@brief imos_time 时间信息字符串长度 "2008-10-02 09:25:33.001 GMT" */
-            public const int IMOS_TIME_LEN = 32;
-
-            /*@brief 文件名长度 */
-            public const int IMOS_FILE_NAME_LEN = 64;
-
-            public const uint ERR_XP_FAIL_TO_SETUP_PROTOCOL = 0x0007B0;      /**< 建立流控协商失败 */
-            public const uint ERR_XP_FAIL_TO_PLAY_PROTOCOL = 0x0007B1;      /**< 流控协商播放失败 */
-            public const uint ERR_XP_FAIL_TO_PAUSE_PROTOCOL = 0x0007B2;      /**< 流控协商暂停失败 */
-            public const uint ERR_XP_FAIL_TO_STOP_PROTOCOL = 0x0007B3;      /**< 停止流控协商失败 */
-            public const uint ERR_XP_RTSP_COMPLETE = 0x0007B4;      /**< RTSP播放或下载完成 */
-            public const uint ERR_XP_RTSP_ABNORMAL_TEATDOWN = 0x0007B5;      /**< RTSP异常下线，服务器读取文件错误或数据被覆写 */
-            public const uint ERR_XP_RTSP_KEEP_LIVE_TIME_OUT = 0x0007B6;      /**< RTSP保活失败 */
-            public const uint ERR_XP_RTSP_ENCODE_CHANGE = 0x0007B7;      /**< RTSP中码流格式切换 */
-            public const uint ERR_XP_RTSP_DISCONNECT = 0x0007B8;      /**< RTSP连接断开，点播回放或下载已自动终止，请检查网络 */
-
-            public const uint ERR_XP_DISK_CAPACITY_WARN = 0x00079B;      /**< 硬盘剩余空间低于阈值 */
-            public const uint ERR_XP_DISK_CAPACITY_NOT_ENOUGH = 0x00079C;     /**< 硬盘剩余空间不足，无法继续业务 */
-            public const uint ERR_XP_FAIL_TO_WRITE_FILE = 0x000723;     /**< 写文件操作失败 */
-            public const uint ERR_XP_FAIL_TO_PROCESS_MEDIA_DATA = 0x0007A9;   /**< 媒体数据处理失败 */
-            public const uint ERR_XP_NOT_SUPPORT_MEDIA_ENCODE_TYPE = 0x000735;/**< 播放通道的媒体编码格式不支持此操作 */
-            public const uint ERR_XP_MEDIA_RESOLUTION_CHANGE = 0x000736;      /**< 播放通道的媒体流分辨率发生变化 */
-
-            /*@brief imos_description 描述信息字符串长度 */
-            public const int IMOS_DESC_LEN = (128 * 3);
-
-            public const int IMOS_IE_URL_LEN = 512;
-
-            public const int IMOS_PASSWD_ENCRYPT_LEN = 64;
-
-            public const int IMOS_QUERY_ITEM_MAX_NUM = 16;
-
-            public const int IMOS_QUERY_DATA_MAX_LEN = 64;
-
-            public const int IMOS_DEV_STATUS_ONLINE = 1;
-
-            public const int IMOS_DEV_STATUS_OFFLINE = 2;
-
-            public const int IMOS_STREAM_MAXNUM = 2;
-
-            public const int IMOS_MS_MAX_NUM_PER_CHANNEL = 1;
-
-            public const int IMOS_DETECT_AREA_MAXNUM = 4;
-
-            public const int IMOS_MASK_AREA_MAXNUM = 4;
-
-            public const int IMOS_OSD_NAME_MAXNUM = 1;
-
-
-
-            public static LOGIN_INFO_S stLoginInfo;
-            public static XP_INFO_S stXpInfo;
-            public static PLAY_WND_INFO_S[] astPlayWndInfo = new PLAY_WND_INFO_S[25];
-
-
-            public static System.Timers.Timer timerKeepalive;
-
-            public delegate void MethodInvoke1<T>(T Param);
-
-            public static string UTF8ToUnicode(byte[] bufferIn)
-            {
-
-                byte[] buffer = Encoding.Convert(Encoding.UTF8, Encoding.Default, bufferIn, 0, bufferIn.Length);
-                return Encoding.Default.GetString(buffer, 0, buffer.Length);
-            }
-
-            public static byte[] UnicodeToUTF8(string buffIn)
-            {
-                byte[] buffer = Encoding.Default.GetBytes(buffIn);
-                return Encoding.Convert(Encoding.Default, Encoding.UTF8, buffer, 0, buffer.Length);
-            }
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_Initiate(String strServerIP, UInt32 ulServerPort, UInt32 bUIFlag, UInt32 bXPFlag);
-
-            /// <summary>
-            /// xp信息回调，主要用于接收一些XP相关信息
-            /// </summary>
-            /// <param name="stUserLoginIDInfo"></param>
-            /// <param name="ulRunInfoType"></param>
-            /// <param name="ptrInfo"></param>
-            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-            public delegate void XP_RUN_INFO_CALLBACK_EX_PF(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, UInt32 ulRunInfoType, IntPtr pParam);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_Encrypt(String strInput, UInt32 ulInLen, IntPtr ptrOutput);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_Login(String strUserLoginName, String strPassword, String strIpAddr, IntPtr ptrSDKLoginInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_LoginEx(String strUserLoginName, String strPassword, String srvIpAddr, String cltIpAddr, IntPtr ptrSDKLoginInfo);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_PlaySound(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, byte[] pcChannelCode);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_CleanUp(IntPtr pstUserLogIDInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_UserKeepAlive(ref USER_LOGIN_ID_INFO_S stUserLoginInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StartMonitor(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCameraCode, byte[] szMonitorCode, UInt32 ulStreamType, UInt32 ulOperateCode);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StopMonitor(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szMonitorCode, UInt32 ulOperateCode);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryResourceList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szOrgCode, UInt32 ulResType, UInt32 ptrQueryCondition, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrResList);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryResourceListV2(ref USER_LOGIN_ID_INFO_S pstUserLogIDInfo, byte[] szOrgCode, ref COMMON_QUERY_CONDITION_S pstQueryCondition, ref QUERY_PAGE_INFO_S pstQueryPageInfo, ref RSP_PAGE_INFO_S pstRspPageInfo, IntPtr pstResList);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_Logout(ref USER_LOGIN_ID_INFO_S stUserLoginInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern void IMOS_LogoutEx(ref USER_LOGIN_ID_INFO_S stUserLoginInfo);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern void IMOS_GetChannelCode(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, IntPtr pcChannelCode);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StartPtzCtrl(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ReleasePtzCtrl(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode, UInt32 bReleaseSelf);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryPresetList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode, ref QUERY_PAGE_INFO_S stQueryPageInfo, ref RSP_PAGE_INFO_S ptrRspPage, IntPtr pstPresetList);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetPreset(ref USER_LOGIN_ID_INFO_S pstUserLogIDInfo, byte[] szCamCode, ref PRESET_INFO_S pstPreset);
-
-            /// <summary>
-            /// 删除预置位
-            /// </summary>
-            /// <param name="pstUserLogIDInfo">用户登录ID信息标识</param>
-            /// <param name="szCamCode">摄像机编码</param>
-            /// <param name="ulPresetValue">预置位值</param>
-            /// <returns></returns>
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_DelPreset(ref USER_LOGIN_ID_INFO_S pstUserLogIDInfo, byte[] szCamCode, UInt32 ulPresetValue);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_UsePreset(ref USER_LOGIN_ID_INFO_S pstUserLogIDInfo, byte[] szCamCode, UInt32 ulPresetNum);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_PtzCtrlCommand(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode, ref PTZ_CTRL_COMMAND_S stPTZCommand);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StartPlayer(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, UInt32 ulPlayWndNum, IntPtr ptrPlayWndInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StopPlayer(ref USER_LOGIN_ID_INFO_S stUserLoginInfo);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetPlayWnd(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, IntPtr hWnd);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_RecordRetrieval(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref REC_QUERY_INFO_S stSDKRecQueryInfo, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrSDKRecordFileInfo);
-
-            /// <summary>
-            /// 注册回调函数
-            /// </summary>
-            /// <param name="pstUserLoginIDInfo">登入信息</param>
-            /// <param name="ptrCallBack">回调函数</param>
-            /// <returns></returns>
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_RegCallBackPrcFunc(ref USER_LOGIN_ID_INFO_S stUserLoginIDInfo, IntPtr pfnCallBackProc);
-
-            /// <summary>
-            /// 告警回调函数
-            /// </summary>
-            /// <param name="ulProcType">告警类型</param>
-            /// <param name="ptrParam">返回的数据指针</param>
-            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-            public delegate void CALL_BACK_PROC_PF(UInt32 ulProcType, IntPtr ptrParam);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_GetRecordFileURL(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref GET_URL_INFO_S stSDKGetUrlInfo, ref URL_INFO_S stUrlInfo);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_FreeChannelCode(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, Byte[] pcChannelCode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_OpenVodStream(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szVodUrl, byte[] szServerIP, UInt16 usServerPort, UInt32 ulProtl);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StartPlay(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_PausePlay(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ResumePlay(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StopPlay(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetPlaySpeed(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, UInt32 ulPlaySpeed);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetRunMsgCB(IntPtr ptrRunInfoFunc);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_GetDownloadTime(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, String pcDownloadID, byte[] pszTime);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_OneByOne(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetPlayedTime(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szTime);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetPlayedTimeEx(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, UInt32 ulTime);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_GetPlayedTime(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, IntPtr ptrTime);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_GetPlayedTimeEx(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, IntPtr ptrTime);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StopDownload(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, byte[] pcDownloadID);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SnatchOnce(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szFileName, UInt32 ulPicFormat);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SnatchOnceEx(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szFileName, UInt32 ulPicFormat);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StartSnatchSeries(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szFileName, UInt32 ulPicFormat, UInt32 ulInterval);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StopSnatchSeries(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StartRecord(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szFileName, UInt32 ulFileFormat);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StartRecordEx(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szFileName, UInt32 ulFileFormat, IntPtr ptrFilePostfix);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StopRecord(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_GetVideoEncodeType(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, ref UInt32 ptrVideoEncodeType);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_GetLostPacketRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, IntPtr ptrRecvPktNum, IntPtr ptrLostPktNum);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ResetLostPacketRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_GetLostFrameRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, IntPtr ptrAllFrameNum, IntPtr ptrLostFrameNum);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ResetLostFrameRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_OpenDownload(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, byte[] pcDownUrl, byte[] pcServerIP, ushort usServerPort, UInt32 ulProtl, UInt32 ulDownMediaSpeed, byte[] pcFileName, UInt32 ulFileFormat, byte[] pcChannelCode);
-
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StartDownload(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, byte[] pcChannelCode);
-
-
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetDecoderTag(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, byte[] pcChannelCode, byte[] pcDecorderTag);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_GetFrameRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, ref UInt32 ptrFrameRate);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_GetBitRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, ref UInt32 ptrBitRate);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_StopSound(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetVolume(UInt32 ulVolume);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_GetVolume(IntPtr ptrVolume);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetFieldMode(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, UInt32 ulFieldMode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_AdjustAllWaveAudio(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, UInt32 ulCoefficient);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_AdjustPktSeq(Boolean bAdjust);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetRenderMode(UInt32 ulRenderMode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetRealtimeFluency(UInt32 ulFluency);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_XP_SetDeinterlaceMode(UInt32 ulPort, UInt32 ulDeinterlaceMode);
-
-            [DllImport("xp_frame.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SetPixelFormat(UInt32 ulPixelFormat);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ConfigXpStreamInfo(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref XP_STREAM_INFO_S pstXpStreamInfo);
-
-
-
-            //EC Camera 配置接口
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_AddEc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref EC_INFO_S stEcInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ModifyEc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref EC_INFO_S stEcInfo, UInt32 IsEncodeChange);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_DelEc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szEcCode);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryEcList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szOrgCode, IntPtr ptrQueryCondition, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrEcList);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryEcInfo(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szEcCode, IntPtr ptrEcInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_BindCameraToVideoInChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref VINCHNL_BIND_CAMERA_S stVinChnlAndCamInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryCameraAndChannelList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szDevCode, IntPtr stQueryCondition, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrCamAndChannelList);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ModifyCamera(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref CAMERA_INFO_S stCamInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_UnBindCamera(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryCamera(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode, IntPtr ptrCameraInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ConfigVideoInChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, ref VIN_CHANNEL_S stVideoInChannelInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryECVideoInChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrVideoInChannelInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ConfigECVideoStream(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, ref VIDEO_STREAM_S stVideoStreamInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryECVideoStream(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrStreamNum, IntPtr ptrVideoStreamInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ConfigECMaskAreaOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, UInt32 ulMaskAreaNum, ref VIDEO_AREA_S stMaskArea);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryECMaskAreaOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrMaskAreaNum, IntPtr ptrMaskArea);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ConfigECMotionDetectArea(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, UInt32 ulMotionDetectAreaNum, ref VIDEO_AREA_S stMotionDetectArea);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryECMotionDetectArea(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrMotionDetectAreaNum, IntPtr ptrMotionDetectArea);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ConfigDeviceTimeOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, ref OSD_TIME_S stTimeOSD);
-
-            /// <summary>
-            /// 完成订阅推送功能
-            /// </summary>
-            /// <param name="stUserLoginIDInfo">登入信息</param>
-            /// <param name="ulSubscribePushType">订阅类型</param>
-            /// <returns></returns>
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_SubscribePushInfo(ref USER_LOGIN_ID_INFO_S stUserLoginIDInfo, UInt32 ulSubscribePushType);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryDeviceTimeOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrTimeOSD);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ConfigDeviceNameOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, UInt32 ulNameOSDNum, ref OSD_NAME_S stNameOSD);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryDeviceNameOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrNameOSDNum, IntPtr ptrNameOSD);
-
-
-
-            //DC Screen 配置接口
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_AddDc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DC_INFO_S stDcInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ModifyDc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DC_INFO_S stDcInfo, UInt32 IsEncodeChange);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_DelDc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szDcCode);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryDcList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szOrgCode, IntPtr ptrQueryCondition, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrDcList);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryDcInfo(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szDcCode, IntPtr ptrDcInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_BindScreenToVideoOutChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref VOUTCHNL_BIND_SCREEN_S stVOUTChnlAndScrInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryScreenAndChannelList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szDevCode, IntPtr ptrQueryCondition, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrVOUTChnlAndScrList);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ModifyScreen(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref SCREEN_INFO_S stScrInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_UnBindScreen(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szScrCode);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryScreen(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szScrCode, IntPtr ptrScreenInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ConfigDCVideoOutChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, UInt32 ulVideoOutNum, ref VOUT_CHANNEL_S stVideoOutChannelInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryDCVideoOutChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrVideoOutNum, IntPtr ptrVideoOutChannelInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_ConfigDCPhyOutChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, ref PHYOUT_CHANNEL_S stPhyoutChannelInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QueryDCVideoOutChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrPhyoutChannelInfo);
-
-            [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-            public static extern UInt32 IMOS_QuerySplitScrInfo(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szScrCode, ref SPLIT_SCR_INFO_S ptrSplitInfo);
-
+            byte[] buffer = Encoding.Convert(Encoding.UTF8, Encoding.Default, bufferIn, 0, bufferIn.Length);
+            return Encoding.Default.GetString(buffer, 0, buffer.Length);
         }
+
+        public static byte[] UnicodeToUTF8(string buffIn)
+        {
+            byte[] buffer = Encoding.Default.GetBytes(buffIn);
+            return Encoding.Convert(Encoding.Default, Encoding.UTF8, buffer, 0, buffer.Length);
+        }
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_Initiate(String strServerIP, UInt32 ulServerPort, UInt32 bUIFlag, UInt32 bXPFlag);
+
+        /// <summary>
+        /// xp信息回调，主要用于接收一些XP相关信息
+        /// </summary>
+        /// <param name="stUserLoginIDInfo"></param>
+        /// <param name="ulRunInfoType"></param>
+        /// <param name="ptrInfo"></param>
+        [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+        public delegate void XP_RUN_INFO_CALLBACK_EX_PF(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, UInt32 ulRunInfoType, IntPtr pParam);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_Encrypt(String strInput, UInt32 ulInLen, IntPtr ptrOutput);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_Login(String strUserLoginName, String strPassword, String strIpAddr, IntPtr ptrSDKLoginInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_LoginEx(String strUserLoginName, String strPassword, String srvIpAddr, String cltIpAddr, IntPtr ptrSDKLoginInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_PlaySound(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, byte[] pcChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_CleanUp(IntPtr pstUserLogIDInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_UserKeepAlive(ref USER_LOGIN_ID_INFO_S stUserLoginInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StartMonitor(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCameraCode, byte[] szMonitorCode, UInt32 ulStreamType, UInt32 ulOperateCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StopMonitor(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szMonitorCode, UInt32 ulOperateCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryResourceList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szOrgCode, UInt32 ulResType, UInt32 ptrQueryCondition, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrResList);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryResourceListV2(ref USER_LOGIN_ID_INFO_S pstUserLogIDInfo, byte[] szOrgCode, ref COMMON_QUERY_CONDITION_S pstQueryCondition, ref QUERY_PAGE_INFO_S pstQueryPageInfo, ref RSP_PAGE_INFO_S pstRspPageInfo, IntPtr pstResList);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_Logout(ref USER_LOGIN_ID_INFO_S stUserLoginInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern void IMOS_LogoutEx(ref USER_LOGIN_ID_INFO_S stUserLoginInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern void IMOS_GetChannelCode(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, IntPtr pcChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StartPtzCtrl(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ReleasePtzCtrl(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode, UInt32 bReleaseSelf);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryPresetList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode, ref QUERY_PAGE_INFO_S stQueryPageInfo, ref RSP_PAGE_INFO_S ptrRspPage, IntPtr pstPresetList);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetPreset(ref USER_LOGIN_ID_INFO_S pstUserLogIDInfo, byte[] szCamCode, ref PRESET_INFO_S pstPreset);
+
+        /// <summary>
+        /// 删除预置位
+        /// </summary>
+        /// <param name="pstUserLogIDInfo">用户登录ID信息标识</param>
+        /// <param name="szCamCode">摄像机编码</param>
+        /// <param name="ulPresetValue">预置位值</param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_DelPreset(ref USER_LOGIN_ID_INFO_S pstUserLogIDInfo, byte[] szCamCode, UInt32 ulPresetValue);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_UsePreset(ref USER_LOGIN_ID_INFO_S pstUserLogIDInfo, byte[] szCamCode, UInt32 ulPresetNum);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_PtzCtrlCommand(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode, ref PTZ_CTRL_COMMAND_S stPTZCommand);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StartPlayer(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, UInt32 ulPlayWndNum, IntPtr ptrPlayWndInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StopPlayer(ref USER_LOGIN_ID_INFO_S stUserLoginInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetPlayWnd(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, IntPtr hWnd);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_RecordRetrieval(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref REC_QUERY_INFO_S stSDKRecQueryInfo, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrSDKRecordFileInfo);
+
+        /// <summary>
+        /// 注册回调函数
+        /// </summary>
+        /// <param name="pstUserLoginIDInfo">登入信息</param>
+        /// <param name="ptrCallBack">回调函数</param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_RegCallBackPrcFunc(ref USER_LOGIN_ID_INFO_S stUserLoginIDInfo, IntPtr pfnCallBackProc);
+
+        /// <summary>
+        /// 告警回调函数
+        /// </summary>
+        /// <param name="ulProcType">告警类型</param>
+        /// <param name="ptrParam">返回的数据指针</param>
+        [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+        public delegate void CALL_BACK_PROC_PF(UInt32 ulProcType, IntPtr ptrParam);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_GetRecordFileURL(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref GET_URL_INFO_S stSDKGetUrlInfo, ref URL_INFO_S stUrlInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_FreeChannelCode(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, Byte[] pcChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_OpenVodStream(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szVodUrl, byte[] szServerIP, UInt16 usServerPort, UInt32 ulProtl);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StartPlay(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_PausePlay(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ResumePlay(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StopPlay(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetPlaySpeed(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, UInt32 ulPlaySpeed);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetRunMsgCB(IntPtr ptrRunInfoFunc);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_GetDownloadTime(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, String pcDownloadID, byte[] pszTime);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_OneByOne(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetPlayedTime(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szTime);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetPlayedTimeEx(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, UInt32 ulTime);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_GetPlayedTime(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, IntPtr ptrTime);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_GetPlayedTimeEx(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, IntPtr ptrTime);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StopDownload(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, byte[] pcDownloadID);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SnatchOnce(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szFileName, UInt32 ulPicFormat);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SnatchOnceEx(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szFileName, UInt32 ulPicFormat);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StartSnatchSeries(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szFileName, UInt32 ulPicFormat, UInt32 ulInterval);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StopSnatchSeries(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StartRecord(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szFileName, UInt32 ulFileFormat);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StartRecordEx(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, byte[] szFileName, UInt32 ulFileFormat, IntPtr ptrFilePostfix);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StopRecord(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_GetVideoEncodeType(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, ref UInt32 ptrVideoEncodeType);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_GetLostPacketRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, IntPtr ptrRecvPktNum, IntPtr ptrLostPktNum);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ResetLostPacketRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_GetLostFrameRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, IntPtr ptrAllFrameNum, IntPtr ptrLostFrameNum);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ResetLostFrameRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_OpenDownload(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, byte[] pcDownUrl, byte[] pcServerIP, ushort usServerPort, UInt32 ulProtl, UInt32 ulDownMediaSpeed, byte[] pcFileName, UInt32 ulFileFormat, byte[] pcChannelCode);
+
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StartDownload(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, byte[] pcChannelCode);
+
+
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetDecoderTag(ref USER_LOGIN_ID_INFO_S pstUserLoginIDInfo, byte[] pcChannelCode, byte[] pcDecorderTag);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_GetFrameRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, ref UInt32 ptrFrameRate);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_GetBitRate(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, ref UInt32 ptrBitRate);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_StopSound(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetVolume(UInt32 ulVolume);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_GetVolume(IntPtr ptrVolume);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetFieldMode(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szChannelCode, UInt32 ulFieldMode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_AdjustAllWaveAudio(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, UInt32 ulCoefficient);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_AdjustPktSeq(Boolean bAdjust);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetRenderMode(UInt32 ulRenderMode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetRealtimeFluency(UInt32 ulFluency);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_XP_SetDeinterlaceMode(UInt32 ulPort, UInt32 ulDeinterlaceMode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFrameFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SetPixelFormat(UInt32 ulPixelFormat);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ConfigXpStreamInfo(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref XP_STREAM_INFO_S pstXpStreamInfo);
+
+
+
+        //EC Camera 配置接口
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_AddEc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref EC_INFO_S stEcInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ModifyEc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref EC_INFO_S stEcInfo, UInt32 IsEncodeChange);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_DelEc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szEcCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryEcList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szOrgCode, IntPtr ptrQueryCondition, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrEcList);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryEcInfo(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szEcCode, IntPtr ptrEcInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_BindCameraToVideoInChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref VINCHNL_BIND_CAMERA_S stVinChnlAndCamInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryCameraAndChannelList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szDevCode, IntPtr stQueryCondition, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrCamAndChannelList);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ModifyCamera(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref CAMERA_INFO_S stCamInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_UnBindCamera(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryCamera(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szCamCode, IntPtr ptrCameraInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ConfigVideoInChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, ref VIN_CHANNEL_S stVideoInChannelInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryECVideoInChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrVideoInChannelInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ConfigECVideoStream(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, ref VIDEO_STREAM_S stVideoStreamInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryECVideoStream(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrStreamNum, IntPtr ptrVideoStreamInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ConfigECMaskAreaOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, UInt32 ulMaskAreaNum, ref VIDEO_AREA_S stMaskArea);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryECMaskAreaOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrMaskAreaNum, IntPtr ptrMaskArea);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ConfigECMotionDetectArea(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, UInt32 ulMotionDetectAreaNum, ref VIDEO_AREA_S stMotionDetectArea);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryECMotionDetectArea(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrMotionDetectAreaNum, IntPtr ptrMotionDetectArea);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ConfigDeviceTimeOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, ref OSD_TIME_S stTimeOSD);
+
+        /// <summary>
+        /// 完成订阅推送功能
+        /// </summary>
+        /// <param name="stUserLoginIDInfo">登入信息</param>
+        /// <param name="ulSubscribePushType">订阅类型</param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_SubscribePushInfo(ref USER_LOGIN_ID_INFO_S stUserLoginIDInfo, UInt32 ulSubscribePushType);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryDeviceTimeOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrTimeOSD);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ConfigDeviceNameOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, UInt32 ulNameOSDNum, ref OSD_NAME_S stNameOSD);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryDeviceNameOSD(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrNameOSDNum, IntPtr ptrNameOSD);
+
+
+
+        //DC Screen 配置接口
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_AddDc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DC_INFO_S stDcInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ModifyDc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DC_INFO_S stDcInfo, UInt32 IsEncodeChange);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_DelDc(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szDcCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryDcList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szOrgCode, IntPtr ptrQueryCondition, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrDcList);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryDcInfo(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szDcCode, IntPtr ptrDcInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_BindScreenToVideoOutChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref VOUTCHNL_BIND_SCREEN_S stVOUTChnlAndScrInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryScreenAndChannelList(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szDevCode, IntPtr ptrQueryCondition, ref QUERY_PAGE_INFO_S stQueryPageInfo, IntPtr ptrRspPage, IntPtr ptrVOUTChnlAndScrList);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ModifyScreen(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref SCREEN_INFO_S stScrInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_UnBindScreen(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szScrCode);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryScreen(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szScrCode, IntPtr ptrScreenInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ConfigDCVideoOutChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, UInt32 ulVideoOutNum, ref VOUT_CHANNEL_S stVideoOutChannelInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryDCVideoOutChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrVideoOutNum, IntPtr ptrVideoOutChannelInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_ConfigDCPhyOutChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, ref PHYOUT_CHANNEL_S stPhyoutChannelInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QueryDCVideoOutChannel(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, ref DEV_CHANNEL_INDEX_S stChannelIndex, IntPtr ptrPhyoutChannelInfo);
+
+        [DllImport(ProgConstants.c_strIMOSSDKFilePath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern UInt32 IMOS_QuerySplitScrInfo(ref USER_LOGIN_ID_INFO_S stUserLoginInfo, byte[] szScrCode, ref SPLIT_SCR_INFO_S ptrSplitInfo);
+
+
     }
 
 }
