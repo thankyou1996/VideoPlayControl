@@ -481,6 +481,7 @@
         <member name="P:PublicClassCurrency.VideoInfo.DVSConnectPort">
             <summary>
             DVS连接端口
+            SK3000:DVSControlPort
             </summary>
         </member>
         <member name="F:PublicClassCurrency.VideoInfo.intDVSDataPort">
@@ -490,7 +491,8 @@
         </member>
         <member name="P:PublicClassCurrency.VideoInfo.DVSDataPort">
             <summary>
-            DVS连接端口
+            DVS数据端口
+            SK3000:DVSStreamPort
             </summary>
         </member>
         <member name="F:PublicClassCurrency.VideoInfo.intDVSChannelNum">
@@ -573,16 +575,19 @@
         <member name="P:PublicClassCurrency.VideoInfo.VideoServerEnable">
             <summary>
             视频服务器是否启用
+            SK3000:DVSPTZProtocol[IP:Port]
             </summary>
         </member>
         <member name="P:PublicClassCurrency.VideoInfo.VideoServerIP">
             <summary>
             视频服务器IP
+            SK3000:DVSPTZProtocol[IP:Port]
             </summary>
         </member>
         <member name="P:PublicClassCurrency.VideoInfo.VideoServerPort">
             <summary>
             视频服务器端口
+            SK3000:DVSPTZProtocol[IP:Port]
             </summary>
         </member>
         <member name="F:PublicClassCurrency.VideoInfo.bolIntercomEnable">
@@ -731,6 +736,16 @@
         <member name="F:PublicClassCurrency.Enum_VideoType.BlueSky">
             <summary>
             蓝色星际
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.IMOS">
+            <summary>
+            宇视视频
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.SKNVideo">
+            <summary>
+            时刻视频（H265）
             </summary>
         </member>
         <member name="T:PublicClassCurrency.Enum_VIdeoRecordType">

@@ -90,6 +90,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SDKInterface\SDK_SKNVideo.cs" />
     <Compile Include="SDKState.cs" />
     <Compile Include="SDKInterface\SDK_EzvizSDK.cs" />
     <Compile Include="SDKInterface\SDK_EzvizSDK_Old.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="VideoPlay\VideoPlay_Ezviz.cs" />
     <Compile Include="VideoPlay\VideoPlay_IMOS.cs" />
     <Compile Include="VideoPlay\VideoPlay_Shike.cs" />
+    <Compile Include="VideoPlay\VideoPlay_SKNVideo.cs" />
     <Compile Include="VideoRecordBackplay\VideoPlayback\VideoBackPlay_AmpFileParser.cs" />
     <Compile Include="VideoPlayGroupControls_PTZAndTalk.cs">
       <SubType>UserControl</SubType>

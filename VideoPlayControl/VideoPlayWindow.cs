@@ -370,6 +370,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.Ezviz:
                         iv = new VideoPlay_Ezviz();
                         break;
+                    case Enum_VideoType.SKNVideo:
+                        iv = new VideoPlay_SKNVideo();
+                        break;
                 }
             }
             else
