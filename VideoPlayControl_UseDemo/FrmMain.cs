@@ -53,14 +53,14 @@ namespace VideoPlayControl_UseDemo
             VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            SDKState.Ezviz_SDKInit();
+            //SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
-            SDKState.XMSDK_Init();
-            SDK_XMSDK.LoginAbnormalResetEnviron = true;
+            //SDKState.XMSDK_Init();
+            //SDK_XMSDK.LoginAbnormalResetEnviron = true;
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
-
+            SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C://SHIKE_Video");
             Init();
 
 
@@ -113,11 +113,15 @@ namespace VideoPlayControl_UseDemo
             dr["display"] = Enum_VideoType.XMaiVideo.ToString();
             dtSource.Rows.Add(dr);
 
-            //dr = dtSource.NewRow();
-            //dr["value"] = Convert.ToInt32(Enum_VideoType.SKVideo);
-            //dr["display"] = Enum_VideoType.SKVideo.ToString();
-            //dtSource.Rows.Add(dr);
+            dr = dtSource.NewRow();
+            dr["value"] = Convert.ToInt32(Enum_VideoType.SKVideo);
+            dr["display"] = Enum_VideoType.SKVideo.ToString();
+            dtSource.Rows.Add(dr);
 
+            dr = dtSource.NewRow();
+            dr["value"] = Convert.ToInt32(Enum_VideoType.SKNVideo);
+            dr["display"] = Enum_VideoType.SKNVideo.ToString();
+            dtSource.Rows.Add(dr);
 
             cmbVideoType.ValueMember = "value";
             cmbVideoType.DisplayMember = "display";
@@ -1279,6 +1283,14 @@ namespace VideoPlayControl_UseDemo
                 Console.WriteLine(DateTime.Now + "_Play");
                 lstVideoPlayWindow[0].VideoPlay();
             }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            VideoInfo v = TestDataSource.TestDataSource.GetSKNDVSData1();
+            dicVideoInfos[v.DVSNumber] = v;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
         }
     }
 }

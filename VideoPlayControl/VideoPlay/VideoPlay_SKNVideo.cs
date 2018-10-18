@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using VideoPlayControl.SDKInterface;
 using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
@@ -29,12 +30,25 @@ namespace VideoPlayControl.VideoPlay
         }
         public bool VideoClose()
         {
-            throw new NotImplementedException();
+            bool bolResult = false;
+            SDK_SKNVideo.SDK_NSK_CLIENT_close_rt_video(intptrPlayMain);
+            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+            return bolResult;
         }
 
         public bool VideoPlay()
         {
-            throw new NotImplementedException();
+            bool bolResult = false;
+            VideoPlayState = Enum_VideoPlayState.Connecting;
+            if (!CurrentVideoPlaySet.VideoRecordFilePath.StartsWith("\\"))
+            {
+                CurrentVideoPlaySet.VideoRecordFilePath = "\\" + CurrentVideoPlaySet.VideoRecordFilePath;
+            }
+            SDK_SKNVideo.SDK_NSK_CLIENT_open_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, 2, intptrPlayMain, CurrentVideoPlaySet.VideoRecordFilePath, "");
+            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
+            VideoPlayState = Enum_VideoPlayState.InPlayState;
+            return bolResult;
+            //throw new NotImplementedException();
         }
 
         public bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)

@@ -91,6 +91,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.HikDVRStream:
                         videoTalk = new VideoTalk_HikStream_Client();
                         break;
+                    case Enum_VideoType.SKNVideo:
+                        videoTalk = new VideoTalk_SKNVideo();
+                        break;
                     default:    //不存在的设备类型直接报异常
                         throw new Exception("设备类型异常");
                 }

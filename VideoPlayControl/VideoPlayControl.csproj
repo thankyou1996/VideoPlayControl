@@ -219,6 +219,7 @@
     <Compile Include="VideoTalk\VideoTalk_HikStream.cs" />
     <Compile Include="VideoTalk\VideoTalk_HikStream_Client.cs" />
     <Compile Include="VideoTalk\VideoTalk_Shike.cs" />
+    <Compile Include="VideoTalk\VideoTalk_SKNVideo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -1253,6 +1254,30 @@
     <Content Include="dll_Libyary\Newtonsoft.Json.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.dll" />
     <Content Include="dll_Libyary\PublicClassCurrency.xml" />
+    <Content Include="SKNVideo\avcodec-57.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SKNVideo\avutil-55.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SKNVideo\SK_NSDK.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SKNVideo\SK_NSDK_API.h">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SKNVideo\SK_NSDK_CLIENT.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SKNVideo\SK_NSDK_SERVER.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SKNVideo\swresample-2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SKNVideo\swscale-4.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="SKVideoSDK\avcodec-57.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1425,6 +1450,12 @@
     <None Include="HIkVideoSDK\HCNetSDKCom\HCPreview.lib" />
     <None Include="HIkVideoSDK\LocalXml.zip" />
     <None Include="HIkVideoSDK\PlayCtrl.lib" />
+    <None Include="SKNVideo\clean.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SKNVideo\SK_NSDK.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="SKVideoSDK\release_clean.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -1464,6 +1495,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

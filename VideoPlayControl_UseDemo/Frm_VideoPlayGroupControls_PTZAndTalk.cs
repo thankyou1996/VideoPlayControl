@@ -32,7 +32,7 @@ namespace VideoPlayControl_UseDemo
             //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
             //SDKState.CloundSee_SDKInit();
             //SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit();
+            //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDKState.HikDVRSDK_Init();
@@ -40,8 +40,20 @@ namespace VideoPlayControl_UseDemo
             //SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, "192.168.2.10", ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
 
             //HuaMaiVideo_TestData();
+            SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "");
+
+
+
+
+
+
+
+
+
+
+
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
-            VideoInfo v = TestDataSource.TestDataSource.GetSKDVSData1();
+            VideoInfo v = TestDataSource.TestDataSource.GetSKNDVSData1();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetSKDVSData2();
             //dicVideoInfos[v.DVSNumber] = v;
@@ -61,7 +73,7 @@ namespace VideoPlayControl_UseDemo
             bool bolResult = false;
             IVideoTalk iv = (IVideoTalk)sender;
             //MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "开始对讲");
-            MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "发送命令");
+            //MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "发送命令");
             return bolResult;
         }
 
@@ -211,7 +223,7 @@ namespace VideoPlayControl_UseDemo
             bool bolResult = false;
             IVideoTalk iv = (IVideoTalk)sneder;
             //MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "开始对讲");
-            MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "录音1 ");
+            //MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "录音1 ");
             return bolResult;
         }
     }

@@ -759,5 +759,45 @@ namespace TestDataSource
             return v;
         }
         #endregion
+
+        #region 时刻H265程序
+
+        public static VideoInfo GetSKNDVSData1()
+        {
+            VideoInfo v = new VideoInfo();
+            //v.OnlyIntercom = true;
+            v.VideoType = Enum_VideoType.SKNVideo;
+            v.PTZControlEnable = false;
+            v.DVSAddress = "61-5737319F0736-3232";
+            v.DVSChannelNum = 8;
+            v.DVSConnectPort = 8000;
+            v.DVSName = "时刻DVR测试";
+            v.DVSNumber = "013801";
+            v.DVSType = "SK8616";
+            v.HostID = "0138";
+            v.UserName = "admin";
+            v.Password = "sk123456";
+            v.NetworkState = 0;
+            for (int i = 0; i < 16; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i);
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8616";
+                c.DVSNumber = v.DVSNumber;
+                v.Cameras[c.Channel] = c;
+            }
+            for (int i = 0; i < 16; i++)
+            {
+                VideoTalkChannelInfo vt = new VideoTalkChannelInfo();
+                vt.VideoTalkChannel = i;
+                vt.VideoTalkChannelName = "对讲通道" + (i);
+                v.TalkChannel[vt.VideoTalkChannel] = vt;
+            }
+            return v;
+        }
+
+        #endregion
     }
 }

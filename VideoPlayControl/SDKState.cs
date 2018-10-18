@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
+using VideoPlayControl.SDKInterface;
 
 namespace VideoPlayControl
 {
@@ -609,6 +610,38 @@ namespace VideoPlayControl
 
         #endregion
 
+        #region 时刻H265
+        public static Enum_SDKState s_SKVNVideoSDKState = Enum_SDKState.SDK_Null;
+        public static Enum_SDKState SKVNVideoSDKState
+        {
+            get { return s_SKVNVideoSDKState; }
+            private set
+            {
+                s_SKVNVideoSDKState = value;
+                SDKStateChange(Enum_VideoType.SKNVideo, s_SKVNVideoSDKState);
+            }
+        }
+        /// <summary>
+        /// 时刻H265
+        /// </summary>
+        /// <returns></returns>
+        public static Enum_SDKState SKNVideoSDK_Init(string server_addr, int server_port, string client_guid, string sdk_xml_cfg_full_path, string default_save_dir)
+        {            
+            SDK_SKNVideo.SDK_NSK_CLIENT_init(server_addr, server_port, client_guid, sdk_xml_cfg_full_path, default_save_dir);
+            SKVNVideoSDKState = Enum_SDKState.SDK_Init;
+            return SKVNVideoSDKState;
+        }
+        /// <summary>
+        /// 时刻H265 释放
+        /// </summary>
+        /// <returns></returns>
+        public static Enum_SDKState SKNVideoSDK_Release()
+        {
+            SKVNVideoSDKState = Enum_SDKState.SDK_Release;
+            return SKVNVideoSDKState;
+        }
+
+        #endregion
         public static void VideoSDKRelease()
         {
             ColundSee_SDKRelease(); //云视通SDK 
