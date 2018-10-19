@@ -768,7 +768,7 @@ namespace TestDataSource
             //v.OnlyIntercom = true;
             v.VideoType = Enum_VideoType.SKNVideo;
             v.PTZControlEnable = false;
-            v.DVSAddress = "61-5737319F0736-3232";
+            v.DVSAddress = "63-5737319F0736-3232";
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
             v.DVSName = "时刻DVR测试";

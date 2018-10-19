@@ -40,11 +40,19 @@ namespace VideoPlayControl.VideoPlay
         {
             bool bolResult = false;
             VideoPlayState = Enum_VideoPlayState.Connecting;
-            if (!CurrentVideoPlaySet.VideoRecordFilePath.StartsWith("\\"))
+            string Temp_strVideoRecord = null;
+            if (CurrentVideoPlaySet.VideoRecordEnable)
             {
-                CurrentVideoPlaySet.VideoRecordFilePath = "\\" + CurrentVideoPlaySet.VideoRecordFilePath;
+                //启用录像
+                if (!CurrentVideoPlaySet.VideoRecordFilePath.EndsWith(".h264"))
+                {
+
+                    CurrentVideoPlaySet.VideoRecordFilePath = CurrentVideoPlaySet.VideoRecordFilePath + "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                }
+                Temp_strVideoRecord = CurrentVideoPlaySet.VideoRecordFilePath;
             }
-            SDK_SKNVideo.SDK_NSK_CLIENT_open_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, 2, intptrPlayMain, CurrentVideoPlaySet.VideoRecordFilePath, "");
+           
+            SDK_SKNVideo.SDK_NSK_CLIENT_open_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, 2, intptrPlayMain, Temp_strVideoRecord, "");
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
             VideoPlayState = Enum_VideoPlayState.InPlayState;
             return bolResult;

@@ -33,6 +33,7 @@
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.PageTestData = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnCloundSeeData1 = new System.Windows.Forms.Button();
             this.btnBlueSkyTestData = new System.Windows.Forms.Button();
             this.btnHikTestData1 = new System.Windows.Forms.Button();
@@ -137,7 +138,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
-            this.button2 = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -233,6 +233,16 @@
             this.PageTestData.TabIndex = 0;
             this.PageTestData.Text = "测试数据";
             this.PageTestData.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(200, 52);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(56, 23);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "skn";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // btnCloundSeeData1
             // 
@@ -793,7 +803,7 @@
             this.txtVideoRecord.Name = "txtVideoRecord";
             this.txtVideoRecord.Size = new System.Drawing.Size(136, 99);
             this.txtVideoRecord.TabIndex = 35;
-            this.txtVideoRecord.Text = "C:\\SHIKE_Video\\000201_01_20180423101542_12.mp4";
+            this.txtVideoRecord.Text = "\\\\SHIKE_Video\\\\000201_01_20180423101542_12.h264";
             // 
             // pnlVideoInfo_Right
             // 
@@ -1284,16 +1294,6 @@
             // 
             this.timCurrentChannelLoop.Interval = 3000;
             this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(200, 52);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 23);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "skn";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // FrmMain
             // 

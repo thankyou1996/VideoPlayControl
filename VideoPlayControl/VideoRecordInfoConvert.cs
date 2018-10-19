@@ -78,7 +78,15 @@ namespace VideoPlayControl
             sbVideoRecordFileName.Append(strVideoNum + "_");
             sbVideoRecordFileName.Append(intChannel.ToString().PadLeft(2, '0') + "_");
             sbVideoRecordFileName.Append(timVideoRecordStart.ToString("yyyyMMddHHmmss") + "_");
-            sbVideoRecordFileName.Append(((int)videoType).ToString().PadLeft(2, '0'));
+            switch (videoType)
+            {
+                case Enum_VideoType.SKNVideo:
+                    sbVideoRecordFileName.Append("81");
+                    break;
+                default:
+                    sbVideoRecordFileName.Append(((int)videoType).ToString().PadLeft(2, '0'));
+                    break;
+            }
             switch (videoType)
             {
                 case Enum_VideoType.Axis:
@@ -89,6 +97,7 @@ namespace VideoPlayControl
                     break;
                 case Enum_VideoType.XMaiVideo:
                 case Enum_VideoType.SKVideo:
+                case Enum_VideoType.SKNVideo:
                     sbVideoRecordFileName.Append(".h264");
                     break;
                 case Enum_VideoType.BlueSky:

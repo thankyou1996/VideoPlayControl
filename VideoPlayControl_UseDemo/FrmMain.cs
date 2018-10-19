@@ -60,7 +60,7 @@ namespace VideoPlayControl_UseDemo
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
-            SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C://SHIKE_Video");
+            SDKState.SKNVideoSDK_Init("192.168.2.10", 48624, "xhcs1", "", "C:\\SHIKE_Video");
             Init();
 
 

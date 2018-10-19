@@ -40,7 +40,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, "192.168.2.10", ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
 
             //HuaMaiVideo_TestData();
-            SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "");
+            SDKState.SKNVideoSDK_Init("192.168.2.10", 48624, "xhcs1", "", "C:\\SHIKE_Video");
 
 
 
