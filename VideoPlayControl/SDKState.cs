@@ -628,6 +628,7 @@ namespace VideoPlayControl
         public static Enum_SDKState SKNVideoSDK_Init(string server_addr, int server_port, string client_guid, string sdk_xml_cfg_full_path, string default_save_dir)
         {            
             SDK_SKNVideo.SDK_NSK_CLIENT_init(server_addr, server_port, client_guid, sdk_xml_cfg_full_path, default_save_dir);
+            //SDK_SKNVideo.SDK_NSK_ALL_open_console();
             SKVNVideoSDKState = Enum_SDKState.SDK_Init;
             return SKVNVideoSDKState;
         }

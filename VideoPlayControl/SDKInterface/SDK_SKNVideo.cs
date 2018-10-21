@@ -27,7 +27,12 @@ namespace VideoPlayControl.SDKInterface
          */
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDK_NSK_CLIENT_init(string server_addr,int server_port,string client_guid,string sdk_xml_cfg_full_path,string default_save_dir);
-        
+
+        /**初始化客户端SDK
+          * 打开调试窗口
+         */
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_ALL_open_console();
         /**打开设备实时视频通道
           * ***********************************************************************
           * @param  device_guid:        设备GUID
@@ -119,7 +124,7 @@ namespace VideoPlayControl.SDKInterface
           * ***********************************************************************
         */
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SDK_NSK_CLIENT_start_talk(string dev_guid,byte chnn, int talk_mode,string client_record_path,string server_record_path);
+        public static extern int SDK_NSK_CLIENT_start_talk(string dev_guid,int chnn, int talk_mode,string client_record_path,string server_record_path);
 
 
         /**关闭当前客户端的指定设备对讲

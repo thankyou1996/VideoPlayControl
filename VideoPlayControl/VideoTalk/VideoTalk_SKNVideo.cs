@@ -73,9 +73,16 @@ namespace VideoPlayControl.VideoTalk
                 StopTalk();
             }
             StartTalking(null);
-            SDK_SKNVideo.SDK_NSK_CLIENT_start_talk(CurrentVideoInfo.DVSAddress, Convert.ToByte(CurrentTalkChannel.VideoTalkChannel), GetSKTalkModel(talkModel),null, null);
+           int intResult= SDK_SKNVideo.SDK_NSK_CLIENT_start_talk(CurrentVideoInfo.DVSAddress, GetTalkValuebyTalkChannel(CurrentTalkChannel.VideoTalkChannel), GetSKTalkModel(talkModel),null, null);
              CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
             return bolResult;
+        }
+
+        private int GetTalkValuebyTalkChannel(int intTalkChannel)
+        {
+            int intValue = 0;
+            intValue = (1 << intTalkChannel);
+            return intValue;
         }
 
 
@@ -92,18 +99,18 @@ namespace VideoPlayControl.VideoTalk
 
         public static int GetSKTalkModel(Enum_TalkModel talk)
         {
-            //对讲模式,1，全双工，2，喊话，3，监听
+            //对讲模式,3，全双工，2，喊话，1，监听
             int intResult = 1;
             switch (talk)
             {
                 case Enum_TalkModel.Talkback:
-                    intResult = 1;
+                    intResult = 3;
                     break;
                 case Enum_TalkModel.Sperak:
                     intResult = 2;
                     break;
                 case Enum_TalkModel.Interception:
-                    intResult = 3;
+                    intResult = 1;
                     break;
 
             }

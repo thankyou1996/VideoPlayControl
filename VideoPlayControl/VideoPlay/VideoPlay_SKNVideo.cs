@@ -52,26 +52,28 @@ namespace VideoPlayControl.VideoPlay
                 Temp_strVideoRecord = CurrentVideoPlaySet.VideoRecordFilePath;
             }
            
-            SDK_SKNVideo.SDK_NSK_CLIENT_open_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, 2, intptrPlayMain, Temp_strVideoRecord, "");
+            SDK_SKNVideo.SDK_NSK_CLIENT_open_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, 1, intptrPlayMain, Temp_strVideoRecord, "");
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
             VideoPlayState = Enum_VideoPlayState.InPlayState;
             return bolResult;
-            //throw new NotImplementedException();
         }
 
         public bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return false;
         }
 
         public bool VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return false;
         }
 
         public bool VideoPlayEx()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return false;
         }
     }
 }

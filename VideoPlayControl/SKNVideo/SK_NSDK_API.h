@@ -3,12 +3,39 @@
 #define DLLIMPORT       extern "C" __declspec(dllimport)
 
 
-#define TALK_MODE_LISTEN    0x01 // 客户端监听 -> 设备上行码流
-#define TALK_MODE_SPEAK     0x02 // 客户端喊话 -> 客户下行码流
-#define TALK_MODE_FULL      (TALK_MODE_LISTEN | TALK_MODE_SPEAK)
+#define TALK_MODE_LISTEN        0x01 // 客户端监听 -> 设备上行码流
+#define TALK_MODE_SPEAK         0x02 // 客户端喊话 -> 客户下行码流
+#define TALK_MODE_FULL          (TALK_MODE_LISTEN | TALK_MODE_SPEAK)
+#define MAX_DEVICE_INFO_SUM		65535
+#define CD_GUID_LEN				30
 
+/* 精简版设备信息 */
+typedef struct
+{
+	/// 设备临时分配ID号
+	unsigned int		client_id;
+	/// 设备全球唯一标识码
+	unsigned char		guid[CD_GUID_LEN];
+	/// 设备是否在线
+	unsigned char		online;
+	/// 设备是否交换信息完毕，处于可用状态
+	unsigned char		ready;
+	int					last_online_time;
+}client_info_lite;
 
-typedef void(CALLBACK *p_msg_callback)(char     *msg_info,  
+/* 精简版设备信息列表 */
+typedef struct
+{
+	/// 设备信息结构体列表
+	client_info_lite	client_info[MAX_DEVICE_INFO_SUM];
+	/// 设备在线个数
+	unsigned int		client_online;
+	/// 总的在线设备个数，包含了未在线个数
+	unsigned int		client_all;
+}client_info_all;
+
+typedef void(CALLBACK *p_msg_callback)(int      msg_id,
+									   char     *msg_info,  
                                        int      arg1,
                                        int      arg2,
                                        void     *data1,  
@@ -30,6 +57,30 @@ typedef void(CALLBACK *p_msg_callback)(char     *msg_info,
   */
 DLLIMPORT
 int SDK_NSK_ALL_regeist_msg_callback(p_msg_callback msg_callback);
+
+/**
+  * ***********************************************************************
+  * @brief	打开调试窗口
+  *
+  * @retval void:  返回为空
+  *
+  * @attention     无
+  * ***********************************************************************
+  */
+DLLIMPORT
+void SDK_NSK_ALL_open_console(void);
+
+/**
+  * ***********************************************************************
+  * @brief	关闭调试窗口
+  *
+  * @retval void:  返回为空
+  *
+  * @attention     无
+  * ***********************************************************************
+  */
+DLLIMPORT
+void SDK_NSK_ALL_close_console(void);
 
 /*******************************************************************************
 **               ____  _____ ______     _______ ____  
@@ -68,6 +119,22 @@ int SDK_NSK_SERVER_init(int sdk_port, const char *sdk_xml_cfg_full_path, const c
   */
 DLLIMPORT
 int SDK_NSK_SERVER_deinit(void);
+
+/**
+  * ***********************************************************************
+  * @brief	获取连接到服务器的设备是否处于在线状态
+  *			
+  * @param  device_guid:        设备GUID
+  *
+  * @retval int: @arg -1 : 设备不存在
+  *              @arg  0 : 设备不在线
+  *              @arg  1 : 设备在线
+  * @confirm	: 
+  * @attention	: 如果无需判断设备是否曾经连接过服务器，则忽略-1，当成0即可
+  * ***********************************************************************
+  */
+DLLIMPORT
+int SDK_NSK_SERVER_get_devcie_online(char *device_guid);
 
 
 /*******************************************************************************
@@ -118,7 +185,7 @@ int SDK_NSK_CLIENT_deinit(void);
   * @brief  打开设备实时视频通道
   *         
   * @param  device_guid:        设备GUID
-  * @param  video_channel:      设备视频通道，从1开始到32
+  * @param  video_channel:      设备视频通道，从0开始到31
   * @param  video_channel_sub:  设备视频通道码流类型，1:主码流，2:子码流
   * @param  client_record_path: 在客户端的录像地址，相对地址，如无需录像，则填 0x00/NULL
   * @param  server_record_path: 在服务器的录像地址，相对地址，如无需录像，则填 0x00/NULL
@@ -141,8 +208,7 @@ int SDK_NSK_CLIENT_open_rt_video(char *device_guid,
   * @brief  关闭设备实时视频通道
   *         
   * @param  device_guid:        设备GUID
-  * @param  video_channel:      设备视频通道，从1开始到32
-  * @param  video_channel_sub:  设备视频通道码流类型，1:主码流，2:子码流
+  *	@param  hwnd:				窗口句柄
   *
   * @retval int: 详见返回列表
   *
@@ -150,14 +216,14 @@ int SDK_NSK_CLIENT_open_rt_video(char *device_guid,
   * ***********************************************************************
   */
 DLLIMPORT
-int SDK_NSK_CLIENT_close_rt_video(char *device_guid, int video_channel, int video_channel_sub, HWND hwnd);
+int SDK_NSK_CLIENT_close_rt_video(HWND hwnd);
 
 /**
   * ***********************************************************************
   * @brief  打开设备录像回放视频通道
   *         
   * @param  device_guid:        设备GUID
-  * @param  video_channel:      设备视频通道，从1开始到32
+  * @param  video_channel:      设备视频通道，从0开始到31
   * @param  start_ts:           设备视频通开始时间戳
   *
   * @retval int: 详见返回列表
@@ -173,7 +239,7 @@ int SDK_NSK_CLIENT_start_pb_video(const char *device_guid, int chnn, int start_t
   * @brief  关闭设备录像回放视频通道
   *         
   * @param  device_guid:        设备GUID
-  * @param  video_channel:      设备视频通道，从1开始到32
+  *	@param  handle:				窗口句柄
   *
   * @retval int: 详见返回列表
   *
@@ -181,7 +247,7 @@ int SDK_NSK_CLIENT_start_pb_video(const char *device_guid, int chnn, int start_t
   * ***********************************************************************
   */
 DLLIMPORT
-int SDK_NSK_CLIENT_stop_pb_video(const char *device_guid, int chnn, HWND handle);
+int SDK_NSK_CLIENT_stop_pb_video(HWND handle);
 
 /**
   * ***********************************************************************
