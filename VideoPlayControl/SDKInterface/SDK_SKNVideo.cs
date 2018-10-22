@@ -11,7 +11,15 @@ namespace VideoPlayControl.SDKInterface
     /// </summary>
     public class SDK_SKNVideo
     {
+
+
         #region 接口定义
+
+        #region 服务器端接口
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_SERVER_init(int sdk_port, string sdk_xml_cfg_full_path, string default_save_file_dir);
+
+        #endregion
         /**初始化客户端SDK
           * ***********************************************************************
           * @param  server_addr:            目标服务器字符串地址, "127.0.0.1"
@@ -194,7 +202,23 @@ namespace VideoPlayControl.SDKInterface
         */
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDK_NSK_CLIENT_is_online();
+        #region 远程录像回放相关
+        /// <summary>
+        /// 打开视频录像回放接口
+        /// </summary>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_CLIENT_start_pb_video(string dev_guid, int video_channel, long start_ts, IntPtr handle);
 
+        /// <summary>
+        /// 关闭视频录像回放接口
+        /// </summary>
+        /// <param name="handle"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_CLIENT_stop_pb_video(IntPtr handle);
+
+        #endregion 
         #endregion
     }
 }

@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.videoPlayWindow = new VideoPlayControl.VideoPlayWindow();
-            this.cmsVideoWindow = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsVideoWindow = new System.Windows.Forms.ContextMenuStrip();
             this.tsmi_CloundSeeSetWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.ssPrompt = new System.Windows.Forms.StatusStrip();
@@ -45,9 +44,9 @@
             this.pnlRight_Main = new System.Windows.Forms.Panel();
             this.pblRight_Bottom = new System.Windows.Forms.Panel();
             this.tabToolbar = new System.Windows.Forms.TabControl();
-            this.pagePTZControl = new System.Windows.Forms.TabPage();
             this.pageTalk = new System.Windows.Forms.TabPage();
             this.videoTalkControlManyChannel1 = new VideoPlayControl.VideoTalkControlManyChannel();
+            this.pagePTZControl = new System.Windows.Forms.TabPage();
             this.pnlRight_Top = new System.Windows.Forms.Panel();
             this.cmbVideoList = new System.Windows.Forms.ComboBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -60,8 +59,8 @@
             this.pnlRight_Main.SuspendLayout();
             this.pblRight_Bottom.SuspendLayout();
             this.tabToolbar.SuspendLayout();
-            this.pagePTZControl.SuspendLayout();
             this.pageTalk.SuspendLayout();
+            this.pagePTZControl.SuspendLayout();
             this.pnlRight_Top.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -215,26 +214,14 @@
             // 
             // tabToolbar
             // 
-            this.tabToolbar.Controls.Add(this.pagePTZControl);
             this.tabToolbar.Controls.Add(this.pageTalk);
+            this.tabToolbar.Controls.Add(this.pagePTZControl);
             this.tabToolbar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabToolbar.Location = new System.Drawing.Point(0, 0);
             this.tabToolbar.Name = "tabToolbar";
             this.tabToolbar.SelectedIndex = 0;
             this.tabToolbar.Size = new System.Drawing.Size(116, 131);
             this.tabToolbar.TabIndex = 0;
-            // 
-            // pagePTZControl
-            // 
-            this.pagePTZControl.Controls.Add(this.pblRight_Bottom_Main);
-            this.pagePTZControl.Controls.Add(this.pblRight_Bottom_Top);
-            this.pagePTZControl.Location = new System.Drawing.Point(4, 22);
-            this.pagePTZControl.Name = "pagePTZControl";
-            this.pagePTZControl.Padding = new System.Windows.Forms.Padding(3);
-            this.pagePTZControl.Size = new System.Drawing.Size(108, 105);
-            this.pagePTZControl.TabIndex = 0;
-            this.pagePTZControl.Text = "云台";
-            this.pagePTZControl.UseVisualStyleBackColor = true;
             // 
             // pageTalk
             // 
@@ -254,6 +241,18 @@
             this.videoTalkControlManyChannel1.Name = "videoTalkControlManyChannel1";
             this.videoTalkControlManyChannel1.Size = new System.Drawing.Size(102, 99);
             this.videoTalkControlManyChannel1.TabIndex = 0;
+            // 
+            // pagePTZControl
+            // 
+            this.pagePTZControl.Controls.Add(this.pblRight_Bottom_Main);
+            this.pagePTZControl.Controls.Add(this.pblRight_Bottom_Top);
+            this.pagePTZControl.Location = new System.Drawing.Point(4, 22);
+            this.pagePTZControl.Name = "pagePTZControl";
+            this.pagePTZControl.Padding = new System.Windows.Forms.Padding(3);
+            this.pagePTZControl.Size = new System.Drawing.Size(108, 105);
+            this.pagePTZControl.TabIndex = 0;
+            this.pagePTZControl.Text = "云台";
+            this.pagePTZControl.UseVisualStyleBackColor = true;
             // 
             // pnlRight_Top
             // 
@@ -304,8 +303,8 @@
             this.pnlRight_Main.ResumeLayout(false);
             this.pblRight_Bottom.ResumeLayout(false);
             this.tabToolbar.ResumeLayout(false);
-            this.pagePTZControl.ResumeLayout(false);
             this.pageTalk.ResumeLayout(false);
+            this.pagePTZControl.ResumeLayout(false);
             this.pnlRight_Top.ResumeLayout(false);
             this.ResumeLayout(false);
 

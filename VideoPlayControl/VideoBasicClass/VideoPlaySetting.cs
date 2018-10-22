@@ -53,6 +53,33 @@ namespace VideoPlayControl
             set { strVideoRecordFilePath = value; }
         }
 
+
+
+        private string strVideoRecordFilePath_Server = "";
+
+        /// <summary>
+        /// 视频文件存储地址_服务器（不包含文件名称）（通常为相对路径，因为无法知道服务器盘符分区等信息）
+        /// </summary>
+        public string VideoRecordFilePath_Server
+        {
+            get { return strVideoRecordFilePath_Server; }
+            set { strVideoRecordFilePath_Server = value; }
+        }
+
+
+        private string strVideoRecordFileName_Server = "";
+
+        /// <summary>
+        //  视频文件存储文件名称_服务器
+        /// </summary>
+        public string VideoRecordFileName_Server
+        {
+            get { return strVideoRecordFileName_Server; }
+            set { strVideoRecordFileName_Server = value; }
+        }
+
+
+
         /// <summary>
         /// 预录像使能
         /// </summary>

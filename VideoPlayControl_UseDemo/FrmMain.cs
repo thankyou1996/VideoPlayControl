@@ -60,7 +60,7 @@ namespace VideoPlayControl_UseDemo
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
-            SDKState.SKNVideoSDK_Init("192.168.2.10", 48624, "xhcs1", "", "C:\\SHIKE_Video");
+            SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C:\\SHIKE_Video");
             Init();
 
 
@@ -1291,6 +1291,11 @@ namespace VideoPlayControl_UseDemo
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

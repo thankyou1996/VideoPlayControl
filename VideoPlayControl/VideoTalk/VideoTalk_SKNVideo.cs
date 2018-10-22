@@ -73,7 +73,7 @@ namespace VideoPlayControl.VideoTalk
                 StopTalk();
             }
             StartTalking(null);
-           int intResult= SDK_SKNVideo.SDK_NSK_CLIENT_start_talk(CurrentVideoInfo.DVSAddress, GetTalkValuebyTalkChannel(CurrentTalkChannel.VideoTalkChannel), GetSKTalkModel(talkModel),null, null);
+           int intResult= SDK_SKNVideo.SDK_NSK_CLIENT_start_talk(CurrentVideoInfo.DVSAddress, GetTalkValuebyTalkChannel(CurrentTalkChannel.VideoTalkChannel), GetSKTalkModel(talkModel), "\\TEST\\test.g711", "\\TEST\\test.g711");
              CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
             return bolResult;
         }
