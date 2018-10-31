@@ -97,7 +97,7 @@ namespace VideoPlayControl.VideoPlay
             if (!CurrentVideoPlaySet.VideoRecordFilePath.EndsWith(".h264"))
             {
 
-                CurrentVideoPlaySet.VideoRecordFilePath = strSavePath + "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                strResult = strSavePath + "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
             }
             return strResult;
         }

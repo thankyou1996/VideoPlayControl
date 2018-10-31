@@ -71,6 +71,7 @@
             this.Controls.Add(this.videoPlayGroupControls_PTZAndTalk1);
             this.Name = "Frm_VideoPlayGroupControls_PTZAndTalk";
             this.Text = "Frm_VideoPlayGroupControls_PTZAndTalk";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_VideoPlayGroupControls_PTZAndTalk_FormClosing);
             this.Load += new System.EventHandler(this.Frm_VideoPlayGroupControls_PTZAndTalk_Load);
             this.Move += new System.EventHandler(this.Frm_VideoPlayGroupControls_PTZAndTalk_Move);
             this.ResumeLayout(false);

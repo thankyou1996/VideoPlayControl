@@ -523,7 +523,7 @@
             this.cmbDVSAddress.Name = "cmbDVSAddress";
             this.cmbDVSAddress.Size = new System.Drawing.Size(141, 20);
             this.cmbDVSAddress.TabIndex = 4;
-            this.cmbDVSAddress.Text = "819953945";
+            this.cmbDVSAddress.Text = "C16408801";
             // 
             // cmbVideoType
             // 
@@ -576,7 +576,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(40, 21);
             this.txtPassword.TabIndex = 1;
-            this.txtPassword.Text = "12345";
             // 
             // label2
             // 
@@ -618,7 +617,6 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(42, 21);
             this.txtUserName.TabIndex = 1;
-            this.txtUserName.Text = "admin";
             // 
             // txtChannel
             // 

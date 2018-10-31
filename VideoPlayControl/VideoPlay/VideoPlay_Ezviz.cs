@@ -134,14 +134,7 @@ namespace VideoPlayControl.VideoPlay
             }
             CommonMethod.LogWrite.WriteEventLog("EzvizLog", "VidePlay2_" + CurrentVideoInfo.DVSNumber + CurrentVideoInfo.DVSAddress, ProgParameter.ProgLogAddress);
             bool bolResult = false;
-            //if (CurrentVideoPlaySet.AnsyPlay)
-            //{
-            //    VideoPlayEx();
-            //}
-            //else
-            //{
-                Ezviz_VideoPlay();          //萤石云设备
-            //}
+            Ezviz_VideoPlay();          //萤石云设备
             return bolResult;
         }
 

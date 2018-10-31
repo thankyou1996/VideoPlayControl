@@ -40,7 +40,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, "192.168.2.10", ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
 
             //HuaMaiVideo_TestData();
-            SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhcs1", "", "C:\\SHIKE_Video");
+            SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhc1", "", "C:\\SHIKE_Video");
 
 
 
@@ -61,6 +61,7 @@ namespace VideoPlayControl_UseDemo
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath = "\\TestVideo\\";
+            videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath_Server = "\\0712\\123456789";
             //videoPlayGroupControls_PTZAndTalk1.SetPTZVisible(false);
 
             videoPlayGroupControls_PTZAndTalk1.Init_VideoInfoSet(dicVideoInfos);
@@ -225,6 +226,11 @@ namespace VideoPlayControl_UseDemo
             //MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "开始对讲");
             //MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "录音1 ");
             return bolResult;
+        }
+
+        private void Frm_VideoPlayGroupControls_PTZAndTalk_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            videoPlayGroupControls_PTZAndTalk1.ControlClose();
         }
     }
 }

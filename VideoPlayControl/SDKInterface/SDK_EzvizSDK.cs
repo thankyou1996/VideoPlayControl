@@ -120,9 +120,9 @@ namespace VideoPlayControl
         /// <summary>
         /// 设备视频清晰度
         /// </summary>
-        /// <param name="SID"></param>
-        /// <param name="intChannel"></param>
-        /// <param name="intVideoLevel"></param>
+        /// <param name="SID">设备序列号</param>
+        /// <param name="intChannel">设备通道号</param>
+        /// <param name="intVideoLevel">视频质量，输入范围在0-3之间, 0-流畅; 1-均衡; 2-高清; 3-超清</param>
         /// <returns></returns>
         [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
         public static extern int OpenSDK_SetVideoLevel(IntPtr SID, int intChannel,int intVideoLevel);

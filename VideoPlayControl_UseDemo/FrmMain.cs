@@ -51,16 +51,18 @@ namespace VideoPlayControl_UseDemo
         {
             VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
             VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
+            //VideoPlayControl.ProgParameter.strEzviz__AppID = "1acd8ddc451f48a4b8b4666716e8f9ce";
+            //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "518335cd3421f16a4b4e88164225c432";
             SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            //SDKState.Ezviz_SDKInit();
+            SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
-            SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C:\\SHIKE_Video");
+            //SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C:\\SHIKE_Video");
             Init();
 
 
