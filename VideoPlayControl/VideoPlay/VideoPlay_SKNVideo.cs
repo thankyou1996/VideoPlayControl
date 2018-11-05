@@ -71,7 +71,6 @@ namespace VideoPlayControl.VideoPlay
                 {
                     strSaveName = strSaveName + ".h264";
                 }
-                
             }
             if (strSavePath.Length > 2 && !strSaveName.EndsWith("\\"))
             {
