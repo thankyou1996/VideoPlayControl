@@ -32,6 +32,8 @@
         <member name="P:PublicClassCurrency.CameraInfo.Channel">
             <summary>
             摄像头通道号
+            181105后接入设备统一通道号由1开始
+            已统一设备 ：智诺（ZL）
             </summary>
         </member>
         <member name="F:PublicClassCurrency.CameraInfo.strDVSAddress">
@@ -718,16 +720,6 @@
             安讯士
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.Enum_VideoType.HikDVR">
-            <summary>
-            海康DVR 直接访问模式
-            </summary>
-        </member>
-        <member name="F:PublicClassCurrency.Enum_VideoType.HikDVRStream">
-            <summary>
-            海康流媒体模式
-            </summary>
-        </member>
         <member name="F:PublicClassCurrency.Enum_VideoType.XMaiVideo">
             <summary>
             雄迈视频SDK
@@ -746,6 +738,21 @@
         <member name="F:PublicClassCurrency.Enum_VideoType.SKNVideo">
             <summary>
             时刻视频（H265）
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.HikDVR">
+            <summary>
+            海康DVR 直接访问模式
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.HikDVRStream">
+            <summary>
+            海康流媒体模式
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.ZLVideo">
+            <summary>
+            智诺视频
             </summary>
         </member>
         <member name="T:PublicClassCurrency.Enum_VIdeoRecordType">
@@ -783,6 +790,11 @@
         <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.HikStreamVideo">
             <summary>
             海康流媒体模式
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.ZLVideoRecord">
+            <summary>
+            智诺视频
             </summary>
         </member>
         <member name="T:PublicClassCurrency.Enum_VideoRecordFileType">

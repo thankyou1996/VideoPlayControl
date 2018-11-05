@@ -54,6 +54,19 @@ namespace VideoPlayControl
         }
 
 
+        /// <summary>
+        /// 视频录像文件名称
+        /// </summary>
+        private string strVideoRecordFileName = "";
+
+        /// <summary>
+        /// 视频录像文件名称
+        /// </summary>
+        public string VideoRecordFileName
+        {
+            get { return strVideoRecordFileName; }
+            set { strVideoRecordFileName = value; }
+        }
 
         private string strVideoRecordFilePath_Server = "";
 

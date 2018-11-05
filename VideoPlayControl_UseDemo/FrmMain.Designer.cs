@@ -135,6 +135,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
+            this.pageTestData1 = new System.Windows.Forms.TabPage();
+            this.btnZLTestData = new System.Windows.Forms.Button();
             this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
             this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
             this.videoChannelList = new VideoPlayControl.VideoChannelList();
@@ -160,6 +162,7 @@
             this.grpEzvizSDKState.SuspendLayout();
             this.grpCloundSeeSDKState.SuspendLayout();
             this.ssrTip.SuspendLayout();
+            this.pageTestData1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBottom
@@ -204,6 +207,7 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.pageTestData1);
             this.tabControl1.Controls.Add(this.PageTestData);
             this.tabControl1.Controls.Add(this.PageOther);
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -784,7 +788,7 @@
             this.txtVideoRecord.Name = "txtVideoRecord";
             this.txtVideoRecord.Size = new System.Drawing.Size(136, 99);
             this.txtVideoRecord.TabIndex = 35;
-            this.txtVideoRecord.Text = "\\\\SHIKE_Video\\\\000201_01_20180423101542_12.h264";
+            this.txtVideoRecord.Text = "G:\\";
             // 
             // pnlVideoInfo_Right
             // 
@@ -1260,6 +1264,26 @@
             this.timCurrentChannelLoop.Interval = 3000;
             this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
             // 
+            // pageTestData1
+            // 
+            this.pageTestData1.Controls.Add(this.btnZLTestData);
+            this.pageTestData1.Location = new System.Drawing.Point(4, 22);
+            this.pageTestData1.Name = "pageTestData1";
+            this.pageTestData1.Size = new System.Drawing.Size(256, 91);
+            this.pageTestData1.TabIndex = 3;
+            this.pageTestData1.Text = "测试数据1";
+            this.pageTestData1.UseVisualStyleBackColor = true;
+            // 
+            // btnZLTestData
+            // 
+            this.btnZLTestData.Location = new System.Drawing.Point(3, 3);
+            this.btnZLTestData.Name = "btnZLTestData";
+            this.btnZLTestData.Size = new System.Drawing.Size(72, 22);
+            this.btnZLTestData.TabIndex = 15;
+            this.btnZLTestData.Text = "智诺数据";
+            this.btnZLTestData.UseVisualStyleBackColor = true;
+            this.btnZLTestData.Click += new System.EventHandler(this.btnZLTestData_Click);
+            // 
             // videoPTZControl1
             // 
             this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
@@ -1338,6 +1362,7 @@
             this.grpCloundSeeSDKState.ResumeLayout(false);
             this.ssrTip.ResumeLayout(false);
             this.ssrTip.PerformLayout();
+            this.pageTestData1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1454,6 +1479,8 @@
         private System.Windows.Forms.Button btnLoopTest;
         private System.Windows.Forms.Timer timCurrentChannelLoop;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TabPage pageTestData1;
+        private System.Windows.Forms.Button btnZLTestData;
     }
 }
 

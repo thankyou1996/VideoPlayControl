@@ -26,8 +26,15 @@ namespace VideoPlayControl
             int Temp_intIndex1 = Temp_strOperat.LastIndexOf("_");
 
             string Temp_strVideoType = Temp_strOperat.Substring(Temp_intIndex1 + 1, Temp_intIndex - Temp_intIndex1 - 1);
-            
-            v.VideoRecordType = (Enum_VIdeoRecordType)(Convert.ToInt32(Temp_strVideoType));
+            switch (Temp_strVideoType)
+            {
+                case "82":
+                    v.VideoRecordType = Enum_VIdeoRecordType.ZLVideoRecord;
+                    break;
+                default:
+                    v.VideoRecordType = (Enum_VIdeoRecordType)(Convert.ToInt32(Temp_strVideoType));
+                    break;
+            }
             //switch (Temp_strVideoType)
             //{
             //    case "06":
@@ -83,6 +90,9 @@ namespace VideoPlayControl
                 case Enum_VideoType.SKNVideo:
                     sbVideoRecordFileName.Append("81");
                     break;
+                case Enum_VideoType.ZLVideo:
+                    sbVideoRecordFileName.Append("82");
+                    break;
                 default:
                     sbVideoRecordFileName.Append(((int)videoType).ToString().PadLeft(2, '0'));
                     break;
@@ -102,6 +112,9 @@ namespace VideoPlayControl
                     break;
                 case Enum_VideoType.BlueSky:
                     sbVideoRecordFileName.Append(".bsr");
+                    break;
+                case Enum_VideoType.ZLVideo:
+                    sbVideoRecordFileName.Append(".dav");
                     break;
                 default:
                     sbVideoRecordFileName.Append(".mp4");

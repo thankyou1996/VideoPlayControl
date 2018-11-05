@@ -91,6 +91,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SDKInterface\SDK_SKNVideo.cs" />
+    <Compile Include="SDKInterface\SDK_ZLNetSDK.cs" />
     <Compile Include="SDKState.cs" />
     <Compile Include="SDKInterface\SDK_EzvizSDK.cs" />
     <Compile Include="SDKInterface\SDK_EzvizSDK_Old.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="VideoPlay\VideoPlay_IMOS.cs" />
     <Compile Include="VideoPlay\VideoPlay_Shike.cs" />
     <Compile Include="VideoPlay\VideoPlay_SKNVideo.cs" />
+    <Compile Include="VideoPlay\VideoPlay_ZLVideo.cs" />
     <Compile Include="VideoRecordBackplay\VideoPlayback\VideoBackPlay_AmpFileParser.cs" />
     <Compile Include="VideoPlayGroupControls_PTZAndTalk.cs">
       <SubType>UserControl</SubType>
@@ -1356,6 +1358,45 @@
     <Content Include="XMVideoSDK\StreamReader.pdb" />
     <Content Include="XMVideoSDK\TransparentDemon.exe" />
     <Content Include="XMVideoSDK\UserInfo.xml" />
+    <Content Include="ZL\AACDec.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\dllmpeg4.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\GPUDecoder.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\picdec.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\zlnetsdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\ZLNetSDKDemo.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\ZLNetSDKDemo_CSharpd.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\zlplaysdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\ZN264Decoder.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\ZN265Decoder.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\Zndec.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\ZNDecoder.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZL\ZNG7221Decoder.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Axis\AMP41.rar" />
@@ -1412,6 +1453,9 @@
     <None Include="XMVideoSDK\NetSdk.exp" />
     <None Include="XMVideoSDK\NetSdk.lib" />
     <None Include="XMVideoSDK\StreamReader.lib" />
+    <None Include="ZL\demochn.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Shell32">

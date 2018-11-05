@@ -373,6 +373,12 @@ namespace VideoPlayControl
                     case Enum_VideoType.SKNVideo:
                         iv = new VideoPlay_SKNVideo();
                         break;
+                    case Enum_VideoType.ZLVideo:
+                        iv = new VideoPlay_ZLVideo();
+                        break;
+                    case Enum_VideoType.SKVideo:
+                        iv = new VideoPlay_Shike();
+                        break;
                 }
             }
             else
@@ -396,6 +402,15 @@ namespace VideoPlayControl
                             break;
                         case Enum_VideoType.Ezviz:
                             iv = new VideoPlay_Ezviz();
+                            break;
+                        case Enum_VideoType.SKNVideo:
+                            iv = new VideoPlay_SKNVideo();
+                            break;
+                        case Enum_VideoType.ZLVideo:
+                            iv = new VideoPlay_ZLVideo();
+                            break;
+                        case Enum_VideoType.SKVideo:
+                            iv = new VideoPlay_Shike();
                             break;
                     }
                 }
@@ -879,84 +894,6 @@ namespace VideoPlayControl
         
 
 
-        #region SKVideo 时刻视频
-
-        #region  基本事件
-        private void SKVideo_VideoPlay()
-        {
-            string strRecordPath = "";
-            int intVideoRecordEnable = 0;
-            if (CurrentVideoPlaySet.VideoRecordEnable)
-            {
-                strRecordPath = CurrentVideoPlaySet.VideoRecordFilePath;
-                intVideoRecordEnable = 1;
-            }
-            SDK_SKVideoSDK.p_sdkc_start_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, intptrPlayMain, intVideoRecordEnable, 15, 5, strRecordPath);
-            if (CurrentVideoPlaySet.PerVideoRecord)
-            {
-                SDK_SKVideoSDK.p_sdkc_get_revideo_data(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, CurrentVideoPlaySet.PreVideoRecordFilePath);
-            }
-            VideoPlayState = Enum_VideoPlayState.InPlayState;
-        }
-
-
-        private void SKVideo_VideoClose()
-        {
-            SDK_SKVideoSDK.p_sdkc_stop_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, intptrPlayMain);
-            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
-        }
-
-        private void SKVideo_PTZControl(Enum_VideoPTZControl PTZControl,bool bolStart)
-        {
-            if (!bolStart)
-            {
-                SDK_SKVideoSDK.p_sdkc_onvif_ptz_stop(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel);
-                return;
-            }
-            int Temp_iXSpeed = 0;
-            int Temp_iYSpeed = 0;
-            int Temp_iZSpeed = 0;
-            switch (PTZControl)
-            {
-                case Enum_VideoPTZControl.PTZControl_Up:
-                    Temp_iXSpeed = 0;
-                    Temp_iYSpeed = CurrentVideoPlaySet.PTZSpeed;
-                    break;
-                case Enum_VideoPTZControl.PTZControl_Down:
-                    Temp_iXSpeed = 0;
-                    Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
-                    break;
-                case Enum_VideoPTZControl.PTZControl_Left:
-                    Temp_iXSpeed = -CurrentVideoPlaySet.PTZSpeed;
-                    Temp_iYSpeed = 0;
-                    break;
-                case Enum_VideoPTZControl.PTZControl_Right:
-                    Temp_iXSpeed = CurrentVideoPlaySet.PTZSpeed;
-                    Temp_iYSpeed = 0;
-                    break;
-                case Enum_VideoPTZControl.PTZControl_LeftUp:
-                    Temp_iXSpeed = -CurrentVideoPlaySet.PTZSpeed;
-                    Temp_iYSpeed = CurrentVideoPlaySet.PTZSpeed;
-                    break;
-                case Enum_VideoPTZControl.PTZControl_LeftDown:
-                    Temp_iXSpeed = -CurrentVideoPlaySet.PTZSpeed;
-                    Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
-                    break;
-                case Enum_VideoPTZControl.PTZControl_RightUp:
-                    Temp_iXSpeed = CurrentVideoPlaySet.PTZSpeed;
-                    Temp_iYSpeed = CurrentVideoPlaySet.PTZSpeed;
-                    break;
-                case Enum_VideoPTZControl.PTZControl_RightDown:
-                    Temp_iXSpeed = CurrentVideoPlaySet.PTZSpeed;
-                    Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
-                    break;
-            }
-            SDK_SKVideoSDK.p_sdkc_onvif_ptz_continue_move(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, Temp_iXSpeed, Temp_iYSpeed, Temp_iZSpeed);
-        }
-        #endregion
-
-        #endregion
         
         #region HuaMaiVideo  华迈视频
 
@@ -1113,33 +1050,9 @@ namespace VideoPlayControl
                 case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
                     IPCWA_VideoPlay();
                     break;
-                //case Enum_VideoType.Ezviz:
-                //    if (CurrentVideoPlaySet.AnsyPlay)
-                //    {
-                //        ThreadStart thrAnsyPlay = delegate//160418
-                //        {
-                //            Ezviz_VideoPlay();          //萤石云设备
-                //        };
-                //        new Thread(thrAnsyPlay).Start();
-                //    }
-                //    else
-                //    {
-                //        Ezviz_VideoPlay();          //萤石云设备
-                //    }
-                    
-                //    break;
-                case Enum_VideoType.SKVideo:
-                    SKVideo_VideoPlay();        //时刻视频设备
-                    break;
                 case Enum_VideoType.HuaMaiVideo://华迈设备
                     HuaMaiVideo_VideoPlay();
                     break;
-                //case Enum_VideoType.Axis:       //安讯士
-                //    Axis_VideoPlay();
-                //    break;
-                //case Enum_VideoType.XMaiVideo:
-                //    XMVideo_VideoPlay();
-                //    break;
                 default:
                     iv.VideoPlay();
                     break;
@@ -1196,9 +1109,6 @@ namespace VideoPlayControl
                     case Enum_VideoType.IPCWA:
                         IPCWA_VideoClose();
                         break;
-                    case Enum_VideoType.SKVideo:
-                        SKVideo_VideoClose();
-                        break;
                     case Enum_VideoType.HuaMaiVideo:
                         HuaMaiVideo_VideoClose();
                         break;
@@ -1227,12 +1137,6 @@ namespace VideoPlayControl
                         break;
                     case Enum_VideoType.IPCWA:
                         IPCWA_PTZControl(PTZControl);
-                        break;
-                    //case Enum_VideoType.Ezviz:
-                    //    Ezviz_PTZControl(PTZControl, bolStart);
-                    //    break;
-                    case Enum_VideoType.SKVideo:
-                        SKVideo_PTZControl(PTZControl, bolStart);
                         break;
                     default:
                         if (iv != null)

@@ -644,6 +644,50 @@ namespace VideoPlayControl
         }
 
         #endregion
+
+
+        #region 智诺设备
+        private static SDK_ZLNetSDK.fZLDisConnect ZLDisConnect = null;
+        public static Enum_SDKState s_ZLVideoSDKState = Enum_SDKState.SDK_Null;
+        public static Enum_SDKState ZLVideoSDKState
+        {
+            get { return s_SKVNVideoSDKState; }
+            private set
+            {
+                s_SKVNVideoSDKState = value;
+                SDKStateChange(Enum_VideoType.SKNVideo, s_SKVNVideoSDKState);
+            }
+        }
+
+        public static void OnDisconnect(int loginHandle, string pchDVRIP, int nDVRPort, IntPtr dwUser)
+        {
+            //loginHandle 对应的设备已经断线
+            //m_nDeviceID = 0;
+            return;
+        }
+        /// <summary>
+        /// 智诺视频SDK初始化
+        /// </summary>
+        /// <returns></returns>
+        public static Enum_SDKState ZLVideoSDK_Init()
+        {
+            ZLDisConnect = new SDK_ZLNetSDK.fZLDisConnect(OnDisconnect);
+            IntPtr lpUser = IntPtr.Zero;
+            SDK_ZLNetSDK.ZLNET_Init(ZLDisConnect, lpUser);
+            SKVNVideoSDKState = Enum_SDKState.SDK_Init;
+            return SKVNVideoSDKState;
+        }
+        /// <summary>
+        /// 智诺视频SDK释放
+        /// </summary>
+        /// <returns></returns>
+        public static Enum_SDKState ZLVideoSDK_Release()
+        {
+            SKVNVideoSDKState = Enum_SDKState.SDK_Release;
+            SDK_ZLNetSDK.ZLNET_Cleanup();
+            return SKVNVideoSDKState;
+        }
+        #endregion
         public static void VideoSDKRelease()
         {
             ColundSee_SDKRelease(); //云视通SDK 
