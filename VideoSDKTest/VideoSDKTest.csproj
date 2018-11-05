@@ -36,14 +36,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonMethod">
-      <HintPath>..\VideoPlayControl\dll_Libyary\CommonMethod.dll</HintPath>
+      <HintPath>..\VideoPlayControl\dll_Libary\CommonMethod.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\VideoPlayControl\dll_Libyary\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\VideoPlayControl\dll_Libary\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PublicClassCurrency">
-      <HintPath>..\VideoPlayControl\dll_Libyary\PublicClassCurrency.dll</HintPath>
+      <HintPath>..\VideoPlayControl\dll_Libary\PublicClassCurrency.dll</HintPath>
+    </Reference>
+    <Reference Include="SKVideoRecordConvert">
+      <HintPath>..\VideoPlayControl\dll_Libary\SKVideoRecordConvert.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
