@@ -62,9 +62,9 @@ namespace VideoPlayControl.VideoPlay
             throw new NotImplementedException();
         }
 
-        public bool VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
+        public void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

@@ -99,16 +99,9 @@ namespace VideoPlayControl
         /// <param name="e"></param>
         private void cmbVideolist_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                ComboBoxItem cmbItem = (ComboBoxItem)cmbVideoList.SelectedItem;
-                CurrentVideoID = Convert.ToString(cmbItem.ItemValue);
-                DisplayVideoInfo(dicCurrentVideoInfos[CurrentVideoID]);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            ComboBoxItem cmbItem = (ComboBoxItem)cmbVideoList.SelectedItem;
+            CurrentVideoID = Convert.ToString(cmbItem.ItemValue);
+            DisplayVideoInfo(dicCurrentVideoInfos[CurrentVideoID]);
         }
         #endregion
 

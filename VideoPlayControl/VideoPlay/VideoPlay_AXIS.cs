@@ -52,11 +52,9 @@ namespace VideoPlayControl.VideoPlay
             Axis_VideoPlay();
             return bolResult;
         }
-        public bool VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
+        public void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
         {
-            bool bolResult = false;
             viewer.SetVideoPosition(intLeft, intTop, intRight, intBottom);
-            return bolResult;
         }
 
         #region Axis 安迅士

@@ -56,7 +56,7 @@ namespace VideoPlayControl_UseDemo
             SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
-            //SDKState.SKVideoSDKInit();
+            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19");
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
@@ -777,7 +777,7 @@ namespace VideoPlayControl_UseDemo
 
             //VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData2();
+            VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetYSDVSData2();
             //dicVideoInfos[v.DVSNumber] = v;
@@ -969,7 +969,7 @@ namespace VideoPlayControl_UseDemo
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.SKVideo;
-            v.DVSAddress = "71-00F51F012D0C-2830";
+            v.DVSAddress = "61-57356B140B39-3036";
             v.DVSChannelNum = 16;
             v.DVSConnectPort = 81;
             v.DVSName = "8604双网口测试";
@@ -1178,7 +1178,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnSKTestData1_Click(object sender, EventArgs e)
         {
-            VideoInfo videoInfo = SKVideo_TestData1();
+            VideoInfo videoInfo = TestDataSource.TestDataSource.GetSKDVSData1();
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

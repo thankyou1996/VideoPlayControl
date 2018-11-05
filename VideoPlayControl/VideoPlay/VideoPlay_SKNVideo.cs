@@ -108,10 +108,10 @@ namespace VideoPlayControl.VideoPlay
             return false;
         }
 
-        public bool VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
+        public void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
         {
             //throw new NotImplementedException();
-            return false;
+            //return false;
         }
 
         public bool VideoPlayEx()

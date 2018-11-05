@@ -288,12 +288,13 @@ namespace VideoPlayControl
         /// <param name="uintAudioPort"></param>
         /// <param name="strRecordDic"></param>
         /// <returns></returns>
-        public static Enum_SDKState SKVideoSDKInit()
+        public static Enum_SDKState SKVideoSDKInit(string strGUId,string strServerIP)
         {
             SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitStart);
-
+            ProgParameter.strSKVideo_ClientUGID = strGUId;
+            ProgParameter.strSKVideo_ServerIP = strServerIP;
             SDK_SKVideoSDK.p_sdkc_set_server_av_port(ProgParameter.uintSKVideo_AVPort);   //设置码流端口
-            SDK_SKVideoSDK.p_sdkc_init_client(ProgParameter.strSKVideo_ClientUGID, ProgParameter.strSKVideo_ServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");//初始化
+            SDK_SKVideoSDK.p_sdkc_init_client(strGUId, strServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");//初始化
             SDK_SKVideoSDK.p_sdkc_disable_hw_render(); //关闭客户端软解码
             SKVideoSDKState = Enum_SDKState.SDK_Init;
             SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitEnd);

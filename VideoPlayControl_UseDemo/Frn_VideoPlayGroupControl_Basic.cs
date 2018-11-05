@@ -31,7 +31,7 @@ namespace VideoPlayControl_UseDemo
             //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit();
+            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19");
             SetTestData_ZWVideoAndSKTalk();
         }
 

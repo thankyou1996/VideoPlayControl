@@ -194,11 +194,9 @@ namespace VideoPlayControl.VideoPlay
         }
 
 
-        public bool VideoSizeChange(int intPosX, int intPosY, int intWidth, int intHeight)
+        public void VideoSizeChange(int intPosX, int intPosY, int intWidth, int intHeight)
         {
-            bool bolResult = false;
 
-            return bolResult;
         }
         /// <summary>
         /// 获取设备类型

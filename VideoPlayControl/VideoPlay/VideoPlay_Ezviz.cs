@@ -363,11 +363,9 @@ namespace VideoPlayControl.VideoPlay
             return bolResult;
         }
 
-        public bool VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
+        public void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
         {
-            bool bolResult = false;
 
-            return bolResult;
         }
 
         public bool VideoPlayEx()

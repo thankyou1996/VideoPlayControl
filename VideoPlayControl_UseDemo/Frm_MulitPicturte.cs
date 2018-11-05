@@ -26,7 +26,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.SDKStateChangeEvent += SDKStateChange;
             SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit();
+            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19");
             SDKState.HuaMai_Init();
 
             videoPlayGroupControl_MultiPicture11.SelectedWindowHiglight = true ;

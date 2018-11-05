@@ -43,11 +43,9 @@ namespace VideoPlayControl.VideoPlay
             return false;
         }
 
-        public bool VideoSizeChange(int intPosX, int intPosY, int intWidth, int intHeight)
+        public void VideoSizeChange(int intPosX, int intPosY, int intWidth, int intHeight)
         {
-            bool bolResult = false;
 
-            return bolResult;
         }
 
         public bool VideoPlayEx()
