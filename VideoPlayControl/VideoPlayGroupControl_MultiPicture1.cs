@@ -6,6 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using PublicClassCurrency;
+using CommonMethod;
 
 namespace VideoPlayControl
 {
@@ -13,7 +14,7 @@ namespace VideoPlayControl
     {
 
         #region 公用参数
-        public Color clrDefaulWindowColor = Color.Black;
+        public Color clrDefaulWindowColor = Color.White;
         public Color clrSelectedWindowColor = Color.Cyan;
         public VideoPlayWindow CurrentV = null;
         public bool AutoSelectedNextWindow = true;
@@ -43,6 +44,11 @@ namespace VideoPlayControl
         /// <param name="intNum"></param>
         public bool SetWindowNum(int intNum)
         {
+            if (this.WindowNum == intNum)
+            {
+                this.VideoColse_All();
+                return true;
+            }
             switch (intNum)
             {
                 case 1:
@@ -54,6 +60,7 @@ namespace VideoPlayControl
                     tablayMain.RowCount = Temp_intRow;
                     tablayMain.ColumnCount = Temp_intRow;
                     //清除旧控件信息
+                    VideoColse_All();
                     foreach (VideoPlayWindow v in dicWin.Values)
                     {
                         v.VideoClose();
@@ -80,6 +87,7 @@ namespace VideoPlayControl
                             videoPlayWindow.BackColor = Color.Black;
                             videoPlayWindow.Margin = new Padding(0);
                             videoPlayWindow.Padding = new Padding(1);
+                            videoPlayWindow.BackColor = clrDefaulWindowColor;
                             tablayMain.Controls.Add(videoPlayWindow);
                             tablayMain.SetRow(videoPlayWindow, row);
                             tablayMain.SetColumn(videoPlayWindow, col);
@@ -102,11 +110,34 @@ namespace VideoPlayControl
         {
             CurrentV.Init_VideoInfo(v);
             CurrentV.VideoPlay();
-            GetNextWindow();
             SetToolTipInfo(CurrentV);
             return true;
         }
-        
+
+        /// <summary>
+        /// 设置多个播放视频播放信息 
+        /// 1.超出窗口数量则不播放 
+        /// </summary>
+        /// <param name="lstVideo"></param>
+        /// <returns></returns>
+        public bool SetPlayVideoInfo(List<VideoInfo> lstVideo)
+        {
+            int iIndex = 0;
+            foreach (VideoInfo info in lstVideo)
+            {
+                foreach (CameraInfo info2 in info.Cameras.Values)
+                {
+                    if (iIndex < this.dicWin.Count)
+                    {
+                        Common.Delay_Millisecond(50);
+                        this.SetPlayVideoInfo_Index(info, info2.Channel, iIndex);
+                        iIndex++;
+                    }
+                }
+            }
+            return true;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -117,7 +148,6 @@ namespace VideoPlayControl
         {
             CurrentV.Init_VideoInfo(v, iChannel);
             CurrentV.VideoPlay();
-            GetNextWindow();
             SetToolTipInfo(CurrentV);
             return true;
         }
@@ -137,7 +167,6 @@ namespace VideoPlayControl
             }
             dicWin[iIndex].Init_VideoInfo(v);
             dicWin[iIndex].VideoPlay();
-            GetNextWindow();
             SetToolTipInfo(dicWin[iIndex]);
             return true;
         }
@@ -150,7 +179,6 @@ namespace VideoPlayControl
             }
             dicWin[iIndex].Init_VideoInfo(v, intChannel);
             dicWin[iIndex].VideoPlay();
-            GetNextWindow();
             SetToolTipInfo(dicWin[iIndex]);
             return true;
         }
@@ -206,6 +234,17 @@ namespace VideoPlayControl
                 ttip.SetToolTip(v.PicMain, Temp_sbDisplayToopTipInfo.ToString());
                 
             }
+        }
+
+        /// <summary>
+        /// 关闭控件
+        /// </summary>
+        /// <returns></returns>
+        public bool ControlClose()
+        {
+            bool bolResult = false;
+            VideoColse_All();
+            return bolResult;
         }
         #endregion
 
