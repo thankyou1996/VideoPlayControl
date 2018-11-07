@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTestDataChannel = new System.Windows.Forms.TextBox();
             this.videoPlayGroupControl_MultiPicture11 = new VideoPlayControl.VideoPlayGroupControl_MultiPicture1();
+            this.btnMulitPlay = new System.Windows.Forms.Button();
             this.pnlTop.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -123,6 +124,7 @@
             // 
             // pnlTop
             // 
+            this.pnlTop.Controls.Add(this.btnMulitPlay);
             this.pnlTop.Controls.Add(this.groupBox1);
             this.pnlTop.Controls.Add(this.txtWindowNum);
             this.pnlTop.Controls.Add(this.txtPlayWindowIndex);
@@ -175,6 +177,16 @@
             this.videoPlayGroupControl_MultiPicture11.Size = new System.Drawing.Size(779, 455);
             this.videoPlayGroupControl_MultiPicture11.TabIndex = 0;
             // 
+            // btnMulitPlay
+            // 
+            this.btnMulitPlay.Location = new System.Drawing.Point(12, 36);
+            this.btnMulitPlay.Name = "btnMulitPlay";
+            this.btnMulitPlay.Size = new System.Drawing.Size(75, 23);
+            this.btnMulitPlay.TabIndex = 8;
+            this.btnMulitPlay.Text = "多路播放";
+            this.btnMulitPlay.UseVisualStyleBackColor = true;
+            this.btnMulitPlay.Click += new System.EventHandler(this.btnMulitPlay_Click);
+            // 
             // Frm_MulitPicturte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -208,5 +220,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTestDataChannel;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnMulitPlay;
     }
 }

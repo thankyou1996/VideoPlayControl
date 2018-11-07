@@ -34,11 +34,12 @@
             // 
             // picPlayMain
             // 
-            this.picPlayMain.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.picPlayMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.picPlayMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picPlayMain.Location = new System.Drawing.Point(0, 0);
             this.picPlayMain.Name = "picPlayMain";
             this.picPlayMain.Size = new System.Drawing.Size(240, 180);
+            this.picPlayMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPlayMain.TabIndex = 0;
             this.picPlayMain.TabStop = false;
             this.picPlayMain.SizeChanged += new System.EventHandler(this.picPlayMain_SizeChanged);

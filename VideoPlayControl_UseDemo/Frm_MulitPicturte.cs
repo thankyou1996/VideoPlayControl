@@ -21,13 +21,14 @@ namespace VideoPlayControl_UseDemo
 
         private void Frm_MulitPicturte_Load(object sender, EventArgs e)
         {
-            //VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
-            //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
+            VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
+            VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             //SDKState.SDKStateChangeEvent += SDKStateChange;
-            SDKState.CloundSee_SDKInit();
+            //SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
             SDKState.SKVideoSDKInit("hdc1", "192.168.2.19");
-            SDKState.HuaMai_Init();
+            //SDKState.HuaMai_Init();
+            SDKState.ZLVideoSDK_Init();
 
             videoPlayGroupControl_MultiPicture11.SelectedWindowHiglight = true ;
             videoPlayGroupControl_MultiPicture11.AutoSelectedNextWindow = false;
@@ -172,6 +173,55 @@ namespace VideoPlayControl_UseDemo
             int iChannel = Convert.ToInt32(txtTestDataChannel.Text);
             videoPlayGroupControl_MultiPicture11.SetPlayVideoInfo(CurrentV, iChannel);
         }
-        
+
+        private void btnMulitPlay_Click(object sender, EventArgs e)
+        {
+            VideoInfo v1 = TestDataSource.TestDataSource.GetSKDVSData1();
+            VideoInfo v2 = TestDataSource.TestDataSource.GetZLDVSData1();
+            VideoInfo v3 = TestDataSource.TestDataSource.GetYSDVSData();
+            List<VideoInfo> lstV = new List<VideoInfo>();
+
+            //时刻前四路
+            v1.Cameras = new Dictionary<int, CameraInfo>();
+            for (int i = 0; i < 4; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i);
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8616";
+                c.DVSNumber = "000501";
+                v1.Cameras[c.Channel] = c;
+            }
+
+            //智诺前2路
+            v2.Cameras = new Dictionary<int, CameraInfo>();
+            for (int i = 1; i < 3; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i);
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8616";
+                c.DVSNumber = "000501";
+                v2.Cameras[c.Channel] = c;
+            }
+            //萤石 6  
+            v3.Cameras = new Dictionary<int, CameraInfo>();
+            for (int i = 6; i <7; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i);
+                c.Channel = i;
+                //c.DVSAddress = "E322213C04245";
+                c.DVSType = "SK8605HM";
+                c.DVSNumber = "000501";
+                v3.Cameras[c.Channel] = c;
+            }
+            lstV.Add(v1);
+            lstV.Add(v2);
+            lstV.Add(v3);
+            videoPlayGroupControl_MultiPicture11.SetPlayVideoInfo(lstV);
+        }
     }
 }

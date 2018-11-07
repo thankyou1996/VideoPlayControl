@@ -127,6 +127,12 @@
     <Compile Include="VideoEncoderAsync\QuickAudioEncodingCommands.cs" />
     <Compile Include="VideoEncoderAsync\QuickVideoEncodingCommands.cs" />
     <Compile Include="VideoEncoderAsync\VideoFile.cs" />
+    <Compile Include="VideoPlayGroupControl_MultiPicture1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoPlayGroupControl_MultiPicture1.designer.cs">
+      <DependentUpon>VideoPlayGroupControl_MultiPicture1.cs</DependentUpon>
+    </Compile>
     <Compile Include="VideoPlay\VideoPlay_Ezviz.cs" />
     <Compile Include="VideoPlay\VideoPlay_IMOS.cs" />
     <Compile Include="VideoPlay\VideoPlay_Shike.cs" />
@@ -162,12 +168,6 @@
     </Compile>
     <Compile Include="VideoPlayGroupControls_Basic.Designer.cs">
       <DependentUpon>VideoPlayGroupControls_Basic.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VideoPlayGroupControl_MultiPicture1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="VideoPlayGroupControl_MultiPicture1.Designer.cs">
-      <DependentUpon>VideoPlayGroupControl_MultiPicture1.cs</DependentUpon>
     </Compile>
     <Compile Include="VideoBasicClass\VideoPlaySetting.cs" />
     <Compile Include="VideoPlayWindow.cs">
@@ -1329,6 +1329,7 @@
     <Content Include="ImageFile\PTZImage\PTZ_UpperLeft.png" />
     <Content Include="ImageFile\PTZImage\PTZ_LowerLeft.png" />
     <Content Include="ImageFile\PTZImage\PTZ_Center.png" />
+    <Content Include="ImageFile\VideoPlayBackImag.jpg" />
     <Content Include="PTZIcon\PTZ_Down.png" />
     <Content Include="PTZIcon\PTZ_Left.png" />
     <Content Include="PTZIcon\PTZ_LowerLeft.png" />
