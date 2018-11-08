@@ -20,6 +20,9 @@ namespace VideoPlayControl
         public bool AutoSelectedNextWindow = true;
         public bool SelectedWindowHiglight = true;
         public bool DisplayToolTipInfo = true;
+
+        public VideoPlaySetting CurrentVideoPlaySet = new VideoPlaySetting();
+
         public int WindowNum
         {
             get { return dicWin.Count; }
@@ -34,7 +37,7 @@ namespace VideoPlayControl
 
         private void VideoPlayGroupControl_MultiPicture1_Load(object sender, EventArgs e)
         {
-
+            SetWindowNum(4);
         }
 
         #region 外部调用接口
@@ -44,6 +47,7 @@ namespace VideoPlayControl
         /// <param name="intNum"></param>
         public bool SetWindowNum(int intNum)
         {
+
             if (this.WindowNum == intNum)
             {
                 this.VideoColse_All();
@@ -88,6 +92,7 @@ namespace VideoPlayControl
                             videoPlayWindow.Margin = new Padding(0);
                             videoPlayWindow.Padding = new Padding(1);
                             videoPlayWindow.BackColor = clrDefaulWindowColor;
+                            videoPlayWindow.CurrentVideoPlaySet = CurrentVideoPlaySet;  //赋值播放设置
                             tablayMain.Controls.Add(videoPlayWindow);
                             tablayMain.SetRow(videoPlayWindow, row);
                             tablayMain.SetColumn(videoPlayWindow, col);
@@ -106,11 +111,29 @@ namespace VideoPlayControl
             return true;
         }
 
+        public bool SetVideoPlaySet(VideoPlaySetting videoPlaySet)
+        {
+            bool bolResult = false;
+            CurrentVideoPlaySet = videoPlaySet;
+            foreach (VideoPlayWindow v in dicWin.Values)
+            {
+                v.CurrentVideoPlaySet = CurrentVideoPlaySet;
+            }
+            return bolResult;
+        }
+
+        public bool SetPlayVideo(VideoPlayWindow window, VideoInfo v)
+        {
+            bool bolResult = false;
+            window.Init_VideoInfo(v);
+            window.VideoPlay();
+            SetToolTipInfo(window);
+            return bolResult;
+        }
+
         public bool SetPlayVideoInfo(VideoInfo v)
         {
-            CurrentV.Init_VideoInfo(v);
-            CurrentV.VideoPlay();
-            SetToolTipInfo(CurrentV);
+            SetPlayVideo(CurrentV, v);
             return true;
         }
 
@@ -188,6 +211,7 @@ namespace VideoPlayControl
             foreach (VideoPlayWindow v in dicWin.Values)
             {
                 v.VideoClose();
+                SetToolTipInfo(v, "");
             }
         }
 
@@ -234,6 +258,13 @@ namespace VideoPlayControl
                 ttip.SetToolTip(v.PicMain, Temp_sbDisplayToopTipInfo.ToString());
                 
             }
+        }
+
+        public bool SetToolTipInfo(VideoPlayWindow v, string strTip)
+        {
+            bool bolResult = false;
+            ttip.SetToolTip(v.PicMain, strTip);
+            return bolResult;
         }
 
         /// <summary>

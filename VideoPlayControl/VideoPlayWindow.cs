@@ -1119,6 +1119,7 @@ namespace VideoPlayControl
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
             }
+            picPlayMain.Refresh();
         }
 
         /// <summary>

@@ -18,7 +18,7 @@ namespace VideoPlayControl_UseDemo
         private void btnLoad_Click(object sender, EventArgs e)
         {
             //string strTempFilePath = "C:\\SHIKE_Video\\0002\\20170808172630";
-            string strTempFilePath = @"C:\SHIKE_Video\0098\20180128125153";
+            string strTempFilePath = @"C:\SHIKE_Video\0006\20181108113346";
 
             videoRecordList1.Init_SetCurrentFolderPath(strTempFilePath);
             videoRecordList1.ButtonVideoRecord_ClickEvent -= Test;

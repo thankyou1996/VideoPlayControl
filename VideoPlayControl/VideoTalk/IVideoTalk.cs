@@ -33,6 +33,15 @@ namespace VideoPlayControl.VideoTalk
 
         bool StartTalking(object StartTalkingValue);
 
+        ///// <summary>
+        ///// 开始对讲后事件
+        ///// </summary>
+        //event StartTalkedDelegate StartTalkedEvent;
+
+        ///// <summary>
+        ///// 结束对讲后事件
+        ///// </summary>
+        //event StopTalkedDelegate StopTalkedEvent;
 
         bool SetVideoTalkInfo(VideoInfo videoInfo, VideoTalkChannelInfo talkChannel);
 

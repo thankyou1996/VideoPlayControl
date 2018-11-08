@@ -58,7 +58,7 @@ namespace VideoPlayControl.VideoPlay
             if (m_nDeviceID > 0)
             {
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.LoginSuccess });
-                m_nPlayHandle = SDK_ZLNetSDK.ZLNET_RealPlayEx(m_nDeviceID, CurrentCameraInfo.Channel-1, intptrPlayMain);
+                m_nPlayHandle = SDK_ZLNetSDK.ZLNET_RealPlayEx(m_nDeviceID, CurrentCameraInfo.Channel - 1, intptrPlayMain);
                 if (m_nPlayHandle > 0)
                 {
                     SDK_ZLNetSDK.ZLNET_AdjustFluency(m_nPlayHandle, 6);
@@ -75,7 +75,7 @@ namespace VideoPlayControl.VideoPlay
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DevLoginException });
             }
-            
+
             return bolResult;
         }
 
@@ -84,7 +84,7 @@ namespace VideoPlayControl.VideoPlay
             string strResult = strSavePath + strSaveName;
             if (!strSaveName.EndsWith(".dav"))
             {
-                strResult = strSavePath +  VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                strResult = strSavePath + "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
             }
             return strResult;
         }
