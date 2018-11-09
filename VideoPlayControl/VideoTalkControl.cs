@@ -41,6 +41,12 @@ namespace VideoPlayControl
             set { videoTalk.CurrentTalkStatus = value; }
         }
 
+        public TalkSetting CurrentTalkSetting
+        {
+            get { return videoTalk.CurrentTalkSetting; }
+            set { videoTalk.CurrentTalkSetting = value; }
+        }
+
         public event TalkStausChangedDelegate TalkStausChangedEvent
         {
             add { videoTalk.TalkStausChangedEvent += value; }
@@ -52,10 +58,12 @@ namespace VideoPlayControl
             bool bolResult = false;
 
             return bolResult;
-            //throw new NotImplementedException();
         }
 
         private StartTalkingDelegate startTalkingEvent;
+
+      
+
         public event StartTalkingDelegate StartTalkingEvent
         {
             add
@@ -67,6 +75,37 @@ namespace VideoPlayControl
             {
                 videoTalk.StartTalkingEvent -= value;
                 startTalkingEvent -= value;
+            }
+        }
+
+        private StartTalkedDelegate startTalkedEvent;
+        public event StartTalkedDelegate StartTalkedEvent
+        {
+            add
+            {
+                videoTalk.StartTalkedEvent += value;
+                startTalkedEvent += value;
+
+            }
+            remove
+            {
+                videoTalk.StartTalkedEvent -= value;
+                startTalkedEvent -= value;
+            }
+        }
+        private StopTalkedDelegate stopTalkedEvent;
+        public event StopTalkedDelegate StopTalkedEvent
+        {
+            add
+            {
+                videoTalk.StopTalkedEvent += value;
+                stopTalkedEvent += value;
+
+            }
+            remove
+            {
+                videoTalk.StopTalkedEvent -= value;
+                stopTalkedEvent -= value;
             }
         }
 
@@ -99,6 +138,8 @@ namespace VideoPlayControl
                 }
                 videoTalk.TalkStausChangedEvent += VideoTalk_TalkStausChangedEvent;
                 videoTalk.StartTalkingEvent += startTalkingEvent;
+                videoTalk.StartTalkedEvent += startTalkedEvent;
+                videoTalk.StopTalkedEvent += stopTalkedEvent;
             }
             videoTalk.SetVideoTalkInfo(videoInfo, talkChannel);
             return bolResult;
@@ -204,6 +245,9 @@ namespace VideoPlayControl
             }
         }
 
-       
+        public bool StopTalked(object StopTalkedValue)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

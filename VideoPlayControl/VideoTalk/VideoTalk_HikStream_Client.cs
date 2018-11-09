@@ -12,9 +12,13 @@ namespace VideoPlayControl.VideoTalk
         public VideoInfo CurrentVideoInfo { get ; set ; }
         public VideoTalkChannelInfo CurrentTalkChannel { get ; set ; }
         public Enum_TalkStatus CurrentTalkStatus { get ; set ; }
+        public TalkSetting CurrentTalkSetting { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public object Tag { get ; set ; }
 
         public event TalkStausChangedDelegate TalkStausChangedEvent;
         public event StartTalkingDelegate StartTalkingEvent;
+        public event StartTalkedDelegate StartTalkedEvent;
+        public event StopTalkedDelegate StopTalkedEvent;
 
         public bool TalkStausChanged(object TalkStausChangedValue)
         {
@@ -63,6 +67,11 @@ namespace VideoPlayControl.VideoTalk
             bool bolResult = false;
             SDK_TalkManagerSDK.StopTalk();
             return bolResult;
+        }
+
+        public bool StopTalked(object StopTalkedValue)
+        {
+            throw new NotImplementedException();
         }
     }
 }

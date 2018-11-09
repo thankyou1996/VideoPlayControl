@@ -30,6 +30,9 @@ namespace VideoPlayControl.VideoTalk
             }
         }
 
+        public TalkSetting CurrentTalkSetting { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public object Tag { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public event TalkStausChangedDelegate TalkStausChangedEvent;
 
         public bool TalkStausChanged(object TalkStausChangedValue)
@@ -42,6 +45,8 @@ namespace VideoPlayControl.VideoTalk
             return bolResult;
         }
         public event StartTalkingDelegate StartTalkingEvent;
+        public event StartTalkedDelegate StartTalkedEvent;
+        public event StopTalkedDelegate StopTalkedEvent;
 
         public bool StartTalking(object StartTalkingValue)
         {
@@ -117,5 +122,9 @@ namespace VideoPlayControl.VideoTalk
             return intResult;
         }
 
+        public bool StopTalked(object StopTalkedValue)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

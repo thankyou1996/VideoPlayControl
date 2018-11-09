@@ -48,6 +48,8 @@ namespace VideoPlayControl.VideoTalk
 
         public event TalkStausChangedDelegate TalkStausChangedEvent;
         public event StartTalkingDelegate StartTalkingEvent;
+        public event StartTalkedDelegate StartTalkedEvent;
+        public event StopTalkedDelegate StopTalkedEvent;
 
         /// <summary>
         /// 语音连接返回值
@@ -83,6 +85,9 @@ namespace VideoPlayControl.VideoTalk
         {
             get { return m_Status; }
         }
+
+        public TalkSetting CurrentTalkSetting { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public object Tag { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         /// <summary>
         /// 转发给海康设备的数据
@@ -309,6 +314,11 @@ namespace VideoPlayControl.VideoTalk
 
                 //throw;
             }
+        }
+
+        public bool StopTalked(object StopTalkedValue)
+        {
+            throw new NotImplementedException();
         }
     }
 }
