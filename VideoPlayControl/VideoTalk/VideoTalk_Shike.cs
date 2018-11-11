@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using PublicClassCurrency;
@@ -116,6 +117,8 @@ namespace VideoPlayControl.VideoTalk
             if ( CurrentTalkSetting.TalkRecordEnable)
             {
                 CurrentTalkSetting.TalkRecordRealSavePath_Local= GetTalkRecordPath_Local(CurrentTalkSetting.TalkRecordPath_Local, CurrentTalkSetting.TalkRecordName_Local);
+                string Temp_strValue = Path.GetDirectoryName(CurrentTalkSetting.TalkRecordRealSavePath_Local);
+                CommonMethod.Common.CreateFolder(Temp_strValue);
             }
             SDK_SKVideoSDK.p_sdkc_start_multi_talk(CurrentVideoInfo.DVSAddress, ref talkChannel, GetSKTalkModel(talkModel), 1, 15, 10, CurrentTalkSetting.TalkRecordRealSavePath_Local);
             CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
