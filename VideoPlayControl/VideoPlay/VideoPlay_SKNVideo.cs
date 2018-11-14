@@ -8,7 +8,7 @@ using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
-    public class VideoPlay_SKNVideo:IVideoPlay
+    public class VideoPlay_SKNVideo : IVideoPlay
     {
         public VideoInfo CurrentVideoInfo { get; set; }
         public CameraInfo CurrentCameraInfo { get; set; }
@@ -48,8 +48,8 @@ namespace VideoPlayControl.VideoPlay
                 Temp_strVideoRecord = GetLocalSavePath(CurrentVideoPlaySet.VideoRecordFilePath, "");
                 Temp_strServerVideoRecord = GetServerSavePath(CurrentVideoPlaySet.VideoRecordFilePath_Server, CurrentVideoPlaySet.VideoRecordFileName_Server);
             }
-           
-            SDK_SKNVideo.SDK_NSK_CLIENT_open_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, 1, intptrPlayMain, Temp_strVideoRecord, Temp_strServerVideoRecord);
+
+            SDK_SKNVideo.SDK_NSK_CLIENT_open_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, 1, intptrPlayMain, Temp_strVideoRecord, Temp_strServerVideoRecord);
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
             VideoPlayState = Enum_VideoPlayState.InPlayState;
             return bolResult;
@@ -59,7 +59,7 @@ namespace VideoPlayControl.VideoPlay
         /// 获取服务器保存地址
         /// </summary>
         /// <returns></returns>
-        private string GetServerSavePath(string strSavePath,string strSaveName)
+        private string GetServerSavePath(string strSavePath, string strSaveName)
         {
             if (!strSaveName.EndsWith(".h264"))
             {
