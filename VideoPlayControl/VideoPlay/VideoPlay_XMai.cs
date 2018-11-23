@@ -138,8 +138,7 @@ namespace VideoPlayControl.VideoPlay
         {
 
             H264_DVR_CLIENTINFO playstru = new H264_DVR_CLIENTINFO();
-            playstru.nChannel = CurrentCameraInfo.Channel;
-            //playstru.nChannel = 0;
+            playstru.nChannel = CurrentCameraInfo.Channel - 1;
             playstru.nStream = 1;
             playstru.nMode = 0;
             playstru.hWnd = intptrPlayMain;
@@ -172,7 +171,7 @@ namespace VideoPlayControl.VideoPlay
                             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.ConnNumMax });//达到最大连接数量
                             break;
                         case (int)SDK_RET_CODE.H264_DVR_INVALID_HANDLE: //句柄错误
-                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException, EventContent = intResult.ToString()+"句柄错误" });//视频播放异常
+                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException, EventContent = intResult.ToString() + "句柄错误" });//视频播放异常
                             //退出,重新登陆
                             //注意: 有可能是后台登陆成功后触发这个错误 重新调用登陆接口打开新线程进行登陆
                             //将重连播放的标签置为Flase 结束前一个登陆线程
@@ -260,7 +259,7 @@ namespace VideoPlayControl.VideoPlay
                 bool bolTemp = !bolStart;
                 if (lLogin > 0)
                 {
-                    bolResult = SDK_XMSDK.H264_DVR_PTZControl(lLogin, CurrentCameraInfo.Channel, Convert.ToInt32(XMVideoPtzType), bolTemp, CurrentVideoPlaySet.PTZSpeed);
+                    bolResult = SDK_XMSDK.H264_DVR_PTZControl(lLogin, CurrentCameraInfo.Channel - 1, Convert.ToInt32(XMVideoPtzType), bolTemp, CurrentVideoPlaySet.PTZSpeed);
                 }
             }
             return bolResult;
@@ -298,7 +297,7 @@ namespace VideoPlayControl.VideoPlay
                 //后缀错误，使用默认文件生成
                 //默认路径格式 [当前工作路径/XMVideoRecFile/DVSAddress/时间(yyyyMMddHHmmss)_通道号(01)]
 
-                strRecFilePath += "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                strRecFilePath += "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel - 1, CurrentVideoInfo.VideoType);
             }
             bool bolResult = SDK_XMSDK.H264_DVR_StartLocalRecord(m_iPlayhandle, strRecFilePath, Convert.ToInt32(MEDIA_FILE_TYPE.MEDIA_FILE_NONE));
             return bolResult;

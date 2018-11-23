@@ -58,7 +58,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19");
             //SDKState.HuaMai_Init();
-            //SDKState.XMSDK_Init();
+            SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
@@ -1244,7 +1244,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnXMTestData1_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.XMDataSource6();
+            VideoInfo v = TestDataSource.TestDataSource.XMDataSource4();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

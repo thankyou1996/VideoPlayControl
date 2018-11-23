@@ -9,14 +9,14 @@ namespace VideoPlayControl.VideoPlay
 {
     public class VideoPlay_Shike : IVideoPlay
     {
-        public VideoInfo CurrentVideoInfo { get ; set ; }
-        public CameraInfo CurrentCameraInfo { get ; set ; }
-        public VideoPlaySetting CurrentVideoPlaySet { get ; set ; }
-        public IntPtr intptrPlayMain { get ; set; }
-        public Enum_VideoPlayState VideoPlayState { get ; set ; }
-        public int VideoplayWindowWidth { get; set ; }
-        public int VideoplayWindowHeight { get; set ; }
-        
+        public VideoInfo CurrentVideoInfo { get; set; }
+        public CameraInfo CurrentCameraInfo { get; set; }
+        public VideoPlaySetting CurrentVideoPlaySet { get; set; }
+        public IntPtr intptrPlayMain { get; set; }
+        public Enum_VideoPlayState VideoPlayState { get; set; }
+        public int VideoplayWindowWidth { get; set; }
+        public int VideoplayWindowHeight { get; set; }
+
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public bool VideoPlayCallback(VideoPlayCallbackValue value)
         {
@@ -34,7 +34,7 @@ namespace VideoPlayControl.VideoPlay
         public bool VideoClose()
         {
             bool bolResult = false;
-            SDK_SKVideoSDK.p_sdkc_stop_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, intptrPlayMain);
+            SDK_SKVideoSDK.p_sdkc_stop_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, intptrPlayMain);
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
             VideoPlayState = Enum_VideoPlayState.NotInPlayState;
             return bolResult;
@@ -54,10 +54,10 @@ namespace VideoPlayControl.VideoPlay
                 strRecordPath = GetServerSavePath(CurrentVideoPlaySet.VideoRecordFilePath_Server, CurrentVideoPlaySet.VideoRecordFileName_Server);
                 intVideoRecordEnable = 1;
             }
-            SDK_SKVideoSDK.p_sdkc_start_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, intptrPlayMain, intVideoRecordEnable, 15, 5, strRecordPath);
+            SDK_SKVideoSDK.p_sdkc_start_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, intptrPlayMain, intVideoRecordEnable, 15, 5, strRecordPath);
             if (CurrentVideoPlaySet.PerVideoRecord)
             {
-                SDK_SKVideoSDK.p_sdkc_get_revideo_data(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, CurrentVideoPlaySet.PreVideoRecordFilePath);
+                SDK_SKVideoSDK.p_sdkc_get_revideo_data(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, CurrentVideoPlaySet.PreVideoRecordFilePath);
             }
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
             VideoPlayState = Enum_VideoPlayState.InPlayState;
@@ -65,13 +65,13 @@ namespace VideoPlayControl.VideoPlay
         }
 
 
-        private string GetServerSavePath(string strSavePath,string strSaveName)
+        private string GetServerSavePath(string strSavePath, string strSaveName)
         {
             if (!strSaveName.EndsWith(".h264"))
             {
                 if (string.IsNullOrEmpty(strSaveName))
                 {
-                    strSaveName = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                    strSaveName = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel - 1, CurrentVideoInfo.VideoType);
                 }
                 else
                 {
@@ -138,13 +138,13 @@ namespace VideoPlayControl.VideoPlay
                         Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
                         break;
                 }
-                SDK_SKVideoSDK.p_sdkc_onvif_ptz_continue_move(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel, Temp_iXSpeed, Temp_iYSpeed, Temp_iZSpeed);
+                SDK_SKVideoSDK.p_sdkc_onvif_ptz_continue_move(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, Temp_iXSpeed, Temp_iYSpeed, Temp_iZSpeed);
             }
             else
             {
-                SDK_SKVideoSDK.p_sdkc_onvif_ptz_stop(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel);
+                SDK_SKVideoSDK.p_sdkc_onvif_ptz_stop(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1);
             }
-            
+
             return bolResult;
         }
 
