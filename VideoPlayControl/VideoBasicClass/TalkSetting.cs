@@ -43,8 +43,8 @@ namespace VideoPlayControl.VideoBasicClass
             set { strTalkRecordName_Local = value; }
         }
 
-        private string strTalkRecordRealSavePath_Local;
-    
+        private string strTalkRecordRealSavePath_Local = "";
+
         /// <summary>
         /// 录音文件实际保存地址
         /// 人为控制实际生成保存路径是赋值
