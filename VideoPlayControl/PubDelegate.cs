@@ -6,6 +6,8 @@ using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl
 {
+    #region 视频相关
+
     /// <summary>
     /// 视频播放事件回调V_2.0
     /// </summary>
@@ -14,6 +16,20 @@ namespace VideoPlayControl
     /// <returns></returns>
     public delegate bool VideoPlayCallbackDelegate(object sender, VideoPlayCallbackValue evValue);
 
+
+
+    /// <summary>
+    /// 视频播放状态改变
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="VideoPlayStateChangedValue"></param>
+    /// <returns></returns>
+    public delegate bool VideoPlayStateChangedDelegate(object sender, object VideoPlayStateChangedValue);
+    #endregion
+
+
+
+    #region 对讲相关
 
     /// <summary>
     /// 对讲状态改变事件
@@ -46,5 +62,6 @@ namespace VideoPlayControl
     /// <param name="StopTalkValue"></param>
     /// <returns></returns>
     public delegate bool StopTalkedDelegate(object sender, object StopTalkValue);
+    #endregion 
 
 }

@@ -17,11 +17,29 @@ namespace VideoPlayControl.VideoPlay
         public CameraInfo CurrentCameraInfo { get; set; }
         public VideoPlaySetting CurrentVideoPlaySet { get; set; }
         public IntPtr intptrPlayMain { get; set; }
-        public Enum_VideoPlayState VideoPlayState { get; set; }
+        private Enum_VideoPlayState videoPlayState = Enum_VideoPlayState.VideoInfoNull;
+        public Enum_VideoPlayState VideoPlayState
+        {
+            get { return videoPlayState; }
+            set
+            {
+                if (videoPlayState != value)
+                {
+                    videoPlayState = value;
+                    if (VideoPlayStateChangedEvent != null)
+                    {
+                        VideoPlayStateChangedEvent(this, null);
+                    }
+                }
+            }
+        }
         public int VideoplayWindowWidth { get; set; }
         public int VideoplayWindowHeight { get; set; }
 
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
+
+        public event VideoPlayStateChangedDelegate VideoPlayStateChangedEvent;
+
         private int m_nDeviceID = 0;
         private int m_nPlayHandle = 0;
         /// <summary>
