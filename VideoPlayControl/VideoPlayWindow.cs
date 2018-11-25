@@ -27,8 +27,7 @@ namespace VideoPlayControl
     public partial class VideoPlayWindow : UserControl
     {
         #region 全局变量
-        int intx = 0;
-
+        System.Threading.Timer timTimtOutVideoClose;
         /// <summary>
         /// 当前视频视频设备信息
         /// </summary>
@@ -55,17 +54,61 @@ namespace VideoPlayControl
                     videoPlayState = value;
                     switch (videoPlayState)
                     {
-                        case Enum_VideoPlayState.InPlayState:
+                        case Enum_VideoPlayState.InPlayState:   
+                            //触发事件
                             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
+                            //启动视频播放事件定时器
+                            if (timTimtOutVideoClose != null)
+                            {
+                                timTimtOutVideoClose.Dispose();
+                                timTimtOutVideoClose = null;
+                            }
+                            timTimtOutVideoClose = new System.Threading.Timer(new TimerCallback(PlayLimit_Event), null, CurrentVideoPlaySet.TimeOutVideoCloseSecond * 1000, Timeout.Infinite);
                             break;
                     }
                 }
             }
         }
+
+        /// <summary>
+        /// 视频播放超时关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        private void PlayLimit_Event(object sender)
+        {
+            this.BeginInvoke(new EventHandler(delegate
+            {
+                VideoClose();
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.TimtOutVideoClose, EventContent = "达到预览上限时间，关闭视频" });
+            }));
+        }
+
+
+
+        private VideoPlaySetting currentVideoPlaySet = new VideoPlaySetting();
+
         /// <summary>
         /// 当前播放设置
         /// </summary>
-        public VideoPlaySetting CurrentVideoPlaySet = new VideoPlaySetting();
+        public VideoPlaySetting CurrentVideoPlaySet
+        {
+            get
+            {
+                if (iv != null)
+                {
+                    return iv.CurrentVideoPlaySet;
+                }
+                return currentVideoPlaySet;
+            }
+            set
+            {
+                currentVideoPlaySet = value;
+                if (iv != null)
+                {
+                    iv.CurrentVideoPlaySet = currentVideoPlaySet;
+                }
+            }
+        } 
 
         /// <summary>
         /// 当前连接次数
@@ -123,39 +166,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-
-        //#region 视频播放事件回调
-        ///// <summary>
-        ///// 视频播放事件回调_事件
-        ///// </summary>
-        //public event VideoPlayEventCallBackDelegate VideoPlayEventCallBackEvent;
-
-        ///// <summary>
-        ///// 视频播放事件回调
-        ///// </summary>
-        //private void VideoPlayEventCallBack(Enum_VideoPlayEventType eventType)
-        //{
-        //    switch (eventType)      //部分特殊处理
-        //    {
-        //        case Enum_VideoPlayEventType.RequestVideoTimeout:
-        //            if (CurrentVideoPlaySet.AutoReconn)
-        //            {
-        //                this.BeginInvoke(new EventHandler(delegate
-        //                {
-        //                    VideoClose();
-        //                    VideoPlay();
-        //                }));
-        //            }
-        //            break;
-        //    }
-        //    if (VideoPlayEventCallBackEvent != null)
-        //    {
-        //        VideoPlayEventCallBackEvent(this, eventType);
-        //    }
-        //}
-
-
-        //#endregion
+        
 
         #region 视频播放回调事件2
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
@@ -379,6 +390,10 @@ namespace VideoPlayControl
                     case Enum_VideoType.SKVideo:
                         iv = new VideoPlay_Shike();
                         break;
+                    default:
+                        iv = null;
+                        break;
+
                 }
             }
             else
@@ -412,6 +427,9 @@ namespace VideoPlayControl
                         case Enum_VideoType.SKVideo:
                             iv = new VideoPlay_Shike();
                             break;
+                        default:
+                            iv = null;
+                            break;
                     }
                 }
             }
@@ -425,16 +443,27 @@ namespace VideoPlayControl
                 iv.VideoplayWindowHeight = picPlayMain.Height;
                 iv.VideoPlayCallbackEvent -= VideoPlayCallbackEvent;
                 iv.VideoPlayCallbackEvent += VideoPlayCallbackEvent;
+                iv.VideoPlayStateChangedEvent -= Iv_VideoPlayStateChangedEvent;
+                iv.VideoPlayStateChangedEvent += Iv_VideoPlayStateChangedEvent;
             }
+        }
+
+        private bool Iv_VideoPlayStateChangedEvent(object sender, object VideoPlayStateChangedValue)
+        {
+
+            bool bolResult = false;
+            IVideoPlay iv = (IVideoPlay)sender;
+            this.VideoPlayState = iv.VideoPlayState;
+            return bolResult;
         }
         #endregion
 
         #region CloundSeeSDK 云视通
 
         #region 全局变量
-            /// <summary>
-            /// 云视通_当前连接ID
-            /// </summary>
+        /// <summary>
+        /// 云视通_当前连接ID
+        /// </summary>
         public int intCloundSee_ConnID = -1;
 
 
@@ -1118,6 +1147,12 @@ namespace VideoPlayControl
                 }
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
+            }
+            //关闭视频，同时关闭超时关闭计时器
+            if (timTimtOutVideoClose != null)
+            {
+                timTimtOutVideoClose.Dispose();
+                timTimtOutVideoClose = null;
             }
             picPlayMain.Refresh();
         }

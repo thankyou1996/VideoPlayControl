@@ -225,5 +225,18 @@ namespace VideoPlayControl
             get { return bolAnsyPlay; }
             set { bolAnsyPlay = value; }
         }
+
+        private int intTimeOutVideoCloseSecond = 180;
+
+
+        /// <summary>
+        /// 超时关闭视频设置(秒) 默认180秒
+        /// 注意：目前尽在 VideoPlayWindow 控件中实现(IVideoPlay尚未实现) 
+        /// </summary>
+        public int TimeOutVideoCloseSecond
+        {
+            get { return intTimeOutVideoCloseSecond; }
+            set { intTimeOutVideoCloseSecond = value; }
+        }
     }
 }

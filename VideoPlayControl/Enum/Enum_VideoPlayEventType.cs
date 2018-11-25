@@ -43,7 +43,7 @@ namespace VideoPlayControl
 
      
 
-        #region 视频预览相关
+        #region 视频预览相关 100~200
 
         /// <summary>
         /// 视频异常
@@ -90,9 +90,14 @@ namespace VideoPlayControl
         /// 设备码流类型异常
         /// </summary>
         DeviceStreamTypeException =101,
+
+        /// <summary>
+        /// 视频预览超时关闭
+        /// </summary>
+        TimtOutVideoClose = 102,
         #endregion
 
-        #region 视频录制
+        #region 视频录制 200~300
 
         /// <summary>
         /// 开始视频录制

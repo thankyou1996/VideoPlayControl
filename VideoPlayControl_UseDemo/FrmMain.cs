@@ -60,7 +60,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.HuaMai_Init();
             SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
-            //SDKState.HikDVRSDK_Init();
+            SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
             //SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C:\\SHIKE_Video");
             SDKState.ZLVideoSDK_Init();
