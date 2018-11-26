@@ -547,6 +547,23 @@
             视频播放时间限制_分 0代表无限制
             </summary>
         </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoPlayTimeConstraintSecond">
+            <summary>
+            视频播放时间限制(秒)
+            仅支持Get方法 数据来源为VidePlayTime_Minute
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intVideoRecordTimeConstraintSecond">
+            <summary>
+            视频录像时长限制
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoRecordTimeConstraintSecond">
+            <summary>
+            视频录像时长限制 0标识无时长限制
+            默认 180 秒
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.VideoInfo.intAutoIntercom">
             <summary>
             自动对讲功能

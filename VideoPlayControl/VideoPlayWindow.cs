@@ -27,7 +27,8 @@ namespace VideoPlayControl
     public partial class VideoPlayWindow : UserControl
     {
         #region 全局变量
-        System.Threading.Timer timTimtOutVideoClose;
+        System.Threading.Timer timTimeOutVideoClose;
+        System.Threading.Timer timTimeOutVideoRecordClose;
         /// <summary>
         /// 当前视频视频设备信息
         /// </summary>
@@ -49,39 +50,90 @@ namespace VideoPlayControl
             get { return videoPlayState; }
             set
             {
-                if (videoPlayState != value)
+                if (videoPlayState == value)
                 {
-                    videoPlayState = value;
-                    switch (videoPlayState)
-                    {
-                        case Enum_VideoPlayState.InPlayState:   
-                            //触发事件
-                            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
-                            //启动视频播放事件定时器
-                            if (timTimtOutVideoClose != null)
-                            {
-                                timTimtOutVideoClose.Dispose();
-                                timTimtOutVideoClose = null;
-                            }
-                            timTimtOutVideoClose = new System.Threading.Timer(new TimerCallback(PlayLimit_Event), null, CurrentVideoPlaySet.TimeOutVideoCloseSecond * 1000, Timeout.Infinite);
-                            break;
-                    }
+                    return;
+                }
+                videoPlayState = value;
+                switch (videoPlayState)
+                {
+                    case Enum_VideoPlayState.InPlayState:
+                        //触发事件
+                        VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
+                        TimeOutTimerDispose();  //视频定时器资源，避免重复触发
+                        CurrentVideoPlaySet.TimeOutVideoRecordCloseSecond = CurrentVideoInfo.VideoRecordTimeConstraintSecond;
+                        CurrentVideoPlaySet.TimeOutVideoCloseSecond = CurrentVideoInfo.VideoPlayTimeConstraintSecond;
+                        //启动视频播放事件定时器
+                        if (CurrentVideoPlaySet.VideoRecordEnable && CurrentVideoPlaySet.TimeOutVideoRecordCloseSecond > 0)
+                        {
+                            timTimeOutVideoRecordClose = new System.Threading.Timer(new TimerCallback(timTimeOutVideoRecordClose_Event), null, CurrentVideoPlaySet.TimeOutVideoRecordCloseSecond * 1000, Timeout.Infinite);
+                        }
+                        else if (CurrentVideoPlaySet.TimeOutVideoCloseSecond > 0)
+                        {
+                            timTimeOutVideoClose = new System.Threading.Timer(new TimerCallback(timTimtOutVideoClose_Event), null, CurrentVideoPlaySet.TimeOutVideoCloseSecond * 1000, Timeout.Infinite);
+                        }
+                        break;
                 }
             }
         }
+
+        #region 视频超时关闭相关设置 （分为两种 1.视频浏览超时设置  2.录像超时设置）
+        /************************************************** 
+        1.分为浏览现场视频超时和录像超时
+        2.视频录像超时同样是关闭视频浏览 
+        3.两种设置均存在的情况以 录像超时为准
+        **************************************************/
+
 
         /// <summary>
         /// 视频播放超时关闭事件
         /// </summary>
         /// <param name="sender"></param>
-        private void PlayLimit_Event(object sender)
+        private void timTimtOutVideoClose_Event(object sender)
         {
             this.BeginInvoke(new EventHandler(delegate
             {
                 VideoClose();
-                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.TimtOutVideoClose, EventContent = "达到预览上限时间，关闭视频" });
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.TimtOutVideoClose, EventContent = "超出视频录像设置时间，关闭视频" });
             }));
         }
+
+        /// <summary>
+        /// 视频播放录像超时关闭事件
+        /// </summary>
+        /// <param name="objTimeOutVideoRecordValue"></param>
+        public void timTimeOutVideoRecordClose_Event(object objTimeOutVideoRecordValue)
+        {
+            this.BeginInvoke(new EventHandler(delegate
+            {
+                VideoClose();
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.TimtOutVideoRecordClose, EventContent = "超出视频录像设置时间，关闭视频" });
+            }));
+        }
+
+        /// <summary>
+        /// 播放/录像 播放超时控件释放
+        /// </summary>
+        /// <returns></returns>
+        public bool TimeOutTimerDispose()
+        {
+            bool bolResult = false;
+            //关闭视频，同时关闭超时关闭计时器
+            if (timTimeOutVideoClose != null)
+            {
+                timTimeOutVideoClose.Dispose();
+                timTimeOutVideoClose = null;
+            }
+            if (timTimeOutVideoRecordClose != null)
+            {
+                timTimeOutVideoRecordClose.Dispose();
+                timTimeOutVideoRecordClose = null;
+            }
+            return bolResult;
+        }
+
+        #endregion
+
 
 
 
@@ -1148,12 +1200,7 @@ namespace VideoPlayControl
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
             }
-            //关闭视频，同时关闭超时关闭计时器
-            if (timTimtOutVideoClose != null)
-            {
-                timTimtOutVideoClose.Dispose();
-                timTimtOutVideoClose = null;
-            }
+            TimeOutTimerDispose();
             picPlayMain.Refresh();
         }
 

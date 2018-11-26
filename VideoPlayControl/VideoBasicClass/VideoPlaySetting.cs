@@ -231,12 +231,29 @@ namespace VideoPlayControl
 
         /// <summary>
         /// 超时关闭视频设置(秒) 默认180秒
-        /// 注意：目前尽在 VideoPlayWindow 控件中实现(IVideoPlay尚未实现) 
+        /// 注意：目前仅在 VideoPlayWindow 控件中实现(IVideoPlay尚未实现) 
         /// </summary>
         public int TimeOutVideoCloseSecond
         {
             get { return intTimeOutVideoCloseSecond; }
             set { intTimeOutVideoCloseSecond = value; }
+        }
+
+        /// <summary>
+        /// 超时关闭视频录像 默认180秒
+        /// 注意：
+        /// </summary>
+        private int intTimeOutVideoRecotdCloseSecond = 180;
+
+        /// <summary>
+        /// 超时关闭视频录像 默认180秒
+        /// 注意：目前仅在 VideoPlayWindow 控件中实现(IVideoPlay尚未实现) 
+        /// 注意：关闭视频录像等同于关闭视频
+        /// </summary>
+        public int TimeOutVideoRecordCloseSecond
+        {
+            get { return intTimeOutVideoRecotdCloseSecond; }
+            set { intTimeOutVideoRecotdCloseSecond = value; }
         }
     }
 }

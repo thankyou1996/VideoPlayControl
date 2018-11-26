@@ -43,7 +43,7 @@ namespace VideoPlayControl
 
      
 
-        #region 视频预览相关 100~200
+        #region 视频预览相关 100~199
 
         /// <summary>
         /// 视频异常
@@ -97,7 +97,7 @@ namespace VideoPlayControl
         TimtOutVideoClose = 102,
         #endregion
 
-        #region 视频录制 200~300
+        #region 视频录制 200~299
 
         /// <summary>
         /// 开始视频录制
@@ -119,6 +119,10 @@ namespace VideoPlayControl
         /// </summary>
         StopVideoRecordException = 20,
 
+        /// <summary>
+        /// 视频录制超时视频关闭
+        /// </summary>
+        TimtOutVideoRecordClose = 200,
         #endregion
 
         #region 设备登陆相关  300~400
