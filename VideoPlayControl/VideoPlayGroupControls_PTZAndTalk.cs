@@ -368,10 +368,10 @@ namespace VideoPlayControl
                         sbDisplayInfo.Append("无设备权限");
                         break;
                     default:
-                        sbDisplayInfo.Append("未知状态:" + eventValue.evType.ToString());
+                        sbDisplayInfo.AppendFormat("[{0}]{1}", eventValue.evType.ToString(), eventValue.EventContent);
                         break;
                 }
-                sbDisplayInfo.Append("[" + videoPlayWindow.intConnCount + "]" + eventValue.EventContent);
+                sbDisplayInfo.Append("[" + videoPlayWindow.intConnCount + "]");
                 DisplayRecord(sbDisplayInfo.ToString());
             }
             return bolResult;
