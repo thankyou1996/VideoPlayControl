@@ -442,6 +442,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.SKVideo:
                         iv = new VideoPlay_Shike();
                         break;
+                    case Enum_VideoType.DaHuaVideo:
+                        iv = new VideoPlay_DaHua();
+                        break;
                     default:
                         iv = null;
                         break;
@@ -478,6 +481,9 @@ namespace VideoPlayControl
                             break;
                         case Enum_VideoType.SKVideo:
                             iv = new VideoPlay_Shike();
+                            break;
+                        case Enum_VideoType.DaHuaVideo:
+                            iv = new VideoPlay_DaHua();
                             break;
                         default:
                             iv = null;

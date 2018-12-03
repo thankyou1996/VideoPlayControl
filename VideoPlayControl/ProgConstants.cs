@@ -71,7 +71,16 @@ namespace VideoPlayControl
         public const string c_strIMOSSDKFrameFilePath = "\\IMOSSDK\\xp_frame.dll";
 
 
+        /// <summary>
+        /// 智诺SDK
+        /// </summary>
         public const string c_strZLVideoFilePath= "\\ZL\\zlnetsdk.dll";
+
+
+        /// <summary>
+        /// 大华SDK 
+        /// </summary>
+        public const string c_strDaHuaFilePath = "\\DHA\\dhnetsdk.dll";
         #endregion
 
         #region SDK默认参数

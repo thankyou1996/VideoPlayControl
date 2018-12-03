@@ -549,7 +549,7 @@
         </member>
         <member name="P:PublicClassCurrency.VideoInfo.VideoPlayTimeConstraintSecond">
             <summary>
-            视频播放时间限制(秒)
+            视频播放时间限制(秒) 0标识无限制
             仅支持Get方法 数据来源为VidePlayTime_Minute
             </summary>
         </member>
@@ -767,6 +767,11 @@
             海康流媒体模式
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.DaHuaVideo">
+            <summary>
+            大华设备
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.Enum_VideoType.ZLVideo">
             <summary>
             智诺视频
@@ -807,6 +812,11 @@
         <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.HikStreamVideo">
             <summary>
             海康流媒体模式
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.DaHuaVideoRecord">
+            <summary>
+            大华视频录像类型
             </summary>
         </member>
         <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.ZLVideoRecord">

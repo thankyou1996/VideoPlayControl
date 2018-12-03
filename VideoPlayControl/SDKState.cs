@@ -700,11 +700,11 @@ namespace VideoPlayControl
         public static Enum_SDKState s_ZLVideoSDKState = Enum_SDKState.SDK_Null;
         public static Enum_SDKState ZLVideoSDKState
         {
-            get { return s_SKVNVideoSDKState; }
+            get { return s_ZLVideoSDKState; }
             private set
             {
-                s_SKVNVideoSDKState = value;
-                SDKStateChange(Enum_VideoType.SKNVideo, s_SKVNVideoSDKState);
+                s_ZLVideoSDKState = value;
+                SDKStateChange(Enum_VideoType.ZLVideo, s_ZLVideoSDKState);
             }
         }
 
@@ -723,8 +723,8 @@ namespace VideoPlayControl
             ZLDisConnect = new SDK_ZLNetSDK.fZLDisConnect(OnDisconnect);
             IntPtr lpUser = IntPtr.Zero;
             SDK_ZLNetSDK.ZLNET_Init(ZLDisConnect, lpUser);
-            SKVNVideoSDKState = Enum_SDKState.SDK_Init;
-            return SKVNVideoSDKState;
+            ZLVideoSDKState = Enum_SDKState.SDK_Init;
+            return ZLVideoSDKState;
         }
         /// <summary>
         /// 智诺视频SDK释放
@@ -732,9 +732,46 @@ namespace VideoPlayControl
         /// <returns></returns>
         public static Enum_SDKState ZLVideoSDK_Release()
         {
-            SKVNVideoSDKState = Enum_SDKState.SDK_Release;
+            ZLVideoSDKState = Enum_SDKState.SDK_Release;
             SDK_ZLNetSDK.ZLNET_Cleanup();
-            return SKVNVideoSDKState;
+            return ZLVideoSDKState;
+        }
+        #endregion
+
+        #region 大华设备
+
+        public static Enum_SDKState s_DHVideoSDKState = Enum_SDKState.SDK_Null;
+        public static Enum_SDKState DHVideoSDKState
+        {
+            get { return s_DHVideoSDKState; }
+            private set
+            {
+                s_DHVideoSDKState = value;
+                SDKStateChange(Enum_VideoType.DaHuaVideo, s_DHVideoSDKState);
+            }
+        }
+        /// <summary>
+        /// 大华SDK初始化
+        /// </summary>
+        /// <returns></returns>
+        public static bool DHVideoSDK_Init()
+        {
+            bool bolResult = false;
+            SDK_DaHua.CLIENT_Init(null, IntPtr.Zero);
+            DHVideoSDKState = Enum_SDKState.SDK_Init;
+            return bolResult;
+        }
+
+        /// <summary>
+        /// 大华SDK释放
+        /// </summary>
+        /// <returns></returns>
+        public static bool DHVideoSDK_Release()
+        {
+            bool bolResult = false;
+            SDK_DaHua.CLIENT_Cleanup();
+            DHVideoSDKState = Enum_SDKState.SDK_Release;
+            return bolResult;
         }
         #endregion
         public static void VideoSDKRelease()

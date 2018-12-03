@@ -31,6 +31,9 @@ namespace VideoPlayControl
                 case "82":
                     v.VideoRecordType = Enum_VIdeoRecordType.ZLVideoRecord;
                     break;
+                case "31":
+                    v.VideoRecordType = Enum_VIdeoRecordType.DaHuaVideoRecord;
+                    break;
                 default:
                     v.VideoRecordType = (Enum_VIdeoRecordType)(Convert.ToInt32(Temp_strVideoType));
                     break;
@@ -93,6 +96,9 @@ namespace VideoPlayControl
                 case Enum_VideoType.ZLVideo:
                     sbVideoRecordFileName.Append("82");
                     break;
+                case Enum_VideoType.DaHuaVideo:
+                    sbVideoRecordFileName.Append("31");
+                    break;
                 default:
                     sbVideoRecordFileName.Append(((int)videoType).ToString().PadLeft(2, '0'));
                     break;
@@ -114,6 +120,7 @@ namespace VideoPlayControl
                     sbVideoRecordFileName.Append(".bsr");
                     break;
                 case Enum_VideoType.ZLVideo:
+                case Enum_VideoType.DaHuaVideo:
                     sbVideoRecordFileName.Append(".dav");
                     break;
                 default:

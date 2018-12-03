@@ -64,6 +64,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.BlueSkySDK_Init();
             //SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C:\\SHIKE_Video");
             SDKState.ZLVideoSDK_Init();
+            SDKState.DHVideoSDK_Init();
             Init();
 
 
@@ -1305,6 +1306,14 @@ namespace VideoPlayControl_UseDemo
         {
 
             VideoInfo videoInfo = TestDataSource.TestDataSource.GetZLDVSData1();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+
+        private void btnDhTestData_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = TestDataSource.DaHuaSource.GetDaHuaData1();
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
