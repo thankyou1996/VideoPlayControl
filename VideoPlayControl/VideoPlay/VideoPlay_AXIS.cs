@@ -228,6 +228,7 @@ namespace VideoPlayControl.VideoPlay
                 renderStopTime = (long)stopTime + parser.LiveTimeOffset;
             }
             viewer.RenderVideoSample(sampleFlags, (ulong)renderStartTime, (ulong)renderStopTime, SampleArray);
+            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
             VideoPlayState = Enum_VideoPlayState.InPlayState;
         }
         //void UpdateTimeDisplay(DateTime time)

@@ -59,7 +59,6 @@ namespace VideoPlayControl
                 {
                     case Enum_VideoPlayState.InPlayState:
                         //触发事件
-                        VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
                         TimeOutTimerDispose();  //视频定时器资源，避免重复触发
                         CurrentVideoPlaySet.TimeOutVideoRecordCloseSecond = CurrentVideoInfo.VideoRecordTimeConstraintSecond;
                         CurrentVideoPlaySet.TimeOutVideoCloseSecond = CurrentVideoInfo.VideoPlayTimeConstraintSecond;
@@ -221,9 +220,17 @@ namespace VideoPlayControl
         
 
         #region 视频播放回调事件2
+        /// <summary>
+        /// 视频播放回调事件
+        /// </summary>
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
 
-        public bool VideoPlayCallback(VideoPlayCallbackValue value)
+        /// <summary>
+        /// 视频播放回调事件
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        private bool VideoPlayCallback(VideoPlayCallbackValue value)
         {
             bool bolResult = false;
             switch (value.evType)      //部分特殊处理
@@ -496,7 +503,7 @@ namespace VideoPlayControl
                 iv.intptrPlayMain = intptrPlayMain;
                 iv.CurrentVideoInfo = CurrentVideoInfo;
                 iv.CurrentCameraInfo = CurrentCameraInfo;
-                iv.CurrentVideoPlaySet = CurrentVideoPlaySet;
+                iv.CurrentVideoPlaySet = currentVideoPlaySet;
                 iv.VideoplayWindowWidth = picPlayMain.Width;
                 iv.VideoplayWindowHeight = picPlayMain.Height;
                 iv.VideoPlayCallbackEvent -= VideoPlayCallbackEvent;
@@ -592,6 +599,7 @@ namespace VideoPlayControl
                     videoEvType = Enum_SDKEventType.ConnectOK;
                     CurrentVideoInfo.NetworkState = 1;          //置为在线
                     CloundSee_VideoPreview(false);
+                    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
                     VideoPlayState = Enum_VideoPlayState.InPlayState;
                     break;
 
@@ -1050,6 +1058,7 @@ namespace VideoPlayControl
             iPort = IntPtr.Zero;
             iResult = SDK_HuaMai.hm_video_display_open_port(this.Handle, ref disp_op, ref iPort);
             iResult = SDK_HuaMai.hm_video_display_start(iPort, 0, 0, 25);
+            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
             VideoPlayState = Enum_VideoPlayState.InPlayState;
         }
         /// <summary>
@@ -1090,6 +1099,7 @@ namespace VideoPlayControl
                 case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_H265_P:
                 case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_H265_I:
                     SDK_HuaMai.hm_video_display_input_data(iPort, Data.frame_stream, Data.frame_len, true);
+                    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
                     VideoPlayState = Enum_VideoPlayState.InPlayState;
                     break;
                 default:

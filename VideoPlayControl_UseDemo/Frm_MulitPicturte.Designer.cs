@@ -37,11 +37,11 @@
             this.btnSKData = new System.Windows.Forms.Button();
             this.btnHuaMaiData = new System.Windows.Forms.Button();
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.btnMulitPlay = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTestDataChannel = new System.Windows.Forms.TextBox();
             this.videoPlayGroupControl_MultiPicture11 = new VideoPlayControl.VideoPlayGroupControl_MultiPicture1();
-            this.btnMulitPlay = new System.Windows.Forms.Button();
             this.pnlTop.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -136,6 +136,16 @@
             this.pnlTop.Size = new System.Drawing.Size(779, 138);
             this.pnlTop.TabIndex = 5;
             // 
+            // btnMulitPlay
+            // 
+            this.btnMulitPlay.Location = new System.Drawing.Point(12, 36);
+            this.btnMulitPlay.Name = "btnMulitPlay";
+            this.btnMulitPlay.Size = new System.Drawing.Size(75, 23);
+            this.btnMulitPlay.TabIndex = 8;
+            this.btnMulitPlay.Text = "多路播放";
+            this.btnMulitPlay.UseVisualStyleBackColor = true;
+            this.btnMulitPlay.Click += new System.EventHandler(this.btnMulitPlay_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnCloundSeeData);
@@ -176,16 +186,7 @@
             this.videoPlayGroupControl_MultiPicture11.Name = "videoPlayGroupControl_MultiPicture11";
             this.videoPlayGroupControl_MultiPicture11.Size = new System.Drawing.Size(779, 455);
             this.videoPlayGroupControl_MultiPicture11.TabIndex = 0;
-            // 
-            // btnMulitPlay
-            // 
-            this.btnMulitPlay.Location = new System.Drawing.Point(12, 36);
-            this.btnMulitPlay.Name = "btnMulitPlay";
-            this.btnMulitPlay.Size = new System.Drawing.Size(75, 23);
-            this.btnMulitPlay.TabIndex = 8;
-            this.btnMulitPlay.Text = "多路播放";
-            this.btnMulitPlay.UseVisualStyleBackColor = true;
-            this.btnMulitPlay.Click += new System.EventHandler(this.btnMulitPlay_Click);
+            this.videoPlayGroupControl_MultiPicture11.Load += new System.EventHandler(this.videoPlayGroupControl_MultiPicture11_Load);
             // 
             // Frm_MulitPicturte
             // 

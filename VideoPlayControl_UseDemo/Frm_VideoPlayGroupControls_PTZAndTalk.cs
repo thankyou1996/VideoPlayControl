@@ -40,23 +40,14 @@ namespace VideoPlayControl_UseDemo
             //SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, "192.168.2.10", ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
 
             //HuaMaiVideo_TestData();
-            SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhc1", "", "C:\\SHIKE_Video");
-
-
-
-
-
-
-
-
-
-
-
+            //SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhc1", "", "C:\\SHIKE_Video");
+            SDKState.DHVideoSDK_Init();
+            SDKState.SKVideoSDKInit("hdc", "121.41.87.203");
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
-            VideoInfo v = TestDataSource.TestDataSource.GetSKNDVSData1();
+            VideoInfo v = TestDataSource.TestDataSource.GetSKDVSData1();
             dicVideoInfos[v.DVSNumber] = v;
-            //v = TestDataSource.TestDataSource.GetSKDVSData2();
-            //dicVideoInfos[v.DVSNumber] = v;
+            v = TestDataSource.DaHuaSource.GetDaHuaData1();
+            dicVideoInfos[v.DVSNumber] = v;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
@@ -67,6 +58,7 @@ namespace VideoPlayControl_UseDemo
             videoPlayGroupControls_PTZAndTalk1.Init_VideoInfoSet(dicVideoInfos);
             videoPlayGroupControls_PTZAndTalk1.StartTalkingEvent += VideoPlayGroupControls_PTZAndTalk1_StartTalkingEvent;
             videoPlayGroupControls_PTZAndTalk1.VideoPlay("", 1);
+            videoPlayGroupControls_PTZAndTalk1.VideoPlayCallbackEvent += VideoPlayGroupControls_PTZAndTalk1_VideoPlayCallbackEvent;
         }
 
         private bool VideoPlayGroupControls_PTZAndTalk1_StartTalkingEvent(object sender, object StartTalkBeginValue)
@@ -75,6 +67,17 @@ namespace VideoPlayControl_UseDemo
             IVideoTalk iv = (IVideoTalk)sender;
             //MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "开始对讲");
             //MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "发送命令");
+            return bolResult;
+        }
+
+        private bool VideoPlayGroupControls_PTZAndTalk1_VideoPlayCallbackEvent(object sender, VideoPlayControl.VideoBasicClass.VideoPlayCallbackValue evValue)
+        {
+            bool bolResult = false;
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:sss") + evValue.evType.ToString());
+            if (evValue.evType == Enum_VideoPlayEventType.VideoPlay)
+            {
+                Console.WriteLine("发送录像命令");
+            }
             return bolResult;
         }
 

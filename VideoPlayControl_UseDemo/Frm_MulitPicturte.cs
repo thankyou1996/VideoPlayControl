@@ -25,15 +25,27 @@ namespace VideoPlayControl_UseDemo
             VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             //SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19");
+            //SDKState.Ezviz_SDKInit();
+            SDKState.SKVideoSDKInit("hdc", "121.41.87.203");
             //SDKState.HuaMai_Init();
-            SDKState.ZLVideoSDK_Init();
-
+            //SDKState.ZLVideoSDK_Init();
+            SDKState.DHVideoSDK_Init();
+            videoPlayGroupControl_MultiPicture11.VideoPlayCallbackEvent += VideoPlayGroupControl_MultiPicture11_VideoPlayCallbackEvent;
             videoPlayGroupControl_MultiPicture11.SelectedWindowHiglight = true ;
             videoPlayGroupControl_MultiPicture11.AutoSelectedNextWindow = false;
             videoPlayGroupControl_MultiPicture11.SetWindowNum(9);
-            CurrentV = TestData_SKData();
+            CurrentV = TestDataSource.DaHuaSource.GetDaHuaData1();
+        }
+
+        private bool VideoPlayGroupControl_MultiPicture11_VideoPlayCallbackEvent(object sender, VideoPlayControl.VideoBasicClass.VideoPlayCallbackValue evValue)
+        {
+            bool bolResult = false;
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:sss") + evValue.evType.ToString());
+            if (evValue.evType == Enum_VideoPlayEventType.VideoPlay)
+            {
+                Console.WriteLine("发送录像命令");
+            }
+            return bolResult;
         }
 
         private void btnSetWinNum_Click(object sender, EventArgs e)
@@ -171,7 +183,7 @@ namespace VideoPlayControl_UseDemo
         private void btnSetVideoPlayInfo_Click(object sender, EventArgs e)
         {
             int iChannel = Convert.ToInt32(txtTestDataChannel.Text);
-            videoPlayGroupControl_MultiPicture11.SetPlayVideoInfo(CurrentV, iChannel);
+            videoPlayGroupControl_MultiPicture11.SetPlayVideoInfo(TestDataSource.DaHuaSource.GetDaHuaData1(), iChannel);
         }
 
         private void btnMulitPlay_Click(object sender, EventArgs e)
@@ -222,6 +234,11 @@ namespace VideoPlayControl_UseDemo
             lstV.Add(v2);
             lstV.Add(v3);
             videoPlayGroupControl_MultiPicture11.SetPlayVideoInfo(lstV);
+        }
+
+        private void videoPlayGroupControl_MultiPicture11_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

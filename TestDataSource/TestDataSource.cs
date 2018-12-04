@@ -681,19 +681,23 @@ namespace TestDataSource
         #endregion
 
         #region 时刻测试数据
+        /// <summary>
+        /// 121.41.87.203  7707
+        /// </summary>
+        /// <returns></returns>
         public static VideoInfo GetSKDVSData1()
         {
             VideoInfo v = new VideoInfo();
             //v.OnlyIntercom = true;
             v.VideoType = Enum_VideoType.SKVideo;
             v.PTZControlEnable = false;
-            v.DVSAddress = "61-57356B140B39-3036";
+            v.DVSAddress = "61-573539920B39-3036";
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
             v.DVSName = "时刻DVR测试";
-            v.DVSNumber = "013801";
+            v.DVSNumber = "770701";
             v.DVSType = "SK8616";
-            v.HostID = "0138";
+            v.HostID = "7707";
             v.UserName = "admin";
             v.Password = "sk123456";
             v.NetworkState = 0;

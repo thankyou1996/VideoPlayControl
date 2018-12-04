@@ -28,6 +28,31 @@ namespace VideoPlayControl
             get { return dicWin.Count; }
         }
         #endregion
+        #region 事件委托 
+        private event VideoPlayCallbackDelegate videoPlayCallbaclEvent;
+        /// <summary>
+        /// 视频播放回调事件
+        /// </summary>
+        public event VideoPlayCallbackDelegate VideoPlayCallbackEvent
+        {
+            add
+            {
+                foreach (VideoPlayWindow v in dicWin.Values)
+                {
+                    v.VideoPlayCallbackEvent += value;
+                }
+                videoPlayCallbaclEvent += value;
+            }
+            remove
+            {
+                foreach (VideoPlayWindow v in dicWin.Values)
+                {
+                    v.VideoPlayCallbackEvent -= value;
+                }
+                videoPlayCallbaclEvent += value;
+            }
+        }
+        #endregion
         Dictionary<int, VideoPlayWindow> dicWin = new Dictionary<int, VideoPlayWindow>();
         Dictionary<int, VideoInfo> dicVideo = new Dictionary<int, VideoInfo>();
         public VideoPlayGroupControl_MultiPicture1()
@@ -93,6 +118,7 @@ namespace VideoPlayControl
                             videoPlayWindow.Padding = new Padding(1);
                             videoPlayWindow.BackColor = clrDefaulWindowColor;
                             videoPlayWindow.CurrentVideoPlaySet = CurrentVideoPlaySet;  //赋值播放设置
+                            videoPlayWindow.VideoPlayCallbackEvent += videoPlayCallbaclEvent;
                             tablayMain.Controls.Add(videoPlayWindow);
                             tablayMain.SetRow(videoPlayWindow, row);
                             tablayMain.SetColumn(videoPlayWindow, col);

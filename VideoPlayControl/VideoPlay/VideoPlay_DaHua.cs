@@ -75,6 +75,7 @@ namespace VideoPlayControl.VideoPlay
                 intPlayID = SDK_DaHua.CLIENT_RealPlay(intLoginID, CurrentCameraInfo.Channel - 1, intptrPlayMain);
                 if (intPlayID != 0)
                 {
+                    SDK_DaHua.CLIENT_OpenSound(intPlayID);
                     if (CurrentVideoPlaySet.VideoRecordEnable)
                     {
                         string Temp_strVideoRecord = GetLocalSavePath(CurrentVideoPlaySet.VideoRecordFilePath, CurrentVideoPlaySet.VideoRecordFileName);
@@ -95,12 +96,15 @@ namespace VideoPlayControl.VideoPlay
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DevLoginException });
             }
-            SDK_DaHua.CLIENT_OpenSound(intPlayID);
-            //todo：录像
             return bolResult;
         }
 
-
+        /// <summary>
+        /// 获取本地录像文件存储地址
+        /// </summary>
+        /// <param name="strSavePath"></param>
+        /// <param name="strSaveName"></param>
+        /// <returns></returns>
         public string GetLocalSavePath(string strSavePath, string strSaveName)
         {
             string strResult = strSavePath + strSaveName;

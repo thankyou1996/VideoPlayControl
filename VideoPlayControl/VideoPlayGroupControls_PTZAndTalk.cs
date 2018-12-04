@@ -113,11 +113,33 @@ namespace VideoPlayControl
         {
             return PreViewPwdVerifyEvent(this, strVideoID);
         }
+
+        /// <summary>
+        /// 对讲开始时事件
+        /// </summary>
         public event StartTalkingDelegate StartTalkingEvent
         {
             add { videoTalkControlManyChannel1.StartTalkingEvent += value; }
             remove { videoTalkControlManyChannel1.StartTalkingEvent -= value; }
         }
+        private event VideoPlayCallbackDelegate videoPlayCallbaclEvent;
+        /// <summary>
+        /// 视频播放回调事件
+        /// </summary>
+        public event VideoPlayCallbackDelegate VideoPlayCallbackEvent
+        {
+            add
+            {
+                videoPlayWindow.VideoPlayCallbackEvent += value;
+                videoPlayCallbaclEvent += value;
+            }
+            remove
+            {
+                videoPlayWindow.VideoPlayCallbackEvent -= value;
+                videoPlayCallbaclEvent -= value;
+            }
+        }
+
         #endregion
 
         /// <summary>
@@ -269,7 +291,7 @@ namespace VideoPlayControl
         /// <param name="sender"></param>
         /// <param name="evType"></param>
         /// <param name="strTag"></param>
-        public bool VideoPlayEventCallBackEvent(object sender, VideoPlayCallbackValue eventValue)
+        private bool VideoPlayEventCallBackEvent(object sender, VideoPlayCallbackValue eventValue)
         {
             bool bolResult = false;
             if (bolDisplayVideoEvent)

@@ -86,6 +86,7 @@ namespace VideoPlayControl.VideoPlay
                     string Temp_strVideoRecord = GetLocalSavePath(CurrentVideoPlaySet.VideoRecordFilePath, CurrentVideoPlaySet.VideoRecordFileName);
                     SDK_ZLNetSDK.ZLNET_SaveRealData(m_nPlayHandle, Temp_strVideoRecord);
                 }
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
                 VideoPlayState = Enum_VideoPlayState.InPlayState;
             }
             else
