@@ -194,6 +194,7 @@ namespace VideoPlayControl.VideoPlay
             IntPtr intptrdevSerial = Marshal.StringToHGlobalAnsi(CurrentVideoInfo.DVSAddress);
             //intResult = SDK_EzvizSDK.OpenSDK_SetVideoLevel(intptrSessionID, CurrentCameraInfo.Channel, 0);
             intResult = SDK_EzvizSDK.OpenSDK_StartRealPlayEx(intptrSessionID, intptrPlayMain, intptrdevSerial, CurrentCameraInfo.Channel, CurrentVideoInfo.Password);
+            //intResult = SDK_EzvizSDK.OpenSDK_StartPlayWithStreamType(intptrSessionID, intptrPlayMain, intptrdevSerial, CurrentCameraInfo.Channel, CurrentVideoInfo.Password, -1);
             //intResult = SDK_EzvizSDK.OpenSDK_StartRealPlay(intptrSessionID, intptrPlayMain, CurrentCameraInfo.CameraUniqueCode, ProgParameter.strEzviz_AccessToken, 2, null, ProgParameter.strEzviz__AppID, 0);
             if (intResult == 0)
             {

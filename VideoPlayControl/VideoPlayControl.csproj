@@ -297,6 +297,8 @@
     <Content Include="dll_Libary\CommonMethod.XML" />
     <Content Include="dll_Libary\Axis\Interop.AxisMediaParserLib.dll" />
     <Content Include="dll_Libary\Axis\Interop.AxisMediaViewerLib.dll" />
+    <Content Include="dll_Libary\Ezviz\D3DCompiler_43.dll" />
+    <Content Include="dll_Libary\Ezviz\EagleEyeRender.dll" />
     <Content Include="dll_Libary\PublicClassCurrency.pdb" />
     <Content Include="dll_Libary\Ezviz\AnalyzeData.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1381,12 +1383,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dll_Libary\Axis\AMP41.rar" />
+    <None Include="dll_Libary\Ezviz\AnalyzeData.lib" />
+    <None Include="dll_Libary\Ezviz\AudioIntercom.lib" />
+    <None Include="dll_Libary\Ezviz\hlog.lib" />
+    <None Include="dll_Libary\Ezviz\hpr.lib" />
+    <None Include="dll_Libary\Ezviz\libCASClient.lib" />
+    <None Include="dll_Libary\Ezviz\libcurl.lib" />
+    <None Include="dll_Libary\Ezviz\libeay32.lib" />
+    <None Include="dll_Libary\Ezviz\libGetHDSign.lib" />
+    <None Include="dll_Libary\Ezviz\libPPVClient2.lib" />
     <None Include="dll_Libary\Ezviz\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="dll_Libary\Ezviz\Microsoft.VC90.MFC\Microsoft.VC90.MFC.manifest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="dll_Libary\Ezviz\MidPage.lib" />
+    <None Include="dll_Libary\Ezviz\miniupnpc.lib" />
+    <None Include="dll_Libary\Ezviz\NetStream.lib" />
+    <None Include="dll_Libary\Ezviz\OpenNetStream.lib" />
+    <None Include="dll_Libary\Ezviz\opensslwrap.lib" />
+    <None Include="dll_Libary\Ezviz\paho-mqtt3c.lib" />
+    <None Include="dll_Libary\Ezviz\PlayCtrl.lib" />
+    <None Include="dll_Libary\Ezviz\pthreadVC2.lib" />
+    <None Include="dll_Libary\Ezviz\PushClient.lib" />
+    <None Include="dll_Libary\Ezviz\ssleay32.lib" />
+    <None Include="dll_Libary\Ezviz\streamclient_lib.lib" />
+    <None Include="dll_Libary\Ezviz\StunClientLib.lib" />
+    <None Include="dll_Libary\Ezviz\SystemTransform.lib" />
+    <None Include="dll_Libary\Ezviz\TTSClient.lib" />
+    <None Include="dll_Libary\Ezviz\udt.lib" />
     <None Include="dll_Libary\HikStream\client.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

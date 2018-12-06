@@ -508,9 +508,23 @@ namespace VideoPlayControl
                 iv.VideoplayWindowHeight = picPlayMain.Height;
                 iv.VideoPlayCallbackEvent -= VideoPlayCallbackEvent;
                 iv.VideoPlayCallbackEvent += VideoPlayCallbackEvent;
+                iv.VideoPlayCallbackEvent += Iv_VideoPlayCallbackEvent;
                 iv.VideoPlayStateChangedEvent -= Iv_VideoPlayStateChangedEvent;
                 iv.VideoPlayStateChangedEvent += Iv_VideoPlayStateChangedEvent;
             }
+        }
+
+        private bool Iv_VideoPlayCallbackEvent(object sender, VideoPlayCallbackValue evValue)
+        {
+            bool bolResult = false;
+            if (evValue.evType == Enum_VideoPlayEventType.VideoClose)
+            {
+                this.BeginInvoke(new EventHandler(delegate
+                {
+                    picPlayMain.Refresh();
+                }));
+            }
+            return bolResult;
         }
 
         private bool Iv_VideoPlayStateChangedEvent(object sender, object VideoPlayStateChangedValue)
