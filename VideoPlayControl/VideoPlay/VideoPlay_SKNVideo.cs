@@ -9,6 +9,9 @@ using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
+    /// <summary>
+    /// 时刻H265
+    /// </summary>
     public class VideoPlay_SKNVideo : IVideoPlay
     {
         public VideoInfo CurrentVideoInfo { get; set; }

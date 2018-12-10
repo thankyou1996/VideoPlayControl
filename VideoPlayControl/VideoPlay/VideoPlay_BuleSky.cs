@@ -9,6 +9,9 @@ using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
+    /// <summary>
+    /// 蓝色星际
+    /// </summary>
     public class VideoPlay_BuleSky : IVideoPlay
     {
         IntPtr VideoPlayHandle;

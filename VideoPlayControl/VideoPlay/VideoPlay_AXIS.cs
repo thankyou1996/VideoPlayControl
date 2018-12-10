@@ -15,6 +15,9 @@ using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
+    /// <summary>
+    /// 安迅士视频播放对象
+    /// </summary>
     public class VideoPlay_AXIS : IVideoPlay
     {
         public VideoInfo CurrentVideoInfo { get; set; }

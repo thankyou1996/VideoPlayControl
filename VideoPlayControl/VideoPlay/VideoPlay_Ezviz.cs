@@ -11,6 +11,9 @@ using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
+    /// <summary>
+    /// 萤石
+    /// </summary>
     public class VideoPlay_Ezviz : IVideoPlay
     {
         public VideoInfo CurrentVideoInfo { get; set; }

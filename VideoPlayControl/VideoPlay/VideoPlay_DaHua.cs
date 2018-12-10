@@ -9,6 +9,9 @@ using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
+    /// <summary>
+    /// 大华
+    /// </summary>
     public class VideoPlay_DaHua : IVideoPlay
     {
         public VideoInfo CurrentVideoInfo { get; set; }

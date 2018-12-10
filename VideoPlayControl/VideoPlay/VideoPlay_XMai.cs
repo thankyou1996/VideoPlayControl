@@ -10,6 +10,9 @@ using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
+    /// <summary>
+    /// 雄迈
+    /// </summary>
     class VideoPlay_XMai : IVideoPlay
     {
         VideoInfo currentVideoInfo;

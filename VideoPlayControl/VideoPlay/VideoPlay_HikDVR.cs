@@ -11,6 +11,9 @@ using static VideoPlayControl.SDK_HikClientSDK;
 
 namespace VideoPlayControl.VideoPlay
 {
+    /// <summary>
+    /// 海康
+    /// </summary>
     public class VideoPlay_HikDVR : IVideoPlay
     {
 

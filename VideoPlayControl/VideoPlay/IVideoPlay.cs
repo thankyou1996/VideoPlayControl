@@ -8,6 +8,9 @@ using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
+    /// <summary>
+    /// 视频播放接口抽象
+    /// </summary>
     public interface IVideoPlay
     {
 

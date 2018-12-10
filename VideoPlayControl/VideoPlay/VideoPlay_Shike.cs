@@ -8,6 +8,9 @@ using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
 {
+    /// <summary>
+    /// 时刻
+    /// </summary>
     public class VideoPlay_Shike : IVideoPlay
     {
         public VideoInfo CurrentVideoInfo { get; set; }
