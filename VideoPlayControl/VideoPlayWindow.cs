@@ -517,12 +517,17 @@ namespace VideoPlayControl
         private bool Iv_VideoPlayCallbackEvent(object sender, VideoPlayCallbackValue evValue)
         {
             bool bolResult = false;
-            if (evValue.evType == Enum_VideoPlayEventType.VideoClose)
+            switch (evValue.evType)
             {
-                this.BeginInvoke(new EventHandler(delegate
-                {
-                    picPlayMain.Refresh();
-                }));
+                case Enum_VideoPlayEventType.VideoClose:
+                    if (!this.IsDisposed)
+                    {
+                        this.BeginInvoke(new EventHandler(delegate
+                        {
+                            picPlayMain.Refresh();
+                        }));
+                    }
+                    break; ;
             }
             return bolResult;
         }

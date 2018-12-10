@@ -162,6 +162,7 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
         public static extern int OpenSDK_StartRealPlayEx(IntPtr intptrSessionID, IntPtr intptrPlayWindows, IntPtr strDevSerial, int intChannel, string strSafeKey);
 
+
         /// <summary>
         /// 针对摄像头进行预览, 指定主\子码流 异步接口
         /// </summary>
@@ -170,7 +171,7 @@ namespace VideoPlayControl
         /// <param name="szDevSerial"></param>
         /// <param name="iChannelNo"></param>
         /// <param name="szSafeKey"></param>
-        /// <param name=""></param>
+        /// <param name="iStreamType">主子码流 1-主, 2-子, -1-默认码流类型</param>
         /// <returns></returns>
         [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
         public static extern int OpenSDK_StartPlayWithStreamType(IntPtr szSessionId, IntPtr hPlayWnd, IntPtr szDevSerial, int iChannelNo, string szSafeKey,int  iStreamType );
