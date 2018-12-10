@@ -34,6 +34,7 @@
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.pageTestData1 = new System.Windows.Forms.TabPage();
+            this.btnDhTestData = new System.Windows.Forms.Button();
             this.btnZLTestData = new System.Windows.Forms.Button();
             this.PageTestData = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
@@ -141,7 +142,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
-            this.btnDhTestData = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -229,6 +229,16 @@
             this.pageTestData1.TabIndex = 3;
             this.pageTestData1.Text = "测试数据1";
             this.pageTestData1.UseVisualStyleBackColor = true;
+            // 
+            // btnDhTestData
+            // 
+            this.btnDhTestData.Location = new System.Drawing.Point(81, 3);
+            this.btnDhTestData.Name = "btnDhTestData";
+            this.btnDhTestData.Size = new System.Drawing.Size(75, 23);
+            this.btnDhTestData.TabIndex = 16;
+            this.btnDhTestData.Text = "大华数据";
+            this.btnDhTestData.UseVisualStyleBackColor = true;
+            this.btnDhTestData.Click += new System.EventHandler(this.btnDhTestData_Click);
             // 
             // btnZLTestData
             // 
@@ -1338,16 +1348,6 @@
             // 
             this.timCurrentChannelLoop.Interval = 3000;
             this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
-            // 
-            // btnDhTestData
-            // 
-            this.btnDhTestData.Location = new System.Drawing.Point(81, 3);
-            this.btnDhTestData.Name = "btnDhTestData";
-            this.btnDhTestData.Size = new System.Drawing.Size(75, 23);
-            this.btnDhTestData.TabIndex = 16;
-            this.btnDhTestData.Text = "大华数据";
-            this.btnDhTestData.UseVisualStyleBackColor = true;
-            this.btnDhTestData.Click += new System.EventHandler(this.btnDhTestData_Click);
             // 
             // FrmMain
             // 

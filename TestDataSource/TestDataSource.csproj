@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="DaHuaSource.cs" />
     <Compile Include="EzvizDataSource.cs" />
+    <Compile Include="HikDataSource.cs" />
     <Compile Include="TestDataSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -27,7 +27,17 @@ namespace VideoPlayControl
     public delegate bool VideoPlayStateChangedDelegate(object sender, object VideoPlayStateChangedValue);
     #endregion
 
+    #region 音频相关
 
+    /// <summary>
+    /// 音频状态改变委托
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="SoundStateChangedValue"></param>
+    /// <returns></returns>
+    public delegate bool SoundStateChangedDelegate(object sender, object SoundStateChangedValue);
+
+    #endregion
 
     #region 对讲相关
 

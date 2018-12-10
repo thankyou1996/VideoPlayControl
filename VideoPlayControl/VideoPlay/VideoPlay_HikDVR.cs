@@ -41,11 +41,6 @@ namespace VideoPlayControl.VideoPlay
         }
         public int VideoplayWindowWidth { get; set; }
         public int VideoplayWindowHeight { get; set; }
-
-        /// <summary>
-        /// 音频通道状态
-        /// </summary>
-        public Enum_VideoPlaySoundState SoundState { get; set; }
         #endregion
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public event VideoPlayStateChangedDelegate VideoPlayStateChangedEvent;
@@ -273,6 +268,47 @@ namespace VideoPlayControl.VideoPlay
         {
             throw new NotImplementedException();
         }
+        
+
+
+        #region 音频相关
+        private Enum_VideoPlaySoundState soundState = Enum_VideoPlaySoundState.SoundColse;
+
+        /// <summary>
+        /// 音频通道状态
+        /// </summary>
+        public Enum_VideoPlaySoundState SoundState
+        {
+            get { return soundState; }
+            set
+            {
+                if (soundState != value)
+                {
+                    soundState = value;
+                    SoundStateChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 音频通道状态改变事件
+        /// </summary>
+        public event SoundStateChangedDelegate SoundStateChangedEvent;
+
+        /// <summary>
+        /// 音频通道状态改变事件
+        /// </summary>
+        /// <returns></returns>
+        private bool SoundStateChanged()
+        {
+            bool bolResult = false;
+            if (this.SoundStateChangedEvent != null)
+            {
+                bolResult = SoundStateChangedEvent(this, null);
+            }
+            return bolResult;
+        }
+
         /// <summary>
         /// 打开声音通道
         /// </summary>
@@ -280,7 +316,7 @@ namespace VideoPlayControl.VideoPlay
         public bool OpenSound()
         {
             bool bolResult = false;
-            if (NET_DVR_OpenSoundShare(intRet))
+            if (NET_DVR_OpenSound(intRet))
             {
                 SoundState = Enum_VideoPlaySoundState.SoundOpen;
                 bolResult = true;
@@ -295,12 +331,13 @@ namespace VideoPlayControl.VideoPlay
         public bool CloseSound()
         {
             bool bolResult = false;
-            if (NET_DVR_CloseSoundShare(intRet))
+            if (NET_DVR_CloseSound())
             {
                 SoundState = Enum_VideoPlaySoundState.SoundColse;
                 bolResult = true;
             }
             return bolResult;
         }
+        #endregion
     }
 }

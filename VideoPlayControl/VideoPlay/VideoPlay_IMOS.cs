@@ -35,10 +35,6 @@ namespace VideoPlayControl.VideoPlay
         }
         public int VideoplayWindowWidth { get; set; }
         public int VideoplayWindowHeight { get; set; }
-        /// <summary>
-        /// 音频通道状态
-        /// </summary>
-        public Enum_VideoPlaySoundState SoundState { get; set; }
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
 
         public event VideoPlayStateChangedDelegate VideoPlayStateChangedEvent;
@@ -89,14 +85,62 @@ namespace VideoPlayControl.VideoPlay
         }
 
 
+        #region 音频相关
+
+        private Enum_VideoPlaySoundState soundState = Enum_VideoPlaySoundState.SoundColse;
+
+        /// <summary>
+        /// 音频通道状态
+        /// </summary>
+        public Enum_VideoPlaySoundState SoundState
+        {
+            get { return soundState; }
+            set
+            {
+                if (soundState != value)
+                {
+                    soundState = value;
+                    SoundStateChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 音频通道状态改变事件
+        /// </summary>
+        public event SoundStateChangedDelegate SoundStateChangedEvent;
+
+        /// <summary>
+        /// 音频通道状态改变事件
+        /// </summary>
+        /// <returns></returns>
+        private bool SoundStateChanged()
+        {
+            bool bolResult = false;
+            if (this.SoundStateChangedEvent != null)
+            {
+                bolResult = SoundStateChangedEvent(this, null);
+            }
+            return bolResult;
+        }
+
+        /// <summary>
+        /// 打开音频通道
+        /// </summary>
+        /// <returns></returns>
         public bool OpenSound()
         {
             return false;
         }
 
+        /// <summary>
+        /// 关闭音频通道
+        /// </summary>
+        /// <returns></returns>
         public bool CloseSound()
         {
             return false;
         }
+        #endregion
     }
 }

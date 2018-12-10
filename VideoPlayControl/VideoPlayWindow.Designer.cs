@@ -28,8 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayWindow));
             this.picPlayMain = new System.Windows.Forms.PictureBox();
+            this.picSound = new System.Windows.Forms.PictureBox();
+            this.lstimgSoundState = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picPlayMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSound)).BeginInit();
             this.SuspendLayout();
             // 
             // picPlayMain
@@ -44,17 +49,39 @@
             this.picPlayMain.TabStop = false;
             this.picPlayMain.SizeChanged += new System.EventHandler(this.picPlayMain_SizeChanged);
             // 
+            // picSound
+            // 
+            this.picSound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.picSound.BackColor = System.Drawing.SystemColors.Control;
+            this.picSound.Image = ((System.Drawing.Image)(resources.GetObject("picSound.Image")));
+            this.picSound.Location = new System.Drawing.Point(0, 160);
+            this.picSound.Name = "picSound";
+            this.picSound.Size = new System.Drawing.Size(20, 20);
+            this.picSound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSound.TabIndex = 20;
+            this.picSound.TabStop = false;
+            this.picSound.Click += new System.EventHandler(this.picSound_Click);
+            // 
+            // lstimgSoundState
+            // 
+            this.lstimgSoundState.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("lstimgSoundState.ImageStream")));
+            this.lstimgSoundState.TransparentColor = System.Drawing.Color.Transparent;
+            this.lstimgSoundState.Images.SetKeyName(0, "Sound_Off");
+            this.lstimgSoundState.Images.SetKeyName(1, "Sound_On");
+            // 
             // VideoPlayWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.picSound);
             this.Controls.Add(this.picPlayMain);
             this.Name = "VideoPlayWindow";
             this.Size = new System.Drawing.Size(240, 180);
             this.Load += new System.EventHandler(this.VideoPlayMain_Load);
             this.Move += new System.EventHandler(this.VideoPlayMain_Move);
             ((System.ComponentModel.ISupportInitialize)(this.picPlayMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSound)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -62,5 +89,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox picPlayMain;
+        private System.Windows.Forms.PictureBox picSound;
+        private System.Windows.Forms.ImageList lstimgSoundState;
     }
 }

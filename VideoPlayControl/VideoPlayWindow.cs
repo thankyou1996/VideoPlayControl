@@ -18,6 +18,7 @@ using AxisMediaViewerLib;
 using System.Threading.Tasks;
 using VideoPlayControl.VideoPlay;
 using VideoPlayControl.VideoBasicClass;
+using VideoPlayControl.Enum;
 
 namespace VideoPlayControl
 {
@@ -26,6 +27,18 @@ namespace VideoPlayControl
     /// </summary>
     public partial class VideoPlayWindow : UserControl
     {
+        #region 常量 
+        /// <summary>
+        /// 声音打开
+        /// </summary>
+        private const string c_strSoundOn= "Sound_On";
+        /// <summary>
+        /// 声音关闭 
+        /// </summary>
+        private const string c_strSoundOff = "Sound_Off";
+
+        #endregion
+
         #region 全局变量
         System.Threading.Timer timTimeOutVideoClose;
         System.Threading.Timer timTimeOutVideoRecordClose;
@@ -159,7 +172,7 @@ namespace VideoPlayControl
                     iv.CurrentVideoPlaySet = currentVideoPlaySet;
                 }
             }
-        } 
+        }
 
         /// <summary>
         /// 当前连接次数
@@ -217,7 +230,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
+
 
         #region 视频播放回调事件2
         /// <summary>
@@ -363,7 +376,7 @@ namespace VideoPlayControl
 
         public void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
         {
-            if (VideoPlayState == Enum_VideoPlayState.InPlayState|| (iv != null && iv.VideoPlayState != Enum_VideoPlayState.VideoInfoNull))
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState || (iv != null && iv.VideoPlayState != Enum_VideoPlayState.VideoInfoNull))
             {
                 VideoClose();
             }
@@ -511,7 +524,29 @@ namespace VideoPlayControl
                 iv.VideoPlayCallbackEvent += Iv_VideoPlayCallbackEvent;
                 iv.VideoPlayStateChangedEvent -= Iv_VideoPlayStateChangedEvent;
                 iv.VideoPlayStateChangedEvent += Iv_VideoPlayStateChangedEvent;
+                iv.SoundStateChangedEvent += Iv_SoundStateChangedEvent;
             }
+        }
+
+        /// <summary>
+        /// 音频状态改变相关
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="SoundStateChangedValue"></param>
+        /// <returns></returns>
+        private bool Iv_SoundStateChangedEvent(object sender, object SoundStateChangedValue)
+        {
+            IVideoPlay iv = (IVideoPlay)sender;
+            if (iv.SoundState == Enum_VideoPlaySoundState.SoundOpen)
+            {
+                picSound.Image = lstimgSoundState.Images[c_strSoundOn];
+            }
+            else
+            {
+
+                picSound.Image = lstimgSoundState.Images[c_strSoundOff];
+            }
+            return true;
         }
 
         private bool Iv_VideoPlayCallbackEvent(object sender, VideoPlayCallbackValue evValue)
@@ -668,7 +703,7 @@ namespace VideoPlayControl
                     //设备在线
                     CurrentVideoInfo.NetworkState = 1;
                 }
-                else if ( Temp_NetworkState == -1 || Temp_NetworkState == 0|| Temp_NetworkState==-2)
+                else if (Temp_NetworkState == -1 || Temp_NetworkState == 0 || Temp_NetworkState == -2)
                 {
                     //离线
                     CurrentVideoInfo.NetworkState = 0;
@@ -864,7 +899,7 @@ namespace VideoPlayControl
             {
                 SDK_JCSDK.JCSDK_SendPTZCommand(intCloundSee_ConnID, CloundSee_PTZControl, bolStart);
             }
-            
+
         }
 
         /// <summary>
@@ -1005,10 +1040,10 @@ namespace VideoPlayControl
         }
 
         #endregion
-        
 
 
-        
+
+
         #region HuaMaiVideo  华迈视频
 
         #region 全局变量
@@ -1033,7 +1068,7 @@ namespace VideoPlayControl
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DeviceNotExist });
                 return;
             }
-            
+
             SDK_HuaMai._CONNECT_INFO config = new SDK_HuaMai._CONNECT_INFO();
             config.ct = SDK_HuaMai.CLIENT_TYPE.CT_PC;
             config.cp = SDK_HuaMai.CONNECT_PRI.CPI_DEF;
@@ -1210,7 +1245,7 @@ namespace VideoPlayControl
         /// </summary>
         public void VideoClose()
         {
-            if (VideoPlayState != Enum_VideoPlayState.VideoInfoNull 
+            if (VideoPlayState != Enum_VideoPlayState.VideoInfoNull
                 || (iv != null && iv.VideoPlayState != Enum_VideoPlayState.VideoInfoNull))
             //if(iv != null && iv.VideoPlayState == Enum_VideoPlayState.InPlayState)
             {
@@ -1283,7 +1318,7 @@ namespace VideoPlayControl
         {
             if (CurrentVideoInfo != null
                 && (VideoPlayState == Enum_VideoPlayState.InPlayState
-                ||(iv != null)&&iv.VideoPlayState==Enum_VideoPlayState.InPlayState))
+                || (iv != null) && iv.VideoPlayState == Enum_VideoPlayState.InPlayState))
             {
                 switch (CurrentVideoInfo.VideoType)
                 {
@@ -1334,7 +1369,7 @@ namespace VideoPlayControl
                 }
             }
         }
-        
+
 
         /// <summary>
         /// 视频控件关闭
@@ -1351,13 +1386,27 @@ namespace VideoPlayControl
 
         #region 音频设置
         /// <summary>
+        /// 当前音频通道状态
+        /// </summary>
+        public Enum_VideoPlaySoundState SoundState
+        {
+            get
+            {
+                if (iv != null)
+                {
+                    return iv.SoundState;
+                }
+                return Enum_VideoPlaySoundState.SoundColse;
+            }
+        }
+        /// <summary>
         /// 打开声音通道
         /// </summary>
         /// <returns></returns>
         public bool OpenSound()
         {
             bool bolResult = false;
-            if(iv!=null)
+            if (iv!=null)
             {
                 bolResult = iv.OpenSound();
             }
@@ -1371,6 +1420,7 @@ namespace VideoPlayControl
         public bool CloseSound()
         {
             bool bolResult = false;
+            Console.WriteLine("CloseSound");
             if (iv != null)
             {
                 bolResult = iv.CloseSound();
@@ -1378,6 +1428,18 @@ namespace VideoPlayControl
             return bolResult;
         }
 
-        #endregion 
+        #endregion
+
+        private void picSound_Click(object sender, EventArgs e)
+        {
+            if (SoundState == Enum_VideoPlaySoundState.SoundColse)
+            {
+                OpenSound();
+            }
+            else
+            {
+                CloseSound();
+            }
+        }
     }
 }

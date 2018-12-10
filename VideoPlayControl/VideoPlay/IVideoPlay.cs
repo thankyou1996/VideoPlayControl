@@ -60,7 +60,7 @@ namespace VideoPlayControl.VideoPlay
         Enum_VideoPlaySoundState SoundState
         {
             get;
-            set;
+            //set;
         }
 
         /// <summary>
@@ -114,7 +114,12 @@ namespace VideoPlayControl.VideoPlay
         bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart);
         void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom);
 
-        #region 音频相关接口
+        #region 音频相关接口/事件
+
+        /// <summary>
+        /// 音频状态改变事件
+        /// </summary>
+        event SoundStateChangedDelegate SoundStateChangedEvent;
 
         /// <summary>
         /// 打开现场声音

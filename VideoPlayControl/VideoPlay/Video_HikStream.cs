@@ -33,10 +33,7 @@ namespace VideoPlayControl.VideoPlay
         public int VideoplayWindowWidth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int VideoplayWindowHeight { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        /// <summary>
-        /// 音频通道状态
-        /// </summary>
-        public Enum_VideoPlaySoundState SoundState { get; set; }
+   
 
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public event VideoPlayStateChangedDelegate VideoPlayStateChangedEvent;
@@ -74,14 +71,62 @@ namespace VideoPlayControl.VideoPlay
             throw new NotImplementedException();
         }
 
-        public bool OpenSound()
+        #region 音频相关
+
+        private Enum_VideoPlaySoundState soundState = Enum_VideoPlaySoundState.SoundColse;
+
+        /// <summary>
+        /// 音频通道状态
+        /// </summary>
+        public Enum_VideoPlaySoundState SoundState
         {
-            throw new NotImplementedException();
+            get { return soundState; }
+            set
+            {
+                if (soundState != value)
+                {
+                    soundState = value;
+                    SoundStateChanged();
+                }
+            }
         }
 
+        /// <summary>
+        /// 音频通道状态改变事件
+        /// </summary>
+        public event SoundStateChangedDelegate SoundStateChangedEvent;
+
+        /// <summary>
+        /// 音频通道状态改变事件
+        /// </summary>
+        /// <returns></returns>
+        private bool SoundStateChanged()
+        {
+            bool bolResult = false;
+            if (this.SoundStateChangedEvent != null)
+            {
+                bolResult = SoundStateChangedEvent(this, null);
+            }
+            return bolResult;
+        }
+
+        /// <summary>
+        /// 打开音频通道
+        /// </summary>
+        /// <returns></returns>
+        public bool OpenSound()
+        {
+            return false;
+        }
+
+        /// <summary>
+        /// 关闭音频通道
+        /// </summary>
+        /// <returns></returns>
         public bool CloseSound()
         {
-            throw new NotImplementedException();
+            return false;
         }
+        #endregion
     }
 }

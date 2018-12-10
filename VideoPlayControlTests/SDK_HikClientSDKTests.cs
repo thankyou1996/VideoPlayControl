@@ -21,7 +21,7 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void NET_DVR_FindPictureTest()
         {
-            PublicClassCurrency.VideoInfo vInfo = TestDataSource.TestDataSource.GetHikData2();
+            PublicClassCurrency.VideoInfo vInfo = TestDataSource.HikDataSource.GetHikData2();
             SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30();
             //登录设备
             int m_lUserID = SDK_HikClientSDK.NET_DVR_Login_V30(vInfo.DVSAddress, vInfo.DVSConnectPort, vInfo.UserName, vInfo.Password, ref DeviceInfo);
@@ -119,7 +119,7 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void GetDevicePicTest()
         {
-            PublicClassCurrency.VideoInfo vInfo = TestDataSource.TestDataSource.GetHikData2();
+            PublicClassCurrency.VideoInfo vInfo = TestDataSource.HikDataSource.GetHikData2();
             DateTime timStart = DateTime.Parse("2018-05-30 21:42:30");
             //DateTime timStart = DateTime.Now.AddSeconds(-70);
             DateTime timEnd = timStart.AddSeconds(40);
@@ -131,7 +131,7 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void NET_DVR_GetFileByTime_V40Test()
         {
-            PublicClassCurrency.VideoInfo vInfo = TestDataSource.TestDataSource.GetHikData2();
+            PublicClassCurrency.VideoInfo vInfo = TestDataSource.HikDataSource.GetHikData2();
             SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30();
             //登录设备
             int m_lUserID = SDK_HikClientSDK.NET_DVR_Login_V30(vInfo.DVSAddress, vInfo.DVSConnectPort, vInfo.UserName, vInfo.Password, ref DeviceInfo);
@@ -173,7 +173,7 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void DownloadVideoRecordTest()
         {
-            PublicClassCurrency.VideoInfo vInfo = TestDataSource.TestDataSource.GetHikData2();
+            PublicClassCurrency.VideoInfo vInfo = TestDataSource.HikDataSource.GetHikData2();
             int intChannel = 1;
             DateTime timStart = DateTime.Parse("2018-05-31 00:40:01");
             DateTime timEnd = DateTime.Parse("2018-05-31 00:47:01");
@@ -188,7 +188,7 @@ namespace VideoPlayControl.Tests
         public void GetDevChannelInfoTest()
         {
 
-            PublicClassCurrency.VideoInfo vInfo = TestDataSource.TestDataSource.GetHikData1();
+            PublicClassCurrency.VideoInfo vInfo = TestDataSource.HikDataSource.GetHikData1();
             SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30();
             //登录设备
             int m_lUserID = SDK_HikClientSDK.NET_DVR_Login_V30(vInfo.DVSAddress, vInfo.DVSConnectPort, vInfo.UserName, vInfo.Password, ref DeviceInfo);
@@ -200,7 +200,7 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void NET_DVR_FindFile_V40Test()
         {
-            PublicClassCurrency.VideoInfo vInfo = TestDataSource.TestDataSource.GetHikData1();
+            PublicClassCurrency.VideoInfo vInfo = TestDataSource.HikDataSource.GetHikData1();
             SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30();
             //登录设备
             int m_lUserID = SDK_HikClientSDK.NET_DVR_Login_V30(vInfo.DVSAddress, vInfo.DVSConnectPort, vInfo.UserName, vInfo.Password, ref DeviceInfo);
@@ -226,7 +226,7 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void GetChannelInfoTest1()
         {
-            PublicClassCurrency.VideoInfo vInfo = TestDataSource.TestDataSource.GetHikData1();
+            PublicClassCurrency.VideoInfo vInfo = TestDataSource.HikDataSource.GetHikData1();
             SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new SDK_HikClientSDK.NET_DVR_DEVICEINFO_V30();
             //登录设备
             int m_lUserID = SDK_HikClientSDK.NET_DVR_Login_V30(vInfo.DVSAddress, vInfo.DVSConnectPort, vInfo.UserName, vInfo.Password, ref DeviceInfo);
