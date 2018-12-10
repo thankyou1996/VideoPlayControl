@@ -81,6 +81,7 @@
     <Compile Include="Enum\Enum_SDKStateEventType.cs" />
     <Compile Include="Enum\Enum_VideoConnType.cs" />
     <Compile Include="Enum\Enum_VideoPlayEventType.cs" />
+    <Compile Include="Enum\Enum_VideoPlaySoundState.cs" />
     <Compile Include="Enum\Enum_VideoPlayState.cs" />
     <Compile Include="Enum\Enum_VideoPTZControl.cs" />
     <Compile Include="PubDelegate.cs" />

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using PublicClassCurrency;
+using VideoPlayControl.Enum;
 using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
@@ -85,7 +86,10 @@ namespace VideoPlayControl.VideoPlay
         }
         public int VideoplayWindowWidth { get; set; }
         public int VideoplayWindowHeight { get; set; }
-
+        /// <summary>
+        /// 音频通道状态
+        /// </summary>
+        public Enum_VideoPlaySoundState SoundState { get; set; }
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
 
         public event VideoPlayStateChangedDelegate VideoPlayStateChangedEvent;
@@ -318,6 +322,16 @@ namespace VideoPlayControl.VideoPlay
             }
             bool bolResult = SDK_XMSDK.H264_DVR_StartLocalRecord(m_iPlayhandle, strRecFilePath, Convert.ToInt32(MEDIA_FILE_TYPE.MEDIA_FILE_NONE));
             return bolResult;
+        }
+
+        public bool OpenSound()
+        {
+            return false;
+        }
+
+        public bool CloseSound()
+        {
+            return false;
         }
 
     }

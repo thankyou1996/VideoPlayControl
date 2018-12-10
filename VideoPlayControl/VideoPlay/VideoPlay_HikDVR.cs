@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using PublicClassCurrency;
+using VideoPlayControl.Enum;
 using VideoPlayControl.VideoBasicClass;
 using static VideoPlayControl.SDK_HikClientSDK;
 
@@ -40,6 +41,11 @@ namespace VideoPlayControl.VideoPlay
         }
         public int VideoplayWindowWidth { get; set; }
         public int VideoplayWindowHeight { get; set; }
+
+        /// <summary>
+        /// 音频通道状态
+        /// </summary>
+        public Enum_VideoPlaySoundState SoundState { get; set; }
         #endregion
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public event VideoPlayStateChangedDelegate VideoPlayStateChangedEvent;
@@ -260,6 +266,16 @@ namespace VideoPlayControl.VideoPlay
         public bool VideoPlayEx()
         {
             throw new NotImplementedException();
+        }
+
+        public bool OpenSound()
+        {
+            return false;
+        }
+
+        public bool CloseSound()
+        {
+            return false;
         }
     }
 }

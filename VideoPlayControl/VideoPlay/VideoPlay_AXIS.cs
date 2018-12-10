@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AxisMediaParserLib;
 using AxisMediaViewerLib;
 using PublicClassCurrency;
+using VideoPlayControl.Enum;
 using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
@@ -38,7 +39,10 @@ namespace VideoPlayControl.VideoPlay
         }
         public int VideoplayWindowWidth { get ; set; }
         public int VideoplayWindowHeight { get; set; }
-        
+        /// <summary>
+        /// 音频通道状态
+        /// </summary>
+        public Enum_VideoPlaySoundState SoundState { get; set; }
 
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
 
@@ -343,6 +347,16 @@ namespace VideoPlayControl.VideoPlay
         public bool VideoPlayEx()
         {
             throw new NotImplementedException();
+        }
+
+        public bool OpenSound()
+        {
+            return false;
+        }
+
+        public bool CloseSound()
+        {
+            return false;
         }
 
         #endregion

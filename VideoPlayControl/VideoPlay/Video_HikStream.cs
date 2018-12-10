@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PublicClassCurrency;
+using VideoPlayControl.Enum;
 using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
@@ -31,7 +32,11 @@ namespace VideoPlayControl.VideoPlay
         }
         public int VideoplayWindowWidth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int VideoplayWindowHeight { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        
+
+        /// <summary>
+        /// 音频通道状态
+        /// </summary>
+        public Enum_VideoPlaySoundState SoundState { get; set; }
 
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public event VideoPlayStateChangedDelegate VideoPlayStateChangedEvent;
@@ -65,6 +70,16 @@ namespace VideoPlayControl.VideoPlay
         }
 
         public bool VideoPlayEx()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool OpenSound()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CloseSound()
         {
             throw new NotImplementedException();
         }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using VideoPlayControl.Enum;
 using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoPlay
@@ -48,6 +49,15 @@ namespace VideoPlayControl.VideoPlay
         /// 当前视频播放状态
         /// </summary>
         Enum_VideoPlayState VideoPlayState
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 当前音频通道状态
+        /// </summary>
+        Enum_VideoPlaySoundState SoundState
         {
             get;
             set;
@@ -103,5 +113,22 @@ namespace VideoPlayControl.VideoPlay
 
         bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart);
         void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom);
+
+        #region 音频相关接口
+
+        /// <summary>
+        /// 打开现场声音
+        /// 不同于对讲 仅开启声音监听
+        /// </summary>
+        bool OpenSound();
+
+
+        /// <summary>
+        /// 关闭现场声音
+        /// 不同于对讲 仅开启声音监听
+        /// </summary>
+        bool CloseSound();
+
+        #endregion
     }
 }
