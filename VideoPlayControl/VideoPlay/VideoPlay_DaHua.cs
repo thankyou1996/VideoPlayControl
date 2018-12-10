@@ -56,6 +56,7 @@ namespace VideoPlayControl.VideoPlay
         public bool VideoClose()
         {
             bool bolResult = false;
+            CloseSound();
             SDK_DaHua.CLIENT_StopSaveRealData(intPlayID);
             SDK_DaHua.CLIENT_StopRealPlay(intPlayID);
             SDK_DaHua.CLIENT_Logout(intLoginID);
@@ -80,7 +81,10 @@ namespace VideoPlayControl.VideoPlay
                 intPlayID = SDK_DaHua.CLIENT_RealPlay(intLoginID, CurrentCameraInfo.Channel - 1, intptrPlayMain);
                 if (intPlayID != 0)
                 {
-                    SDK_DaHua.CLIENT_OpenSound(intPlayID);
+                    if (CurrentVideoPlaySet.VideoMonitorEnable)
+                    {
+                        OpenSound();
+                    }
                     if (CurrentVideoPlaySet.VideoRecordEnable)
                     {
                         string Temp_strVideoRecord = GetLocalSavePath(CurrentVideoPlaySet.VideoRecordFilePath, CurrentVideoPlaySet.VideoRecordFileName);
@@ -134,14 +138,34 @@ namespace VideoPlayControl.VideoPlay
         {
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// 打开音频通道_独占
+        /// </summary>
+        /// <returns></returns>
         public bool OpenSound()
         {
-            return false;
+            bool bolResult = false;
+            if (SDK_DaHua.CLIENT_OpenSound(intPlayID))
+            {
+                SoundState = Enum_VideoPlaySoundState.SoundOpen;
+                bolResult = true;
+            }
+            return bolResult;
         }
 
+        /// <summary>
+        /// 关闭音频通道_独占
+        /// </summary>
+        /// <returns></returns>
         public bool CloseSound()
         {
-            return false;
+            bool bolResult = false;
+            if (SDK_DaHua.CLIENT_CloseSound())
+            {
+                SoundState = Enum_VideoPlaySoundState.SoundColse;
+                bolResult = true;
+            }
+            return bolResult;
         }
     }
 }

@@ -14192,15 +14192,30 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_SetAudioMode(uint dwMode);
 
+        /// <summary>
+        /// 打开声音通道
+        /// </summary>
+        /// <param name="lRealHandle"></param>
+        /// <returns></returns>
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_OpenSound(Int32 lRealHandle);
 
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_CloseSound();
 
+        /// <summary>
+        /// 打开声音通道_共享模式
+        /// </summary>
+        /// <param name="lRealHandle"></param>
+        /// <returns></returns>
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_OpenSoundShare(Int32 lRealHandle);
 
+        /// <summary>
+        /// 关闭声音通道_共享模式
+        /// </summary>
+        /// <param name="lRealHandle"></param>
+        /// <returns></returns>
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_CloseSoundShare(Int32 lRealHandle);
 

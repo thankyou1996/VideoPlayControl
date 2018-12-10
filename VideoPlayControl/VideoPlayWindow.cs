@@ -1348,5 +1348,36 @@ namespace VideoPlayControl
 
         #endregion
 
+
+        #region 音频设置
+        /// <summary>
+        /// 打开声音通道
+        /// </summary>
+        /// <returns></returns>
+        public bool OpenSound()
+        {
+            bool bolResult = false;
+            if(iv!=null)
+            {
+                bolResult = iv.OpenSound();
+            }
+            return bolResult;
+        }
+
+        /// <summary>
+        /// 关闭声音通道
+        /// </summary>
+        /// <returns></returns>
+        public bool CloseSound()
+        {
+            bool bolResult = false;
+            if (iv != null)
+            {
+                bolResult = iv.CloseSound();
+            }
+            return bolResult;
+        }
+
+        #endregion 
     }
 }

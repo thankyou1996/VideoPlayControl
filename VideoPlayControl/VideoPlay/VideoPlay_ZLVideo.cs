@@ -55,6 +55,7 @@ namespace VideoPlayControl.VideoPlay
             bool bolResult = false;
             if (m_nPlayHandle != 0)
             {
+                CloseSound();
                 SDK_ZLNetSDK.ZLNET_StopSaveRealData(m_nPlayHandle);
                 SDK_ZLNetSDK.ZLNET_StopRealPlayEx(m_nPlayHandle);
             }
@@ -81,9 +82,9 @@ namespace VideoPlayControl.VideoPlay
             {
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.LoginSuccess });
                 m_nPlayHandle = SDK_ZLNetSDK.ZLNET_RealPlayEx(m_nDeviceID, CurrentCameraInfo.Channel - 1, intptrPlayMain);
-                if (m_nPlayHandle > 0)
+                if (CurrentVideoPlaySet.VideoMonitorEnable)
                 {
-                    SDK_ZLNetSDK.ZLNET_AdjustFluency(m_nPlayHandle, 6);
+                    OpenSound();
                 }
                 if (CurrentVideoPlaySet.VideoRecordEnable)  //录像使能
                 {
@@ -137,14 +138,33 @@ namespace VideoPlayControl.VideoPlay
             //throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// 打开音频通道_独占
+        /// </summary>
+        /// <returns></returns>
         public bool OpenSound()
         {
-            return false;
+            bool bolResult = false;
+            if (SDK_ZLNetSDK.ZLNET_OpenSound(m_nPlayHandle))
+            {
+                SoundState = Enum_VideoPlaySoundState.SoundOpen;
+                bolResult = true;
+            }
+            return bolResult;
         }
-
+        /// <summary>
+        /// 打开音频通道_独占
+        /// </summary>
+        /// <returns></returns>
         public bool CloseSound()
         {
-            return false;
+            bool bolResult = false;
+            if (SDK_ZLNetSDK.ZLNET_CloseSound())
+            {
+                SoundState = Enum_VideoPlaySoundState.SoundColse;
+                bolResult = true;
+            }
+            return bolResult;
         }
     }
 }

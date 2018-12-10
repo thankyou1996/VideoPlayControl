@@ -13219,20 +13219,27 @@ namespace VideoPlayControl.SDKInterface
         CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern void ZLNET_RigisterDrawFun(fZLDrawCallBack cbDraw, IntPtr dwUser);
 
-        // 打开声音
+        /// <summary>
+        /// 打开声音通道_独占
+        /// </summary>
+        /// <param name="nPlayID"></param>
+        /// <returns></returns>
         [DllImport(ProgConstants.c_strZLVideoFilePath, EntryPoint = "ZLNET_OpenSound",
         CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern int ZLNET_OpenSound(int nPlayID);
+        public static extern bool ZLNET_OpenSound(int nPlayID);
 
         // 设置音量，nVolume范围：0~100
         [DllImport(ProgConstants.c_strZLVideoFilePath, EntryPoint = "ZLNET_SetVolume",
         CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern int ZLNET_SetVolume(int nPlayID, int nVolume);
 
-        // 关闭声音
+        /// <summary>
+        ///  关闭声音通道_独占
+        /// </summary>
+        /// <returns></returns>
         [DllImport(ProgConstants.c_strZLVideoFilePath, EntryPoint = "ZLNET_CloseSound",
         CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern int ZLNET_CloseSound();
+        public static extern bool ZLNET_CloseSound();
 
         // 停止实时预览
         [DllImport(ProgConstants.c_strZLVideoFilePath, EntryPoint = "ZLNET_StopRealPlay",

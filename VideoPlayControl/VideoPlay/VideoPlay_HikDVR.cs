@@ -115,9 +115,13 @@ namespace VideoPlayControl.VideoPlay
                 //intRet = NET_DVR_RealPlay_V30(_intDVRHwd, ref cli, null, pUser, 1);//130814
                 intRet = NET_DVR_RealPlay_V40(_intDVRHwd, ref lpPreviewInfo, null, pUser);//140521
 
-                //NET_DVR_OpenSound(intRet);//140609
+                
                 if (intRet != -1)
                 {
+                    if (CurrentVideoPlaySet.VideoMonitorEnable)
+                    {
+                        OpenSound();
+                    }
                     VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
                     VideoPlayState = Enum_VideoPlayState.InPlayState;
                     if (CurrentVideoPlaySet.VideoRecordEnable)
@@ -246,6 +250,8 @@ namespace VideoPlayControl.VideoPlay
 
         public bool VideoClose()
         {
+
+            CloseSound();
             NET_DVR_StopRealPlay(intRet);
             NET_DVR_Logout(_intDVRHwd);
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
@@ -267,15 +273,34 @@ namespace VideoPlayControl.VideoPlay
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// 打开声音通道
+        /// </summary>
+        /// <returns></returns>
         public bool OpenSound()
         {
-            return false;
+            bool bolResult = false;
+            if (NET_DVR_OpenSoundShare(intRet))
+            {
+                SoundState = Enum_VideoPlaySoundState.SoundOpen;
+                bolResult = true;
+            }
+            return bolResult;
         }
 
+        /// <summary>
+        /// 关闭声音通道
+        /// </summary>
+        /// <returns></returns>
         public bool CloseSound()
         {
-            return false;
+            bool bolResult = false;
+            if (NET_DVR_CloseSoundShare(intRet))
+            {
+                SoundState = Enum_VideoPlaySoundState.SoundColse;
+                bolResult = true;
+            }
+            return bolResult;
         }
     }
 }

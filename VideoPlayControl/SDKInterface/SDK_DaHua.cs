@@ -143,8 +143,6 @@ namespace VideoPlayControl.SDKInterface
         [DllImport(ProgConstants.c_strDaHuaFilePath)]
         public static extern int CLIENT_RealPlay(int lLoginID, int nChannelID, IntPtr hWnd);
 
-        [DllImport(ProgConstants.c_strDaHuaFilePath)]
-        public static extern int CLIENT_OpenSound(int hPlayHandle);
         /// <summary>
         /// 停止实时监视
         /// </summary>
@@ -607,10 +605,34 @@ namespace VideoPlayControl.SDKInterface
         public static extern bool CLIENT_ClientGetVideoEffect(int lPlayHandle, ref byte nBrightness, ref byte nContrast, ref byte nHue, ref byte nSaturation);
 
 
+
+
+        /// <summary>
+        /// 打开音频通道_独占
+        /// </summary>
+        /// <param name="hPlayHandle"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strDaHuaFilePath)]
+        public static extern bool CLIENT_OpenSound(int hPlayHandle);
+
+
+
+        /// <summary>
+        /// 关闭音频通道_独占
+        /// </summary>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strDaHuaFilePath)]
+        public static extern bool CLIENT_CloseSound();
+
+
+
         [DllImport("SK_Voice.dll")]
         public static extern bool SKStartPlay(int lPlayHandle);
         [DllImport("SK_Voice.dll")]
         public static extern bool SKStopPlay();
+
+
+
 
         #endregion
 
