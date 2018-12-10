@@ -10,6 +10,7 @@ using System.IO;
 using System.Threading;
 using static CommonMethod.CommonObject;
 using VideoPlayControl.VideoBasicClass;
+using VideoPlayControl.VideoTalk;
 
 namespace VideoPlayControl
 {
@@ -88,9 +89,25 @@ namespace VideoPlayControl
             videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
             videoPlayWindow.VideoPlayCallbackEvent += VideoPlayEventCallBackEvent;
             videoPTZControl.PTZControlEvent += VideoPTZControl;
+            videoTalkControlManyChannel1.StartTalkingEvent += VideoTalkControlManyChannel1_StartTalkingEvent;
         }
 
-        
+        /// <summary>
+        /// 开始对讲前事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="StartTalkBeginValue"></param>
+        /// <returns></returns>
+        private bool VideoTalkControlManyChannel1_StartTalkingEvent(object sender, object StartTalkBeginValue)
+        {
+            bool bolResult = false;
+            IVideoTalk ivt = (IVideoTalk)sender;
+            //对讲前主动关闭声音音频输出，避免程序出现枭叫声
+            videoPlayWindow.CloseSound();
+            return bolResult;
+        }
+
+
         #region 事件委托
         /// <summary>
         /// 视频预览密码验证委托
@@ -107,7 +124,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 视频预览密码验证
         /// </summary>
-        /// <param name="strPreViewPwdVerify"></param>
+        /// <param name="strVideoID"></param>
         /// <returns></returns>
         public bool PreViewPwdVerify(string strVideoID)
         {

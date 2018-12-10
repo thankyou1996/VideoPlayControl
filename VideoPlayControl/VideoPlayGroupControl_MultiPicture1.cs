@@ -240,7 +240,33 @@ namespace VideoPlayControl
                 SetToolTipInfo(v, "");
             }
         }
+        /// <summary>
+        /// 打开声音通道
+        /// </summary>
+        /// <returns></returns>
+        public bool OpenSound()
+        {
+            bool bolResult = false;
+            foreach (VideoPlayWindow v in dicWin.Values)
+            {
+                v.OpenSound();
+            }
+            return bolResult;
+        }
 
+        /// <summary>
+        /// 关闭声音通道
+        /// </summary>
+        /// <returns></returns>
+        public bool CloseSound()
+        {
+            bool bolResult = false;
+            foreach (VideoPlayWindow v in dicWin.Values)
+            {
+                v.CloseSound();
+            }
+            return bolResult;
+        }
         #endregion
 
         #region 公用方法

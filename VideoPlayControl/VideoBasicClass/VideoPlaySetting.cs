@@ -83,7 +83,7 @@ namespace VideoPlayControl
         private string strVideoRecordFileName_Server = "";
 
         /// <summary>
-        //  视频文件存储文件名称_服务器
+        /// 视频文件存储文件名称_服务器
         /// </summary>
         public string VideoRecordFileName_Server
         {
