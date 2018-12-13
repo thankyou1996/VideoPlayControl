@@ -453,7 +453,13 @@ namespace VideoPlayControl.VideoPlay
         /// <returns></returns>
         public bool OpenSound()
         {
-            return false;
+            bool bolResult = false;
+            if (SDK_EzvizSDK.OpenSDK_OpenSound(intptrSessionID) == 0)
+            {
+                SoundState = Enum_VideoPlaySoundState.SoundOpen;
+                bolResult = true;
+            }
+            return bolResult;
         }
 
         /// <summary>
@@ -462,7 +468,13 @@ namespace VideoPlayControl.VideoPlay
         /// <returns></returns>
         public bool CloseSound()
         {
-            return false;
+            bool bolResult = false;
+            if (SDK_EzvizSDK.OpenSDK_CloseSound(intptrSessionID) == 0)
+            {
+                SoundState = Enum_VideoPlaySoundState.SoundColse;
+                bolResult = true;
+            }
+            return bolResult;
         }
         #endregion
     }

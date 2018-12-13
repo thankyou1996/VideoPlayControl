@@ -15762,5 +15762,42 @@ namespace VideoPlayControl.SDKInterface
         public static extern int ZLNET_FACE_ImageMatch(int lLoginID, IntPtr pData, int nDataLen, IntPtr pBuf, int nBufNum, ref int nRetNum, int nTimeout = 3000);
 
         #endregion
+
+        #region 自定义委托
+
+        /// <summary>
+        /// 智诺独占模式关闭关闭声音委托
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="objHikCloseSoundValue"></param>
+        public delegate void ZLCloseSoundDelegate(object sender, object objHikCloseSoundValue);
+        #endregion
+
+        #region 自定义事件
+        /// <summary>
+        /// 智诺独占模式关闭关闭声音事件
+        /// </summary>
+        public static event ZLCloseSoundDelegate ZLCloseSoundEvent;
+        #endregion
+
+        #region 自定义接口
+
+        /// <summary>
+        /// 智诺独占模式关闭关闭声音
+        /// </summary>
+        /// <returns></returns>
+        public static bool ZLCloseSound(object sender, object objHikCloseSoundValue)
+        {
+            bool bolResult = false;
+            bolResult = ZLNET_CloseSound();
+            if (ZLCloseSoundEvent != null)
+            {
+                ZLCloseSoundEvent(sender, objHikCloseSoundValue);
+            }
+            return bolResult;
+        }
+
+
+        #endregion
     }
 }

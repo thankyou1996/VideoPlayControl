@@ -188,6 +188,9 @@ namespace VideoPlayControl
         List<byte> lstVideoRecord = new List<byte>();
         private object objVideoRecordLock = new object();
         #endregion
+        /// <summary>
+        /// 播放的控件
+        /// </summary>
 
         public PictureBox PicMain
         {
@@ -272,6 +275,7 @@ namespace VideoPlayControl
 
         #endregion
 
+
         private void VideoPlayMain_Load(object sender, EventArgs e)
         {
             //SDKState.SDKStateChangeEvent += SDKStateChange;
@@ -279,6 +283,13 @@ namespace VideoPlayControl
             intptrPlayMain = picPlayMain.Handle;
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.LoadEnd });
         }
+
+
+        /// <summary>
+        /// SDK状态改变事件
+        /// </summary>
+        /// <param name="sdkType"></param>
+        /// <param name="sdkStateEvent"></param>
         public void SDKStateChangeEvent(Enum_VideoType sdkType, Enum_SDKStateEventType sdkStateEvent)
         {
             switch (sdkType)
@@ -537,13 +548,17 @@ namespace VideoPlayControl
         private bool Iv_SoundStateChangedEvent(object sender, object SoundStateChangedValue)
         {
             IVideoPlay iv = (IVideoPlay)sender;
+            if (this.IsDisposed)
+            {
+                iv.SoundStateChangedEvent -= Iv_SoundStateChangedEvent;
+                return false;
+            }
             if (iv.SoundState == Enum_VideoPlaySoundState.SoundOpen)
             {
                 picSound.Image = lstimgSoundState.Images[c_strSoundOn];
             }
             else
             {
-
                 picSound.Image = lstimgSoundState.Images[c_strSoundOff];
             }
             return true;
@@ -552,24 +567,11 @@ namespace VideoPlayControl
         private bool Iv_VideoPlayCallbackEvent(object sender, VideoPlayCallbackValue evValue)
         {
             bool bolResult = false;
-            switch (evValue.evType)
-            {
-                case Enum_VideoPlayEventType.VideoClose:
-                    if (!this.IsDisposed)
-                    {
-                        this.BeginInvoke(new EventHandler(delegate
-                        {
-                            picPlayMain.Refresh();
-                        }));
-                    }
-                    break; ;
-            }
             return bolResult;
         }
 
         private bool Iv_VideoPlayStateChangedEvent(object sender, object VideoPlayStateChangedValue)
         {
-
             bool bolResult = false;
             IVideoPlay iv = (IVideoPlay)sender;
             this.VideoPlayState = iv.VideoPlayState;
@@ -1420,7 +1422,6 @@ namespace VideoPlayControl
         public bool CloseSound()
         {
             bool bolResult = false;
-            Console.WriteLine("CloseSound");
             if (iv != null)
             {
                 bolResult = iv.CloseSound();

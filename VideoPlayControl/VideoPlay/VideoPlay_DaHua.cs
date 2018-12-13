@@ -14,6 +14,21 @@ namespace VideoPlayControl.VideoPlay
     /// </summary>
     public class VideoPlay_DaHua : IVideoPlay
     {
+        public VideoPlay_DaHua()
+        {
+            SDK_DaHua.DHCloseSoundEvent += SDK_DaHua_DHCloseSoundEvent;
+        }
+
+        /// <summary>
+        /// 大华设备关闭对讲通道事件注册
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="objHikCloseSoundValue"></param>
+        private void SDK_DaHua_DHCloseSoundEvent(object sender, object objHikCloseSoundValue)
+        {
+            SoundState = Enum_VideoPlaySoundState.SoundColse;
+        }
+
         public VideoInfo CurrentVideoInfo { get; set; }
         public CameraInfo CurrentCameraInfo { get; set; }
         public VideoPlaySetting CurrentVideoPlaySet { get; set; }
@@ -55,7 +70,11 @@ namespace VideoPlayControl.VideoPlay
         public bool VideoClose()
         {
             bool bolResult = false;
-            CloseSound();
+            if (SoundState == Enum_VideoPlaySoundState.SoundOpen)
+            {
+                //关闭音频
+                CloseSound();
+            }
             SDK_DaHua.CLIENT_StopSaveRealData(intPlayID);
             SDK_DaHua.CLIENT_StopRealPlay(intPlayID);
             SDK_DaHua.CLIENT_Logout(intLoginID);
@@ -184,6 +203,8 @@ namespace VideoPlayControl.VideoPlay
         public bool OpenSound()
         {
             bool bolResult = false;
+            //手动关闭，确认只有一个通道有声音
+            SDK_DaHua.DHCloseSound(this, null);
             if (SDK_DaHua.CLIENT_OpenSound(intPlayID))
             {
                 SoundState = Enum_VideoPlaySoundState.SoundOpen;
@@ -199,11 +220,7 @@ namespace VideoPlayControl.VideoPlay
         public bool CloseSound()
         {
             bool bolResult = false;
-            if (SDK_DaHua.CLIENT_CloseSound())
-            {
-                SoundState = Enum_VideoPlaySoundState.SoundColse;
-                bolResult = true;
-            }
+            SDK_DaHua.DHCloseSound(this, null);
             return bolResult;
         }
         #endregion

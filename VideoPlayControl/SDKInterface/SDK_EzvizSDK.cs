@@ -214,6 +214,22 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
         public static extern IntPtr OpenSDK_GetLastErrorDesc();
 
+        #region 音频相关
+        /// <summary>
+        /// 打开音频通道
+        /// </summary>
+        [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
+        public static extern int OpenSDK_OpenSound(IntPtr szSessionId);
+
+        /// <summary>
+        /// 关闭音频通道 
+        /// </summary>
+        /// <param name="szSessionId"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
+        public static extern int OpenSDK_CloseSound(IntPtr szSessionId);
+        #endregion
+
         #region 自定义方法
 
         /// <summary>

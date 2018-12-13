@@ -16,8 +16,23 @@ namespace VideoPlayControl.VideoPlay
     /// </summary>
     public class VideoPlay_HikDVR : IVideoPlay
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public VideoPlay_HikDVR()
+        {
+            HikColoseCoundEvent += VideoPlayWindow_HikColoseCoundEvent;
+        }
 
-
+        /// <summary>
+        /// 海康设备关闭对讲通道事件注册
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="objHikCloseSoundValue"></param>
+        private void VideoPlayWindow_HikColoseCoundEvent(object sender, object objHikCloseSoundValue)
+        {
+            SoundState = Enum_VideoPlaySoundState.SoundColse;
+        }
         #region 全局变量
         int _intDVRHwd;
         int intRet;
@@ -248,8 +263,11 @@ namespace VideoPlayControl.VideoPlay
 
         public bool VideoClose()
         {
-
-            CloseSound();
+            if (SoundState == Enum_VideoPlaySoundState.SoundOpen)
+            {
+                //关闭音频
+                CloseSound();
+            }
             NET_DVR_StopRealPlay(intRet);
             NET_DVR_Logout(_intDVRHwd);
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
@@ -319,6 +337,8 @@ namespace VideoPlayControl.VideoPlay
         public bool OpenSound()
         {
             bool bolResult = false;
+            //手动关闭,确认只有一个声音在播放
+            HikCloseSound(this, null);
             if (NET_DVR_OpenSound(intRet))
             {
                 SoundState = Enum_VideoPlaySoundState.SoundOpen;
@@ -334,11 +354,9 @@ namespace VideoPlayControl.VideoPlay
         public bool CloseSound()
         {
             bool bolResult = false;
-            if (NET_DVR_CloseSound())
-            {
-                SoundState = Enum_VideoPlaySoundState.SoundColse;
-                bolResult = true;
-            }
+            //统一通过  HikColoseCoundEvent 置为音频关闭状态
+            HikCloseSound(this, null);
+            bolResult = true;
             return bolResult;
         }
         #endregion

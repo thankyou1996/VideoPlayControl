@@ -65,6 +65,8 @@ namespace VideoPlayControl_UseDemo
             //SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C:\\SHIKE_Video");
             //SDKState.ZLVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
+            SDKState.DHVideoSDK_Init();
+            SDKState.ZLVideoSDK_Init();
             Init();
 
 

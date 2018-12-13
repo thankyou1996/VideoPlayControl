@@ -5549,7 +5549,10 @@ namespace VideoPlayControl
             /// 模拟通道起始数量
             /// </summary>
             public byte byStartChan;			        //起始通道号,例如DVS-1,DVR - 1
-            public byte byAudioChanNum;                //语音通道数
+            /// <summary>
+            /// 语音通道数
+            /// </summary>
+            public byte byAudioChanNum;
             /// <summary>
             /// 数字通道(低位)
             /// </summary>
@@ -14200,6 +14203,10 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_OpenSound(Int32 lRealHandle);
 
+        /// <summary>
+        /// 关闭声音通道
+        /// </summary>
+        /// <returns></returns>
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_CloseSound();
 
@@ -14219,6 +14226,12 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_CloseSoundShare(Int32 lRealHandle);
 
+        /// <summary>
+        /// 设置音量
+        /// </summary>
+        /// <param name="lRealHandle"></param>
+        /// <param name="wVolume"></param>
+        /// <returns></returns>
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_Volume(Int32 lRealHandle, ushort wVolume);
 
@@ -16084,6 +16097,42 @@ namespace VideoPlayControl
             Stime.dwSecond = uint.Parse(tim.Second.ToString());
             return Stime;
         }
+        
+
+        /// <summary>
+        /// 海康独占模式关闭关闭声音
+        /// </summary>
+        /// <returns></returns>
+        public static bool HikCloseSound(object sender, object objHikCloseSoundValue)
+        {
+            bool bolResult = false;
+            bolResult = NET_DVR_CloseSound();
+            if (HikColoseCoundEvent != null)
+            {
+                HikColoseCoundEvent(sender, objHikCloseSoundValue);
+            }
+            return bolResult;
+        }
+        #endregion
+
+        #region 自定义委托
+
+        /// <summary>
+        /// 海康独占模式关闭关闭声音委托
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="objHikCloseSoundValue"></param>
+        public delegate void HikCloseSoundDelegate(object sender, object objHikCloseSoundValue);
+
+
+        #endregion
+
+        #region 自定义事件
+
+        /// <summary>
+        /// 海康独占模式关闭关闭声音事件
+        /// </summary>
+        public static event HikCloseSoundDelegate HikColoseCoundEvent;
 
         #endregion
 

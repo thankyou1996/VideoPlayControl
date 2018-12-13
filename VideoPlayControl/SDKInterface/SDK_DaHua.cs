@@ -4350,5 +4350,43 @@ namespace VideoPlayControl.SDKInterface
         }
 
         #endregion
+
+
+        #region 自定义委托
+
+        /// <summary>
+        /// 大华独占模式关闭关闭声音委托
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="objHikCloseSoundValue"></param>
+        public delegate void DHCloseSoundDelegate(object sender, object objHikCloseSoundValue);
+        #endregion
+
+        #region 自定义事件
+        /// <summary>
+        /// 大华独占模式关闭关闭声音事件
+        /// </summary>
+        public static event DHCloseSoundDelegate DHCloseSoundEvent;
+        #endregion
+
+        #region 自定义接口
+
+        /// <summary>
+        /// 大华独占模式关闭关闭声音
+        /// </summary>
+        /// <returns></returns>
+        public static bool DHCloseSound(object sender, object objHikCloseSoundValue)
+        {
+            bool bolResult = false;
+            bolResult = CLIENT_CloseSound();
+            if (DHCloseSoundEvent != null)
+            {
+                DHCloseSoundEvent(sender, objHikCloseSoundValue);
+            }
+            return bolResult;
+        }
+
+
+        #endregion
     }
 }
