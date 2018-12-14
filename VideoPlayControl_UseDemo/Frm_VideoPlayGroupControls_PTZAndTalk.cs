@@ -21,8 +21,10 @@ namespace VideoPlayControl_UseDemo
 
         private void Frm_VideoPlayGroupControls_PTZAndTalk_Load(object sender, EventArgs e)
         {
-            //VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
-            //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
+            VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
+            VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
+            SDKState.Ezviz_SDKInit();
+
             //videoPlayGroupControls_PTZAndTalk1.bolAutoPlayVideo = true;
             //videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
             //videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoMonitorEnable = true;
@@ -41,16 +43,16 @@ namespace VideoPlayControl_UseDemo
 
             //HuaMaiVideo_TestData();
             //SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhc1", "", "C:\\SHIKE_Video");
-            SDKState.DHVideoSDK_Init();
-            SDKState.SKVideoSDKInit("hdc", "121.41.87.203");
+            //SDKState.DHVideoSDK_Init();
+            //SDKState.SKVideoSDKInit("hdc", "121.41.87.203");
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
-            VideoInfo v = TestDataSource.TestDataSource.GetSKDVSData1();
-            dicVideoInfos[v.DVSNumber] = v;
-            v = TestDataSource.DaHuaSource.GetDaHuaData1();
+            //VideoInfo v = TestDataSource.TestDataSource.GetSKDVSData1();
+            //dicVideoInfos[v.DVSNumber] = v;
+            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo4();
             dicVideoInfos[v.DVSNumber] = v;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
-            videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
+            videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = false;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath = "\\TestVideo\\";
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath_Server = "\\0712\\123456789";
             //videoPlayGroupControls_PTZAndTalk1.SetPTZVisible(false);

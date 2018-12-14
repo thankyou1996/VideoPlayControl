@@ -71,17 +71,17 @@ namespace VideoPlayControl.VideoPlay
             SDK_EzvizSDK.OpenSDK_StopRealPlayEx(intptrSessionID);
             SDK_EzvizSDK.OpenSDK_FreeSession(intptrSessionID.ToString());
 
-            if (Ezviz_gchMsgBack != null && Ezviz_gchMsgBack.IsAllocated)
-            {
-                Ezviz_gchMsgBack.Free();
-            }
+            //if (Ezviz_gchMsgBack != null && Ezviz_gchMsgBack.IsAllocated)
+            //{
+            //    Ezviz_gchMsgBack.Free();
+            //}
             if (CurrentVideoPlaySet.VideoRecordEnable)
             {
                 Ezviz_GenerateRecord(CurrentVideoPlaySet.VideoRecordFilePath);
-                if (Ezviz_gchVideoRecord != null && Ezviz_gchVideoRecord.IsAllocated)
-                {
-                    Ezviz_gchVideoRecord.Free();
-                }
+                //if (Ezviz_gchVideoRecord != null && Ezviz_gchVideoRecord.IsAllocated)
+                //{
+                //    Ezviz_gchVideoRecord.Free();
+                //}
             }
             else
             {
