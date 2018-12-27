@@ -691,8 +691,8 @@
             videoPlaySetting1.PreSetPosi = -1;
             videoPlaySetting1.PreVideoRecordFilePath = "";
             videoPlaySetting1.PTZSpeed = 4;
-            videoPlaySetting1.TimeOutVideoCloseSecond = 180;
-            videoPlaySetting1.TimeOutVideoRecordCloseSecond = 180;
+            videoPlaySetting1.TimeOutVideoCloseSecond = 20;
+            videoPlaySetting1.TimeOutVideoRecordCloseSecond = 20;
             videoPlaySetting1.VideoMonitorEnable = false;
             videoPlaySetting1.VideoPlayTimeLimit = 0;
             videoPlaySetting1.VideoRecordEnable = false;
@@ -723,6 +723,8 @@
             // chkVideoRecordEnable
             // 
             this.chkVideoRecordEnable.AutoSize = true;
+            this.chkVideoRecordEnable.Checked = true;
+            this.chkVideoRecordEnable.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkVideoRecordEnable.Location = new System.Drawing.Point(3, 46);
             this.chkVideoRecordEnable.Name = "chkVideoRecordEnable";
             this.chkVideoRecordEnable.Size = new System.Drawing.Size(72, 16);
@@ -857,7 +859,7 @@
             this.txtVideoRecord.Name = "txtVideoRecord";
             this.txtVideoRecord.Size = new System.Drawing.Size(136, 99);
             this.txtVideoRecord.TabIndex = 35;
-            this.txtVideoRecord.Text = "G:\\";
+            this.txtVideoRecord.Text = "G:\\VIdeoRecordTest";
             // 
             // pnlVideoInfo_Right
             // 

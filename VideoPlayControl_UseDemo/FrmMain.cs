@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using VideoPlayControl;
 using VideoPlayControl.VideoBasicClass;
 using VideoPlayControl.VideoPlay;
+using static VideoPlayControl.SDKInterface.SDK_KD;
 
 namespace VideoPlayControl_UseDemo
 {
@@ -47,8 +48,28 @@ namespace VideoPlayControl_UseDemo
             InitializeComponent();
         }
 
+        public static int testttt(ref TSDK_CallBackInfo pTSDK_CallBackInfo, uint u32WParam, uint u32LParam, uint u32UserData)
+        {
+            return 1;
+        }
+        static PFUNCNVRSDKCALLBACK p;
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            //p = new PFUNCNVRSDKCALLBACK(testttt);
+            //TSDK_Init init = new TSDK_Init
+            //{
+            //    //m_pFuncNvrSdkProc=new PFUNCNVRSDKCALLBACK(testttt)
+            //    m_pFuncNvrSdkProc = p
+            //};
+            //VideoPlayControl.SDKInterface.SDK_KD.DS_Init();
+            //TSDK_CallBackInfo dd = new TSDK_CallBackInfo();
+            //string strVAlue = "";
+            //VideoPlayControl.SDKInterface.SDK_KD.serializeObjToStr(init, out strVAlue);
+            ////PFUNCNVRSDKCALLBACK cb = new PFUNCNVRSDKCALLBACK(testttt);
+            //IntPtr I = IntPtr.Zero;
+            ////Marshal.StructureToPtr(init, I,false);
+            //int intREsult = VideoPlayControl.SDKInterface.SDK_KD.NET_NVR_SDKInit(I);
+            //return;
             VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
             VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             //VideoPlayControl.ProgParameter.strEzviz__AppID = "1acd8ddc451f48a4b8b4666716e8f9ce";
@@ -781,7 +802,7 @@ namespace VideoPlayControl_UseDemo
 
             //VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo4();
+            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo7();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetYSDVSData2();
             //dicVideoInfos[v.DVSNumber] = v;

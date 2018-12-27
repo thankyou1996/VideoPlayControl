@@ -94,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SDKInterface\SDK_KD.cs" />
     <Compile Include="SDKInterface\SDK_SKNVideo.cs" />
     <Compile Include="SDKInterface\SDK_ZLNetSDK.cs" />
     <Compile Include="SDKState.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="VideoPlay\VideoPlay_DaHua.cs" />
     <Compile Include="VideoPlay\VideoPlay_Ezviz.cs" />
     <Compile Include="VideoPlay\VideoPlay_IMOS.cs" />
+    <Compile Include="VideoPlay\VIdeoPlay_KD.cs" />
     <Compile Include="VideoPlay\VideoPlay_Shike.cs" />
     <Compile Include="VideoPlay\VideoPlay_SKNVideo.cs" />
     <Compile Include="VideoPlay\VideoPlay_ZLVideo.cs" />

@@ -81,6 +81,11 @@ namespace VideoPlayControl
         /// 大华SDK 
         /// </summary>
         public const string c_strDaHuaFilePath = "\\DHA\\dhnetsdk.dll";
+
+        /// <summary>
+        /// 科达SDK路径
+        /// </summary>
+        public const string c_strKDFilePath = "\\KD\\nvrsdk.dll";
         #endregion
 
         #region SDK默认参数
