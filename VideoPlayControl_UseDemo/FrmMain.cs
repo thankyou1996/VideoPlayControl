@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using VideoPlayControl;
 using VideoPlayControl.VideoBasicClass;
 using VideoPlayControl.VideoPlay;
+using VideoPlayControl_UseDemo.MultiPlayTest;
 using static VideoPlayControl.SDKInterface.SDK_KD;
 
 namespace VideoPlayControl_UseDemo
@@ -84,7 +85,7 @@ namespace VideoPlayControl_UseDemo
             SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
             //SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C:\\SHIKE_Video");
-            //SDKState.ZLVideoSDK_Init();
+            SDKState.ZLVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             SDKState.DHVideoSDK_Init();
             SDKState.ZLVideoSDK_Init();
@@ -1342,5 +1343,10 @@ namespace VideoPlayControl_UseDemo
             cmbVideoList.SelectedIndex = 0;
         }
 
+        private void btnMulitPlay_Click(object sender, EventArgs e)
+        {
+            FrmMulitPlayTest1 frm = new FrmMulitPlayTest1();
+            frm.Show();
+        }
     }
 }

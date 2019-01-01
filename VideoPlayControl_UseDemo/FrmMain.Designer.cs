@@ -142,6 +142,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
+            this.btnMulitPlay = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -383,6 +384,7 @@
             // 
             // PageOther
             // 
+            this.PageOther.Controls.Add(this.btnMulitPlay);
             this.PageOther.Controls.Add(this.button1);
             this.PageOther.Controls.Add(this.btnStartTalk);
             this.PageOther.Controls.Add(this.btnStopTest);
@@ -416,7 +418,7 @@
             // 
             // btnStopTest
             // 
-            this.btnStopTest.Location = new System.Drawing.Point(6, 3);
+            this.btnStopTest.Location = new System.Drawing.Point(9, 3);
             this.btnStopTest.Name = "btnStopTest";
             this.btnStopTest.Size = new System.Drawing.Size(74, 23);
             this.btnStopTest.TabIndex = 15;
@@ -1351,6 +1353,16 @@
             this.timCurrentChannelLoop.Interval = 3000;
             this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
             // 
+            // btnMulitPlay
+            // 
+            this.btnMulitPlay.Location = new System.Drawing.Point(9, 52);
+            this.btnMulitPlay.Name = "btnMulitPlay";
+            this.btnMulitPlay.Size = new System.Drawing.Size(75, 23);
+            this.btnMulitPlay.TabIndex = 18;
+            this.btnMulitPlay.Text = "多路视频测试";
+            this.btnMulitPlay.UseVisualStyleBackColor = true;
+            this.btnMulitPlay.Click += new System.EventHandler(this.btnMulitPlay_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1515,6 +1527,7 @@
         private System.Windows.Forms.TabPage pageTestData1;
         private System.Windows.Forms.Button btnZLTestData;
         private System.Windows.Forms.Button btnDhTestData;
+        private System.Windows.Forms.Button btnMulitPlay;
     }
 }
 

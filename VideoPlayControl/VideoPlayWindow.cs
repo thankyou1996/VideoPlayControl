@@ -103,6 +103,11 @@ namespace VideoPlayControl
         /// <param name="sender"></param>
         private void timTimtOutVideoClose_Event(object sender)
         {
+            if (!IsHandleCreated)
+            {
+                VideoClose();
+                return;
+            }
             this.BeginInvoke(new EventHandler(delegate
             {
                 VideoClose();
@@ -116,6 +121,11 @@ namespace VideoPlayControl
         /// <param name="objTimeOutVideoRecordValue"></param>
         public void timTimeOutVideoRecordClose_Event(object objTimeOutVideoRecordValue)
         {
+            if (!IsHandleCreated)
+            {
+                VideoClose();
+                return;
+            }
             this.BeginInvoke(new EventHandler(delegate
             {
                 VideoClose();
@@ -281,7 +291,15 @@ namespace VideoPlayControl
             //SDKState.SDKStateChangeEvent += SDKStateChange;
             SDKState.SDKEventStateEvent += SDKStateChangeEvent;
             intptrPlayMain = picPlayMain.Handle;
+            this.Disposed += VideoPlayWindow_Disposed;
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.LoadEnd });
+        }
+
+        private void VideoPlayWindow_Disposed(object sender, EventArgs e)
+        {
+            VideoClose();
+            Console.WriteLine("VideoPlayControlcClose");
+            //throw new NotImplementedException();
         }
 
 

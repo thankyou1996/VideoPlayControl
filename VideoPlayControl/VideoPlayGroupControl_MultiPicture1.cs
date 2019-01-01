@@ -62,7 +62,15 @@ namespace VideoPlayControl
 
         private void VideoPlayGroupControl_MultiPicture1_Load(object sender, EventArgs e)
         {
+            this.Disposed += VideoPlayGroupControl_MultiPicture1_Disposed;
             SetWindowNum(4);
+        }
+
+        private void VideoPlayGroupControl_MultiPicture1_Disposed(object sender, EventArgs e)
+        {
+            VideoColse_All();
+            Console.WriteLine("Control Close");
+            //throw new NotImplementedException();
         }
 
         #region 外部调用接口
@@ -195,6 +203,7 @@ namespace VideoPlayControl
         /// <returns></returns>
         public bool SetPlayVideoInfo(VideoInfo v, int iChannel)
         {
+            CurrentV.CurrentVideoPlaySet = CurrentVideoPlaySet;
             CurrentV.Init_VideoInfo(v, iChannel);
             CurrentV.VideoPlay();
             SetToolTipInfo(CurrentV);
@@ -214,6 +223,7 @@ namespace VideoPlayControl
             {
                 return false;
             }
+            dicWin[iIndex].CurrentVideoPlaySet = CurrentVideoPlaySet;
             dicWin[iIndex].Init_VideoInfo(v);
             dicWin[iIndex].VideoPlay();
             SetToolTipInfo(dicWin[iIndex]);
@@ -226,6 +236,7 @@ namespace VideoPlayControl
             {
                 return false;
             }
+            dicWin[iIndex].CurrentVideoPlaySet = CurrentVideoPlaySet;
             dicWin[iIndex].Init_VideoInfo(v, intChannel);
             dicWin[iIndex].VideoPlay();
             SetToolTipInfo(dicWin[iIndex]);
