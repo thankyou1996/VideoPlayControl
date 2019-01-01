@@ -69,8 +69,6 @@ namespace VideoPlayControl
         private void VideoPlayGroupControl_MultiPicture1_Disposed(object sender, EventArgs e)
         {
             VideoColse_All();
-            Console.WriteLine("Control Close");
-            //throw new NotImplementedException();
         }
 
         #region 外部调用接口
@@ -186,7 +184,7 @@ namespace VideoPlayControl
                 {
                     if (iIndex < this.dicWin.Count)
                     {
-                        Common.Delay_Millisecond(50);
+                        Common.Delay_Millisecond(100);
                         this.SetPlayVideoInfo_Index(info, info2.Channel, iIndex);
                         iIndex++;
                     }

@@ -87,7 +87,7 @@ namespace VideoPlayControl.VideoPlay
 
         private string GetServerSavePath(string strSavePath, string strSaveName)
         {
-            if (!strSaveName.EndsWith(".h264"))
+            if (!strSaveName.ToLower().EndsWith(".h264"))
             {
                 if (string.IsNullOrEmpty(strSaveName))
                 {
@@ -95,7 +95,7 @@ namespace VideoPlayControl.VideoPlay
                 }
                 else
                 {
-                    strSaveName = strSaveName + ".h264";
+                    strSaveName = strSaveName + ".H264";
                 }
             }
             if (strSavePath.Length > 2 && !strSaveName.EndsWith("\\"))

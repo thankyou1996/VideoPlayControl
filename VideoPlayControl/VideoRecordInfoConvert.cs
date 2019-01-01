@@ -114,7 +114,7 @@ namespace VideoPlayControl
                 case Enum_VideoType.XMaiVideo:
                 case Enum_VideoType.SKVideo:
                 case Enum_VideoType.SKNVideo:
-                    sbVideoRecordFileName.Append(".h264");
+                    sbVideoRecordFileName.Append(".H264");
                     break;
                 case Enum_VideoType.BlueSky:
                     sbVideoRecordFileName.Append(".bsr");
