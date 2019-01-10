@@ -128,7 +128,7 @@ namespace VideoPlayControl
                             tablayMain.Controls.Add(videoPlayWindow);
                             tablayMain.SetRow(videoPlayWindow, row);
                             tablayMain.SetColumn(videoPlayWindow, col);
-                            videoPlayWindow.PicMain.Click += videoPlayWindow_PicMain_ClickEvent;
+                            videoPlayWindow.PicMain.MouseDown += PicMain_MouseDown;
                             dicWin[i] = videoPlayWindow;
 
                             i++;
@@ -317,7 +317,7 @@ namespace VideoPlayControl
                 Temp_sbDisplayToopTipInfo.Append("" + v.CurrentVideoInfo.DVSName + "");
                 Temp_sbDisplayToopTipInfo.Append("_" + v.CurrentCameraInfo.CameraName + "");
                 ttip.SetToolTip(v.PicMain, Temp_sbDisplayToopTipInfo.ToString());
-                
+
             }
         }
 
@@ -340,7 +340,7 @@ namespace VideoPlayControl
         }
         #endregion
 
-        private void videoPlayWindow_PicMain_ClickEvent(object sender, EventArgs e)
+        private void PicMain_MouseDown(object sender, MouseEventArgs e)
         {
             PictureBox p = (PictureBox)sender;
             VideoPlayWindow v = (VideoPlayWindow)p.Parent;
@@ -355,11 +355,7 @@ namespace VideoPlayControl
                 {
                     vv.BackColor = clrDefaulWindowColor;
                 }
-                
             }
-            
         }
-
-
     }
 }

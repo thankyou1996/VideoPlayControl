@@ -21,18 +21,18 @@ namespace VideoPlayControl_UseDemo
 
         private void Frm_MulitPicturte_Load(object sender, EventArgs e)
         {
-            VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
-            VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
-            //SDKState.SDKStateChangeEvent += SDKStateChange;
-            //SDKState.CloundSee_SDKInit();
-            //SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit("hdc", "121.41.87.203");
-            //SDKState.HuaMai_Init();
-            //SDKState.ZLVideoSDK_Init();
-            SDKState.DHVideoSDK_Init();
-            videoPlayGroupControl_MultiPicture11.VideoPlayCallbackEvent += VideoPlayGroupControl_MultiPicture11_VideoPlayCallbackEvent;
-            videoPlayGroupControl_MultiPicture11.SelectedWindowHiglight = true ;
-            videoPlayGroupControl_MultiPicture11.AutoSelectedNextWindow = false;
+            //VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
+            //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
+            ////SDKState.SDKStateChangeEvent += SDKStateChange;
+            ////SDKState.CloundSee_SDKInit();
+            ////SDKState.Ezviz_SDKInit();
+            //SDKState.SKVideoSDKInit("hdc", "121.41.87.203");
+            ////SDKState.HuaMai_Init();
+            ////SDKState.ZLVideoSDK_Init();
+            //SDKState.DHVideoSDK_Init();
+            //videoPlayGroupControl_MultiPicture11.VideoPlayCallbackEvent += VideoPlayGroupControl_MultiPicture11_VideoPlayCallbackEvent;
+            //videoPlayGroupControl_MultiPicture11.SelectedWindowHiglight = true ;
+            //videoPlayGroupControl_MultiPicture11.AutoSelectedNextWindow = false;
             videoPlayGroupControl_MultiPicture11.SetWindowNum(9);
             CurrentV = TestDataSource.DaHuaSource.GetDaHuaData1();
         }
@@ -239,6 +239,16 @@ namespace VideoPlayControl_UseDemo
         private void videoPlayGroupControl_MultiPicture11_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void videoPlayGroupControl_MultiPicture11_MouseClick(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("Click");
+        }
+
+        private void videoPlayGroupControl_MultiPicture11_MouseDown(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("MouseDown");
         }
     }
 }

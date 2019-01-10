@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtWindowNum = new System.Windows.Forms.TextBox();
             this.btnSetWinNum = new System.Windows.Forms.Button();
             this.btnSetVideoPlayInfo = new System.Windows.Forms.Button();
@@ -42,8 +43,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTestDataChannel = new System.Windows.Forms.TextBox();
             this.videoPlayGroupControl_MultiPicture11 = new VideoPlayControl.VideoPlayGroupControl_MultiPicture1();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTop.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtWindowNum
@@ -181,12 +187,42 @@
             // videoPlayGroupControl_MultiPicture11
             // 
             this.videoPlayGroupControl_MultiPicture11.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.videoPlayGroupControl_MultiPicture11.ContextMenuStrip = this.contextMenuStrip1;
             this.videoPlayGroupControl_MultiPicture11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoPlayGroupControl_MultiPicture11.Location = new System.Drawing.Point(0, 138);
             this.videoPlayGroupControl_MultiPicture11.Name = "videoPlayGroupControl_MultiPicture11";
             this.videoPlayGroupControl_MultiPicture11.Size = new System.Drawing.Size(779, 455);
             this.videoPlayGroupControl_MultiPicture11.TabIndex = 0;
             this.videoPlayGroupControl_MultiPicture11.Load += new System.EventHandler(this.videoPlayGroupControl_MultiPicture11_Load);
+            this.videoPlayGroupControl_MultiPicture11.MouseClick += new System.Windows.Forms.MouseEventHandler(this.videoPlayGroupControl_MultiPicture11_MouseClick);
+            this.videoPlayGroupControl_MultiPicture11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.videoPlayGroupControl_MultiPicture11_MouseDown);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "1";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Text = "2";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Text = "3";
             // 
             // Frm_MulitPicturte
             // 
@@ -202,6 +238,7 @@
             this.pnlTop.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -222,5 +259,9 @@
         private System.Windows.Forms.TextBox txtTestDataChannel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnMulitPlay;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
     }
 }
