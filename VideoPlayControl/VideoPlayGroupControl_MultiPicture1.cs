@@ -52,9 +52,44 @@ namespace VideoPlayControl
                 videoPlayCallbaclEvent += value;
             }
         }
+
+        /// <summary>
+        /// 播放窗口状态改变事件
+        /// </summary>
+        public event PlayWindowStatusChangedDelegate PlayWindowStatusChangedEvent;
         #endregion
         Dictionary<int, VideoPlayWindow> dicWin = new Dictionary<int, VideoPlayWindow>();
         Dictionary<int, VideoInfo> dicVideo = new Dictionary<int, VideoInfo>();
+
+        /// <summary>
+        /// 0.表示正常状态 
+        /// 1.表示最大化状态
+        /// </summary>
+        private int intPlayWindowsStatus = 0;
+        /// <summary>
+        /// 0.表示正常状态 
+        /// 1.表示最大化状态
+        /// </summary>
+        public int PlayWindowsStatus
+        {
+            get { return intPlayWindowsStatus; }
+            private set
+            {
+                if (intPlayWindowsStatus != value)
+                {
+                    intPlayWindowsStatus = value;
+                    if (PlayWindowStatusChangedEvent != null)
+                    {
+                        PlayWindowStatusChangedEvent(this, null);
+                   }
+                }
+            }
+        }
+
+        public bool PlayWindowsMax
+        {
+            get { return PlayWindowsStatus == 1; }
+        }
         public VideoPlayGroupControl_MultiPicture1()
         {
             InitializeComponent();
@@ -71,9 +106,93 @@ namespace VideoPlayControl
             VideoColse_All();
         }
 
+
+
         #region 外部调用接口
+
         /// <summary>
-        /// 
+        /// 设置播放窗体为最大化模式
+        /// </summary>
+        /// <returns></returns>
+        public bool SetPlayWindowsMax()
+        {
+            return SetPlayWindowsMax(CurrentV);
+        }
+        /// <summary>
+        /// 设置播放窗体为最大化模式
+        /// </summary>
+        /// <param name="vWindows"></param>
+        /// <returns></returns>
+        public bool SetPlayWindowsMax(VideoPlayWindow vWindows)
+        {
+            bool bolResult = false;
+            int Temp_intRow = tablayMain.GetRow(vWindows);
+            int Temp_intColumns = tablayMain.GetColumn(vWindows);
+            tablayMain.SuspendLayout();
+            #region 移除旧控件 信息
+            #endregion
+            if (PlayWindowsMax)
+            {
+                //处于最大化状态，变为等分状态
+                SetPlayWindowsAverage();
+            }
+            else
+            {
+                tablayMain.RowStyles.Clear();
+                tablayMain.ColumnStyles.Clear();
+                //处于等分状态，变为最大化
+                for (int row = 0; row < tablayMain.RowCount; row++)
+                {
+                    if (row == Temp_intRow)
+                    {
+                        tablayMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+                    }
+                    else
+                    {
+                        tablayMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 0));
+                    }
+
+                }
+                for (int col = 0; col < tablayMain.ColumnCount; col++)
+                {
+                    if (col == Temp_intColumns)
+                    {
+                        tablayMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+
+                    }
+                    else
+                    {
+                        tablayMain.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 0));
+                    }
+                }
+                PlayWindowsStatus = 1;
+                tablayMain.ResumeLayout();
+            }
+            return bolResult;
+        }
+
+
+        /// <summary>
+        /// 设置播放窗体为等分模式
+        /// </summary>
+        public void SetPlayWindowsAverage()
+        {
+            tablayMain.RowStyles.Clear();
+            tablayMain.ColumnStyles.Clear();
+            for (int row = 0; row < tablayMain.RowCount; row++)
+            {
+                tablayMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            }
+            for (int col = 0; col < tablayMain.ColumnCount; col++)
+            {
+                tablayMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            }
+            PlayWindowsStatus = 0;
+            tablayMain.ResumeLayout();
+        }
+
+        /// <summary>
+        /// 设置Windows界面数量
         /// </summary>
         /// <param name="intNum"></param>
         public bool SetWindowNum(int intNum)
@@ -82,6 +201,13 @@ namespace VideoPlayControl
             if (this.WindowNum == intNum)
             {
                 this.VideoColse_All();
+                //处于最大化状态
+                if (PlayWindowsMax && this.WindowNum > 1)
+                {
+                    //重置界面
+                    //Row Col重置
+                    SetPlayWindowsAverage();
+                }
                 return true;
             }
             switch (intNum)
@@ -129,6 +255,7 @@ namespace VideoPlayControl
                             tablayMain.SetRow(videoPlayWindow, row);
                             tablayMain.SetColumn(videoPlayWindow, col);
                             videoPlayWindow.PicMain.MouseDown += PicMain_MouseDown;
+                            videoPlayWindow.PicMain.MouseDoubleClick += PicMain_MouseDoubleClick;
                             dicWin[i] = videoPlayWindow;
 
                             i++;
@@ -143,6 +270,10 @@ namespace VideoPlayControl
             return true;
         }
 
+        private void PicMain_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            SetPlayWindowsMax();
+        }
         public bool SetVideoPlaySet(VideoPlaySetting videoPlaySet)
         {
             bool bolResult = false;
@@ -356,6 +487,7 @@ namespace VideoPlayControl
                     vv.BackColor = clrDefaulWindowColor;
                 }
             }
+            Console.WriteLine(v.Name);
         }
     }
 }

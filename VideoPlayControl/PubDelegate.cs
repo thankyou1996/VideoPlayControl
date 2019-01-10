@@ -72,6 +72,15 @@ namespace VideoPlayControl
     /// <param name="StopTalkValue"></param>
     /// <returns></returns>
     public delegate bool StopTalkedDelegate(object sender, object StopTalkValue);
-    #endregion 
+    #endregion
 
+    #region 控件相关
+    /// <summary>
+    /// 播放窗口状态改变回调
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="PlayWindowStatusValue"></param>
+    /// <returns></returns>
+    public delegate bool PlayWindowStatusChangedDelegate(object sender,object PlayWindowStatusValue);
+    #endregion
 }
