@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -128,6 +129,13 @@ namespace VideoPlayControl
         public static extern int OpenSDK_SetVideoLevel(IntPtr SID, int intChannel,int intVideoLevel);
 
 
+        /// <summary>
+        /// 设置视频数据回调
+        /// </summary>
+        /// <param name="SID"></param>
+        /// <param name="callback"></param>
+        /// <param name="intptrUser"></param>
+        /// <returns></returns>
         [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
         public static extern int OpenSDK_SetDataCallBack(IntPtr SID, DataCallBack callback, IntPtr intptrUser);
         
@@ -197,6 +205,18 @@ namespace VideoPlayControl
         public static extern int OpenSDK_PTZCtrlEx(IntPtr intptrSessionID, IntPtr intptrDevSerial, int intChannel, PTZCommand enCommand, PTZAction enAction, int iSpeed);
 
 
+        /// <summary>
+        /// 获取设备能力
+        /// </summary>
+        /// <param name="DevSerial"></param>
+        /// <param name="ChannelNo"></param>
+        /// <param name="bUpdate"></param>
+        /// <param name="pBuf"></param>
+        /// <param name="iBufLen"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
+        public static extern int OpenSDK_Data_GetDevDetailInfo(string DevSerial, int ChannelNo, bool bUpdate, ref IntPtr pBuf, ref int iBufLen);
+
 
 
         /// <summary>
@@ -207,12 +227,16 @@ namespace VideoPlayControl
         public static extern int OpenSDK_GetLastErrorCode();
 
 
+
         /// <summary>
         /// 获取最后错误描述
         /// </summary>
         /// <returns></returns>
         [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
         public static extern IntPtr OpenSDK_GetLastErrorDesc();
+
+
+
 
         #region 音频相关
         /// <summary>
@@ -328,6 +352,37 @@ namespace VideoPlayControl
             }
             intResult = -1;
             return intResult;
+        }
+
+        /// <summary>
+        /// 获取设备清晰度功能
+        /// </summary>
+        /// <param name="strDvsAddress"></param>
+        /// <param name="intChannel"></param>
+        /// <returns></returns>
+        public static List<SDK_EzvizSDK.VideoQualityInfo> GetDevVideoQualityInfo(string strDvsAddress,int intChannel)
+        {
+            List<SDK_EzvizSDK.VideoQualityInfo> result = new List<SDK_EzvizSDK.VideoQualityInfo>();
+            string strBuf = string.Empty;
+            IntPtr hBuf = Marshal.StringToHGlobalAnsi(strBuf);
+            int iLen = 0;
+            int iRet = SDK_EzvizSDK.OpenSDK_Data_GetDevDetailInfo(strDvsAddress, intChannel, false, ref hBuf, ref iLen);
+            if (iRet == 0)
+            {
+                strBuf = Marshal.PtrToStringAnsi(hBuf);
+                Newtonsoft.Json.Linq.JObject json = Newtonsoft.Json.Linq.JObject.Parse(strBuf);
+                if (json["videoQualityInfos"] != null)
+                {
+                    List<Newtonsoft.Json.Linq.JToken> listRecord = json["videoQualityInfos"].Children().ToList();
+                    int i = 0;
+                    int tabIndex = i;
+                    listRecord.ForEach(x =>
+                    {
+                        result.Add(Newtonsoft.Json.JsonConvert.DeserializeObject<SDK_EzvizSDK.VideoQualityInfo>(x.ToString()));
+                    });
+                }
+            }
+            return result;
         }
         #endregion
 
@@ -524,6 +579,18 @@ namespace VideoPlayControl
             LIGHT,
             WIPER,
             AUTO
+        }
+
+        public class VideoQualityInfo
+        {
+            public string videoQualityName;
+            public string videoLevel;
+            public string streamType;
+
+            public override string ToString()
+            {
+                return videoQualityName;
+            }
         }
     }
 

@@ -315,7 +315,7 @@ namespace VideoPlayControl
                 {
                     if (iIndex < this.dicWin.Count)
                     {
-                        Common.Delay_Millisecond(100);
+                        Common.Delay_Millisecond(50);
                         this.SetPlayVideoInfo_Index(info, info2.Channel, iIndex);
                         iIndex++;
                     }
