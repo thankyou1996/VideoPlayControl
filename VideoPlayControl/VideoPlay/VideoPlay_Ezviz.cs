@@ -88,6 +88,7 @@ namespace VideoPlayControl.VideoPlay
                 lstVideoRecord = new List<byte>();
             }
             intptrSessionID = IntPtr.Zero;
+            SDKState.Ezviz_SDKRelease();
             return bolResult;
         }
 
@@ -156,6 +157,7 @@ namespace VideoPlayControl.VideoPlay
             }
             CommonMethod.LogWrite.WriteEventLog("EzvizLog", "VidePlay2_" + CurrentVideoInfo.DVSNumber + CurrentVideoInfo.DVSAddress, ProgParameter.ProgLogAddress);
             bool bolResult = false;
+            SDKState.Ezviz_SDKInit();
             Ezviz_VideoPlay();          //萤石云设备
             return bolResult;
         }

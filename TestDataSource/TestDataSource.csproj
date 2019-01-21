@@ -61,6 +61,7 @@
     <Compile Include="HikDataSource.cs" />
     <Compile Include="TestDataSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XMDataSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,6 +11,7 @@ using System.Threading;
 using static CommonMethod.CommonObject;
 using VideoPlayControl.VideoBasicClass;
 using VideoPlayControl.VideoTalk;
+using VideoPlayControl.VideoPlay;
 
 namespace VideoPlayControl
 {
@@ -311,6 +312,7 @@ namespace VideoPlayControl
         private bool VideoPlayEventCallBackEvent(object sender, VideoPlayCallbackValue eventValue)
         {
             bool bolResult = false;
+            IVideoPlay v = (IVideoPlay)sender;
             if (bolDisplayVideoEvent)
             {
                 StringBuilder sbDisplayInfo = new StringBuilder();
@@ -370,7 +372,7 @@ namespace VideoPlayControl
                         sbDisplayInfo.Append("视频播放异常");
                         break;
                     case Enum_VideoPlayEventType.DevLoginException:
-                        sbDisplayInfo.Append("设备登录异常");
+                        sbDisplayInfo.Append("设备登录异常" + v.CurrentVideoInfo.LoginPrompt);
                         break;
                     case Enum_VideoPlayEventType.DeviceNotExist:
                         sbDisplayInfo.Append("设备不存在");

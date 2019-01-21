@@ -24,7 +24,7 @@ namespace VideoPlayControl_UseDemo
             VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
             VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             SDKState.Ezviz_SDKInit();
-
+            SDKState.XMSDK_Init();
             //videoPlayGroupControls_PTZAndTalk1.bolAutoPlayVideo = true;
             //videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
             //videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoMonitorEnable = true;
@@ -48,7 +48,7 @@ namespace VideoPlayControl_UseDemo
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
             //VideoInfo v = TestDataSource.TestDataSource.GetSKDVSData1();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo4();
+            VideoInfo v = TestDataSource.XMDataSource.GetData1();
             dicVideoInfos[v.DVSNumber] = v;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;

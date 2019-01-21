@@ -25,7 +25,7 @@ namespace VideoPlayControl
     /// <summary>
     /// 视频播放窗口
     /// </summary>
-    public partial class VideoPlayWindow : UserControl
+    public partial class VideoPlayWindow : UserControl,IVideoPlay
     {
         #region 常量 
         /// <summary>
@@ -250,6 +250,8 @@ namespace VideoPlayControl
         /// 视频播放回调事件
         /// </summary>
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
+        public event VideoPlayStateChangedDelegate VideoPlayStateChangedEvent;
+        public event SoundStateChangedDelegate SoundStateChangedEvent;
 
         /// <summary>
         /// 视频播放回调事件
@@ -1419,6 +1421,13 @@ namespace VideoPlayControl
                 return Enum_VideoPlaySoundState.SoundColse;
             }
         }
+
+        VideoInfo IVideoPlay.CurrentVideoInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        CameraInfo IVideoPlay.CurrentCameraInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        IntPtr IVideoPlay.intptrPlayMain { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int VideoplayWindowWidth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int VideoplayWindowHeight { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         /// <summary>
         /// 打开声音通道
         /// </summary>
@@ -1459,6 +1468,36 @@ namespace VideoPlayControl
             {
                 CloseSound();
             }
+        }
+
+        bool IVideoPlay.VideoPlayCallback(VideoPlayCallbackValue value)
+        {
+            return true;
+        }
+
+        bool IVideoPlay.VideoPlay()
+        {
+            return true;
+        }
+
+        public bool VideoPlayEx()
+        {
+            return true;
+        }
+
+        bool IVideoPlay.VideoClose()
+        {
+            return true;
+        }
+
+        bool IVideoPlay.VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
+        {
+            return true;
+        }
+
+        public void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
+        {
+
         }
     }
 }
