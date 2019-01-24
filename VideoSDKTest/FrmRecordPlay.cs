@@ -247,7 +247,7 @@ namespace VideoSDKTest
 
         private void FrmRecordPlay_Load(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.GetHikData1();
+            VideoInfo v = TestDataSource.HikDataSource.GetHikData1();
             CheckForIllegalCrossThreadCalls = false;
             bool bolResult= NET_DVR_Init();//初始化SDK 
             NET_DVR_DEVICEINFO_V30 DeviceInfo = new NET_DVR_DEVICEINFO_V30();

@@ -41,7 +41,7 @@ namespace VideoSDKTest
         {
             bool bolResult = NET_DVR_Init();
             ei = NET_DVR_InitG722Encoder();
-            CurrentVideoInfo = TestDataSource.TestDataSource.GetHikData1();
+            CurrentVideoInfo = TestDataSource.HikDataSource.GetHikData1();
             foreach (CameraInfo c in CurrentVideoInfo.Cameras.Values)
             {
                 CurrentCameraInfo = c;
@@ -233,7 +233,7 @@ namespace VideoSDKTest
             byte[] array = new byte[fs.Length];//初始化字节数组
             StreamReader sr = new StreamReader(fs);
             string s;
-            Console.WriteLine("StartTime:"+DateTime.Now.ToString());
+            Console.WriteLine("StartTime:" + DateTime.Now.ToString());
             while ((s = sr.ReadLine()) != null)
             {
                 //byte[] b=end

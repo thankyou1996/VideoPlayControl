@@ -33,7 +33,7 @@ namespace VideoPlayControl_UseDemo
             //videoPlayGroupControls_Basic1.bolDisPlaySDKState = true;
             //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
             //SDKState.CloundSee_SDKInit();
-            //SDKState.Ezviz_SDKInit();
+            SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
@@ -48,7 +48,7 @@ namespace VideoPlayControl_UseDemo
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
             //VideoInfo v = TestDataSource.TestDataSource.GetSKDVSData1();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.XMDataSource.GetData1();
+            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo();
             dicVideoInfos[v.DVSNumber] = v;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
@@ -236,6 +236,11 @@ namespace VideoPlayControl_UseDemo
         private void Frm_VideoPlayGroupControls_PTZAndTalk_FormClosing(object sender, FormClosingEventArgs e)
         {
             videoPlayGroupControls_PTZAndTalk1.ControlClose();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SDKState.Ezviz_SDKRelease();
         }
     }
 }

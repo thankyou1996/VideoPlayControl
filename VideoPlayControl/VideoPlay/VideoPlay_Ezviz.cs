@@ -88,7 +88,6 @@ namespace VideoPlayControl.VideoPlay
                 lstVideoRecord = new List<byte>();
             }
             intptrSessionID = IntPtr.Zero;
-            SDKState.Ezviz_SDKRelease();
             return bolResult;
         }
 
