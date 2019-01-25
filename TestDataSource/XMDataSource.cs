@@ -21,7 +21,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "123456";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -36,21 +36,21 @@ namespace TestDataSource
 
         #region 陈少华设备测试
 
-        public static VideoInfo GetData_CXH_301001()
+        public static VideoInfo GetData_CXH_403101()
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.XMaiVideo;
             v.DVSAddress = "272fc93dacc12b9a";
             v.DVSChannelNum = 1;
             v.DVSConnectPort = 34567;
-            v.DVSName = "03101	正定佳悦超市";
-            v.DVSNumber = "000801";
+            v.DVSName = "403101	正定佳悦超市";
+            v.DVSNumber = "403101";
             v.DVSType = "SK8605XM";
-            v.HostID = "3010";
+            v.HostID = "4031";
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -77,7 +77,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -104,7 +104,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -131,7 +131,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -157,7 +157,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -185,7 +185,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -212,7 +212,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -238,7 +238,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -264,7 +264,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -290,7 +290,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -316,7 +316,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -342,7 +342,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -368,7 +368,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -394,7 +394,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -420,7 +420,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -445,7 +445,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -471,7 +471,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -497,7 +497,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -523,7 +523,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -549,7 +549,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -575,7 +575,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -601,7 +601,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -627,7 +627,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -653,7 +653,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
@@ -678,7 +678,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "lidun110";
             v.NetworkState = 0;
-            for (int i = 0; i < v.DVSChannelNum; i++)
+            for (int i = 1; i <= v.DVSChannelNum; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);

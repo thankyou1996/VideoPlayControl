@@ -1276,12 +1276,39 @@ namespace VideoPlayControl_UseDemo
         }
         private void btnXMTestData2_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.XMDataSource2();
-            dicVideoInfos[v.DVSNumber] = v;
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_403101());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_400001());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_400101());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_400401());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_400601());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_400701());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_400801());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_401001());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_401201());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_401601());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_401701());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_401901());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_402001());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_402201());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_402301());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_402501());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_402801());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_402901());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_403301());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_403801());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_404001());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_404201());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_404301());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_404401());
+            AddDicVideoInfos(TestDataSource.XMDataSource.GetData_CXH_404501());
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
         }
 
+        public void AddDicVideoInfos(VideoInfo v)
+        {
+            dicVideoInfos[v.DVSNumber] = v;
+        }
         private void btnStartTalk_Click(object sender, EventArgs e)
         {
 
