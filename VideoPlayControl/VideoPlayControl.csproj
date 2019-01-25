@@ -136,6 +136,7 @@
     <Compile Include="VideoPlayGroupControl_MultiPicture1.designer.cs">
       <DependentUpon>VideoPlayGroupControl_MultiPicture1.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoPlay\VideoPlay_CloundSee.cs" />
     <Compile Include="VideoPlay\VideoPlay_DaHua.cs" />
     <Compile Include="VideoPlay\VideoPlay_Ezviz.cs" />
     <Compile Include="VideoPlay\VideoPlay_IMOS.cs" />

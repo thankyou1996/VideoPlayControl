@@ -49,6 +49,7 @@
             this.btnSKTestData1 = new System.Windows.Forms.Button();
             this.btnSKTestData = new System.Windows.Forms.Button();
             this.PageOther = new System.Windows.Forms.TabPage();
+            this.btnMulitPlay = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnStartTalk = new System.Windows.Forms.Button();
             this.btnStopTest = new System.Windows.Forms.Button();
@@ -142,7 +143,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
-            this.btnMulitPlay = new System.Windows.Forms.Button();
+            this.btnCloundSee = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -222,6 +223,7 @@
             // 
             // pageTestData1
             // 
+            this.pageTestData1.Controls.Add(this.btnCloundSee);
             this.pageTestData1.Controls.Add(this.btnDhTestData);
             this.pageTestData1.Controls.Add(this.btnZLTestData);
             this.pageTestData1.Location = new System.Drawing.Point(4, 22);
@@ -395,6 +397,16 @@
             this.PageOther.TabIndex = 1;
             this.PageOther.Text = "其他";
             this.PageOther.UseVisualStyleBackColor = true;
+            // 
+            // btnMulitPlay
+            // 
+            this.btnMulitPlay.Location = new System.Drawing.Point(9, 52);
+            this.btnMulitPlay.Name = "btnMulitPlay";
+            this.btnMulitPlay.Size = new System.Drawing.Size(75, 23);
+            this.btnMulitPlay.TabIndex = 18;
+            this.btnMulitPlay.Text = "多路视频测试";
+            this.btnMulitPlay.UseVisualStyleBackColor = true;
+            this.btnMulitPlay.Click += new System.EventHandler(this.btnMulitPlay_Click);
             // 
             // button1
             // 
@@ -709,6 +721,9 @@
             this.videoWindowTest.Size = new System.Drawing.Size(219, 136);
             this.videoWindowTest.TabIndex = 0;
             this.videoWindowTest.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
+            this.videoWindowTest.VideoplayWindowHeight = 10;
+            this.videoWindowTest.VideoplayWindowWidth = 10;
+
             // 
             // chkMonitorEnable
             // 
@@ -1353,15 +1368,15 @@
             this.timCurrentChannelLoop.Interval = 3000;
             this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
             // 
-            // btnMulitPlay
+            // btnCloundSee
             // 
-            this.btnMulitPlay.Location = new System.Drawing.Point(9, 52);
-            this.btnMulitPlay.Name = "btnMulitPlay";
-            this.btnMulitPlay.Size = new System.Drawing.Size(75, 23);
-            this.btnMulitPlay.TabIndex = 18;
-            this.btnMulitPlay.Text = "多路视频测试";
-            this.btnMulitPlay.UseVisualStyleBackColor = true;
-            this.btnMulitPlay.Click += new System.EventHandler(this.btnMulitPlay_Click);
+            this.btnCloundSee.Location = new System.Drawing.Point(162, 3);
+            this.btnCloundSee.Name = "btnCloundSee";
+            this.btnCloundSee.Size = new System.Drawing.Size(75, 23);
+            this.btnCloundSee.TabIndex = 16;
+            this.btnCloundSee.Text = "云视通";
+            this.btnCloundSee.UseVisualStyleBackColor = true;
+            this.btnCloundSee.Click += new System.EventHandler(this.btnCloundSee_Click);
             // 
             // FrmMain
             // 
@@ -1528,6 +1543,7 @@
         private System.Windows.Forms.Button btnZLTestData;
         private System.Windows.Forms.Button btnDhTestData;
         private System.Windows.Forms.Button btnMulitPlay;
+        private System.Windows.Forms.Button btnCloundSee;
     }
 }
 

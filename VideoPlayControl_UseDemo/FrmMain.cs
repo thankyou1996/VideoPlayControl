@@ -1370,6 +1370,13 @@ namespace VideoPlayControl_UseDemo
             cmbVideoList.SelectedIndex = 0;
         }
 
+        private void btnCloundSee_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = TestDataSource.CloundSeeDataSource.GetData1();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
         private void btnMulitPlay_Click(object sender, EventArgs e)
         {
             FrmMulitPlayTest1 frm = new FrmMulitPlayTest1();

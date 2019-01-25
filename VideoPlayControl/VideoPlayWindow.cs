@@ -1422,11 +1422,15 @@ namespace VideoPlayControl
             }
         }
 
-        VideoInfo IVideoPlay.CurrentVideoInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        CameraInfo IVideoPlay.CurrentCameraInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        IntPtr IVideoPlay.intptrPlayMain { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int VideoplayWindowWidth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int VideoplayWindowHeight { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        VideoInfo IVideoPlay.CurrentVideoInfo { get; set; }
+        CameraInfo IVideoPlay.CurrentCameraInfo { get; set; }
+        IntPtr IVideoPlay.intptrPlayMain { get; set; }
+
+        private int intVideoplayWindowWidth;
+        public int VideoplayWindowWidth { get { return intVideoplayWindowWidth; } set { intVideoplayWindowWidth = value; } }
+
+        private int intVideoplayWindowHeight;
+        public int VideoplayWindowHeight { get { return intVideoplayWindowHeight; } set { intVideoplayWindowHeight = value; } }
 
         /// <summary>
         /// 打开声音通道
