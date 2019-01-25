@@ -50,6 +50,16 @@ namespace VideoPlayControl
         public static extern int OpenSDK_SetAccessToken(IntPtr intptrToken);
 
         /// <summary>
+        /// 全局配置信息, 根据ConfigKey进行配置 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strEzvizSDKFilePath)]
+        public static extern int OpenSDK_SetConfigInfo(ConfigKey key,int value);
+
+
+        /// <summary>
         /// 获取设备列表
         /// </summary>
         /// <param name="accessToken"></param>
@@ -591,6 +601,35 @@ namespace VideoPlayControl
             {
                 return videoQualityName;
             }
+        }
+
+
+        /// <summary>
+        /// 全局配置信息枚举
+        /// </summary>
+        public enum ConfigKey
+        {
+            /// <summary>
+            /// 数据输出使用UTF8
+            /// </summary>
+            CONFIG_DATA_UTF8 = 1,
+            /// <summary>
+            /// 码流数据输出经过转封装处理, 用于录像存储
+            /// value: 1原始数据   0 经过封装库  
+            /// 默认为0
+            /// </summary>
+            CONFIG_OPEN_STREAMTRANS = 2,
+            /// <summary>
+            /// P2P开关, 用于关闭P2P
+            /// </summary>
+            CONFIG_CLOSE_P2P = 3,
+            /// <summary>
+            /// 配置日志等级,参见 #OpenSDK_LogLevel
+            /// </summary>
+            CONFIG_LOG_LEVEL = 4,
+            CONFIG_P2P_MAXNUM = 6,
+            CONFIG_P2P_CHECK_PERIOD = 7,
+            CONFIG_P2P_EXPIRE = 8
         }
     }
 

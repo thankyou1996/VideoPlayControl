@@ -235,6 +235,7 @@ namespace VideoPlayControl
                     SDK_EzvizSDK.GetAccessToken();
                     IntPtr intptrToken = Marshal.StringToHGlobalAnsi(ProgParameter.strEzviz_AccessToken);
                     SDK_EzvizSDK.OpenSDK_SetAccessToken(intptrToken);
+                    SDK_EzvizSDK.OpenSDK_SetConfigInfo(SDK_EzvizSDK.ConfigKey.CONFIG_OPEN_STREAMTRANS, 1);
                 }
                 else
                 {
