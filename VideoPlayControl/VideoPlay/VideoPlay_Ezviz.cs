@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 using PublicClassCurrency;
 using VideoPlayControl.Enum;
 using VideoPlayControl.VideoBasicClass;
@@ -19,7 +20,26 @@ namespace VideoPlayControl.VideoPlay
         public VideoInfo CurrentVideoInfo { get; set; }
         public CameraInfo CurrentCameraInfo { get; set; }
         public VideoPlaySetting CurrentVideoPlaySet { get; set; }
-        public IntPtr intptrPlayMain { get; set; }
+
+        private PictureBox picPlayMain = null;
+        public PictureBox PicPlayMain
+        {
+            get
+            {
+                return picPlayMain;
+            }
+
+            set
+            {
+                picPlayMain = value;
+                intptrPlayMain = picPlayMain.Handle;
+            }
+        }
+        public IntPtr intptrPlayMain
+        {
+            get;
+            private set;
+        }
         private Enum_VideoPlayState videoPlayState = Enum_VideoPlayState.VideoInfoNull;
         public Enum_VideoPlayState VideoPlayState
         {

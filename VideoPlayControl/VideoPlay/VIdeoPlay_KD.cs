@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using VideoPlayControl.Enum;
 using VideoPlayControl.VideoBasicClass;
 
@@ -16,7 +17,25 @@ namespace VideoPlayControl.VideoPlay
         public VideoInfo CurrentVideoInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public CameraInfo CurrentCameraInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public VideoPlaySetting CurrentVideoPlaySet { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IntPtr intptrPlayMain { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        private PictureBox picPlayMain = null;
+        public PictureBox PicPlayMain
+        {
+            get
+            {
+                return picPlayMain;
+            }
+
+            set
+            {
+                picPlayMain = value;
+                intptrPlayMain = picPlayMain.Handle;
+            }
+        }
+        public IntPtr intptrPlayMain
+        {
+            get;
+            private set;
+        }
         private Enum_VideoPlayState videoPlayState = Enum_VideoPlayState.VideoInfoNull;
         public Enum_VideoPlayState VideoPlayState
         {

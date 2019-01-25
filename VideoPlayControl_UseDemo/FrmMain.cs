@@ -76,7 +76,7 @@ namespace VideoPlayControl_UseDemo
             //VideoPlayControl.ProgParameter.strEzviz__AppID = "1acd8ddc451f48a4b8b4666716e8f9ce";
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "518335cd3421f16a4b4e88164225c432";
             SDKState.SDKStateChangeEvent += SDKStateChange;
-            //SDKState.CloundSee_SDKInit();
+            SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19");
             //SDKState.HuaMai_Init();
@@ -89,6 +89,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.DHVideoSDK_Init();
             SDKState.DHVideoSDK_Init();
             SDKState.ZLVideoSDK_Init();
+
             Init();
 
 
@@ -1372,7 +1373,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnCloundSee_Click(object sender, EventArgs e)
         {
-            VideoInfo videoInfo = TestDataSource.CloundSeeDataSource.GetData1();
+            VideoInfo videoInfo = TestDataSource.CloundSeeDataSource.GetData2();
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

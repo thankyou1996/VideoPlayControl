@@ -189,12 +189,6 @@ namespace VideoPlayControl
         /// </summary>
         public int intConnCount;
 
-        /// <summary>
-        /// 播放窗口句柄
-        /// </summary>
-        IntPtr intptrPlayMain = IntPtr.Zero;
-
-
         List<byte> lstVideoRecord = new List<byte>();
         private object objVideoRecordLock = new object();
         #endregion
@@ -496,6 +490,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.DaHuaVideo:
                         iv = new VideoPlay_DaHua();
                         break;
+                    //case Enum_VideoType.CloundSee:
+                    //    iv = new VideoPlay_CloundSee();
+                    //    break;
                     default:
                         iv = null;
                         break;
@@ -544,7 +541,7 @@ namespace VideoPlayControl
             }
             if (iv != null)
             {
-                iv.intptrPlayMain = intptrPlayMain;
+                iv.PicPlayMain = this.picPlayMain;
                 iv.CurrentVideoInfo = CurrentVideoInfo;
                 iv.CurrentCameraInfo = CurrentCameraInfo;
                 iv.CurrentVideoPlaySet = currentVideoPlaySet;
@@ -1388,6 +1385,9 @@ namespace VideoPlayControl
                             //axRASPlayerOCX1.();
                         }
                         break;
+                    default:
+                        iv.VideoSizeChange(0, picPlayMain.Width, 0, picPlayMain.Bottom);
+                        break;
                 }
             }
         }
@@ -1424,7 +1424,17 @@ namespace VideoPlayControl
 
         VideoInfo IVideoPlay.CurrentVideoInfo { get; set; }
         CameraInfo IVideoPlay.CurrentCameraInfo { get; set; }
-        IntPtr IVideoPlay.intptrPlayMain { get; set; }
+        public PictureBox PicPlayMain
+        {
+            get { return this.picPlayMain; }
+            set { }
+        }
+
+        public IntPtr intptrPlayMain
+        {
+            get;
+            private set;
+        }
 
         private int intVideoplayWindowWidth;
         public int VideoplayWindowWidth { get { return intVideoplayWindowWidth; } set { intVideoplayWindowWidth = value; } }
