@@ -210,7 +210,7 @@ namespace VideoPlayControl_UseDemo
 
         private void Frm_VideoPlayGroupControls_PTZAndTalk_Move(object sender, EventArgs e)
         {
-            videoPlayGroupControls_PTZAndTalk1.ControlMove();
+            //videoPlayGroupControls_PTZAndTalk1.ControlMove();
         }
 
         private void button1_Click(object sender, EventArgs e)

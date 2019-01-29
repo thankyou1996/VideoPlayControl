@@ -321,14 +321,17 @@ namespace VideoPlayControl_UseDemo
             tlpPlayVIdeoWindows.ColumnCount = intCurrentCol;
             tlpPlayVIdeoWindows.SuspendLayout();
             #region 移除旧控件 信息
-            foreach (VideoPlayWindow v in lstVideoPlayWindow)
-            {
-                v.VideoPlayWindows_Close();
-            }
             lstVideoPlayWindow.Clear();
 
             tlpPlayVIdeoWindows.RowStyles.Clear();
             tlpPlayVIdeoWindows.ColumnStyles.Clear();
+            foreach (Control c in tlpPlayVIdeoWindows.Controls)
+            {
+                if (c.GetType() == typeof(GroupBox))
+                {
+                    c.Dispose();
+                }
+            }
             tlpPlayVIdeoWindows.Controls.Clear();
             #endregion
 
@@ -481,8 +484,7 @@ namespace VideoPlayControl_UseDemo
 
         private void FrmMain_Move(object sender, EventArgs e)
         {
-            videoWindowTest.VideoPlayWindows_Move();
-            //videoPlayMain2.VideoPlayWindows_Move();
+
         }
 
         private void btnVideoPlayClose_Click(object sender, EventArgs e)

@@ -29,12 +29,12 @@ namespace VideoPlayControl_UseDemo
         }
         private void Frm_VideoPlayWindows_FormClosing(object sender, FormClosingEventArgs e)
         {
-            videoPlayWindow1.VideoPlayWindows_Close();
+
         }
 
         private void Frm_VideoPlayWindows_Move(object sender, EventArgs e)
         {
-            videoPlayWindow1.VideoPlayWindows_Move();
+
         }
 
         private void videoPlayWindow1_MouseDoubleClick(object sender, MouseEventArgs e)

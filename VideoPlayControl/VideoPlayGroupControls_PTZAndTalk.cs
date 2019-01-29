@@ -552,13 +552,6 @@ namespace VideoPlayControl
             
         }
 
-        /// <summary>
-        /// 控件移动事件
-        /// </summary>
-        public void ControlMove()
-        {
-            videoPlayWindow.VideoPlayWindows_Move();
-        }
 
         
         /// <summary>
@@ -629,7 +622,7 @@ namespace VideoPlayControl
         /// </summary>
         public void ControlClose()
         {
-            videoPlayWindow.VideoPlayWindows_Close();
+            //videoPlayWindow.VideoPlayWindows_Close();
             videoTalkControlManyChannel1.ControlColse();
         }
 

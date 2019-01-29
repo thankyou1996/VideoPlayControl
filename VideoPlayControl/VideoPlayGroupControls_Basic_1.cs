@@ -381,14 +381,6 @@ namespace VideoPlayControl
             }));
         }
 
-        /// <summary>
-        /// 控件移动事件
-        /// </summary>
-        public void ControlMove()
-        {
-            videoPlayWindow.VideoPlayWindows_Move();
-        }
-
 
         /// <summary>
         ///  播放视频
@@ -458,7 +450,7 @@ namespace VideoPlayControl
         /// </summary>
         public void ControlClose()
         {
-            videoPlayWindow.VideoPlayWindows_Close();
+
         }
 
         #endregion

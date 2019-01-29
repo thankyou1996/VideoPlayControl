@@ -45,12 +45,16 @@ namespace VideoPlayControl
         /// <summary>
         /// 当前视频视频设备信息
         /// </summary>
-        public VideoInfo CurrentVideoInfo;
+        public VideoInfo CurrentVideoInfo
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// 当前摄像头信息
         /// </summary>
-        public CameraInfo CurrentCameraInfo;
+        public CameraInfo CurrentCameraInfo { get; set; }
 
         IVideoPlay iv;
         /// <summary>
@@ -284,39 +288,37 @@ namespace VideoPlayControl
 
         private void VideoPlayMain_Load(object sender, EventArgs e)
         {
-            //SDKState.SDKStateChangeEvent += SDKStateChange;
-            SDKState.SDKEventStateEvent += SDKStateChangeEvent;
             intptrPlayMain = picPlayMain.Handle;
             this.Disposed += VideoPlayWindow_Disposed;
+            if (this.ParentForm != null)
+            {
+                this.ParentForm.Move += ParentForm_Move;
+            }
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.LoadEnd });
+        }
+
+        private void ParentForm_Move(object sender, EventArgs e)
+        {
+            if (CurrentVideoInfo != null)
+            {
+                switch (CurrentVideoInfo.VideoType)
+                {
+                    case Enum_VideoType.IPCWA:
+                        if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+                        {
+                            //axRASPlayerOCX1.();
+                        }
+                        break;
+                    default:
+                        iv.VideoSizeChange(0, picPlayMain.Width, 0, picPlayMain.Bottom);
+                        break;
+                }
+            }
         }
 
         private void VideoPlayWindow_Disposed(object sender, EventArgs e)
         {
             VideoClose();
-            Console.WriteLine("VideoPlayControlcClose");
-            //throw new NotImplementedException();
-        }
-
-
-        /// <summary>
-        /// SDK状态改变事件
-        /// </summary>
-        /// <param name="sdkType"></param>
-        /// <param name="sdkStateEvent"></param>
-        public void SDKStateChangeEvent(Enum_VideoType sdkType, Enum_SDKStateEventType sdkStateEvent)
-        {
-            switch (sdkType)
-            {
-                case Enum_VideoType.CloundSee:
-                    if (sdkStateEvent == Enum_SDKStateEventType.SDKReleaseStart)
-                    {
-                        //开始释放SDK 
-                        CloundSee_VideoClose();
-                        intCloundSee_ConnID = -1;
-                    }
-                    break;
-            }
         }
 
         #region  视频设备基本信息赋值
@@ -445,11 +447,11 @@ namespace VideoPlayControl
             //    picPlayMain.Visible = true;
             //    axRASPlayerOCX1.Visible = false;
             //}
-            if (CurrentVideoInfo.VideoType == Enum_VideoType.CloundSee)
-            {
-                CloundSee_VideoLPRECTChanged();
-                CloundSee_InitSDKCallBack();
-            }
+            //if (CurrentVideoInfo.VideoType == Enum_VideoType.CloundSee)
+            //{
+            //    CloundSee_VideoLPRECTChanged();
+            //    CloundSee_InitSDKCallBack();
+            //}
             InterfaceInit();
         }
 
@@ -490,9 +492,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.DaHuaVideo:
                         iv = new VideoPlay_DaHua();
                         break;
-                    //case Enum_VideoType.CloundSee:
-                    //    iv = new VideoPlay_CloundSee();
-                    //    break;
+                    case Enum_VideoType.CloundSee:
+                        iv = new VideoPlay_CloundSee();
+                        break;
                     default:
                         iv = null;
                         break;
@@ -532,6 +534,9 @@ namespace VideoPlayControl
                             break;
                         case Enum_VideoType.DaHuaVideo:
                             iv = new VideoPlay_DaHua();
+                            break;
+                        case Enum_VideoType.CloundSee:
+                            iv = new VideoPlay_CloundSee();
                             break;
                         default:
                             iv = null;
@@ -1214,9 +1219,9 @@ namespace VideoPlayControl
                 case Enum_VideoType.Unrecognized:
                     //不做操作
                     break;
-                case Enum_VideoType.CloundSee:  //云视通设备
-                    CloundSee_VideoPlay();
-                    break;
+                //case Enum_VideoType.CloundSee:  //云视通设备
+                //    CloundSee_VideoPlay();
+                //    break;
                 case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
                     IPCWA_VideoPlay();
                     break;
@@ -1236,9 +1241,9 @@ namespace VideoPlayControl
         {
             switch (CurrentVideoInfo.VideoType)
             {
-                case Enum_VideoType.CloundSee:
-                    CloundSee_SetPresetPosi(videoPlaySetting.PreSetPosi);
-                    break;
+                //case Enum_VideoType.CloundSee:
+                //    CloundSee_SetPresetPosi(videoPlaySetting.PreSetPosi);
+                //    break;
             }
         }
 
@@ -1273,9 +1278,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.Unrecognized:
                         //不做操作
                         break;
-                    case Enum_VideoType.CloundSee:
-                        CloundSee_VideoClose();
-                        break;
+                    //case Enum_VideoType.CloundSee:
+                    //    CloundSee_VideoClose();
+                    //    break;
                     case Enum_VideoType.IPCWA:
                         IPCWA_VideoClose();
                         break;
@@ -1304,9 +1309,9 @@ namespace VideoPlayControl
             {
                 switch (CurrentVideoInfo.VideoType)
                 {
-                    case Enum_VideoType.CloundSee:
-                        CloundSee_PTZControl(PTZControl, bolStart);
-                        break;
+                    //case Enum_VideoType.CloundSee:
+                    //    CloundSee_PTZControl(PTZControl, bolStart);
+                    //    break;
                     case Enum_VideoType.IPCWA:
                         IPCWA_PTZControl(PTZControl);
                         break;
@@ -1328,10 +1333,6 @@ namespace VideoPlayControl
         #endregion
 
         #region 控件事件
-        private void VideoPlayMain_Move(object sender, EventArgs e)
-        {
-            VideoPlayWindows_Move();
-        }
 
         private void picPlayMain_SizeChanged(object sender, EventArgs e)
         {
@@ -1341,13 +1342,6 @@ namespace VideoPlayControl
             {
                 switch (CurrentVideoInfo.VideoType)
                 {
-                    case Enum_VideoType.CloundSee:
-                        CloundSee_VideoLPRECTChanged();
-                        if (VideoPlayState == Enum_VideoPlayState.InPlayState)
-                        {
-                            CloundSee_VideoPreview();
-                        }
-                        break;
                     case Enum_VideoType.IPCWA:
                         if (VideoPlayState == Enum_VideoPlayState.InPlayState)
                         {
@@ -1363,46 +1357,6 @@ namespace VideoPlayControl
                 }
             }
         }
-        #endregion
-
-        #region VideoPlayWindows事件
-        public void VideoPlayWindows_Move()
-        {
-            if (CurrentVideoInfo != null)
-            {
-                switch (CurrentVideoInfo.VideoType)
-                {
-                    case Enum_VideoType.CloundSee:
-                        CloundSee_VideoLPRECTChanged();
-                        if (VideoPlayState == Enum_VideoPlayState.InPlayState)
-                        {
-                            CloundSee_VideoPreview();
-                        }
-                        break;
-                    case Enum_VideoType.IPCWA:
-                        if (VideoPlayState == Enum_VideoPlayState.InPlayState)
-                        {
-                            //axRASPlayerOCX1.();
-                        }
-                        break;
-                    default:
-                        iv.VideoSizeChange(0, picPlayMain.Width, 0, picPlayMain.Bottom);
-                        break;
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// 视频控件关闭
-        /// </summary>
-        public void VideoPlayWindows_Close()
-        {
-            VideoClose();
-            SDKState.SDKEventStateEvent -= SDKStateChangeEvent;
-            //axRASPlayerOCX1.Dispose();
-        }
-
         #endregion
 
 
@@ -1421,9 +1375,7 @@ namespace VideoPlayControl
                 return Enum_VideoPlaySoundState.SoundColse;
             }
         }
-
-        VideoInfo IVideoPlay.CurrentVideoInfo { get; set; }
-        CameraInfo IVideoPlay.CurrentCameraInfo { get; set; }
+        
         public PictureBox PicPlayMain
         {
             get { return this.picPlayMain; }

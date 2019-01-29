@@ -225,7 +225,7 @@ namespace VideoPlayControl_UseDemo
 
         private void Frn_VideoPlayGroupControl_Basic_Move(object sender, EventArgs e)
         {
-            videoPlayGroupControls_Basic1.ControlMove();
+            //videoPlayGroupControls_Basic1.ControlMove();
         }
 
 

@@ -79,7 +79,6 @@
             this.Name = "VideoPlayWindow";
             this.Size = new System.Drawing.Size(240, 180);
             this.Load += new System.EventHandler(this.VideoPlayMain_Load);
-            this.Move += new System.EventHandler(this.VideoPlayMain_Move);
             ((System.ComponentModel.ISupportInitialize)(this.picPlayMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSound)).EndInit();
             this.ResumeLayout(false);

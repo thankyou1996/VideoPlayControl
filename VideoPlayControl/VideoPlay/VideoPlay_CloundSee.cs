@@ -28,7 +28,6 @@ namespace VideoPlayControl.VideoPlay
             {
                 return picPlayMain;
             }
-
             set
             {
                 picPlayMain = value;
@@ -101,7 +100,7 @@ namespace VideoPlayControl.VideoPlay
                 case SDK_JCSDK.JCEventType.JCET_ConnectOK:  //连接成功
                     videoEvType = Enum_SDKEventType.ConnectOK;
                     CurrentVideoInfo.NetworkState = 1;          //置为在线
-                    CloundSee_VideoLPRECTChanged();
+                    //CloundSee_VideoLPRECTChanged();
                     VideoPlay_VideoPreview(false);
                     VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
                     VideoPlayState = Enum_VideoPlayState.InPlayState;
