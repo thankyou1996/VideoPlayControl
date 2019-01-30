@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="VideoBasicClass\Base64coder.cs" />
     <Compile Include="VideoBasicClass\Enum_TalkModel.cs" />
+    <Compile Include="VideoBasicClass\PresetControlValue.cs" />
     <Compile Include="VideoBasicClass\RemoteVideoRecordInfo.cs" />
     <Compile Include="VideoBasicClass\SoundClass.cs" />
     <Compile Include="VideoBasicClass\TalkSetting.cs" />

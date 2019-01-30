@@ -601,42 +601,6 @@ namespace VideoPlayControl
         }
         #endregion
 
-        #region CloundSeeSDK 云视通
-
-        #region 全局变量
-        /// <summary>
-        /// 云视通_当前连接ID
-        /// </summary>
-        public int intCloundSee_ConnID = -1;
-
-
-        IntPtr intptrCloundSee_PlayRect = IntPtr.Zero;
-
-        /// <summary>
-        /// 云视通_事件回调
-        /// </summary>
-        public static SDK_JCSDK.JCEventCallback_t gEventCallback = null;
-        #endregion
-
-        #region 初始化
-
-        #endregion
-
-        #region 基本事件
-
-
-        /// <summary>
-        /// 设置预置点位置（仅在主线程中调用有效）
-        /// </summary>
-        /// <param name="intPreSetPosi"></param>
-        public void CloundSee_SetPresetPosi(int intPreSetPosi)
-        {
-            SDK_JCSDK.JCSDK_PresetCall(CurrentCameraInfo.Channel, intPreSetPosi);
-        }
-
-        #endregion
-
-        #endregion
 
         #region IPCWA 普顺达
         /// <summary>
@@ -946,15 +910,7 @@ namespace VideoPlayControl
         /// <param name="intPresetPosi"></param>
         public void SetPresetPosi(int intPresetPosi)
         {
-            if (VideoPlayState == Enum_VideoPlayState.InPlayState)
-            {
-                switch (CurrentVideoInfo.VideoType)
-                {
-                    case Enum_VideoType.CloundSee:
-                        CloundSee_SetPresetPosi(intPresetPosi);
-                        break;
-                }
-            }
+            LinkagePresetPoint(intPresetPosi);
         }
 
         /// <summary>
@@ -1156,7 +1112,21 @@ namespace VideoPlayControl
 
         public void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
         {
-
+            
+        }
+        /// <summary>
+        /// 联动预置点
+        /// </summary>
+        /// <param name="intPrestValue"></param>
+        /// <returns></returns>
+        public bool LinkagePresetPoint(int intPrestValue)
+        {
+            bool bolResult = false;
+            if (iv != null)
+            {
+                bolResult = iv.LinkagePresetPoint(intPrestValue);
+            }
+            return bolResult;
         }
     }
 }

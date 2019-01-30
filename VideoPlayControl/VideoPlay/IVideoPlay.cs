@@ -129,6 +129,15 @@ namespace VideoPlayControl.VideoPlay
         /// <param name="bolStart"></param>
         /// <returns></returns>
         bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart);
+
+
+        /// <summary>
+        /// 联动预置点
+        /// </summary>
+        /// <param name="intPrestValue"></param>
+        /// <returns></returns>
+        bool LinkagePresetPoint(int intPrestValue);
+
         #endregion
         void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom);
 

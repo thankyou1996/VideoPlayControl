@@ -143,10 +143,17 @@ namespace VideoPlayControl.VideoPlay
 
         public bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
         {
-            //throw new NotImplementedException();
             return false;
         }
-
+        /// <summary>
+        /// 联动预置点
+        /// </summary>
+        /// <param name="intPrestValue"></param>
+        /// <returns></returns>
+        public bool LinkagePresetPoint(int intPrestValue)
+        {
+            return false;
+        }
         public void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
         {
             //throw new NotImplementedException();

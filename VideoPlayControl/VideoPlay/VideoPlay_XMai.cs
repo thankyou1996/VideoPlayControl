@@ -304,7 +304,15 @@ namespace VideoPlayControl.VideoPlay
             return bolResult;
         }
 
-
+        /// <summary>
+        /// 联动预置点
+        /// </summary>
+        /// <param name="intPrestValue"></param>
+        /// <returns></returns>
+        public bool LinkagePresetPoint(int intPrestValue)
+        {
+            return false;
+        }
 
         private string GetDevListKey(VideoInfo v)
         {

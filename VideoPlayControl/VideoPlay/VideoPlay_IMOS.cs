@@ -97,7 +97,15 @@ namespace VideoPlayControl.VideoPlay
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// 联动预置点
+        /// </summary>
+        /// <param name="intPrestValue"></param>
+        /// <returns></returns>
+        public bool LinkagePresetPoint(int intPrestValue)
+        {
+            return false;
+        }
         public void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
         {
             //throw new NotImplementedException();

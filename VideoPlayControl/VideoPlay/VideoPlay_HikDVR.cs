@@ -303,7 +303,15 @@ namespace VideoPlayControl.VideoPlay
         {
             return false;
         }
-
+        /// <summary>
+        /// 联动预置点
+        /// </summary>
+        /// <param name="intPrestValue"></param>
+        /// <returns></returns>
+        public bool LinkagePresetPoint(int intPrestValue)
+        {
+            return false;
+        }
         public bool VideoPlayEx()
         {
             throw new NotImplementedException();

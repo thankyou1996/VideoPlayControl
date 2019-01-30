@@ -280,7 +280,19 @@ namespace VideoPlayControl.VideoPlay
             }
             return bolResult;
         }
-
+        /// <summary>
+        /// 联动预置点
+        /// </summary>
+        /// <param name="intPrestValue"></param>
+        /// <returns></returns>
+        public bool LinkagePresetPoint(int intPrestValue)
+        {
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+            {
+                SDK_JCSDK.JCSDK_PresetCall(CurrentCameraInfo.Channel, intPrestValue);
+            }
+            return true;
+        }
         public void VideoSizeChange(int intPosX, int intPosY, int intWidth, int intHeight)
         {
             CloundSee_VideoLPRECTChanged();
