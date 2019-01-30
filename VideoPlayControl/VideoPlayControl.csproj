@@ -140,6 +140,7 @@
     <Compile Include="VideoPlay\VideoPlay_CloundSee.cs" />
     <Compile Include="VideoPlay\VideoPlay_DaHua.cs" />
     <Compile Include="VideoPlay\VideoPlay_Ezviz.cs" />
+    <Compile Include="VideoPlay\VideoPlay_HuaMai.cs" />
     <Compile Include="VideoPlay\VideoPlay_IMOS.cs" />
     <Compile Include="VideoPlay\VIdeoPlay_KD.cs" />
     <Compile Include="VideoPlay\VideoPlay_Shike.cs" />

@@ -87,7 +87,6 @@ namespace VideoPlayControl
         }
         private void VideoPlayGroupControls_Basic_Load(object sender, EventArgs e)
         {
-            videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
             videoPlayWindow.VideoPlayCallbackEvent += VideoPlayEventCallBackEvent;
             videoPTZControl.PTZControlEvent += VideoPTZControl;
             videoTalkControlManyChannel1.StartTalkingEvent += VideoTalkControlManyChannel1_StartTalkingEvent;
@@ -630,14 +629,7 @@ namespace VideoPlayControl
 
         private void tsmi_CloundSeeSetWindows_Click(object sender, EventArgs e)
         {
-            if (dicCurrentVideoInfos.ContainsKey(strCurrentVideoID))
-            {
-                if (dicCurrentVideoInfos[strCurrentVideoID].VideoType == Enum_VideoType.CloundSee)
-                {
-                    //云视通 远程设置窗口
-                    SDK_JCSDK.JCSDK_RemoteConfig(videoPlayWindow.intCloundSee_ConnID, 0);
-                }
-            }
+
         }
 
     }

@@ -197,7 +197,6 @@ namespace VideoPlayControl_UseDemo
             cmbPreset.SelectedIndex = 0;
             cmbOperAtPreset.SelectedIndex = 0;
             dgvReocrd.MultiSelect = false;
-            videoWindowTest.SDKEventCallBackEvent += SDKEventCallBackEvent;
             videoWindowTest.VideoPlayCallbackEvent += VideoPlayEventCallBack;
             videoPTZControl1.PTZControlEvent += PTZControlEvent;
 
@@ -372,7 +371,6 @@ namespace VideoPlayControl_UseDemo
                     tlpPlayVIdeoWindows.Controls.Add(grp);
                     tlpPlayVIdeoWindows.SetRow(grp, row);
                     tlpPlayVIdeoWindows.SetColumn(grp, col);
-                    videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
                     videoPlayWindow.VideoPlayCallbackEvent += VideoPlayEventCallBack;
                     lstVideoPlayWindow.Add(videoPlayWindow);
                     i++;

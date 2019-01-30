@@ -81,7 +81,6 @@ namespace VideoPlayControl
         }
         private void VideoPlayGroupControls_Basic_Load(object sender, EventArgs e)
         {
-            videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
             videoPlayWindow.VideoPlayCallbackEvent += VideoPlayEventCallBackEvent;
             videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
             videoPTZControl.PTZControlEvent += VideoPTZControl;

@@ -212,37 +212,6 @@ namespace VideoPlayControl
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.InitEnd });
         }
 
-        #region 委托事件
-
-        #region SDK事件回调
-        /// <summary>
-        /// SDK事件回调委托
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="etType"></param>
-        public delegate void SDKEventCallBackDelegate(object sender, Enum_SDKEventType etType, string strtTag);
-
-        /// <summary>
-        /// SDK事件回调事件
-        /// </summary>
-        public event SDKEventCallBackDelegate SDKEventCallBackEvent;
-
-        /// <summary>
-        /// SDK事件回调
-        /// </summary>
-        /// <param name="etType"></param>
-        /// <param name="strTag"></param>
-        private void SDKEventCallBack(Enum_SDKEventType etType, string strTag = "")
-        {
-            if (SDKEventCallBackEvent != null)
-            {
-                SDKEventCallBackEvent(this, etType, strTag);
-            }
-        }
-
-        #endregion
-
-
         #region 视频播放回调事件2
         /// <summary>
         /// 视频播放回调事件
@@ -281,9 +250,7 @@ namespace VideoPlayControl
 
         #endregion
 
-
-
-        #endregion
+        
 
 
         private void VideoPlayMain_Load(object sender, EventArgs e)
@@ -421,12 +388,6 @@ namespace VideoPlayControl
             {
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoTypeNotExists });
             }
-
-            //if (CurrentVideoInfo.VideoType == Enum_VideoType.CloundSee)
-            //{
-            //    CloundSee_VideoLPRECTChanged();
-            //    CloundSee_InitSDKCallBack();
-            //}
             InterfaceInit();
         }
 
@@ -495,6 +456,9 @@ namespace VideoPlayControl
                     case Enum_VideoType.CloundSee:
                         iv = new VideoPlay_CloundSee();
                         break;
+                    case Enum_VideoType.HuaMaiVideo:
+                        iv = new VideoPlay_HuaMai();
+                        break;
                     default:
                         iv = null;
                         break;
@@ -537,6 +501,9 @@ namespace VideoPlayControl
                             break;
                         case Enum_VideoType.CloundSee:
                             iv = new VideoPlay_CloundSee();
+                            break;
+                        case Enum_VideoType.HuaMaiVideo:
+                            iv = new VideoPlay_HuaMai();
                             break;
                         default:
                             iv = null;
@@ -721,140 +688,7 @@ namespace VideoPlayControl
         }
 
         #endregion
-
-
-
-
-        #region HuaMaiVideo  华迈视频
-
-        #region 全局变量
-        IntPtr iNode = IntPtr.Zero;
-        IntPtr iDev = IntPtr.Zero;
-        IntPtr iPort = IntPtr.Zero;
-        IntPtr iOpenVideo = IntPtr.Zero;
-        #endregion
-
-        #region 基本事件
-        /// <summary>
-        /// 华迈视频_视频播放
-        /// </summary>
-        private void HuaMaiVideo_VideoPlay()
-        {
-            UInt32 iResult = 0;
-            iResult = SDK_HuaMai.hm_server_find_device_by_sn(ProgParameter.HuaMai_iTree, CurrentVideoInfo.DVSAddress, ref iNode);
-            if (iResult != ProgConstants.c_iHuaMaiSDK_Result_Success
-                || iNode == IntPtr.Zero)
-            {
-                //查询不到设备
-                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DeviceNotExist });
-                return;
-            }
-
-            SDK_HuaMai._CONNECT_INFO config = new SDK_HuaMai._CONNECT_INFO();
-            config.ct = SDK_HuaMai.CLIENT_TYPE.CT_PC;
-            config.cp = SDK_HuaMai.CONNECT_PRI.CPI_DEF;
-            config.cm = SDK_HuaMai.CONNECT_MODE.CM_DEF;
-            iResult = SDK_HuaMai.hm_pu_login_ex(iNode, ref config, ref iDev);
-            if (iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
-            {
-                //登录设备失败
-                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DevLoginException });
-                return;
-            }
-
-            SDK_HuaMai._OPEN_VIDEO_PARAM para = new SDK_HuaMai._OPEN_VIDEO_PARAM();
-            para.channel = Convert.ToUInt32(CurrentCameraInfo.Channel);
-            para.cs_type = SDK_HuaMai.CODE_STREAM.HMS_CS_MAJOR;
-            IntPtr iUserData = Marshal.StringToHGlobalAnsi("123");
-            para.data = iUserData;
-            para.vs_type = SDK_HuaMai.VIDEO_STREAM.HMS_VS_REAL;
-            para.cb_data = new SDK_HuaMai.cb_pu_data(HuaMaiVideo_OnRecvRealTimeVideo);
-            para.iWnd = picPlayMain.Handle;
-            iResult = SDK_HuaMai.hm_pu_open_video(iDev, ref para, ref iOpenVideo);
-            if (iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
-            {
-                //打开视频失败
-                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.ConnFailed });
-                return;
-            }
-
-            SDK_HuaMai.OPEN_VIDEO_RES videoRes = new SDK_HuaMai.OPEN_VIDEO_RES();
-            iResult = SDK_HuaMai.hm_pu_start_video(iOpenVideo, ref videoRes);
-            if (iResult != ProgConstants.c_iHuaMaiSDK_Result_Success)
-            {
-                //开始播放视频异常
-                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException });
-                return;
-            }
-            SDK_HuaMai.DISPLAY_OPTION disp_op = new SDK_HuaMai.DISPLAY_OPTION();
-            disp_op.dm = SDK_HuaMai.DISPLAY_MODE.HME_DM_DX;
-            disp_op.pq = SDK_HuaMai.PIC_QUALITY.HME_PQ_HIGHT;
-            //IntPtr iWnd = pictureBox1.Handle;
-            iPort = IntPtr.Zero;
-            iResult = SDK_HuaMai.hm_video_display_open_port(this.Handle, ref disp_op, ref iPort);
-            iResult = SDK_HuaMai.hm_video_display_start(iPort, 0, 0, 25);
-            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
-            VideoPlayState = Enum_VideoPlayState.InPlayState;
-        }
-        /// <summary>
-        /// 华迈视频_视频关闭
-        /// </summary>
-        public void HuaMaiVideo_VideoClose()
-        {
-            SDK_HuaMai.hm_video_display_close_port(iPort);
-            iPort = IntPtr.Zero;
-            SDK_HuaMai.hm_pu_stop_video(iOpenVideo);
-            SDK_HuaMai.hm_pu_close_video(iOpenVideo);
-            iOpenVideo = IntPtr.Zero;
-            SDK_HuaMai.hm_pu_logout(iDev);
-            iDev = IntPtr.Zero;
-            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
-        }
-        #endregion
-
-        #region 回调函数
-        private void HuaMaiVideo_OnRecvRealTimeVideo(IntPtr iUser, IntPtr iFrmae, UInt32 err)
-        {
-            if (err != Convert.ToUInt32(0))
-            {
-                return;
-            }
-            if (iPort == IntPtr.Zero)
-            {
-                return;
-            }
-            var result = Marshal.PtrToStructure(iFrmae, typeof(SDK_HuaMai._FRAME_DATA));
-            SDK_HuaMai._FRAME_DATA Data = (SDK_HuaMai._FRAME_DATA)result;
-            SDK_HuaMai._RAW_FRAME_TYPE Type = (SDK_HuaMai._RAW_FRAME_TYPE)Data.frame_info.frame_type;
-            switch (Type)
-            {
-                case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_P:
-                case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_I:
-                case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_H265_P:
-                case SDK_HuaMai._RAW_FRAME_TYPE.HME_RFT_H265_I:
-                    SDK_HuaMai.hm_video_display_input_data(iPort, Data.frame_stream, Data.frame_len, true);
-                    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
-                    VideoPlayState = Enum_VideoPlayState.InPlayState;
-                    break;
-                default:
-                    //不做操作
-                    break;
-            }
-        }
-
-
-
-        #endregion
-
-
-        #endregion
-
-        #region 回调函数
-        public void RealDataCallBack(Int32 lRealHandle, UInt32 dwDataType, ref byte pBuffer, UInt32 dwBufSize, IntPtr pUser)
-        {
-        }
-        #endregion
+        
 
         #region 基本事件
 
@@ -876,31 +710,12 @@ namespace VideoPlayControl
                 case Enum_VideoType.Unrecognized:
                     //不做操作
                     break;
-                //case Enum_VideoType.CloundSee:  //云视通设备
-                //    CloundSee_VideoPlay();
-                //    break;
                 case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
                     IPCWA_VideoPlay();
-                    break;
-                case Enum_VideoType.HuaMaiVideo://华迈设备
-                    HuaMaiVideo_VideoPlay();
                     break;
                 default:
                     iv.VideoPlay();
                     break;
-            }
-        }
-
-        /// <summary>
-        /// 视频播放_视频设置
-        /// </summary>
-        public void VideoPlay_VideoPlaySetting(VideoPlaySetting videoPlaySetting)
-        {
-            switch (CurrentVideoInfo.VideoType)
-            {
-                //case Enum_VideoType.CloundSee:
-                //    CloundSee_SetPresetPosi(videoPlaySetting.PreSetPosi);
-                //    break;
             }
         }
 
@@ -932,9 +747,6 @@ namespace VideoPlayControl
                     //    break;
                     case Enum_VideoType.IPCWA:
                         IPCWA_VideoClose();
-                        break;
-                    case Enum_VideoType.HuaMaiVideo:
-                        HuaMaiVideo_VideoClose();
                         break;
                     default:
                         iv.VideoClose();
