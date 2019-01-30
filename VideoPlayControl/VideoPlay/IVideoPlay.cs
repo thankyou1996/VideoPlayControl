@@ -120,7 +120,16 @@ namespace VideoPlayControl.VideoPlay
         bool VideoClose();
 
 
+        #region 云台控制相关
+
+        /// <summary>
+        /// 云台控制
+        /// </summary>
+        /// <param name="PTZControl"></param>
+        /// <param name="bolStart"></param>
+        /// <returns></returns>
         bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart);
+        #endregion
         void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom);
 
         #region 音频相关接口/事件
