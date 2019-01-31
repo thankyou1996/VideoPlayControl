@@ -295,8 +295,11 @@ namespace VideoPlayControl.VideoPlay
         }
         public void VideoSizeChange(int intPosX, int intPosY, int intWidth, int intHeight)
         {
-            CloundSee_VideoLPRECTChanged();
-            VideoPlay_VideoPreview();
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+            {
+                CloundSee_VideoLPRECTChanged();
+                VideoPlay_VideoPreview();
+            }
         }
 
         public bool VideoPlayEx()

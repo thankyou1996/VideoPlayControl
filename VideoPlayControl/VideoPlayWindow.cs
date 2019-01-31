@@ -9,13 +9,6 @@ using PublicClassCurrency;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Threading;
-using static VideoPlayControl.SDK_EzvizSDK_Old;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using static VideoPlayControl.SDK_HikClientSDK;
-using AxisMediaParserLib;
-using AxisMediaViewerLib;
-using System.Threading.Tasks;
 using VideoPlayControl.VideoPlay;
 using VideoPlayControl.VideoBasicClass;
 using VideoPlayControl.Enum;
@@ -192,9 +185,6 @@ namespace VideoPlayControl
         /// 当前连接次数
         /// </summary>
         public int intConnCount;
-
-        List<byte> lstVideoRecord = new List<byte>();
-        private object objVideoRecordLock = new object();
         #endregion
         /// <summary>
         /// 播放的控件
@@ -212,7 +202,7 @@ namespace VideoPlayControl
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.InitEnd });
         }
 
-        #region 视频播放回调事件2
+        #region 视频播放回调事件
         /// <summary>
         /// 视频播放回调事件
         /// </summary>
@@ -225,7 +215,7 @@ namespace VideoPlayControl
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        private bool VideoPlayCallback(VideoPlayCallbackValue value)
+        public bool VideoPlayCallback(VideoPlayCallbackValue value)
         {
             bool bolResult = false;
             switch (value.evType)      //部分特殊处理
@@ -695,7 +685,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 视频播放
         /// </summary>
-        public void VideoPlay()
+        public bool VideoPlay()
         {
 
             if (VideoPlayState == Enum_VideoPlayState.InPlayState || VideoPlayState == Enum_VideoPlayState.Connecting)
@@ -717,6 +707,7 @@ namespace VideoPlayControl
                     iv.VideoPlay();
                     break;
             }
+            return false;
         }
 
         /// <summary>
@@ -731,7 +722,7 @@ namespace VideoPlayControl
         /// <summary>
         /// 关闭视频播放
         /// </summary>
-        public void VideoClose()
+        public bool VideoClose()
         {
             if (VideoPlayState != Enum_VideoPlayState.VideoInfoNull
                 || (iv != null && iv.VideoPlayState != Enum_VideoPlayState.VideoInfoNull))
@@ -742,9 +733,6 @@ namespace VideoPlayControl
                     case Enum_VideoType.Unrecognized:
                         //不做操作
                         break;
-                    //case Enum_VideoType.CloundSee:
-                    //    CloundSee_VideoClose();
-                    //    break;
                     case Enum_VideoType.IPCWA:
                         IPCWA_VideoClose();
                         break;
@@ -757,6 +745,7 @@ namespace VideoPlayControl
             }
             TimeOutTimerDispose();
             picPlayMain.Refresh();
+            return false;
         }
 
         /// <summary>
@@ -764,15 +753,12 @@ namespace VideoPlayControl
         /// </summary>
         /// <param name="PTZControl"></param>
         /// <param name="bolStart"></param>
-        public void VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
+        public bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
         {
             if (VideoPlayState != Enum_VideoPlayState.VideoInfoNull)
             {
                 switch (CurrentVideoInfo.VideoType)
                 {
-                    //case Enum_VideoType.CloundSee:
-                    //    CloundSee_PTZControl(PTZControl, bolStart);
-                    //    break;
                     case Enum_VideoType.IPCWA:
                         IPCWA_PTZControl(PTZControl);
                         break;
@@ -784,6 +770,7 @@ namespace VideoPlayControl
                         break;
                 }
             }
+            return false;
         }
 
         public void Dispose()
@@ -797,25 +784,9 @@ namespace VideoPlayControl
 
         private void picPlayMain_SizeChanged(object sender, EventArgs e)
         {
-            if (CurrentVideoInfo != null
-                && (VideoPlayState == Enum_VideoPlayState.InPlayState
-                || (iv != null) && iv.VideoPlayState == Enum_VideoPlayState.InPlayState))
+            if (iv != null)
             {
-                switch (CurrentVideoInfo.VideoType)
-                {
-                    case Enum_VideoType.IPCWA:
-                        if (VideoPlayState == Enum_VideoPlayState.InPlayState)
-                        {
-                            //axRASPlayerOCX1.();
-                        }
-                        break;
-                    default:
-                        if (iv != null)
-                        {
-                            iv.VideoSizeChange(0, picPlayMain.Width, 0, picPlayMain.Bottom);
-                        }
-                        break;
-                }
+                iv.VideoSizeChange(0, picPlayMain.Width, 0, picPlayMain.Bottom);
             }
         }
         #endregion
@@ -897,30 +868,12 @@ namespace VideoPlayControl
             }
         }
 
-        bool IVideoPlay.VideoPlayCallback(VideoPlayCallbackValue value)
-        {
-            return true;
-        }
-
-        bool IVideoPlay.VideoPlay()
-        {
-            return true;
-        }
 
         public bool VideoPlayEx()
         {
             return true;
         }
 
-        bool IVideoPlay.VideoClose()
-        {
-            return true;
-        }
-
-        bool IVideoPlay.VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
-        {
-            return true;
-        }
 
         public void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
         {
