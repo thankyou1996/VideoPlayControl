@@ -81,7 +81,6 @@ namespace VideoPlayControl
         }
         private void VideoPlayGroupControls_Basic_Load(object sender, EventArgs e)
         {
-            videoPlayWindow.SDKEventCallBackEvent += SDKEventCallBackEvent;
             videoPlayWindow.VideoPlayCallbackEvent += VideoPlayEventCallBackEvent;
             videoChannelList.ButtonChannel_ClickEvent += VideoChannelListButton_Click;
             videoPTZControl.PTZControlEvent += VideoPTZControl;
@@ -476,7 +475,7 @@ namespace VideoPlayControl
                 if (dicCurrentVideoInfos[strCurrentVideoID].VideoType == Enum_VideoType.CloundSee)
                 {
                     //云视通 远程设置窗口
-                    SDK_JCSDK.JCSDK_RemoteConfig(videoPlayWindow.intCloundSee_ConnID, 0);
+                    //SDK_JCSDK.JCSDK_RemoteConfig(videoPlayWindow.intCloundSee_ConnID, 0);
                 }
             }
         }

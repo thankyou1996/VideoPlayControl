@@ -82,6 +82,19 @@ namespace VideoPlayControl.VideoPlay
         IntPtr iUser = IntPtr.Zero;
         string strUser = "";
         List<byte> lstVideoRecord = new List<byte>();
+        /// <summary>
+        /// 录像数据写入文件 256K
+        /// </summary>
+        int intVideoRecordWriteFlag = 256 * 1024;
+        /// <summary>
+        /// 录像文件最大限制 128M （高清约8~10分钟）
+        /// </summary>
+        //int intVideoRecordMaxValue = 128 * 1024 * 1024;
+        int intVideoRecordMaxValue = 64 * 1024 * 1024;
+        /// <summary>
+        /// 录像地址
+        /// </summary>
+        string strRealSavePath = "";
         #endregion
 
         public bool VideoClose()
@@ -97,7 +110,9 @@ namespace VideoPlayControl.VideoPlay
             //}
             if (CurrentVideoPlaySet.VideoRecordEnable)
             {
-                Ezviz_GenerateRecord(CurrentVideoPlaySet.VideoRecordFilePath);
+                byte[] bytsSource = lstVideoRecord.ToArray();
+                lstVideoRecord.Clear();
+                Ezviz_GenerateRecord(bytsSource, strRealSavePath);
                 //if (Ezviz_gchVideoRecord != null && Ezviz_gchVideoRecord.IsAllocated)
                 //{
                 //    Ezviz_gchVideoRecord.Free();
@@ -108,66 +123,79 @@ namespace VideoPlayControl.VideoPlay
                 lstVideoRecord = new List<byte>();
             }
             intptrSessionID = IntPtr.Zero;
+            strRealSavePath = "";
             return bolResult;
         }
-
 
 
         /// <summary>
         /// 萤石生成录像文件
         /// </summary>
+        /// <param name="bytsSource"></param>
         /// <param name="strRecFilePath"></param>
-        private void Ezviz_GenerateRecord(string strRecFilePath = "")
+        /// <returns></returns>
+        public bool Ezviz_GenerateRecord(byte[] bytsSource, string strRecFilePath)
         {
-            if (lstVideoRecord.Count > 0)
+            //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss:fff") + "_开始写入文件_" + lstVideoRecord.Count);
+            if (string.IsNullOrEmpty(strRecFilePath) || bytsSource.Length == 0)
             {
-                if (string.IsNullOrEmpty(strRecFilePath))
-                {
-                    //不存在路径 使用默认路径 
-                    //默认路径格式 [当前工作路径/EzvizRecFile/萤石云编号/时间(yyyyMMddHHmmss)_通道号(01).mp4]
-                    StringBuilder sbRecDicPath = new StringBuilder();
-                    sbRecDicPath.Append(ProgConstants.strEzviz_RecDicPath);    //默认路径
-                    sbRecDicPath.Append("\\" + CurrentVideoInfo.DVSAddress);    //萤石云编号
-                    if (!Directory.Exists(sbRecDicPath.ToString()))
-                    {
-                        //文件夹不存在，创建文件夹
-                        Directory.CreateDirectory(sbRecDicPath.ToString());
-                    }
-                    StringBuilder sbRecFilePath = new StringBuilder();
-                    sbRecFilePath.Append(sbRecDicPath.ToString());
-                    sbRecFilePath.Append("\\" + DateTime.Now.ToString("yyyyMMddHHmmss"));     //时间
-                    sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));   //通道号
-                    sbRecFilePath.Append(".mp4");
-                    strRecFilePath = sbRecFilePath.ToString();
-                }
-                else if (!strRecFilePath.EndsWith(".mp4"))
-                {
-                    //后缀名错误或者只指定文件夹
-                    if (!Directory.Exists(strRecFilePath.ToString()))
-                    {
-                        //文件夹不存在，创建文件夹
-                        Directory.CreateDirectory(strRecFilePath.ToString());
-                    }
-                    StringBuilder sbRecFilePath = new StringBuilder();
-                    sbRecFilePath.Append(strRecFilePath);
-                    //路径格式 [传入的路径/摄像机编号_通道号（BCD 向左补足2位)_时间(yyyyMMddHHmmss)_13(固定码 萤石13).mp4]
-                    sbRecFilePath.Append("\\" + CurrentVideoInfo.DVSNumber);                                //视频设备编号
-                    sbRecFilePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));       //通道号
-                    sbRecFilePath.Append("_" + DateTime.Now.ToString("yyyyMMddHHmmss"));                    //时间
-                    sbRecFilePath.Append("_" + "13.mp4");                                                   //分类后缀及文件格式
-                    strRecFilePath = sbRecFilePath.ToString();
-                }
-                byte[] Temp_b = lstVideoRecord.ToArray();
-                using (FileStream f = File.OpenWrite(strRecFilePath))
-                {
-                    f.Write(Temp_b, 0, Temp_b.Length);
-                }
-                lstVideoRecord = new List<byte>();
+                return false;
             }
+            bool bolResult = false;
+            using (FileStream f =new FileStream(strRecFilePath,FileMode.Append))
+            {
+                f.Write(bytsSource, 0, bytsSource.Length);
+                if (f.Length > intVideoRecordMaxValue)
+                {
+                    //超过最大限制，关闭视频
+                    strRealSavePath = "";   //文件地址置置为默认值，在VideoClose 中则不会调用 Ezviz_GenerateRecord。
+                    VideoClose();
+                }
+            }
+            //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss:fff") + "_完成写入文件_" + lstVideoRecord.Count);
+            return bolResult;
         }
+
+
+
+        private string GetLocalSavePath(string strSavePath, string strSaveName)
+        {
+            StringBuilder sbSavePath = new StringBuilder();
+            if (string.IsNullOrEmpty(strSavePath))
+            {
+                sbSavePath.Append(strSavePath);
+                sbSavePath.Append(ProgConstants.strEzviz_RecDicPath);    //默认路径
+                sbSavePath.Append("\\" + CurrentVideoInfo.DVSAddress);    //萤石云编号
+                if (!Directory.Exists(sbSavePath.ToString()))
+                {
+                    //文件夹不存在，创建文件夹
+                    Directory.CreateDirectory(sbSavePath.ToString());
+                }
+            }
+            else
+            {
+                sbSavePath.Append(strSavePath);
+            }
+
+            if (string.IsNullOrEmpty(strSaveName) || !strSaveName.EndsWith(".mp4"))
+            {
+                sbSavePath.Append("\\" + CurrentVideoInfo.DVSNumber);                                //视频设备编号
+                sbSavePath.Append("_" + CurrentCameraInfo.Channel.ToString().PadLeft(2, '0'));       //通道号
+                sbSavePath.Append("_" + DateTime.Now.ToString("yyyyMMddHHmmss"));                    //时间
+                sbSavePath.Append("_" + "13.mp4");                                                   //分类后缀及文件格式
+            }
+            else
+            {
+                sbSavePath.Append("\\" + strSaveName);
+            };
+            return sbSavePath.ToString();
+        }
+
+
 
         public bool VideoPlay()
         {
+            strRealSavePath = "";
             CommonMethod.LogWrite.WriteEventLog("EzvizLog", "VidePlay1_" + CurrentVideoInfo.DVSNumber + CurrentVideoInfo.DVSAddress, ProgParameter.ProgLogAddress);
             if (intptrSessionID != IntPtr.Zero)
             {
@@ -212,6 +240,7 @@ namespace VideoPlayControl.VideoPlay
             if (CurrentVideoPlaySet.VideoRecordEnable)
             {
                 //录像启用
+                strRealSavePath = GetLocalSavePath(CurrentVideoPlaySet.VideoRecordFilePath, CurrentVideoPlaySet.VideoRecordFileName);
                 Ezviz_DataCallBack = new SDK_EzvizSDK.DataCallBack(Ezviz_DataCallBackEvent);
                 Ezviz_gchVideoRecord = GCHandle.Alloc(Ezviz_DataCallBack);
                 intResult = SDK_EzvizSDK.OpenSDK_SetDataCallBack(intptrSessionID, Ezviz_DataCallBack, iUser);
@@ -366,10 +395,18 @@ namespace VideoPlayControl.VideoPlay
         {
             if (CurrentVideoPlaySet.VideoRecordEnable)  //预防未其余窗口启用录像导致数据异常
             {
+                //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss:fff") + "_收到回调数据_" + iLen);
                 byte[] managedArray = new byte[iLen];
                 Marshal.Copy(pData, managedArray, 0, iLen);
                 string strUser = Marshal.PtrToStringAnsi(pUser);
                 lstVideoRecord.AddRange(managedArray);
+
+                if (lstVideoRecord.Count > intVideoRecordWriteFlag)
+                {
+                    byte[] bytsSource = lstVideoRecord.ToArray();
+                    lstVideoRecord.Clear();
+                    Ezviz_GenerateRecord(bytsSource, strRealSavePath);
+                }
             }
         }
 

@@ -576,6 +576,29 @@
             0关闭 1自动进入对讲 2自动进入监听  3自动进入对讲喊话
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intDefaultLinakgeChannel">
+            <summary>
+            默认联动通道 从1 开始
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DefaultLinkageChannel">
+            <summary>
+            默认联动通道
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DefaultLinkageCameraInfo">
+            <summary>
+            默认联动摄像头信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoConnectType">
+            <summary>
+            连接方式
+            1 默认
+            2.直连
+            3.流媒体
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.VideoInfo.dicCameras">
             <summary>
             摄像头信息
