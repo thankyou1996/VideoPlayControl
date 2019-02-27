@@ -248,7 +248,7 @@ namespace VideoPlayControl.VideoPlay
             IntPtr intptrdevSerial = Marshal.StringToHGlobalAnsi(CurrentVideoInfo.DVSAddress);
             if (CurrentVideoInfo.DVSAddress.StartsWith("C"))
             {
-                intResult = SDK_EzvizSDK.OpenSDK_StartPlayWithStreamType(intptrSessionID, intptrPlayMain, intptrdevSerial, CurrentCameraInfo.Channel, CurrentVideoInfo.Password, 1);
+                intResult = SDK_EzvizSDK.OpenSDK_StartPlayWithStreamType(intptrSessionID, intptrPlayMain, intptrdevSerial, CurrentCameraInfo.Channel, CurrentVideoInfo.Password, -1);
             }
             else
             {
