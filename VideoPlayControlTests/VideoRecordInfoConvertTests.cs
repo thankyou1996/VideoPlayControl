@@ -15,10 +15,18 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void GetVideoRecordInfo_ByFileNameTest()
         {
-            string Temp_strValueInfo = "461001_01_20180425191749_17.bsr";
+            //string Temp_strValueInfo = "461001_01_20180425191749_17.bsr";
+            string Temp_strValueInfo = "61-57356B140B39-3036_20190218204632_09_bfr10.H264";
             VideoRecordInfo vrInfo = VideoRecordInfoConvert.GetVideoRecordInfo_ByFileName(Temp_strValueInfo);
-            Assert.AreEqual(vrInfo.VideoRecordType, Enum_VIdeoRecordType.Unrecognized);
+            Assert.AreEqual(vrInfo.VideoRecordType, Enum_VIdeoRecordType.SKNVideoRecord);
         }
 
+        [TestMethod()]
+        public void GetVideoRecordBRFInfo_ByFileNameTest()
+        {
+            string Temp_strValueInfo = "61-57356B140B39-3036_20190218204632_09_bfr10.H264";
+            VideoRecordInfo vrInfo = VideoRecordInfoConvert.GetVideoRecordBRFInfo_ByFileName(Temp_strValueInfo);
+            Assert.AreEqual(vrInfo.VideoRecordType, Enum_VIdeoRecordType.Unrecognized);
+        }
     }
 }

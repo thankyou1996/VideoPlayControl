@@ -847,6 +847,11 @@
             智诺视频
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.SKNVideoRecord">
+            <summary>
+            时刻H265视频设备类型
+            </summary>
+        </member>
         <member name="T:PublicClassCurrency.Enum_VideoRecordFileType">
             <summary>
             录像文件类型
