@@ -45,7 +45,7 @@ namespace VideoPlayControl
         private string strVideoRecordFilePath = "";
 
         /// <summary>
-        /// 视频录像文件地址
+        /// 视频录像文件地址 不包含文件名称
         /// </summary>
         public string VideoRecordFilePath
         {
@@ -55,7 +55,7 @@ namespace VideoPlayControl
 
 
         /// <summary>
-        /// 视频录像文件名称
+        /// 视频录像文件名称 
         /// </summary>
         private string strVideoRecordFileName = "";
 

@@ -89,6 +89,15 @@ namespace VideoPlayControl.VideoPlay
             get;
             set;
         }
+
+        /// <summary>
+        /// 视频播放中是否可以录像  
+        /// （临时变量，true 表示StartVideoRecord有实现 false 表示没有具体实现 用于界面控制 ）
+        /// </summary>
+        bool VideoPlayingRecordEnable
+        {
+            get;
+        }
         #region 事件
 
         /// <summary>
@@ -116,10 +125,21 @@ namespace VideoPlayControl.VideoPlay
         /// </summary>
         /// <returns></returns>
         bool VideoPlayEx();
-
+        
         bool VideoClose();
+        
+        /// <summary>
+        /// 开始录像
+        /// </summary>
+        /// <returns></returns>
+        bool StartVideoRecord(VideoRecordSet vrSet);
 
-
+        /// <summary>
+        /// 停止录像(注意：不停止视频播放)
+        /// </summary>
+        /// <returns></returns>
+        bool StopVideoRecord();
+        
         #region 云台控制相关
 
         /// <summary>

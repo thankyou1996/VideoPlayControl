@@ -407,5 +407,48 @@ namespace VideoPlayControl.VideoPlay
             return false;
         }
         #endregion
+
+        /// <summary>
+        /// 视频播放中是否可以录像  
+        /// （临时变量，true 表示StartVideoRecord有实现 false 表示没有具体实现 用于界面控制 ）
+        /// </summary>
+        public bool VideoPlayingRecordEnable
+        {
+            get { return true; }
+        }
+
+        /// <summary>
+        /// 开始录像
+        /// </summary>
+        /// <param name="vrSet"></param>
+        /// <returns></returns>
+        public bool StartVideoRecord(VideoRecordSet vrSet)
+        {
+            bool bolResult = true;
+            CurrentVideoPlaySet.VideoRecordEnable = vrSet.Enable;
+            CurrentVideoPlaySet.VideoRecordFilePath = vrSet.VideoRecordFilePath;
+            CurrentVideoPlaySet.VideoRecordFileName = vrSet.VideoRecordFileName;
+            CurrentVideoPlaySet.VideoRecordFilePath_Server = vrSet.VideoRecordFilePath_Server;
+            CurrentVideoPlaySet.VideoRecordFileName_Server = vrSet.VideoRecordFileName_Server;
+            CurrentVideoPlaySet.TimeOutVideoRecordCloseSecond = vrSet.TimeOutVideoRecordCloseSecond;
+            //关闭视频
+            VideoClose();
+            //打开视频
+            VideoPlay();
+            return bolResult;
+        }
+
+        /// <summary>
+        /// 关闭录像（不关闭视频）
+        /// </summary>
+        /// <returns></returns>
+        public bool StopVideoRecord()
+        {
+            bool bolResult = false;
+            CurrentVideoPlaySet.VideoRecordEnable = false;
+            VideoClose();
+            VideoPlay();
+            return bolResult;
+        }
     }
 }

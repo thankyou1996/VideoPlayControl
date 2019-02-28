@@ -125,19 +125,18 @@ namespace VideoPlayControl.VideoPlay
         }
 
         /// <summary>
-        /// 获取客户端保存地址
+        /// 获取客户端保存地址 (完整路径)
         /// </summary>
         /// <param name="strSavePath"></param>
         /// <param name="strSaveName"></param>
         /// <returns></returns>
         private string GetLocalSavePath(string strSavePath, string strSaveName)
         {
-            string strResult = strSavePath + strSaveName;
-            if (!CurrentVideoPlaySet.VideoRecordFilePath.EndsWith(".h264"))
+            if (string.IsNullOrEmpty(strSaveName) || strSaveName.ToLower().EndsWith(".h264"))
             {
-
-                strResult = strSavePath + "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                strSaveName = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
             }
+            string strResult = strSavePath + "\\" + strSaveName;
             return strResult;
         }
 
@@ -222,6 +221,48 @@ namespace VideoPlayControl.VideoPlay
         public bool CloseSound()
         {
             return false;
+        }
+        /// <summary>
+        /// 视频播放中是否可以录像  
+        /// （临时变量，true 表示StartVideoRecord有实现 false 表示没有具体实现 用于界面控制 ）
+        /// </summary>
+        public bool VideoPlayingRecordEnable
+        {
+            get { return true; }
+        }
+
+        /// <summary>
+        /// 开始录像
+        /// </summary>
+        /// <param name="vrSet"></param>
+        /// <returns></returns>
+        public bool StartVideoRecord(VideoRecordSet vrSet)
+        {
+            bool bolResult = true;
+            CurrentVideoPlaySet.VideoRecordEnable = vrSet.Enable;
+            CurrentVideoPlaySet.VideoRecordFilePath = vrSet.VideoRecordFilePath;
+            CurrentVideoPlaySet.VideoRecordFileName = vrSet.VideoRecordFileName;
+            CurrentVideoPlaySet.VideoRecordFilePath_Server = vrSet.VideoRecordFilePath_Server;
+            CurrentVideoPlaySet.VideoRecordFileName_Server = vrSet.VideoRecordFileName_Server;
+            CurrentVideoPlaySet.TimeOutVideoRecordCloseSecond = vrSet.TimeOutVideoRecordCloseSecond;
+            //关闭视频
+            VideoClose();
+            //打开视频
+            VideoPlay();
+            return bolResult;
+        }
+
+        /// <summary>
+        /// 关闭录像（不关闭视频）
+        /// </summary>
+        /// <returns></returns>
+        public bool StopVideoRecord()
+        {
+            bool bolResult = false;
+            CurrentVideoPlaySet.VideoRecordEnable = false;
+            VideoClose();
+            VideoPlay();
+            return bolResult;
         }
         #endregion
     }

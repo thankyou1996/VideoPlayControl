@@ -632,5 +632,9 @@ namespace VideoPlayControl
 
         }
 
+        private void tsmi_VideoRecord_Click(object sender, EventArgs e)
+        {
+            //1.IVideoPlay 添加录像接口
+        }
     }
 }

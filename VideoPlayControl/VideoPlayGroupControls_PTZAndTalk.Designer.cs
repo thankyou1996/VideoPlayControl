@@ -52,6 +52,7 @@
             this.pnlRight_Top = new System.Windows.Forms.Panel();
             this.cmbVideoList = new System.Windows.Forms.ComboBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.tsmi_VideoRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsVideoWindow.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.ssPrompt.SuspendLayout();
@@ -70,6 +71,8 @@
             // 
             this.videoPlayWindow.BackColor = System.Drawing.SystemColors.Control;
             this.videoPlayWindow.ContextMenuStrip = this.cmsVideoWindow;
+            this.videoPlayWindow.CurrentCameraInfo = null;
+            this.videoPlayWindow.CurrentVideoInfo = null;
             videoPlaySetting1.AnsyPlay = false;
             videoPlaySetting1.AutoReconn = true;
             videoPlaySetting1.ConnType = VideoPlayControl.Enum.Enum_VideoConnType.Auto;
@@ -94,19 +97,23 @@
             this.videoPlayWindow.Size = new System.Drawing.Size(367, 276);
             this.videoPlayWindow.TabIndex = 1;
             this.videoPlayWindow.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
+            this.videoPlayWindow.VideoplayWindowHeight = 0;
+            this.videoPlayWindow.VideoplayWindowWidth = 0;
             // 
             // cmsVideoWindow
             // 
             this.cmsVideoWindow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_CloundSeeSetWindows});
+            this.tsmi_CloundSeeSetWindows,
+            this.tsmi_VideoRecord});
             this.cmsVideoWindow.Name = "cmsVideoWindow";
-            this.cmsVideoWindow.Size = new System.Drawing.Size(125, 26);
+            this.cmsVideoWindow.Size = new System.Drawing.Size(181, 70);
             // 
             // tsmi_CloundSeeSetWindows
             // 
             this.tsmi_CloundSeeSetWindows.Name = "tsmi_CloundSeeSetWindows";
-            this.tsmi_CloundSeeSetWindows.Size = new System.Drawing.Size(124, 22);
+            this.tsmi_CloundSeeSetWindows.Size = new System.Drawing.Size(180, 22);
             this.tsmi_CloundSeeSetWindows.Text = "远程设置";
+            this.tsmi_CloundSeeSetWindows.Visible = false;
             this.tsmi_CloundSeeSetWindows.Click += new System.EventHandler(this.tsmi_CloundSeeSetWindows_Click);
             // 
             // pnlMain
@@ -303,6 +310,13 @@
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
+            // tsmi_VideoRecord
+            // 
+            this.tsmi_VideoRecord.Name = "tsmi_VideoRecord";
+            this.tsmi_VideoRecord.Size = new System.Drawing.Size(180, 22);
+            this.tsmi_VideoRecord.Text = "开始录像";
+            this.tsmi_VideoRecord.Click += new System.EventHandler(this.tsmi_VideoRecord_Click);
+            // 
             // VideoPlayGroupControls_PTZAndTalk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -353,5 +367,6 @@
         private System.Windows.Forms.TabPage pagePTZControl;
         private System.Windows.Forms.TabPage pageTalk;
         private VideoTalkControlManyChannel videoTalkControlManyChannel1;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_VideoRecord;
     }
 }

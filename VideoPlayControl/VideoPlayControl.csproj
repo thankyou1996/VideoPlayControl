@@ -120,6 +120,7 @@
     <Compile Include="VideoBasicClass\SoundClass.cs" />
     <Compile Include="VideoBasicClass\TalkSetting.cs" />
     <Compile Include="VideoBasicClass\VideoPlayEventValue.cs" />
+    <Compile Include="VideoBasicClass\VideoRecordSet.cs" />
     <Compile Include="VideoChannelList.cs">
       <SubType>UserControl</SubType>
     </Compile>
