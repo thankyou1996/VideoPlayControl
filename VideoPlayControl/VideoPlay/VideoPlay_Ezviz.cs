@@ -83,11 +83,11 @@ namespace VideoPlayControl.VideoPlay
         string strUser = "";
         List<byte> lstVideoRecord = new List<byte>();
         /// <summary>
-        /// 录像数据写入文件 256K
+        /// 录像数据写入文件 128K
         /// </summary>
-        int intVideoRecordWriteFlag = 256 * 1024;
+        int intVideoRecordWriteFlag = 128 * 1024;
         /// <summary>
-        /// 录像文件最大限制 128M （高清约8~10分钟）
+        /// 录像文件最大限制 64M （高清约8~10分钟）
         /// </summary>
         //int intVideoRecordMaxValue = 128 * 1024 * 1024;
         int intVideoRecordMaxValue = 64 * 1024 * 1024;
@@ -122,6 +122,7 @@ namespace VideoPlayControl.VideoPlay
             {
                 lstVideoRecord = new List<byte>();
             }
+            VideoRecordStatus = false;
             intptrSessionID = IntPtr.Zero;
             strRealSavePath = "";
             return bolResult;
@@ -248,6 +249,7 @@ namespace VideoPlayControl.VideoPlay
                 Ezviz_DataCallBack = new SDK_EzvizSDK.DataCallBack(Ezviz_DataCallBackEvent);
                 Ezviz_gchVideoRecord = GCHandle.Alloc(Ezviz_DataCallBack);
                 intResult = SDK_EzvizSDK.OpenSDK_SetDataCallBack(intptrSessionID, Ezviz_DataCallBack, iUser);
+                VideoRecordStatus = true;
             }
             IntPtr intptrdevSerial = Marshal.StringToHGlobalAnsi(CurrentVideoInfo.DVSAddress);
             if (CurrentVideoInfo.DVSAddress.StartsWith("C"))
@@ -546,12 +548,36 @@ namespace VideoPlayControl.VideoPlay
         #endregion
 
         /// <summary>
-        /// 视频播放中是否可以录像  
-        /// （临时变量，true 表示StartVideoRecord有实现 false 表示没有具体实现 用于界面控制 ）
+        /// 录像状态改变事件
         /// </summary>
-        public bool VideoPlayingRecordEnable
+        public event VideoRecordStatusChangedDelegate VideoRecordStausChangedEvent;
+        /// <summary>
+        /// 录像状态改变事件
+        /// </summary>
+        /// <param name="VideoRecordStatusChangedValue"></param>
+        private void VideoRecordStausChanged(object VideoRecordStatusChangedValue)
         {
-            get { return true; }
+            if (VideoRecordStausChangedEvent != null)
+            {
+                VideoRecordStausChangedEvent(this, VideoRecordStatusChangedValue);
+            }
+        }
+
+        private bool bolVideoRecordStatus = false;
+        /// <summary>
+        /// 视频录像状态 true 表示正在录像 false表示未处于录像中
+        /// </summary>
+        public bool VideoRecordStatus
+        {
+            get { return bolVideoRecordStatus; }
+            private set
+            {
+                if (bolVideoRecordStatus != value)
+                {
+                    bolVideoRecordStatus = value;
+                    VideoRecordStausChanged(null);
+                };
+            }
         }
 
         /// <summary>

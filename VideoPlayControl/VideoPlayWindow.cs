@@ -458,6 +458,7 @@ namespace VideoPlayControl
             else
             {
                 iv.VideoPlayCallbackEvent -= VideoPlayCallbackEvent;
+                iv.VideoRecordStausChangedEvent -= videoRecordStausChangedEvent;
                 if (iv.CurrentVideoInfo.VideoType != CurrentVideoInfo.VideoType)
                 {
                     iv = null;
@@ -516,6 +517,7 @@ namespace VideoPlayControl
                 iv.VideoPlayStateChangedEvent -= Iv_VideoPlayStateChangedEvent;
                 iv.VideoPlayStateChangedEvent += Iv_VideoPlayStateChangedEvent;
                 iv.SoundStateChangedEvent += Iv_SoundStateChangedEvent;
+                iv.VideoRecordStausChangedEvent += videoRecordStausChangedEvent;
             }
         }
 
@@ -895,14 +897,42 @@ namespace VideoPlayControl
             return bolResult;
         }
 
+        /// <summary>
+        /// 录像状态改变事件
+        /// </summary>
+        private event VideoRecordStatusChangedDelegate videoRecordStausChangedEvent;
 
         /// <summary>
-        /// 视频播放中是否可以录像  
-        /// （临时变量，true 表示StartVideoRecord有实现 false 表示没有具体实现 用于界面控制 ）
+        /// 录像状态改变事件
         /// </summary>
-        public bool VideoPlayingRecordEnable
+        public event VideoRecordStatusChangedDelegate VideoRecordStausChangedEvent
         {
-            get { return true; }
+            add
+            {
+                videoRecordStausChangedEvent += value;
+                if (iv != null)
+                {
+                    iv.VideoRecordStausChangedEvent += value;
+                }
+                
+
+            }
+            remove
+            {
+                videoRecordStausChangedEvent += value;
+                if (iv != null)
+                {
+                    iv.VideoRecordStausChangedEvent += value;
+                }
+                
+            }
+        }
+        /// <summary>
+        /// 视频录像状态 true 表示正在录像 false表示未处于录像中
+        /// </summary>
+        public bool VideoRecordStatus
+        {
+            get { return iv.VideoRecordStatus; }
         }
 
         /// <summary>

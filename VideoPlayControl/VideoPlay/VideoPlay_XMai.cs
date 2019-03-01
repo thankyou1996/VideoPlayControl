@@ -129,6 +129,7 @@ namespace VideoPlayControl.VideoPlay
             bolRequestRealVideoFlag = false;
             Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "CloseStart");
             bolResult = SDK_XMSDK.H264_DVR_StopLocalPlay(m_iPlayhandle);                        //停止录像
+            VideoRecordStatus = false;
             intResult = SDK_XMSDK.H264_DVR_StopRealPlay(m_iPlayhandle, (uint)intptrPlayMain);   //SDK关闭事件
             currentVideoInfo.VideoLoginStateChangeEvent -= VideoLoginStateChanged;              //程序取消事件注册
             VideoPlayState = Enum_VideoPlayState.NotInPlayState;
@@ -347,6 +348,7 @@ namespace VideoPlayControl.VideoPlay
                 strRecFilePath += "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel - 1, CurrentVideoInfo.VideoType);
             }
             bool bolResult = SDK_XMSDK.H264_DVR_StartLocalRecord(m_iPlayhandle, strRecFilePath, Convert.ToInt32(MEDIA_FILE_TYPE.MEDIA_FILE_NONE));
+            VideoRecordStatus = true;
             return bolResult;
         }
 
@@ -408,13 +410,38 @@ namespace VideoPlayControl.VideoPlay
         }
         #endregion
 
+
         /// <summary>
-        /// 视频播放中是否可以录像  
-        /// （临时变量，true 表示StartVideoRecord有实现 false 表示没有具体实现 用于界面控制 ）
+        /// 录像状态改变事件
         /// </summary>
-        public bool VideoPlayingRecordEnable
+        public event VideoRecordStatusChangedDelegate VideoRecordStausChangedEvent;
+        /// <summary>
+        /// 录像状态改变事件
+        /// </summary>
+        /// <param name="VideoRecordStatusChangedValue"></param>
+        private void VideoRecordStausChanged(object VideoRecordStatusChangedValue)
         {
-            get { return true; }
+            if (VideoRecordStausChangedEvent != null)
+            {
+                VideoRecordStausChangedEvent(this, VideoRecordStatusChangedValue);
+            }
+        }
+
+        private bool bolVideoRecordStatus = false;
+        /// <summary>
+        /// 视频录像状态 true 表示正在录像 false表示未处于录像中
+        /// </summary>
+        public bool VideoRecordStatus
+        {
+            get { return bolVideoRecordStatus; }
+            private set
+            {
+                if (bolVideoRecordStatus != value)
+                {
+                    bolVideoRecordStatus = value;
+                    VideoRecordStausChanged(null);
+                };
+            }
         }
 
         /// <summary>

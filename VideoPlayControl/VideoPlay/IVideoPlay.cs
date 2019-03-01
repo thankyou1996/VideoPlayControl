@@ -90,11 +90,11 @@ namespace VideoPlayControl.VideoPlay
             set;
         }
 
+
         /// <summary>
-        /// 视频播放中是否可以录像  
-        /// （临时变量，true 表示StartVideoRecord有实现 false 表示没有具体实现 用于界面控制 ）
+        /// 视频录像状态 true 表示正在录像 false表示未处于录像中
         /// </summary>
-        bool VideoPlayingRecordEnable
+        bool VideoRecordStatus
         {
             get;
         }
@@ -109,6 +109,11 @@ namespace VideoPlayControl.VideoPlay
         /// 视频状态改变事件
         /// </summary>
         event VideoPlayStateChangedDelegate VideoPlayStateChangedEvent;
+
+        /// <summary>
+        /// 录像状态改变事件
+        /// </summary>
+        event VideoRecordStatusChangedDelegate VideoRecordStausChangedEvent;
         #endregion
 
 
