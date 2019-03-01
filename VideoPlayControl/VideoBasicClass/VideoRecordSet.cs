@@ -15,7 +15,7 @@ namespace VideoPlayControl.VideoBasicClass
         public bool Enable
         {
             get { return bolEnable; }
-            set { bolEnable = false; }
+            set { bolEnable = value; }
         }
 
         /// <summary>

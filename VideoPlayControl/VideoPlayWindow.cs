@@ -457,6 +457,7 @@ namespace VideoPlayControl
             }
             else
             {
+                iv.VideoPlayCallbackEvent -= VideoPlayCallbackEvent;
                 if (iv.CurrentVideoInfo.VideoType != CurrentVideoInfo.VideoType)
                 {
                     iv = null;
@@ -917,6 +918,10 @@ namespace VideoPlayControl
             CurrentVideoPlaySet.VideoRecordFilePath_Server = vrSet.VideoRecordFilePath_Server;
             CurrentVideoPlaySet.VideoRecordFileName_Server = vrSet.VideoRecordFileName_Server;
             CurrentVideoPlaySet.TimeOutVideoRecordCloseSecond = vrSet.TimeOutVideoRecordCloseSecond;
+            if (!Directory.Exists(CurrentVideoPlaySet.VideoRecordFilePath))
+            {
+                Directory.CreateDirectory(CurrentVideoPlaySet.VideoRecordFilePath);
+            }
             return iv.StartVideoRecord(vrSet);
         }
 
@@ -926,7 +931,6 @@ namespace VideoPlayControl
         /// <returns></returns>
         public bool StopVideoRecord()
         {
-
             return iv.StopVideoRecord();
         }
     }

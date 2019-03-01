@@ -33,6 +33,7 @@
             this.videoPlayWindow = new VideoPlayControl.VideoPlayWindow();
             this.cmsVideoWindow = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmi_CloundSeeSetWindows = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_VideoRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.ssPrompt = new System.Windows.Forms.StatusStrip();
             this.tslblPrompt = new System.Windows.Forms.ToolStripStatusLabel();
@@ -52,7 +53,6 @@
             this.pnlRight_Top = new System.Windows.Forms.Panel();
             this.cmbVideoList = new System.Windows.Forms.ComboBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.tsmi_VideoRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsVideoWindow.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.ssPrompt.SuspendLayout();
@@ -115,6 +115,14 @@
             this.tsmi_CloundSeeSetWindows.Text = "远程设置";
             this.tsmi_CloundSeeSetWindows.Visible = false;
             this.tsmi_CloundSeeSetWindows.Click += new System.EventHandler(this.tsmi_CloundSeeSetWindows_Click);
+            // 
+            // tsmi_VideoRecord
+            // 
+            this.tsmi_VideoRecord.Name = "tsmi_VideoRecord";
+            this.tsmi_VideoRecord.Size = new System.Drawing.Size(180, 22);
+            this.tsmi_VideoRecord.Text = "开始录像";
+            this.tsmi_VideoRecord.Visible = false;
+            this.tsmi_VideoRecord.Click += new System.EventHandler(this.tsmi_VideoRecord_Click);
             // 
             // pnlMain
             // 
@@ -309,13 +317,6 @@
             this.splitter1.Size = new System.Drawing.Size(3, 298);
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
-            // 
-            // tsmi_VideoRecord
-            // 
-            this.tsmi_VideoRecord.Name = "tsmi_VideoRecord";
-            this.tsmi_VideoRecord.Size = new System.Drawing.Size(180, 22);
-            this.tsmi_VideoRecord.Text = "开始录像";
-            this.tsmi_VideoRecord.Click += new System.EventHandler(this.tsmi_VideoRecord_Click);
             // 
             // VideoPlayGroupControls_PTZAndTalk
             // 

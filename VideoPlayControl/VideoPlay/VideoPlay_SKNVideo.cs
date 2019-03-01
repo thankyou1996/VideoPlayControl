@@ -259,8 +259,8 @@ namespace VideoPlayControl.VideoPlay
         public bool StopVideoRecord()
         {
             bool bolResult = false;
-            CurrentVideoPlaySet.VideoRecordEnable = false;
             VideoClose();
+            CurrentVideoPlaySet.VideoRecordEnable = false;
             VideoPlay();
             return bolResult;
         }

@@ -48,12 +48,12 @@ namespace VideoPlayControl_UseDemo
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
             //VideoInfo v = TestDataSource.TestDataSource.GetSKDVSData1();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo();
+            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo13();
             dicVideoInfos[v.DVSNumber] = v;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = false;
-            videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath = "\\TestVideo\\";
+            videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath = Application.StartupPath + "\\TestVideo\\";
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath_Server = "\\0712\\123456789";
             //videoPlayGroupControls_PTZAndTalk1.SetPTZVisible(false);
 

@@ -104,6 +104,11 @@ namespace VideoPlayControl
             return v;
         }
 
+        public static string GetVideoRecordName(VideoInfo vInfo, CameraInfo cInfo)
+        {
+            return GetVideoRecordName(vInfo.DVSNumber, cInfo.Channel, vInfo.VideoType);
+        }
+
         public static string GetVideoRecordName(string strVideoNum, int intChannel, Enum_VideoType videoType)
         {
             return GetVideoRecordName(strVideoNum, intChannel, DateTime.Now, videoType);

@@ -241,6 +241,10 @@ namespace VideoPlayControl.VideoPlay
             {
                 //录像启用
                 strRealSavePath = GetLocalSavePath(CurrentVideoPlaySet.VideoRecordFilePath, CurrentVideoPlaySet.VideoRecordFileName);
+                if (!Directory.Exists(CurrentVideoPlaySet.VideoRecordFilePath))
+                {
+                    Directory.CreateDirectory(CurrentVideoPlaySet.VideoRecordFilePath);
+                }
                 Ezviz_DataCallBack = new SDK_EzvizSDK.DataCallBack(Ezviz_DataCallBackEvent);
                 Ezviz_gchVideoRecord = GCHandle.Alloc(Ezviz_DataCallBack);
                 intResult = SDK_EzvizSDK.OpenSDK_SetDataCallBack(intptrSessionID, Ezviz_DataCallBack, iUser);
@@ -578,8 +582,8 @@ namespace VideoPlayControl.VideoPlay
         public bool StopVideoRecord()
         {
             bool bolResult = false;
-            CurrentVideoPlaySet.VideoRecordEnable = false;
             VideoClose();
+            CurrentVideoPlaySet.VideoRecordEnable = false;
             VideoPlay();
             return bolResult;
         }
