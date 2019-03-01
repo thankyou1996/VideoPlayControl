@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            VideoPlayControl.VideoPlaySetting videoPlaySetting1 = new VideoPlayControl.VideoPlaySetting();
             this.videoPlayWindow = new VideoPlayControl.VideoPlayWindow();
             this.cmsVideoWindow = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmi_CloundSeeSetWindows = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,13 +61,36 @@
             // 
             // videoPlayWindow
             // 
+            this.videoPlayWindow.BackColor = System.Drawing.SystemColors.Control;
             this.videoPlayWindow.ContextMenuStrip = this.cmsVideoWindow;
+            this.videoPlayWindow.CurrentCameraInfo = null;
+            this.videoPlayWindow.CurrentVideoInfo = null;
+            videoPlaySetting1.AnsyPlay = false;
+            videoPlaySetting1.AutoReconn = true;
+            videoPlaySetting1.ConnType = VideoPlayControl.Enum.Enum_VideoConnType.Auto;
+            videoPlaySetting1.FirstInForcePreSetPosi = false;
+            videoPlaySetting1.PerVideoRecord = false;
+            videoPlaySetting1.PreSetPosi = -1;
+            videoPlaySetting1.PreVideoRecordFilePath = "";
+            videoPlaySetting1.PTZSpeed = 4;
+            videoPlaySetting1.TimeOutVideoCloseSecond = 180;
+            videoPlaySetting1.TimeOutVideoRecordCloseSecond = 180;
+            videoPlaySetting1.VideoMonitorEnable = false;
+            videoPlaySetting1.VideoPlayTimeLimit = 0;
+            videoPlaySetting1.VideoRecordEnable = false;
+            videoPlaySetting1.VideoRecordFileName = "";
+            videoPlaySetting1.VideoRecordFileName_Server = "";
+            videoPlaySetting1.VideoRecordFilePath = "";
+            videoPlaySetting1.VideoRecordFilePath_Server = "";
+            this.videoPlayWindow.CurrentVideoPlaySet = videoPlaySetting1;
             this.videoPlayWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoPlayWindow.Location = new System.Drawing.Point(3, 0);
             this.videoPlayWindow.Name = "videoPlayWindow";
             this.videoPlayWindow.Size = new System.Drawing.Size(398, 276);
             this.videoPlayWindow.TabIndex = 1;
             this.videoPlayWindow.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
+            this.videoPlayWindow.VideoplayWindowHeight = 0;
+            this.videoPlayWindow.VideoplayWindowWidth = 0;
             // 
             // cmsVideoWindow
             // 

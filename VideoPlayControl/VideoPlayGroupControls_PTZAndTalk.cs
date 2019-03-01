@@ -17,6 +17,12 @@ namespace VideoPlayControl
 {
     public partial class VideoPlayGroupControls_PTZAndTalk : UserControl
     {
+        public TalkSetting CurrentTalkSetting
+        {
+            get { return videoTalkControlManyChannel1.CurrentTalkSetting; }
+            set { videoTalkControlManyChannel1.CurrentTalkSetting = value; }
+        }
+
         #region 全局变量
         /// <summary>
         /// 当前视频信息
@@ -63,7 +69,6 @@ namespace VideoPlayControl
         /// </summary>
         public bool bolAutoPlayVideo = true;
 
-      
         #endregion
 
 

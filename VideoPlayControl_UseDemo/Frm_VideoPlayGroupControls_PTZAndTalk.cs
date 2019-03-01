@@ -24,7 +24,7 @@ namespace VideoPlayControl_UseDemo
             VideoPlayControl.ProgParameter.strEzviz__AppID = "5b97c1d157474f96b8d4c75b936a0057";
             VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             SDKState.Ezviz_SDKInit();
-            SDKState.XMSDK_Init();
+            //SDKState.XMSDK_Init();
             //videoPlayGroupControls_PTZAndTalk1.bolAutoPlayVideo = true;
             //videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
             //videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoMonitorEnable = true;
@@ -33,13 +33,13 @@ namespace VideoPlayControl_UseDemo
             //videoPlayGroupControls_Basic1.bolDisPlaySDKState = true;
             //videoPlayGroupControls_Basic1.videoPlaySet.PreSetPosi = 13;
             //SDKState.CloundSee_SDKInit();
-            SDKState.Ezviz_SDKInit();
+            //SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
-            //SDKState.SKVideoSDKInit(ProgParameter.uintSKVideo_AVPort, ProgParameter.strSKVideo_ClientUGID, "192.168.2.10", ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");
+            SDKState.SKVideoSDKInit("50023370", "192.168.2.19", 47624,47724, 47824, 47924);
 
             //HuaMaiVideo_TestData();
             //SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhc1", "", "C:\\SHIKE_Video");
@@ -48,19 +48,21 @@ namespace VideoPlayControl_UseDemo
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
             //VideoInfo v = TestDataSource.TestDataSource.GetSKDVSData1();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo13();
+            VideoInfo v = TestDataSource.SKDataSource.GetSKData1();
             dicVideoInfos[v.DVSNumber] = v;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
-            videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = false;
+            videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordEnable = true;
             videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath = Application.StartupPath + "\\TestVideo\\";
-            videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath_Server = "\\0712\\123456789";
+            videoPlayGroupControls_PTZAndTalk1.videoPlaySet.VideoRecordFilePath_Server = "\\0712\\" + DateTime.Now.ToString("yyyyMMddHHmmss");
             //videoPlayGroupControls_PTZAndTalk1.SetPTZVisible(false);
 
             videoPlayGroupControls_PTZAndTalk1.Init_VideoInfoSet(dicVideoInfos);
             videoPlayGroupControls_PTZAndTalk1.StartTalkingEvent += VideoPlayGroupControls_PTZAndTalk1_StartTalkingEvent;
             videoPlayGroupControls_PTZAndTalk1.VideoPlay("", 1);
             videoPlayGroupControls_PTZAndTalk1.VideoPlayCallbackEvent += VideoPlayGroupControls_PTZAndTalk1_VideoPlayCallbackEvent;
+            videoPlayGroupControls_PTZAndTalk1.CurrentTalkSetting.TalkRecordEnable = true;
+            videoPlayGroupControls_PTZAndTalk1.CurrentTalkSetting.TalkRecordPath_Server = "Audio/0712/" + DateTime.Now.ToString("yyyyMMddHHmmss");
         }
 
         private bool VideoPlayGroupControls_PTZAndTalk1_StartTalkingEvent(object sender, object StartTalkBeginValue)
@@ -236,6 +238,7 @@ namespace VideoPlayControl_UseDemo
         private void Frm_VideoPlayGroupControls_PTZAndTalk_FormClosing(object sender, FormClosingEventArgs e)
         {
             videoPlayGroupControls_PTZAndTalk1.ControlClose();
+            SDKState.Ezviz_SDKRelease();
         }
 
         private void button3_Click(object sender, EventArgs e)

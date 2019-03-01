@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using PublicClassCurrency;
+using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl
 {
     public partial class VideoTalkControlManyChannel : UserControl
     {
+
+        public TalkSetting CurrentTalkSetting
+        {
+            get { return videoTalkControl1.CurrentTalkSetting; }
+            set { videoTalkControl1.CurrentTalkSetting = value; }
+        }
         public VideoTalkControlManyChannel()
         {
             InitializeComponent();

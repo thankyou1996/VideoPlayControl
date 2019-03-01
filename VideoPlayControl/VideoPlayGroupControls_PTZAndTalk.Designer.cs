@@ -106,12 +106,12 @@
             this.tsmi_CloundSeeSetWindows,
             this.tsmi_VideoRecord});
             this.cmsVideoWindow.Name = "cmsVideoWindow";
-            this.cmsVideoWindow.Size = new System.Drawing.Size(181, 70);
+            this.cmsVideoWindow.Size = new System.Drawing.Size(125, 48);
             // 
             // tsmi_CloundSeeSetWindows
             // 
             this.tsmi_CloundSeeSetWindows.Name = "tsmi_CloundSeeSetWindows";
-            this.tsmi_CloundSeeSetWindows.Size = new System.Drawing.Size(180, 22);
+            this.tsmi_CloundSeeSetWindows.Size = new System.Drawing.Size(124, 22);
             this.tsmi_CloundSeeSetWindows.Text = "远程设置";
             this.tsmi_CloundSeeSetWindows.Visible = false;
             this.tsmi_CloundSeeSetWindows.Click += new System.EventHandler(this.tsmi_CloundSeeSetWindows_Click);
@@ -119,7 +119,7 @@
             // tsmi_VideoRecord
             // 
             this.tsmi_VideoRecord.Name = "tsmi_VideoRecord";
-            this.tsmi_VideoRecord.Size = new System.Drawing.Size(180, 22);
+            this.tsmi_VideoRecord.Size = new System.Drawing.Size(124, 22);
             this.tsmi_VideoRecord.Text = "开始录像";
             this.tsmi_VideoRecord.Visible = false;
             this.tsmi_VideoRecord.Click += new System.EventHandler(this.tsmi_VideoRecord_Click);

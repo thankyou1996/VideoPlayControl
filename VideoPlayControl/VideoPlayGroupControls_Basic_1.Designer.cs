@@ -63,6 +63,8 @@
             // videoPlayWindow
             // 
             this.videoPlayWindow.BackColor = System.Drawing.SystemColors.Control;
+            this.videoPlayWindow.CurrentCameraInfo = null;
+            this.videoPlayWindow.CurrentVideoInfo = null;
             videoPlaySetting1.AnsyPlay = false;
             videoPlaySetting1.AutoReconn = true;
             videoPlaySetting1.ConnType = VideoPlayControl.Enum.Enum_VideoConnType.Auto;
@@ -87,6 +89,8 @@
             this.videoPlayWindow.Size = new System.Drawing.Size(414, 276);
             this.videoPlayWindow.TabIndex = 1;
             this.videoPlayWindow.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
+            this.videoPlayWindow.VideoplayWindowHeight = 0;
+            this.videoPlayWindow.VideoplayWindowWidth = 0;
             // 
             // pnlMain
             // 
