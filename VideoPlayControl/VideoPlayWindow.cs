@@ -300,10 +300,10 @@ namespace VideoPlayControl
                 VideoPlayState = Enum_VideoPlayState.VideoInfoInit;
             }
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.SetVideoInfo });
-            if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
-            {
-                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoTypeNotExists });
-            }
+            //if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
+            //{
+            //    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoTypeNotExists });
+            //}
             InterfaceInit();
         }
 
@@ -323,10 +323,10 @@ namespace VideoPlayControl
                 VideoPlayState = Enum_VideoPlayState.VideoInfoInit;
             }
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.SetVideoInfo });
-            if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
-            {
-                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoTypeNotExists });
-            }
+            //if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
+            //{
+            //    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoTypeNotExists });
+            //}
             InterfaceInit();
         }
 
@@ -351,10 +351,10 @@ namespace VideoPlayControl
                 VideoPlayState = Enum_VideoPlayState.VideoInfoInit;
             }
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.SetVideoInfo });
-            if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
-            {
-                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoTypeNotExists });
-            }
+            //if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
+            //{
+            //    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoTypeNotExists });
+            //}
             InterfaceInit();
         }
 
@@ -374,10 +374,10 @@ namespace VideoPlayControl
                 VideoPlayState = Enum_VideoPlayState.VideoInfoInit;
             }
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.SetVideoInfo });
-            if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
-            {
-                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoTypeNotExists });
-            }
+            //if (CurrentVideoInfo.VideoType == Enum_VideoType.Unrecognized)
+            //{
+            //    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoTypeNotExists });
+            //}
             InterfaceInit();
         }
 
@@ -412,95 +412,23 @@ namespace VideoPlayControl
             {
                 iv.VideoClose();
             }
+            Enum_VideoType Temp_videoType = CurrentVideoInfo.VideoType;
+            if (ProgParameter.TransitionEnable && Temp_videoType == Enum_VideoType.Unrecognized)
+            {
+                Temp_videoType = Transition.Transition_VideoTypeConvert.GetVideoType(CurrentVideoInfo.DVSType);
+            }
             if (iv == null)
             {
-                switch (CurrentVideoInfo.VideoType)
-                {
-                    case Enum_VideoType.HikDVR:
-                        iv = new VideoPlay_HikDVR();
-                        break;
-                    case Enum_VideoType.BlueSky:
-                        iv = new VideoPlay_BuleSky(this.Handle);
-                        break;
-                    case Enum_VideoType.Axis:
-                        iv = new VideoPlay_AXIS();
-                        break;
-                    case Enum_VideoType.XMaiVideo:
-                        iv = new VideoPlay_XMai();
-                        break;
-                    case Enum_VideoType.Ezviz:
-                        iv = new VideoPlay_Ezviz();
-                        break;
-                    case Enum_VideoType.SKNVideo:
-                        iv = new VideoPlay_SKNVideo();
-                        break;
-                    case Enum_VideoType.ZLVideo:
-                        iv = new VideoPlay_ZLVideo();
-                        break;
-                    case Enum_VideoType.SKVideo:
-                        iv = new VideoPlay_Shike();
-                        break;
-                    case Enum_VideoType.DaHuaVideo:
-                        iv = new VideoPlay_DaHua();
-                        break;
-                    case Enum_VideoType.CloundSee:
-                        iv = new VideoPlay_CloundSee();
-                        break;
-                    case Enum_VideoType.HuaMaiVideo:
-                        iv = new VideoPlay_HuaMai();
-                        break;
-                    default:
-                        iv = null;
-                        break;
-
-                }
+                IVideoPlayInit(Temp_videoType);
             }
             else
             {
                 iv.VideoPlayCallbackEvent -= VideoPlayCallbackEvent;
                 iv.VideoRecordStausChangedEvent -= videoRecordStausChangedEvent;
-                if (iv.CurrentVideoInfo.VideoType != CurrentVideoInfo.VideoType)
+                if (iv.CurrentVideoInfo.VideoType != Temp_videoType)
                 {
                     iv = null;
-                    switch (CurrentVideoInfo.VideoType)
-                    {
-                        case Enum_VideoType.HikDVR:
-                            iv = new VideoPlay_HikDVR();
-                            break;
-                        case Enum_VideoType.BlueSky:
-                            iv = new VideoPlay_BuleSky(this.Handle);
-                            break;
-                        case Enum_VideoType.Axis:
-                            iv = new VideoPlay_AXIS();
-                            break;
-                        case Enum_VideoType.XMaiVideo:
-                            iv = new VideoPlay_XMai();
-                            break;
-                        case Enum_VideoType.Ezviz:
-                            iv = new VideoPlay_Ezviz();
-                            break;
-                        case Enum_VideoType.SKNVideo:
-                            iv = new VideoPlay_SKNVideo();
-                            break;
-                        case Enum_VideoType.ZLVideo:
-                            iv = new VideoPlay_ZLVideo();
-                            break;
-                        case Enum_VideoType.SKVideo:
-                            iv = new VideoPlay_Shike();
-                            break;
-                        case Enum_VideoType.DaHuaVideo:
-                            iv = new VideoPlay_DaHua();
-                            break;
-                        case Enum_VideoType.CloundSee:
-                            iv = new VideoPlay_CloundSee();
-                            break;
-                        case Enum_VideoType.HuaMaiVideo:
-                            iv = new VideoPlay_HuaMai();
-                            break;
-                        default:
-                            iv = null;
-                            break;
-                    }
+                    IVideoPlayInit(Temp_videoType);
                 }
             }
             if (iv != null)
@@ -518,6 +446,50 @@ namespace VideoPlayControl
                 iv.VideoPlayStateChangedEvent += Iv_VideoPlayStateChangedEvent;
                 iv.SoundStateChangedEvent += Iv_SoundStateChangedEvent;
                 iv.VideoRecordStausChangedEvent += videoRecordStausChangedEvent;
+            }
+        }
+
+        public void IVideoPlayInit(Enum_VideoType videoType)
+        {
+            switch (videoType)
+            {
+                case Enum_VideoType.HikDVR:
+                    iv = new VideoPlay_HikDVR();
+                    break;
+                case Enum_VideoType.BlueSky:
+                    iv = new VideoPlay_BuleSky(this.Handle);
+                    break;
+                case Enum_VideoType.Axis:
+                    iv = new VideoPlay_AXIS();
+                    break;
+                case Enum_VideoType.XMaiVideo:
+                    iv = new VideoPlay_XMai();
+                    break;
+                case Enum_VideoType.Ezviz:
+                    iv = new VideoPlay_Ezviz();
+                    break;
+                case Enum_VideoType.SKNVideo:
+                    iv = new VideoPlay_SKNVideo();
+                    break;
+                case Enum_VideoType.ZLVideo:
+                    iv = new VideoPlay_ZLVideo();
+                    break;
+                case Enum_VideoType.SKVideo:
+                    iv = new VideoPlay_Shike();
+                    break;
+                case Enum_VideoType.DaHuaVideo:
+                    iv = new VideoPlay_DaHua();
+                    break;
+                case Enum_VideoType.CloundSee:
+                    iv = new VideoPlay_CloundSee();
+                    break;
+                case Enum_VideoType.HuaMaiVideo:
+                    iv = new VideoPlay_HuaMai();
+                    break;
+                default:
+                    iv = null;
+                    break;
+
             }
         }
 
@@ -700,14 +672,17 @@ namespace VideoPlayControl
             //VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
             switch (CurrentVideoInfo.VideoType)
             {
-                case Enum_VideoType.Unrecognized:
-                    //不做操作
-                    break;
+                //case Enum_VideoType.Unrecognized:
+                //    //不做操作
+                //    break;
                 case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
                     IPCWA_VideoPlay();
                     break;
                 default:
-                    iv.VideoPlay();
+                    if (iv != null)
+                    {
+                        iv.VideoPlay();
+                    }
                     break;
             }
             return false;
@@ -733,14 +708,17 @@ namespace VideoPlayControl
             {
                 switch (CurrentVideoInfo.VideoType)
                 {
-                    case Enum_VideoType.Unrecognized:
-                        //不做操作
-                        break;
+                    //case Enum_VideoType.Unrecognized:
+                    //    //不做操作
+                    //    break;
                     case Enum_VideoType.IPCWA:
                         IPCWA_VideoClose();
                         break;
                     default:
-                        iv.VideoClose();
+                        if (iv != null)
+                        {
+                            iv.VideoClose();
+                        }
                         break;
                 }
                 VideoPlayState = Enum_VideoPlayState.NotInPlayState;

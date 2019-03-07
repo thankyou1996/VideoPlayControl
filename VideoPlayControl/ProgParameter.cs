@@ -118,5 +118,14 @@ namespace VideoPlayControl
         /// </summary>。
         public static int intHikStreamVoiceClientPort = 8082;
         #endregion
+
+
+        /// <summary>
+        /// 过渡转换使能
+        /// </summary>
+        public static bool TransitionEnable
+        {
+            get { return true ; }
+        }
     }
 }

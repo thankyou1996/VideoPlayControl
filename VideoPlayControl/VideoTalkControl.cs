@@ -119,9 +119,14 @@ namespace VideoPlayControl
         public bool SetVideoTalkInfo(VideoInfo videoInfo, VideoTalkChannelInfo talkChannel)
         {
             bool bolResult = false;
+            Enum_VideoType Temp_videoType = videoInfo.VideoType;
+            if (ProgParameter.TransitionEnable && Temp_videoType == Enum_VideoType.Unrecognized)
+            {
+                Temp_videoType= Transition.Transition_VideoTypeConvert.GetVideoType(videoInfo.DVSType);
+            }
             if (videoTalk.CurrentVideoInfo == null || videoTalk.CurrentVideoInfo.VideoType != videoInfo.VideoType)
             {
-                switch (videoInfo.VideoType)
+                switch (Temp_videoType)
                 {
                     case Enum_VideoType.SKVideo:
                         videoTalk = new VideoTalk_Shike();
@@ -134,7 +139,8 @@ namespace VideoPlayControl
                         videoTalk = new VideoTalk_SKNVideo();
                         break;
                     default:    //不存在的设备类型直接报异常
-                        throw new Exception("设备类型异常");
+                        //throw new Exception("设备类型异常");
+                        break;
                 }
                 videoTalk.TalkStausChangedEvent += VideoTalk_TalkStausChangedEvent;
                 videoTalk.StartTalkingEvent += startTalkingEvent;
