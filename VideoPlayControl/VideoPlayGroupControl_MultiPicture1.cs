@@ -372,14 +372,39 @@ namespace VideoPlayControl
             return true;
         }
 
+        #region 视频关闭相关方法
+        /// <summary>
+        /// 关闭所有视频
+        /// </summary>
         public void VideoColse_All()
         {
             foreach (VideoPlayWindow v in dicWin.Values)
             {
-                v.VideoClose();
-                SetToolTipInfo(v, "");
+                VideoClose(v);
             }
         }
+        /// <summary>
+        /// 关闭当前视频
+        /// </summary>
+        public void VideoClose()
+        {
+            VideoClose(CurrentV);
+        }
+
+        /// <summary>
+        /// 关闭视频
+        /// </summary>
+        /// <param name="v"></param>
+        public void VideoClose(VideoPlayWindow v )
+        {
+            v.VideoClose();
+            SetToolTipInfo(v, "");
+        }
+
+
+
+        #endregion
+
         /// <summary>
         /// 打开声音通道
         /// </summary>
