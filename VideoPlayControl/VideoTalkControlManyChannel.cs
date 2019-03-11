@@ -8,10 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using PublicClassCurrency;
 using VideoPlayControl.VideoBasicClass;
+using VideoPlayControl.VideoTalk;
 
 namespace VideoPlayControl
 {
-    public partial class VideoTalkControlManyChannel : UserControl
+    public partial class VideoTalkControlManyChannel : UserControl, IVideoTalk
     {
 
         public TalkSetting CurrentTalkSetting
@@ -19,16 +20,68 @@ namespace VideoPlayControl
             get { return videoTalkControl1.CurrentTalkSetting; }
             set { videoTalkControl1.CurrentTalkSetting = value; }
         }
+
+        public VideoInfo CurrentVideoInfo { get => ((IVideoTalk)videoTalkControl1).CurrentVideoInfo; set => ((IVideoTalk)videoTalkControl1).CurrentVideoInfo = value; }
+        public VideoTalkChannelInfo CurrentTalkChannel { get => ((IVideoTalk)videoTalkControl1).CurrentTalkChannel; set => ((IVideoTalk)videoTalkControl1).CurrentTalkChannel = value; }
+        public Enum_TalkStatus CurrentTalkStatus { get => ((IVideoTalk)videoTalkControl1).CurrentTalkStatus; set => ((IVideoTalk)videoTalkControl1).CurrentTalkStatus = value; }
+
         public VideoTalkControlManyChannel()
         {
             InitializeComponent();
         }
 
 
+
+        public event TalkStausChangedDelegate TalkStausChangedEvent
+        {
+            add
+            {
+                ((IVideoTalk)videoTalkControl1).TalkStausChangedEvent += value;
+            }
+
+            remove
+            {
+                ((IVideoTalk)videoTalkControl1).TalkStausChangedEvent -= value;
+            }
+        }
+
         public event StartTalkingDelegate StartTalkingEvent
         {
-            add { videoTalkControl1.StartTalkingEvent += value; }
-            remove { videoTalkControl1.StartTalkingEvent -= value; }
+            add
+            {
+                ((IVideoTalk)videoTalkControl1).StartTalkingEvent += value;
+            }
+
+            remove
+            {
+                ((IVideoTalk)videoTalkControl1).StartTalkingEvent -= value;
+            }
+        }
+
+        public event StartTalkedDelegate StartTalkedEvent
+        {
+            add
+            {
+                ((IVideoTalk)videoTalkControl1).StartTalkedEvent += value;
+            }
+
+            remove
+            {
+                ((IVideoTalk)videoTalkControl1).StartTalkedEvent -= value;
+            }
+        }
+
+        public event StopTalkedDelegate StopTalkedEvent
+        {
+            add
+            {
+                ((IVideoTalk)videoTalkControl1).StopTalkedEvent += value;
+            }
+
+            remove
+            {
+                ((IVideoTalk)videoTalkControl1).StopTalkedEvent -= value;
+            }
         }
 
         Dictionary<string, VideoInfo> CurrentVideoInfos = new Dictionary<string, VideoInfo>();
@@ -76,6 +129,36 @@ namespace VideoPlayControl
         public void ControlColse()
         {
             videoTalkControl1.StopTalk();
+        }
+
+        public bool TalkStausChanged(object TalkStausChangedValue)
+        {
+            return ((IVideoTalk)videoTalkControl1).TalkStausChanged(TalkStausChangedValue);
+        }
+
+        public bool StartTalking(object StartTalkingValue)
+        {
+            return ((IVideoTalk)videoTalkControl1).StartTalking(StartTalkingValue);
+        }
+
+        public bool StopTalked(object StopTalkedValue)
+        {
+            return ((IVideoTalk)videoTalkControl1).StopTalked(StopTalkedValue);
+        }
+
+        public bool SetVideoTalkInfo(VideoInfo videoInfo, VideoTalkChannelInfo talkChannel)
+        {
+            return ((IVideoTalk)videoTalkControl1).SetVideoTalkInfo(videoInfo, talkChannel);
+        }
+
+        public bool StartTlak(Enum_TalkModel talkModel)
+        {
+            return ((IVideoTalk)videoTalkControl1).StartTlak(talkModel);
+        }
+
+        public bool StopTalk()
+        {
+            return ((IVideoTalk)videoTalkControl1).StopTalk();
         }
     }
 }

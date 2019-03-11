@@ -177,6 +177,12 @@
     <Compile Include="Frm_VideoRecordListTest.Designer.cs">
       <DependentUpon>Frm_VideoRecordListTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_VideoTalkControlManyChannel_Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_VideoTalkControlManyChannel_Test.Designer.cs">
+      <DependentUpon>Frm_VideoTalkControlManyChannel_Test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frn_VideoPlayGroupControl_Basic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_VideoRecordListTest.resx">
       <DependentUpon>Frm_VideoRecordListTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_VideoTalkControlManyChannel_Test.resx">
+      <DependentUpon>Frm_VideoTalkControlManyChannel_Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frn_VideoPlayGroupControl_Basic.resx">
       <DependentUpon>Frn_VideoPlayGroupControl_Basic.cs</DependentUpon>

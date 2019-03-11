@@ -73,10 +73,14 @@ namespace VideoPlayControl.VideoPlay
         public bool VideoClose()
         {
             bool bolResult = false;
+            if (VideoRecordStatus)
+            {
+                VideoRecordStatus = false;
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.StopVideoRecord });
+            }
             SDK_SKVideoSDK.p_sdkc_stop_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, intptrPlayMain);
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
             VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-            VideoRecordStatus = false;
             return bolResult;
         }
 
@@ -91,6 +95,7 @@ namespace VideoPlayControl.VideoPlay
             int intVideoRecordEnable = 0;
             if (CurrentVideoPlaySet.VideoRecordEnable)
             {
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.StartVideoRecord });
                 strRecordPath = GetServerSavePath(CurrentVideoPlaySet.VideoRecordFilePath_Server, CurrentVideoPlaySet.VideoRecordFileName_Server);
                 intVideoRecordEnable = 1;
                 VideoRecordStatus = true;
@@ -330,9 +335,12 @@ namespace VideoPlayControl.VideoPlay
         public bool StopVideoRecord()
         {
             bool bolResult = false;
-            VideoClose();
-            CurrentVideoPlaySet.VideoRecordEnable = false;
-            VideoPlay();
+            if (VideoRecordStatus)
+            {
+                VideoClose();
+                CurrentVideoPlaySet.VideoRecordEnable = false;
+                VideoPlay();
+            }
             return bolResult;
         }
     }
