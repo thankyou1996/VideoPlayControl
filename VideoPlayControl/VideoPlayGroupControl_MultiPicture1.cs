@@ -93,6 +93,10 @@ namespace VideoPlayControl
         public VideoPlayGroupControl_MultiPicture1()
         {
             InitializeComponent();
+            if (CurrentV == null)
+            {
+                CurrentV = videoPlayWindow1;
+            }
         }
 
         private void VideoPlayGroupControl_MultiPicture1_Load(object sender, EventArgs e)
@@ -210,6 +214,7 @@ namespace VideoPlayControl
                 }
                 return true;
             }
+            Console.WriteLine("SetWindowNum" + intNum);
             switch (intNum)
             {
                 case 1:
@@ -324,11 +329,12 @@ namespace VideoPlayControl
             return true;
         }
 
+ 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="v"></param>
-        /// <param name="iIndex"></param>
+        /// <param name="iChannel"></param>
         /// <returns></returns>
         public bool SetPlayVideoInfo(VideoInfo v, int iChannel)
         {

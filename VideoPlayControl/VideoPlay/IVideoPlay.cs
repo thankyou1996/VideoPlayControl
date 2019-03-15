@@ -187,5 +187,11 @@ namespace VideoPlayControl.VideoPlay
         bool CloseSound();
 
         #endregion
+
+        ///// <summary>
+        ///// 抓图
+        ///// </summary>
+        ///// <returns></returns>
+        //bool Snap(VideoSnapSet snapSet);
     }
 }

@@ -36,7 +36,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit();
             //SDKState.HuaMai_Init();
-            //SDKState.XMSDK_Init();
+            SDKState.XMSDK_Init();
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
             SDKState.SKVideoSDKInit("50023370", "192.168.2.19", 47624,47724, 47824, 47924);
@@ -48,7 +48,7 @@ namespace VideoPlayControl_UseDemo
             Dictionary<string, VideoInfo> dicVideoInfos = new Dictionary<string, VideoInfo>();
             //VideoInfo v = TestDataSource.TestDataSource.GetSKDVSData1();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.SKDataSource.GetSKData1();
+            VideoInfo v = TestDataSource.XMDataSource.GetData3();
             dicVideoInfos[v.DVSNumber] = v;
             videoPlayGroupControls_PTZAndTalk1.bolPreViewPwdVerify = false;
             videoPlayGroupControls_PTZAndTalk1.PreViewPwdVerifyEvent += PreViewPwdVerify;
