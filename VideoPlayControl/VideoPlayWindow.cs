@@ -941,5 +941,15 @@ namespace VideoPlayControl
         {
             return iv.StopVideoRecord();
         }
+
+        /// <summary>
+        /// 抓图
+        /// </summary>
+        /// <param name="snapSet"></param>
+        /// <returns></returns>
+        public bool Snap(VideoSnapSet snapSet)
+        {
+            return iv.StopVideoRecord();
+        }
     }
 }

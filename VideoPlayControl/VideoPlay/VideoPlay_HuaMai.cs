@@ -327,6 +327,18 @@ namespace VideoPlayControl.VideoPlay
             VideoPlay();
             return bolResult;
         }
+
+        /// <summary>
+        /// 抓图
+        /// </summary>
+        /// <param name="snapSet"></param>
+        /// <returns></returns>
+        public bool Snap(VideoSnapSet snapSet)
+        {
+            bool bolResult = false;
+
+            return bolResult;
+        }
     }
 }
 

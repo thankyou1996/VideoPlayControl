@@ -188,10 +188,10 @@ namespace VideoPlayControl.VideoPlay
 
         #endregion
 
-        ///// <summary>
-        ///// 抓图
-        ///// </summary>
-        ///// <returns></returns>
-        //bool Snap(VideoSnapSet snapSet);
+        /// <summary>
+        /// 抓图
+        /// </summary>
+        /// <returns></returns>
+        bool Snap(VideoSnapSet snapSet);
     }
 }
