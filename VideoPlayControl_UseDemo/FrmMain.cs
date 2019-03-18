@@ -76,20 +76,19 @@ namespace VideoPlayControl_UseDemo
             //VideoPlayControl.ProgParameter.strEzviz__AppID = "1acd8ddc451f48a4b8b4666716e8f9ce";
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "518335cd3421f16a4b4e88164225c432";
             SDKState.SDKStateChangeEvent += SDKStateChange;
-            SDKState.CloundSee_SDKInit();
-            SDKState.Ezviz_SDKInit();
+            //SDKState.CloundSee_SDKInit();
+            //SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19");
             //SDKState.HuaMai_Init();
-            SDKState.XMSDK_Init();
+            //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
-            SDKState.HikDVRSDK_Init();
-            //SDKState.BlueSkySDK_Init();
+            //SDKState.HikDVRSDK_Init();
+            SDKState.BlueSkySDK_Init();
             //SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C:\\SHIKE_Video");
-            SDKState.ZLVideoSDK_Init();
+            //SDKState.ZLVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
-            SDKState.DHVideoSDK_Init();
-            SDKState.ZLVideoSDK_Init();
-
+            //SDKState.DHVideoSDK_Init();
+            //SDKState.ZLVideoSDK_Init();
             Init();
 
 
@@ -150,6 +149,11 @@ namespace VideoPlayControl_UseDemo
             dr = dtSource.NewRow();
             dr["value"] = Convert.ToInt32(Enum_VideoType.SKNVideo);
             dr["display"] = Enum_VideoType.SKNVideo.ToString();
+            dtSource.Rows.Add(dr);
+
+            dr = dtSource.NewRow();
+            dr["value"] = Convert.ToInt32(Enum_VideoType.BlueSky);
+            dr["display"] = Enum_VideoType.BlueSky.ToString();
             dtSource.Rows.Add(dr);
 
             cmbVideoType.ValueMember = "value";
@@ -1226,7 +1230,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnBlueSkyTestData_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.TestDataSource.BuleSkyDataSource();
+            VideoInfo v = TestDataSource.BlueSkyDataSource.GetData1();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

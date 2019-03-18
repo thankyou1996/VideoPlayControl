@@ -910,7 +910,14 @@ namespace VideoPlayControl
         /// </summary>
         public bool VideoRecordStatus
         {
-            get { return iv.VideoRecordStatus; }
+            get
+            {
+                if (iv == null)
+                {
+                    return false;
+                }
+                return iv.VideoRecordStatus;
+            }
         }
 
         /// <summary>
@@ -939,6 +946,10 @@ namespace VideoPlayControl
         /// <returns></returns>
         public bool StopVideoRecord()
         {
+            if (iv == null)
+            {
+                return false;
+            }
             return iv.StopVideoRecord();
         }
 
@@ -949,6 +960,10 @@ namespace VideoPlayControl
         /// <returns></returns>
         public bool Snap(VideoSnapSet snapSet)
         {
+            if (iv == null)
+            {
+                return false;
+            }
             return iv.StopVideoRecord();
         }
     }

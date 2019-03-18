@@ -93,5 +93,14 @@ namespace VideoPlayControl
     /// <param name="PlayWindowStatusValue"></param>
     /// <returns></returns>
     public delegate bool PlayWindowStatusChangedDelegate(object sender,object PlayWindowStatusValue);
+
+
+    /// <summary>
+    /// 当前VideoPlayWindow 改变事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="SelectVideoPlayWindowChangedValue"></param>
+    /// <returns></returns>
+    public delegate void SelectVideoPlayWindowChangedDelegate(object sender, object SelectVideoPlayWindowChangedValue);
     #endregion
 }

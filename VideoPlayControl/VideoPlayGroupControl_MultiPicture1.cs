@@ -16,7 +16,27 @@ namespace VideoPlayControl
         #region 公用参数
         public Color clrDefaulWindowColor = Color.White;
         public Color clrSelectedWindowColor = Color.Cyan;
-        public VideoPlayWindow CurrentV = null;
+        private VideoPlayWindow currentV = null;
+        /// <summary>
+        /// 当前视频控件
+        /// </summary>
+        public VideoPlayWindow CurrentV
+        {
+            get { return currentV; }
+            set
+            {
+                if (currentV != value)
+                {
+                    currentV = value;
+                    if (SelectedWindowHiglight)
+                    {
+                        currentV.BackColor = clrSelectedWindowColor;
+                    }
+                    SelectVideoPlayWindowChanged(null);
+                }
+            }
+
+        }
         public bool AutoSelectedNextWindow = true;
         public bool SelectedWindowHiglight = true;
         public bool DisplayToolTipInfo = true;
@@ -57,6 +77,16 @@ namespace VideoPlayControl
         /// 播放窗口状态改变事件
         /// </summary>
         public event PlayWindowStatusChangedDelegate PlayWindowStatusChangedEvent;
+
+        public event SelectVideoPlayWindowChangedDelegate SelectVideoPlayWindowChangedEvent;
+
+        public void SelectVideoPlayWindowChanged(object SelectVideoPlayWindowChangedValue)
+        {
+            if (SelectVideoPlayWindowChangedEvent != null)
+            {
+                SelectVideoPlayWindowChangedEvent(this, SelectVideoPlayWindowChangedValue);
+            }
+        }
         #endregion
         Dictionary<int, VideoPlayWindow> dicWin = new Dictionary<int, VideoPlayWindow>();
         Dictionary<int, VideoInfo> dicVideo = new Dictionary<int, VideoInfo>();
@@ -267,7 +297,6 @@ namespace VideoPlayControl
                         }
                     }
                     CurrentV = dicWin[0];
-                    HighlightVideoWindows(CurrentV);
                     break;
                 default:
                     return false;
@@ -451,24 +480,16 @@ namespace VideoPlayControl
             {
                 if (v.VideoPlayState != Enum_VideoPlayState.InPlayState)
                 {
-                    CurrentV = v;
                     foreach (VideoPlayWindow vv in dicWin.Values)
                     {
                         vv.BackColor = clrDefaulWindowColor;
                     }
-                    HighlightVideoWindows(CurrentV);
+                    CurrentV = v;
                     break;
                 }
             }
         }
-
-        public void HighlightVideoWindows(VideoPlayWindow v)
-        {
-            if (SelectedWindowHiglight)
-            {
-                v.BackColor = clrSelectedWindowColor;
-            }
-        }
+        
 
         public void SetToolTipInfo(VideoPlayWindow v)
         {
@@ -511,7 +532,6 @@ namespace VideoPlayControl
                 if (vv.Equals(v))
                 {
                     CurrentV = v;
-                    HighlightVideoWindows(CurrentV);
                 }
                 else
                 {
