@@ -583,7 +583,7 @@
         </member>
         <member name="P:PublicClassCurrency.VideoInfo.DefaultLinkageChannel">
             <summary>
-            默认联动通道
+            默认联动通道 
             </summary>
         </member>
         <member name="P:PublicClassCurrency.VideoInfo.DefaultLinkageCameraInfo">
@@ -790,6 +790,11 @@
             海康流媒体模式
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.TLiVideo">
+            <summary>
+            通立视频设备
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.Enum_VideoType.DaHuaVideo">
             <summary>
             大华设备
@@ -835,6 +840,11 @@
         <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.HikStreamVideo">
             <summary>
             海康流媒体模式
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.TLiVideoRecord">
+            <summary>
+            通立视频设备
             </summary>
         </member>
         <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.DaHuaVideoRecord">

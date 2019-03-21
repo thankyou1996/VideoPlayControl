@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="SDKInterface\SDK_KD.cs" />
     <Compile Include="SDKInterface\SDK_SKNVideo.cs" />
+    <Compile Include="SDKInterface\SDK_TL.cs" />
     <Compile Include="SDKInterface\SDK_ZLNetSDK.cs" />
     <Compile Include="SDKState.cs" />
     <Compile Include="SDKInterface\SDK_EzvizSDK.cs" />
@@ -134,6 +135,7 @@
     <Compile Include="VideoEncoderAsync\QuickAudioEncodingCommands.cs" />
     <Compile Include="VideoEncoderAsync\QuickVideoEncodingCommands.cs" />
     <Compile Include="VideoEncoderAsync\VideoFile.cs" />
+    <Compile Include="VideoEnvironment\VideoEnvironment_TL.cs" />
     <Compile Include="VideoPlayGroupControl_MultiPicture1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -149,6 +151,7 @@
     <Compile Include="VideoPlay\VideoPlay_Shike.cs" />
     <Compile Include="VideoPlay\VideoPlay_SKNVideo.cs" />
     <Compile Include="VideoPlay\VideoPlay_ZLVideo.cs" />
+    <Compile Include="VideoPlay\VideoPlay_TLi.cs" />
     <Compile Include="VideoRecordBackplay\VideoPlayback\VideoBackPlay_AmpFileParser.cs" />
     <Compile Include="VideoPlayGroupControls_PTZAndTalk.cs">
       <SubType>UserControl</SubType>
@@ -1333,6 +1336,11 @@
     <Content Include="dll_Libary\SKVideoSDK\zlib1.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="dll_Libary\TLiVideoSDK\hi_h264dec_w.dll" />
+    <Content Include="dll_Libary\TLiVideoSDK\libEasyAACEncoder.dll" />
+    <Content Include="dll_Libary\TLiVideoSDK\libmp4v2.dll" />
+    <Content Include="dll_Libary\TLiVideoSDK\NetDvr2.dll" />
+    <Content Include="dll_Libary\TLiVideoSDK\TLPlay.dll" />
     <Content Include="ImageFile\PTZImage\PTZ_Up.png" />
     <Content Include="ImageFile\PTZImage\PTZ_Down.png" />
     <Content Include="ImageFile\PTZImage\PTZ_Right.png" />
@@ -1460,6 +1468,7 @@
     <None Include="dll_Libary\SKVideoSDK\VLC_SDK.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="dll_Libary\TLiVideoSDK\NetDvr2.lib" />
     <None Include="dll_Libary\XMVideoSDK\ClientDemo.ilk" />
     <None Include="dll_Libary\XMVideoSDK\Config.ini" />
     <None Include="dll_Libary\XMVideoSDK\H264Play.lib" />

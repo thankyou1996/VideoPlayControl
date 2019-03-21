@@ -157,6 +157,9 @@ namespace VideoPlayControl
                 case Enum_VideoType.DaHuaVideo:
                     sbVideoRecordFileName.Append(".dav");
                     break;
+                case Enum_VideoType.TLiVideo:
+                    sbVideoRecordFileName.Append(".ifv");
+                    break;
                 default:
                     sbVideoRecordFileName.Append(".mp4");
                     break;

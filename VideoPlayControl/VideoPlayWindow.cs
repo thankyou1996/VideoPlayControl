@@ -360,7 +360,8 @@ namespace VideoPlayControl
 
         public void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
         {
-            if (VideoPlayState == Enum_VideoPlayState.InPlayState || (iv != null && iv.VideoPlayState != Enum_VideoPlayState.VideoInfoNull))
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState 
+                || VideoPlayState==Enum_VideoPlayState.Connecting)
             {
                 VideoClose();
             }
@@ -485,6 +486,9 @@ namespace VideoPlayControl
                     break;
                 case Enum_VideoType.HuaMaiVideo:
                     iv = new VideoPlay_HuaMai();
+                    break;
+                case Enum_VideoType.TLiVideo:
+                    iv = new VideoPlay_TLi();
                     break;
                 default:
                     iv = null;
@@ -669,12 +673,8 @@ namespace VideoPlayControl
                 VideoClose();
             }
             intConnCount++;
-            //VideoPlayEventCallBack(Enum_VideoPlayEventType.ConnSuccess);
             switch (CurrentVideoInfo.VideoType)
             {
-                //case Enum_VideoType.Unrecognized:
-                //    //不做操作
-                //    break;
                 case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
                     IPCWA_VideoPlay();
                     break;
@@ -708,9 +708,6 @@ namespace VideoPlayControl
             {
                 switch (CurrentVideoInfo.VideoType)
                 {
-                    //case Enum_VideoType.Unrecognized:
-                    //    //不做操作
-                    //    break;
                     case Enum_VideoType.IPCWA:
                         IPCWA_VideoClose();
                         break;
@@ -721,8 +718,6 @@ namespace VideoPlayControl
                         }
                         break;
                 }
-                VideoPlayState = Enum_VideoPlayState.NotInPlayState;
-                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
             }
             TimeOutTimerDispose();
             picPlayMain.Refresh();

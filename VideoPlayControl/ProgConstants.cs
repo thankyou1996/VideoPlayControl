@@ -86,6 +86,15 @@ namespace VideoPlayControl
         /// 科达SDK路径
         /// </summary>
         public const string c_strKDFilePath = "\\KD\\nvrsdk.dll";
+
+        /// <summary>
+        /// 通立SDK_TLPlay.dll
+        /// </summary>
+        public const string c_strTLISDKFilePath_TLPlay = "\\TLiVideoSDK\\TLPlay.dll";
+        /// <summary>
+        /// 通立SDK_NetDvr2.dll
+        /// </summary>
+        public const string c_strTLISDKFilePath_NetDvr2 = "\\TLiVideoSDK\\NetDvr2.dll";
         #endregion
 
         #region SDK默认参数

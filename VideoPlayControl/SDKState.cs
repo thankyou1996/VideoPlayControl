@@ -44,7 +44,7 @@ namespace VideoPlayControl
         /// <summary>
         /// SDK状态变化
         /// </summary>
-        private static void SDKStateChange(PublicClassCurrency.Enum_VideoType sdkType, Enum_SDKState sdkState)
+        public static void SDKStateChange(PublicClassCurrency.Enum_VideoType sdkType, Enum_SDKState sdkState)
         {
             if (SDKStateChangeEvent != null)
             {

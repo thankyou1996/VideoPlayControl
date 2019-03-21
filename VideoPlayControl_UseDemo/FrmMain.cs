@@ -75,20 +75,21 @@ namespace VideoPlayControl_UseDemo
             VideoPlayControl.ProgParameter.strEzviz_AppSecret = "4318d0cc4c43ca156052ba688bc9006a";
             //VideoPlayControl.ProgParameter.strEzviz__AppID = "1acd8ddc451f48a4b8b4666716e8f9ce";
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "518335cd3421f16a4b4e88164225c432";
-            SDKState.SDKStateChangeEvent += SDKStateChange;
+            //SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            //SDKState.Ezviz_SDKInit();
+            SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19");
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
             //SDKState.HikDVRSDK_Init();
-            SDKState.BlueSkySDK_Init();
+            //SDKState.BlueSkySDK_Init();
             //SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C:\\SHIKE_Video");
             //SDKState.ZLVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.ZLVideoSDK_Init();
+            VideoPlayControl.VideoEnvironment.VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
             Init();
 
 
@@ -232,7 +233,7 @@ namespace VideoPlayControl_UseDemo
             }
         }
 
-        
+
         public bool VideoPlayEventCallBack(object sender, VideoPlayCallbackValue eventValue)
         {
             bool bolResult = false;
@@ -629,65 +630,59 @@ namespace VideoPlayControl_UseDemo
         public void VideoChannelListButton_Click(object sender, Button btnChannel)
         {
             CameraInfo cameraInfo = (CameraInfo)btnChannel.Tag;
-            videoChannelList.ButtonListBackColorReset();
-            //Button btn = (Button)sender;
-            btnChannel.BackColor = Color.Red;
-            VideoPlaySetting videoPlaySet = new VideoPlaySetting();
-            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
-            //播放
-            if (chkPresetEanble.Checked)
+            if (btnChannel.BackColor == Color.Red)
             {
-                videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
-            }
-            videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
-            videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
-            videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
-            videoPlaySet.VideoRecordFilePath = txtVideoRecord.Text;
-            videoPlaySet.AutoReconn = false;
-            videoPlaySet.AnsyPlay = true;
-
-            if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
-            {
-                string strTimeValue = DateTime.Now.ToString("yyyyMMddHHmmss");
-                StringBuilder sbVideoRecordPath = new StringBuilder();
-                sbVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
-                sbVideoRecordPath.Append(strTimeValue + "\\");
-                sbVideoRecordPath.Append(intCurrentVideoID + "_");
-                sbVideoRecordPath.Append(cameraInfo.Channel.ToString().PadLeft(2, '0') + "_");
-                sbVideoRecordPath.Append(strTimeValue + "_81.H264");
-                videoPlaySet.VideoRecordFilePath = sbVideoRecordPath.ToString();
-                StringBuilder sbPreVideoRecordPath = new StringBuilder();
-                sbPreVideoRecordPath.Append("http://121.41.87.203:8008/SK_VideoRecord/");
-                sbPreVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
-                sbPreVideoRecordPath.Append(strTimeValue + "\\");
-                videoPlaySet.PreVideoRecordFilePath = sbPreVideoRecordPath.ToString();
-            }
-            if (intVideoIndex == 0)
-            {
-                if (videoWindowTest.VideoPlayState == Enum_VideoPlayState.InPlayState)
-                {
-                    //处于播放状态
-                    videoWindowTest.VideoClose();
-                }
-                else
-                {
-                    //测试界面
-                    PlayVideo(videoWindowTest, dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
-                }
-                
+                //表示点击乐正在播放中的通道
+                //关闭视频，重置背景颜色
+                VideoColse();
+                videoChannelList.ButtonListBackColorReset();
+                return;
             }
             else
             {
-                if (lstVideoPlayWindow[intVideoIndex - 1].VideoPlayState == Enum_VideoPlayState.InPlayState)
+                //选中其他通道
+                //关闭当前视频
+                VideoColse();
+                VideoPlaySetting videoPlaySet = new VideoPlaySetting();
+                int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
+                //播放
+                if (chkPresetEanble.Checked)
                 {
-                    //处于播放状态
-                    lstVideoPlayWindow[intVideoIndex - 1].VideoClose();
+                    videoPlaySet.PreSetPosi = Convert.ToInt32(cmbPreset.Text);
+                }
+                videoPlaySet.VideoMonitorEnable = chkMonitorEnable.Checked;
+                videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
+                videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
+                videoPlaySet.VideoRecordFilePath = txtVideoRecord.Text;
+                videoPlaySet.AutoReconn = false;
+                videoPlaySet.AnsyPlay = true;
+
+                if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
+                {
+                    string strTimeValue = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    StringBuilder sbVideoRecordPath = new StringBuilder();
+                    sbVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
+                    sbVideoRecordPath.Append(strTimeValue + "\\");
+                    sbVideoRecordPath.Append(intCurrentVideoID + "_");
+                    sbVideoRecordPath.Append(cameraInfo.Channel.ToString().PadLeft(2, '0') + "_");
+                    sbVideoRecordPath.Append(strTimeValue + "_81.H264");
+                    videoPlaySet.VideoRecordFilePath = sbVideoRecordPath.ToString();
+                    StringBuilder sbPreVideoRecordPath = new StringBuilder();
+                    sbPreVideoRecordPath.Append("http://121.41.87.203:8008/SK_VideoRecord/");
+                    sbPreVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
+                    sbPreVideoRecordPath.Append(strTimeValue + "\\");
+                    videoPlaySet.PreVideoRecordFilePath = sbPreVideoRecordPath.ToString();
+                }
+                if (intVideoIndex == 0)
+                {
+                    PlayVideo(videoWindowTest, dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
                 }
                 else
                 {
                     PlayVideo(lstVideoPlayWindow[intVideoIndex - 1], dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
                 }
-                
+                videoChannelList.ButtonListBackColorReset();
+                btnChannel.BackColor = Color.Red;
             }
         }
 
@@ -764,7 +759,7 @@ namespace VideoPlayControl_UseDemo
 
         int intTempCount = 0;
 
-        
+
         int Temp_i = 1;
         int Temp_ii = 0;
         bool bolTestMode = false;
@@ -836,7 +831,7 @@ namespace VideoPlayControl_UseDemo
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
         }
-        
+
         private void btnHikTestData1_Click(object sender, EventArgs e)
         {
             VideoInfo v = TestDataSource.HikDataSource.GetHikData1();
@@ -1321,7 +1316,7 @@ namespace VideoPlayControl_UseDemo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnLoopTest_Click(object sender, EventArgs e)
@@ -1386,6 +1381,32 @@ namespace VideoPlayControl_UseDemo
         {
             FrmMulitPlayTest1 frm = new FrmMulitPlayTest1();
             frm.Show();
+        }
+
+        private void btnTLi_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = TestDataSource.TLDataSource.GetData1();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+        public void VideoColse()
+        {
+            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
+            if (intVideoIndex == 0)
+            {
+                videoWindowTest.VideoClose();
+
+            }
+            else
+            {
+                lstVideoPlayWindow[intVideoIndex - 1].VideoClose();
+            }
+        }
+
+        private void videoChannelList_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
