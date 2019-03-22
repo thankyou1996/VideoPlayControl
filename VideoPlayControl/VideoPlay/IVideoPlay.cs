@@ -25,6 +25,19 @@ namespace VideoPlayControl.VideoPlay
             set;
         }
 
+
+        /// <summary>
+        /// 当前视频码流类型
+        /// </summary>
+        Enum_VideoStream VideoStream
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 视频码流类型
+        /// </summary>
+        event VideoStreamChangedDelegate VideoStreamChangedEvent;
         /// <summary>
         /// 当前摄像头信息
         /// </summary>
@@ -130,9 +143,9 @@ namespace VideoPlayControl.VideoPlay
         /// </summary>
         /// <returns></returns>
         bool VideoPlayEx();
-        
+
         bool VideoClose();
-        
+
         /// <summary>
         /// 开始录像
         /// </summary>
@@ -144,7 +157,7 @@ namespace VideoPlayControl.VideoPlay
         /// </summary>
         /// <returns></returns>
         bool StopVideoRecord();
-        
+
         #region 云台控制相关
 
         /// <summary>
@@ -193,5 +206,7 @@ namespace VideoPlayControl.VideoPlay
         /// </summary>
         /// <returns></returns>
         bool Snap(VideoSnapSet snapSet);
+
     }
+
 }

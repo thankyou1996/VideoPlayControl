@@ -167,6 +167,19 @@ namespace VideoPlayControl
         /// <param name="rec_file_path"></param>
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//channel 从0开始
         public static extern void p_sdkc_start_rt_video(string guid, int channel, IntPtr handle, int enable_record, int max_mbyte, int max_min, string rec_file_path);
+        /// <summary>
+        /// 播放现场视频 主码流子码流切换
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <param name="channel"></param>
+        /// <param name="handle"></param>
+        /// <param name="enable_record"></param>
+        /// <param name="max_mbyte"></param>
+        /// <param name="max_min"></param>
+        /// <param name="use_main_stream">是否使用主码流 0 false 1 true</param>
+        /// <param name="rec_file_path"></param>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//channel 从0开始
+        public static extern void p_sdkc_start_rt_video_ex(string guid, int channel, IntPtr handle, int enable_record, int max_mbyte, int max_min, int use_main_stream, string rec_file_path);
 
         /// <summary>
         /// 停止播放视频

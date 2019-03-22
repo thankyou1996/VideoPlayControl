@@ -17,6 +17,60 @@ namespace VideoPlayControl.VideoPlay
         public VideoInfo CurrentVideoInfo { get; set; }
         public CameraInfo CurrentCameraInfo { get; set; }
         public VideoPlaySetting CurrentVideoPlaySet { get; set; }
+
+        /// <summary>
+        /// 当前码流类型
+        /// </summary>
+        private Enum_VideoStream videoStream = Enum_VideoStream.SubStream;
+        /// <summary>
+        /// 码流类型
+        /// 如果当前处于视频播放状态 修改时会重新进入视频播放
+        /// </summary>
+        public Enum_VideoStream VideoStream
+        {
+            get { return videoStream; }
+            set
+            {
+                SetVideoStream(value);
+            }
+        }
+        /// <summary>
+        /// 设置码流信息
+        /// 如果当前处于视频播放状态 会关闭视频后 重新进入视频播放
+        /// </summary>
+        /// <param name="vs"></param>
+        private void SetVideoStream(Enum_VideoStream vs)
+        {
+            if (vs != videoStream)
+            {
+                videoStream = vs;
+                if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+                {
+                    //处于播放中 关闭视频后切换码流后播放
+                    VideoClose();
+                    VideoPlay();
+                }
+                VideoStreamChanged(null);
+            }
+        }
+
+        /// <summary>
+        /// 码流改变事件
+        /// </summary>
+        public event VideoStreamChangedDelegate VideoStreamChangedEvent;
+        /// <summary>
+        /// 码流改变
+        /// </summary>
+        /// <param name="VideoStreamChangedValue"></param>
+        private void VideoStreamChanged(object VideoStreamChangedValue)
+        {
+            if (VideoStreamChangedEvent != null)
+            {
+                VideoStreamChangedEvent(this, VideoStreamChangedValue);
+            }
+        }
+
+
         private PictureBox picPlayMain = null;
         public PictureBox PicPlayMain
         {
@@ -100,7 +154,17 @@ namespace VideoPlayControl.VideoPlay
                 intVideoRecordEnable = 1;
                 VideoRecordStatus = true;
             }
-            SDK_SKVideoSDK.p_sdkc_start_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, intptrPlayMain, intVideoRecordEnable, 15, 5, strRecordPath);
+            int Temp_intStreamValue = GetVideoStreamValue(VideoStream);
+            SDK_SKVideoSDK.p_sdkc_start_rt_video_ex(
+                CurrentVideoInfo.DVSAddress,
+                CurrentCameraInfo.Channel - 1,
+                intptrPlayMain, 
+                intVideoRecordEnable, 
+                30, 
+                5, 
+                Temp_intStreamValue, 
+                strRecordPath);
+
             if (CurrentVideoPlaySet.PerVideoRecord)
             {
                 SDK_SKVideoSDK.p_sdkc_get_revideo_data(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, CurrentVideoPlaySet.PreVideoRecordFilePath);
@@ -278,6 +342,7 @@ namespace VideoPlayControl.VideoPlay
         /// 录像状态改变事件
         /// </summary>
         public event VideoRecordStatusChangedDelegate VideoRecordStausChangedEvent;
+
         /// <summary>
         /// 录像状态改变事件
         /// </summary>
@@ -355,5 +420,23 @@ namespace VideoPlayControl.VideoPlay
 
             return bolResult;
         }
+
+        #region 静态方法
+
+        public static int GetVideoStreamValue(Enum_VideoStream vs )
+        {
+            int intValue = 0;
+            switch (vs)
+            {
+                case Enum_VideoStream.MainStream:
+                    intValue = 1;
+                    break;
+                case Enum_VideoStream.SubStream:
+                    intValue = 0;
+                    break;
+            }
+            return intValue;
+        }
+        #endregion
     }
 }

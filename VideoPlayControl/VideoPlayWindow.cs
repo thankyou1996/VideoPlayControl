@@ -18,13 +18,13 @@ namespace VideoPlayControl
     /// <summary>
     /// 视频播放窗口
     /// </summary>
-    public partial class VideoPlayWindow : UserControl,IVideoPlay
+    public partial class VideoPlayWindow : UserControl, IVideoPlay
     {
         #region 常量 
         /// <summary>
         /// 声音打开
         /// </summary>
-        private const string c_strSoundOn= "Sound_On";
+        private const string c_strSoundOn = "Sound_On";
         /// <summary>
         /// 声音关闭 
         /// </summary>
@@ -240,7 +240,62 @@ namespace VideoPlayControl
 
         #endregion
 
-        
+
+        ///// <summary>
+        ///// 当前码流类型
+        ///// </summary>
+        //private Enum_VideoStream videoStream = Enum_VideoStream.SubStream;
+        /// <summary>
+        /// 当前码流类型
+        /// </summary>
+        public Enum_VideoStream VideoStream
+        {
+            get
+            {
+                if (iv == null)
+                {
+                    return Enum_VideoStream.SubStream;
+                }
+                return iv.VideoStream;
+            }
+            set
+            {
+                if (iv != null)
+                {
+                    iv.VideoStream = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 码流改变事件
+        /// </summary>
+        private event VideoStreamChangedDelegate videoStreamChangedEvent;
+        /// <summary>
+        /// 码流改变事件
+        /// </summary>
+        public event VideoStreamChangedDelegate VideoStreamChangedEvent
+        {
+            add
+            {
+                videoStreamChangedEvent += value;
+                if (iv != null)
+                {
+                    iv.VideoStreamChangedEvent += value;
+                }
+
+
+            }
+            remove
+            {
+                videoStreamChangedEvent -= value;
+                if (iv != null)
+                {
+                    iv.VideoStreamChangedEvent -= value;
+                }
+
+            }
+        }
 
 
         private void VideoPlayMain_Load(object sender, EventArgs e)
@@ -426,6 +481,7 @@ namespace VideoPlayControl
             {
                 iv.VideoPlayCallbackEvent -= VideoPlayCallbackEvent;
                 iv.VideoRecordStausChangedEvent -= videoRecordStausChangedEvent;
+                iv.VideoStreamChangedEvent -= videoStreamChangedEvent;
                 if (iv.CurrentVideoInfo.VideoType != Temp_videoType)
                 {
                     iv = null;
@@ -447,6 +503,7 @@ namespace VideoPlayControl
                 iv.VideoPlayStateChangedEvent += Iv_VideoPlayStateChangedEvent;
                 iv.SoundStateChangedEvent += Iv_SoundStateChangedEvent;
                 iv.VideoRecordStausChangedEvent += videoRecordStausChangedEvent;
+                iv.VideoStreamChangedEvent += videoStreamChangedEvent;
             }
         }
 

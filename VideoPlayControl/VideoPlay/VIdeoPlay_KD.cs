@@ -17,6 +17,59 @@ namespace VideoPlayControl.VideoPlay
         public VideoInfo CurrentVideoInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public CameraInfo CurrentCameraInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public VideoPlaySetting CurrentVideoPlaySet { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+
+        /// <summary>
+        /// 当前码流类型
+        /// </summary>
+        private Enum_VideoStream videoStream = Enum_VideoStream.SubStream;
+        /// <summary>
+        /// 码流类型
+        /// 如果当前处于视频播放状态 修改时会重新进入视频播放
+        /// </summary>
+        public Enum_VideoStream VideoStream
+        {
+            get { return videoStream; }
+            set
+            {
+                SetVideoStream(value);
+            }
+        }
+        /// <summary>
+        /// 设置码流信息
+        /// 如果当前处于视频播放状态 会关闭视频后 重新进入视频播放
+        /// </summary>
+        /// <param name="vs"></param>
+        private void SetVideoStream(Enum_VideoStream vs)
+        {
+            if (vs != videoStream)
+            {
+                videoStream = vs;
+                if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+                {
+                    //处于播放中 关闭视频后切换码流后播放
+                    VideoClose();
+                    VideoPlay();
+                }
+                VideoStreamChanged(null);
+            }
+        }
+
+        /// <summary>
+        /// 码流改变事件
+        /// </summary>
+        public event VideoStreamChangedDelegate VideoStreamChangedEvent;
+        /// <summary>
+        /// 码流改变
+        /// </summary>
+        /// <param name="VideoStreamChangedValue"></param>
+        private void VideoStreamChanged(object VideoStreamChangedValue)
+        {
+            if (VideoStreamChangedEvent != null)
+            {
+                VideoStreamChangedEvent(this, VideoStreamChangedValue);
+            }
+        }
         private PictureBox picPlayMain = null;
         public PictureBox PicPlayMain
         {

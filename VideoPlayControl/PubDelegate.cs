@@ -25,6 +25,14 @@ namespace VideoPlayControl
     /// <param name="VideoPlayStateChangedValue"></param>
     /// <returns></returns>
     public delegate bool VideoPlayStateChangedDelegate(object sender, object VideoPlayStateChangedValue);
+
+    /// <summary>
+    /// 视频码流切换委托
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="VideoStreamChangedValue"></param>
+    /// <returns></returns>
+    public delegate void VideoStreamChangedDelegate(object sender, object VideoStreamChangedValue);
     #endregion
 
     #region 视频录像相关

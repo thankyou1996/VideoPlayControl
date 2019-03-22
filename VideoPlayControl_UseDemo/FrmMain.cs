@@ -1408,5 +1408,28 @@ namespace VideoPlayControl_UseDemo
         {
 
         }
+
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            videoWindowTest.VideoStreamChangedEvent += VideoWindowTest_VideoStreamChangedEvent;
+            videoWindowTest.VideoStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
+            videoWindowTest.VideoStreamChangedEvent -= VideoWindowTest_VideoStreamChangedEvent;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            videoWindowTest.VideoStreamChangedEvent += VideoWindowTest_VideoStreamChangedEvent;
+            videoWindowTest.VideoStream = VideoPlayControl.Enum.Enum_VideoStream.MainStream;
+            videoWindowTest.VideoStreamChangedEvent -= VideoWindowTest_VideoStreamChangedEvent;
+
+        }
+        private void VideoWindowTest_VideoStreamChangedEvent(object sender, object VideoStreamChangedValue)
+        {
+            IVideoPlay iv = (IVideoPlay)sender;
+            MessageBox.Show(iv.VideoStream.ToString());
+        }
     }
 }

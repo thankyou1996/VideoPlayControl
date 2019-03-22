@@ -82,6 +82,7 @@
     <Compile Include="Enum\Enum_VideoPlayEventType.cs" />
     <Compile Include="Enum\Enum_VideoPlaySoundState.cs" />
     <Compile Include="Enum\Enum_VideoPlayState.cs" />
+    <Compile Include="Enum\Enum_VideoStream.cs" />
     <Compile Include="Enum\Enum_VideoPTZControl.cs" />
     <Compile Include="PubDelegate.cs" />
     <Compile Include="SDKInterface\SDK_DaHua.cs" />
