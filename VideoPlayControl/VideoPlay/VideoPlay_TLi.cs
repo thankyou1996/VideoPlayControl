@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Forms;
 using PublicClassCurrency;
 using VideoPlayControl.Enum;
+using VideoPlayControl.SDKInterface;
 using VideoPlayControl.VideoBasicClass;
 using static VideoPlayControl.SDKInterface.SDK_TLi;
 
@@ -103,7 +104,13 @@ namespace VideoPlayControl.VideoPlay
         {
             bool bolResult = false;
             SDKInterface.SDK_TLi.NETDVR_devicenode_t deviceInfo = new SDKInterface.SDK_TLi.NETDVR_devicenode_t();
-            d = VideoEnvironment.VideoEnvironment_TL.devices[0];
+            int Temp_intIndex = SDK_TLi.GetNodeIndexByDeviceID(CurrentVideoInfo.DVSUniqueCode);
+            if (Temp_intIndex == -1)
+            {
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DeviceNotExist, EventContent = "设备不存在" });
+                return false;
+            }
+            d = VideoEnvironment.VideoEnvironment_TL.devices[Temp_intIndex];
             deviceInfo.device_ID = d.devicenode.device_ID;
             deviceInfo.maxSubstreamNum = d.devicenode.maxSubstreamNum;
             SDKInterface.SDK_TLi.NETDVR_createDVR_3g(ref d.nHandle, deviceInfo.device_ID, ref deviceInfo);

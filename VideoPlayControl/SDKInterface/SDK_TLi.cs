@@ -3,12 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using VideoPlayControl.VideoEnvironment;
 
 namespace VideoPlayControl.SDKInterface
 {
     public class SDK_TLi
     {
+        public static int GetNodeIndexByDeviceID(string strDeviceID)
+        {
+            int intResult = -1;
+            for (int i = 0; i < VideoEnvironment_TL.devices.Count; i++)
+            {
+                if (VideoEnvironment_TL.devices[i].devicenode.device_ID == strDeviceID)
+                {
+                    intResult = i;
+                }
+            }
+            return intResult;
+        }
+
         #region TLPlay
+
+
 
         /// <summary>
         /// 获得新的播放句柄

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using VideoPlayControl;
 
 namespace VideoRecordPlayer
 {
@@ -58,7 +59,7 @@ namespace VideoRecordPlayer
             if (d == DialogResult.OK)
             {
                 string strFilePath = openFileDialog.FileName;
-                VideoRecordInfo v = SK3000VideoRecordConvert.GetVideoRecordInfo_ByFileName(strFilePath);
+                VideoRecordInfo v = VideoRecordInfoConvert.GetVideoRecordInfo_ByFileName(strFilePath);
                 videoRecordBackplayWindow1.SetVideoRecordInfo(v);
                 videoRecordBackplayWindow1.OpenVideoRecord();
                 videoRecordBackplayWindow1.PlayVideoRecord();
@@ -84,7 +85,7 @@ namespace VideoRecordPlayer
         private void videoRecordBackplayWindow1_DragDrop(object sender, DragEventArgs e)
         {
             string strPath = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();     //获取文件路径
-            VideoRecordInfo v = SK3000VideoRecordConvert.GetVideoRecordInfo_ByFileName(strPath);
+            VideoRecordInfo v = VideoRecordInfoConvert.GetVideoRecordInfo_ByFileName(strPath);
             //videoBackplayWindow1.Init_SetVideoRecord(v);
             //videoBackplayWindow1.PlayVideoRecord();
         }

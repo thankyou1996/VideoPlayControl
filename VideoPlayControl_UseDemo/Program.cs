@@ -20,7 +20,7 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new FrmTest());
             //Application.Run(new Frn_VideoPlayGroupControl_Basic());
             //Application.Run(new FrmVideoInfoList());
-            //Application.Run(new FrmMain());
+            Application.Run(new FrmMain());
             //Application.Run(new FrmTalkControlTest());
             //Application.Run(new FrmEzviz());
             //Application.Run(new Frm_VideoTalkControlManyChannel_Test());
@@ -33,7 +33,7 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new Form1());
             //Application.Run(new Frm_Temp_TestVideoPlay());
             //Application.Run(new Frm_Temp_TestAxis());
-            Application.Run(new FrmVideoRecordBackplayWindow());
+            //Application.Run(new FrmVideoRecordBackplayWindow());
         }
     }
 }
