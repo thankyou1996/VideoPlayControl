@@ -17,12 +17,12 @@ namespace VideoRecordPlayer
         public FrmVideoRecordBackplay()
         {
             InitializeComponent();
-            VideoRecordInfo v = new VideoRecordInfo();
-            v.DVSNumber = "000601";
-            v.VideoRecordType = PublicClassCurrency.Enum_VIdeoRecordType.TLiVideoRecord;
-            v.VideoRecordFileType = PublicClassCurrency.Enum_VideoRecordFileType.VideoAndAudio;
-            v.RecordPath = @"G:\VIdeoRecordTest\000101_02_20190321164059_15.ifv";
-            videoRecordBackplayWindow1.SetVideoRecordInfo(v);
+            //VideoRecordInfo v = new VideoRecordInfo();
+            //v.DVSNumber = "000601";
+            //v.VideoRecordType = PublicClassCurrency.Enum_VIdeoRecordType.TLiVideoRecord;
+            //v.VideoRecordFileType = PublicClassCurrency.Enum_VideoRecordFileType.VideoAndAudio;
+            //v.RecordPath = @"G:\VIdeoRecordTest\000101_02_20190321164059_15.ifv";
+            //videoRecordBackplayWindow1.SetVideoRecordInfo(v);
         }
         public FrmVideoRecordBackplay(VideoRecordInfo v)
         {

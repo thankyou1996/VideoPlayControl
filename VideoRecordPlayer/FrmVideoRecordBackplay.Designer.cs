@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVideoRecordBackplay));
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.videoRecordBackplayWindow1 = new VideoPlayControl.VideoRecordBackplayWindow();
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.tsmiSystem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSelectedFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +40,6 @@
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStartPlay = new System.Windows.Forms.Button();
             this.trackBar = new System.Windows.Forms.TrackBar();
-            this.videoRecordBackplayWindow1 = new VideoPlayControl.VideoRecordBackplayWindow();
             this.pnlMain.SuspendLayout();
             this.msMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -56,6 +56,17 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(800, 460);
             this.pnlMain.TabIndex = 3;
+            // 
+            // videoRecordBackplayWindow1
+            // 
+            this.videoRecordBackplayWindow1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.videoRecordBackplayWindow1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoRecordBackplayWindow1.Location = new System.Drawing.Point(0, 25);
+            this.videoRecordBackplayWindow1.Name = "videoRecordBackplayWindow1";
+            this.videoRecordBackplayWindow1.Size = new System.Drawing.Size(800, 435);
+            this.videoRecordBackplayWindow1.TabIndex = 2;
+            this.videoRecordBackplayWindow1.DragDrop += new System.Windows.Forms.DragEventHandler(this.videoRecordBackplayWindow1_DragDrop);
+            this.videoRecordBackplayWindow1.DragEnter += new System.Windows.Forms.DragEventHandler(this.videoRecordBackplayWindow1_DragEnter);
             // 
             // msMain
             // 
@@ -150,17 +161,6 @@
             this.trackBar.TickFrequency = 0;
             this.trackBar.Scroll += new System.EventHandler(this.trackBar_Scroll);
             // 
-            // videoRecordBackplayWindow1
-            // 
-            this.videoRecordBackplayWindow1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.videoRecordBackplayWindow1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoRecordBackplayWindow1.Location = new System.Drawing.Point(0, 25);
-            this.videoRecordBackplayWindow1.Name = "videoRecordBackplayWindow1";
-            this.videoRecordBackplayWindow1.Size = new System.Drawing.Size(800, 435);
-            this.videoRecordBackplayWindow1.TabIndex = 2;
-            this.videoRecordBackplayWindow1.DragDrop += new System.Windows.Forms.DragEventHandler(this.videoRecordBackplayWindow1_DragDrop);
-            this.videoRecordBackplayWindow1.DragEnter += new System.Windows.Forms.DragEventHandler(this.videoRecordBackplayWindow1_DragEnter);
-            // 
             // FrmVideoRecordBackplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -170,6 +170,7 @@
             this.Controls.Add(this.pnlBottom);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmVideoRecordBackplay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "视频回放";
             this.Load += new System.EventHandler(this.FrmVideoRecordBackplay_Load);
             this.pnlMain.ResumeLayout(false);

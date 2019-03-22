@@ -79,14 +79,14 @@
             // tsmiSelectedFile
             // 
             this.tsmiSelectedFile.Name = "tsmiSelectedFile";
-            this.tsmiSelectedFile.Size = new System.Drawing.Size(152, 22);
+            this.tsmiSelectedFile.Size = new System.Drawing.Size(124, 22);
             this.tsmiSelectedFile.Text = "打开文件";
             this.tsmiSelectedFile.Click += new System.EventHandler(this.tsmiSelectedFile_Click);
             // 
             // tsmiClose
             // 
             this.tsmiClose.Name = "tsmiClose";
-            this.tsmiClose.Size = new System.Drawing.Size(152, 22);
+            this.tsmiClose.Size = new System.Drawing.Size(124, 22);
             this.tsmiClose.Text = "退出";
             this.tsmiClose.Click += new System.EventHandler(this.tsmiClose_Click);
             // 
@@ -176,6 +176,7 @@
             this.MainMenuStrip = this.msMain;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "视频录像回放";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
