@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using VideoPlayControl.SDKInterface;
-using static VideoPlayControl.SDKInterface.SDK_TL;
+using static VideoPlayControl.SDKInterface.SDK_TLi;
 
 namespace VideoPlayControl.VideoEnvironment
 {
@@ -35,12 +35,12 @@ namespace VideoPlayControl.VideoEnvironment
                 ip = IPToInt(strServerIp),
                 port = intPort
             };
-            SDK_TL.NETDVR_createClient(ref nETDVR_AddrInfo_T);
+            SDK_TLi.NETDVR_createClient(ref nETDVR_AddrInfo_T);
             NETDVR_loginInfo_3g_t ser_LoginInfo = new NETDVR_loginInfo_3g_t();
             ser_LoginInfo.name = "TLClient";
             ser_LoginInfo.user = strUserName;
             ser_LoginInfo.pass = strPwd;
-            int ret= SDK_TL.NETDVR_loginServer_3g(ref ser_LoginInfo);
+            int ret= SDK_TLi.NETDVR_loginServer_3g(ref ser_LoginInfo);
             devices = GetDeviceList(1000);
             TLVideoEnvironment = Enum_SDKState.SDK_Init;
             return bolResult;

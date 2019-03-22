@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using PublicClassCurrency;
 using VideoPlayControl.Enum;
 using VideoPlayControl.VideoBasicClass;
-using static VideoPlayControl.SDKInterface.SDK_TL;
+using static VideoPlayControl.SDKInterface.SDK_TLi;
 
 namespace VideoPlayControl.VideoPlay
 {
@@ -45,7 +45,7 @@ namespace VideoPlayControl.VideoPlay
         }
 
         int m_hPlayPort = 0;
-        SDKInterface.SDK_TL.DeviceInfo d;
+        SDKInterface.SDK_TLi.DeviceInfo d;
         private Enum_VideoPlayState videoPlayState = Enum_VideoPlayState.VideoInfoNull;
         public Enum_VideoPlayState VideoPlayState
         {
@@ -102,16 +102,16 @@ namespace VideoPlayControl.VideoPlay
         public bool VideoPlay()
         {
             bool bolResult = false;
-            SDKInterface.SDK_TL.NETDVR_devicenode_t deviceInfo = new SDKInterface.SDK_TL.NETDVR_devicenode_t();
+            SDKInterface.SDK_TLi.NETDVR_devicenode_t deviceInfo = new SDKInterface.SDK_TLi.NETDVR_devicenode_t();
             d = VideoEnvironment.VideoEnvironment_TL.devices[0];
             deviceInfo.device_ID = d.devicenode.device_ID;
             deviceInfo.maxSubstreamNum = d.devicenode.maxSubstreamNum;
-            SDKInterface.SDK_TL.NETDVR_createDVR_3g(ref d.nHandle, deviceInfo.device_ID, ref deviceInfo);
+            SDKInterface.SDK_TLi.NETDVR_createDVR_3g(ref d.nHandle, deviceInfo.device_ID, ref deviceInfo);
             m_hPlayPort=0;
-            SDKInterface.SDK_TL.TLPlay_GetPort(ref m_hPlayPort);
-            SDKInterface.SDK_TL.TLPlay_SetPlayMode(m_hPlayPort, SDKInterface.SDK_TL.TLPLAYMODE.TL_PLAY_POOL_STREAM);
-            SDKInterface.SDK_TL.TLPlay_OpenStream(m_hPlayPort, 2 << 20);
-            SDKInterface.SDK_TL.TLPlay_Play(m_hPlayPort, PicPlayMain.Handle);
+            SDKInterface.SDK_TLi.TLPlay_GetPort(ref m_hPlayPort);
+            SDKInterface.SDK_TLi.TLPlay_SetPlayMode(m_hPlayPort, SDKInterface.SDK_TLi.TLPLAYMODE.TL_PLAY_POOL_STREAM);
+            SDKInterface.SDK_TLi.TLPlay_OpenStream(m_hPlayPort, 2 << 20);
+            SDKInterface.SDK_TLi.TLPlay_Play(m_hPlayPort, PicPlayMain.Handle);
             VideoPlayState = Enum_VideoPlayState.Connecting;
             frameCallBack = get_encframe;
             byte btyChannel = (byte)(CurrentCameraInfo.Channel - 1);

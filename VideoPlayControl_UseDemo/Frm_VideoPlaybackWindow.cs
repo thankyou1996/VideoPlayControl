@@ -30,9 +30,9 @@ namespace VideoPlayControl_UseDemo
         {
             PublicClassCurrency.VideoRecordInfo v = new PublicClassCurrency.VideoRecordInfo();
             v.DVSNumber = "000601";
-            v.VideoRecordType = PublicClassCurrency.Enum_VIdeoRecordType.Axis;
-            v.VideoRecordFileType = PublicClassCurrency.Enum_VideoRecordFileType.Audio;
-            v.RecordPath = @"G:\上班汇总\Working\维护项目\公用项目\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl_UseDemo\bin\Debug\AxisRecord\000601_20180126134849.bin";
+            v.VideoRecordType = PublicClassCurrency.Enum_VIdeoRecordType.TLiVideoRecord;
+            v.VideoRecordFileType = PublicClassCurrency.Enum_VideoRecordFileType.VideoAndAudio;
+            v.RecordPath = @"G:\VIdeoRecordTest\000101_02_20190321164059_15.ifv";
             videoBackplayWindow1.Init_SetVideoRecord(v);
         }
 
@@ -45,9 +45,9 @@ namespace VideoPlayControl_UseDemo
         {
             PublicClassCurrency.VideoRecordInfo v = new PublicClassCurrency.VideoRecordInfo();
             v.DVSNumber = "000601";
-            v.VideoRecordType = PublicClassCurrency.Enum_VIdeoRecordType.Axis;
-            v.VideoRecordFileType = PublicClassCurrency.Enum_VideoRecordFileType.Audio;
-            v.RecordPath = @"G:\上班汇总\Working\维护项目\公用项目\VideoPlayControl\VideoPlayControl\VideoPlayControl\VideoPlayControl_UseDemo\bin\Debug\AxisRecord\000601_20180126134849.bin";
+            v.VideoRecordType = PublicClassCurrency.Enum_VIdeoRecordType.TLiVideoRecord;
+            v.VideoRecordFileType = PublicClassCurrency.Enum_VideoRecordFileType.VideoAndAudio;
+            v.RecordPath = @"G:\VIdeoRecordTest\000101_02_20190321164059_15.ifv";
             videoBackplayWindow1.Init_SetVideoRecord(v);
         }
     }

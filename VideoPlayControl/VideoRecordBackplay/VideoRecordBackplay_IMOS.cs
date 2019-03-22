@@ -10,6 +10,7 @@ namespace VideoPlayControl.VideoRecordBackplay
     {
         public VideoRecordInfo VideoRecordInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public IntPtr intptrPlayWnd { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public float VideoRecordPos { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public event VideoRecodPosChangedDelegate VideoRecodPosChangeEvnet;
 

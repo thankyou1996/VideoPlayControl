@@ -77,11 +77,14 @@
             // 
             // videoBackplayWindow1
             // 
+            this.videoBackplayWindow1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.videoBackplayWindow1.CurrentPlaybackState = VideoPlayControl.Enum_VideoPlaybackState.Null;
             this.videoBackplayWindow1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoBackplayWindow1.Location = new System.Drawing.Point(0, 0);
             this.videoBackplayWindow1.Name = "videoBackplayWindow1";
             this.videoBackplayWindow1.Size = new System.Drawing.Size(594, 383);
             this.videoBackplayWindow1.TabIndex = 0;
+            this.videoBackplayWindow1.VideoProgresss = 0;
             // 
             // Frm_VideoPlaybackWindow
             // 

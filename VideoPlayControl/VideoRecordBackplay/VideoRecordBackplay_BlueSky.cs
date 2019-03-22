@@ -41,6 +41,7 @@ namespace VideoPlayControl.VideoRecordBackplay
 
         public VideoRecordInfo VideoRecordInfo { get; set; }
         public IntPtr intptrPlayWnd { get; set; }
+        public float VideoRecordPos { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public event VideoRecodPosChangedDelegate VideoRecodPosChangeEvnet;
         private bool VideoRecodPosChange(float fltPosValue)

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace VideoPlayControl.SDKInterface
 {
-    public class SDK_TL
+    public class SDK_TLi
     {
         #region TLPlay
 
@@ -85,6 +85,41 @@ namespace VideoPlayControl.SDKInterface
         [DllImport(ProgConstants.c_strTLISDKFilePath_TLPlay, EntryPoint = "TLPlay_GetBMP", CallingConvention = CallingConvention.StdCall)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool TLPlay_GetBMP(int nPort, IntPtr sBMPFileName);
+
+
+        /// <summary>
+        /// 获取总时间长度
+        /// </summary>
+        /// <param name="nPort"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strTLISDKFilePath_TLPlay, EntryPoint = "TLPlay_GetFileTime", CallingConvention = CallingConvention.StdCall)]
+        public static extern uint TLPlay_GetFileTime(int nPort);
+        /// <summary>
+        /// 获取播放百分比
+        /// </summary>
+        /// <param name="nPort"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strTLISDKFilePath_TLPlay, EntryPoint = "TLPlay_GetPlayPos", CallingConvention = CallingConvention.StdCall)]
+        public static extern float TLPlay_GetPlayPos(int nPort);
+        /// <summary>
+        /// 设置播放进度
+        /// </summary>
+        /// <param name="nPort"></param>
+        /// <param name="fRelativePos">0-1 0%-100%</param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strTLISDKFilePath_TLPlay, EntryPoint = "TLPlay_SetPlayPos", CallingConvention = CallingConvention.StdCall)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool TLPlay_SetPlayPos(int nPort, float fRelativePos);
+        /// <summary>
+        /// 播放暂停
+        /// </summary>
+        /// <param name="nPort"></param>
+        /// <param name="bPause">true则暂停否则恢复</param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strTLISDKFilePath_TLPlay, EntryPoint = "TLPlay_Pause", CallingConvention = CallingConvention.StdCall)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool TLPlay_Pause(int nPort, [MarshalAs(UnmanagedType.Bool)] bool bPause);
+
 
         //播放模式
         public enum TLPLAYMODE

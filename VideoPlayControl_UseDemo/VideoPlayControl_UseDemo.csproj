@@ -137,6 +137,12 @@
     <Compile Include="FrmVideoInfoList.Designer.cs">
       <DependentUpon>FrmVideoInfoList.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVideoRecordBackplayWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVideoRecordBackplayWindow.Designer.cs">
+      <DependentUpon>FrmVideoRecordBackplayWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_MulitPicturte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVideoInfoList.resx">
       <DependentUpon>FrmVideoInfoList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVideoRecordBackplayWindow.resx">
+      <DependentUpon>FrmVideoRecordBackplayWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_MulitPicturte.resx">
       <DependentUpon>Frm_MulitPicturte.cs</DependentUpon>

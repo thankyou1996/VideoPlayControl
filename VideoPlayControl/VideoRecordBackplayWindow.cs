@@ -39,6 +39,9 @@ namespace VideoPlayControl
                 case Enum_VIdeoRecordType.Axis:
 
                     break;
+                case Enum_VIdeoRecordType.TLiVideoRecord:
+                    videoPlay = new VideoRecordBackplay_TLi();
+                    break;
             }
 
             videoPlay.SetVideoRecordInfo(v);

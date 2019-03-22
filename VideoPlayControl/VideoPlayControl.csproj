@@ -96,7 +96,7 @@
     </Compile>
     <Compile Include="SDKInterface\SDK_KD.cs" />
     <Compile Include="SDKInterface\SDK_SKNVideo.cs" />
-    <Compile Include="SDKInterface\SDK_TL.cs" />
+    <Compile Include="SDKInterface\SDK_TLi.cs" />
     <Compile Include="SDKInterface\SDK_ZLNetSDK.cs" />
     <Compile Include="SDKState.cs" />
     <Compile Include="SDKInterface\SDK_EzvizSDK.cs" />
@@ -212,6 +212,7 @@
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_AXIS.cs" />
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_BlueSky.cs" />
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_IMOS.cs" />
+    <Compile Include="VideoRecordBackplay\VideoRecordBackplay_TLi.cs" />
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_XMAI.cs" />
     <Compile Include="VideoRecordInfoConvert.cs" />
     <Compile Include="VideoRecordList.cs">

@@ -14,6 +14,15 @@ namespace VideoPlayControl.VideoRecordBackplay
     public  interface IVideoRecordBackplay
     {
         /// <summary>
+        /// 视频回放位置
+        /// </summary>
+        float VideoRecordPos
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// 播放位置改变事件
         /// </summary>
         event VideoRecodPosChangedDelegate VideoRecodPosChangeEvnet;
