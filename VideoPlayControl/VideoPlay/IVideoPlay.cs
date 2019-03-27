@@ -22,7 +22,6 @@ namespace VideoPlayControl.VideoPlay
         VideoInfo CurrentVideoInfo
         {
             get;
-            set;
         }
 
 
@@ -44,7 +43,6 @@ namespace VideoPlayControl.VideoPlay
         CameraInfo CurrentCameraInfo
         {
             get;
-            set;
         }
 
         /// <summary>

@@ -17,9 +17,19 @@ namespace VideoPlayControl.VideoPlay
     /// </summary>
     class VideoPlay_CloundSee : IVideoPlay
     {
+        public VideoPlay_CloundSee(VideoInfo vInfo) : this(vInfo, vInfo.Cameras.First().Value)
+        {
+
+        }
+        public VideoPlay_CloundSee(VideoInfo vInfo, CameraInfo cInfo)
+        {
+            CurrentVideoInfo = vInfo;
+            CurrentCameraInfo = cInfo;
+        }
         public VideoInfo CurrentVideoInfo { get; set; }
 
         public CameraInfo CurrentCameraInfo { get; set; }
+
         public VideoPlaySetting CurrentVideoPlaySet { get; set; }
 
         /// <summary>

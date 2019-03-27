@@ -16,6 +16,15 @@ namespace VideoPlayControl.VideoPlay
     /// </summary>
     class VideoPlay_XMai : IVideoPlay
     {
+        public VideoPlay_XMai(VideoInfo vInfo) : this(vInfo, vInfo.Cameras.First().Value)
+        {
+
+        }
+        public VideoPlay_XMai(VideoInfo vInfo, CameraInfo cInfo)
+        {
+            CurrentVideoInfo = vInfo;
+            CurrentCameraInfo = cInfo;
+        }
         VideoInfo currentVideoInfo;
         #region 全局变量
         int lLogin = -1;

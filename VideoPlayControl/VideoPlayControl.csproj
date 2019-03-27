@@ -125,6 +125,7 @@
     <Compile Include="VideoBasicClass\TalkSetting.cs" />
     <Compile Include="VideoBasicClass\VideoPlayEventValue.cs" />
     <Compile Include="VideoBasicClass\VideoRecordSet.cs" />
+    <Compile Include="VideoBasicClass\VideoRemoteFileInfo.cs" />
     <Compile Include="VideoBasicClass\VideoRemotePlaySearchPara.cs" />
     <Compile Include="VideoBasicClass\VideoSnapSet.cs" />
     <Compile Include="VideoChannelList.cs">
@@ -225,6 +226,7 @@
       <DependentUpon>VideoRecordList.cs</DependentUpon>
     </Compile>
     <Compile Include="VideoRemoteBackplay\IVIdeoRemoteBackplay.cs" />
+    <Compile Include="VideoRemoteBackplay\VideoRemoteBackplay_SK.cs" />
     <Compile Include="VideoRemoteBackplay\VideoRemoteBackplay_TLi.cs" />
     <Compile Include="VideoTalkControl.cs">
       <SubType>UserControl</SubType>

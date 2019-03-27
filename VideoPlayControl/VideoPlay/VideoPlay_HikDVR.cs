@@ -17,6 +17,15 @@ namespace VideoPlayControl.VideoPlay
     /// </summary>
     public class VideoPlay_HikDVR : IVideoPlay
     {
+        public VideoPlay_HikDVR(VideoInfo vInfo) : this(vInfo, vInfo.Cameras.First().Value)
+        {
+
+        }
+        public VideoPlay_HikDVR(VideoInfo vInfo, CameraInfo cInfo)
+        {
+            CurrentVideoInfo = vInfo;
+            CurrentCameraInfo = cInfo;
+        }
         /// <summary>
         /// 构造函数
         /// </summary>

@@ -17,6 +17,15 @@ namespace VideoPlayControl.VideoPlay
     /// </summary>
     public class VideoPlay_Ezviz : IVideoPlay
     {
+        public VideoPlay_Ezviz(VideoInfo vInfo) : this(vInfo, vInfo.Cameras.First().Value)
+        {
+
+        }
+        public VideoPlay_Ezviz(VideoInfo vInfo, CameraInfo cInfo)
+        {
+            CurrentVideoInfo = vInfo;
+            CurrentCameraInfo = cInfo;
+        }
         public VideoInfo CurrentVideoInfo { get; set; }
         public CameraInfo CurrentCameraInfo { get; set; }
         public VideoPlaySetting CurrentVideoPlaySet { get; set; }

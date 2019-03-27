@@ -15,6 +15,15 @@ namespace VideoPlayControl.VideoPlay
     /// </summary>
     public class VideoPlay_DaHua : IVideoPlay
     {
+        public VideoPlay_DaHua(VideoInfo vInfo) : this(vInfo, vInfo.Cameras.First().Value)
+        {
+
+        }
+        public VideoPlay_DaHua(VideoInfo vInfo, CameraInfo cInfo)
+        {
+            CurrentVideoInfo = vInfo;
+            CurrentCameraInfo = cInfo;
+        }
         public VideoPlay_DaHua()
         {
             SDK_DaHua.DHCloseSoundEvent += SDK_DaHua_DHCloseSoundEvent;

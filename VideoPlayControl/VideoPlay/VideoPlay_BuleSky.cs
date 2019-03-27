@@ -16,9 +16,16 @@ namespace VideoPlayControl.VideoPlay
     public class VideoPlay_BuleSky : IVideoPlay
     {
         IntPtr VideoPlayHandle;
-        public VideoPlay_BuleSky(IntPtr intPtr)
+
+        public VideoPlay_BuleSky(IntPtr intPtr, VideoInfo vInfo) : this(intPtr,vInfo, vInfo.Cameras.First().Value)
+        {
+
+        }
+        public VideoPlay_BuleSky(IntPtr intPtr,VideoInfo vInfo, CameraInfo cInfo)
         {
             VideoPlayHandle = intPtr;
+            CurrentVideoInfo = vInfo;
+            CurrentCameraInfo = cInfo;
         }
         /// <summary>
         /// 登录句柄

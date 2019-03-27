@@ -17,6 +17,15 @@ namespace VideoPlayControl.VideoPlay
     /// </summary>
     public class VideoPlay_TLi : IVideoPlay
     {
+        public VideoPlay_TLi(VideoInfo vInfo) : this(vInfo, vInfo.Cameras.First().Value)
+        {
+
+        }
+        public VideoPlay_TLi(VideoInfo vInfo, CameraInfo cInfo)
+        {
+            CurrentVideoInfo = vInfo;
+            CurrentCameraInfo = cInfo;
+        }
         public pFrameCallBack frameCallBack;
         public pDecFrameCallBack decFrameCallBack;
         public pRecFilenameCallBack recFileNameCallBack;

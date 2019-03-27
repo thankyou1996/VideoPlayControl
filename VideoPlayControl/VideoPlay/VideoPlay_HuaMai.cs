@@ -12,6 +12,15 @@ namespace VideoPlayControl.VideoPlay
 {
     public class VideoPlay_HuaMai : IVideoPlay
     {
+        public VideoPlay_HuaMai(VideoInfo vInfo) : this(vInfo, vInfo.Cameras.First().Value)
+        {
+
+        }
+        public VideoPlay_HuaMai(VideoInfo vInfo, CameraInfo cInfo)
+        {
+            CurrentVideoInfo = vInfo;
+            CurrentCameraInfo = cInfo;
+        }
         IntPtr iNode = IntPtr.Zero;
         IntPtr iDev = IntPtr.Zero;
         IntPtr iPort = IntPtr.Zero;

@@ -15,7 +15,7 @@ namespace VideoPlayControl.VideoRemoteBackplay
             set;
         }
 
-        bool FindRemoteFile(VideoRemotePlaySearchPara para);
+        VideoRemoteFileInfo[] FindRemoteFile(VideoRemotePlaySearchPara para);
 
     }
 }

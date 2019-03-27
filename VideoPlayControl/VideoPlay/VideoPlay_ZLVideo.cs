@@ -15,6 +15,15 @@ namespace VideoPlayControl.VideoPlay
     /// </summary>
     public class VideoPlay_ZLVideo : IVideoPlay
     {
+        public VideoPlay_ZLVideo(VideoInfo vInfo) : this(vInfo, vInfo.Cameras.First().Value)
+        {
+
+        }
+        public VideoPlay_ZLVideo(VideoInfo vInfo, CameraInfo cInfo)
+        {
+            CurrentVideoInfo = vInfo;
+            CurrentCameraInfo = cInfo;
+        }
         public VideoPlay_ZLVideo()
         {
             SDK_ZLNetSDK.ZLCloseSoundEvent += SDK_ZLNetSDK_ZLCloseSoundEvent;

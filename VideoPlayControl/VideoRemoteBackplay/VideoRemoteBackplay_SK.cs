@@ -1,17 +1,18 @@
-﻿using System;
+﻿using PublicClassCurrency;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using PublicClassCurrency;
 using VideoPlayControl.SDKInterface;
 using VideoPlayControl.VideoBasicClass;
 using static VideoPlayControl.SDKInterface.SDK_TLi;
 
 namespace VideoPlayControl.VideoRemoteBackplay
 {
-    public class VideoRemoteBackplay_TLi : IVIdeoRemoteBackplay
+    public class VideoRemoteBackplay_SK : IVIdeoRemoteBackplay
     {
+
         public VideoInfo CurrentVideoInfo
         {
             get;
@@ -29,8 +30,6 @@ namespace VideoPlayControl.VideoRemoteBackplay
         {
             return FindRemoteFile1(vInfo, para);
         }
-
-
 
         /// <summary>
         /// 
@@ -66,7 +65,5 @@ namespace VideoPlayControl.VideoRemoteBackplay
             }
             return result;
         }
-
-
     }
 }
