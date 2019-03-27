@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using VideoPlayControl.VideoBasicClass;
 
 namespace VideoPlayControl.VideoRemoteBackplay
 {
@@ -14,7 +15,7 @@ namespace VideoPlayControl.VideoRemoteBackplay
             set;
         }
 
-        bool FindVideoFile(int intChannel, DateTime timStart, DateTime timEnd);
+        bool FindRemoteFile(VideoRemotePlaySearchPara para);
 
     }
 }
