@@ -62,7 +62,7 @@ namespace VideoPlayControl.VideoRemoteBackplay
             {
                 fileInfo = (NETDVR_recFileInfo_t)Marshal.PtrToStructure(fileInfo.pnext, typeof(NETDVR_recFileInfo_t));
                 Console.WriteLine(fileInfo.channel_no + " - 文件名称：" + fileInfo.filename);
-                result[0].name = fileInfo.filename;
+                result[0].FileName = fileInfo.filename;
             }
             return result;
         }

@@ -405,6 +405,8 @@ namespace VideoPlayControl
             if (iv != null)
             {
                 iv.PicPlayMain = this.picPlayMain;
+                iv.CurrentVideoInfo = CurrentVideoInfo;
+                iv.CurrentCameraInfo = CurrentCameraInfo;
                 iv.CurrentVideoPlaySet = currentVideoPlaySet;
                 iv.VideoplayWindowWidth = picPlayMain.Width;
                 iv.VideoplayWindowHeight = picPlayMain.Height;

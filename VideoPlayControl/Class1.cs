@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using VideoPlayControl.VideoBasicClass;
 using VideoPlayControl.VideoRemoteBackplay;
 
 namespace VideoPlayControl
@@ -10,7 +11,7 @@ namespace VideoPlayControl
     {
         IVIdeoRemoteBackplay iv = new VideoRemoteBackplay_TLi();
 
-        public fileInfo[]  test(PublicClassCurrency.VideoInfo v )
+        public VideoRemoteFileInfo[]  test(PublicClassCurrency.VideoInfo v )
         {
             //PublicClassCurrency.VideoInfo v = new PublicClassCurrency.VideoInfo { VideoType = PublicClassCurrency.Enum_VideoType.SKVideo };
             switch (v.VideoType)
@@ -22,7 +23,7 @@ namespace VideoPlayControl
                     iv = new VideoRemoteBackplay_TLi();
                     break;
             }
-            fileInfo[] result= iv.FindRemoteFile(new VideoBasicClass.VideoRemotePlaySearchPara { });
+            VideoRemoteFileInfo[] result= iv.FindRemoteFile(new VideoBasicClass.VideoRemotePlaySearchPara { });
 
 
             VideoRemoteBackplay_TLi.FindRemoteFile1(new PublicClassCurrency.VideoInfo { }, new VideoBasicClass.VideoRemotePlaySearchPara { });

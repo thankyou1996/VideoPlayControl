@@ -418,6 +418,14 @@ namespace VideoPlayControl_UseDemo
             //sbEventDisplay.Append(Temp_strEventTag);
             //sbEventDisplay.Append(strEvnetContent);
             CommonMethod.LogWrite.WriteEventLog(strEventTag, strEvnetContent);
+            if (this.IsDisposed)
+            {
+                return;
+            }
+            if (!this.IsHandleCreated)
+            {
+                return;
+            }
             this.BeginInvoke(new EventHandler(delegate
             {
                 int index = this.dgvReocrd.Rows.Add();
