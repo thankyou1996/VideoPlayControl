@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Runtime.ExceptionServices;
 using System.Text;
 using static VideoPlayControl_UserDemo1.SDK_TLi;
 
@@ -12,9 +11,9 @@ namespace VideoPlayControl_UserDemo1
     {
         static NETDVR_loginInfo_3g_t ser_LoginInfo;
         static NETDVR_addrInfo_t nETDVR_AddrInfo_T;
-        [HandleProcessCorruptedStateExceptions]
         public static void Main(string[] args)
         {
+            SDK_TLi.NETDVR_cleanup();
             int ret = SDK_TLi.NETDVR_startup();
             Console.WriteLine(ret);
             nETDVR_AddrInfo_T = new NETDVR_addrInfo_t
@@ -28,7 +27,7 @@ namespace VideoPlayControl_UserDemo1
             ser_LoginInfo.name = "TLClient";
             ser_LoginInfo.user = "cs";
             ser_LoginInfo.pass = "cs";
-            ret = SDK_TLi.NETDVR_loginServer_3g(ser_LoginInfo);
+            ret = SDK_TLi.NETDVR_loginServer_3g(ref ser_LoginInfo);
             Console.WriteLine(ret);
             //devices = GetDeviceList(1000);
             //TLVideoEnvironment = Enum_SDKState.SDK_Init;

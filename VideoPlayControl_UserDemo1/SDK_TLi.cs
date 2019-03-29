@@ -12,11 +12,11 @@ namespace VideoPlayControl_UserDemo1
         /// <summary>
         /// 通立SDK_TLPlay.dll
         /// </summary>
-        public const string c_strTLISDKFilePath_TLPlay = "\\TLPlay.dll";
+        public const string c_strTLISDKFilePath_TLPlay = "\\TLiVideoSDK\\TLPlay.dll";
         /// <summary>
         /// 通立SDK_NetDvr2.dll
         /// </summary>
-        public const string c_strTLISDKFilePath_NetDvr2 = "\\NetDvr2.dll";
+        public const string c_strTLISDKFilePath_NetDvr2 = "\\TLiVideoSDK\\NetDvr2.dll";
     }
     public class SDK_TLi
     {
@@ -175,7 +175,7 @@ namespace VideoPlayControl_UserDemo1
         /// 初始化SDK
         /// </summary>
         /// <returns></returns>
-        [DllImport(ProgConstants.c_strTLISDKFilePath_NetDvr2, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(ProgConstants.c_strTLISDKFilePath_NetDvr2, CallingConvention = CallingConvention.StdCall)]
         public extern static int NETDVR_startup();
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace VideoPlayControl_UserDemo1
         /// </summary>
         /// <param name="pAddrInfo"></param>
         /// <returns></returns>
-        [DllImport(ProgConstants.c_strTLISDKFilePath_NetDvr2, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(ProgConstants.c_strTLISDKFilePath_NetDvr2, CallingConvention = CallingConvention.StdCall)]
         public extern static int NETDVR_createClient(ref NETDVR_addrInfo_t pAddrInfo);
 
         /// <summary>
@@ -198,8 +198,8 @@ namespace VideoPlayControl_UserDemo1
         /// </summary>
         /// <param name="pLoginInfo"></param>
         /// <returns></returns>
-        [DllImport(ProgConstants.c_strTLISDKFilePath_NetDvr2,CharSet =CharSet.Ansi,  CallingConvention = CallingConvention.Cdecl)]
-        public extern static int NETDVR_loginServer_3g(NETDVR_loginInfo_3g_t pLoginInfo);
+        [DllImport(ProgConstants.c_strTLISDKFilePath_NetDvr2, CallingConvention = CallingConvention.StdCall)]
+        public extern static int NETDVR_loginServer_3g(ref NETDVR_loginInfo_3g_t pLoginInfo);
 
         /// <summary>
         /// 注销设备(注销客户端)

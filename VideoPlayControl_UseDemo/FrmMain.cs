@@ -77,7 +77,7 @@ namespace VideoPlayControl_UseDemo
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "518335cd3421f16a4b4e88164225c432";
             //SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            //SDKState.Ezviz_SDKInit();
+            SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19");
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();

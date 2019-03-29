@@ -40,7 +40,8 @@ namespace VideoPlayControl.VideoEnvironment
             ser_LoginInfo.name = "TLClient";
             ser_LoginInfo.user = strUserName;
             ser_LoginInfo.pass = strPwd;
-            int ret= SDK_TLi.NETDVR_loginServer_3g(ref ser_LoginInfo);
+            NETDVR_login_resp_t respInfo = new NETDVR_login_resp_t();
+            int ret = SDK_TLi.NETDVR_loginServer_3g(ref ser_LoginInfo, ref respInfo);
             devices = GetDeviceList(1000);
             TLVideoEnvironment = Enum_SDKState.SDK_Init;
             return bolResult;

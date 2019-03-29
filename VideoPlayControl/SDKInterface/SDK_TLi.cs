@@ -188,7 +188,7 @@ namespace VideoPlayControl.SDKInterface
         /// <param name="pLoginInfo"></param>
         /// <returns></returns>
         [DllImport(ProgConstants.c_strTLISDKFilePath_NetDvr2, CallingConvention = CallingConvention.StdCall)]
-        public extern static int NETDVR_loginServer_3g(ref NETDVR_loginInfo_3g_t pLoginInfo);
+        public extern static int NETDVR_loginServer_3g(ref NETDVR_loginInfo_3g_t pLoginInfo, ref NETDVR_login_resp_t respInfo);
 
         /// <summary>
         /// 注销设备(注销客户端)
@@ -1281,7 +1281,7 @@ namespace VideoPlayControl.SDKInterface
 
         // 客户端登陆回应
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = 1)]
-        struct NETDVR_login_resp_t
+        public struct NETDVR_login_resp_t
         {
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
             public char[] client_ID;                     // ID，字符串
