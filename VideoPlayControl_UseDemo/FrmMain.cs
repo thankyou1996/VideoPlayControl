@@ -89,7 +89,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.DHVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.ZLVideoSDK_Init();
-            VideoPlayControl.VideoEnvironment.VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
+            //VideoPlayControl.VideoEnvironment.VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
             Init();
 
 
@@ -811,7 +811,7 @@ namespace VideoPlayControl_UseDemo
 
             //VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo13();
+            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo14();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetYSDVSData2();
             //dicVideoInfos[v.DVSNumber] = v;

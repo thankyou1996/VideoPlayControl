@@ -42,9 +42,14 @@ namespace VideoPlayControl.VideoEnvironment
             ser_LoginInfo.pass = strPwd;
             NETDVR_login_resp_t respInfo = new NETDVR_login_resp_t();
             int ret = SDK_TLi.NETDVR_loginServer_3g(ref ser_LoginInfo, ref respInfo);
-            devices = GetDeviceList(1000);
+            RefreshDeviceList();
             TLVideoEnvironment = Enum_SDKState.SDK_Init;
             return bolResult;
+        }
+
+        public static void RefreshDeviceList()
+        {
+            devices = GetDeviceList(1000);
         }
 
         /// <summary>

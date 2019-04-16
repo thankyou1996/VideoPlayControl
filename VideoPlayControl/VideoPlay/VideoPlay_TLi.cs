@@ -167,6 +167,12 @@ namespace VideoPlayControl.VideoPlay
             int Temp_intIndex = SDK_TLi.GetNodeIndexByDeviceID(CurrentVideoInfo.DVSUniqueCode);
             if (Temp_intIndex == -1)
             {
+                //刷新设备列表
+                VideoEnvironment.VideoEnvironment_TL.RefreshDeviceList();
+            }
+            Temp_intIndex = SDK_TLi.GetNodeIndexByDeviceID(CurrentVideoInfo.DVSUniqueCode);
+            if (Temp_intIndex == -1)
+            {
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DeviceNotExist, EventContent = "设备不存在" });
                 return false;
             }
