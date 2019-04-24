@@ -132,7 +132,7 @@ namespace VideoPlayControl
         private void VideoPlayGroupControl_MultiPicture1_Load(object sender, EventArgs e)
         {
             this.Disposed += VideoPlayGroupControl_MultiPicture1_Disposed;
-            SetWindowNum(4);
+            //SetWindowNum(4);
         }
 
         private void VideoPlayGroupControl_MultiPicture1_Disposed(object sender, EventArgs e)

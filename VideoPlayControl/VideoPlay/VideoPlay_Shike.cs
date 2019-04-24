@@ -190,7 +190,12 @@ namespace VideoPlayControl.VideoPlay
             {
                 if (string.IsNullOrEmpty(strSaveName))
                 {
-                    strSaveName = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel - 1, CurrentVideoInfo.VideoType);
+                    Enum_VideoType Temp_videoType = CurrentVideoInfo.VideoType;
+                    if (ProgParameter.TransitionEnable && Temp_videoType == Enum_VideoType.Unrecognized)
+                    {
+                        Temp_videoType = Transition.Transition_VideoTypeConvert.GetVideoType(CurrentVideoInfo.DVSType);
+                    }
+                    strSaveName = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel - 1, Temp_videoType);
                 }
                 else
                 {

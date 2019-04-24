@@ -106,7 +106,12 @@ namespace VideoPlayControl
 
         public static string GetVideoRecordName(VideoInfo vInfo, CameraInfo cInfo)
         {
-            return GetVideoRecordName(vInfo.DVSNumber, cInfo.Channel, vInfo.VideoType);
+            Enum_VideoType Temp_videoType = vInfo.VideoType;
+            if (ProgParameter.TransitionEnable && Temp_videoType == Enum_VideoType.Unrecognized)
+            {
+                Temp_videoType = Transition.Transition_VideoTypeConvert.GetVideoType(vInfo.DVSType);
+            }
+            return GetVideoRecordName(vInfo.DVSNumber, cInfo.Channel, Temp_videoType);
         }
 
         public static string GetVideoRecordName(string strVideoNum, int intChannel, Enum_VideoType videoType)
