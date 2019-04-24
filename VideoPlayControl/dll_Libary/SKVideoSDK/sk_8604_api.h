@@ -138,6 +138,8 @@ typedef unsigned long long u64;
 #define MSG_CB_DEVICE_DISK_INFO			46
 #define MSG_CB_DEVICE_VALID_PANNEL		47
 #define MSG_CB_DEVICE_CAM_OFFLINE		48
+#define MSG_CB_AV_DL_STOP				49
+#define MSG_CB_PASSTHROUGH_PROTO		50 // 透传协议结果
 
 /* 精简版设备信息 */
 typedef struct
@@ -228,6 +230,16 @@ void p_vsdk_open(char	*ipaddr,
 				 int	aport ,
 				 char	*record_directory , 
 				 u8		*ret_val);
+
+/**
+  * ***********************************************************************
+  * @brief	设置网页存放路径(全路径必须为英文)
+  *			
+  * @retval void 返回为空
+  * ***********************************************************************
+  */
+DLLIMPORT
+void p_vsdk_set_default_html_path(const char *path);
 
 /**
   * ***********************************************************************
@@ -568,6 +580,23 @@ void p_vsdk_set_dev_descript(char *guid,u8 *descript, u8 *ret_val);
   */
 DLLIMPORT
 void p_vsdk_remote_play_audio(char *guid,u8 audio_index, u8 *ret_val);
+
+/**
+  * ***********************************************************************
+  * @brief	下载音频文件到设备并播放
+  *			
+  *	@param  char * guid:	设备GUID
+  *	@param  char * url:		音频文件地址
+  *
+  * @retval int:		统一结果
+  * 
+  * @attention     
+  * ***********************************************************************
+  */
+DLLIMPORT
+int p_vsdk_play_remote_audio(char	*guid, 
+							 char	*file,
+                             char	*url);
 /**
   * ***********************************************************************
   * @brief	对设备指定通道进行截图并保存文件
@@ -643,20 +672,6 @@ void p_sdks_add_client(u8 *client_guid);
   */
 DLLIMPORT 
 int p_vsdk_reg_msg_callback(void *func);
-
-/**
-  * ***********************************************************************
-  * @brief	注册数据回调句柄
-  *			
-  *	@param  func: 回调函数指针
-  *
-  * @retval void: 返回未空
-  * 
-  * @attention     
-  * ***********************************************************************
-  */
-DLLIMPORT 
-void p_vsdk_reg_dat_callback(void *func);
 
 /**
   * ***********************************************************************
@@ -1239,7 +1254,7 @@ int p_vsdk_test_device_route(char *guid, int route);
 
 /**
   * ***********************************************************************
-  * @brief  远程更新指纹模板
+  * @brief  远程写入指纹模板
   *			
   *	@param  guid:				远程GUID
   *	@param  people_bgein_zero:	人物编号，从0开始
@@ -1258,6 +1273,45 @@ int p_vsdk_update_finger_template(char *guid,
 	                              int  finger_bgein_zero, 
 	                              int  tmplate_length, 
 	                              char *finger_template
+);
+
+/**
+  * ***********************************************************************
+  * @brief  远程读取指纹模板
+  *			
+  *	@param  guid:				远程GUID
+  *	@param  people_bgein_zero:	人物编号，从0开始
+  *	@param  finger_bgein_zero:	指纹编号，从0开始
+  *
+  * @retval int:				返回为空
+  *
+  * @attention	: none
+  * ***********************************************************************
+  */
+DLLIMPORT 
+int p_vsdk_read_finger_template(char *guid, 
+	                            int  people_bgein_zero, 
+	                            int  finger_bgein_zero 
+);
+
+
+/**
+  * ***********************************************************************
+  * @brief  远程删除指纹模板
+  *			
+  *	@param  guid:				远程GUID
+  *	@param  people_bgein_zero:	人物编号，从0开始
+  *	@param  finger_bgein_zero:	指纹编号，从0开始
+  *
+  * @retval int:				返回为空
+  *
+  * @attention	: none
+  * ***********************************************************************
+  */
+DLLIMPORT 
+int p_vsdk_delete_finger_template(char *guid, 
+	                              int  people_bgein_zero, 
+	                              int  finger_bgein_zero
 );
 
 /**
@@ -1295,3 +1349,28 @@ int p_vsdk_upload_alarm_record(char *guid,
 								int start_time,
 								int stop_time,
 								char *upload_url);
+
+/**
+  * ***********************************************************************
+  * @brief  设置是否关闭超时关闭码流功能
+  *			
+  *	@param  disable:	是否禁用超时关闭码流功能
+  *
+  * @retval void:		返回为空
+  *
+  * @attention	: 0: 打开超时关闭码流功能(默认)   其它: 关闭超时关闭码流功能
+  * ***********************************************************************
+  */
+DLLIMPORT
+void p_vsdk_set_auto_close_stream(int disable);
+
+DLLIMPORT
+int p_vsdk_add_dev_to_dev_talk(char *dev_1_guid,
+							   char *dev_2_guid
+							   );
+
+DLLIMPORT
+int p_vsdk_clear_dev_to_dev_talk(char *dev_guid);
+
+DLLIMPORT
+int p_vsdk_get_person_finger_status(char* dev_guid, int person_id);

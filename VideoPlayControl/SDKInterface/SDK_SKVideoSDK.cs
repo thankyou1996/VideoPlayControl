@@ -242,10 +242,6 @@ namespace VideoPlayControl
         public static extern void p_vsdk_snap_picture(string strGuid, byte snap_count, short snap_interver, byte channel, string file1_path, string file2_path, string file3_path, string file4_path, string file5_path, byte ret_val);
         //p_vsdk_snap_picture(guid_str,5,50,1,"d:\\1.jpeg","d:\\2.jpeg","d:\\3.jpeg","d:\\4.jpeg","d:\\5.jpeg",&ret_val);
 
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//设定客户端存储根文件夹
-        public static extern void p_scfs_set_save_folder(string base_folder);
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]//使能客户端文件存储
-        public static extern void p_scfs_enable_save();
 
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_start_playback_av(string guid, byte channel, UInt32 start_ts, IntPtr handle);

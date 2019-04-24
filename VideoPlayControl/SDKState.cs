@@ -294,7 +294,6 @@ namespace VideoPlayControl
             SDK_SKVideoSDK.p_sdkc_set_server_av_port(ProgParameter.uintSKVideo_AVPort);   //设置码流端口
             SDK_SKVideoSDK.p_sdkc_init_client(ProgParameter.strSKVideo_ClientUGID, ProgParameter.strSKVideo_ServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");//初始化
             SDK_SKVideoSDK.p_sdkc_disable_hw_render(); //关闭客户端软解码
-            SDK_SKVideoSDK.p_scfs_set_save_folder("C:\\SHIKE_VIDEO\\");
             SKVideoSDKState = Enum_SDKState.SDK_Init;
             SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitEnd);
             return SKVideoSDKState;
@@ -334,18 +333,22 @@ namespace VideoPlayControl
         /// <param name="uintAudioPort"></param>
         /// <param name="uintStreamPort"></param>
         /// <returns></returns>
-        public static Enum_SDKState SKVideoSDKInit(string strGUId,string strServerIP,int uintControlPort, int uintVideoPort, int uintAudioPort,int uintStreamPort)
+        public static Enum_SDKState SKVideoSDKInit(string strGUId,string strServerIP,int uintControlPort, int uintVideoPort, int uintAudioPort,int uintStreamPort,string strRecordDirectory="")
         {
             SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitStart);
             ProgParameter.strSKVideo_ClientUGID = strGUId;
             ProgParameter.strSKVideo_ServerIP = strServerIP;
-
             ProgParameter.uintSKVideo_ControlPort = Convert.ToUInt16(uintControlPort);
             ProgParameter.uintSKVideo_VideoPort = Convert.ToUInt16(uintVideoPort);
-            ProgParameter.uintSKVideo_AudioPort= Convert.ToUInt16(uintAudioPort);
+            ProgParameter.uintSKVideo_AudioPort = Convert.ToUInt16(uintAudioPort);
             ProgParameter.uintSKVideo_AVPort = Convert.ToUInt16(uintStreamPort);
+            ProgParameter.strSKVideo_RecordDirectory = strRecordDirectory;
             SDK_SKVideoSDK.p_sdkc_set_server_av_port(ProgParameter.uintSKVideo_AVPort);   //设置码流端口
-            SDK_SKVideoSDK.p_sdkc_init_client(strGUId, strServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");//初始化
+            SDK_SKVideoSDK.p_sdkc_init_client(strGUId, strServerIP
+                                            , ProgParameter.uintSKVideo_ControlPort
+                                            , ProgParameter.uintSKVideo_VideoPort
+                                            , ProgParameter.uintSKVideo_AudioPort
+                                            , ProgParameter.strSKVideo_RecordDirectory);//初始化
             SDK_SKVideoSDK.p_sdkc_disable_hw_render(); //关闭客户端软解码
             SKVideoSDKState = Enum_SDKState.SDK_Init;
             SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitEnd);
@@ -678,8 +681,17 @@ namespace VideoPlayControl
         /// </summary>
         /// <returns></returns>
         public static Enum_SDKState SKNVideoSDK_Init(string server_addr, int server_port, string client_guid, string sdk_xml_cfg_full_path, string default_save_dir)
-        {            
-            SDK_SKNVideo.SDK_NSK_CLIENT_init(server_addr, server_port, client_guid, sdk_xml_cfg_full_path, default_save_dir);
+        {
+            string str = Environment.CurrentDirectory;
+            try
+            {
+                SDK_SKNVideo.SDK_NSK_CLIENT_init(server_addr, server_port, client_guid, sdk_xml_cfg_full_path, default_save_dir);
+            }
+            catch
+            {
+
+                string stssr = Environment.CurrentDirectory;
+            }
             //SDK_SKNVideo.SDK_NSK_ALL_open_console();
             SKVNVideoSDKState = Enum_SDKState.SDK_Init;
             return SKVNVideoSDKState;

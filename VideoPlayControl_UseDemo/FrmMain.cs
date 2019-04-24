@@ -78,13 +78,13 @@ namespace VideoPlayControl_UseDemo
             //SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
             //SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19");
+            SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhcs1", "", "C:\\SHIKE_Video");
+            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
-            //SDKState.SKNVideoSDK_Init("127.0.0.1", 48624, "xhcs1", "", "C:\\SHIKE_Video");
             //SDKState.ZLVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
@@ -662,25 +662,27 @@ namespace VideoPlayControl_UseDemo
                 videoPlaySet.VideoRecordEnable = chkVideoRecordEnable.Checked;
                 videoPlaySet.PerVideoRecord = chkProVideoRecord.Checked;
                 videoPlaySet.VideoRecordFilePath = txtVideoRecord.Text;
+                videoPlaySet.VideoRecordFilePath_Server = txtVideoRecord.Text;
                 videoPlaySet.AutoReconn = false;
                 videoPlaySet.AnsyPlay = true;
 
-                if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
-                {
-                    string strTimeValue = DateTime.Now.ToString("yyyyMMddHHmmss");
-                    StringBuilder sbVideoRecordPath = new StringBuilder();
-                    sbVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
-                    sbVideoRecordPath.Append(strTimeValue + "\\");
-                    sbVideoRecordPath.Append(intCurrentVideoID + "_");
-                    sbVideoRecordPath.Append(cameraInfo.Channel.ToString().PadLeft(2, '0') + "_");
-                    sbVideoRecordPath.Append(strTimeValue + "_81.H264");
-                    videoPlaySet.VideoRecordFilePath = sbVideoRecordPath.ToString();
-                    StringBuilder sbPreVideoRecordPath = new StringBuilder();
-                    sbPreVideoRecordPath.Append("http://121.41.87.203:8008/SK_VideoRecord/");
-                    sbPreVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
-                    sbPreVideoRecordPath.Append(strTimeValue + "\\");
-                    videoPlaySet.PreVideoRecordFilePath = sbPreVideoRecordPath.ToString();
-                }
+                //if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
+                //{
+                //    string strTimeValue = DateTime.Now.ToString("yyyyMMddHHmmss");
+                //    StringBuilder sbVideoRecordPath = new StringBuilder();
+                //    sbVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
+                //    sbVideoRecordPath.Append(strTimeValue + "\\");
+                //    sbVideoRecordPath.Append(intCurrentVideoID + "_");
+                //    sbVideoRecordPath.Append(cameraInfo.Channel.ToString().PadLeft(2, '0') + "_");
+                //    sbVideoRecordPath.Append(strTimeValue + "_81.H264");
+                //    videoPlaySet.VideoRecordFilePath = sbVideoRecordPath.ToString();
+                //    StringBuilder sbPreVideoRecordPath = new StringBuilder();
+                //    sbPreVideoRecordPath.Append("http://121.41.87.203:8008/SK_VideoRecord/");
+                //    sbPreVideoRecordPath.Append(dicVideoInfos[intCurrentVideoID].DVSNumber.Substring(0, 4) + "\\");
+                //    sbPreVideoRecordPath.Append(strTimeValue + "\\");
+                //    videoPlaySet.PreVideoRecordFilePath = sbPreVideoRecordPath.ToString();
+                //    videoPlaySet.VideoRecordFilePath = txtVideoRecord.Text;
+                //}
                 if (intVideoIndex == 0)
                 {
                     PlayVideo(videoWindowTest, dicVideoInfos[intCurrentVideoID], cameraInfo, videoPlaySet);
@@ -802,6 +804,7 @@ namespace VideoPlayControl_UseDemo
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             SDKState.Huamai_Release();
+            //VideoPlayControl.SDK_SKVideoSDK.p_sdkc_exit_client();
         }
         #region 测试数据相关
         private void btnEzvizTestData_Click(object sender, EventArgs e)
@@ -1438,6 +1441,23 @@ namespace VideoPlayControl_UseDemo
         {
             IVideoPlay iv = (IVideoPlay)sender;
             MessageBox.Show(iv.VideoStream.ToString());
+        }
+
+        private void btnStartVideo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (!videoWindowTest.VideoRecordStatus)
+            {
+                videoWindowTest.StartVideoRecord(new VideoRecordSet { Enable = true });
+            }
+            else
+            {
+                videoWindowTest.StopVideoRecord();
+            }
         }
     }
 }

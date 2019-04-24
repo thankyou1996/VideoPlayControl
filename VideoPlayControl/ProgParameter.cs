@@ -79,6 +79,10 @@ namespace VideoPlayControl
         /// </summary>
         public static string strSKVideo_ClientUGID = "Admin";
 
+        /// <summary>
+        /// 本地录像存储路径
+        /// </summary>
+        public static string strSKVideo_RecordDirectory = "";
 
         #endregion
 

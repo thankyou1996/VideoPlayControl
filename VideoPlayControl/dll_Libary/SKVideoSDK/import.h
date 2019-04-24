@@ -153,7 +153,18 @@ int p_sdkc_start_rt_video(char	*guid,
 						  u8	enable_record,
 						  u32	max_mbyte,
 						  u32	max_min,
-						  u8	*rec_file_path);
+						  char	*rec_file_path);
+
+DLLIMPORT
+int p_sdkc_start_rt_video_ex(char	*guid, 
+						  u8	channel,
+						  HWND  handle,
+						  u8	enable_record,
+						  u32	max_mbyte,
+						  u32	max_min,
+						  u8    use_main_stream,
+						  char	*rec_file_path);
+
 /**
   * ***********************************************************************
   * @brief	停止与设备的实时视频播放
@@ -242,45 +253,6 @@ void p_vsdk_close_console(void);
 
 /**
   * ***********************************************************************
-  * @brief	设定客户端存储根文件夹
-  *			
-  *	@param  base_folder: 根文件目录
-  *
-  * @retval void: 返回为空
-  * 
-  * @attention     
-  * ***********************************************************************
-  */
-DLLIMPORT
-void p_scfs_set_save_folder(char *base_folder);
-
-/**
-  * ***********************************************************************
-  * @brief	使能客户端文件存储
-  *			
-  * @retval void: 返回为空
-  * 
-  * @attention     
-  * ***********************************************************************
-  */
-DLLIMPORT
-void p_scfs_enable_save(void);
-
-/**
-  * ***********************************************************************
-  * @brief	禁用客户端文件存储
-  *			
-  * @retval void: 返回为空
-  * 
-  * @attention     
-  * ***********************************************************************
-  */
-DLLIMPORT
-void p_scfs_disable_file_save(void);
-
-
-/**
-  * ***********************************************************************
   * @brief	使能客户端硬件渲染
   *
   * @retval int: 返回始终为TRUE
@@ -323,11 +295,11 @@ int p_sdkc_reg_msg_callback(void *func);
   * @brief	录像设备回放函数
   *			
   *	@param  char * guid:	设备GUID
-  *	@param  u8 channl:		设备视频通道号
+  *	@param  u8 channel:		设备视频通道号
   *	@param  u32 start_ts:	视频开始时间戳
   *	@param  HWND handle:	窗口句柄
   *
-  * @retval int:		统一结果e
+  * @retval int:		统一结果
   * 
   * @attention     
   * ***********************************************************************
@@ -456,23 +428,6 @@ int p_sdkc_set_server_av_port(int av_port);
 
 DLLIMPORT
 int p_sdkc_set_render(HWND  handle, int enable);
-
-/**
-  * ***********************************************************************
-  * @brief	下载音频文件到设备并播放
-  *			
-  *	@param  char * guid:	设备GUID
-  *	@param  char * url:		音频文件地址
-  *
-  * @retval int:		统一结果
-  * 
-  * @attention     
-  * ***********************************************************************
-  */
-DLLIMPORT
-int p_sdkc_play_remote_audio(char	*guid, 
-							 char	*file,
-                             char	*url);
 
 /**
   * ***********************************************************************

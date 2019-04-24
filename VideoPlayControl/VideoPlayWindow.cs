@@ -899,7 +899,8 @@ namespace VideoPlayControl
             CurrentVideoPlaySet.VideoRecordFilePath_Server = vrSet.VideoRecordFilePath_Server;
             CurrentVideoPlaySet.VideoRecordFileName_Server = vrSet.VideoRecordFileName_Server;
             CurrentVideoPlaySet.TimeOutVideoRecordCloseSecond = vrSet.TimeOutVideoRecordCloseSecond;
-            if (!Directory.Exists(CurrentVideoPlaySet.VideoRecordFilePath))
+            if (!string.IsNullOrEmpty(CurrentVideoPlaySet.VideoRecordFilePath)
+                && (!Directory.Exists(CurrentVideoPlaySet.VideoRecordFilePath)))
             {
                 Directory.CreateDirectory(CurrentVideoPlaySet.VideoRecordFilePath);
             }
