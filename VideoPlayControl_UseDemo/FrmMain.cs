@@ -76,10 +76,10 @@ namespace VideoPlayControl_UseDemo
             //VideoPlayControl.ProgParameter.strEzviz__AppID = "1acd8ddc451f48a4b8b4666716e8f9ce";
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "518335cd3421f16a4b4e88164225c432";
             //SDKState.SDKStateChangeEvent += SDKStateChange;
-            //SDKState.CloundSee_SDKInit();
+            SDKState.CloundSee_SDKInit();
             //SDKState.Ezviz_SDKInit();
-            SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhcs1", "", "C:\\SHIKE_Video");
-            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
+            //SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhcs1", "", "C:\\SHIKE_Video");
+            //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
@@ -665,7 +665,6 @@ namespace VideoPlayControl_UseDemo
                 videoPlaySet.VideoRecordFilePath_Server = txtVideoRecord.Text;
                 videoPlaySet.AutoReconn = false;
                 videoPlaySet.AnsyPlay = true;
-
                 //if (dicVideoInfos[intCurrentVideoID].VideoType == Enum_VideoType.SKVideo)
                 //{
                 //    string strTimeValue = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -814,7 +813,7 @@ namespace VideoPlayControl_UseDemo
 
             //VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo15();
+            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo14();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetYSDVSData2();
             //dicVideoInfos[v.DVSNumber] = v;
@@ -1383,7 +1382,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnCloundSee_Click(object sender, EventArgs e)
         {
-            VideoInfo videoInfo = TestDataSource.CloundSeeDataSource.GetData2();
+            VideoInfo videoInfo = TestDataSource.CloundSeeDataSource.GetData3();
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

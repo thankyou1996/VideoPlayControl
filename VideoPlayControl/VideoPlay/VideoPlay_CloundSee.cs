@@ -17,11 +17,17 @@ namespace VideoPlayControl.VideoPlay
     /// </summary>
     class VideoPlay_CloundSee : IVideoPlay
     {
+
+        public VideoPlay_CloundSee()
+        {
+            gEventCallback = new SDK_JCSDK.JCEventCallback_t(CloundSee_JCEventCallback);
+            SDK_JCSDK.JCSDK_RegisterCallback(gEventCallback, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
+        }
         public VideoPlay_CloundSee(VideoInfo vInfo) : this(vInfo, vInfo.Cameras.First().Value)
         {
 
         }
-        public VideoPlay_CloundSee(VideoInfo vInfo, CameraInfo cInfo)
+        public VideoPlay_CloundSee(VideoInfo vInfo, CameraInfo cInfo) : this()
         {
             CurrentVideoInfo = vInfo;
             CurrentCameraInfo = cInfo;
@@ -133,12 +139,6 @@ namespace VideoPlayControl.VideoPlay
             return bolResult;
         }
 
-        public VideoPlay_CloundSee()
-        {
-
-            gEventCallback = new SDK_JCSDK.JCEventCallback_t(CloundSee_JCEventCallback);
-            SDK_JCSDK.JCSDK_RegisterCallback(gEventCallback, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
-        }
 
         /// <summary>
         /// 云视通_事件回调

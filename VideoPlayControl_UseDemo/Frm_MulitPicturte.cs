@@ -33,7 +33,7 @@ namespace VideoPlayControl_UseDemo
             //videoPlayGroupControl_MultiPicture11.VideoPlayCallbackEvent += VideoPlayGroupControl_MultiPicture11_VideoPlayCallbackEvent;
             //videoPlayGroupControl_MultiPicture11.SelectedWindowHiglight = true ;
             //videoPlayGroupControl_MultiPicture11.AutoSelectedNextWindow = false;
-            videoPlayGroupControl_MultiPicture11.SetWindowNum(9);
+            //videoPlayGroupControl_MultiPicture11.SetWindowNum(9);
             CurrentV = TestDataSource.DaHuaSource.GetDaHuaData1();
         }
 

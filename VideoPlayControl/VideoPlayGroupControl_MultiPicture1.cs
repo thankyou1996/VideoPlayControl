@@ -25,6 +25,10 @@ namespace VideoPlayControl
             get { return currentV; }
             set
             {
+                if (value == null)
+                {
+                    return;
+                }
                 if (currentV != value)
                 {
                     currentV = value;
@@ -45,8 +49,16 @@ namespace VideoPlayControl
 
         public int WindowNum
         {
-            get { return dicWin.Count; }
+            get
+            {
+                return dicWin.Count;
+            }
+            set
+            {
+                SetWindowNum(value);
+            }
         }
+
         #endregion
         #region 事件委托 
         private event VideoPlayCallbackDelegate videoPlayCallbaclEvent;
@@ -123,16 +135,15 @@ namespace VideoPlayControl
         public VideoPlayGroupControl_MultiPicture1()
         {
             InitializeComponent();
-            if (CurrentV == null)
+            if (WindowNum == 0)
             {
-                CurrentV = videoPlayWindow1;
+                WindowNum = 1;
             }
         }
 
         private void VideoPlayGroupControl_MultiPicture1_Load(object sender, EventArgs e)
         {
             this.Disposed += VideoPlayGroupControl_MultiPicture1_Disposed;
-            //SetWindowNum(4);
         }
 
         private void VideoPlayGroupControl_MultiPicture1_Disposed(object sender, EventArgs e)
@@ -231,7 +242,10 @@ namespace VideoPlayControl
         /// <param name="intNum"></param>
         public bool SetWindowNum(int intNum)
         {
-
+            if (intNum == 0)
+            {
+                intNum = 1;
+            }
             if (this.WindowNum == intNum)
             {
                 this.VideoColse_All();
