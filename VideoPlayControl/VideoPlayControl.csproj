@@ -342,6 +342,7 @@
     <Content Include="dll_Libary\Axis\Interop.AxisMediaViewerLib.dll" />
     <Content Include="dll_Libary\Ezviz\D3DCompiler_43.dll" />
     <Content Include="dll_Libary\Ezviz\EagleEyeRender.dll" />
+    <Content Include="dll_Libary\Ezviz\HXVA.dll" />
     <Content Include="dll_Libary\PublicClassCurrency.pdb" />
     <Content Include="dll_Libary\Ezviz\AnalyzeData.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
