@@ -207,7 +207,10 @@ namespace VideoPlayControl.VideoPlay
                 strSavePath = strSavePath + "\\";
             }
             string strResult = strSavePath + strSaveName;
-            strResult = strResult.Replace(ProgParameter.strSKVideo_RecordDirectory, "");
+            if (!string.IsNullOrEmpty(ProgParameter.strSKVideo_RecordDirectory))
+            {
+                strResult = strResult.Replace(ProgParameter.strSKVideo_RecordDirectory, "");
+            }
             if (!(strResult.StartsWith("\\") || strResult.StartsWith("/")))
             {
                 strResult = "\\" + strResult;

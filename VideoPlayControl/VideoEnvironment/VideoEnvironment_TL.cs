@@ -104,5 +104,15 @@ namespace VideoPlayControl.VideoEnvironment
             string[] items = ip.Split(separator);
             return long.Parse(items[0]) << 24 | long.Parse(items[1]) << 16 | long.Parse(items[2]) << 8 | long.Parse(items[3]);
         }
+
+
+        public static event StartTalkingDelegate TL_StartTalkingEvent;
+        public static void TL_StartTalking(object StartTalkingValue)
+        {
+            if (TL_StartTalkingEvent != null)
+            {
+                TL_StartTalkingEvent(null, StartTalkingValue);
+            }
+        }
     }
 }

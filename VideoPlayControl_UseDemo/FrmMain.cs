@@ -1325,10 +1325,10 @@ namespace VideoPlayControl_UseDemo
 
         private void btnStartTalk_Click(object sender, EventArgs e)
         {
-            videoTalk = new VideoPlayControl.VideoTalk.VideoTalk_TLi();
+            IVideoTalk videoTalk1 = new VideoPlayControl.VideoTalk.VideoTalk_TLi();
             VideoInfo vInfo = TestDataSource.TLDataSource.GetData1();
-            videoTalk.SetVideoTalkInfo(vInfo, vInfo.TalkChannel.First().Value);
-            videoTalk.StartTlak(Enum_TalkModel.Talkback);
+            videoTalk1.SetVideoTalkInfo(vInfo, vInfo.TalkChannel.First().Value);
+            videoTalk1.StartTlak(Enum_TalkModel.Talkback);
         }
         private void btnStopTalk_Click(object sender, EventArgs e)
         {

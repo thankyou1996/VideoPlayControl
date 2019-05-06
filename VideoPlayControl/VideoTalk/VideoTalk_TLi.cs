@@ -112,6 +112,8 @@ namespace VideoPlayControl.VideoTalk
         public bool StartTlak(Enum_TalkModel talkModel)
         {
             bool bolResult = false;
+            VideoEnvironment.VideoEnvironment_TL.TL_StartTalking(null);
+            VideoEnvironment.VideoEnvironment_TL.TL_StartTalkingEvent += VideoEnvironment_TL_TL_StartTalkingEvent;
             if (CurrentTalkStatus != Enum_TalkStatus.Null)  //处于对讲中 先关闭
             {
                 StopTalk();
@@ -144,6 +146,13 @@ namespace VideoPlayControl.VideoTalk
             CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
             return bolResult;
         }
+
+        private bool VideoEnvironment_TL_TL_StartTalkingEvent(object sender, object StartTalkBeginValue)
+        {
+            StopTalk();
+            return true;
+        }
+
         public void DealVoipAuidoFrame(IntPtr ip, uint dwContextEnc)
         {
             FrameHeadrDec pFrmHdrDec = (FrameHeadrDec)Marshal.PtrToStructure(ip, typeof(FrameHeadrDec));
@@ -184,6 +193,7 @@ namespace VideoPlayControl.VideoTalk
             bool bolResult = false;
             if (CurrentVideoInfo != null && CurrentTalkStatus != Enum_TalkStatus.Null)
             {
+                VideoEnvironment.VideoEnvironment_TL.TL_StartTalkingEvent -= VideoEnvironment_TL_TL_StartTalkingEvent;
                 int ret = NETDVR_stopVOIP(d.nHandle, 0);
                 TLPlay_Stop(m_hPlayPort);
                 TLPlay_Close(m_hPlayPort);

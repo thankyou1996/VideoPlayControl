@@ -57,6 +57,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.btnMulitPlay = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnStopTalk = new System.Windows.Forms.Button();
             this.btnStartTalk = new System.Windows.Forms.Button();
             this.btnStopTest = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -149,7 +150,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
-            this.btnStopTalk = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -420,8 +420,8 @@
             this.PageOther.Controls.Add(this.btnMulitPlay);
             this.PageOther.Controls.Add(this.button1);
             this.PageOther.Controls.Add(this.btnStopTalk);
-            this.PageOther.Controls.Add(this.btnStartTalk);
             this.PageOther.Controls.Add(this.btnStopTest);
+            this.PageOther.Controls.Add(this.btnStartTalk);
             this.PageOther.Location = new System.Drawing.Point(4, 22);
             this.PageOther.Name = "PageOther";
             this.PageOther.Padding = new System.Windows.Forms.Padding(3);
@@ -472,7 +472,7 @@
             // 
             // btnMulitPlay
             // 
-            this.btnMulitPlay.Location = new System.Drawing.Point(9, 52);
+            this.btnMulitPlay.Location = new System.Drawing.Point(175, 62);
             this.btnMulitPlay.Name = "btnMulitPlay";
             this.btnMulitPlay.Size = new System.Drawing.Size(75, 23);
             this.btnMulitPlay.TabIndex = 18;
@@ -490,9 +490,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // btnStopTalk
+            // 
+            this.btnStopTalk.Location = new System.Drawing.Point(20, 59);
+            this.btnStopTalk.Name = "btnStopTalk";
+            this.btnStopTalk.Size = new System.Drawing.Size(71, 23);
+            this.btnStopTalk.TabIndex = 16;
+            this.btnStopTalk.Text = "停止对讲";
+            this.btnStopTalk.UseVisualStyleBackColor = true;
+            this.btnStopTalk.Click += new System.EventHandler(this.btnStopTalk_Click);
+            // 
             // btnStartTalk
             // 
-            this.btnStartTalk.Location = new System.Drawing.Point(9, 28);
+            this.btnStartTalk.Location = new System.Drawing.Point(17, 32);
             this.btnStartTalk.Name = "btnStartTalk";
             this.btnStartTalk.Size = new System.Drawing.Size(71, 23);
             this.btnStartTalk.TabIndex = 16;
@@ -1442,16 +1452,6 @@
             // 
             this.timCurrentChannelLoop.Interval = 3000;
             this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
-            // 
-            // btnStopTalk
-            // 
-            this.btnStopTalk.Location = new System.Drawing.Point(175, 62);
-            this.btnStopTalk.Name = "btnStopTalk";
-            this.btnStopTalk.Size = new System.Drawing.Size(71, 23);
-            this.btnStopTalk.TabIndex = 16;
-            this.btnStopTalk.Text = "停止对讲";
-            this.btnStopTalk.UseVisualStyleBackColor = true;
-            this.btnStopTalk.Click += new System.EventHandler(this.btnStopTalk_Click);
             // 
             // FrmMain
             // 
