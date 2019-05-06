@@ -136,6 +136,25 @@ namespace VideoPlayControl.SDKInterface
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool TLPlay_Pause(int nPort, [MarshalAs(UnmanagedType.Bool)] bool bPause);
 
+        /// <summary>
+        /// 播放声音
+        /// </summary>
+        /// <param name="nPort"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strTLISDKFilePath_TLPlay, EntryPoint = "TLPlay_PlaySound", CallingConvention = CallingConvention.StdCall)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool TLPlay_PlaySound(int nPort);
+
+        /// <summary>
+        /// 输入音频数据
+        /// </summary>
+        /// <param name="nPort"></param>
+        /// <param name="pBuf"></param>
+        /// <param name="nSize"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strTLISDKFilePath_TLPlay, EntryPoint = "TLPlay_InputAudioData", CallingConvention = CallingConvention.StdCall)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool TLPlay_InputAudioData(int nPort, ref byte pBuf, uint nSize);
 
         //播放模式
         public enum TLPLAYMODE
@@ -375,8 +394,43 @@ namespace VideoPlayControl.SDKInterface
         public extern static int NETDVR_VOIPRegCapCB(pCapVoipFrameCallBack rcvfunc, uint dwContext);
 
 
+        /// <summary>
+        /// 注册对讲音频回调数据
+        /// </summary>
+        /// <param name="Handle"></param>
+        /// <param name="voipindex"></param>
+        /// <param name="p"></param>
+        /// <param name="dwContent"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strTLISDKFilePath_NetDvr2, CallingConvention = CallingConvention.StdCall)]
+        public extern static int NETDVR_VOIPRegRcvCB(int Handle, int voipindex, pDecFrameCallBack p, uint dwContent);
+
         [DllImport(ProgConstants.c_strTLISDKFilePath_NetDvr2, CallingConvention = CallingConvention.StdCall)]
         public extern static int NETDVR_startVOIP(int Handle, int voipindex);
+
+        /// <summary>
+        /// 开始对讲
+        /// </summary>
+        /// <param name="Handle"></param>
+        /// <param name="voipindex"></param>
+        /// <param name="call"></param>
+        /// <param name="dwContent"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strTLISDKFilePath_NetDvr2, CallingConvention = CallingConvention.StdCall)]
+        public extern static int NETDVR_startVOIP(int Handle, int voipindex, pDecFrameCallBack call, uint dwContent);
+
+        /// <summary>
+        /// 停止对讲
+        /// </summary>
+        /// <param name="Handle"></param>
+        /// <param name="voipindex"></param>
+        /// <param name="call"></param>
+        /// <param name="dwContent"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strTLISDKFilePath_NetDvr2, CallingConvention = CallingConvention.StdCall)]
+        public extern static int NETDVR_stopVOIP(int Handle, int voipindex);
+
+
         /// <summary>
         /// 远程视频流
         /// </summary>
@@ -616,7 +670,7 @@ namespace VideoPlayControl.SDKInterface
 
         //public static pFrameCallBack frameCallBack;
 
-        public delegate void pDecFrameCallBack(FrameHeadrDec pFrmHdrDec, uint dwContext);
+        public delegate void pDecFrameCallBack(IntPtr pFrmHdrDec, uint dwContext);
         //public static pDecFrameCallBack decFrameCallBack;
 
         public delegate void pRecFilenameCallBack(IntPtr p_filename, uint dwContext);
@@ -865,7 +919,7 @@ namespace VideoPlayControl.SDKInterface
             public byte mediaType;            //original encoded (video/audio) media type:
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
             public char[] reserved1;                  //reserved
-            IntPtr data;                         //decoded data buf
+            public IntPtr data;                         //decoded data buf
             public uint data_size;             //decoded data length
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
             public char[] reserved2;                 //reserved for extensible development

@@ -108,6 +108,7 @@
     <Compile Include="Enum\Enum_VideoStream.cs" />
     <Compile Include="Enum\Enum_VideoPTZControl.cs" />
     <Compile Include="PubDelegate.cs" />
+    <Compile Include="PubMethod.cs" />
     <Compile Include="SDKInterface\SDK_DaHua.cs" />
     <Compile Include="SDKInterface\SDK_IMOSSDK.cs" />
     <Compile Include="SDKInterface\SDK_BlueSDK.cs" />
@@ -264,10 +265,12 @@
       <DependentUpon>VideoTalkControlManyChannel.cs</DependentUpon>
     </Compile>
     <Compile Include="VideoTalk\IVideoTalk.cs" />
+    <Compile Include="VideoTalk\VideoTalkRelevant.cs" />
     <Compile Include="VideoTalk\VideoTalk_HikStream.cs" />
     <Compile Include="VideoTalk\VideoTalk_HikStream_Client.cs" />
     <Compile Include="VideoTalk\VideoTalk_Shike.cs" />
     <Compile Include="VideoTalk\VideoTalk_SKNVideo.cs" />
+    <Compile Include="VideoTalk\VideoTalk_TLi.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

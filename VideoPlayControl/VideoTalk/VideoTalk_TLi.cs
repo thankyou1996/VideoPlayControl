@@ -1,15 +1,21 @@
-﻿using System;
+﻿using PublicClassCurrency;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
-using PublicClassCurrency;
+using VideoPlayControl.SDKInterface;
 using VideoPlayControl.VideoBasicClass;
+using static VideoPlayControl.SDKInterface.SDK_TLi;
 
 namespace VideoPlayControl.VideoTalk
 {
-    public class VideoTalk_Shike : IVideoTalk
+    public class VideoTalk_TLi : IVideoTalk
     {
+        SDKInterface.SDK_TLi.DeviceInfo d;
+        int m_hPlayPort = 0;
+        pDecFrameCallBack frameCallBack;
         public VideoInfo CurrentVideoInfo
         { get; set; }
         public VideoTalkChannelInfo CurrentTalkChannel { get; set; }
@@ -44,10 +50,10 @@ namespace VideoPlayControl.VideoTalk
         /// <summary>
         /// 时刻视频设备标签
         /// </summary>
-        public object Tag { get ; set ; }
+        public object Tag { get; set; }
 
         public event TalkStausChangedDelegate TalkStausChangedEvent;
-        
+
         public bool TalkStausChanged(object TalkStausChangedValue)
         {
             bool bolResult = false;
@@ -108,42 +114,67 @@ namespace VideoPlayControl.VideoTalk
             bool bolResult = false;
             if (CurrentTalkStatus != Enum_TalkStatus.Null)  //处于对讲中 先关闭
             {
-
                 StopTalk();
             }
-            StartTalking(null);
-            SDK_SKVideoSDK.st_multi_talk talkChannel = new SDK_SKVideoSDK.st_multi_talk();
-            talkChannel = SDK_SKVideoSDK.SetMultiTalkChannel(CurrentTalkChannel.VideoTalkChannel, talkChannel);
-            if ( CurrentTalkSetting.TalkRecordEnable)
+            int Temp_intIndex = SDK_TLi.GetNodeIndexByDeviceID(CurrentVideoInfo.DVSUniqueCode);
+            if (Temp_intIndex == -1)
             {
-                CurrentTalkSetting.TalkRecordRealSavePath_Local= GetTalkRecordPath_Local(CurrentTalkSetting.TalkRecordPath_Local, CurrentTalkSetting.TalkRecordName_Local);
-                string Temp_strValue = Path.GetDirectoryName(CurrentTalkSetting.TalkRecordRealSavePath_Local);
-                CommonMethod.Common.CreateFolder(Temp_strValue);
+                //刷新设备列表
+                VideoEnvironment.VideoEnvironment_TL.RefreshDeviceList();
             }
-            SDK_SKVideoSDK.p_sdkc_start_multi_talk(CurrentVideoInfo.DVSAddress, ref talkChannel, GetSKTalkModel(talkModel), 1, 15, 10, CurrentTalkSetting.TalkRecordRealSavePath_Local);
+            Temp_intIndex = SDK_TLi.GetNodeIndexByDeviceID(CurrentVideoInfo.DVSUniqueCode);
+            if (Temp_intIndex == -1)
+            {
+                return false;
+            }
+            d = VideoEnvironment.VideoEnvironment_TL.devices[Temp_intIndex];
+            StartTalking(null);
+            SDK_TLi.NETDVR_devicenode_t deviceInfo = new SDKInterface.SDK_TLi.NETDVR_devicenode_t();
+            deviceInfo.device_ID = d.devicenode.device_ID;
+            deviceInfo.maxSubstreamNum = d.devicenode.maxSubstreamNum;
+            SDK_TLi.NETDVR_createDVR_3g(ref d.nHandle, deviceInfo.device_ID, ref deviceInfo);
+            SDK_TLi.TLPlay_GetPort(ref m_hPlayPort);
+            SDK_TLi.TLPlay_SetPlayMode(m_hPlayPort, SDKInterface.SDK_TLi.TLPLAYMODE.TL_PLAY_POOL_STREAM);
+            SDK_TLi.TLPlay_OpenStream(m_hPlayPort, 1 << 20);
+            SDK_TLi.TLPlay_Play(m_hPlayPort, IntPtr.Zero);
+            frameCallBack = new pDecFrameCallBack(DealVoipAuidoFrame);
+            int ret = NETDVR_VOIPRegRcvCB(d.nHandle, 0, frameCallBack, Convert.ToUInt32(m_hPlayPort));
+            ret = SDK_TLi.NETDVR_startVOIP(d.nHandle, 0);
+            bool bol = SDK_TLi.TLPlay_PlaySound(m_hPlayPort);
             CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
             return bolResult;
         }
-
-        /// <summary>
-        /// 获取对讲记录保存地址%
-        /// </summary>
-        /// <param name="strPath"></param>
-        /// <param name="strName"></param>
-        /// <returns></returns>
-        public string GetTalkRecordPath_Local(string strPath,string strName)
+        public void DealVoipAuidoFrame(IntPtr ip, uint dwContextEnc)
         {
-            string strResult = "";
-            if (strName.EndsWith(".G711"))
+            FrameHeadrDec pFrmHdrDec = (FrameHeadrDec)Marshal.PtrToStructure(ip, typeof(FrameHeadrDec));
+            if (pFrmHdrDec.data == IntPtr.Zero)
             {
-                strResult = strPath + "\\" + strName;
+                return;
             }
-            else
+            PLAYFRAMEHDR hdr = new PLAYFRAMEHDR
             {
-                strResult = strPath + "\\" + strName + ".G711";
-            }
-            return strResult;
+                m_byMediaType = pFrmHdrDec.mediaType,
+                m_dwDataSize = pFrmHdrDec.data_size,
+                m_byFrameRate = 0,
+                m_dwFrameID = 0,
+                m_dwTimeStamp = pFrmHdrDec.m_dwTimeStamp,
+                union1 = new Anonymous_3d5d69df_3122_4137_83f1_a9b198afad7b
+                {
+                    m_tAudioParam = new Anonymous_0584d86c_3910_4038_bad0_69ed09db9a8d
+                    {
+                        m_byAudioMode = pFrmHdrDec.audio_mode,
+                    }
+                }
+            };
+            int Temp_int = Marshal.SizeOf(hdr);
+            byte[] pD = new byte[pFrmHdrDec.data_size];
+            Marshal.Copy(pFrmHdrDec.data, pD, 0, (int)pFrmHdrDec.data_size);
+            byte[] pl = PubMethod.StructToBytes(hdr);
+            byte[] bytes = pl.Concat(pD).ToArray();
+            uint len = Convert.ToUInt32(pFrmHdrDec.data_size + 40);
+            bool bol = SDK_TLi.TLPlay_InputAudioData(m_hPlayPort, ref bytes[0], len);
         }
+        
         /// <summary>
         /// 时刻对讲设备_结束对讲
         /// </summary>
@@ -153,31 +184,13 @@ namespace VideoPlayControl.VideoTalk
             bool bolResult = false;
             if (CurrentVideoInfo != null && CurrentTalkStatus != Enum_TalkStatus.Null)
             {
-                SDK_SKVideoSDK.p_sdkc_stop_talk(CurrentVideoInfo.DVSAddress);
-                StopTalked(null);
+                int ret = NETDVR_stopVOIP(d.nHandle, 0);
+                TLPlay_Stop(m_hPlayPort);
+                TLPlay_Close(m_hPlayPort);
+                TLPlay_FreePort(m_hPlayPort);
                 CurrentTalkStatus = Enum_TalkStatus.Null;
             }
             return bolResult;
-        }
-
-        public static int GetSKTalkModel(Enum_TalkModel talk)
-        {
-            //对讲模式,1，全双工，2，喊话，3，监听
-            int intResult = 1;
-            switch (talk)
-            {
-                case Enum_TalkModel.Talkback:
-                    intResult = 1;
-                    break;
-                case Enum_TalkModel.Sperak:
-                    intResult = 2;
-                    break;
-                case Enum_TalkModel.Interception:
-                    intResult = 3;
-                    break;
-
-            }
-            return intResult;
         }
 
     }

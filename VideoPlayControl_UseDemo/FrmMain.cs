@@ -5,12 +5,15 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using VideoPlayControl;
 using VideoPlayControl.VideoBasicClass;
+using VideoPlayControl.VideoEnvironment;
 using VideoPlayControl.VideoPlay;
+using VideoPlayControl.VideoTalk;
 using VideoPlayControl_UseDemo.MultiPlayTest;
 using static VideoPlayControl.SDKInterface.SDK_KD;
 
@@ -42,6 +45,8 @@ namespace VideoPlayControl_UseDemo
 
         string intCurrentVideoID = "";
         string strVideoRecord = "";
+
+        IVideoTalk videoTalk;
         #endregion
 
         public FrmMain()
@@ -76,8 +81,8 @@ namespace VideoPlayControl_UseDemo
             //VideoPlayControl.ProgParameter.strEzviz__AppID = "1acd8ddc451f48a4b8b4666716e8f9ce";
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "518335cd3421f16a4b4e88164225c432";
             //SDKState.SDKStateChangeEvent += SDKStateChange;
-            SDKState.CloundSee_SDKInit();
-            //SDKState.Ezviz_SDKInit();
+            //SDKState.CloundSee_SDKInit();
+            SDKState.Ezviz_SDKInit();
             //SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhcs1", "", "C:\\SHIKE_Video");
             //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             //SDKState.HuaMai_Init();
@@ -89,10 +94,8 @@ namespace VideoPlayControl_UseDemo
             //SDKState.DHVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.ZLVideoSDK_Init();
-            //VideoPlayControl.VideoEnvironment.VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
+            VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
             Init();
-
-
             //btnBlueSkyTestData_Click(sender, e);
 
         }
@@ -813,7 +816,7 @@ namespace VideoPlayControl_UseDemo
 
             //VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.EzvizDataSource.GetEzvizInfo14();
+            VideoInfo v = TestDataSource.EzvizDataSource.GetData17();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetYSDVSData2();
             //dicVideoInfos[v.DVSNumber] = v;
@@ -1319,9 +1322,17 @@ namespace VideoPlayControl_UseDemo
         {
             dicVideoInfos[v.DVSNumber] = v;
         }
+
         private void btnStartTalk_Click(object sender, EventArgs e)
         {
-
+            videoTalk = new VideoPlayControl.VideoTalk.VideoTalk_TLi();
+            VideoInfo vInfo = TestDataSource.TLDataSource.GetData1();
+            videoTalk.SetVideoTalkInfo(vInfo, vInfo.TalkChannel.First().Value);
+            videoTalk.StartTlak(Enum_TalkModel.Talkback);
+        }
+        private void btnStopTalk_Click(object sender, EventArgs e)
+        {
+            videoTalk.StopTalk();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -1458,5 +1469,6 @@ namespace VideoPlayControl_UseDemo
                 videoWindowTest.StopVideoRecord();
             }
         }
+
     }
 }

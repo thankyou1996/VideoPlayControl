@@ -9,6 +9,11 @@
             摄像头信息
             </summary>
         </member>
+        <member name="P:PublicClassCurrency.CameraInfo.VideoInfo">
+            <summary>
+            视频设备信息
+            </summary>
+        </member>
         <member name="P:PublicClassCurrency.CameraInfo.CameraID">
             <summary>
             ID
@@ -642,11 +647,6 @@
             SK3000:DVSPTZProtocol[IP:Port]
             </summary>
         </member>
-        <member name="F:PublicClassCurrency.VideoInfo.bolIntercomEnable">
-            <summary>
-            对讲使能
-            </summary>
-        </member>
         <member name="P:PublicClassCurrency.VideoInfo.IntercomEnable">
             <summary>
             对讲使能
@@ -965,6 +965,11 @@
         <member name="P:PublicClassCurrency.VideoRecordInfo.FileSize">
             <summary>
             文件大小 byte
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoInfo">
+            <summary>
+            视频设备信息
             </summary>
         </member>
         <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoTalkChannelID">

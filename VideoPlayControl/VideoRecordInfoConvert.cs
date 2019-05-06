@@ -109,7 +109,7 @@ namespace VideoPlayControl
             Enum_VideoType Temp_videoType = vInfo.VideoType;
             if (ProgParameter.TransitionEnable && Temp_videoType == Enum_VideoType.Unrecognized)
             {
-                Temp_videoType = Transition.Transition_VideoTypeConvert.GetVideoType(vInfo.DVSType);
+                Temp_videoType = Transition.Transition_VideoTypeConvert.GetVideoType(vInfo);
             }
             return GetVideoRecordName(vInfo.DVSNumber, cInfo.Channel, Temp_videoType);
         }

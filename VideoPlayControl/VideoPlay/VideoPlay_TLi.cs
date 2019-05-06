@@ -196,8 +196,8 @@ namespace VideoPlayControl.VideoPlay
                 return false;
             }
 
-            decFrameCallBack = DealDecVideoFrame;
-            ret = NETDVR_createSubVideoDecoder(d.nHandle, btyChannel, decFrameCallBack, 0);
+            //decFrameCallBack = DealDecVideoFrame;
+            //ret = NETDVR_createSubVideoDecoder(d.nHandle, btyChannel, decFrameCallBack, 0);
             ret = NETDVR_setSubDecoderFMT(d.nHandle, btyChannel, NETDVR_FMT_TYPE.NETDVR_FMT_YV12);
             if ((int)NETDVR_RETURN_CODE.NETDVR_SUCCESS != ret)
             {

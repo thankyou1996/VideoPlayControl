@@ -10,7 +10,6 @@ namespace TestDataSource
 
         public static VideoInfo GetData1()
         {
-
             VideoInfo v = new VideoInfo();
             //v.OnlyIntercom = true;
             v.VideoType = Enum_VideoType.TLiVideo;
@@ -34,6 +33,16 @@ namespace TestDataSource
                 c.DVSType = v.DVSType;
                 c.DVSNumber = v.HostID;
                 v.Cameras[c.Channel] = c;
+            }
+            for (int i = 1; i <= 1; i++)
+            {
+                VideoTalkChannelInfo vc = new VideoTalkChannelInfo
+                {
+                    VideoTalkChannel = 1,
+                    VideoTalkChannelName = "对讲通道",
+                    VideoInfo = v,
+                };
+                v.TalkChannel[vc.VideoTalkChannel] = vc;
             }
             return v;
         }

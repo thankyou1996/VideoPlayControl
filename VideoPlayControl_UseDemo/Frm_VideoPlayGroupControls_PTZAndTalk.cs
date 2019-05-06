@@ -125,7 +125,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";
             videoInfo.PreviewPwd = "";
-            videoInfo.IntercomEnable = true;
+            //videoInfo.IntercomEnable = true;
             videoInfo.OnlyIntercom = false;
             videoInfo.Cameras = new Dictionary<int, CameraInfo>();
             videoInfo.DVSChannelNum = 16;
@@ -149,7 +149,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.UserName = "admin";
             videoInfo.Password = "12345";
             videoInfo.PreviewPwd = "";
-            videoInfo.IntercomEnable = true;
+            //videoInfo.IntercomEnable = true;
             videoInfo.Cameras = new Dictionary<int, CameraInfo>();
             videoInfo.DVSChannelNum = 16;
             camerasInfo = new CameraInfo();

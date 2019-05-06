@@ -78,5 +78,15 @@ namespace VideoPlayControl.Transition
 
             return result;
         }
+
+        public static Enum_VideoType GetVideoType(VideoInfo vInfo)
+        {
+            if (vInfo.VideoType != Enum_VideoType.Unrecognized)
+            {
+                return vInfo.VideoType;
+            }
+            return GetVideoType(vInfo.DVSType);
+        }
+
     }
 }

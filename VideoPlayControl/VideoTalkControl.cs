@@ -122,26 +122,11 @@ namespace VideoPlayControl
             Enum_VideoType Temp_videoType = videoInfo.VideoType;
             if (ProgParameter.TransitionEnable && Temp_videoType == Enum_VideoType.Unrecognized)
             {
-                Temp_videoType= Transition.Transition_VideoTypeConvert.GetVideoType(videoInfo.DVSType);
+                Temp_videoType= Transition.Transition_VideoTypeConvert.GetVideoType(videoInfo);
             }
             if (videoTalk.CurrentVideoInfo == null || videoTalk.CurrentVideoInfo.VideoType != videoInfo.VideoType)
             {
-                switch (Temp_videoType)
-                {
-                    case Enum_VideoType.SKVideo:
-                        videoTalk = new VideoTalk_Shike();
-                        
-                        break;
-                    case Enum_VideoType.HikDVRStream:
-                        videoTalk = new VideoTalk_HikStream_Client();
-                        break;
-                    case Enum_VideoType.SKNVideo:
-                        videoTalk = new VideoTalk_SKNVideo();
-                        break;
-                    default:    //不存在的设备类型直接报异常
-                        //throw new Exception("设备类型异常");
-                        break;
-                }
+                videoTalk = VideoTalkRelevant.GetVideoTalkValue(videoInfo);
                 videoTalk.TalkStausChangedEvent += VideoTalk_TalkStausChangedEvent;
                 videoTalk.StartTalkingEvent += startTalkingEvent;
                 videoTalk.StartTalkedEvent += startTalkedEvent;
