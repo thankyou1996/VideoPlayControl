@@ -47,6 +47,16 @@ namespace VideoPlayControl
 
         public static string strEzviz_AccessToken = "at.do2lz6k485mc38pr3n8t74vv2gm10uqm-8kx8l74m7b-04p6ip5-so5iigvth";
 
+        public static int intEzviz_VideoPlayEnvironmentReset = 0;
+
+        /// <summary>
+        /// 萤石视频 播放重置环境
+        /// </summary>
+        public static bool Ezviz_VideoPlayEnvironmentReset
+        {
+            get { return (intEzviz_VideoPlayEnvironmentReset == 1); }
+        }
+
         #endregion
 
         #region 时刻视频SDK相关参数
