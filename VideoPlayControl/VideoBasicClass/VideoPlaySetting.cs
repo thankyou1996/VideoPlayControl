@@ -253,7 +253,10 @@ namespace VideoPlayControl
         public int TimeOutVideoRecordCloseSecond
         {
             get { return intTimeOutVideoRecotdCloseSecond; }
-            set { intTimeOutVideoRecotdCloseSecond = value; }
+            set
+            {
+                intTimeOutVideoRecotdCloseSecond = value;
+            }
         }
     }
 }

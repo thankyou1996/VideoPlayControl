@@ -84,7 +84,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.CloundSee_SDKInit();
             SDKState.Ezviz_SDKInit();
             //SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhcs1", "", "C:\\SHIKE_Video");
-            //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
+            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
@@ -1470,5 +1470,10 @@ namespace VideoPlayControl_UseDemo
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            long Temp_int = CommonMethod.ConvertClass.DateTimeToUnixTimestamp(DateTime.Now) + 10;
+            //SDK_SKVideoSDK.p_sdkc_get_set_dev_config("72-00F51F010E10-2B25", "tmp_config", "TC_DELAY_OUT1", Temp_int.ToString());
+        }
     }
 }

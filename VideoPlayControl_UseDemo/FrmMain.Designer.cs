@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            VideoPlayControl.VideoPlaySetting videoPlaySetting2 = new VideoPlayControl.VideoPlaySetting();
+            VideoPlayControl.VideoPlaySetting videoPlaySetting1 = new VideoPlayControl.VideoPlaySetting();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -58,8 +58,8 @@
             this.btnMulitPlay = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnStopTalk = new System.Windows.Forms.Button();
-            this.btnStartTalk = new System.Windows.Forms.Button();
             this.btnStopTest = new System.Windows.Forms.Button();
+            this.btnStartTalk = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label15 = new System.Windows.Forms.Label();
             this.cmbOperAtPreset = new System.Windows.Forms.ComboBox();
@@ -97,6 +97,7 @@
             this.pnlRight = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pageVideoInfo = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
             this.btnLoopTest = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.txtVideoRecord = new System.Windows.Forms.TextBox();
@@ -500,16 +501,6 @@
             this.btnStopTalk.UseVisualStyleBackColor = true;
             this.btnStopTalk.Click += new System.EventHandler(this.btnStopTalk_Click);
             // 
-            // btnStartTalk
-            // 
-            this.btnStartTalk.Location = new System.Drawing.Point(17, 32);
-            this.btnStartTalk.Name = "btnStartTalk";
-            this.btnStartTalk.Size = new System.Drawing.Size(71, 23);
-            this.btnStartTalk.TabIndex = 16;
-            this.btnStartTalk.Text = "开始对讲";
-            this.btnStartTalk.UseVisualStyleBackColor = true;
-            this.btnStartTalk.Click += new System.EventHandler(this.btnStartTalk_Click);
-            // 
             // btnStopTest
             // 
             this.btnStopTest.Location = new System.Drawing.Point(9, 3);
@@ -519,6 +510,16 @@
             this.btnStopTest.Text = "停止测试";
             this.btnStopTest.UseVisualStyleBackColor = true;
             this.btnStopTest.Click += new System.EventHandler(this.btnStopTest_Click);
+            // 
+            // btnStartTalk
+            // 
+            this.btnStartTalk.Location = new System.Drawing.Point(17, 32);
+            this.btnStartTalk.Name = "btnStartTalk";
+            this.btnStartTalk.Size = new System.Drawing.Size(71, 23);
+            this.btnStartTalk.TabIndex = 16;
+            this.btnStartTalk.Text = "开始对讲";
+            this.btnStartTalk.UseVisualStyleBackColor = true;
+            this.btnStartTalk.Click += new System.EventHandler(this.btnStartTalk_Click);
             // 
             // tabPage1
             // 
@@ -781,24 +782,24 @@
             this.videoWindowTest.BackColor = System.Drawing.SystemColors.Control;
             this.videoWindowTest.CurrentCameraInfo = null;
             this.videoWindowTest.CurrentVideoInfo = null;
-            videoPlaySetting2.AnsyPlay = false;
-            videoPlaySetting2.AutoReconn = true;
-            videoPlaySetting2.ConnType = VideoPlayControl.Enum.Enum_VideoConnType.Auto;
-            videoPlaySetting2.FirstInForcePreSetPosi = false;
-            videoPlaySetting2.PerVideoRecord = false;
-            videoPlaySetting2.PreSetPosi = -1;
-            videoPlaySetting2.PreVideoRecordFilePath = "";
-            videoPlaySetting2.PTZSpeed = 4;
-            videoPlaySetting2.TimeOutVideoCloseSecond = 20;
-            videoPlaySetting2.TimeOutVideoRecordCloseSecond = 20;
-            videoPlaySetting2.VideoMonitorEnable = false;
-            videoPlaySetting2.VideoPlayTimeLimit = 0;
-            videoPlaySetting2.VideoRecordEnable = false;
-            videoPlaySetting2.VideoRecordFileName = "";
-            videoPlaySetting2.VideoRecordFileName_Server = "";
-            videoPlaySetting2.VideoRecordFilePath = "";
-            videoPlaySetting2.VideoRecordFilePath_Server = "";
-            this.videoWindowTest.CurrentVideoPlaySet = videoPlaySetting2;
+            videoPlaySetting1.AnsyPlay = false;
+            videoPlaySetting1.AutoReconn = true;
+            videoPlaySetting1.ConnType = VideoPlayControl.Enum.Enum_VideoConnType.Auto;
+            videoPlaySetting1.FirstInForcePreSetPosi = false;
+            videoPlaySetting1.PerVideoRecord = false;
+            videoPlaySetting1.PreSetPosi = -1;
+            videoPlaySetting1.PreVideoRecordFilePath = "";
+            videoPlaySetting1.PTZSpeed = 4;
+            videoPlaySetting1.TimeOutVideoCloseSecond = 20;
+            videoPlaySetting1.TimeOutVideoRecordCloseSecond = 20;
+            videoPlaySetting1.VideoMonitorEnable = false;
+            videoPlaySetting1.VideoPlayTimeLimit = 0;
+            videoPlaySetting1.VideoRecordEnable = false;
+            videoPlaySetting1.VideoRecordFileName = "";
+            videoPlaySetting1.VideoRecordFileName_Server = "";
+            videoPlaySetting1.VideoRecordFilePath = "";
+            videoPlaySetting1.VideoRecordFilePath_Server = "";
+            this.videoWindowTest.CurrentVideoPlaySet = videoPlaySetting1;
             this.videoWindowTest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoWindowTest.Location = new System.Drawing.Point(0, 0);
             this.videoWindowTest.Name = "videoWindowTest";
@@ -824,8 +825,6 @@
             // chkVideoRecordEnable
             // 
             this.chkVideoRecordEnable.AutoSize = true;
-            this.chkVideoRecordEnable.Checked = true;
-            this.chkVideoRecordEnable.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkVideoRecordEnable.Location = new System.Drawing.Point(3, 46);
             this.chkVideoRecordEnable.Name = "chkVideoRecordEnable";
             this.chkVideoRecordEnable.Size = new System.Drawing.Size(72, 16);
@@ -909,6 +908,7 @@
             // 
             // pageVideoInfo
             // 
+            this.pageVideoInfo.Controls.Add(this.button6);
             this.pageVideoInfo.Controls.Add(this.btnLoopTest);
             this.pageVideoInfo.Controls.Add(this.label18);
             this.pageVideoInfo.Controls.Add(this.txtVideoRecord);
@@ -933,6 +933,16 @@
             this.pageVideoInfo.TabIndex = 0;
             this.pageVideoInfo.Text = "视频设备信息";
             this.pageVideoInfo.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(68, 395);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(53, 18);
+            this.button6.TabIndex = 38;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // btnLoopTest
             // 
@@ -1625,6 +1635,7 @@
         private System.Windows.Forms.Button btnStartVideo;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnStopTalk;
+        private System.Windows.Forms.Button button6;
     }
 }
 

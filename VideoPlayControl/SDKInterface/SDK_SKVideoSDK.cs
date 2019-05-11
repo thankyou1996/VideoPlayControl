@@ -265,6 +265,14 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public extern static void p_sdkc_play_remote_audio(string guid, string path, string URL);
 
+        /// <summary>
+        /// 设置配置参数
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <param name="path"></param>
+        /// <param name="URL"></param>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public extern static void p_sdkc_get_set_dev_config(string guid, string cfg_file, string cfg_name, string cfg_val);
 
         #region 录像相关
         /// <summary>
@@ -419,19 +427,6 @@ namespace VideoPlayControl
         }
         #endregion
 
-
-        #region 设备参数设置
-        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
-        /// <summary>
-        /// 设置设备系统参数
-        /// </summary>
-        /// <param name="strGuid"></param>
-        /// <param name="cfg_file"></param>
-        /// <param name="cfg_name"></param>
-        /// <param name="cfg_val"></param>
-        /// <returns></returns>
-        public static extern int p_sdkc_get_set_dev_config(string strGuid, string cfg_file, string cfg_name,string cfg_val);
-        #endregion
 
         #region 自定义接口
         #region 录像下载相关
