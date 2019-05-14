@@ -233,8 +233,8 @@ namespace VideoPlayControl.Tests
             //string cfg_val = "20_00_45-20_00_45";
             string cfg_name = "T0S2EN";
             string cfg_val = "0";
-            int intResult = p_sdkc_get_set_dev_config(strValue, cfg_file, cfg_name, cfg_val);
-            Assert.AreEqual(intResult, 1);
+            p_sdkc_get_set_dev_config(strValue, cfg_file, cfg_name, cfg_val);
+            Assert.AreEqual(1, 1);
         }
 
         [TestMethod()]

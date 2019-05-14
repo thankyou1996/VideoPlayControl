@@ -48,6 +48,7 @@ typedef unsigned long long u64;
 #define SDK_EVNET_FAST_SNAP_DONE			0x16 // 
 #define SDK_EVENT_TALK_KEY_PRESS			0x17 // 呼叫按钮被按下
 #define SDK_EVENT_FQ_KEY_PRESS              0x18
+#define SDK_EVENT_GET_CAM_INFO				0x1a // 获取摄像头信息(分辨率,码率,帧率) json
 #define SDK_EVENT_REMOTE_UPGRADE			0x20
 #define SDK_EVENT_DEVICE_VERISON			0x21
 #define SDK_EVENT_GET_RECORD_MAP            0x22 // 获取录像映射表
@@ -66,7 +67,15 @@ typedef unsigned long long u64;
 #define SDK_EVENT_DOUBLE_FINGER_PRESS		0x2f
 
 #define SDK_EVENT_MOTION_DECT				0x40
+#define SDK_EVENT_HDD_ERR					0x41
+#define SDK_EVENT_HDD_REC					0x42
 
+#define SDK_EVENT_REVIDEO_POST_DONE			0x43
+#define SDK_EVENT_FQ_ALARM                  0x44
+#define SDK_EVENT_ATD		                0x45
+#define SDK_EVENT_ILLEGAL_OPEN_DOOR			0x97
+#define SDK_EVENT_DOOR_OPEN_TIMOUT			0x98
+#define SDK_EVENT_TALK_KEY_RELEASE			0x99
 
 /**********************************************************/
 //						返回结果定义
@@ -140,6 +149,7 @@ typedef unsigned long long u64;
 #define MSG_CB_DEVICE_CAM_OFFLINE		48
 #define MSG_CB_AV_DL_STOP				49
 #define MSG_CB_PASSTHROUGH_PROTO		50 // 透传协议结果
+#define MSG_CB_GET_CAM_INFO				51 // 获取设备摄像头信息
 
 /* 精简版设备信息 */
 typedef struct
@@ -1331,6 +1341,19 @@ int p_vsdk_set_call_key_ban(int ban_time, int ban_cnt);
 
 /**
   * ***********************************************************************
+  * @brief  设置是否开启usb 4g拨号模块自动调度, 即时生效
+  *			
+  *	@param  en:	非0表示开启, 0表示关闭
+  *
+  * @retval int:		返回为空
+  *
+  * ***********************************************************************
+  */
+DLLIMPORT
+int p_vsdk_set_usb_4g_auto_ctrl(int en);
+
+/**
+  * ***********************************************************************
   * @brief  上传指定时间范围的报警录像
   *			
   *	@param  start_time:	开始时间戳
@@ -1364,6 +1387,23 @@ int p_vsdk_upload_alarm_record(char *guid,
 DLLIMPORT
 void p_vsdk_set_auto_close_stream(int disable);
 
+/**
+  * ***********************************************************************
+  * @brief  设置设备掉线超时时间
+  *			
+  *	@param  timeout:	设备掉线超时时间(分钟), 范围 2 ~ 10
+  *
+  * @retval void:		返回为TRUE, FALSE
+  *
+  * @attention	:		默认超时时间为4分钟
+  * ***********************************************************************
+  */
+DLLIMPORT
+int p_vsdk_set_dev_lost_conn_timeout(int timeout);
+
+DLLIMPORT
+int p_vsdk_get_dev_cam_info(char* dev_guid);
+
 DLLIMPORT
 int p_vsdk_add_dev_to_dev_talk(char *dev_1_guid,
 							   char *dev_2_guid
@@ -1374,3 +1414,7 @@ int p_vsdk_clear_dev_to_dev_talk(char *dev_guid);
 
 DLLIMPORT
 int p_vsdk_get_person_finger_status(char* dev_guid, int person_id);
+
+
+DLLIMPORT
+int p_vsdk_test(char* dev_guid, char *num);

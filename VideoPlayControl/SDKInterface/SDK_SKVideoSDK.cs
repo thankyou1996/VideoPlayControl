@@ -274,6 +274,15 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public extern static void p_sdkc_get_set_dev_config(string guid, string cfg_file, string cfg_name, string cfg_val);
 
+
+        /// <summary>
+        /// 获取设备通道码流参数 Json
+        /// 通过回调信息返回 0x33
+        /// </summary>
+        /// <param name="guid"></param>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public extern static void p_sdkc_get_dev_cam_info(string guid);
+
         #region 录像相关
         /// <summary>
         /// 查询视频记录

@@ -94,7 +94,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.DHVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.ZLVideoSDK_Init();
-            VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
+            //VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
             Init();
             //btnBlueSkyTestData_Click(sender, e);
 
@@ -1261,15 +1261,16 @@ namespace VideoPlayControl_UseDemo
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (timer2.Enabled)
-            {
-                timer2.Enabled = false;
-            }
-            else
-            {
-                timer2.Enabled = true;
+            SDK_SKVideoSDK.p_sdkc_get_dev_cam_info("72-00F51F010E10-2B25");
+            //if (timer2.Enabled)
+            //{
+            //    timer2.Enabled = false;
+            //}
+            //else
+            //{
+            //    timer2.Enabled = true;
 
-            }
+            //}
         }
 
         private void btnCloundSeeData1_Click(object sender, EventArgs e)

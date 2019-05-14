@@ -510,3 +510,6 @@ int p_sdkc_get_set_dev_config(char *guid,
 							  char *cfg_file,
 							  char *cfg_name,
 							  char *cfg_val);
+
+DLLIMPORT
+int p_sdkc_get_dev_cam_info(char* dev_guid);

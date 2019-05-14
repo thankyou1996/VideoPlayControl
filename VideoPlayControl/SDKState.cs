@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 using VideoPlayControl.SDKInterface;
+using VideoPlayControl.VideoEnvironment;
 
 namespace VideoPlayControl
 {
@@ -71,7 +72,7 @@ namespace VideoPlayControl
         /// <summary>
         /// SDK事件回调
         /// </summary>
-        private static void SDKEventCallBack(PublicClassCurrency.Enum_VideoType sdkType, Enum_SDKStateEventType sdkStateEvent)
+        public static void SDKEventCallBack(PublicClassCurrency.Enum_VideoType sdkType, Enum_SDKStateEventType sdkStateEvent)
         {
             if (SDKEventStateEvent != null)
             {
@@ -270,11 +271,10 @@ namespace VideoPlayControl
 
         public static Enum_SDKState SKVideoSDKState
         {
-            get { return s_SKVideoSDKState; }
+            get { return VIdeoEnvironment_Shike.SKVideoSDKState; }
             set
             {
-                s_SKVideoSDKState = value;
-                SDKStateChange(Enum_VideoType.Ezviz, s_SKVideoSDKState);
+                VIdeoEnvironment_Shike.SKVideoSDKState = value;
             }
         }
         /// <summary>
@@ -290,12 +290,7 @@ namespace VideoPlayControl
         /// <returns></returns>
         public static Enum_SDKState SKVideoSDKInit()
         {
-            SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitStart);
-            SDK_SKVideoSDK.p_sdkc_set_server_av_port(ProgParameter.uintSKVideo_AVPort);   //设置码流端口
-            SDK_SKVideoSDK.p_sdkc_init_client(ProgParameter.strSKVideo_ClientUGID, ProgParameter.strSKVideo_ServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");//初始化
-            SDK_SKVideoSDK.p_sdkc_disable_hw_render(); //关闭客户端软解码
-            SKVideoSDKState = Enum_SDKState.SDK_Init;
-            SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitEnd);
+            VIdeoEnvironment_Shike.SKVideoSDKInit();
             return SKVideoSDKState;
         }
 
@@ -312,14 +307,7 @@ namespace VideoPlayControl
         /// <returns></returns>
         public static Enum_SDKState SKVideoSDKInit(string strGUId, string strServerIP)
         {
-            SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitStart);
-            ProgParameter.strSKVideo_ClientUGID = strGUId;
-            ProgParameter.strSKVideo_ServerIP = strServerIP;
-            SDK_SKVideoSDK.p_sdkc_set_server_av_port(ProgParameter.uintSKVideo_AVPort);   //设置码流端口
-            SDK_SKVideoSDK.p_sdkc_init_client(strGUId, strServerIP, ProgParameter.uintSKVideo_ControlPort, ProgParameter.uintSKVideo_VideoPort, ProgParameter.uintSKVideo_AudioPort, "");//初始化
-            SDK_SKVideoSDK.p_sdkc_disable_hw_render(); //关闭客户端软解码
-            SKVideoSDKState = Enum_SDKState.SDK_Init;
-            SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitEnd);
+            VIdeoEnvironment_Shike.SKVideoSDKInit(strGUId, strServerIP);
             return SKVideoSDKState;
         }
 
@@ -333,25 +321,9 @@ namespace VideoPlayControl
         /// <param name="uintAudioPort"></param>
         /// <param name="uintStreamPort"></param>
         /// <returns></returns>
-        public static Enum_SDKState SKVideoSDKInit(string strGUId,string strServerIP,int uintControlPort, int uintVideoPort, int uintAudioPort,int uintStreamPort,string strRecordDirectory="")
+        public static Enum_SDKState SKVideoSDKInit(string strGUId,string strServerIP, int uintControlPort, int uintVideoPort, int uintAudioPort,int uintStreamPort,string strRecordDirectory="")
         {
-            SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitStart);
-            ProgParameter.strSKVideo_ClientUGID = strGUId;
-            ProgParameter.strSKVideo_ServerIP = strServerIP;
-            ProgParameter.uintSKVideo_ControlPort = Convert.ToUInt16(uintControlPort);
-            ProgParameter.uintSKVideo_VideoPort = Convert.ToUInt16(uintVideoPort);
-            ProgParameter.uintSKVideo_AudioPort = Convert.ToUInt16(uintAudioPort);
-            ProgParameter.uintSKVideo_AVPort = Convert.ToUInt16(uintStreamPort);
-            ProgParameter.strSKVideo_RecordDirectory = strRecordDirectory;
-            SDK_SKVideoSDK.p_sdkc_set_server_av_port(ProgParameter.uintSKVideo_AVPort);   //设置码流端口
-            SDK_SKVideoSDK.p_sdkc_init_client(strGUId, strServerIP
-                                            , ProgParameter.uintSKVideo_ControlPort
-                                            , ProgParameter.uintSKVideo_VideoPort
-                                            , ProgParameter.uintSKVideo_AudioPort
-                                            , ProgParameter.strSKVideo_RecordDirectory);//初始化
-            SDK_SKVideoSDK.p_sdkc_disable_hw_render(); //关闭客户端软解码
-            SKVideoSDKState = Enum_SDKState.SDK_Init;
-            SDKEventCallBack(Enum_VideoType.SKVideo, Enum_SDKStateEventType.SDKInitEnd);
+            VIdeoEnvironment_Shike.SKVideoSDKInit(strGUId, strServerIP, uintControlPort, uintVideoPort, uintAudioPort, uintStreamPort, strRecordDirectory);
             return SKVideoSDKState;
         }
 
@@ -362,7 +334,7 @@ namespace VideoPlayControl
         /// <returns></returns>
         public static int GetSKSDKClientOlineStatus()
         {
-            return SDK_SKVideoSDK.p_sdkc_get_online();
+            return VIdeoEnvironment_Shike.GetSKSDKClientOlineStatus();
         }
         #endregion
 

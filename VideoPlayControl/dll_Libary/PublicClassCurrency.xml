@@ -993,5 +993,41 @@
             SK8616:表示门禁标签信息
             </summary>
         </member>
+        <member name="P:PublicClassCurrency.Video.IVideoInfo.GetStreamInfoEnable">
+            <summary>
+            获取码流信息使能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VIdeoInfo_SK8519V.GetStreamInfoEnable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Video.VideoStream.intStreamType">
+            <summary>
+            码流类型
+            1主 2子 3第三码流
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoStream.ResolutionWidth">
+            <summary>
+            码流_宽
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoStream.ResolutionHeight">
+            <summary>
+            码流_高
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoStream.FPS">
+            <summary>
+            帧率
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoStream.Bitrate">
+            <summary>
+            码流
+            </summary>
+        </member>
     </members>
 </doc>

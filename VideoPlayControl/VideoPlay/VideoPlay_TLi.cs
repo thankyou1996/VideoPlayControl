@@ -116,6 +116,10 @@ namespace VideoPlayControl.VideoPlay
                 if (videoPlayState != value)
                 {
                     videoPlayState = value;
+                    if (VideoPlayState == Enum_VideoPlayState.InPlayState)
+                    {
+                        OpenSound();
+                    }
                     if (VideoPlayStateChangedEvent != null)
                     {
                         VideoPlayStateChangedEvent(this, null);
@@ -142,6 +146,7 @@ namespace VideoPlayControl.VideoPlay
         public bool VideoClose()
         {
             bool bolResult = true;
+            CloseSound();
             byte btyChannel = (byte)(CurrentCameraInfo.Channel - 1);
             int ret = NETDVR_stopSubVideoSend(d.nHandle, btyChannel);
             ret = NETDVR_destroySubVideoDecoder(d.nHandle, btyChannel);
@@ -179,6 +184,8 @@ namespace VideoPlayControl.VideoPlay
             d = VideoEnvironment.VideoEnvironment_TL.devices[Temp_intIndex];
             deviceInfo.device_ID = d.devicenode.device_ID;
             deviceInfo.maxSubstreamNum = d.devicenode.maxSubstreamNum;
+            deviceInfo.maxChnNum = d.devicenode.maxChnNum;
+            deviceInfo.maxAduioNum = d.devicenode.maxAduioNum;
             SDKInterface.SDK_TLi.NETDVR_createDVR_3g(ref d.nHandle, deviceInfo.device_ID, ref deviceInfo);
             m_hPlayPort=0;
             SDKInterface.SDK_TLi.TLPlay_GetPort(ref m_hPlayPort);
@@ -215,7 +222,6 @@ namespace VideoPlayControl.VideoPlay
                 return false ;
             }
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
-            VideoPlayState = Enum_VideoPlayState.InPlayState;
             if (CurrentVideoPlaySet.VideoRecordEnable)
             {
                 recFileNameCallBack = new pRecFilenameCallBack(FilenameCallBack);
@@ -228,6 +234,7 @@ namespace VideoPlayControl.VideoPlay
 
         public void get_encframe(IntPtr ip, uint dwContextEnc)
         {
+            VideoPlayState = Enum_VideoPlayState.InPlayState;
             FrameHeadr pFrmHdr = (FrameHeadr)Marshal.PtrToStructure(ip, typeof(FrameHeadr));
             PLAYFRAMEHDR pLAYFRAMEHDR = new PLAYFRAMEHDR
             {
@@ -319,6 +326,7 @@ namespace VideoPlayControl.VideoPlay
 
         #region 音频相关
 
+        pFrameCallBack aduiocallback;
         private Enum_VideoPlaySoundState soundState = Enum_VideoPlaySoundState.SoundColse;
 
         /// <summary>
@@ -362,16 +370,70 @@ namespace VideoPlayControl.VideoPlay
         /// <returns></returns>
         public bool OpenSound()
         {
-            return false;
+            TLPlay_PlaySound(m_hPlayPort);
+            Byte chn = (byte)(CurrentCameraInfo.Channel - 1);
+            int ret = NETDVR_mutePreViewAudio(d.nHandle, chn, true);
+            aduiocallback = new pFrameCallBack(aduiocallback1);
+            ret = NETDVR_openAudioReciever(d.nHandle, chn, aduiocallback, 1);
+            if ((int)NETDVR_RETURN_CODE.NETDVR_SUCCESS != ret)
+            {
+                return false ;
+            }
+            ret = NETDVR_startAudioSend(d.nHandle, chn);
+            if ((int)NETDVR_RETURN_CODE.NETDVR_SUCCESS != ret)
+            {
+                return false;
+            }
+            SoundState = Enum_VideoPlaySoundState.SoundOpen;
+            return true;
         }
 
+        public void aduiocallback1(IntPtr ip, uint dwContextEnc)
+        {
+            Console.WriteLine("aduiocallback1");
+            FrameHeadr pFrmHdr = (FrameHeadr)Marshal.PtrToStructure(ip, typeof(FrameHeadr));
+            PLAYFRAMEHDR hdr = new PLAYFRAMEHDR
+            {
+                m_byMediaType = pFrmHdr.mediaType,
+                m_dwDataSize = pFrmHdr.dataSize,
+                m_byFrameRate = pFrmHdr.frameRate,
+                m_dwFrameID = pFrmHdr.frameID,
+                m_dwTimeStamp = pFrmHdr.timeStamp
+            };
+            hdr.union1.m_tVideoParam.m_bKeyFrame = pFrmHdr.videoParam.keyFrame;
+            hdr.union1.m_tVideoParam.m_wVideoWidth = pFrmHdr.videoParam.videoWidth;
+            hdr.union1.m_tVideoParam.m_wVideoHeight = pFrmHdr.videoParam.videoHeight;
+            if (hdr.m_byMediaType == 22)
+            {
+                hdr.union1.m_tAudioParam.m_byAudioMode = 16;
+                hdr.union1.m_tAudioParam.m_byAudioRate = 8000;
+                hdr.union1.m_tAudioParam.m_byAudioEncType = 22;
+                hdr.union1.m_tAudioParam.m_byAudioDuration = 40;
+            }
+            else if (hdr.m_byMediaType == 22)
+            {
+                hdr.union1.m_tAudioParam.m_byAudioMode = 16;
+                hdr.union1.m_tAudioParam.m_byAudioRate = 8000;
+                hdr.union1.m_tAudioParam.m_byAudioEncType = 23;
+                hdr.union1.m_tAudioParam.m_byAudioDuration = 40;
+            }
+            byte[] pl = StructToBytes(hdr);
+            byte[] pD = new byte[pFrmHdr.dataSize];
+            Marshal.Copy(pFrmHdr.pData, pD, 0, (int)pFrmHdr.dataSize);
+            byte[] bytes = pl.Concat(pD).ToArray();
+            uint len = Convert.ToUInt32(pFrmHdr.dataSize + 40);
+            TLPlay_InputVideoData(m_hPlayPort, ref bytes[0], len);
+        }
         /// <summary>
         /// 关闭音频通道
         /// </summary>
         /// <returns></returns>
         public bool CloseSound()
         {
-            return false;
+            int ret = NETDVR_closeAudioReciever(d.nHandle, (byte)(CurrentCameraInfo.Channel - 1));
+            ret = NETDVR_stopAudioSend(d.nHandle, (byte)(CurrentCameraInfo.Channel - 1));
+            SoundState = Enum_VideoPlaySoundState.SoundColse;
+            return true;
         }
         #endregion
 

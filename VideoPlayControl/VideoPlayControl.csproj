@@ -162,6 +162,7 @@
     <Compile Include="VideoEncoderAsync\QuickAudioEncodingCommands.cs" />
     <Compile Include="VideoEncoderAsync\QuickVideoEncodingCommands.cs" />
     <Compile Include="VideoEncoderAsync\VideoFile.cs" />
+    <Compile Include="VideoEnvironment\VIdeoEnvironment_Shike.cs" />
     <Compile Include="VideoEnvironment\VideoEnvironment_TL.cs" />
     <Compile Include="VideoPlayGroupControl_MultiPicture1.cs">
       <SubType>UserControl</SubType>
