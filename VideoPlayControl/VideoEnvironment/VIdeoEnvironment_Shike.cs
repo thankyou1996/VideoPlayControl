@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PublicClassCurrency;
 using System;
 using System.Collections.Generic;
@@ -117,7 +118,7 @@ namespace VideoPlayControl.VideoEnvironment
                     st = (st_event)Marshal.PtrToStructure(data1, typeof(st_event));
                     switch (st.event_code)
                     {
-                        case 0X33://获取摄像头信息（分辨率，码率，帧率）
+                        case 0X32://获取摄像头信息（分辨率，码率，帧率）
                             callback_StramInfo(st);
                             break;
                     }
@@ -128,15 +129,103 @@ namespace VideoPlayControl.VideoEnvironment
 
         }
 
+        private const string c_GET_CAM_INFO = "VSDK_PS_CMD__GET_CAM_INFO";
+        private const string c_GET_NET_SPD = "VSDK_PS_CMD__GET_NET_SPD";
         public static void callback_StramInfo(st_event st)
         {
             string guid = System.Text.Encoding.UTF8.GetString(st.guid).Trim();
             int i = guid.IndexOf("\0");
             guid = guid.Substring(0, i);
-            string data = Encoding.Default.GetString(st.event_data);
-            CamsStreamInfo cs= JsonConvert.DeserializeObject<CamsStreamInfo>(data);
-            VideoStreamInfoReport(new VideoStreamInfoReportValue { Guid = guid, StreamInfo = cs });
+            string data = Encoding.Default.GetString(st.event_data).Trim();
+            i = data.IndexOf("\0");
+            data = data.Substring(0, i);
+            Rootobject root = JsonConvert.DeserializeObject<Rootobject>(data);
+            //string strJsonDataContent=
+            switch (root.cmd)
+            {
+                case c_GET_CAM_INFO:
+                    int Temp_intIndex = data.IndexOf(c_GET_CAM_INFO) + c_GET_CAM_INFO.Length + 9;
+                    int Temp_intt = data.Length - Temp_intIndex - 1;
+                    string strCotnent = data.Substring(Temp_intIndex, Temp_intt);
+                    List<Cam> cs = JsonConvert.DeserializeObject<List<Cam>>(strCotnent);
+                    VideoStreamInfoReport(new VideoStreamInfoReportValue
+                    {
+                        Guid = guid,
+                        StreamInfo = new CamsStreamInfo
+                        {
+                            cams = cs.ToArray()
+                        }
+                    });
+                    break;
+                case c_GET_NET_SPD:
+                    Temp_intIndex = data.IndexOf(c_GET_NET_SPD) + c_GET_NET_SPD.Length + 9;
+                    Temp_intt = data.Length - Temp_intIndex - 1;
+                    strCotnent = data.Substring(Temp_intIndex, Temp_intt);
+                    Svr[] scrs = JsonConvert.DeserializeObject<Svr[]>(strCotnent);
+                    NETSPDReport(new NETSPDReportValue
+                    {
+                        Guid = guid,
+                        Svrs = scrs
+                    });
+                    break;
+
+            }
         }
+
+        public delegate void VideoStreamInfoReportDelegate(object sender, VideoStreamInfoReportValue VideoStreamInfoReportValue);
+
+        public static event VideoStreamInfoReportDelegate VideoStreamInfoReportEvent;
+
+        private static void VideoStreamInfoReport(VideoStreamInfoReportValue VideoStreamInfoReportValue)
+        {
+            if (VideoStreamInfoReportEvent != null)
+            {
+                VideoStreamInfoReportEvent(null, VideoStreamInfoReportValue);
+            }
+        }
+        /// <summary>
+        /// 视频流回调信息
+        /// </summary>
+        public class VideoStreamInfoReportValue
+        {
+            public string Guid
+            {
+                get;
+                set;
+            }
+            public CamsStreamInfo StreamInfo
+            {
+                get;
+                set;
+            }
+        }
+
+        public delegate void NETSPDReportDelegate(object sender, NETSPDReportValue value);
+
+        public static event NETSPDReportDelegate NETSPDReportEvent;
+
+        private static void NETSPDReport(NETSPDReportValue value)
+        {
+            if (NETSPDReportEvent != null)
+            {
+                NETSPDReportEvent(null, value);
+            }
+        }
+
+
+        public class NETSPDReportValue
+        {
+            public string Guid;
+            public Svr[] Svrs;
+        }
+
+
+        public class Rootobject
+        {
+            public string cli { get; set; }
+            public string cmd { get; set; }
+        }
+
         public class CamsStreamInfo
         {
             public Cam[] cams { get; set; }
@@ -191,32 +280,20 @@ namespace VideoPlayControl.VideoEnvironment
             public int s_br { get; set; }
         }
 
-        public delegate void VideoStreamInfoReportDelegate(object sender, VideoStreamInfoReportValue VideoStreamInfoReportValue);
 
-        public static event VideoStreamInfoReportDelegate VideoStreamInfoReportEvent;
 
-        private static void VideoStreamInfoReport(VideoStreamInfoReportValue VideoStreamInfoReportValue)
+        public class Svr
         {
-            if (VideoStreamInfoReportEvent != null)
-            {
-                VideoStreamInfoReportEvent(null, VideoStreamInfoReportValue);
-            }
+            public string target { get; set; }
+            public string port { get; set; }
+            public string netcard { get; set; }
+            public int delay { get; set; }
+            public int cache { get; set; }
+            public float up_spd { get; set; }
+            public float total_up_spd { get; set; }
+            public string result { get; set; }
+            public string reason { get; set; }
         }
-        /// <summary>
-        /// 视频流回调信息
-        /// </summary>
-        public class VideoStreamInfoReportValue
-        {
-            public string Guid
-            {
-                get;
-                set;
-            }
-            public CamsStreamInfo StreamInfo
-            {
-                get;
-                set;
-            }
-        }
+
     }
 }

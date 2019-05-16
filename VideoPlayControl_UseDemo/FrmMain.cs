@@ -1261,7 +1261,9 @@ namespace VideoPlayControl_UseDemo
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            SDK_SKVideoSDK.p_sdkc_get_dev_cam_info("72-00F51F010E10-2B25");
+            //SDK_SKVideoSDK.p_sdkc_get_dev_cam_info("72-00F51F010E10-2B25");
+            //SDK_SKVideoSDK.p_sdkc_get_dev_net_spd("72-00F51F010E10-2B25");
+            SDK_SKVideoSDK.p_sdkc_dev_passthrough("72-00F51F010E10-2B25", "VSDK_PS_CMD__DELAY_ALARM__1_150");
             //if (timer2.Enabled)
             //{
             //    timer2.Enabled = false;

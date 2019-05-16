@@ -277,11 +277,31 @@ namespace VideoPlayControl
 
         /// <summary>
         /// 获取设备通道码流参数 Json
-        /// 通过回调信息返回 0x33
+        /// 通过回调信息返回 0x32 VSDK_PS_CMD__GET_CAM_INFO
         /// </summary>
         /// <param name="guid"></param>
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public extern static void p_sdkc_get_dev_cam_info(string guid);
+
+        /// <summary>
+        /// 获取设备测速信息
+        /// 通过回调信息返回 0x32  VSDK_PS_CMD__GET_NET_SPD
+        /// </summary>
+        /// <param name="guid"></param>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public extern static void p_sdkc_get_dev_net_spd(string guid);
+
+
+
+        /// <summary>
+        /// 客户端透传
+        /// </summary>
+        /// <param name="guid"></param>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public extern static void p_sdkc_dev_passthrough(string guid,string cmd);
+
+
+
 
         #region 录像相关
         /// <summary>
