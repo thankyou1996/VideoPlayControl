@@ -77,7 +77,7 @@ namespace VideoPlayControl.VideoEnvironment
             int result = NETDVR_getDeviceList(ref m_DeviceListBuf11, maxNum, ref pNum);
             if (result == (int)NETDVR_RETURN_CODE.NETDVR_SUCCESS)
             {
-                if (pNum > 0)
+                if (pNum > 0) 
                 {
                     for (int i = 0; i < pNum; i++)
                     {

@@ -95,6 +95,11 @@ namespace VideoPlayControl
         /// 通立SDK_NetDvr2.dll
         /// </summary>
         public const string c_strTLISDKFilePath_NetDvr2 = "\\TLiVideoSDK\\NetDvr2.dll";
+        /// <summary>
+        /// 海康流媒体SDK
+        /// </summary>
+        public const string c_strHIKStramSDKFilePath = "\\HikStreamClient\\client.dll";
+
         #endregion
 
         #region SDK默认参数

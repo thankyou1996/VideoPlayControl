@@ -12,7 +12,7 @@ namespace VideoPlayControl.VideoPlay
     /// <summary>
     /// 海康流媒体
     /// </summary>
-    public class Video_HikStream : IVideoPlay
+    public class VideoPlay_HikStream : IVideoPlay
     {
 
         public VideoInfo CurrentVideoInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

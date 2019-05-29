@@ -110,6 +110,7 @@
     <Compile Include="PubDelegate.cs" />
     <Compile Include="PubMethod.cs" />
     <Compile Include="SDKInterface\SDK_DaHua.cs" />
+    <Compile Include="SDKInterface\SDK_HikStream.cs" />
     <Compile Include="SDKInterface\SDK_IMOSSDK.cs" />
     <Compile Include="SDKInterface\SDK_BlueSDK.cs" />
     <Compile Include="SDKInterface\SDK_HikClientSDK.cs" />
@@ -223,7 +224,7 @@
     <Compile Include="VideoPlay\VideoPlay_BuleSky.cs" />
     <Compile Include="VideoPlay\VideoPlay_HikDVR.cs" />
     <Compile Include="VideoPlay\VideoPlay_XMai.cs" />
-    <Compile Include="VideoPlay\Video_HikStream.cs" />
+    <Compile Include="VideoPlay\VideoPlay_HikStream.cs" />
     <Compile Include="VideoPTZControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -344,6 +345,17 @@
     <Content Include="dll_Libary\Ezviz\D3DCompiler_43.dll" />
     <Content Include="dll_Libary\Ezviz\EagleEyeRender.dll" />
     <Content Include="dll_Libary\Ezviz\HXVA.dll" />
+    <Content Include="dll_Libary\HikStreamClient\client.dll" />
+    <Content Include="dll_Libary\HikStreamClient\DataSync.dll" />
+    <Content Include="dll_Libary\HikStreamClient\hpr.dll" />
+    <Content Include="dll_Libary\HikStreamClient\IVSReader.dll" />
+    <Content Include="dll_Libary\HikStreamClient\mfc71.dll" />
+    <Content Include="dll_Libary\HikStreamClient\msvcp71.dll" />
+    <Content Include="dll_Libary\HikStreamClient\msvcr71.dll" />
+    <Content Include="dll_Libary\HikStreamClient\PlayCtrl.dll" />
+    <Content Include="dll_Libary\HikStreamClient\StreamTransClient.dll" />
+    <Content Include="dll_Libary\HikStreamClient\StrSrcLib.dll" />
+    <Content Include="dll_Libary\HikStreamClient\SystemTransform.dll" />
     <Content Include="dll_Libary\PublicClassCurrency.pdb" />
     <Content Include="dll_Libary\Ezviz\AnalyzeData.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

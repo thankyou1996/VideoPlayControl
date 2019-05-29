@@ -148,10 +148,10 @@ namespace VideoPlayControl.VideoPlay
         /// </summary>
         int intVideoRecordWriteFlag = 128 * 1024;
         /// <summary>
-        /// 录像文件最大限制 64M （高清约8~10分钟）
+        /// 录像文件最大限制 64M （高清约4~5分钟）
         /// </summary>
         //int intVideoRecordMaxValue = 128 * 1024 * 1024;
-        int intVideoRecordMaxValue = 64 * 1024 * 1024;
+        int intVideoRecordMaxValue = 32 * 1024 * 1024;
         /// <summary>
         /// 录像地址
         /// </summary>
