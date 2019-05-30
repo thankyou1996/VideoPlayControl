@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            VideoPlayControl.VideoPlaySetting videoPlaySetting1 = new VideoPlayControl.VideoPlaySetting();
+            VideoPlayControl.VideoPlaySetting videoPlaySetting2 = new VideoPlayControl.VideoPlaySetting();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -151,6 +151,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
+            this.btnHikStream = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -230,6 +231,7 @@
             // 
             // pageTestData1
             // 
+            this.pageTestData1.Controls.Add(this.btnHikStream);
             this.pageTestData1.Controls.Add(this.btnTLi);
             this.pageTestData1.Controls.Add(this.btnCloundSee);
             this.pageTestData1.Controls.Add(this.btnDhTestData);
@@ -782,24 +784,24 @@
             this.videoWindowTest.BackColor = System.Drawing.SystemColors.Control;
             this.videoWindowTest.CurrentCameraInfo = null;
             this.videoWindowTest.CurrentVideoInfo = null;
-            videoPlaySetting1.AnsyPlay = false;
-            videoPlaySetting1.AutoReconn = true;
-            videoPlaySetting1.ConnType = VideoPlayControl.Enum.Enum_VideoConnType.Auto;
-            videoPlaySetting1.FirstInForcePreSetPosi = false;
-            videoPlaySetting1.PerVideoRecord = false;
-            videoPlaySetting1.PreSetPosi = -1;
-            videoPlaySetting1.PreVideoRecordFilePath = "";
-            videoPlaySetting1.PTZSpeed = 4;
-            videoPlaySetting1.TimeOutVideoCloseSecond = 20;
-            videoPlaySetting1.TimeOutVideoRecordCloseSecond = 20;
-            videoPlaySetting1.VideoMonitorEnable = false;
-            videoPlaySetting1.VideoPlayTimeLimit = 0;
-            videoPlaySetting1.VideoRecordEnable = false;
-            videoPlaySetting1.VideoRecordFileName = "";
-            videoPlaySetting1.VideoRecordFileName_Server = "";
-            videoPlaySetting1.VideoRecordFilePath = "";
-            videoPlaySetting1.VideoRecordFilePath_Server = "";
-            this.videoWindowTest.CurrentVideoPlaySet = videoPlaySetting1;
+            videoPlaySetting2.AnsyPlay = false;
+            videoPlaySetting2.AutoReconn = true;
+            videoPlaySetting2.ConnType = VideoPlayControl.Enum.Enum_VideoConnType.Auto;
+            videoPlaySetting2.FirstInForcePreSetPosi = false;
+            videoPlaySetting2.PerVideoRecord = false;
+            videoPlaySetting2.PreSetPosi = -1;
+            videoPlaySetting2.PreVideoRecordFilePath = "";
+            videoPlaySetting2.PTZSpeed = 4;
+            videoPlaySetting2.TimeOutVideoCloseSecond = 20;
+            videoPlaySetting2.TimeOutVideoRecordCloseSecond = 20;
+            videoPlaySetting2.VideoMonitorEnable = false;
+            videoPlaySetting2.VideoPlayTimeLimit = 0;
+            videoPlaySetting2.VideoRecordEnable = false;
+            videoPlaySetting2.VideoRecordFileName = "";
+            videoPlaySetting2.VideoRecordFileName_Server = "";
+            videoPlaySetting2.VideoRecordFilePath = "";
+            videoPlaySetting2.VideoRecordFilePath_Server = "";
+            this.videoWindowTest.CurrentVideoPlaySet = videoPlaySetting2;
             this.videoWindowTest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoWindowTest.Location = new System.Drawing.Point(0, 0);
             this.videoWindowTest.Name = "videoWindowTest";
@@ -1463,6 +1465,16 @@
             this.timCurrentChannelLoop.Interval = 3000;
             this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
             // 
+            // btnHikStream
+            // 
+            this.btnHikStream.Location = new System.Drawing.Point(81, 31);
+            this.btnHikStream.Name = "btnHikStream";
+            this.btnHikStream.Size = new System.Drawing.Size(86, 23);
+            this.btnHikStream.TabIndex = 16;
+            this.btnHikStream.Text = "海康流媒体";
+            this.btnHikStream.UseVisualStyleBackColor = true;
+            this.btnHikStream.Click += new System.EventHandler(this.BtnHikStream_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1636,6 +1648,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnStopTalk;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnHikStream;
     }
 }
 

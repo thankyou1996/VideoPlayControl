@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using PublicClassCurrency;
 using VideoPlayControl.Enum;
 using VideoPlayControl.VideoBasicClass;
+using static VideoPlayControl.SDKInterface.SDK_HikStream;
 
 namespace VideoPlayControl.VideoPlay
 {
@@ -14,10 +15,17 @@ namespace VideoPlayControl.VideoPlay
     /// </summary>
     public class VideoPlay_HikStream : IVideoPlay
     {
+        int Temp_intHsession = 0;
 
-        public VideoInfo CurrentVideoInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public CameraInfo CurrentCameraInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public VideoPlaySetting CurrentVideoPlaySet { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public VideoInfo CurrentVideoInfo { get; set; }
+        public CameraInfo CurrentCameraInfo { get; set; }
+        public VideoPlaySetting CurrentVideoPlaySet { get; set; }
+
+        public VideoPlay_HikStream(VideoInfo vInfo ,CameraInfo cInfo)
+        {
+            CurrentVideoInfo = vInfo;
+            CurrentCameraInfo = cInfo;
+        }
 
         /// <summary>
         /// 当前码流类型
@@ -106,8 +114,8 @@ namespace VideoPlayControl.VideoPlay
                 }
             }
         }
-        public int VideoplayWindowWidth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int VideoplayWindowHeight { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int VideoplayWindowWidth { get; set; }
+        public int VideoplayWindowHeight { get; set; }
 
    
 
@@ -122,15 +130,52 @@ namespace VideoPlayControl.VideoPlay
             }
             return bolResult;
         }
+
+
+        private pDataRec pdatarec;
+
+        private pMsgBack pmsgback;
+
         public bool VideoClose()
         {
-            throw new NotImplementedException();
+            HIKS_Stop(Temp_intHsession);
+            HIKS_Destroy(Temp_intHsession);
+            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
+            VideoPlayState = Enum_VideoPlayState.NotInPlayState;
+            return true;
         }
 
         public bool VideoPlay()
         {
-            throw new NotImplementedException();
+            string strUrl = GetHikStreamUrl(CurrentVideoInfo, CurrentCameraInfo);
+            pdatarec = new pDataRec(MyDataRecCallBack);
+            pmsgback = new pMsgBack(MyMsgRecCallBack);
+            int intRet = HIKS_CreatePlayer(0, PicPlayMain.Handle, pdatarec, pmsgback, 0);
+            Temp_intHsession = intRet;
+            intRet = HIKS_OpenURL(Temp_intHsession, strUrl, 0);
+            if (intRet == -1)
+            {
+                HIKS_Destroy(Temp_intHsession);
+                return false;
+            }
+            intRet = HIKS_Play(Temp_intHsession);
+            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
+            VideoPlayState = Enum_VideoPlayState.InPlayState;
+            return true;
         }
+
+
+        protected int MyDataRecCallBack(int sid, int iusrdata, int idatatype, IntPtr pdata, int ilen)
+        {
+            return 0;
+        }
+
+        protected int MyMsgRecCallBack(int sid, int opt, int param1, int param2)
+        {
+            return 0;
+        }
+
+
 
         public bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
         {
@@ -292,6 +337,24 @@ namespace VideoPlayControl.VideoPlay
             bool bolResult = false;
 
             return bolResult;
+        }
+
+
+        public static string GetHikStreamUrl(VideoInfo vInfo ,CameraInfo cInfo)
+        { 
+            //"rtsp://" + M_strVTDUIP + ":554/" + strParm2.Trim()
+            StringBuilder sbResult = new StringBuilder();
+            sbResult.Append("rtsp://");
+            sbResult.Append(ProgParameter.strHikStreamIP);
+            sbResult.Append(":554/");
+            sbResult.AppendFormat("{0}:{1}", vInfo.DVSAddress, vInfo.DVSConnectPort);
+            sbResult.Append(":HIK-DS8000HC");
+            sbResult.AppendFormat(":{0}", cInfo.Channel - 1);
+            sbResult.Append(":0");
+            sbResult.AppendFormat(":{0}", vInfo.UserName);
+            sbResult.AppendFormat(":{0}", vInfo.Password);
+            sbResult.Append("/av_stream");
+            return sbResult.ToString();
         }
     }
 }

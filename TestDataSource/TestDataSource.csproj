@@ -79,6 +79,7 @@
     <Compile Include="DaHuaSource.cs" />
     <Compile Include="EzvizDataSource.cs" />
     <Compile Include="HikDataSource.cs" />
+    <Compile Include="HikStreamData.cs" />
     <Compile Include="SKDataSource.cs" />
     <Compile Include="TestDataSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

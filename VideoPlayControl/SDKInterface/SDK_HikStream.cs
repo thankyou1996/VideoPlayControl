@@ -6,9 +6,9 @@ using System.Text;
 
 namespace VideoPlayControl.SDKInterface
 {
-    class SDK_HikStream
+    public class SDK_HikStream
     {
-        private delegate int pDataRec(int sid, int iusrdata, int idatatype, IntPtr pdata, int ilen);
+        public delegate int pDataRec(int sid, int iusrdata, int idatatype, IntPtr pdata, int ilen);
         /// <summary>
         /// pMsgBack回调代理
         /// </summary>
@@ -17,7 +17,7 @@ namespace VideoPlayControl.SDKInterface
         /// <param name="param1"></param>
         /// <param name="param2">param1，param2视消息的类型决定其有效性</param>
         /// <returns></returns>
-        private delegate int pMsgBack(int sid, int opt, int param1, int param2);
+        public delegate int pMsgBack(int sid, int opt, int param1, int param2);
         /// <summary>
         /// 
         /// </summary>
@@ -41,8 +41,7 @@ namespace VideoPlayControl.SDKInterface
         }
 
         [DllImport(ProgConstants.c_strHIKStramSDKFilePath)]
-        //static extern int HIKS_CreatePlayer(IHikClientAdviseSink pSink, IntPtr pWndSiteHandle, pDataRec pRecFunc, pMsgBack pMsgFunc, int TransMethod);
-        private static extern int HIKS_CreatePlayer(int j, IntPtr pWndSiteHandle, pDataRec pRecFunc, pMsgBack pMsgFunc, int TransMethod);
+        public static extern int HIKS_CreatePlayer(int j, IntPtr pWndSiteHandle, pDataRec pRecFunc, pMsgBack pMsgFunc, int TransMethod);
 
         [DllImport(ProgConstants.c_strHIKStramSDKFilePath, EntryPoint = "HIKS_OpenURL", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern int HIKS_OpenURL(int Hsession, string URL, int inuserdata);

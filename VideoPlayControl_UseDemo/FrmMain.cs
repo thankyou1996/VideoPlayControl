@@ -95,6 +95,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.DHVideoSDK_Init();
             //SDKState.ZLVideoSDK_Init();
             //VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
+            VideoEnvironment_HikStream.Init("192.168.2.19");
             Init();
             //btnBlueSkyTestData_Click(sender, e);
 
@@ -1414,6 +1415,15 @@ namespace VideoPlayControl_UseDemo
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
         }
+
+        private void BtnHikStream_Click(object sender, EventArgs e)
+        {
+            VideoInfo vInfo = TestDataSource.HikStreamData.GetVideoInfo();
+            dicVideoInfos[vInfo.DVSNumber] = vInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+
         public void VideoColse()
         {
             int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);

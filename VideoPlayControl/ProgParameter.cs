@@ -119,6 +119,12 @@ namespace VideoPlayControl
         #endregion
 
         #region 海康流媒体模式相关参数
+
+        /// <summary>
+        /// 海康流媒体服务地址
+        /// </summary>
+        public static string strHikStreamIP = "192.168.2.19";
+
         /// <summary>
         /// 海康流媒体音频转发服务地址
         /// </summary>
