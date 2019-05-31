@@ -169,10 +169,10 @@ namespace VideoPlayControl
         /// <summary>
         /// 云台速度
         /// </summary>
-        private int intPTZSpeed = 4;
+        private int intPTZSpeed = 100;
 
         /// <summary>
-        /// 云台速度
+        /// 云台速度 
         /// </summary>
         public int PTZSpeed
         {

@@ -31,7 +31,7 @@ namespace VideoPlayControl_UseDemo
 
         private void Frm_VideoTalkControlManyChannel_Test_Load(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.SKDataSource.GetSKData1();
+            VideoInfo v = TestDataSource.SKDataSource.GetSKData2();
             Dictionary<string, VideoInfo> vvv = new Dictionary<string, VideoInfo>();
             vvv[v.DVSNumber] = v;
             videoTalkControlManyChannel1.SetVideoInfo(vvv);

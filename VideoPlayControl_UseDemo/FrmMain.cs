@@ -833,7 +833,7 @@ namespace VideoPlayControl_UseDemo
         {
 
             int x = SDK_SKVideoSDK.p_sdkc_get_online();
-            VideoInfo videoInfo = SKVideo_TestData();
+            VideoInfo videoInfo = TestDataSource.SKDataSource.GetSKData2();
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
