@@ -34,6 +34,7 @@
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.pageTestData1 = new System.Windows.Forms.TabPage();
+            this.btnHikStream = new System.Windows.Forms.Button();
             this.btnTLi = new System.Windows.Forms.Button();
             this.btnCloundSee = new System.Windows.Forms.Button();
             this.btnDhTestData = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cmbOperAtWindows = new System.Windows.Forms.ComboBox();
             this.btnVideoPlayClose = new System.Windows.Forms.Button();
-            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
             this.btnWindowPlay = new System.Windows.Forms.Button();
             this.btnTestClose = new System.Windows.Forms.Button();
             this.btnAddList = new System.Windows.Forms.Button();
@@ -86,7 +86,6 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtChannel = new System.Windows.Forms.TextBox();
             this.pnlBottom_Left = new System.Windows.Forms.Panel();
-            this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
             this.chkMonitorEnable = new System.Windows.Forms.CheckBox();
             this.chkVideoRecordEnable = new System.Windows.Forms.CheckBox();
             this.cmbPreset = new System.Windows.Forms.ComboBox();
@@ -102,7 +101,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.txtVideoRecord = new System.Windows.Forms.TextBox();
             this.pnlVideoInfo_Right = new System.Windows.Forms.Panel();
-            this.videoChannelList = new VideoPlayControl.VideoChannelList();
             this.pnlVideoInfo_Right_Top = new System.Windows.Forms.Panel();
             this.cmbPlayWindows = new System.Windows.Forms.ComboBox();
             this.chkPresetEanble = new System.Windows.Forms.CheckBox();
@@ -151,7 +149,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
-            this.btnHikStream = new System.Windows.Forms.Button();
+            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
+            this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
+            this.videoChannelList = new VideoPlayControl.VideoChannelList();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -242,6 +242,16 @@
             this.pageTestData1.TabIndex = 3;
             this.pageTestData1.Text = "测试数据1";
             this.pageTestData1.UseVisualStyleBackColor = true;
+            // 
+            // btnHikStream
+            // 
+            this.btnHikStream.Location = new System.Drawing.Point(81, 31);
+            this.btnHikStream.Name = "btnHikStream";
+            this.btnHikStream.Size = new System.Drawing.Size(86, 23);
+            this.btnHikStream.TabIndex = 16;
+            this.btnHikStream.Text = "海康流媒体";
+            this.btnHikStream.UseVisualStyleBackColor = true;
+            this.btnHikStream.Click += new System.EventHandler(this.BtnHikStream_Click);
             // 
             // btnTLi
             // 
@@ -587,14 +597,6 @@
             this.btnVideoPlayClose.UseVisualStyleBackColor = true;
             this.btnVideoPlayClose.Click += new System.EventHandler(this.btnVideoPlayClose_Click);
             // 
-            // videoPTZControl1
-            // 
-            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
-            this.videoPTZControl1.Location = new System.Drawing.Point(3, 6);
-            this.videoPTZControl1.Name = "videoPTZControl1";
-            this.videoPTZControl1.Size = new System.Drawing.Size(81, 78);
-            this.videoPTZControl1.TabIndex = 9;
-            // 
             // btnWindowPlay
             // 
             this.btnWindowPlay.Location = new System.Drawing.Point(208, 53);
@@ -779,39 +781,6 @@
             this.pnlBottom_Left.Size = new System.Drawing.Size(219, 136);
             this.pnlBottom_Left.TabIndex = 7;
             // 
-            // videoWindowTest
-            // 
-            this.videoWindowTest.BackColor = System.Drawing.SystemColors.Control;
-            this.videoWindowTest.CurrentCameraInfo = null;
-            this.videoWindowTest.CurrentVideoInfo = null;
-            videoPlaySetting2.AnsyPlay = false;
-            videoPlaySetting2.AutoReconn = true;
-            videoPlaySetting2.ConnType = VideoPlayControl.Enum.Enum_VideoConnType.Auto;
-            videoPlaySetting2.FirstInForcePreSetPosi = false;
-            videoPlaySetting2.PerVideoRecord = false;
-            videoPlaySetting2.PreSetPosi = -1;
-            videoPlaySetting2.PreVideoRecordFilePath = "";
-            videoPlaySetting2.PTZSpeed = 4;
-            videoPlaySetting2.TimeOutVideoCloseSecond = 20;
-            videoPlaySetting2.TimeOutVideoRecordCloseSecond = 20;
-            videoPlaySetting2.VideoMonitorEnable = false;
-            videoPlaySetting2.VideoPlayTimeLimit = 0;
-            videoPlaySetting2.VideoRecordEnable = false;
-            videoPlaySetting2.VideoRecordFileName = "";
-            videoPlaySetting2.VideoRecordFileName_Server = "";
-            videoPlaySetting2.VideoRecordFilePath = "";
-            videoPlaySetting2.VideoRecordFilePath_Server = "";
-            this.videoWindowTest.CurrentVideoPlaySet = videoPlaySetting2;
-            this.videoWindowTest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoWindowTest.Location = new System.Drawing.Point(0, 0);
-            this.videoWindowTest.Name = "videoWindowTest";
-            this.videoWindowTest.Size = new System.Drawing.Size(219, 136);
-            this.videoWindowTest.TabIndex = 0;
-            this.videoWindowTest.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
-            this.videoWindowTest.VideoplayWindowHeight = 10;
-            this.videoWindowTest.VideoplayWindowWidth = 10;
-            this.videoWindowTest.VideoStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
-            // 
             // chkMonitorEnable
             // 
             this.chkMonitorEnable.AutoSize = true;
@@ -935,6 +904,7 @@
             this.pageVideoInfo.TabIndex = 0;
             this.pageVideoInfo.Text = "视频设备信息";
             this.pageVideoInfo.UseVisualStyleBackColor = true;
+            this.pageVideoInfo.Click += new System.EventHandler(this.pageVideoInfo_Click);
             // 
             // button6
             // 
@@ -983,23 +953,6 @@
             this.pnlVideoInfo_Right.Name = "pnlVideoInfo_Right";
             this.pnlVideoInfo_Right.Size = new System.Drawing.Size(119, 506);
             this.pnlVideoInfo_Right.TabIndex = 34;
-            // 
-            // videoChannelList
-            // 
-            this.videoChannelList.AutoSetChannelButtonSize = false;
-            this.videoChannelList.ChannelButtonColumn = 1;
-            this.videoChannelList.ChannelButtonHeight = 30;
-            this.videoChannelList.ChannelButtonWidth = 60;
-            this.videoChannelList.ClrBackColor = System.Drawing.SystemColors.ControlDark;
-            this.videoChannelList.ClrChannelButtonDefaultColor = System.Drawing.SystemColors.Control;
-            this.videoChannelList.ClrChannelButtonSelectedColor = System.Drawing.Color.Red;
-            this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoChannelList.Location = new System.Drawing.Point(0, 103);
-            this.videoChannelList.Name = "videoChannelList";
-            this.videoChannelList.Size = new System.Drawing.Size(119, 403);
-            this.videoChannelList.TabIndex = 10;
-            this.videoChannelList.ButtonChannel_ClickEvent += new VideoPlayControl.VideoChannelList.ButtonChannel_ClickDelegate(this.VideoChannelListButton_Click);
-            this.videoChannelList.Load += new System.EventHandler(this.videoChannelList_Load);
             // 
             // pnlVideoInfo_Right_Top
             // 
@@ -1465,15 +1418,63 @@
             this.timCurrentChannelLoop.Interval = 3000;
             this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
             // 
-            // btnHikStream
+            // videoPTZControl1
             // 
-            this.btnHikStream.Location = new System.Drawing.Point(81, 31);
-            this.btnHikStream.Name = "btnHikStream";
-            this.btnHikStream.Size = new System.Drawing.Size(86, 23);
-            this.btnHikStream.TabIndex = 16;
-            this.btnHikStream.Text = "海康流媒体";
-            this.btnHikStream.UseVisualStyleBackColor = true;
-            this.btnHikStream.Click += new System.EventHandler(this.BtnHikStream_Click);
+            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
+            this.videoPTZControl1.Location = new System.Drawing.Point(3, 6);
+            this.videoPTZControl1.Name = "videoPTZControl1";
+            this.videoPTZControl1.Size = new System.Drawing.Size(81, 78);
+            this.videoPTZControl1.TabIndex = 9;
+            // 
+            // videoWindowTest
+            // 
+            this.videoWindowTest.BackColor = System.Drawing.SystemColors.Control;
+            this.videoWindowTest.CurrentCameraInfo = null;
+            this.videoWindowTest.CurrentVideoInfo = null;
+            videoPlaySetting2.AnsyPlay = false;
+            videoPlaySetting2.AutoReconn = true;
+            videoPlaySetting2.ConnType = VideoPlayControl.Enum.Enum_VideoConnType.Auto;
+            videoPlaySetting2.FirstInForcePreSetPosi = false;
+            videoPlaySetting2.PerVideoRecord = false;
+            videoPlaySetting2.PreSetPosi = -1;
+            videoPlaySetting2.PreVideoRecordFilePath = "";
+            videoPlaySetting2.PTZSpeed = 4;
+            videoPlaySetting2.TimeOutVideoCloseSecond = 20;
+            videoPlaySetting2.TimeOutVideoRecordCloseSecond = 20;
+            videoPlaySetting2.VideoMonitorEnable = false;
+            videoPlaySetting2.VideoPlayTimeLimit = 0;
+            videoPlaySetting2.VideoRecordEnable = false;
+            videoPlaySetting2.VideoRecordFileName = "";
+            videoPlaySetting2.VideoRecordFileName_Server = "";
+            videoPlaySetting2.VideoRecordFilePath = "";
+            videoPlaySetting2.VideoRecordFilePath_Server = "";
+            this.videoWindowTest.CurrentVideoPlaySet = videoPlaySetting2;
+            this.videoWindowTest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoWindowTest.Location = new System.Drawing.Point(0, 0);
+            this.videoWindowTest.Name = "videoWindowTest";
+            this.videoWindowTest.Size = new System.Drawing.Size(219, 136);
+            this.videoWindowTest.TabIndex = 0;
+            this.videoWindowTest.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
+            this.videoWindowTest.VideoplayWindowHeight = 10;
+            this.videoWindowTest.VideoplayWindowWidth = 10;
+            this.videoWindowTest.VideoStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
+            // 
+            // videoChannelList
+            // 
+            this.videoChannelList.AutoSetChannelButtonSize = false;
+            this.videoChannelList.ChannelButtonColumn = 1;
+            this.videoChannelList.ChannelButtonHeight = 30;
+            this.videoChannelList.ChannelButtonWidth = 60;
+            this.videoChannelList.ClrBackColor = System.Drawing.SystemColors.ControlDark;
+            this.videoChannelList.ClrChannelButtonDefaultColor = System.Drawing.SystemColors.Control;
+            this.videoChannelList.ClrChannelButtonSelectedColor = System.Drawing.Color.Red;
+            this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoChannelList.Location = new System.Drawing.Point(0, 103);
+            this.videoChannelList.Name = "videoChannelList";
+            this.videoChannelList.Size = new System.Drawing.Size(119, 403);
+            this.videoChannelList.TabIndex = 10;
+            this.videoChannelList.ButtonChannel_ClickEvent += new VideoPlayControl.VideoChannelList.ButtonChannel_ClickDelegate(this.VideoChannelListButton_Click);
+            this.videoChannelList.Load += new System.EventHandler(this.videoChannelList_Load);
             // 
             // FrmMain
             // 

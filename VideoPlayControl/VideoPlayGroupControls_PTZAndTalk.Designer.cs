@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             VideoPlayControl.VideoPlaySetting videoPlaySetting1 = new VideoPlayControl.VideoPlaySetting();
+            VideoPlayControl.VideoBasicClass.TalkSetting talkSetting1 = new VideoPlayControl.VideoBasicClass.TalkSetting();
             this.videoPlayWindow = new VideoPlayControl.VideoPlayWindow();
             this.cmsVideoWindow = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmi_CloundSeeSetWindows = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,6 +100,7 @@
             this.videoPlayWindow.VideoPlayState = VideoPlayControl.Enum_VideoPlayState.VideoInfoNull;
             this.videoPlayWindow.VideoplayWindowHeight = 0;
             this.videoPlayWindow.VideoplayWindowWidth = 0;
+            this.videoPlayWindow.VideoStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
             // 
             // cmsVideoWindow
             // 
@@ -190,7 +192,7 @@
             this.pblRight_Bottom_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pblRight_Bottom_Main.Location = new System.Drawing.Point(3, 26);
             this.pblRight_Bottom_Main.Name = "pblRight_Bottom_Main";
-            this.pblRight_Bottom_Main.Size = new System.Drawing.Size(102, 76);
+            this.pblRight_Bottom_Main.Size = new System.Drawing.Size(102, 86);
             this.pblRight_Bottom_Main.TabIndex = 7;
             // 
             // videoPTZControl
@@ -199,7 +201,7 @@
             this.videoPTZControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoPTZControl.Location = new System.Drawing.Point(0, 0);
             this.videoPTZControl.Name = "videoPTZControl";
-            this.videoPTZControl.Size = new System.Drawing.Size(102, 76);
+            this.videoPTZControl.Size = new System.Drawing.Size(102, 86);
             this.videoPTZControl.TabIndex = 2;
             // 
             // videoChannelList
@@ -214,7 +216,7 @@
             this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoChannelList.Location = new System.Drawing.Point(0, 0);
             this.videoChannelList.Name = "videoChannelList";
-            this.videoChannelList.Size = new System.Drawing.Size(116, 143);
+            this.videoChannelList.Size = new System.Drawing.Size(116, 133);
             this.videoChannelList.TabIndex = 0;
             this.videoChannelList.ButtonChannel_ClickEvent += new VideoPlayControl.VideoChannelList.ButtonChannel_ClickDelegate(this.VideoChannelListButton_Click);
             // 
@@ -235,16 +237,16 @@
             this.pnlRight_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRight_Main.Location = new System.Drawing.Point(0, 24);
             this.pnlRight_Main.Name = "pnlRight_Main";
-            this.pnlRight_Main.Size = new System.Drawing.Size(116, 143);
+            this.pnlRight_Main.Size = new System.Drawing.Size(116, 133);
             this.pnlRight_Main.TabIndex = 5;
             // 
             // pblRight_Bottom
             // 
             this.pblRight_Bottom.Controls.Add(this.tabToolbar);
             this.pblRight_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pblRight_Bottom.Location = new System.Drawing.Point(0, 167);
+            this.pblRight_Bottom.Location = new System.Drawing.Point(0, 157);
             this.pblRight_Bottom.Name = "pblRight_Bottom";
-            this.pblRight_Bottom.Size = new System.Drawing.Size(116, 131);
+            this.pblRight_Bottom.Size = new System.Drawing.Size(116, 141);
             this.pblRight_Bottom.TabIndex = 6;
             // 
             // tabToolbar
@@ -255,7 +257,7 @@
             this.tabToolbar.Location = new System.Drawing.Point(0, 0);
             this.tabToolbar.Name = "tabToolbar";
             this.tabToolbar.SelectedIndex = 0;
-            this.tabToolbar.Size = new System.Drawing.Size(116, 131);
+            this.tabToolbar.Size = new System.Drawing.Size(116, 141);
             this.tabToolbar.TabIndex = 0;
             // 
             // pageTalk
@@ -264,17 +266,27 @@
             this.pageTalk.Location = new System.Drawing.Point(4, 22);
             this.pageTalk.Name = "pageTalk";
             this.pageTalk.Padding = new System.Windows.Forms.Padding(3);
-            this.pageTalk.Size = new System.Drawing.Size(108, 105);
+            this.pageTalk.Size = new System.Drawing.Size(108, 115);
             this.pageTalk.TabIndex = 1;
             this.pageTalk.Text = "对讲";
             this.pageTalk.UseVisualStyleBackColor = true;
             // 
             // videoTalkControlManyChannel1
             // 
+            this.videoTalkControlManyChannel1.CurrentTalkChannel = null;
+            talkSetting1.TalkRecordEnable = false;
+            talkSetting1.TalkRecordName_Local = "";
+            talkSetting1.TalkRecordName_Server = "";
+            talkSetting1.TalkRecordPath_Local = "";
+            talkSetting1.TalkRecordPath_Server = "";
+            talkSetting1.TalkRecordRealSavePath_Local = "";
+            this.videoTalkControlManyChannel1.CurrentTalkSetting = talkSetting1;
+            this.videoTalkControlManyChannel1.CurrentTalkStatus = VideoPlayControl.VideoBasicClass.Enum_TalkStatus.Null;
+            this.videoTalkControlManyChannel1.CurrentVideoInfo = null;
             this.videoTalkControlManyChannel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoTalkControlManyChannel1.Location = new System.Drawing.Point(3, 3);
             this.videoTalkControlManyChannel1.Name = "videoTalkControlManyChannel1";
-            this.videoTalkControlManyChannel1.Size = new System.Drawing.Size(102, 99);
+            this.videoTalkControlManyChannel1.Size = new System.Drawing.Size(102, 109);
             this.videoTalkControlManyChannel1.TabIndex = 0;
             // 
             // pagePTZControl
@@ -284,7 +296,7 @@
             this.pagePTZControl.Location = new System.Drawing.Point(4, 22);
             this.pagePTZControl.Name = "pagePTZControl";
             this.pagePTZControl.Padding = new System.Windows.Forms.Padding(3);
-            this.pagePTZControl.Size = new System.Drawing.Size(108, 105);
+            this.pagePTZControl.Size = new System.Drawing.Size(108, 115);
             this.pagePTZControl.TabIndex = 0;
             this.pagePTZControl.Text = "云台";
             this.pagePTZControl.UseVisualStyleBackColor = true;

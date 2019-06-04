@@ -1488,5 +1488,10 @@ namespace VideoPlayControl_UseDemo
             long Temp_int = CommonMethod.ConvertClass.DateTimeToUnixTimestamp(DateTime.Now) + 10;
             //SDK_SKVideoSDK.p_sdkc_get_set_dev_config("72-00F51F010E10-2B25", "tmp_config", "TC_DELAY_OUT1", Temp_int.ToString());
         }
+
+        private void pageVideoInfo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

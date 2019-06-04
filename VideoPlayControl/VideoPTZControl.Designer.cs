@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPTZControl));
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
+            this.picZoomOut = new System.Windows.Forms.PictureBox();
             this.picRightDown = new System.Windows.Forms.PictureBox();
             this.picDown = new System.Windows.Forms.PictureBox();
             this.picLeftDown = new System.Windows.Forms.PictureBox();
@@ -39,7 +40,9 @@
             this.picRightUp = new System.Windows.Forms.PictureBox();
             this.picUp = new System.Windows.Forms.PictureBox();
             this.picLeftUp = new System.Windows.Forms.PictureBox();
+            this.picZoomIn = new System.Windows.Forms.PictureBox();
             this.tlpMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picZoomOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRightDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLeftDown)).BeginInit();
@@ -49,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picRightUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLeftUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picZoomIn)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpMain
@@ -58,6 +62,7 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpMain.Controls.Add(this.picZoomOut, 0, 3);
             this.tlpMain.Controls.Add(this.picRightDown, 2, 2);
             this.tlpMain.Controls.Add(this.picDown, 1, 2);
             this.tlpMain.Controls.Add(this.picLeftDown, 0, 2);
@@ -67,16 +72,29 @@
             this.tlpMain.Controls.Add(this.picRightUp, 2, 0);
             this.tlpMain.Controls.Add(this.picUp, 1, 0);
             this.tlpMain.Controls.Add(this.picLeftUp, 0, 0);
+            this.tlpMain.Controls.Add(this.picZoomIn, 2, 3);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 3;
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpMain.Size = new System.Drawing.Size(72, 72);
+            this.tlpMain.RowCount = 4;
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpMain.Size = new System.Drawing.Size(72, 96);
             this.tlpMain.TabIndex = 0;
+            // 
+            // picZoomOut
+            // 
+            this.picZoomOut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picZoomOut.Image = ((System.Drawing.Image)(resources.GetObject("picZoomOut.Image")));
+            this.picZoomOut.Location = new System.Drawing.Point(3, 72);
+            this.picZoomOut.Margin = new System.Windows.Forms.Padding(0);
+            this.picZoomOut.Name = "picZoomOut";
+            this.picZoomOut.Size = new System.Drawing.Size(20, 21);
+            this.picZoomOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picZoomOut.TabIndex = 11;
+            this.picZoomOut.TabStop = false;
             // 
             // picRightDown
             // 
@@ -187,6 +205,18 @@
             this.picLeftUp.TabIndex = 1;
             this.picLeftUp.TabStop = false;
             // 
+            // picZoomIn
+            // 
+            this.picZoomIn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picZoomIn.Image = ((System.Drawing.Image)(resources.GetObject("picZoomIn.Image")));
+            this.picZoomIn.Location = new System.Drawing.Point(49, 72);
+            this.picZoomIn.Margin = new System.Windows.Forms.Padding(0);
+            this.picZoomIn.Name = "picZoomIn";
+            this.picZoomIn.Size = new System.Drawing.Size(20, 21);
+            this.picZoomIn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picZoomIn.TabIndex = 10;
+            this.picZoomIn.TabStop = false;
+            // 
             // VideoPTZControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -194,9 +224,10 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tlpMain);
             this.Name = "VideoPTZControl";
-            this.Size = new System.Drawing.Size(72, 72);
+            this.Size = new System.Drawing.Size(72, 96);
             this.Load += new System.EventHandler(this.VideoPTZControl_Load);
             this.tlpMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picZoomOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRightDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLeftDown)).EndInit();
@@ -206,6 +237,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picRightUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLeftUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picZoomIn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -222,5 +254,7 @@
         private System.Windows.Forms.PictureBox picRightUp;
         private System.Windows.Forms.PictureBox picUp;
         private System.Windows.Forms.PictureBox picLeftUp;
+        private System.Windows.Forms.PictureBox picZoomOut;
+        private System.Windows.Forms.PictureBox picZoomIn;
     }
 }

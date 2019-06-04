@@ -234,20 +234,16 @@ namespace VideoPlayControl.VideoPlay
                 switch (PTZControl)
                 {
                     case Enum_VideoPTZControl.PTZControl_Up:
-                        Temp_iXSpeed = 0;
                         Temp_iYSpeed = CurrentVideoPlaySet.PTZSpeed;
                         break;
                     case Enum_VideoPTZControl.PTZControl_Down:
-                        Temp_iXSpeed = 0;
                         Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
                         break;
                     case Enum_VideoPTZControl.PTZControl_Left:
                         Temp_iXSpeed = -CurrentVideoPlaySet.PTZSpeed;
-                        Temp_iYSpeed = 0;
                         break;
                     case Enum_VideoPTZControl.PTZControl_Right:
                         Temp_iXSpeed = CurrentVideoPlaySet.PTZSpeed;
-                        Temp_iYSpeed = 0;
                         break;
                     case Enum_VideoPTZControl.PTZControl_LeftUp:
                         Temp_iXSpeed = -CurrentVideoPlaySet.PTZSpeed;
@@ -264,6 +260,12 @@ namespace VideoPlayControl.VideoPlay
                     case Enum_VideoPTZControl.PTZControl_RightDown:
                         Temp_iXSpeed = CurrentVideoPlaySet.PTZSpeed;
                         Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                    case Enum_VideoPTZControl.PTZControl_Zoom_Out:
+                        Temp_iZSpeed = -CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                    case Enum_VideoPTZControl.PTZControl_Zoom_In:
+                        Temp_iZSpeed = CurrentVideoPlaySet.PTZSpeed;
                         break;
                 }
                 SDK_SKVideoSDK.p_sdkc_onvif_ptz_continue_move(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, Temp_iXSpeed, Temp_iYSpeed, Temp_iZSpeed);
