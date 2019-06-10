@@ -20,14 +20,14 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new FrmTest());
             //Application.Run(new Frn_VideoPlayGroupControl_Basic());
             //Application.Run(new FrmVideoInfoList());
-            Application.Run(new FrmMain());
+            //Application.Run(new FrmMain());
             //Application.Run(new Frm_MulitPicturte());
             //Application.Run(new FrmTalkControlTest());
             //Application.Run(new FrmEzviz());
             //Application.Run(new Frm_VideoTalkControlManyChannel_Test());
 
             //Application.Run(new Frm_VideoPlayGroupControls_PTZAndTalk());
-            //Application.Run(new FrmMain());
+            Application.Run(new FrmMain());
             //Application.Run(new Frm_MulitPicturte());
             //Application.Run(new FrmSKVideoSDKTest());
             //Application.Run(new FrmTest());

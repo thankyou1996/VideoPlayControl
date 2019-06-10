@@ -101,7 +101,6 @@ namespace VideoPlayControl
         }
         #endregion
         Dictionary<int, VideoPlayWindow> dicWin = new Dictionary<int, VideoPlayWindow>();
-        Dictionary<int, VideoInfo> dicVideo = new Dictionary<int, VideoInfo>();
 
         /// <summary>
         /// 0.表示正常状态 
@@ -276,7 +275,6 @@ namespace VideoPlayControl
                         v.VideoClose();
                     }
                     dicWin.Clear();
-                    dicVideo.Clear();
                     tablayMain.RowStyles.Clear();
                     tablayMain.ColumnStyles.Clear();
                     tablayMain.Controls.Clear();
@@ -333,6 +331,10 @@ namespace VideoPlayControl
             return bolResult;
         }
 
+        #region 设置视频播放
+
+
+
         public bool SetPlayVideo(VideoPlayWindow window, VideoInfo v)
         {
             bool bolResult = false;
@@ -372,7 +374,7 @@ namespace VideoPlayControl
             return true;
         }
 
- 
+
         /// <summary>
         /// 
         /// </summary>
@@ -395,7 +397,7 @@ namespace VideoPlayControl
         /// <param name="v"></param>
         /// <param name="iIndex"></param>
         /// <returns></returns>
-        public bool SetPlayVideoInfo_Index(VideoInfo v ,int iIndex)
+        public bool SetPlayVideoInfo_Index(VideoInfo v, int iIndex)
         {
             if (!dicWin.ContainsKey(iIndex))
             {
@@ -420,6 +422,49 @@ namespace VideoPlayControl
             SetToolTipInfo(dicWin[iIndex]);
             return true;
         }
+
+
+        public void SetPlayInfo(List<CameraInfo> lstCameraInfo)
+        {
+            SetPlayInfo(lstCameraInfo, CurrentVideoPlaySet);
+        }
+
+        public void SetPlayInfo(List<CameraInfo> lstCameraInfo, VideoPlaySetting videoPlaySet)
+        {
+            int iIndex = 0;
+            foreach (CameraInfo cInfo in lstCameraInfo)
+            {
+                if (iIndex < this.dicWin.Count)
+                {
+                    Common.Delay_Millisecond(50);
+                    this.SetPlayInfo(dicWin[iIndex], cInfo.VideoInfo, cInfo, videoPlaySet);
+                }
+                iIndex++;
+            }
+        }
+
+
+        public void SetPlayInfo(CameraInfo cInfo)
+        {
+            SetPlayInfo(CurrentV, cInfo.VideoInfo, cInfo, CurrentVideoPlaySet);
+        }
+        public void SetPlayInfo(CameraInfo cInfo, VideoPlaySetting videoPlaySetting)
+        {
+            SetPlayInfo(CurrentV, cInfo.VideoInfo, cInfo, videoPlaySetting);
+        }
+
+        public void SetPlayInfo(VideoInfo vInfo, CameraInfo cInfo)
+        {
+            SetPlayInfo(CurrentV, vInfo, cInfo, CurrentVideoPlaySet);
+        }
+
+        public void SetPlayInfo(VideoPlayWindow vWindow, VideoInfo vInfo ,CameraInfo cInfo, VideoPlaySetting videoPlaySet)
+        {
+            vWindow.Init_VideoInfo(vInfo, cInfo, videoPlaySet);
+            SetToolTipInfo(vWindow);
+        }
+        #endregion
+
 
         #region 视频关闭相关方法
         /// <summary>

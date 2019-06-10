@@ -35,7 +35,7 @@ namespace VideoPlayControl_UseDemo
             p_msg_demo_callback = new CallBack(callback);
             SDK_SKVideoSDK.p_sdkc_reg_msg_callback(p_msg_demo_callback);
             
-            SDK_SKVideoSDK.p_sdkc_init_client("SuperAdmin", "192.168.2.19", 47624, 47724, 47824, @"d:\");
+            SDK_SKVideoSDK.p_sdkc_init_client("Admin", "192.168.2.18", 47624, 47724, 47824, @"d:\");
             while (SDK_SKVideoSDK.p_sdkc_get_online() == 0)
             {
                 Common.Delay_Second(1);
@@ -44,7 +44,7 @@ namespace VideoPlayControl_UseDemo
             DateTime timEnd = DateTime.Now.AddSeconds(-2700);
             long intStartTime = ConvertClass.DateTimeToUnixTimestamp(timStart);
             long intEndTimt= ConvertClass.DateTimeToUnixTimestamp(timEnd);
-            SDK_SKVideoSDK.p_sdkc_start_playback_av(CurrentVideoInfo.DVSAddress, 0, Convert.ToUInt32(intStartTime), pictureBox1.Handle);
+            //SDK_SKVideoSDK.p_sdkc_start_playback_av(CurrentVideoInfo.DVSAddress, 0, Convert.ToUInt32(intStartTime), pictureBox1.Handle);
 
             p_vsdk_reg_dl_video_data_callback = new p_dl_video_data_callback(callback_download);
             SDK_SKVideoSDK.p_vsdk_reg_dl_video_data_callback(p_vsdk_reg_dl_video_data_callback);
@@ -100,12 +100,12 @@ namespace VideoPlayControl_UseDemo
             if (time_stamp == 0)
             {
                 Console.WriteLine("Download End");
-                string Temp_strDownPath = @"C:\SHIKE_Video\0138\DownloadTest\" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".H264";
-                System.IO.Stream so = new System.IO.FileStream(Temp_strDownPath, System.IO.FileMode.Create);
-                byte[] b = l.ToArray();
-                so.Write(b, 0, b.Count());
-                so.Close();
-                l = new List<byte>();
+                //string Temp_strDownPath = @"C:\SHIKE_Video\0138\DownloadTest\" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".H264";
+                //System.IO.Stream so = new System.IO.FileStream(Temp_strDownPath, System.IO.FileMode.Create);
+                //byte[] b = l.ToArray();
+                //so.Write(b, 0, b.Count());
+                //so.Close();
+                //l = new List<byte>();
                 Console.WriteLine("Save End");
                 timDownLoadEnd = DateTime.Now;
                 TimeSpan ts = timDownLoadEnd - timDownLoadStart;
@@ -117,7 +117,7 @@ namespace VideoPlayControl_UseDemo
             byte[] ys = new byte[nalu_len];
             Marshal.Copy(nalu_data, ys, 0, ys.Length);
             Console.WriteLine(time_stamp.ToString());
-            l.AddRange(ys);
+            //l.AddRange(ys);
             intCount++;
             //Console.WriteLine(intCount);
         }
@@ -126,19 +126,30 @@ namespace VideoPlayControl_UseDemo
         {
             //DateTime timStart = DateTime.Now.AddSeconds(-3000);
             //DateTime timEnd = DateTime.Now.AddSeconds(-2700);
-            DateTime timStart = DateTime.Parse("2018-05-25 21:02:01");
-            DateTime timEnd = DateTime.Parse("2018-05-25 21:05:01");
-            long start_time = ConvertClass.DateTimeToUnixTimestamp(timStart);
-            long stop_time = ConvertClass.DateTimeToUnixTimestamp(timEnd);
+            //DateTime timStart = DateTime.Parse("2019-06-05 14:02:01");
+            //DateTime timEnd = DateTime.Parse("2019-06-05 14:05:01");
+            DateTime timStart = DateTime.Now.AddSeconds(-3000);
+            DateTime timEnd = DateTime.Now.AddSeconds(-2700);
+            //long start_time = ConvertClass.DateTimeToUnixTimestamp(timStart);
+            //long stop_time = ConvertClass.DateTimeToUnixTimestamp(timEnd);
+
+            //long start_time = ConvertClass.DateTimeToUnixTimestamp(DateTime.Parse("2019-06-05 17:01:38"));
+            //long stop_time = ConvertClass.DateTimeToUnixTimestamp(DateTime.Parse("2019-06-05 17:03:34"));
+            //long start_time = ConvertClass.DateTimeToUnixTimestamp(DateTime.Parse("2019-06-05 15:04:13"));
+            //long stop_time = ConvertClass.DateTimeToUnixTimestamp(DateTime.Parse("2019-06-05 15:50:03"));
+            long start_time = 1559802091;
+            long stop_time = 1559802199;
             int intCount = 0;
             while (SDK_SKVideoSDK.p_sdkc_get_online() == 0 && intCount < 10)
             {
                 Common.Delay_Second(1);
                 intCount++;
             }
-            string Temp_strDownPath = @"C:\SHIKE_Video\0138\DownloadTest\" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".H264";
+            //string Temp_strDownPath = @"C:\SHIKE_Video\0138\DownloadTest\" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".H264";
+            string Temp_strDownPath = @"C:\Users\thankyou_1996\Desktop\VHS_ch01_72-00F51F817E16-D210_1559713480.h264";
+
             //string Temp_strDownPath = @"C:\SHIKE_Video\0138\DownloadTest";
-            int intResult = SDK_SKVideoSDK.p_sdkc_request_download_video("61-57354AA60831-3136", 0, (int)start_time, (int)stop_time, Temp_strDownPath);
+            int intResult = SDK_SKVideoSDK.p_sdkc_request_download_video("72-00F51F010E10-2B25", 0, (int)start_time, (int)stop_time, Temp_strDownPath);
             intCount = 0;
             timDownLoadStart = DateTime.Now;
         }

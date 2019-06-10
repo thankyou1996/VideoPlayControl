@@ -21,7 +21,7 @@ namespace VideoPlayControl.Tests
         List<RemoteVideoRecordInfo> lRemoteVideoRecord;
         public SDK_SKVideoSDKTests()
         {
-            SDK_SKVideoSDK.p_sdkc_init_client("xhcs1", "192.168.2.19", 47624, 47724, 47824, @"d:\");
+            SDK_SKVideoSDK.p_sdkc_init_client("Admin", "192.168.2.19", 47624, 47724, 47824, @"d:\");
             int intValue = 0;
             //while (!(SDK_SKVideoSDK.p_sdkc_get_online() == 1) && (intValue < 100))
             //{
@@ -147,8 +147,8 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void p_sdkc_request_download_videoTest()
         {
-            DateTime timStart = DateTime.Now.AddSeconds(-3000);
-            DateTime timEnd = DateTime.Now.AddSeconds(-2700);
+            DateTime timStart = DateTime.Now.AddSeconds(-2000);
+            DateTime timEnd = DateTime.Now.AddSeconds(-1700);
             long start_time = ConvertClass.DateTimeToUnixTimestamp(timStart);
             long stop_time = ConvertClass.DateTimeToUnixTimestamp(timEnd);
             int intCount = 0;
@@ -157,9 +157,11 @@ namespace VideoPlayControl.Tests
                 Common.Delay_Second(1);
                 intCount++;
             }
-            string Temp_strDownPath = @"C:\SHIKE_Video\0138\DownloadTest\" + timStart.ToString("yyyy_MM_dd_HH_mm_ss") + ".H264";
+            p_msg_demo_callback = new CallBack(callback);
+            p_sdkc_reg_msg_callback(p_msg_demo_callback);
+            string Temp_strDownPath = @"C:\SHIKE_Video\" + timStart.ToString("yyyy_MM_dd_HH_mm_ss") + ".H264";
             //string Temp_strDownPath = @"C:\SHIKE_Video\0138\DownloadTest";
-            int intResult = SDK_SKVideoSDK.p_sdkc_request_download_video("61-57354AA60831-3136", 0, (int)start_time, (int)stop_time, Temp_strDownPath);
+            int intResult = SDK_SKVideoSDK.p_sdkc_request_download_video("72-00F51F817E16-D210", 0, (int)start_time, (int)stop_time, Temp_strDownPath);
             intCount = 0;
             Common.Delay_Second(30);
             Assert.AreEqual(intResult, 1);
@@ -243,6 +245,12 @@ namespace VideoPlayControl.Tests
             string strGUID = "6157354AA608313136";
             string strResult = SDK_SKVideoSDK.GetGUID(strGUID);
             Assert.AreEqual(strResult, "61-57354AA60831-3136");
+        }
+
+        [TestMethod()]
+        public void p_sdkc_request_download_videoTest1()
+        {
+            Assert.Fail();
         }
     }
 }
