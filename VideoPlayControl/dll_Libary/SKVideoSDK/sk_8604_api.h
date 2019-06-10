@@ -38,9 +38,9 @@ typedef unsigned long long u64;
 #define SDK_EVENT_CALL_GO_ON				0x0c // 呼叫继续
 #define SDK_EVENT_FC_ALARM					0x0d // 面板被拆
 #define SDK_EVENT_FC_RECOVER				0x0e // 面板被拆恢复
+#define SDK_EVENT_HEART_BEAT				0x0f // 心跳包
 #define SDK_EVENT_LOST_LINK_ALARM			0x10
 #define SDK_EVENT_LOST_LINK_RECOVER			0x11
-#define SDK_EVENT_HEART_BEAT				0x0f // 心跳包
 #define SDK_EVENT_VIDEO_LOST				0x12 // 视频丢失
 #define SDK_EVENT_VIDEO_RECOVER				0x13 // 视频丢失
 #define SDK_EVNET_FAST_SNAP_FINE			0x14 // 抓图成功
@@ -48,7 +48,7 @@ typedef unsigned long long u64;
 #define SDK_EVNET_FAST_SNAP_DONE			0x16 // 
 #define SDK_EVENT_TALK_KEY_PRESS			0x17 // 呼叫按钮被按下
 #define SDK_EVENT_FQ_KEY_PRESS              0x18
-#define SDK_EVENT_GET_CAM_INFO				0x1a // 获取摄像头信息(分辨率,码率,帧率) json
+#define SDK_EVENT_PASSTHROUGH				0x1b // 透传事件给服务器和客户端
 #define SDK_EVENT_REMOTE_UPGRADE			0x20
 #define SDK_EVENT_DEVICE_VERISON			0x21
 #define SDK_EVENT_GET_RECORD_MAP            0x22 // 获取录像映射表
@@ -149,7 +149,6 @@ typedef unsigned long long u64;
 #define MSG_CB_DEVICE_CAM_OFFLINE		48
 #define MSG_CB_AV_DL_STOP				49
 #define MSG_CB_PASSTHROUGH_PROTO		50 // 透传协议结果
-#define MSG_CB_GET_CAM_INFO				51 // 获取设备摄像头信息
 
 /* 精简版设备信息 */
 typedef struct
@@ -163,6 +162,10 @@ typedef struct
 	/// 设备是否交换信息完毕，处于可用状态
 	u8		ready;
 	int		last_online_time;
+#if 0
+	u16		port;
+	char	addr[20];
+#endif
 }client_info_lite;
 
 /* 精简版设备信息列表 */
@@ -1375,6 +1378,24 @@ int p_vsdk_upload_alarm_record(char *guid,
 
 /**
   * ***********************************************************************
+  * @brief  远程设置摄像头osd
+  *			
+  *	@param  guid:				远程GUID
+  *	@param  chnn:				摄像头通道号[0~3, 8~15]
+  *	@param  osd_utf8_base64:	osd, 经base64编码的utf8字符串
+  *
+  * @retval int:				返回为空
+  *
+  * @attention	: none
+  * ***********************************************************************
+  */
+DLLIMPORT 
+int p_vsdk_set_cam_osd(char *guid, 
+	                   int  channel, 
+					   char* osd_utf8_base64);
+
+/**
+  * ***********************************************************************
   * @brief  设置是否关闭超时关闭码流功能
   *			
   *	@param  disable:	是否禁用超时关闭码流功能
@@ -1391,7 +1412,7 @@ void p_vsdk_set_auto_close_stream(int disable);
   * ***********************************************************************
   * @brief  设置设备掉线超时时间
   *			
-  *	@param  timeout:	设备掉线超时时间(分钟), 范围 2 ~ 10
+  *	@param  timeout:	设备掉线超时时间(秒), 范围 10 ~ 65535
   *
   * @retval void:		返回为TRUE, FALSE
   *

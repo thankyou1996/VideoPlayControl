@@ -512,4 +512,11 @@ int p_sdkc_get_set_dev_config(char *guid,
 							  char *cfg_val);
 
 DLLIMPORT
+int p_sdkc_dev_passthrough(char* dev_guid, char *cmd);
+
+DLLIMPORT
 int p_sdkc_get_dev_cam_info(char* dev_guid);
+
+DLLIMPORT
+int p_sdkc_get_dev_net_spd(char* dev_guid);
+
