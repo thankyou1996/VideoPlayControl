@@ -358,6 +358,25 @@
     <Content Include="dll_Libary\HikStreamClient\StreamTransClient.dll" />
     <Content Include="dll_Libary\HikStreamClient\StrSrcLib.dll" />
     <Content Include="dll_Libary\HikStreamClient\SystemTransform.dll" />
+    <Content Include="dll_Libary\JCSDK\demo.exe" />
+    <Content Include="dll_Libary\JCSDK\demo2.exe" />
+    <Content Include="dll_Libary\JCSDK\HW_H265dec_Win32D.dll" />
+    <Content Include="dll_Libary\JCSDK\icudt53.dll" />
+    <Content Include="dll_Libary\JCSDK\icuin53.dll" />
+    <Content Include="dll_Libary\JCSDK\icuuc53.dll" />
+    <Content Include="dll_Libary\JCSDK\JADEC.dll" />
+    <Content Include="dll_Libary\JCSDK\jcsdk.dll" />
+    <Content Include="dll_Libary\JCSDK\JDEC04.dll" />
+    <Content Include="dll_Libary\JCSDK\JDEC05.dll" />
+    <Content Include="dll_Libary\JCSDK\Jmp4pkg.dll" />
+    <Content Include="dll_Libary\JCSDK\JTalk.dll" />
+    <Content Include="dll_Libary\JCSDK\JvClient.dll" />
+    <Content Include="dll_Libary\JCSDK\JVSDKP.dll" />
+    <Content Include="dll_Libary\JCSDK\oct_client.dll" />
+    <Content Include="dll_Libary\JCSDK\platforms\qwindows.dll" />
+    <Content Include="dll_Libary\JCSDK\Qt5Core.dll" />
+    <Content Include="dll_Libary\JCSDK\Qt5Gui.dll" />
+    <Content Include="dll_Libary\JCSDK\Qt5Widgets.dll" />
     <Content Include="dll_Libary\PublicClassCurrency.pdb" />
     <Content Include="dll_Libary\Ezviz\AnalyzeData.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1265,61 +1284,6 @@
     </Content>
     <Content Include="dll_Libary\IPCWA\AxInterop.RASPLAYEROCXLib.dll" />
     <Content Include="dll_Libary\IPCWA\Interop.RASPLAYEROCXLib.dll" />
-    <Content Include="dll_Libary\JCSDK\demo.exe">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\ieshims.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\IPCamCfg.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\JADEC.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\jcsdk.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\JDEC04.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\JDEC05.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\Jmp4pkg.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\JvClient.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\JVSDKP.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\libeay32.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\nvcsdk.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\PTZDlg.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dll_Libary\JCSDK\ssleay32.dll">
-      <CustomToolNamespace>JCSDK</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="dll_Libary\Newtonsoft.Json.dll" />
     <Content Include="dll_Libary\PublicClassCurrency.dll" />
     <Content Include="dll_Libary\PublicClassCurrency.xml" />
@@ -1374,7 +1338,6 @@
     <Content Include="dll_Libary\SKVideoSDK\sk_8604_api.h">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dll_Libary\SKVideoSDK\SK_NSDK.dll" />
     <Content Include="dll_Libary\SKVideoSDK\swscale-4.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1506,7 +1469,6 @@
     <None Include="dll_Libary\SKVideoSDK\ShiKeVideoTestClient.ipdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dll_Libary\SKVideoSDK\VLC_SDK.exp" />
     <None Include="dll_Libary\SKVideoSDK\VLC_SDK.iobj">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

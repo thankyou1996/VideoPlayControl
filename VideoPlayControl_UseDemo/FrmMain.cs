@@ -1,4 +1,5 @@
-﻿using PublicClassCurrency;
+﻿using CommonMethod;
+using PublicClassCurrency;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -82,8 +83,7 @@ namespace VideoPlayControl_UseDemo
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "518335cd3421f16a4b4e88164225c432";
             //SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            SDKState.Ezviz_SDKInit();
-            //SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhcs1", "", "C:\\SHIKE_Video");
+            //SDKState.Ezviz_SDKInit();
             SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
@@ -95,7 +95,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.DHVideoSDK_Init();
             //SDKState.ZLVideoSDK_Init();
             //VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
-            VideoEnvironment_HikStream.Init("192.168.2.19");
+            //VideoEnvironment_HikStream.Init("192.168.2.19");
             Init();
             //btnBlueSkyTestData_Click(sender, e);
 
@@ -1397,7 +1397,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnCloundSee_Click(object sender, EventArgs e)
         {
-            VideoInfo videoInfo = TestDataSource.CloundSeeDataSource.GetData3();
+            VideoInfo videoInfo = TestDataSource.CloundSeeDataSource.GetData4();
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
@@ -1492,6 +1492,13 @@ namespace VideoPlayControl_UseDemo
         private void pageVideoInfo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            string Temp_strValue = StringEncrypt.Base64Encode("测试测试测试");
+            SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F010E10-2B25", 8, Temp_strValue);
         }
     }
 }

@@ -520,3 +520,8 @@ int p_sdkc_get_dev_cam_info(char* dev_guid);
 DLLIMPORT
 int p_sdkc_get_dev_net_spd(char* dev_guid);
 
+DLLIMPORT
+int p_sdkc_set_dev_cam_osd(char *guid, 
+							int  channel, 
+							char* osd_utf8_base64);
+

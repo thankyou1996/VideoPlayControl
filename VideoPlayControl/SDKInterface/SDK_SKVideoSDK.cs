@@ -315,6 +315,13 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_get_record_time_map(string guid, byte channel, int start_ts, int stop_ts);
 
+        /// <summary>
+        /// 远程设置摄像头osd
+        /// </summary>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int p_sdkc_set_dev_cam_osd(string guid, int channel, string osd_utf8_base64);
+
         #region 录像下载
 
         /// <summary>

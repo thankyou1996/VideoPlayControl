@@ -252,5 +252,24 @@ namespace VideoPlayControl.Tests
         {
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void p_set_ccam_osdTest()
+        {
+            //"72-00F51F010E10-2B25"
+            //""
+
+            int intCount = 0;
+            while (SDK_SKVideoSDK.p_sdkc_get_online() == 0 && intCount < 10)
+            {
+                Common.Delay_Second(1);
+                intCount++;
+            }
+            string Temp_strValue = StringEncrypt.Base64Encode("测试测试测试测试测试测试22测试测试");
+            SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F010E10-2B25", 8, Temp_strValue);
+            Common.Delay_Millisecond(200);
+            Assert.IsTrue(intCount < 10);
+            //Assert.AreEqual(Temp_strValue, "JXU2RDRCJXU4QkQ1JXU2RDRCJXU4QkQ1JXU2RDRCJXU4QkQ1");
+        }
     }
 }
