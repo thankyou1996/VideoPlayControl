@@ -52,6 +52,7 @@
             this.btnSKTestData1 = new System.Windows.Forms.Button();
             this.btnSKTestData = new System.Windows.Forms.Button();
             this.PageOther = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnStartVideo = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -98,6 +99,7 @@
             this.pnlRight = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pageVideoInfo = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.btnLoopTest = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
@@ -152,7 +154,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
-            this.button7 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -444,6 +446,16 @@
             this.PageOther.TabIndex = 1;
             this.PageOther.Text = "其他";
             this.PageOther.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(9, 72);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 21;
+            this.button7.Text = "设置OSD";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button5
             // 
@@ -922,6 +934,8 @@
             // 
             // pageVideoInfo
             // 
+            this.pageVideoInfo.Controls.Add(this.textBox2);
+            this.pageVideoInfo.Controls.Add(this.textBox1);
             this.pageVideoInfo.Controls.Add(this.button6);
             this.pageVideoInfo.Controls.Add(this.btnLoopTest);
             this.pageVideoInfo.Controls.Add(this.label18);
@@ -948,6 +962,14 @@
             this.pageVideoInfo.Text = "视频设备信息";
             this.pageVideoInfo.UseVisualStyleBackColor = true;
             this.pageVideoInfo.Click += new System.EventHandler(this.pageVideoInfo_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(21, 368);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 39;
+            this.textBox1.Text = "通道333";
             // 
             // button6
             // 
@@ -1478,15 +1500,13 @@
             this.timCurrentChannelLoop.Interval = 3000;
             this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
             // 
-            // button7
+            // textBox2
             // 
-            this.button7.Location = new System.Drawing.Point(9, 72);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 21;
-            this.button7.Text = "设置OSD";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.textBox2.Location = new System.Drawing.Point(7, 419);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
+            this.textBox2.TabIndex = 39;
+            this.textBox2.Text = "8";
             // 
             // FrmMain
             // 
@@ -1663,6 +1683,8 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnHikStream;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

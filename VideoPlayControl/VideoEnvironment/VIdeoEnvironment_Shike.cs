@@ -148,6 +148,14 @@ namespace VideoPlayControl.VideoEnvironment
                     int Temp_intt = data.Length - Temp_intIndex - 1;
                     string strCotnent = data.Substring(Temp_intIndex, Temp_intt);
                     List<Cam> cs = JsonConvert.DeserializeObject<List<Cam>>(strCotnent);
+                    //foreach (Cam item in cs)
+                    //{
+                    //    item.m_br = 2048;
+                    //    item.s_h = 704;
+                    //    item.s_w = 576;
+                    //    item.s_fps = 25;
+                    //    item.s_br = 512;
+                    //}
                     VideoStreamInfoReport(new VideoStreamInfoReportValue
                     {
                         Guid = guid,

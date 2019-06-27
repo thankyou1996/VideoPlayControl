@@ -1497,8 +1497,14 @@ namespace VideoPlayControl_UseDemo
         private void button7_Click(object sender, EventArgs e)
         {
 
-            string Temp_strValue = StringEncrypt.Base64Encode("测试测试测试");
-            SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F010E10-2B25", 8, Temp_strValue);
+            string Temp_strValue = StringEncrypt.Base64Encode("本地通道1");
+            //SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F010E10-2B25", 9, Temp_strValue);
+            //CommonMethod.Common.Delay_Millisecond(5000);
+            int iii = Convert.ToInt32(textBox2.Text);
+            Temp_strValue = StringEncrypt.Base64Encode(textBox1.Text);
+
+            int intResult = SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F010E10-2B25", 8, Temp_strValue);
+            intResult = SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F010E10-2B25", 9, Temp_strValue);
         }
     }
 }
