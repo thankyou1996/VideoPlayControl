@@ -462,6 +462,7 @@ namespace VideoPlayControl
         {
             vWindow.Init_VideoInfo(vInfo, cInfo, videoPlaySet);
             SetToolTipInfo(vWindow);
+            vWindow.VideoPlay();
         }
         #endregion
 
