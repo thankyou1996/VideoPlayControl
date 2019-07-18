@@ -108,7 +108,6 @@ namespace VideoPlayControl.VideoTalk
             bool bolResult = false;
             if (CurrentTalkStatus != Enum_TalkStatus.Null)  //处于对讲中 先关闭
             {
-
                 StopTalk();
             }
             StartTalking(null);

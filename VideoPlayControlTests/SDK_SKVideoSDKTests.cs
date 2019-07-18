@@ -21,7 +21,7 @@ namespace VideoPlayControl.Tests
         List<RemoteVideoRecordInfo> lRemoteVideoRecord;
         public SDK_SKVideoSDKTests()
         {
-            SDK_SKVideoSDK.p_sdkc_init_client("Admin", "192.168.2.19", 47624, 47724, 47824, @"d:\");
+            SDK_SKVideoSDK.p_sdkc_init_client("User", "121.33.227.226", 47624, 47724, 47824, @"d:\");
             int intValue = 0;
             //while (!(SDK_SKVideoSDK.p_sdkc_get_online() == 1) && (intValue < 100))
             //{
@@ -270,6 +270,28 @@ namespace VideoPlayControl.Tests
             Common.Delay_Millisecond(200);
             Assert.IsTrue(intCount < 10);
             //Assert.AreEqual(Temp_strValue, "JXU2RDRCJXU4QkQ1JXU2RDRCJXU4QkQ1JXU2RDRCJXU4QkQ1");
+        }
+
+        [TestMethod()]
+        public void p_sdkc_get_revideo_dataTest()
+        {
+            int intCount = 0;
+            while (SDK_SKVideoSDK.p_sdkc_get_online() == 0 && intCount < 20)
+            {
+                Common.Delay_Second(1);
+                intCount++;
+            }
+            string Temp_strValue = "http://121.33.227.226:8008/SK_VideoRecord/0312/20190711101420/";
+
+            SDK_SKVideoSDK.p_sdkc_get_revideo_data("61-5737267B0736-3232", 8, Temp_strValue);
+            Common.Delay_Millisecond(200);
+            Assert.IsTrue(intCount < 10);
+        }
+
+        [TestMethod()]
+        public void p_sdkc_get_revideo_dataTest1()
+        {
+            Assert.Fail();
         }
     }
 }

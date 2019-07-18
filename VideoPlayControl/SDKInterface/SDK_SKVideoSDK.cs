@@ -252,7 +252,12 @@ namespace VideoPlayControl
         public static extern int p_sdkc_stop_talk_all();
 
 
-
+        /// <summary>
+        /// 调用通道预录像
+        /// </summary>
+        /// <param name="strGuid"></param>
+        /// <param name="intChannel"></param>
+        /// <param name="strUrl"></param>
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void p_sdkc_get_revideo_data(string strGuid, int intChannel, string strUrl);
 

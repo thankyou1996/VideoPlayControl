@@ -161,6 +161,7 @@ namespace VideoPlayControl.VideoPlay
             SDK_DaHua.CLIENT_Logout(intLoginID);
             VideoPlayState = Enum_VideoPlayState.NotInPlayState;
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
+            SDKState.DHVideoSDK_Release();
             return bolResult;
         }
 
@@ -171,6 +172,10 @@ namespace VideoPlayControl.VideoPlay
         public bool VideoPlay()
         {
             bool bolResult = false;
+            if (SDKState.DHVideoSDKState != Enum_SDKState.SDK_Init)
+            {
+                SDKState.DHVideoSDK_Init();
+            }
             SDK_DaHua.NET_DEVICEINFO deviceInfo = new SDK_DaHua.NET_DEVICEINFO();
             int intError;
             intLoginID = SDK_DaHua.CLIENT_Login(CurrentVideoInfo.DVSAddress, Convert.ToUInt16(CurrentVideoInfo.DVSConnectPort), CurrentVideoInfo.UserName, CurrentVideoInfo.Password, out deviceInfo, out intError);
