@@ -84,8 +84,8 @@ namespace VideoPlayControl_UseDemo
             //SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
             //SDKState.Ezviz_SDKInit();
-            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
-            //SDKState.HuaMai_Init();
+            //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
+            SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
             //SDKState.HikDVRSDK_Init();
@@ -1081,7 +1081,8 @@ namespace VideoPlayControl_UseDemo
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.HuaMaiVideo;
-            v.DVSAddress = "2B9B617805185";
+            //v.DVSAddress = "2B9B617805185";
+            v.DVSAddress = "HKNNN13605112";
             v.DVSChannelNum = 4;
             v.DVSConnectPort = 81;
             v.DVSName = "华迈云测试";
@@ -1091,12 +1092,13 @@ namespace VideoPlayControl_UseDemo
             v.UserName = "admin";
             v.Password = "sk123456";
             v.NetworkState = 0;
-            for (int i = 0; i < 4; i++)
+            for (int i = 1; i < 4; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i + 1);
                 c.Channel = i;
-                c.DVSAddress = "E322213C04245";
+                //c.DVSAddress = "E322213C04245";
+                c.DVSAddress = "HKNNN13605112";
                 c.DVSType = "SK8605HM";
                 c.DVSNumber = "000501";
                 v.Cameras[c.Channel] = c;

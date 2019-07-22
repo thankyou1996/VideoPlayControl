@@ -100,12 +100,14 @@ namespace VideoPlayControl
         /// <summary>
         /// 华迈云登录信息_登录名
         /// </summary>
-        public static string strHuaMaiLoginInfo_LoginName = "test1996";
+        //public static string strHuaMaiLoginInfo_LoginName = "test1996";
+        public static string strHuaMaiLoginInfo_LoginName = "ja110sk";
 
         /// <summary>
         /// 华迈云登录信息_登录密码
         /// </summary>
-        public static string strHuaMaiLoginInfo_LoginPwd = "123456";
+        public static string strHuaMaiLoginInfo_LoginPwd = "ja123123";
+        //public static string strHuaMaiLoginInfo_LoginPwd = "123456";
 
         /// <summary>
         ///华迈平台 登录句柄

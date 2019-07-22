@@ -172,7 +172,7 @@ namespace VideoPlayControl.VideoPlay
             }
 
             SDK_HuaMai._OPEN_VIDEO_PARAM para = new SDK_HuaMai._OPEN_VIDEO_PARAM();
-            para.channel = Convert.ToUInt32(CurrentCameraInfo.Channel);
+            para.channel = Convert.ToUInt32(CurrentCameraInfo.Channel) - 1;
             para.cs_type = SDK_HuaMai.CODE_STREAM.HMS_CS_MAJOR;
             IntPtr iUserData = Marshal.StringToHGlobalAnsi("123");
             para.data = iUserData;
