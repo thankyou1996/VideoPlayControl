@@ -274,6 +274,8 @@
     </Compile>
     <Compile Include="VideoTalk\IVideoTalk.cs" />
     <Compile Include="VideoTalk\VideoTalkRelevant.cs" />
+    <Compile Include="VideoTalk\VideoTalk_Default.cs" />
+    <Compile Include="VideoTalk\VideoTalk_Hik.cs" />
     <Compile Include="VideoTalk\VideoTalk_HikStream.cs" />
     <Compile Include="VideoTalk\VideoTalk_HikStream_Client.cs" />
     <Compile Include="VideoTalk\VideoTalk_Shike.cs" />
