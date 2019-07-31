@@ -17,7 +17,22 @@ namespace VideoPlayControl.VideoTalk
         public VideoTalkChannelInfo CurrentTalkChannel { get; set; }
         public TalkSetting CurrentTalkSetting { get; set; }
         public object Tag { get; set; }
-        public Enum_TalkStatus CurrentTalkStatus { get; set; }
+        private Enum_TalkStatus currentTalkStatus;
+        public Enum_TalkStatus CurrentTalkStatus
+        {
+            get
+            {
+                return currentTalkStatus;
+            }
+            set
+            {
+                if (currentTalkStatus != value)
+                {
+                    currentTalkStatus = value;
+                    TalkStausChanged(null);
+                }
+            }
+        }
 
         public event TalkStausChangedDelegate TalkStausChangedEvent;
         public event StartTalkingDelegate StartTalkingEvent;
@@ -58,7 +73,7 @@ namespace VideoPlayControl.VideoTalk
             NET_DVR_DEVICEINFO_V30 dev = new NET_DVR_DEVICEINFO_V30();
             _intDVRHwd = NET_DVR_Login_V30(CurrentVideoInfo.DVSAddress, CurrentVideoInfo.DVSConnectPort, CurrentVideoInfo.UserName, CurrentVideoInfo.Password, ref dev);
             VoiceCallBack = new fVoiceDataCallBack(MyRealDataCallBack);
-            NET_DVR_StartVoiceCom(_intDVRHwd, VoiceCallBack, 0);
+            _intTalkHwd = NET_DVR_StartVoiceCom(_intDVRHwd, VoiceCallBack, 0);
             NET_DVR_SetVoiceComClientVolume(_intTalkHwd, 65530);
             CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
             return bolResult;

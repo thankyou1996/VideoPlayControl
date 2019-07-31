@@ -22,15 +22,15 @@ namespace VideoPlayControl_UseDemo
 
         private void FrmTalkControlTest_Load(object sender, EventArgs e)
         {
-            PublicClassCurrency.VideoInfo v = TestDataSource.TestDataSource.GetHikData3_Voice();
+            PublicClassCurrency.VideoInfo v = TestDataSource.SKDataSource.GetSKData_TalkData();
             videoTalkControl1.SetVideoTalkInfo(v, v.TalkChannel[1]);
             videoTalkControl1.StartTalkingEvent += VideoTalkControl1_StartTalkingEvent;
             
             ProgParameter.strHikStreamVoiceIP = "192.168.2.19";
             ProgParameter.intHikStreamVoiceServerPort = 8081;
             ProgParameter.intHikStreamVoiceClientPort = 8082;
-            SDKState.HikDVRSDKStream_Init();
-            //SDKState.SKVideoSDKInit();
+            //SDKState.HikDVRSDKStream_Init();
+            SDKState.SKVideoSDKInit("hdc","192.168.2.19");
             //while (SDK_SKVideoSDK.p_sdkc_get_online() == 1)
             //{
             //    Thread.Sleep(30);
@@ -45,6 +45,9 @@ namespace VideoPlayControl_UseDemo
             bool bolResult = false;
             IVideoTalk iv = (IVideoTalk)sneder;
             MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "开始对讲");
+
+
+
             return bolResult;
             //throw new NotImplementedException();
         }
@@ -58,7 +61,11 @@ namespace VideoPlayControl_UseDemo
         {
             bool bolResult = false;
             IVideoTalk iv = (IVideoTalk)sneder;
-            MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "开始对讲");
+            //MessageBox.Show(iv.CurrentTalkChannel.VideoTalkChannelName + "开始对讲");
+            videoTalkControlManyChannel1.CurrentTalkSetting.TalkRecordEnable = true;
+
+            videoTalkControlManyChannel1.CurrentTalkSetting.TalkRecordPath_Local = @"C:\SHIKE_TalkRecord\2019\7\27";
+            videoTalkControlManyChannel1.CurrentTalkSetting.TalkRecordName_Local = DateTime.Now.ToString("yyyyMMddHHmmss") + ".G711";
             return bolResult;
         }
 

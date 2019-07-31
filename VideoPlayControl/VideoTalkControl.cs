@@ -147,18 +147,18 @@ namespace VideoPlayControl
                     btnTalkback.Enabled = true;
                     btnSperak.Enabled = true;
                     btnInterception.Enabled = true;
-                    btnTalkback.Text = "对讲";
-                    btnSperak.Text = "喊话";
-                    btnInterception.Text = "侦听";
+                    btnTalkback.Text = "开始对讲";
+                    btnSperak.Text = "开始喊话";
+                    btnInterception.Text = "开始侦听";
                     break;
 
                 case Enum_TalkStatus.Interceptioning:
                     btnTalkback.Enabled = false;
                     btnSperak.Enabled = false;
                     btnInterception.Enabled = true;
-                    btnTalkback.Text = "对讲";
-                    btnSperak.Text = "喊话";
-                    btnInterception.Text = "取消";
+                    btnTalkback.Text = "开始对讲";
+                    btnSperak.Text = "开始喊话";
+                    btnInterception.Text = "关闭侦听";
 
                     break;
 
@@ -166,17 +166,17 @@ namespace VideoPlayControl
                     btnTalkback.Enabled = false;
                     btnSperak.Enabled = true;
                     btnInterception.Enabled = false;
-                    btnTalkback.Text = "对讲";
-                    btnSperak.Text = "取消";
-                    btnInterception.Text = "侦听";
+                    btnTalkback.Text = "开始对讲";
+                    btnSperak.Text = "关闭喊话";
+                    btnInterception.Text = "开始侦听";
                     break;
                 case Enum_TalkStatus.Talkbacking:
                     btnTalkback.Enabled = true;
                     btnSperak.Enabled = false;
                     btnInterception.Enabled = false;
-                    btnTalkback.Text = "取消";
-                    btnSperak.Text = "喊话";
-                    btnInterception.Text = "侦听";
+                    btnTalkback.Text = "关闭对讲";
+                    btnSperak.Text = "开始喊话";
+                    btnInterception.Text = "开始侦听";
                     break;
             }
             return bolResult;

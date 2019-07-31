@@ -168,6 +168,14 @@ namespace VideoPlayControl
         }
         #endregion 
 
+        bool bolDisplayChanneName = true;
+        [Description("是否显示通道名称,默认显示"), Category("自定义属性")]
+        public bool DisplayChanneName
+        {
+            get { return bolDisplayChanneName; }
+            set { bolDisplayChanneName = value; }
+        }
+
 
         /// <summary>
         /// 视频通道列表名称
@@ -261,7 +269,14 @@ namespace VideoPlayControl
                     btn.Location = new Point(intbtnStartX + (intChannelButtonWidth * intCol), intbtnStartY + (intChannelButtonHeight * intRow));
                     btn.Size = new Size(intChannelButtonWidth, intChannelButtonHeight);
                     //btn.Text = "通道" + kv.Value.Channel.ToString();
-                    btn.Text = kv.Value.CameraName.ToString();
+                    if (DisplayChanneName)
+                    {
+                        btn.Text = kv.Value.CameraName.ToString();
+                    }
+                    else
+                    {
+                        btn.Text = Convert.ToString(kv.Value.Channel);
+                    }
                     btn.BackColor = Control.DefaultBackColor;
                     pnlMain.Controls.Add(btn);
                     btn.Tag = kv.Value;

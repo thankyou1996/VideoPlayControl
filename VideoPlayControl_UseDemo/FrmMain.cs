@@ -85,10 +85,10 @@ namespace VideoPlayControl_UseDemo
             //SDKState.CloundSee_SDKInit();
             //SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
-            SDKState.HuaMai_Init();
+            //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
-            //SDKState.HikDVRSDK_Init();
+            SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
             //SDKState.ZLVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
@@ -626,6 +626,7 @@ namespace VideoPlayControl_UseDemo
                 txtCurrentDVSPwd.Text = dicVideoInfos[strVideoID].Password;
                 txtCurrentChannelNum.Text = dicVideoInfos[strVideoID].DVSChannelNum.ToString();
                 videoChannelList.Init_SetVideoInfo(dicVideoInfos[strVideoID]);
+                videoTalkControlManyChannel1.SetVideoInfo(dicVideoInfos);
             }
         }
         public void ReSetVideoInfo()
@@ -848,7 +849,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnHikTestData1_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.HikDataSource.GetHikData1();
+            VideoInfo v = TestDataSource.HikDataSource.GetHikData_Talk();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

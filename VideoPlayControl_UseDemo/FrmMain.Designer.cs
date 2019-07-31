@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             VideoPlayControl.VideoPlaySetting videoPlaySetting1 = new VideoPlayControl.VideoPlaySetting();
+            VideoPlayControl.VideoBasicClass.TalkSetting talkSetting1 = new VideoPlayControl.VideoBasicClass.TalkSetting();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -99,6 +100,8 @@
             this.pnlRight = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pageVideoInfo = new System.Windows.Forms.TabPage();
+            this.videoTalkControlManyChannel1 = new VideoPlayControl.VideoTalkControlManyChannel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.btnLoopTest = new System.Windows.Forms.Button();
@@ -154,7 +157,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -934,6 +936,7 @@
             // 
             // pageVideoInfo
             // 
+            this.pageVideoInfo.Controls.Add(this.videoTalkControlManyChannel1);
             this.pageVideoInfo.Controls.Add(this.textBox2);
             this.pageVideoInfo.Controls.Add(this.textBox1);
             this.pageVideoInfo.Controls.Add(this.button6);
@@ -963,9 +966,34 @@
             this.pageVideoInfo.UseVisualStyleBackColor = true;
             this.pageVideoInfo.Click += new System.EventHandler(this.pageVideoInfo_Click);
             // 
+            // videoTalkControlManyChannel1
+            // 
+            this.videoTalkControlManyChannel1.CurrentTalkChannel = null;
+            talkSetting1.TalkRecordEnable = false;
+            talkSetting1.TalkRecordName_Local = "";
+            talkSetting1.TalkRecordName_Server = "";
+            talkSetting1.TalkRecordPath_Local = "";
+            talkSetting1.TalkRecordPath_Server = "";
+            talkSetting1.TalkRecordRealSavePath_Local = "";
+            this.videoTalkControlManyChannel1.CurrentTalkSetting = talkSetting1;
+            this.videoTalkControlManyChannel1.CurrentTalkStatus = VideoPlayControl.VideoBasicClass.Enum_TalkStatus.Null;
+            this.videoTalkControlManyChannel1.CurrentVideoInfo = null;
+            this.videoTalkControlManyChannel1.Location = new System.Drawing.Point(7, 410);
+            this.videoTalkControlManyChannel1.Name = "videoTalkControlManyChannel1";
+            this.videoTalkControlManyChannel1.Size = new System.Drawing.Size(85, 93);
+            this.videoTalkControlManyChannel1.TabIndex = 40;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(7, 383);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
+            this.textBox2.TabIndex = 39;
+            this.textBox2.Text = "8";
+            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 368);
+            this.textBox1.Location = new System.Drawing.Point(7, 331);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 39;
@@ -973,7 +1001,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(68, 395);
+            this.button6.Location = new System.Drawing.Point(7, 359);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(53, 18);
             this.button6.TabIndex = 38;
@@ -983,7 +1011,7 @@
             // 
             // btnLoopTest
             // 
-            this.btnLoopTest.Location = new System.Drawing.Point(7, 321);
+            this.btnLoopTest.Location = new System.Drawing.Point(6, 302);
             this.btnLoopTest.Name = "btnLoopTest";
             this.btnLoopTest.Size = new System.Drawing.Size(132, 23);
             this.btnLoopTest.TabIndex = 37;
@@ -1028,6 +1056,7 @@
             this.videoChannelList.ClrBackColor = System.Drawing.SystemColors.ControlDark;
             this.videoChannelList.ClrChannelButtonDefaultColor = System.Drawing.SystemColors.Control;
             this.videoChannelList.ClrChannelButtonSelectedColor = System.Drawing.Color.Red;
+            this.videoChannelList.DisplayChanneName = false;
             this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoChannelList.Location = new System.Drawing.Point(0, 103);
             this.videoChannelList.Name = "videoChannelList";
@@ -1500,14 +1529,6 @@
             this.timCurrentChannelLoop.Interval = 3000;
             this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(7, 419);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 39;
-            this.textBox2.Text = "8";
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1685,6 +1706,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private VideoPlayControl.VideoTalkControlManyChannel videoTalkControlManyChannel1;
     }
 }
 
