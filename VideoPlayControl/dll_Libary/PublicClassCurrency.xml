@@ -101,6 +101,11 @@
             平面地图Y
             </summary>
         </member>
+        <member name="P:PublicClassCurrency.CameraInfo.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
         <member name="T:PublicClassCurrency.Enum_CordinateSystem1">
             <summary>
             坐标系统
@@ -369,7 +374,7 @@
             坐标系统
             </summary>
         </member>
-        <!-- 对于成员“M:PublicClassCurrency.MapPointInfo1.WGSToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)”忽略有格式错误的 XML 注释 -->
+        <!-- Badly formed XML comment ignored for member "M:PublicClassCurrency.MapPointInfo1.WGSToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)" -->
         <member name="M:PublicClassCurrency.MapPointInfo1.WGSToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
             <summary>
             WGS-84 转换 BD-09
@@ -423,6 +428,11 @@
         <member name="T:PublicClassCurrency.VideoInfo">
             <summary>
             摄像机信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.GetStreamInfoEnable">
+            <summary>
+            获取码流信息使能
             </summary>
         </member>
         <member name="P:PublicClassCurrency.VideoInfo.VideoType">
@@ -993,6 +1003,21 @@
             SK8616:表示门禁标签信息
             </summary>
         </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.TalkbackEnable">
+            <summary>
+            对讲使能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.SperakEnable">
+            <summary>
+            喊话使能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.InterceptionEnable">
+            <summary>
+            侦听使能
+            </summary>
+        </member>
         <member name="P:PublicClassCurrency.Video.IVideoInfo.GetStreamInfoEnable">
             <summary>
             获取码流信息使能
@@ -1027,6 +1052,68 @@
         <member name="P:PublicClassCurrency.Video.VideoStream.Bitrate">
             <summary>
             码流
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoTypeID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoTypeValue">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoType">
+            <summary>
+            视频设备类型 对应
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoTypeName">
+            <summary>
+            类型名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoTypeDescribe">
+            <summary>
+            类型描述
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.ChannelNum">
+            <summary>
+            通道数量
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.StreamPort">
+            <summary>
+            码流端口
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.ConnectPort">
+            <summary>
+            连接端口
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.CameraModel">
+            <summary>
+            通道模型
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.TalkChannelModel">
+            <summary>
+            对讲通道模型
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoTypeVerificationEnable">
+            <summary>
+            视频设备类型 验证（添加/更新）功能是否启用
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.ConnParaType">
+            <summary>
+            连接参数类型 
+            1：IP
+            2: 唯一码
             </summary>
         </member>
     </members>

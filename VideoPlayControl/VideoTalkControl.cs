@@ -133,6 +133,9 @@ namespace VideoPlayControl
                 videoTalk.StopTalkedEvent += stopTalkedEvent;
             }
             videoTalk.SetVideoTalkInfo(videoInfo, talkChannel);
+            btnTalkback.Visible = CurrentTalkChannel.TalkbackEnable;
+            btnSperak.Visible = CurrentTalkChannel.SperakEnable;
+            btnInterception.Visible = CurrentTalkChannel.InterceptionEnable;
             return bolResult;
         }
 
@@ -144,9 +147,9 @@ namespace VideoPlayControl
             switch (iv.CurrentTalkStatus)
             {
                 case Enum_TalkStatus.Null:
-                    btnTalkback.Enabled = true;
-                    btnSperak.Enabled = true;
-                    btnInterception.Enabled = true;
+                    btnTalkback.Enabled = CurrentTalkChannel.TalkbackEnable;
+                    btnSperak.Enabled = CurrentTalkChannel.SperakEnable;
+                    btnInterception.Enabled = CurrentTalkChannel.InterceptionEnable;
                     btnTalkback.Text = "开始对讲";
                     btnSperak.Text = "开始喊话";
                     btnInterception.Text = "开始侦听";
