@@ -83,12 +83,12 @@ namespace VideoPlayControl_UseDemo
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "518335cd3421f16a4b4e88164225c432";
             //SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            //SDKState.Ezviz_SDKInit();
+            SDKState.Ezviz_SDKInit();
             //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
-            SDKState.HikDVRSDK_Init();
+            //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
             //SDKState.ZLVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
@@ -818,7 +818,7 @@ namespace VideoPlayControl_UseDemo
 
             //VideoInfo v = TestDataSource.TestDataSource.GetYSDVSData4();
             //dicVideoInfos[v.DVSNumber] = v;
-            VideoInfo v = TestDataSource.EzvizDataSource.GetData18();
+            VideoInfo v = TestDataSource.EzvizDataSource.GetData19();
             dicVideoInfos[v.DVSNumber] = v;
             //v = TestDataSource.TestDataSource.GetYSDVSData2();
             //dicVideoInfos[v.DVSNumber] = v;
