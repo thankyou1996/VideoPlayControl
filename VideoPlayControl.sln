@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoPlayControl", "VideoPlayControl\VideoPlayControl.csproj", "{8410BDF8-2F6C-4BD1-A602-037DD86072F2}"
 EndProject
@@ -18,6 +18,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoPlayControl_UseDemo2", "VideoPlayControl_UseDemo2\VideoPlayControl_UseDemo2.csproj", "{CF6BF7A2-FD88-4577-B194-9C875248E7C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoPlayControl_UserDemo1", "VideoPlayControl_UserDemo1\VideoPlayControl_UserDemo1.csproj", "{A9EB3B90-CDD9-47AF-B792-E6D873F2622A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoPlayControl_RemotePlayback", "VideoPlayControl_RemotePlayback\VideoPlayControl_RemotePlayback.csproj", "{D6C7F91F-D7DF-4397-8CAD-B5FC7CC9E3A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoCurrencyModule", "VideoCurrencyModule\VideoCurrencyModule.csproj", "{C294576F-41C9-4CF8-97A3-643DDBE87E24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoCurrencyModuleTests", "VideoCurrencyModuleTests\VideoCurrencyModuleTests.csproj", "{961D0136-0344-4E3F-8854-B9751F05BD5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +97,30 @@ Global
 		{A9EB3B90-CDD9-47AF-B792-E6D873F2622A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A9EB3B90-CDD9-47AF-B792-E6D873F2622A}.Release|x86.ActiveCfg = Release|x86
 		{A9EB3B90-CDD9-47AF-B792-E6D873F2622A}.Release|x86.Build.0 = Release|x86
+		{D6C7F91F-D7DF-4397-8CAD-B5FC7CC9E3A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6C7F91F-D7DF-4397-8CAD-B5FC7CC9E3A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6C7F91F-D7DF-4397-8CAD-B5FC7CC9E3A9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D6C7F91F-D7DF-4397-8CAD-B5FC7CC9E3A9}.Debug|x86.Build.0 = Debug|Any CPU
+		{D6C7F91F-D7DF-4397-8CAD-B5FC7CC9E3A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6C7F91F-D7DF-4397-8CAD-B5FC7CC9E3A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6C7F91F-D7DF-4397-8CAD-B5FC7CC9E3A9}.Release|x86.ActiveCfg = Release|Any CPU
+		{D6C7F91F-D7DF-4397-8CAD-B5FC7CC9E3A9}.Release|x86.Build.0 = Release|Any CPU
+		{C294576F-41C9-4CF8-97A3-643DDBE87E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C294576F-41C9-4CF8-97A3-643DDBE87E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C294576F-41C9-4CF8-97A3-643DDBE87E24}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C294576F-41C9-4CF8-97A3-643DDBE87E24}.Debug|x86.Build.0 = Debug|Any CPU
+		{C294576F-41C9-4CF8-97A3-643DDBE87E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C294576F-41C9-4CF8-97A3-643DDBE87E24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C294576F-41C9-4CF8-97A3-643DDBE87E24}.Release|x86.ActiveCfg = Release|Any CPU
+		{C294576F-41C9-4CF8-97A3-643DDBE87E24}.Release|x86.Build.0 = Release|Any CPU
+		{961D0136-0344-4E3F-8854-B9751F05BD5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{961D0136-0344-4E3F-8854-B9751F05BD5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{961D0136-0344-4E3F-8854-B9751F05BD5B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{961D0136-0344-4E3F-8854-B9751F05BD5B}.Debug|x86.Build.0 = Debug|Any CPU
+		{961D0136-0344-4E3F-8854-B9751F05BD5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{961D0136-0344-4E3F-8854-B9751F05BD5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{961D0136-0344-4E3F-8854-B9751F05BD5B}.Release|x86.ActiveCfg = Release|Any CPU
+		{961D0136-0344-4E3F-8854-B9751F05BD5B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
