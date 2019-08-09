@@ -28,38 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.remoteBackplayProportionControl1 = new VideoPlayControl_RemotePlayback.RemoteBackplayProportionControl();
+            this.pnlFlag = new System.Windows.Forms.Panel();
+            this.proportionInfo = new VideoPlayControl_RemotePlayback.RemoteBackplayProportionControl();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlFlag
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panel1.BackColor = System.Drawing.Color.Red;
-            this.panel1.Location = new System.Drawing.Point(249, 6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2, 79);
-            this.panel1.TabIndex = 0;
+            this.pnlFlag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pnlFlag.BackColor = System.Drawing.Color.Red;
+            this.pnlFlag.Location = new System.Drawing.Point(249, 6);
+            this.pnlFlag.Name = "pnlFlag";
+            this.pnlFlag.Size = new System.Drawing.Size(2, 79);
+            this.pnlFlag.TabIndex = 0;
             // 
-            // remoteBackplayProportionControl1
+            // proportionInfo
             // 
-            this.remoteBackplayProportionControl1.BackColor = System.Drawing.Color.Red;
-            this.remoteBackplayProportionControl1.Location = new System.Drawing.Point(0, 6);
-            this.remoteBackplayProportionControl1.Name = "remoteBackplayProportionControl1";
-            this.remoteBackplayProportionControl1.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.remoteBackplayProportionControl1.Size = new System.Drawing.Size(500, 70);
-            this.remoteBackplayProportionControl1.TabIndex = 1;
-            this.remoteBackplayProportionControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RemoteBackplayProportionControl1_MouseDown);
-            this.remoteBackplayProportionControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RemoteBackplayProportionControl1_MouseMove);
-            this.remoteBackplayProportionControl1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RemoteBackplayProportionControl1_MouseUp);
+            this.proportionInfo.BackColor = System.Drawing.Color.Red;
+            this.proportionInfo.Location = new System.Drawing.Point(0, 6);
+            this.proportionInfo.Name = "proportionInfo";
+            this.proportionInfo.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.proportionInfo.Size = new System.Drawing.Size(500, 70);
+            this.proportionInfo.TabIndex = 1;
+            this.proportionInfo.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ProportionInfo_MouseDoubleClick);
+            this.proportionInfo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RemoteBackplayProportionControl1_MouseDown);
+            this.proportionInfo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RemoteBackplayProportionControl1_MouseMove);
+            this.proportionInfo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RemoteBackplayProportionControl1_MouseUp);
             // 
             // RemoteBackplayControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.remoteBackplayProportionControl1);
+            this.Controls.Add(this.pnlFlag);
+            this.Controls.Add(this.proportionInfo);
             this.Name = "RemoteBackplayControl";
             this.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.Size = new System.Drawing.Size(500, 84);
@@ -70,7 +71,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private RemoteBackplayProportionControl remoteBackplayProportionControl1;
+        private System.Windows.Forms.Panel pnlFlag;
+        private RemoteBackplayProportionControl proportionInfo;
     }
 }

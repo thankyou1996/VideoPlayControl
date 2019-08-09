@@ -32,6 +32,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.remoteBackplayControl1 = new VideoPlayControl_RemotePlayback.RemoteBackplayControl();
             this.remoteBackplayInfoControl1 = new VideoPlayControl_RemotePlayback.RemoteBackplayProportionControl();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,8 +66,10 @@
             // remoteBackplayControl1
             // 
             this.remoteBackplayControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
+            this.remoteBackplayControl1.CurrentPositionDateTime = new System.DateTime(((long)(0)));
             this.remoteBackplayControl1.Location = new System.Drawing.Point(55, 91);
             this.remoteBackplayControl1.Name = "remoteBackplayControl1";
+            this.remoteBackplayControl1.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.remoteBackplayControl1.Size = new System.Drawing.Size(661, 93);
             this.remoteBackplayControl1.TabIndex = 2;
             this.remoteBackplayControl1.Click += new System.EventHandler(this.RemoteBackplayControl1_Click);
@@ -69,16 +77,73 @@
             // remoteBackplayInfoControl1
             // 
             this.remoteBackplayInfoControl1.BackColor = System.Drawing.Color.Red;
-            this.remoteBackplayInfoControl1.Location = new System.Drawing.Point(55, 60);
+            this.remoteBackplayInfoControl1.Location = new System.Drawing.Point(55, 33);
             this.remoteBackplayInfoControl1.Name = "remoteBackplayInfoControl1";
-            this.remoteBackplayInfoControl1.Size = new System.Drawing.Size(661, 25);
+            this.remoteBackplayInfoControl1.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.remoteBackplayInfoControl1.Size = new System.Drawing.Size(661, 52);
             this.remoteBackplayInfoControl1.TabIndex = 0;
+            this.remoteBackplayInfoControl1.Click += new System.EventHandler(this.RemoteBackplayInfoControl1_Click);
+            this.remoteBackplayInfoControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.RemoteBackplayInfoControl1_MouseClick);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Location = new System.Drawing.Point(259, 205);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1, 60);
+            this.panel1.TabIndex = 4;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Location = new System.Drawing.Point(298, 218);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1, 35);
+            this.panel2.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel3.Location = new System.Drawing.Point(337, 218);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1, 35);
+            this.panel3.TabIndex = 4;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel4.Location = new System.Drawing.Point(376, 218);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1, 35);
+            this.panel4.TabIndex = 4;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel5.Location = new System.Drawing.Point(415, 218);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1, 35);
+            this.panel5.TabIndex = 4;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel6.Location = new System.Drawing.Point(454, 205);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1, 60);
+            this.panel6.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 300);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.remoteBackplayControl1);
             this.Controls.Add(this.button1);
@@ -97,6 +162,12 @@
         private System.Windows.Forms.Button button1;
         private VideoPlayControl_RemotePlayback.RemoteBackplayControl remoteBackplayControl1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }
 

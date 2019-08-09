@@ -89,7 +89,6 @@ namespace VideoPlayControl_RemotePlayback_UseDemo
         private void RemoteBackplayControl1_Click(object sender, EventArgs e)
         {
 
-            //Console.WriteLine("123");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -110,6 +109,18 @@ namespace VideoPlayControl_RemotePlayback_UseDemo
             {
                 pictureBox1.Width = pictureBox1.Width / 2;
             }
+        }
+
+        private void RemoteBackplayInfoControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RemoteBackplayInfoControl1_MouseClick(object sender, MouseEventArgs e)
+        {
+            long l = remoteBackplayInfoControl1.Get(e.X);
+            Console.WriteLine(VideoCurrencyModule.PubMethod.UnixMillisecondsTimestampToDateTime(l));
+            ;
         }
     }
 }

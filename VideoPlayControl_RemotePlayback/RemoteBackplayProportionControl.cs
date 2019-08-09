@@ -59,11 +59,6 @@ namespace VideoPlayControl_RemotePlayback
             }
         }
 
-        public void SetRemoteBackplayInfo_(VideoChannelRemoteBackplayInfo value)
-        {
-            Graphics g = pictureBox1.CreateGraphics();
-            Rectangle r = new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height);
-        }
 
         public int GetPosition(long lStart, long lEnd, long lTimeSpan, int intValue)
         {
@@ -94,6 +89,24 @@ namespace VideoPlayControl_RemotePlayback
 
         }
 
+        public long Get( int intPosition)
+        {
+            long result = 1;
+            //1.位置
+            //2.宽度
+            long lStart = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemoteBackplayInfo.StartTime);
+            long lEnd = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemoteBackplayInfo.EndTime);
+            long Temp_value1 = lEnd - lStart;
+            double Temp_dbl = (double)intPosition / this.Width;
+            result = Convert.ToInt64(Temp_value1 * Temp_dbl);
+            result = lStart + result;
+            return result;
+            
+        }
+
+
+        #region 控件事件
+
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             this.OnMouseDown(e);
@@ -112,6 +125,18 @@ namespace VideoPlayControl_RemotePlayback
         private void PictureBox1_MouseWheel(object sender, MouseEventArgs e)
         {
             this.OnMouseWheel(e);
+        }
+
+
+        private void PictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.OnMouseClick(e);
+        }
+        #endregion
+
+        private void PictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.OnMouseDoubleClick(e);
         }
     }
 }
