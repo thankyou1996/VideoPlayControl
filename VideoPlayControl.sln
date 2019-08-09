@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoCurrencyModule", "Vide
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoCurrencyModuleTests", "VideoCurrencyModuleTests\VideoCurrencyModuleTests.csproj", "{961D0136-0344-4E3F-8854-B9751F05BD5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoPlayControl_RemotePlayback_UseDemo", "VideoPlayControl_RemotePlayback_UseDemo\VideoPlayControl_RemotePlayback_UseDemo.csproj", "{255BCD5D-1DA1-4A86-A2EE-B5F148221650}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,14 @@ Global
 		{961D0136-0344-4E3F-8854-B9751F05BD5B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{961D0136-0344-4E3F-8854-B9751F05BD5B}.Release|x86.ActiveCfg = Release|Any CPU
 		{961D0136-0344-4E3F-8854-B9751F05BD5B}.Release|x86.Build.0 = Release|Any CPU
+		{255BCD5D-1DA1-4A86-A2EE-B5F148221650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{255BCD5D-1DA1-4A86-A2EE-B5F148221650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{255BCD5D-1DA1-4A86-A2EE-B5F148221650}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{255BCD5D-1DA1-4A86-A2EE-B5F148221650}.Debug|x86.Build.0 = Debug|Any CPU
+		{255BCD5D-1DA1-4A86-A2EE-B5F148221650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{255BCD5D-1DA1-4A86-A2EE-B5F148221650}.Release|Any CPU.Build.0 = Release|Any CPU
+		{255BCD5D-1DA1-4A86-A2EE-B5F148221650}.Release|x86.ActiveCfg = Release|Any CPU
+		{255BCD5D-1DA1-4A86-A2EE-B5F148221650}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
