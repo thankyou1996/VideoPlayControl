@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PubMehtod.cs" />
     <Compile Include="RemoteBackplayControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
