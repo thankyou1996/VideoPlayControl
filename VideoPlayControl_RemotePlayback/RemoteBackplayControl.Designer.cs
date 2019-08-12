@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlFlag = new System.Windows.Forms.Panel();
             this.proportionInfo = new VideoPlayControl_RemotePlayback.RemoteBackplayProportionControl();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // pnlFlag
@@ -44,6 +46,7 @@
             // proportionInfo
             // 
             this.proportionInfo.BackColor = System.Drawing.Color.Red;
+            this.proportionInfo.CurrentRemoteBackplayInfo = null;
             this.proportionInfo.Location = new System.Drawing.Point(0, 6);
             this.proportionInfo.Name = "proportionInfo";
             this.proportionInfo.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
@@ -73,5 +76,6 @@
 
         private System.Windows.Forms.Panel pnlFlag;
         private RemoteBackplayProportionControl proportionInfo;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

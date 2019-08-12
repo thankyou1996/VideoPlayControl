@@ -73,34 +73,29 @@ namespace VideoPlayControl_RemotePlayback
                 {
                     return;
                 }
-                Console.WriteLine("Big " + (i + 1) + " :" + Temp_intxxx);
                 Panel p = new Panel();
                 p.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
                 p.Location = new System.Drawing.Point(Temp_intxxx, 15);
                 p.Name = "panel1";
                 p.Size = new System.Drawing.Size(1, 65);
+                pictureBox1.Controls.Add(p);
 
-                //Panel p = new Panel();
-                //p.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-                //p.Location = new System.Drawing.Point(Temp_intxxx, 15);
-                //p.Name = "panel1";
-                //p.Size = new System.Drawing.Size(89, 12);
-
-                //pictureBox1.Controls.Add(p);
                 Label lbl = new Label();
-                //lbl.BackColor = System.Drawing.Color.Transparent;
+                lbl.BackColor = System.Drawing.Color.Transparent;
                 lbl.ForeColor = System.Drawing.Color.White;
                 lbl.BackColor = Color.FromArgb(0, 0, 0, 0);
                 lbl.Location = new System.Drawing.Point((Temp_intxxx - Temp_intssss), 7);
                 lbl.Name = "lbl";
                 lbl.Size = new System.Drawing.Size(89, 12);
                 lbl.TabIndex = 5;
-                lbl.Text = "08-09 21:02:01";
+                long l = Get(Temp_intxxx);
+                DateTime timFlagValue = VideoCurrencyModule.PubMethod.UnixMillisecondsTimestampToDateTime(l);
+
+                lbl.Text = timFlagValue.ToString("MM-dd HH:mm:ss");
                 pictureBox1.Controls.Add(lbl);
                 for (int j = 1; j < 5; j++)
                 {
                     int Temp_intyyyy = (j * Temp_inti);
-                    Console.WriteLine("Min " + (j + 1) + " :" + Temp_intyyyy);
                     Panel pp = new Panel();
                     pp.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
                     pp.Location = new System.Drawing.Point(Temp_intxxx + Temp_intyyyy, 35);

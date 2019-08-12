@@ -34,16 +34,26 @@ namespace VideoPlayControl_RemotePlayback
             }
         }
 
-        private void SetCurrentPositionDateTime(DateTime value)
+        public void SetCurrentPositionDateTime(DateTime value)
         {
-            if (currentPositionDateTime != value)
+            if (CurrentRemoteBackplayInfo == null)
             {
-                currentPositionDateTime = value;
-                Console.WriteLine("SetCurrentPositionDateTime:" + currentPositionDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
-                if (PositionDateTimeChangedEvent != null)
-                {
-                    PositionDateTimeChangedEvent(this, null);
-                }
+                return;
+            }
+            currentPositionDateTime = value;
+            long lStart = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemoteBackplayInfo.StartTime);
+            long lEnd = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemoteBackplayInfo.EndTime);
+            long Temp_value1 = lEnd - lStart;
+            long Temp_setValue = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(value);
+            long Temp_value2 = Temp_setValue - lStart;
+            double Temp_dbl = (double)Temp_value2 / Temp_value1;
+            int Temp_int = Convert.ToInt32(proportionInfo.Width * Temp_dbl);
+            proportionInfo.Location = new Point { X = pnlFlag.Location.X - Temp_int, Y=proportionInfo.Location.Y };
+            toolTip1.Show(value.ToString("MM-dd HH:mm:ss"), pnlFlag, 3000);
+            SetRemoteBackplayInfo(CurrentRemoteBackplayInfo);
+            if (PositionDateTimeChangedEvent != null)
+            {
+                PositionDateTimeChangedEvent(this, null);
             }
         }
 
@@ -69,12 +79,13 @@ namespace VideoPlayControl_RemotePlayback
 
         public void SetRemoteBackplayInfo(VideoChannelRemoteBackplayInfo value)
         {
+
+            proportionInfo.SetRemoteBackplayInfo(value);
             if (currentRemoteBackplayInfo != value)
             {
+                currentRemoteBackplayInfo = value;
                 proportionInfo.SetRemoteBackplayInfo_Scale(this.Width / 6);
             }
-            currentRemoteBackplayInfo = value;
-            proportionInfo.SetRemoteBackplayInfo(value);
         }
 
         int intInitialWidth = 0;
@@ -101,33 +112,31 @@ namespace VideoPlayControl_RemotePlayback
         {
             bolFlag1 = true;
             Temp_intX = e.X;
-
-            //StringBuilder sbDisplayInfo = new StringBuilder();
-            //sbDisplayInfo.Append("MouseDown" + DateTime.Now.ToString("mm:ss:fff"));
-            //sbDisplayInfo.Append("e.X:" + e.X + ";e.Y：" + e.Y);
-            //Console.WriteLine(sbDisplayInfo.ToString());
         }
 
         private void RemoteBackplayProportionControl1_MouseUp(object sender, MouseEventArgs e)
         {
             bolFlag1 = false;
+            DateTime timSet = GetFlagDateTime();
             //如果文件头尾超过中间，复位
             if (proportionInfo.Location.X > pnlFlag.Location.X)
             {
                 //起始事件超过中间线
-                proportionInfo.Location = new Point { X = pnlFlag.Location.X, Y = proportionInfo.Location.Y };
+                //proportionInfo.Location = new Point { X = pnlFlag.Location.X, Y = proportionInfo.Location.Y };
+                timSet = currentRemoteBackplayInfo.StartTime;
 
             }
             else if ((proportionInfo.Location.X + proportionInfo.Width) < pnlFlag.Location.X)
             {
                 //终止事件小于中间线
-                proportionInfo.Location = new Point { X = (pnlFlag.Location.X - proportionInfo.Width) + 10, Y = proportionInfo.Location.Y };
+                //proportionInfo.Location = new Point { X = (pnlFlag.Location.X - proportionInfo.Width) + 10, Y = proportionInfo.Location.Y };
+                timSet = currentRemoteBackplayInfo.EndTime.AddSeconds(-60);
             }
             CommonMethod.Common.Delay_Millisecond(10);
             SetRemoteBackplayInfo(currentRemoteBackplayInfo);
 
             //当前中间的时间值
-            SetCurrentPositionDateTime(GetFlagDateTime());
+            SetCurrentPositionDateTime(timSet);
         }
 
         private void RemoteBackplayProportionControl1_MouseMove(object sender, MouseEventArgs e)
@@ -139,27 +148,45 @@ namespace VideoPlayControl_RemotePlayback
                 SetRemoteBackplayInfo(currentRemoteBackplayInfo);
             }
         }
+        bool bolMouseWheel = false;
 
         private void RemoteBackplayProportionControl1_MouseWheel(object sender, MouseEventArgs e)
         {
+            if (bolMouseWheel)
+            {
+                return;
+            }
+            bolMouseWheel = true;
+            DateTime Temp_current = GetFlagDateTime();
             if (e.Delta > 0)
             {
                 if (proportionInfo.Width < MaxWitdh)
                 {
                     proportionInfo.Width = proportionInfo.Width * 2;
+                    SetCurrentPositionDateTime(Temp_current);
                     proportionInfo.SetRemoteBackplayInfo_Scale(this.Width / 6);
+                    this.BeginInvoke(new EventHandler(delegate
+                    {
+                        CommonMethod.Common.Delay_Millisecond(100);
+                        SetRemoteBackplayInfo(CurrentRemoteBackplayInfo);
+                    }));
                 }
-                
             }
             else
             {
                 if (proportionInfo.Width > intInitialWidth)
                 {
                     proportionInfo.Width = proportionInfo.Width / 2;
+                    SetCurrentPositionDateTime(Temp_current);
                     proportionInfo.SetRemoteBackplayInfo_Scale(this.Width / 6);
+                    this.BeginInvoke(new EventHandler(delegate
+                    {
+                        CommonMethod.Common.Delay_Millisecond(100);
+                        SetRemoteBackplayInfo(CurrentRemoteBackplayInfo);
+                    }));
                 }
             }
-            SetRemoteBackplayInfo(currentRemoteBackplayInfo);
+            bolMouseWheel = false;
         }
 
         private void ProportionInfo_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -176,39 +203,6 @@ namespace VideoPlayControl_RemotePlayback
             long lResult = proportionInfo.Get(Temp_value);
             DateTime tim = VideoCurrencyModule.PubMethod.UnixMillisecondsTimestampToDateTime(lResult);
             return tim;
-        }
-        public void Teset()
-        {
-            return;
-            int Temp_int = this.Width / 6;
-
-            int Temp_inti = (Temp_int + 5) / 5;
-            for (int i = 0; i <= 506; i++)
-            {
-                int Temp_intxxx = (i * Temp_int);
-                if (Temp_intxxx > proportionInfo.Width)
-                {
-                    return;
-                }
-                Console.WriteLine("Big " + (i + 1) + " :" + Temp_intxxx);
-                Panel p = new Panel();
-                p.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-                p.Location = new System.Drawing.Point(Temp_intxxx, 15);
-                p.Name = "panel1";
-                p.Size = new System.Drawing.Size(1, 65);
-                proportionInfo.ControlsAdd(p);
-                for (int j = 1; j < 5; j++)
-                {
-                    int Temp_intyyyy = (j * Temp_inti);
-                    Console.WriteLine("Min " + (j + 1) + " :" + Temp_intyyyy);
-                    Panel pp = new Panel();
-                    pp.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-                    pp.Location = new System.Drawing.Point(Temp_intxxx + Temp_intyyyy, 35);
-                    pp.Name = "panel2";
-                    pp.Size = new System.Drawing.Size(1, 35);
-                    proportionInfo.ControlsAdd(pp);
-                }
-            }
         }
 
     }

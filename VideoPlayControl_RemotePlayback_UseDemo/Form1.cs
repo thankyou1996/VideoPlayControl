@@ -32,14 +32,14 @@ namespace VideoPlayControl_RemotePlayback_UseDemo
             });
             FileInfo.Add(new RemoteBackplayFileInfo
             {
-                StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-8)),
-                EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-7)),
+                StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-10)),
+                EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-4)),
             });
 
             FileInfo.Add(new RemoteBackplayFileInfo
             {
                 StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-4)),
-                EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-2)),
+                EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-1)),
             });
             VideoChannelRemoteBackplayInfo channelInfo = new VideoChannelRemoteBackplayInfo
             {
@@ -49,7 +49,6 @@ namespace VideoPlayControl_RemotePlayback_UseDemo
             };
             remoteBackplayInfoControl1.SetRemoteBackplayInfo(channelInfo);
             remoteBackplayControl1.SetRemoteBackplayInfo(channelInfo);
-            remoteBackplayControl1.Teset();
         }
         bool bolFlag1 = false;
         int Temp_intX = 0;
@@ -177,6 +176,22 @@ namespace VideoPlayControl_RemotePlayback_UseDemo
 
             //    }
             //}
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            remoteBackplayControl1.SetCurrentPositionDateTime(dateTimePicker1.Value);
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            dateTimePicker2.Value = remoteBackplayControl1.GetFlagDateTime();
+            
         }
     }
 }
