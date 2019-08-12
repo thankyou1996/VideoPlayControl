@@ -36,7 +36,8 @@ namespace VideoPlayControl_RemotePlayback
         public void SetRemoteBackplayInfo(VideoChannelRemoteBackplayInfo value)
         {
             currentRemoteBackplayInfo = value;
-            if (value.BackplayFiles != null)
+
+            if (value!= null)
             {
                 //文件信息进行排序
                 List<RemoteBackplayFileInfo> lstBackplayFile = value.BackplayFiles.OrderBy(item => item.StartTimeStamp).ToList();
@@ -45,7 +46,7 @@ namespace VideoPlayControl_RemotePlayback
                 int intMaxValue = this.Width;
                 Graphics g = pictureBox1.CreateGraphics();
                 Rectangle r = new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height);
-                SolidBrush brush = new SolidBrush(Color.White);
+                SolidBrush brush = new SolidBrush(Color.FromArgb(66, 66, 66));
                 g.FillRectangle(brush, r);
                 foreach (RemoteBackplayFileInfo item in lstBackplayFile)
                 {
@@ -59,6 +60,61 @@ namespace VideoPlayControl_RemotePlayback
             }
         }
 
+
+        public void SetRemoteBackplayInfo_Scale(int intWidth)
+        {
+            pictureBox1.Controls.Clear();
+            int Temp_inti = (intWidth + 5) / 5;
+            int Temp_intssss = 45;
+            for (int i = 0; i <= 506; i++)
+            {
+                int Temp_intxxx = (i * intWidth);
+                if (Temp_intxxx > pictureBox1.Width)
+                {
+                    return;
+                }
+                Console.WriteLine("Big " + (i + 1) + " :" + Temp_intxxx);
+                Panel p = new Panel();
+                p.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+                p.Location = new System.Drawing.Point(Temp_intxxx, 15);
+                p.Name = "panel1";
+                p.Size = new System.Drawing.Size(1, 65);
+
+                //Panel p = new Panel();
+                //p.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+                //p.Location = new System.Drawing.Point(Temp_intxxx, 15);
+                //p.Name = "panel1";
+                //p.Size = new System.Drawing.Size(89, 12);
+
+                //pictureBox1.Controls.Add(p);
+                Label lbl = new Label();
+                //lbl.BackColor = System.Drawing.Color.Transparent;
+                lbl.ForeColor = System.Drawing.Color.White;
+                lbl.BackColor = Color.FromArgb(0, 0, 0, 0);
+                lbl.Location = new System.Drawing.Point((Temp_intxxx - Temp_intssss), 7);
+                lbl.Name = "lbl";
+                lbl.Size = new System.Drawing.Size(89, 12);
+                lbl.TabIndex = 5;
+                lbl.Text = "08-09 21:02:01";
+                pictureBox1.Controls.Add(lbl);
+                for (int j = 1; j < 5; j++)
+                {
+                    int Temp_intyyyy = (j * Temp_inti);
+                    Console.WriteLine("Min " + (j + 1) + " :" + Temp_intyyyy);
+                    Panel pp = new Panel();
+                    pp.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+                    pp.Location = new System.Drawing.Point(Temp_intxxx + Temp_intyyyy, 35);
+                    pp.Name = "panel2";
+                    pp.Size = new System.Drawing.Size(1, 35);
+                    pictureBox1.Controls.Add(pp);
+                }
+            }
+        }
+
+        public void SetRemoteBackplayInfo_ScaleTextInfo()
+        {
+
+        }
 
         public int GetPosition(long lStart, long lEnd, long lTimeSpan, int intValue)
         {
@@ -104,6 +160,11 @@ namespace VideoPlayControl_RemotePlayback
             
         }
 
+
+        public void ControlsAdd(Control c)
+        {
+            pictureBox1.Controls.Add(c);
+        }
 
         #region 控件事件
 

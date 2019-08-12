@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VideoCurrencyModule.RemotePlayback
 {
-    public struct VideoChannelRemoteBackplayInfo
+    public class VideoChannelRemoteBackplayInfo
     {
         /// <summary>
         /// 通道信息

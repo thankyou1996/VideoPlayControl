@@ -69,6 +69,10 @@ namespace VideoPlayControl_RemotePlayback
 
         public void SetRemoteBackplayInfo(VideoChannelRemoteBackplayInfo value)
         {
+            if (currentRemoteBackplayInfo != value)
+            {
+                proportionInfo.SetRemoteBackplayInfo_Scale(this.Width / 6);
+            }
             currentRemoteBackplayInfo = value;
             proportionInfo.SetRemoteBackplayInfo(value);
         }
@@ -143,6 +147,7 @@ namespace VideoPlayControl_RemotePlayback
                 if (proportionInfo.Width < MaxWitdh)
                 {
                     proportionInfo.Width = proportionInfo.Width * 2;
+                    proportionInfo.SetRemoteBackplayInfo_Scale(this.Width / 6);
                 }
                 
             }
@@ -151,6 +156,7 @@ namespace VideoPlayControl_RemotePlayback
                 if (proportionInfo.Width > intInitialWidth)
                 {
                     proportionInfo.Width = proportionInfo.Width / 2;
+                    proportionInfo.SetRemoteBackplayInfo_Scale(this.Width / 6);
                 }
             }
             SetRemoteBackplayInfo(currentRemoteBackplayInfo);
@@ -171,5 +177,39 @@ namespace VideoPlayControl_RemotePlayback
             DateTime tim = VideoCurrencyModule.PubMethod.UnixMillisecondsTimestampToDateTime(lResult);
             return tim;
         }
+        public void Teset()
+        {
+            return;
+            int Temp_int = this.Width / 6;
+
+            int Temp_inti = (Temp_int + 5) / 5;
+            for (int i = 0; i <= 506; i++)
+            {
+                int Temp_intxxx = (i * Temp_int);
+                if (Temp_intxxx > proportionInfo.Width)
+                {
+                    return;
+                }
+                Console.WriteLine("Big " + (i + 1) + " :" + Temp_intxxx);
+                Panel p = new Panel();
+                p.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+                p.Location = new System.Drawing.Point(Temp_intxxx, 15);
+                p.Name = "panel1";
+                p.Size = new System.Drawing.Size(1, 65);
+                proportionInfo.ControlsAdd(p);
+                for (int j = 1; j < 5; j++)
+                {
+                    int Temp_intyyyy = (j * Temp_inti);
+                    Console.WriteLine("Min " + (j + 1) + " :" + Temp_intyyyy);
+                    Panel pp = new Panel();
+                    pp.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+                    pp.Location = new System.Drawing.Point(Temp_intxxx + Temp_intyyyy, 35);
+                    pp.Name = "panel2";
+                    pp.Size = new System.Drawing.Size(1, 35);
+                    proportionInfo.ControlsAdd(pp);
+                }
+            }
+        }
+
     }
 }
