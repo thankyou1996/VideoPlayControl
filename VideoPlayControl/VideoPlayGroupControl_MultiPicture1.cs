@@ -60,6 +60,7 @@ namespace VideoPlayControl
         }
 
         #endregion
+
         #region 事件委托 
         private event VideoPlayCallbackDelegate videoPlayCallbaclEvent;
         /// <summary>

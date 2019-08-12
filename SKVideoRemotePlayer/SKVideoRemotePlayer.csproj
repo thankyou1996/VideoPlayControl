@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{255BCD5D-1DA1-4A86-A2EE-B5F148221650}</ProjectGuid>
+    <ProjectGuid>{6BBA392F-1A55-4E13-BDA4-252571F48E61}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>VideoPlayControl_RemotePlayback_UseDemo</RootNamespace>
-    <AssemblyName>VideoPlayControl_RemotePlayback_UseDemo</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>SKVideoRemotePlayer</RootNamespace>
+    <AssemblyName>SKVideoRemotePlayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,28 +35,37 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PublicClassCurrency, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="CommonMethod">
+      <HintPath>..\VideoPlayControl\dll_Libary\CommonMethod.dll</HintPath>
+    </Reference>
+    <Reference Include="PublicClassCurrency">
       <HintPath>..\VideoPlayControl\dll_Libary\PublicClassCurrency.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="VideoCurrencyModule">
+      <HintPath>..\VideoCurrencyModule\bin\Debug\VideoCurrencyModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -67,9 +75,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,12 +87,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VideoCurrencyModule\VideoCurrencyModule.csproj">
-      <Project>{c294576f-41c9-4cf8-97a3-643ddbe87e24}</Project>
-      <Name>VideoCurrencyModule</Name>
+    <ProjectReference Include="..\TestDataSource\TestDataSource.csproj">
+      <Project>{c1d7eee4-ed8d-4336-bdd3-b3ff3ae7f0bf}</Project>
+      <Name>TestDataSource</Name>
     </ProjectReference>
     <ProjectReference Include="..\VideoPlayControl_RemotePlayback\VideoPlayControl_RemotePlayback.csproj">
-      <Project>{d6c7f91f-d7df-4397-8cad-b5fc7cc9e3a9}</Project>
+      <Project>{D6C7F91F-D7DF-4397-8CAD-B5FC7CC9E3A9}</Project>
       <Name>VideoPlayControl_RemotePlayback</Name>
     </ProjectReference>
   </ItemGroup>

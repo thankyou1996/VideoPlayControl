@@ -43,12 +43,18 @@ namespace VideoPlayControl_RemotePlayback_UseDemo
             });
             VideoChannelRemoteBackplayInfo channelInfo = new VideoChannelRemoteBackplayInfo
             {
+                ChnnelInfo = new PublicClassCurrency.CameraInfo
+                {
+                    Channel = 1,
+                    CameraName = "通道1"
+                },
                 StartTime = DateTime.Now.AddHours(-12),
                 EndTime = DateTime.Now,
                 BackplayFiles = FileInfo,
             };
             remoteBackplayInfoControl1.SetRemoteBackplayInfo(channelInfo);
             remoteBackplayControl1.SetRemoteBackplayInfo(channelInfo);
+            channelRemoteBackplayInfo1.SetRemoteBackplayInfo(channelInfo);
         }
         bool bolFlag1 = false;
         int Temp_intX = 0;

@@ -16,6 +16,18 @@ namespace VideoPlayControl_RemotePlayback
         {
             InitializeComponent();
         }
+
+        #region 属性
+
+        /// <summary>
+        /// 颜色
+        /// </summary>
+        public Color MainColor
+        {
+            get { return pictureBox1.BackColor; }
+            set { pictureBox1.BackColor = value; }
+        }
+        #endregion
         private void RemoteBackplayProportionControl_Load(object sender, EventArgs e)
         {
             pictureBox1.MouseWheel += PictureBox1_MouseWheel;
@@ -46,7 +58,7 @@ namespace VideoPlayControl_RemotePlayback
                 int intMaxValue = this.Width;
                 Graphics g = pictureBox1.CreateGraphics();
                 Rectangle r = new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height);
-                SolidBrush brush = new SolidBrush(Color.FromArgb(66, 66, 66));
+                SolidBrush brush = new SolidBrush(pictureBox1.BackColor);
                 g.FillRectangle(brush, r);
                 foreach (RemoteBackplayFileInfo item in lstBackplayFile)
                 {
@@ -193,6 +205,16 @@ namespace VideoPlayControl_RemotePlayback
         private void PictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.OnMouseDoubleClick(e);
+        }
+
+        private void PictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            if (this.currentRemoteBackplayInfo != null)
+            {
+                Console.WriteLine("PictureBox1_Paint:" + this.currentRemoteBackplayInfo.ChnnelInfo.Channel);
+            }
+            SetRemoteBackplayInfo(currentRemoteBackplayInfo);
+            this.OnPaint(e);
         }
     }
 }

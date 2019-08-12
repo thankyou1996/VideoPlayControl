@@ -51,6 +51,7 @@
             this.remoteBackplayControl1 = new VideoPlayControl_RemotePlayback.RemoteBackplayControl();
             this.remoteBackplayInfoControl1 = new VideoPlayControl_RemotePlayback.RemoteBackplayProportionControl();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.channelRemoteBackplayInfo1 = new VideoPlayControl_RemotePlayback.ChannelRemoteBackplayInfo();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -169,7 +170,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Green;
             this.pictureBox2.Location = new System.Drawing.Point(200, 345);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(506, 103);
+            this.pictureBox2.Size = new System.Drawing.Size(506, 47);
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBox2_Paint);
@@ -179,7 +180,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(254, 384);
+            this.label3.Location = new System.Drawing.Point(382, 355);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 7;
@@ -190,7 +191,7 @@
             this.panel9.BackColor = System.Drawing.Color.Transparent;
             this.panel9.Location = new System.Drawing.Point(448, 355);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(200, 59);
+            this.panel9.Size = new System.Drawing.Size(200, 23);
             this.panel9.TabIndex = 10;
             // 
             // button2
@@ -260,6 +261,7 @@
             this.remoteBackplayInfoControl1.BackColor = System.Drawing.Color.Red;
             this.remoteBackplayInfoControl1.CurrentRemoteBackplayInfo = null;
             this.remoteBackplayInfoControl1.Location = new System.Drawing.Point(55, 33);
+            this.remoteBackplayInfoControl1.MainColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.remoteBackplayInfoControl1.Name = "remoteBackplayInfoControl1";
             this.remoteBackplayInfoControl1.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.remoteBackplayInfoControl1.Size = new System.Drawing.Size(661, 52);
@@ -267,11 +269,20 @@
             this.remoteBackplayInfoControl1.Click += new System.EventHandler(this.RemoteBackplayInfoControl1_Click);
             this.remoteBackplayInfoControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.RemoteBackplayInfoControl1_MouseClick);
             // 
+            // channelRemoteBackplayInfo1
+            // 
+            this.channelRemoteBackplayInfo1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.channelRemoteBackplayInfo1.Location = new System.Drawing.Point(191, 398);
+            this.channelRemoteBackplayInfo1.Name = "channelRemoteBackplayInfo1";
+            this.channelRemoteBackplayInfo1.Size = new System.Drawing.Size(578, 26);
+            this.channelRemoteBackplayInfo1.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 545);
+            this.Controls.Add(this.channelRemoteBackplayInfo1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
@@ -321,6 +332,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.ToolTip toolTip1;
+        private VideoPlayControl_RemotePlayback.ChannelRemoteBackplayInfo channelRemoteBackplayInfo1;
     }
 }
 
