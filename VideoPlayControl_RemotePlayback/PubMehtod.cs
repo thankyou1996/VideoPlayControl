@@ -34,6 +34,7 @@ namespace VideoPlayControl_RemotePlayback
                 strLine = m_streamReader.ReadLine();
             }
             m_streamReader.Close();
+            fs.Close();
             return result;
         }
 
