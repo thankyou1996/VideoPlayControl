@@ -58,11 +58,24 @@ namespace VideoCurrencyModule.RemotePlayback
             }
         }
 
+        /// <summary>
+        /// 写入完全
+        /// </summary>
+        public bool WriteOK
+        {
+            get;
+            set;
+        }
 
+        /// <summary>
+        /// 文件长度
+        /// </summary>
+        public int FileLength
+        {
+            get;
+            set;
 
-
-
-
+        }
 
 
     }
