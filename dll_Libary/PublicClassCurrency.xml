@@ -1,0 +1,1120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PublicClassCurrency</name>
+    </assembly>
+    <members>
+        <member name="T:PublicClassCurrency.CameraInfo">
+            <summary>
+            摄像头信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.VideoInfo">
+            <summary>
+            视频设备信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.CameraID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strDVSNumber">
+            <summary>
+            视频设备编号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.DVSNumber">
+            <summary>
+            视频设备编号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.intChannel">
+            <summary>
+            摄像头通道号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.Channel">
+            <summary>
+            摄像头通道号
+            181105后接入设备统一通道号由1开始
+            已统一设备 ：智诺（ZL）
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strDVSAddress">
+            <summary>
+            DSV地址/唯一码
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.DVSAddress">
+            <summary>
+            DSV地址/唯一码
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strDVSType">
+            <summary>
+            DVS类型
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.DVSType">
+            <summary>
+            DVS类型
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strCameraName">
+            <summary>
+            摄像头名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.CameraName">
+            <summary>
+            摄像头名称
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strCameraUniqueCode">
+            <summary>
+            设备头唯一码
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.CameraUniqueCode">
+            <summary>
+            设备头唯一码
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.CameraInfo.strPlaneMapName">
+            <summary>
+            平面地图名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.PlaneMapName">
+            <summary>
+            平面地图名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.PlaneMapX">
+            <summary>
+            平面地图X
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.PlaneMapY">
+            <summary>
+            平面地图Y
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.CameraInfo.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.Enum_CordinateSystem1">
+            <summary>
+            坐标系统
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_CordinateSystem1.WGS_84">
+            <summary>
+            大地坐标系统
+            GPS坐标
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_CordinateSystem1.GCJ_02">
+            <summary>
+            火星坐标
+            高德地图，腾讯地图
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_CordinateSystem1.BD_09">
+            <summary>
+            百度坐标
+            百度地图
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.EventRecordID">
+            <summary>
+            事件记录ID
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.EventRecordID.strUserGroupID">
+            <summary>
+            用户组号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.EventRecordID.UserGroupID">
+            <summary>
+            用户组号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.EventRecordID.strHostID">
+            <summary>
+            主机编号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.EventRecordID.HostID">
+            <summary>
+            主机编号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.EventRecordID.strProbeID">
+            <summary>
+            探头编号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.EventRecordID.ProbeID">
+            <summary>
+            探头编号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.EventRecordID.timEventTime">
+            <summary>
+            事件时刻
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.EventRecordID.EventTime">
+            <summary>
+            事件时刻
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.EventRecordID.strEventContent">
+            <summary>
+            事件内容
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.EventRecordID.EventContent">
+            <summary>
+            事件内容
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.HostInstSet">
+            <summary>
+            主机指令设置信息
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.strHostID">
+            <summary>
+            主机编号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.HostID">
+            <summary>
+            主机编号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.intInstAddr">
+            <summary>
+            指令地址
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.InstAddr">
+            <summary>
+            指令地址
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.strInstName">
+            <summary>
+            指令名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.InstName">
+            <summary>
+            指令名称
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.strInstContent">
+            <summary>
+            指令内容
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.InstContent">
+            <summary>
+            指令内容
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.intInstLength">
+            <summary>
+            指令长度
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.InstLength">
+            <summary>
+            指令长度
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.HostInstSet.strPrompt">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.HostInstSet.Prompt">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.MapMarkerPointInfo">
+            <summary>
+            地图标注点信息
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerName">
+            <summary>
+            标注点名称
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerDisplayValue">
+            <summary>
+            标注点显示信息
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerDisplayTag">
+            <summary>
+            标注点标签
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerIconFilePath">
+            <summary>
+            标注点Icon路径
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerIconWidth">
+            <summary>
+            标注点Icon 宽度
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerIconHeight">
+            <summary>
+            标注点Icon 高度
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerFirstDisplayMapLevel">
+            <summary>
+            标注点首次显示地图等级
+            0表示未设置
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapMarkerPointInfo.MarkerPoint">
+            <summary>
+            地图点信息
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.Map.Enum_MapStatus">
+            <summary>
+            地图状态
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Map.MapType1.BaiduOnlineMap">
+            <summary>
+            百度在线地图
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Map.MapType1.SogouOffLineMap">
+            <summary>
+            搜狗离线地图
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Map.IMapControl.mapType">
+            <summary>
+            地图类型
+            </summary>
+        </member>
+        <member name="E:PublicClassCurrency.Map.IMapControl.MapControlLoadEndEvent">
+            <summary>
+            地图加载完成事件
+            </summary>
+        </member>
+        <member name="M:PublicClassCurrency.Map.IMapControl.SetCenterPoint(PublicClassCurrency.MapPointInfo1)">
+            <summary>
+            设置中心点
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PublicClassCurrency.Map.IMapControl.SetMapLevel(PublicClassCurrency.MapPointInfo1)">
+            <summary>
+            设置地图等级
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PublicClassCurrency.Map.IMapControl.SetMapMarker(PublicClassCurrency.MapPointInfo1,System.String)">
+            <summary>
+            设置标注点信息
+            </summary>
+            <param name="point"></param>
+            <param name="strMarkerPicFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PublicClassCurrency.Map.IMapControl.SetMapMarker(PublicClassCurrency.MapMarkerPointInfo)">
+            <summary>
+            显示标注点信息
+            </summary>
+            <param name="marker"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PublicClassCurrency.MapPointInfo1">
+            <summary>
+            地图点信息
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapPointInfo1.dblLon">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapPointInfo1.dblLat">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapPointInfo1.intMapLevel">
+            <summary>
+            地图等级
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.MapPointInfo1.cordinateSyatem">
+            <summary>
+            坐标系统
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:PublicClassCurrency.MapPointInfo1.WGSToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)" -->
+        <member name="M:PublicClassCurrency.MapPointInfo1.WGSToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            WGS-84 转换 BD-09
+            </summary>
+            <param name="wgsLon"></param>
+            <param name="wgsLat"></param>
+            <param name="lng"></param>
+            <param name="lat"></param>
+        </member>
+        <member name="M:PublicClassCurrency.MapPointInfo1.GCJToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            GCJ-02 转换 BD-09
+            </summary>
+            <param name="gcjLon"></param>
+            <param name="gcjLat"></param>
+            <param name="lng"></param>
+            <param name="lat"></param>
+        </member>
+        <member name="M:PublicClassCurrency.MapPointInfo1.GCJToWGS_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+             GCJ-02 转换 WGS-84
+            </summary>
+            <param name="gcjLon"></param>
+            <param name="gcjLat"></param>
+            <param name="wgsLon"></param>
+            <param name="wgsLat"></param>
+        </member>
+        <member name="M:PublicClassCurrency.MapPointInfo1.BDToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+              BD-09 转换 GCJ-02
+            </summary>
+            <param name="bdLon"></param>
+            <param name="bdLat"></param>
+            <param name="gcjLon"></param>
+            <param name="gcjLat"></param>
+        </member>
+        <member name="M:PublicClassCurrency.MapPointInfo1.BDToWGS_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            BD-09 转换 WGS-84
+            </summary>
+            <param name="bdLon"></param>
+            <param name="bdLat"></param>
+            <param name="wgsLon"></param>
+            <param name="wgsLat"></param>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_SerialDeviceType.SK_016">
+            <summary>
+            时刻 016 刷卡器
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.VideoInfo">
+            <summary>
+            摄像机信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.GetStreamInfoEnable">
+            <summary>
+            获取码流信息使能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoType">
+            <summary>
+            视频设备类型
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strDVSNumber">
+            <summary>
+            摄像机编号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSNumber">
+            <summary>
+            摄像机编号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strHostID">
+            <summary>
+            主机编号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.HostID">
+            <summary>
+            主机编号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strDVSType">
+            <summary>
+            DVS类型
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSType">
+            <summary>
+            DVS类型
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strDVSName">
+            <summary>
+            DVS名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSName">
+            <summary>
+            DVS名称
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strDVSAddress">
+            <summary>
+            DSV地址/唯一码
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSAddress">
+            <summary>
+            DSV地址/唯一码
+            与数据库对应
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSUniqueCode">
+            <summary>
+            DVS唯一码
+            注意：此属性用于标识第三方设备原有唯一码情况 
+            大多数情况下与DVSAddress一致，
+            特殊情况下与DvsAddress 不一致（不一致时 以此属性为准（调用视频控件时））
+            为空/未赋值的情况下 会返回 DVSAddress的值
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intDVSConnectPort">
+            <summary>
+            DVS连接端口
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSConnectPort">
+            <summary>
+            DVS连接端口
+            SK3000:DVSControlPort
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intDVSDataPort">
+            <summary>
+            DVS数据端口
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSDataPort">
+            <summary>
+            DVS数据端口
+            SK3000:DVSStreamPort
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intDVSChannelNum">
+            <summary>
+            通道号数量
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DVSChannelNum">
+            <summary>
+            通道号数量
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strUserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strPassword">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.strPreviewPwd">
+            <summary>
+            用户预览密码
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.PreviewPwd">
+            <summary>
+            用户预览密码
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intVideoPlayTime_Minute">
+            <summary>
+            视频播放时间限制_分 0代表无限制
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoPlayTime_Minute">
+            <summary>
+            视频播放时间限制_分 0代表无限制
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoPlayTimeConstraintSecond">
+            <summary>
+            视频播放时间限制(秒) 0标识无限制
+            仅支持Get方法 数据来源为VidePlayTime_Minute
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intVideoRecordTimeConstraintSecond">
+            <summary>
+            视频录像时长限制
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoRecordTimeConstraintSecond">
+            <summary>
+            视频录像时长限制 0标识无时长限制
+            默认 180 秒
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intAutoIntercom">
+            <summary>
+            自动对讲功能
+            0关闭 1自动进入对讲 2自动进入监听  3自动进入对讲喊话
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.AutoIntercom">
+            <summary>
+            自动对讲功能 
+            0关闭 1自动进入对讲 2自动进入监听  3自动进入对讲喊话
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intDefaultLinakgeChannel">
+            <summary>
+            默认联动通道 从1 开始
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DefaultLinkageChannel">
+            <summary>
+            默认联动通道 
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.DefaultLinkageCameraInfo">
+            <summary>
+            默认联动摄像头信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoConnectType">
+            <summary>
+            连接方式
+            1 默认
+            2.直连
+            3.流媒体
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.dicCameras">
+            <summary>
+            摄像头信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.Cameras">
+            <summary>
+            摄像头信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.TalkChannel">
+            <summary>
+            对讲通道信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoServerEnable">
+            <summary>
+            视频服务器是否启用
+            SK3000:DVSPTZProtocol[IP:Port]
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoServerIP">
+            <summary>
+            视频服务器IP
+            SK3000:DVSPTZProtocol[IP:Port]
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.VideoServerPort">
+            <summary>
+            视频服务器端口
+            SK3000:DVSPTZProtocol[IP:Port]
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.IntercomEnable">
+            <summary>
+            对讲使能
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.bolOnlyIntercom">
+            <summary>
+            仅作为对讲设备
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.OnlyIntercom">
+            <summary>
+            仅作为对讲设备
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.bolPTZControlEnable">
+            <summary>
+            云台控制使能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.PTZControlEnable">
+            <summary>
+            云台控制使能
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intNetworkState">
+            <summary>
+            网络状态 大于0在线 0离线 -1状态未明
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.NetworkState">
+            <summary>
+            网络状态 大于0在线 0离线 -1状态未明
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intLoginState">
+            <summary>
+            设备登陆状态 -1表示登陆失败 0表示未登录  1表示已登陆  2表示登陆中
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.LoginState">
+            <summary>
+            设备登陆状态 -1表示登陆失败 0表示未登录  1表示已登陆  2表示登陆中
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.LoginPrompt">
+            <summary>
+            登陆提示
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoInfo.intLoginHandle">
+            <summary>
+            设备登陆句柄
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoInfo.LoginHandle">
+            <summary>
+            设备登陆句柄
+            </summary>
+        </member>
+        <member name="M:PublicClassCurrency.VideoInfo.SetCameraInfo(System.Int32,System.String)">
+            <summary>
+            设置摄像头信息
+            </summary>
+            <param name="intChannel"></param>
+            <param name="strCameraName"></param>
+        </member>
+        <member name="M:PublicClassCurrency.VideoInfo.ExistCamera(PublicClassCurrency.CameraInfo)">
+            <summary>
+            是否存在摄像头信息
+            </summary>
+            <param name="cameraInfo"></param>
+        </member>
+        <member name="M:PublicClassCurrency.VideoInfo.ExistCameraInfo">
+            <summary>
+            是否存在摄像头
+            </summary>
+        </member>
+        <member name="E:PublicClassCurrency.VideoInfo.VideoLoginStateChangeEvent">
+            <summary>
+            用户登陆状态改变事件
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.Enum_VideoType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.Unrecognized">
+            <summary>
+            未识别
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.CloundSee">
+            <summary>
+            云视通主机
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.IPCWA">
+            <summary>
+            普顺达设备 SK835
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.Ezviz">
+            <summary>
+            萤石云
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.SKVideo">
+            <summary>
+            时刻视频
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.HuaMaiVideo">
+            <summary>
+            华迈云视频类型
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.Axis">
+            <summary>
+            安讯士
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.XMaiVideo">
+            <summary>
+            雄迈视频SDK
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.BlueSky">
+            <summary>
+            蓝色星际
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.IMOS">
+            <summary>
+            宇视视频
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.SKNVideo">
+            <summary>
+            时刻视频（H265）
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.HikDVR">
+            <summary>
+            海康DVR 直接访问模式
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.HikDVRStream">
+            <summary>
+            海康流媒体模式
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.TLiVideo">
+            <summary>
+            通立视频设备
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.DaHuaVideo">
+            <summary>
+            大华设备
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.ZLVideo">
+            <summary>
+            智诺视频
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.Enum_VIdeoRecordType">
+            <summary>
+            录像类型
+            完成解析的类型
+            与视频类型对应
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.Unrecognized">
+            <summary>
+            未识别
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.Axis">
+            <summary>
+            安讯士
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.XMaiVideo">
+            <summary>
+            雄迈
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.BlueSky">
+            <summary>
+            蓝色星际
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.HikDVR">
+            <summary>
+            海康DVS 直接访问模式
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.HikStreamVideo">
+            <summary>
+            海康流媒体模式
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.TLiVideoRecord">
+            <summary>
+            通立视频设备
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.DaHuaVideoRecord">
+            <summary>
+            大华视频录像类型
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.ZLVideoRecord">
+            <summary>
+            智诺视频
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VIdeoRecordType.SKNVideoRecord">
+            <summary>
+            时刻H265视频设备类型
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.Enum_VideoRecordFileType">
+            <summary>
+            录像文件类型
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoRecordFileType.Unrecognized">
+            <summary>
+            未识别
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoRecordFileType.Video">
+            <summary>
+            音频文件
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoRecordFileType.Audio">
+            <summary>
+            视频文件
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoRecordFileType.VideoAndAudio">
+            <summary>
+            音视频文件
+            </summary>
+        </member>
+        <member name="T:PublicClassCurrency.VideoRecordInfo">
+            <summary>
+            视频录像记录信息
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoRecordInfo.VideoRecordType">
+            <summary>
+            录像类型
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoRecordInfo.strDVSNumber">
+            <summary>
+            视频设备编号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoRecordInfo.DVSNumber">
+            <summary>
+            视频设备编号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoRecordInfo.intChannel">
+            <summary>
+            通道号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoRecordInfo.Channel">
+            <summary>
+            通道号
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoRecordInfo.strRecordPath">
+            <summary>
+            视频文件地址
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoRecordInfo.RecordPath">
+            <summary>
+            视频文件地址
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoRecordInfo.timStartTime">
+            <summary>
+            起始时间
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoRecordInfo.StartTime">
+            <summary>
+            起始时间
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoRecordInfo.timEndTime">
+            <summary>
+            终止时间
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoRecordInfo.EndTime">
+            <summary>
+            终止时间
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.VideoRecordInfo.intFileSize">
+            <summary>
+            文件大小 byte
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoRecordInfo.FileSize">
+            <summary>
+            文件大小 byte
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoInfo">
+            <summary>
+            视频设备信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoTalkChannelID">
+            <summary>
+            对讲通道ID
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoTalkChannel">
+            <summary>
+            对讲通道号
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoTalkChannelName">
+            <summary>
+            对讲通道名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.VideoTalkChannelTagInfo">
+            <summary>
+            视频对讲通道标签信息 
+            SK8616:表示门禁标签信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.TalkbackEnable">
+            <summary>
+            对讲使能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.SperakEnable">
+            <summary>
+            喊话使能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.InterceptionEnable">
+            <summary>
+            侦听使能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.IVideoInfo.GetStreamInfoEnable">
+            <summary>
+            获取码流信息使能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VIdeoInfo_SK8519V.GetStreamInfoEnable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Video.VideoStream.intStreamType">
+            <summary>
+            码流类型
+            1主 2子 3第三码流
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoStream.ResolutionWidth">
+            <summary>
+            码流_宽
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoStream.ResolutionHeight">
+            <summary>
+            码流_高
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoStream.FPS">
+            <summary>
+            帧率
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoStream.Bitrate">
+            <summary>
+            码流
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoTypeID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoTypeValue">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoType">
+            <summary>
+            视频设备类型 对应
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoTypeName">
+            <summary>
+            类型名称
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoTypeDescribe">
+            <summary>
+            类型描述
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.ChannelNum">
+            <summary>
+            通道数量
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.StreamPort">
+            <summary>
+            码流端口
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.ConnectPort">
+            <summary>
+            连接端口
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.CameraModel">
+            <summary>
+            通道模型
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.TalkChannelModel">
+            <summary>
+            对讲通道模型
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.VideoTypeVerificationEnable">
+            <summary>
+            视频设备类型 验证（添加/更新）功能是否启用
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.ConnParaType">
+            <summary>
+            连接参数类型 
+            1：IP
+            2: 唯一码
+            </summary>
+        </member>
+    </members>
+</doc>
