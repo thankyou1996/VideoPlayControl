@@ -1,6 +1,6 @@
 ﻿namespace VideoPlayControl_RemotePlayback
 {
-    partial class RemoteBackplayProportionControl
+    partial class RemotePlaybackProportionControl
     {
         /// <summary> 
         /// 必需的设计器变量。

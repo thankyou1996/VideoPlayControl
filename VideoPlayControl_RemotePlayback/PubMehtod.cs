@@ -17,19 +17,16 @@ namespace VideoPlayControl_RemotePlayback
         /// <returns></returns>
 
 
-        public static List<RemoteBackplayFileInfo> GetRemoteBackplayFileInfo_SKN(string strPath)
+        public static List<RemotePlaybackFileInfo> GetRemotePlaybackFileInfo_SKN(string strPath)
         {
-            List<RemoteBackplayFileInfo> result = new List<RemoteBackplayFileInfo>();
-            //    string[] line = File.ReadAllLines(strPath);
-            //  Console.WriteLine(line[0]);
-
+            List<RemotePlaybackFileInfo> result = new List<RemotePlaybackFileInfo>();
             FileStream fs = new FileStream(strPath, FileMode.Open, FileAccess.Read);
             StreamReader m_streamReader = new StreamReader(fs);
             m_streamReader.BaseStream.Seek(0, SeekOrigin.Begin);
             string strLine = m_streamReader.ReadLine();
             while (strLine != null)
             {
-                RemoteBackplayFileInfo ra = PubMehtod.GetRemoteBackplayFileInfo(strLine);
+                RemotePlaybackFileInfo ra = PubMehtod.GetRemotePlaybackFileInfo(strLine);
                 result.Add(ra);
                 strLine = m_streamReader.ReadLine();
             }
@@ -40,7 +37,7 @@ namespace VideoPlayControl_RemotePlayback
 
 
 
-        public static RemoteBackplayFileInfo GetRemoteBackplayFileInfo(string str)
+        public static RemotePlaybackFileInfo GetRemotePlaybackFileInfo(string str)
         {
             string[] aa = new string[] { };
             aa = str.Split(' ');
@@ -50,7 +47,7 @@ namespace VideoPlayControl_RemotePlayback
             string star = aa[3];
             string end = aa[4];
             string leng = aa[5];
-            RemoteBackplayFileInfo r = new RemoteBackplayFileInfo();
+            RemotePlaybackFileInfo r = new RemotePlaybackFileInfo();
             r.FileName = name;
             r.WriteOK = ok == "1";
             r.StartTimeStamp = long.Parse(star);

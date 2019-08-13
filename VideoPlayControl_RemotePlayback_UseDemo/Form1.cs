@@ -19,29 +19,29 @@ namespace VideoPlayControl_RemotePlayback_UseDemo
         private void Button1_Click(object sender, EventArgs e)
         {
 
-            List<RemoteBackplayFileInfo> FileInfo = new List<RemoteBackplayFileInfo>();
-            FileInfo.Add(new RemoteBackplayFileInfo
+            List<RemotePlaybackFileInfo> FileInfo = new List<RemotePlaybackFileInfo>();
+            FileInfo.Add(new RemotePlaybackFileInfo
             {
                 StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-12)),
                 EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-11)),
             });
-            FileInfo.Add(new RemoteBackplayFileInfo
+            FileInfo.Add(new RemotePlaybackFileInfo
             {
                 StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-11)),
                 EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-10)),
             });
-            FileInfo.Add(new RemoteBackplayFileInfo
+            FileInfo.Add(new RemotePlaybackFileInfo
             {
                 StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-10)),
                 EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-4)),
             });
 
-            FileInfo.Add(new RemoteBackplayFileInfo
+            FileInfo.Add(new RemotePlaybackFileInfo
             {
                 StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-4)),
                 EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-1)),
             });
-            VideoChannelRemoteBackplayInfo channelInfo = new VideoChannelRemoteBackplayInfo
+            VideoChannelRemotePlaybackInfo channelInfo = new VideoChannelRemotePlaybackInfo
             {
                 ChnnelInfo = new PublicClassCurrency.CameraInfo
                 {
@@ -50,11 +50,11 @@ namespace VideoPlayControl_RemotePlayback_UseDemo
                 },
                 StartTime = DateTime.Now.AddHours(-12),
                 EndTime = DateTime.Now,
-                BackplayFiles = FileInfo,
+                PlaybackFiles = FileInfo,
             };
-            remoteBackplayInfoControl1.SetRemoteBackplayInfo(channelInfo);
-            remoteBackplayControl1.SetRemoteBackplayInfo(channelInfo);
-            channelRemoteBackplayInfo1.SetRemoteBackplayInfo(channelInfo);
+            remoteBackplayInfoControl1.SetRemotePlaybackInfo(channelInfo);
+            remoteBackplayControl1.SetRemotePlaybackInfo(channelInfo);
+            channelRemoteBackplayInfo1.SetRemotePlaybackInfo(channelInfo);
         }
         bool bolFlag1 = false;
         int Temp_intX = 0;

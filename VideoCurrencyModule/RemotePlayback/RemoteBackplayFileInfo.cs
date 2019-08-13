@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VideoCurrencyModule.RemotePlayback
 {
-    public struct RemoteBackplayFileInfo
+    public struct RemotePlaybackFileInfo
     {
         /// <summary>
         /// 文件名

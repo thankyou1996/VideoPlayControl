@@ -48,10 +48,10 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button4 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.remoteBackplayControl1 = new VideoPlayControl_RemotePlayback.RemoteBackplayControl();
-            this.remoteBackplayInfoControl1 = new VideoPlayControl_RemotePlayback.RemoteBackplayProportionControl();
+            this.remoteBackplayControl1 = new VideoPlayControl_RemotePlayback.RemotePlaybackControl();
+            this.remoteBackplayInfoControl1 = new VideoPlayControl_RemotePlayback.RemotePlaybackProportionControl();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.channelRemoteBackplayInfo1 = new VideoPlayControl_RemotePlayback.ChannelRemoteBackplayInfo();
+            this.channelRemoteBackplayInfo1 = new VideoPlayControl_RemotePlayback.ChannelRemotePlaybackInfo();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -248,7 +248,7 @@
             // 
             this.remoteBackplayControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.remoteBackplayControl1.CurrentPositionDateTime = new System.DateTime(((long)(0)));
-            this.remoteBackplayControl1.CurrentRemoteBackplayInfo = null;
+            this.remoteBackplayControl1.CurrentRemotePlaybackInfo = null;
             this.remoteBackplayControl1.Location = new System.Drawing.Point(55, 91);
             this.remoteBackplayControl1.Name = "remoteBackplayControl1";
             this.remoteBackplayControl1.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
@@ -259,7 +259,7 @@
             // remoteBackplayInfoControl1
             // 
             this.remoteBackplayInfoControl1.BackColor = System.Drawing.Color.Red;
-            this.remoteBackplayInfoControl1.CurrentRemoteBackplayInfo = null;
+            this.remoteBackplayInfoControl1.CurrentRemotePlaybackInfo = null;
             this.remoteBackplayInfoControl1.Location = new System.Drawing.Point(55, 33);
             this.remoteBackplayInfoControl1.MainColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.remoteBackplayInfoControl1.Name = "remoteBackplayInfoControl1";
@@ -310,9 +310,9 @@
 
         #endregion
 
-        private VideoPlayControl_RemotePlayback.RemoteBackplayProportionControl remoteBackplayInfoControl1;
+        private VideoPlayControl_RemotePlayback.RemotePlaybackProportionControl remoteBackplayInfoControl1;
         private System.Windows.Forms.Button button1;
-        private VideoPlayControl_RemotePlayback.RemoteBackplayControl remoteBackplayControl1;
+        private VideoPlayControl_RemotePlayback.RemotePlaybackControl remoteBackplayControl1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -332,7 +332,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.ToolTip toolTip1;
-        private VideoPlayControl_RemotePlayback.ChannelRemoteBackplayInfo channelRemoteBackplayInfo1;
+        private VideoPlayControl_RemotePlayback.ChannelRemotePlaybackInfo channelRemoteBackplayInfo1;
     }
 }
 

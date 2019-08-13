@@ -10,9 +10,9 @@ using VideoCurrencyModule.RemotePlayback;
 
 namespace VideoPlayControl_RemotePlayback
 {
-    public partial class RemoteBackplayProportionControl : UserControl
+    public partial class RemotePlaybackProportionControl : UserControl
     {
-        public RemoteBackplayProportionControl()
+        public RemotePlaybackProportionControl()
         {
             InitializeComponent();
         }
@@ -34,25 +34,25 @@ namespace VideoPlayControl_RemotePlayback
         }
 
 
-        private VideoChannelRemoteBackplayInfo currentRemoteBackplayInfo;
+        private VideoChannelRemotePlaybackInfo currentRemotePlaybackInfo;
 
-        public VideoChannelRemoteBackplayInfo CurrentRemoteBackplayInfo
+        public VideoChannelRemotePlaybackInfo CurrentRemotePlaybackInfo
         {
-            get { return currentRemoteBackplayInfo; }
+            get { return currentRemotePlaybackInfo; }
             set
             {
-                SetRemoteBackplayInfo(value);
+                SetRemotePlaybackInfo(value);
             }
         }
 
-        public void SetRemoteBackplayInfo(VideoChannelRemoteBackplayInfo value)
+        public void SetRemotePlaybackInfo(VideoChannelRemotePlaybackInfo value)
         {
-            currentRemoteBackplayInfo = value;
+            currentRemotePlaybackInfo = value;
 
             if (value!= null)
             {
                 //文件信息进行排序
-                List<RemoteBackplayFileInfo> lstBackplayFile = value.BackplayFiles.OrderBy(item => item.StartTimeStamp).ToList();
+                List<RemotePlaybackFileInfo> lstBackplayFile = value.PlaybackFiles.OrderBy(item => item.StartTimeStamp).ToList();
                 long lStart = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(value.StartTime);
                 long lEnd = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(value.EndTime);
                 int intMaxValue = this.Width;
@@ -60,7 +60,7 @@ namespace VideoPlayControl_RemotePlayback
                 Rectangle r = new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height);
                 SolidBrush brush = new SolidBrush(pictureBox1.BackColor);
                 g.FillRectangle(brush, r);
-                foreach (RemoteBackplayFileInfo item in lstBackplayFile)
+                foreach (RemotePlaybackFileInfo item in lstBackplayFile)
                 {
                     int intStartPosition = GetPosition(lStart, lEnd, item.StartTimeStamp, pictureBox1.Width);
                     int intEndPosition = GetPosition(lStart, lEnd, item.EndTimeStamp, pictureBox1.Width);
@@ -73,7 +73,7 @@ namespace VideoPlayControl_RemotePlayback
         }
 
 
-        public void SetRemoteBackplayInfo_Scale(int intWidth)
+        public void SetRemotePlaybackInfo_Scale(int intWidth)
         {
             pictureBox1.Controls.Clear();
             int Temp_inti = (intWidth + 5) / 5;
@@ -118,10 +118,6 @@ namespace VideoPlayControl_RemotePlayback
             }
         }
 
-        public void SetRemoteBackplayInfo_ScaleTextInfo()
-        {
-
-        }
 
         public int GetPosition(long lStart, long lEnd, long lTimeSpan, int intValue)
         {
@@ -157,8 +153,8 @@ namespace VideoPlayControl_RemotePlayback
             long result = 1;
             //1.位置
             //2.宽度
-            long lStart = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemoteBackplayInfo.StartTime);
-            long lEnd = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemoteBackplayInfo.EndTime);
+            long lStart = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemotePlaybackInfo.StartTime);
+            long lEnd = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemotePlaybackInfo.EndTime);
             long Temp_value1 = lEnd - lStart;
             double Temp_dbl = (double)intPosition / this.Width;
             result = Convert.ToInt64(Temp_value1 * Temp_dbl);
@@ -209,11 +205,11 @@ namespace VideoPlayControl_RemotePlayback
 
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            if (this.currentRemoteBackplayInfo != null)
+            if (this.currentRemotePlaybackInfo != null)
             {
-                Console.WriteLine("PictureBox1_Paint:" + this.currentRemoteBackplayInfo.ChnnelInfo.Channel);
+                Console.WriteLine("PictureBox1_Paint:" + this.currentRemotePlaybackInfo.ChnnelInfo.Channel);
             }
-            SetRemoteBackplayInfo(currentRemoteBackplayInfo);
+            SetRemotePlaybackInfo(currentRemotePlaybackInfo);
             this.OnPaint(e);
         }
     }

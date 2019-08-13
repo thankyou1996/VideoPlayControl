@@ -11,9 +11,9 @@ using System.Threading;
 
 namespace VideoPlayControl_RemotePlayback
 {
-    public partial class RemoteBackplayControl : UserControl
+    public partial class RemotePlaybackControl : UserControl
     {
-        public RemoteBackplayControl()
+        public RemotePlaybackControl()
         {
             InitializeComponent();
         }
@@ -36,13 +36,13 @@ namespace VideoPlayControl_RemotePlayback
 
         public void SetCurrentPositionDateTime(DateTime value)
         {
-            if (CurrentRemoteBackplayInfo == null)
+            if (CurrentRemotePlaybackInfo == null)
             {
                 return;
             }
             currentPositionDateTime = value;
-            long lStart = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemoteBackplayInfo.StartTime);
-            long lEnd = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemoteBackplayInfo.EndTime);
+            long lStart = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemotePlaybackInfo.StartTime);
+            long lEnd = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(CurrentRemotePlaybackInfo.EndTime);
             long Temp_value1 = lEnd - lStart;
             long Temp_setValue = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(value);
             long Temp_value2 = Temp_setValue - lStart;
@@ -50,7 +50,7 @@ namespace VideoPlayControl_RemotePlayback
             int Temp_int = Convert.ToInt32(proportionInfo.Width * Temp_dbl);
             proportionInfo.Location = new Point { X = pnlFlag.Location.X - Temp_int, Y=proportionInfo.Location.Y };
             toolTip1.Show(value.ToString("MM-dd HH:mm:ss"), pnlFlag, 3000);
-            SetRemoteBackplayInfo(CurrentRemoteBackplayInfo);
+            SetRemotePlaybackInfo(CurrentRemotePlaybackInfo);
             if (PositionDateTimeChangedEvent != null)
             {
                 PositionDateTimeChangedEvent(this, null);
@@ -66,25 +66,25 @@ namespace VideoPlayControl_RemotePlayback
 
 
 
-        private VideoChannelRemoteBackplayInfo currentRemoteBackplayInfo;
+        private VideoChannelRemotePlaybackInfo currentRemotePlaybackInfo;
 
-        public VideoChannelRemoteBackplayInfo CurrentRemoteBackplayInfo
+        public VideoChannelRemotePlaybackInfo CurrentRemotePlaybackInfo
         {
-            get { return currentRemoteBackplayInfo; }
+            get { return currentRemotePlaybackInfo; }
             set
             {
-                SetRemoteBackplayInfo(value);
+                SetRemotePlaybackInfo(value);
             }
         }
 
-        public void SetRemoteBackplayInfo(VideoChannelRemoteBackplayInfo value)
+        public void SetRemotePlaybackInfo(VideoChannelRemotePlaybackInfo value)
         {
 
-            proportionInfo.SetRemoteBackplayInfo(value);
-            if (currentRemoteBackplayInfo != value)
+            proportionInfo.SetRemotePlaybackInfo(value);
+            if (currentRemotePlaybackInfo != value)
             {
-                currentRemoteBackplayInfo = value;
-                proportionInfo.SetRemoteBackplayInfo_Scale(this.Width / 6);
+                currentRemotePlaybackInfo = value;
+                proportionInfo.SetRemotePlaybackInfo_Scale(this.Width / 6);
             }
         }
 
@@ -123,17 +123,17 @@ namespace VideoPlayControl_RemotePlayback
             {
                 //起始事件超过中间线
                 //proportionInfo.Location = new Point { X = pnlFlag.Location.X, Y = proportionInfo.Location.Y };
-                timSet = currentRemoteBackplayInfo.StartTime;
+                timSet = currentRemotePlaybackInfo.StartTime;
 
             }
             else if ((proportionInfo.Location.X + proportionInfo.Width) < pnlFlag.Location.X)
             {
                 //终止事件小于中间线
                 //proportionInfo.Location = new Point { X = (pnlFlag.Location.X - proportionInfo.Width) + 10, Y = proportionInfo.Location.Y };
-                timSet = currentRemoteBackplayInfo.EndTime.AddSeconds(-60);
+                timSet = currentRemotePlaybackInfo.EndTime.AddSeconds(-60);
             }
             CommonMethod.Common.Delay_Millisecond(10);
-            SetRemoteBackplayInfo(currentRemoteBackplayInfo);
+            SetRemotePlaybackInfo(currentRemotePlaybackInfo);
 
             //当前中间的时间值
             SetCurrentPositionDateTime(timSet);
@@ -145,7 +145,7 @@ namespace VideoPlayControl_RemotePlayback
             {
                 int Temp_intxxx = e.X - Temp_intX;
                 proportionInfo.Location = new Point { X = proportionInfo.Location.X + Temp_intxxx, Y = proportionInfo.Location.Y };
-                SetRemoteBackplayInfo(currentRemoteBackplayInfo);
+                SetRemotePlaybackInfo(currentRemotePlaybackInfo);
             }
         }
         bool bolMouseWheel = false;
@@ -164,11 +164,11 @@ namespace VideoPlayControl_RemotePlayback
                 {
                     proportionInfo.Width = proportionInfo.Width * 2;
                     SetCurrentPositionDateTime(Temp_current);
-                    proportionInfo.SetRemoteBackplayInfo_Scale(this.Width / 6);
+                    proportionInfo.SetRemotePlaybackInfo_Scale(this.Width / 6);
                     this.BeginInvoke(new EventHandler(delegate
                     {
                         CommonMethod.Common.Delay_Millisecond(100);
-                        SetRemoteBackplayInfo(CurrentRemoteBackplayInfo);
+                        SetRemotePlaybackInfo(CurrentRemotePlaybackInfo);
                     }));
                 }
             }
@@ -178,11 +178,11 @@ namespace VideoPlayControl_RemotePlayback
                 {
                     proportionInfo.Width = proportionInfo.Width / 2;
                     SetCurrentPositionDateTime(Temp_current);
-                    proportionInfo.SetRemoteBackplayInfo_Scale(this.Width / 6);
+                    proportionInfo.SetRemotePlaybackInfo_Scale(this.Width / 6);
                     this.BeginInvoke(new EventHandler(delegate
                     {
                         CommonMethod.Common.Delay_Millisecond(100);
-                        SetRemoteBackplayInfo(CurrentRemoteBackplayInfo);
+                        SetRemotePlaybackInfo(CurrentRemotePlaybackInfo);
                     }));
                 }
             }

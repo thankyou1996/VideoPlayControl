@@ -10,9 +10,9 @@ using VideoCurrencyModule.RemotePlayback;
 
 namespace VideoPlayControl_RemotePlayback
 {
-    public partial class ChannelRemoteBackplayInfo : UserControl
+    public partial class ChannelRemotePlaybackInfo : UserControl
     {
-        public ChannelRemoteBackplayInfo()
+        public ChannelRemotePlaybackInfo()
         {
             InitializeComponent();
         }
@@ -27,24 +27,24 @@ namespace VideoPlayControl_RemotePlayback
             this.OnPaint(e);
         }
 
-        private VideoChannelRemoteBackplayInfo currentRemoteBackplayInfo;
+        private VideoChannelRemotePlaybackInfo currentRemotePlaybackInfo;
 
-        public VideoChannelRemoteBackplayInfo CurrentRemoteBackplayInfo
+        public VideoChannelRemotePlaybackInfo CurrentRemotePlaybackInfo
         {
-            get { return currentRemoteBackplayInfo; }
+            get { return currentRemotePlaybackInfo; }
             set
             {
-                SetRemoteBackplayInfo(value);
+                SetRemotePlaybackInfo(value);
             }
         }
 
-        public void SetRemoteBackplayInfo(VideoChannelRemoteBackplayInfo value)
+        public void SetRemotePlaybackInfo(VideoChannelRemotePlaybackInfo value)
         {
-            currentRemoteBackplayInfo = value;
+            currentRemotePlaybackInfo = value;
             if (value != null)
             {
                 chkChannel.Text = "通道" + value.ChnnelInfo.Channel;
-                proportionInfo.SetRemoteBackplayInfo(value);
+                proportionInfo.SetRemotePlaybackInfo(value);
             }
         }
 

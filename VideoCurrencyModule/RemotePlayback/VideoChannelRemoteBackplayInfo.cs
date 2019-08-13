@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VideoCurrencyModule.RemotePlayback
 {
-    public class VideoChannelRemoteBackplayInfo
+    public class VideoChannelRemotePlaybackInfo
     {
         /// <summary>
         /// 通道信息
@@ -36,7 +36,7 @@ namespace VideoCurrencyModule.RemotePlayback
         /// 回放文件信息
         /// </summary>
 
-        public List<RemoteBackplayFileInfo> BackplayFiles
+        public List<RemotePlaybackFileInfo> PlaybackFiles
         {
             get;
             set;

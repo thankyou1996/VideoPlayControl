@@ -1,6 +1,6 @@
 ﻿namespace VideoPlayControl_RemotePlayback
 {
-    partial class ChannelRemoteBackplayInfo
+    partial class ChannelRemotePlaybackInfo
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -30,7 +30,7 @@
         {
             this.chkChannel = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.proportionInfo = new VideoPlayControl_RemotePlayback.RemoteBackplayProportionControl();
+            this.proportionInfo = new VideoPlayControl_RemotePlayback.RemotePlaybackProportionControl();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             // proportionInfo
             // 
             this.proportionInfo.BackColor = System.Drawing.Color.Transparent;
-            this.proportionInfo.CurrentRemoteBackplayInfo = null;
+            this.proportionInfo.CurrentRemotePlaybackInfo = null;
             this.proportionInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.proportionInfo.Location = new System.Drawing.Point(60, 0);
             this.proportionInfo.MainColor = System.Drawing.Color.White;
@@ -84,7 +84,7 @@
 
         #endregion
 
-        private RemoteBackplayProportionControl proportionInfo;
+        private RemotePlaybackProportionControl proportionInfo;
         private System.Windows.Forms.CheckBox chkChannel;
         private System.Windows.Forms.Panel panel1;
     }

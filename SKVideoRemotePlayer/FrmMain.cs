@@ -47,7 +47,7 @@ namespace SKVideoRemotePlayer
 
         public void SetVideoInfo_Control(VideoInfo vInfo) 
         {
-            List<RemoteBackplayFileInfo> lstBackplayInfo = new List<RemoteBackplayFileInfo>();
+            List<RemotePlaybackFileInfo> lstBackplayInfo = new List<RemotePlaybackFileInfo>();
             pnlChannel.Controls.Clear();
             int intCount = 0;
             foreach (CameraInfo cInfo in vInfo.Cameras.Values)
@@ -59,14 +59,14 @@ namespace SKVideoRemotePlayer
                 //this.channelRemoteBackplayInfo1.Size = new System.Drawing.Size(680, 26);
                 //this.channelRemoteBackplayInfo1.TabIndex = 0;
 
-                ChannelRemoteBackplayInfo cbInfo = new ChannelRemoteBackplayInfo();
-                cbInfo.CurrentRemoteBackplayInfo = null;
+                ChannelRemotePlaybackInfo cbInfo = new ChannelRemotePlaybackInfo();
+                cbInfo.CurrentRemotePlaybackInfo = null;
                 cbInfo.Location = new System.Drawing.Point(3, 3 + (18 * intCount));
                 cbInfo.Name = "channelRemoteBackplayInfo1";
                 cbInfo.Size = new System.Drawing.Size(680, 18);
                 pnlChannel.Controls.Add(cbInfo);
                 cbInfo.Paint += CbInfo_Paint;
-                cbInfo.SetRemoteBackplayInfo(GetVideoChannelRemoteBackplayInfo(cInfo, lstBackplayInfo));
+                cbInfo.SetRemotePlaybackInfo(GetVideoChannelRemoteBackplayInfo(cInfo, lstBackplayInfo));
                 intCount++;
                 cbInfo.CheckedChanged += CbInfo_CheckedChanged;
             }
@@ -74,12 +74,12 @@ namespace SKVideoRemotePlayer
 
         private void CbInfo_CheckedChanged(object sender, EventArgs e)
         {
-            ChannelRemoteBackplayInfo cbInfo = (ChannelRemoteBackplayInfo)sender;
+            ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)sender;
             if (cbInfo.Checked)
             {
                 //刷新录像信息
                 Console.WriteLine("刷新录像信息");
-                remoteBackplayControl1.SetRemoteBackplayInfo(cbInfo.CurrentRemoteBackplayInfo);
+                remoteBackplayControl1.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
             }
         }
 
@@ -87,17 +87,17 @@ namespace SKVideoRemotePlayer
         {
             foreach (Control c in pnlChannel.Controls)
             {
-                ChannelRemoteBackplayInfo cbInfo = (ChannelRemoteBackplayInfo)c;
-                cbInfo.SetRemoteBackplayInfo(cbInfo.CurrentRemoteBackplayInfo);
+                ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
+                cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
             }
         }
 
-        public VideoChannelRemoteBackplayInfo GetVideoChannelRemoteBackplayInfo(CameraInfo cInfo, List<RemoteBackplayFileInfo> lstBackplayInfo)
+        public VideoChannelRemotePlaybackInfo GetVideoChannelRemoteBackplayInfo(CameraInfo cInfo, List<RemotePlaybackFileInfo> lstBackplayInfo)
         {
-            VideoChannelRemoteBackplayInfo result = new VideoChannelRemoteBackplayInfo()
+            VideoChannelRemotePlaybackInfo result = new VideoChannelRemotePlaybackInfo()
             {
                 ChnnelInfo = cInfo,
-                BackplayFiles = GetVideoInfoBackplayFileInfo(cInfo),
+                PlaybackFiles = GetVideoInfoBackplayFileInfo(cInfo),
                 StartTime = DateTime.Now.AddHours(-12),
                 EndTime = DateTime.Now,
             };
@@ -105,27 +105,27 @@ namespace SKVideoRemotePlayer
         }
 
 
-        public List<RemoteBackplayFileInfo> GetVideoInfoBackplayFileInfo(CameraInfo cInfo)
+        public List<RemotePlaybackFileInfo> GetVideoInfoBackplayFileInfo(CameraInfo cInfo)
         {
-            List<RemoteBackplayFileInfo> result = new List<RemoteBackplayFileInfo>();
+            List<RemotePlaybackFileInfo> result = new List<RemotePlaybackFileInfo>();
 
-            result.Add(new RemoteBackplayFileInfo
+            result.Add(new RemotePlaybackFileInfo
             {
                 StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-12)),
                 EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-11)),
             });
-            result.Add(new RemoteBackplayFileInfo
+            result.Add(new RemotePlaybackFileInfo
             {
                 StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-11)),
                 EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-10)),
             });
-            result.Add(new RemoteBackplayFileInfo
+            result.Add(new RemotePlaybackFileInfo
             {
                 StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-10)),
                 EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-4)),
             });
 
-            result.Add(new RemoteBackplayFileInfo
+            result.Add(new RemotePlaybackFileInfo
             {
                 StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-4)),
                 EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-1)),
@@ -144,8 +144,8 @@ namespace SKVideoRemotePlayer
         {
             foreach (Control c in pnlChannel.Controls)
             {
-                ChannelRemoteBackplayInfo cbInfo = (ChannelRemoteBackplayInfo)c;
-                cbInfo.SetRemoteBackplayInfo(cbInfo.CurrentRemoteBackplayInfo);
+                ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
+                cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
             }
         }
 
@@ -153,8 +153,8 @@ namespace SKVideoRemotePlayer
         {
             foreach (Control c in pnlChannel.Controls)
             {
-                ChannelRemoteBackplayInfo cbInfo = (ChannelRemoteBackplayInfo)c;
-                cbInfo.SetRemoteBackplayInfo(cbInfo.CurrentRemoteBackplayInfo);
+                ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
+                cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
             }
         }
         
@@ -162,9 +162,10 @@ namespace SKVideoRemotePlayer
         {
             foreach (Control c in pnlChannel.Controls)
             {
-                ChannelRemoteBackplayInfo cbInfo = (ChannelRemoteBackplayInfo)c;
-                cbInfo.SetRemoteBackplayInfo(cbInfo.CurrentRemoteBackplayInfo);
+                ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
+                cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
             }
         }
+
     }
 }

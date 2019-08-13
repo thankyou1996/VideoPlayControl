@@ -33,12 +33,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlChannel = new System.Windows.Forms.Panel();
             this.pnlOperat = new System.Windows.Forms.Panel();
-            this.remoteBackplayControl1 = new VideoPlayControl_RemotePlayback.RemoteBackplayControl();
+            this.remoteBackplayControl1 = new VideoPlayControl_RemotePlayback.RemotePlaybackControl();
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.channelRemoteBackplayInfo1 = new VideoPlayControl_RemotePlayback.ChannelRemoteBackplayInfo();
-            this.channelRemoteBackplayInfo2 = new VideoPlayControl_RemotePlayback.ChannelRemoteBackplayInfo();
+            this.channelRemoteBackplayInfo1 = new VideoPlayControl_RemotePlayback.ChannelRemotePlaybackInfo();
+            this.channelRemoteBackplayInfo2 = new VideoPlayControl_RemotePlayback.ChannelRemotePlaybackInfo();
             this.listView1 = new System.Windows.Forms.ListView();
             this.pnlMain.SuspendLayout();
             this.pnlMain_Player.SuspendLayout();
@@ -107,7 +107,7 @@
             // 
             this.remoteBackplayControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.remoteBackplayControl1.CurrentPositionDateTime = new System.DateTime(((long)(0)));
-            this.remoteBackplayControl1.CurrentRemoteBackplayInfo = null;
+            this.remoteBackplayControl1.CurrentRemotePlaybackInfo = null;
             this.remoteBackplayControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.remoteBackplayControl1.Location = new System.Drawing.Point(0, 0);
             this.remoteBackplayControl1.Name = "remoteBackplayControl1";
@@ -146,7 +146,7 @@
             // 
             // channelRemoteBackplayInfo1
             // 
-            this.channelRemoteBackplayInfo1.CurrentRemoteBackplayInfo = null;
+            this.channelRemoteBackplayInfo1.CurrentRemotePlaybackInfo = null;
             this.channelRemoteBackplayInfo1.Location = new System.Drawing.Point(3, 4);
             this.channelRemoteBackplayInfo1.Name = "channelRemoteBackplayInfo1";
             this.channelRemoteBackplayInfo1.Size = new System.Drawing.Size(678, 20);
@@ -154,7 +154,7 @@
             // 
             // channelRemoteBackplayInfo2
             // 
-            this.channelRemoteBackplayInfo2.CurrentRemoteBackplayInfo = null;
+            this.channelRemoteBackplayInfo2.CurrentRemotePlaybackInfo = null;
             this.channelRemoteBackplayInfo2.Location = new System.Drawing.Point(3, 30);
             this.channelRemoteBackplayInfo2.Name = "channelRemoteBackplayInfo2";
             this.channelRemoteBackplayInfo2.Size = new System.Drawing.Size(678, 20);
@@ -195,13 +195,13 @@
         private System.Windows.Forms.Panel pnlMain_Player;
         private System.Windows.Forms.Panel pnlLeft;
         private System.Windows.Forms.Panel panel1;
-        private VideoPlayControl_RemotePlayback.RemoteBackplayControl remoteBackplayControl1;
+        private VideoPlayControl_RemotePlayback.RemotePlaybackControl remoteBackplayControl1;
         private System.Windows.Forms.Panel pnlChannel;
         private System.Windows.Forms.Panel pnlOperat;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private VideoPlayControl_RemotePlayback.ChannelRemoteBackplayInfo channelRemoteBackplayInfo2;
-        private VideoPlayControl_RemotePlayback.ChannelRemoteBackplayInfo channelRemoteBackplayInfo1;
+        private VideoPlayControl_RemotePlayback.ChannelRemotePlaybackInfo channelRemoteBackplayInfo2;
+        private VideoPlayControl_RemotePlayback.ChannelRemotePlaybackInfo channelRemoteBackplayInfo1;
         private System.Windows.Forms.ListView listView1;
     }
 }
