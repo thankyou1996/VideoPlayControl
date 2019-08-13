@@ -32,12 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonMethod">
-      <HintPath>..\VideoPlayControl\dll_Libary\CommonMethod.dll</HintPath>
+    <Reference Include="CommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll_Libary\CommonMethod.dll</HintPath>
     </Reference>
     <Reference Include="PublicClassCurrency, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\VideoPlayControl\dll_Libary\PublicClassCurrency.dll</HintPath>
+      <HintPath>..\dll_Libary\PublicClassCurrency.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
