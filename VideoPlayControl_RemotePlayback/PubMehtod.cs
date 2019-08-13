@@ -10,6 +10,8 @@ namespace VideoPlayControl_RemotePlayback
     public class PubMehtod
     {
 
+
+
         /// <summary>
         /// 获取远程回访文件信息
         /// </summary>

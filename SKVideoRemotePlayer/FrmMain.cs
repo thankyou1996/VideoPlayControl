@@ -52,13 +52,6 @@ namespace SKVideoRemotePlayer
             int intCount = 0;
             foreach (CameraInfo cInfo in vInfo.Cameras.Values)
             {
-                //this.channelRemoteBackplayInfo1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-                //this.channelRemoteBackplayInfo1.CurrentRemoteBackplayInfo = null;
-                //this.channelRemoteBackplayInfo1.Location = new System.Drawing.Point(3, 3);
-                //this.channelRemoteBackplayInfo1.Name = "channelRemoteBackplayInfo1";
-                //this.channelRemoteBackplayInfo1.Size = new System.Drawing.Size(680, 26);
-                //this.channelRemoteBackplayInfo1.TabIndex = 0;
-
                 ChannelRemotePlaybackInfo cbInfo = new ChannelRemotePlaybackInfo();
                 cbInfo.CurrentRemotePlaybackInfo = null;
                 cbInfo.Location = new System.Drawing.Point(3, 3 + (18 * intCount));
@@ -85,11 +78,7 @@ namespace SKVideoRemotePlayer
 
         private void CbInfo_Paint(object sender, PaintEventArgs e)
         {
-            foreach (Control c in pnlChannel.Controls)
-            {
-                ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
-                cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
-            }
+            RefreshPlaybackInfo();
         }
 
         public VideoChannelRemotePlaybackInfo GetVideoChannelRemoteBackplayInfo(CameraInfo cInfo, List<RemotePlaybackFileInfo> lstBackplayInfo)
@@ -142,29 +131,28 @@ namespace SKVideoRemotePlayer
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            foreach (Control c in pnlChannel.Controls)
-            {
-                ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
-                cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
-            }
+            RefreshPlaybackInfo();
         }
 
         private void PnlChannel_Paint(object sender, PaintEventArgs e)
         {
-            foreach (Control c in pnlChannel.Controls)
-            {
-                ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
-                cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
-            }
+            RefreshPlaybackInfo();
         }
         
         private void PnlChannel_MouseWheel(object sender, MouseEventArgs e)
+        {
+            RefreshPlaybackInfo();
+        }
+
+
+        public void RefreshPlaybackInfo()
         {
             foreach (Control c in pnlChannel.Controls)
             {
                 ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
                 cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
             }
+
         }
 
     }
