@@ -11,14 +11,16 @@ namespace VideoPlayControl_RemotePlayback
     {
 
 
+        public static List<RemotePlaybackFileInfo> GetRemotePlaybackFileInfo_SKN(string strPath,DateTime timStart,DateTime timEnd)
+        {
+            return GetRemotePlaybackFileInfo_SKN(strPath);
+        }
 
         /// <summary>
         /// 获取远程回访文件信息
         /// </summary>
         /// <param name="strPath"></param>
         /// <returns></returns>
-
-
         public static List<RemotePlaybackFileInfo> GetRemotePlaybackFileInfo_SKN(string strPath)
         {
             List<RemotePlaybackFileInfo> result = new List<RemotePlaybackFileInfo>();

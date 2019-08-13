@@ -20,16 +20,17 @@ namespace VideoPlayControl_UseDemo
         public PublicClassCurrency.VideoInfo v;
         private void FrmSKNVideo_RemoterTest_Load(object sender, EventArgs e)
         {
-            SDKState.SKNVideoSDK_Init("192.168.2.10", 48624, "xhcs1", "", "C:\\SHIKE_Video");
+            SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhcs1", "", "C:\\SHIKE_Video");
             v = TestDataSource.TestDataSource.GetSKNDVSData1();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime timStart = DateTime.Now.AddMinutes(-5);
-            long lnbStart = CommonMethod.ConvertClass.DateTimeToUnixTimestamp(timStart);
+            DateTime timStart = DateTime.Now.AddMinutes(-10);
+            //long lnbStart = CommonMethod.ConvertClass.DateTimeToUnixTimestamp(timStart);
+            long lnbStart = 1565681404000;
             int intResult = SDK_SKNVideo.SDK_NSK_CLIENT_is_online();
-            intResult = SDK_SKNVideo.SDK_NSK_CLIENT_start_pb_video(v.DVSAddress, 8, lnbStart, pictureBox1.Handle);
+            intResult = SDK_SKNVideo.SDK_NSK_CLIENT_start_pb_video("63-343854040533-3339", 8, lnbStart, pictureBox1.Handle);
             string x = "";
         }
 

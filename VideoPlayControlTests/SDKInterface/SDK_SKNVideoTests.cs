@@ -37,11 +37,11 @@ namespace VideoPlayControl.SDKInterface.Tests
         [TestMethod()]
         public void SDK_NSK_CLIENT_get_fileTest1()
         {
-            CommonMethod.Common.Delay_Millisecond(5000);
+            CommonMethod.Common.Delay_Millisecond(1000);
             //string strPath = Environment.CurrentDirectory + "\\TEST\\VHS_ch16_61-5737338A0736-3232_REVIDEO.h264";
             string strPath = "\\TEST\\VHS_ch16_61-5737338A0736-3232_REVIDEO" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".h264";
-            int intResult = SDK_SKNVideo.SDK_NSK_CLIENT_get_file("63-343854040533-3339", false, "/hdd/map_md5/FILE_MAP_09", "TEST\\FILE_MAP_09");
-            CommonMethod.Common.Delay_Millisecond(3000);
+            int intResult = SDK_SKNVideo.SDK_NSK_CLIENT_get_file("63-343854040533-3339", false, "/hdd/map_md5/FILE_MAP_09", "TEST\\FILE_MAP_09.txt");
+            CommonMethod.Common.Delay_Millisecond(1000);
             Assert.Fail();
         }
 

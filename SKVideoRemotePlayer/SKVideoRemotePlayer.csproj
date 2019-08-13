@@ -13,7 +13,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -99,6 +99,10 @@
     <ProjectReference Include="..\TestDataSource\TestDataSource.csproj">
       <Project>{c1d7eee4-ed8d-4336-bdd3-b3ff3ae7f0bf}</Project>
       <Name>TestDataSource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoPlayControl\VideoPlayControl.csproj">
+      <Project>{8410bdf8-2f6c-4bd1-a602-037dd86072f2}</Project>
+      <Name>VideoPlayControl</Name>
     </ProjectReference>
     <ProjectReference Include="..\VideoPlayControl_RemotePlayback\VideoPlayControl_RemotePlayback.csproj">
       <Project>{D6C7F91F-D7DF-4397-8CAD-B5FC7CC9E3A9}</Project>

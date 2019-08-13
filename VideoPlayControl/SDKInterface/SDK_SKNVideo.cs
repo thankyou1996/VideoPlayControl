@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
+using PublicClassCurrency;
 
 namespace VideoPlayControl.SDKInterface
 {
@@ -218,7 +219,49 @@ namespace VideoPlayControl.SDKInterface
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDK_NSK_CLIENT_stop_pb_video(IntPtr handle);
 
-        #endregion 
+        #endregion
+        #endregion
+
+        #region 自定义接口
+
+        /// <summary>
+        /// 获取本地存储录像映射文件相对路径
+        /// </summary>
+        /// <param name="cInfo"></param>
+        /// <returns></returns>
+        public static string GetLocalFileMapPath(CameraInfo cInfo)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("/" + cInfo.VideoInfo.DVSAddress + "/");
+            sb.Append(GetFileMapName(cInfo));
+            return sb.ToString();
+        }
+
+
+        /// <summary>
+        /// 获取设备录像映射文件相对路径（设备上路径）
+        /// </summary>
+        /// <param name="cInfo"></param>
+        /// <returns></returns>
+        public static string GetFileMapPath(CameraInfo cInfo)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("/hdd/map_md5/");
+            sb.Append(GetFileMapName(cInfo));
+            return sb.ToString();
+        }
+
+
+
+        /// <summary>
+        /// 获取设备录像文件文件名（设备上文件名称）
+        /// </summary>
+        /// <param name="cInfo"></param>
+        /// <returns></returns>
+        public static string GetFileMapName(CameraInfo cInfo)
+        {
+            return "FILE_MAP_" + Convert.ToString(cInfo.Channel).PadLeft(2, '0');
+        }
         #endregion
     }
 }

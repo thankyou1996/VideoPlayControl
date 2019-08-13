@@ -205,10 +205,6 @@ namespace VideoPlayControl_RemotePlayback
 
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            if (this.currentRemotePlaybackInfo != null)
-            {
-                Console.WriteLine("PictureBox1_Paint:" + this.currentRemotePlaybackInfo.ChnnelInfo.Channel);
-            }
             SetRemotePlaybackInfo(currentRemotePlaybackInfo);
             this.OnPaint(e);
         }

@@ -15,7 +15,7 @@ namespace SKVideoRemotePlayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmRecordQuery());
+            Application.Run(new FrmMain());
         }
     }
 }
