@@ -79,7 +79,7 @@ namespace SKVideoRemotePlayer
         public List<RemotePlaybackFileInfo> Getttt(DateTime timStart ,DateTime timEnd)
         {
             List<RemotePlaybackFileInfo> result = new List<RemotePlaybackFileInfo>();
-            List<RemotePlaybackFileInfo> Temp_result = PubMehtod.GetRemotePlaybackFileInfo_SKN(GetPath(1));
+            List<RemotePlaybackFileInfo> Temp_result = VideoPlayControl_RemotePlayback.PubMethod.GetRemotePlaybackFileInfo_SKN(GetPath(1));
             foreach (var RemotePlaybackFileInfo in Temp_result)
             {
                 if(RemotePlaybackFileInfo.EndTime <= dateTimePicker2.Value && RemotePlaybackFileInfo.StartTime >= dateTimePicker1.Value)

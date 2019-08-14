@@ -17,29 +17,15 @@ namespace SKVideoRemotePlayer
 {
     public partial class FrmMain : Form
     {
-        public string strSourceData = Environment.CurrentDirectory;
-        ProgStartPara CurrentPara;
         int scroll_value = 0;
         public FrmMain()
         {
             InitializeComponent();
-            Test();
         }
-
-        public void Test()
-        {
-            //1.SDK初始化
-            VideoPlayControl.SDKState.SKNVideoSDK_Init("192.168.2.19", 48624, "xhcs1", strSourceData, strSourceData);
-            WriteEvent("SDK初始化成功");
-            //2.设置信息
-            VideoInfo vInfo = TestDataSource.SKNVideoDatSource.GetSKData1();
-            SetVideoInfo(vInfo);
-
-        }
-        public FrmMain(ProgStartPara para)
+        public FrmMain(ProgPara para)
         {
             InitializeComponent();
-            CurrentPara = para;
+            ProgPara.CurrentProgPara = para;
             
             VideoPlayControl.SDKState.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
             WriteEvent("SDK初始化成功");
@@ -55,9 +41,6 @@ namespace SKVideoRemotePlayer
 
         public void Init()
         {
-            //1.通道文件信息初始化
-
-            //2.c
             remoteBackplayControl1.PositionDateTimeChangedEvent += RemoteBackplayControl1_PositionDateTimeChangedEvent;
             pnlChannel.MouseWheel += PnlChannel_MouseWheel;
             scroll_value = this.pnlChannel.VerticalScroll.Value;
@@ -132,11 +115,11 @@ namespace SKVideoRemotePlayer
             {
                 CameraInfo cInfo = cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo;
                 WriteEvent("开始获取通道" + cInfo.Channel + "录像文件映射");
-                DownloadFileMap(cInfo);
+                PubMethod.DownloadFileMap(cInfo);
                 CommonMethod.Common.Delay_Millisecond(3000);
                 WriteEvent("通道" + cInfo.Channel + "录像文件映射获取文件");
-                string Temp_strPath = strSourceData + SDK_SKNVideo.GetLocalFileMapPath(cInfo);
-                List<RemotePlaybackFileInfo> Temp_lst = PubMehtod.GetRemotePlaybackFileInfo_SKN(Temp_strPath, CurrentPara.PlaybackTimeStart, CurrentPara.PlaybackTimeEnd);
+                string Temp_strPath = ProgPara.CurrentProgPara.DefaultSaveDir + SDK_SKNVideo.GetLocalFileMapPath(cInfo);
+                List<RemotePlaybackFileInfo> Temp_lst = VideoPlayControl_RemotePlayback.PubMethod.GetRemotePlaybackFileInfo_SKN(Temp_strPath, ProgPara.CurrentProgPara.PlaybackTimeStart, ProgPara.CurrentProgPara.PlaybackTimeEnd);
                 cbInfo.CurrentRemotePlaybackInfo.PlaybackFiles = Temp_lst.FindAll(item=>item.WriteOK).ToList();
                 //刷新录像信息
                 remoteBackplayControl1.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
@@ -156,27 +139,14 @@ namespace SKVideoRemotePlayer
             {
                 ChnnelInfo = cInfo,
                 PlaybackFiles = new List<RemotePlaybackFileInfo>(),
-                StartTime = CurrentPara.PlaybackTimeStart,
-                EndTime = CurrentPara.PlaybackTimeEnd,
+                StartTime = ProgPara.CurrentProgPara.PlaybackTimeStart,
+                EndTime = ProgPara.CurrentProgPara.PlaybackTimeEnd,
             };
             return result;
         }
 
 
 
-        /// <summary>
-        /// 下载文件映射
-        /// </summary>
-        /// <param name="cInfo"></param>
-        public void DownloadFileMap(CameraInfo cInfo)
-        {
-            //下载录像映射文件
-            VideoInfo vInfo = cInfo.VideoInfo;
-            string strPath1 = SDK_SKNVideo.GetFileMapPath(cInfo);
-            string strPath2 = SDK_SKNVideo.GetLocalFileMapPath(cInfo);
-            string Temp_strPath= Path.GetDirectoryName(strPath2);
-            SDK_SKNVideo.SDK_NSK_CLIENT_get_file(vInfo.DVSAddress, false,strPath1 ,strPath2 );
-        }
 
         
 
@@ -210,12 +180,12 @@ namespace SKVideoRemotePlayer
             foreach (Control c in pnlChannel.Controls)
             {
                 ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
-                if (cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo.Channel == CurrentPara.Channel)
+                if (cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo.Channel == ProgPara.CurrentProgPara.Channel)
                 {
                     cbInfo.Checked = true;
                 }
             }
-            remoteBackplayControl1.SetCurrentPositionDateTime(CurrentPara.PlaybackTime);
+            remoteBackplayControl1.SetCurrentPositionDateTime(ProgPara.CurrentProgPara.PlaybackTime);
         }
     }
 }

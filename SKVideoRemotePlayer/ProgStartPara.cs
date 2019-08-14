@@ -9,8 +9,15 @@ namespace SKVideoRemotePlayer
     /// <summary>
     /// 程序启动参数
     /// </summary>
-    public class ProgStartPara
+    public class ProgPara
     {
+
+        public static ProgPara CurrentProgPara
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// 服务器地址
         /// </summary>

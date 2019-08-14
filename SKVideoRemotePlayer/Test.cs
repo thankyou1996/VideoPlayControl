@@ -9,7 +9,7 @@ namespace SKVideoRemotePlayer
     {
         public void ProgStartParaTest()
         {
-            ProgStartPara para = new ProgStartPara
+            ProgPara para = new ProgPara
             {
                 ServerAddress = "192.168.2.19",
                 ServerPort = 48624,

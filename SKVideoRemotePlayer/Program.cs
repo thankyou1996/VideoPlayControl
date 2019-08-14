@@ -17,7 +17,7 @@ namespace SKVideoRemotePlayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ProgStartPara para = null;
+            ProgPara para = null;
             if (args != null && args.Length > 0)
             {
                 StringBuilder sbInfo = new StringBuilder();
@@ -27,7 +27,7 @@ namespace SKVideoRemotePlayer
                     sbInfo.Append(" ");
                 }
                 sbInfo.Length = sbInfo.Length - 1;
-                para = Newtonsoft.Json.JsonConvert.DeserializeObject<ProgStartPara>(sbInfo.ToString());
+                para = Newtonsoft.Json.JsonConvert.DeserializeObject<ProgPara>(sbInfo.ToString());
                 foreach (CameraInfo cInfo in para.VideoInfo.Cameras.Values)
                 {
                     cInfo.VideoInfo = para.VideoInfo;
@@ -37,7 +37,7 @@ namespace SKVideoRemotePlayer
             else
 
             {
-                para = new ProgStartPara
+                para = new ProgPara
                 {
                     ServerAddress = "192.168.2.19",
                     ServerPort = 48624,

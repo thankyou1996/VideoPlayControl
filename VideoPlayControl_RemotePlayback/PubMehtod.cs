@@ -7,7 +7,7 @@ using VideoCurrencyModule.RemotePlayback;
 
 namespace VideoPlayControl_RemotePlayback
 {
-    public class PubMehtod
+    public class PubMethod
     {
 
 
@@ -30,7 +30,7 @@ namespace VideoPlayControl_RemotePlayback
             string strLine = m_streamReader.ReadLine();
             while (strLine != null)
             {
-                RemotePlaybackFileInfo ra = PubMehtod.GetRemotePlaybackFileInfo(strLine);
+                RemotePlaybackFileInfo ra = PubMethod.GetRemotePlaybackFileInfo(strLine);
                 result.Add(ra);
                 strLine = m_streamReader.ReadLine();
             }

@@ -14,7 +14,7 @@ namespace SKVideoRemotePlayer.Tests
         [TestMethod()]
         public void ProgStartParaTestTest()
         {
-            ProgStartPara para = new ProgStartPara
+            ProgPara para = new ProgPara
             {
                 ServerAddress = "192.168.2.19",
                 ServerPort = 48624,
@@ -31,7 +31,7 @@ namespace SKVideoRemotePlayer.Tests
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             string str = JsonConvert.SerializeObject(para, settings);
-            ProgStartPara para1= JsonConvert.DeserializeObject<ProgStartPara>(str);
+            ProgPara para1= JsonConvert.DeserializeObject<ProgPara>(str);
             Assert.AreEqual(para1.ServerAddress,"123" );
         }
     }

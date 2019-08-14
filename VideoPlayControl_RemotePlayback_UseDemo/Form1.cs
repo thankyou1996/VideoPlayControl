@@ -46,7 +46,7 @@ namespace VideoPlayControl_RemotePlayback_UseDemo
             DateTime timStart = DateTime.Now.AddDays(-1);
             DateTime timEnd = DateTime.Now.AddDays(1);
             string strPath = @"G:\Working\Currency\VideoPlayControl\VideoPlayControlTests\bin\Debug\Test\FILE_MAP_09";
-            List<RemotePlaybackFileInfo> Temp_lst = PubMehtod.GetRemotePlaybackFileInfo_SKN(strPath, timStart, timEnd);
+            List<RemotePlaybackFileInfo> Temp_lst = PubMethod.GetRemotePlaybackFileInfo_SKN(strPath, timStart, timEnd);
             VideoChannelRemotePlaybackInfo channelInfo = new VideoChannelRemotePlaybackInfo
             {
                 ChnnelInfo = new PublicClassCurrency.CameraInfo
