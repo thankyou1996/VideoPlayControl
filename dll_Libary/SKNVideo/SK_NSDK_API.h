@@ -182,6 +182,22 @@ int SDK_NSK_CLIENT_deinit(void);
 
 /**
   * ***********************************************************************
+  * @brief  设置是否使用硬件解码与硬件渲染, 重新打开视频生效
+  *         
+  * @param  decoder_accel:        硬件解码, 0关闭 1开启
+  * @param  render_accel:         硬件渲染, 0关闭 1开启
+  *         
+  * @retval int: 详见返回列表
+  *
+  * @attention  : none
+  * ***********************************************************************
+  */
+DLLIMPORT
+int SDK_NSK_CLIENT_set_hardware_accel(int decoder_accel,
+									int render_accel);
+
+/**
+  * ***********************************************************************
   * @brief  打开设备实时视频通道
   *         
   * @param  device_guid:        设备GUID
@@ -351,6 +367,21 @@ int SDK_NSK_CLIENT_close_all_talk(void);
   */
 DLLIMPORT
 int SDK_NSK_CLIENT_reboot_device(const char *dev_guid);
+
+/**
+  * ***********************************************************************
+  * @brief  远程修改osd
+  *         
+  * @param  dev_guid:   设备GUID
+  *
+  * @retval int: 详见返回列表
+  *
+  * @confirm    : 
+  * @attention  : none
+  * ***********************************************************************
+  */
+DLLIMPORT
+int SDK_NSK_CLIENT_dev_modify_osd(const char* dev_guid, int chnn, const char* base64_osd);
 
 /**
   * ***********************************************************************

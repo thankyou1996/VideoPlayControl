@@ -33,13 +33,9 @@
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlChannel = new System.Windows.Forms.Panel();
-            this.channelRemoteBackplayInfo2 = new VideoPlayControl_RemotePlayback.ChannelRemotePlaybackInfo();
-            this.channelRemoteBackplayInfo1 = new VideoPlayControl_RemotePlayback.ChannelRemotePlaybackInfo();
             this.pnlOperat = new System.Windows.Forms.Panel();
             this.btnQueryRecord = new System.Windows.Forms.Button();
             this.remoteBackplayControl1 = new VideoPlayControl_RemotePlayback.RemotePlaybackControl();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.lvEvent = new System.Windows.Forms.ListView();
             this.EventTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,7 +44,6 @@
             this.pnlMain_Player.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             this.panel1.SuspendLayout();
-            this.pnlChannel.SuspendLayout();
             this.pnlOperat.SuspendLayout();
             this.pnlLeft.SuspendLayout();
             this.SuspendLayout();
@@ -99,8 +94,6 @@
             this.pnlChannel.AutoScrollMinSize = new System.Drawing.Size(10, 10);
             this.pnlChannel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.pnlChannel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlChannel.Controls.Add(this.channelRemoteBackplayInfo2);
-            this.pnlChannel.Controls.Add(this.channelRemoteBackplayInfo1);
             this.pnlChannel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlChannel.Location = new System.Drawing.Point(0, 117);
             this.pnlChannel.Margin = new System.Windows.Forms.Padding(20, 3, 3, 10);
@@ -109,27 +102,10 @@
             this.pnlChannel.Size = new System.Drawing.Size(738, 109);
             this.pnlChannel.TabIndex = 2;
             // 
-            // channelRemoteBackplayInfo2
-            // 
-            this.channelRemoteBackplayInfo2.Checked = false;
-            this.channelRemoteBackplayInfo2.CurrentRemotePlaybackInfo = null;
-            this.channelRemoteBackplayInfo2.Location = new System.Drawing.Point(3, 30);
-            this.channelRemoteBackplayInfo2.Name = "channelRemoteBackplayInfo2";
-            this.channelRemoteBackplayInfo2.Size = new System.Drawing.Size(678, 20);
-            this.channelRemoteBackplayInfo2.TabIndex = 0;
-            // 
-            // channelRemoteBackplayInfo1
-            // 
-            this.channelRemoteBackplayInfo1.Checked = false;
-            this.channelRemoteBackplayInfo1.CurrentRemotePlaybackInfo = null;
-            this.channelRemoteBackplayInfo1.Location = new System.Drawing.Point(3, 4);
-            this.channelRemoteBackplayInfo1.Name = "channelRemoteBackplayInfo1";
-            this.channelRemoteBackplayInfo1.Size = new System.Drawing.Size(678, 20);
-            this.channelRemoteBackplayInfo1.TabIndex = 0;
-            // 
             // pnlOperat
             // 
             this.pnlOperat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
+            this.pnlOperat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlOperat.Controls.Add(this.btnQueryRecord);
             this.pnlOperat.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlOperat.Location = new System.Drawing.Point(0, 84);
@@ -159,28 +135,8 @@
             this.remoteBackplayControl1.Size = new System.Drawing.Size(738, 84);
             this.remoteBackplayControl1.TabIndex = 0;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(6, 523);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 494);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // pnlLeft
             // 
-            this.pnlLeft.Controls.Add(this.button1);
-            this.pnlLeft.Controls.Add(this.button2);
             this.pnlLeft.Controls.Add(this.lvEvent);
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlLeft.Location = new System.Drawing.Point(738, 0);
@@ -221,13 +177,13 @@
             this.Controls.Add(this.pnlLeft);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form1";
+            this.Text = "视频远程回放";
             this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.Shown += new System.EventHandler(this.FrmMain_Shown);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain_Player.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.pnlChannel.ResumeLayout(false);
             this.pnlOperat.ResumeLayout(false);
             this.pnlLeft.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -243,10 +199,6 @@
         private VideoPlayControl_RemotePlayback.RemotePlaybackControl remoteBackplayControl1;
         private System.Windows.Forms.Panel pnlChannel;
         private System.Windows.Forms.Panel pnlOperat;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private VideoPlayControl_RemotePlayback.ChannelRemotePlaybackInfo channelRemoteBackplayInfo2;
-        private VideoPlayControl_RemotePlayback.ChannelRemotePlaybackInfo channelRemoteBackplayInfo1;
         private System.Windows.Forms.ListView lvEvent;
         private System.Windows.Forms.Button btnQueryRecord;
         private System.Windows.Forms.ColumnHeader EventTime;

@@ -96,6 +96,7 @@
     <Compile Include="SDK_JCSDKTests.cs" />
     <Compile Include="SDK_SKVideoSDKTests.cs" />
     <Compile Include="SDK_XMSDKTests.cs" />
+    <Compile Include="TestDataSourceTest.cs" />
     <Compile Include="VideoPlayWindowTests.cs" />
     <Compile Include="VideoRecordInfoConvertTests.cs" />
   </ItemGroup>

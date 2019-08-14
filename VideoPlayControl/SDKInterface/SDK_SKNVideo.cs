@@ -209,7 +209,7 @@ namespace VideoPlayControl.SDKInterface
         /// </summary>
         /// <returns></returns>
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SDK_NSK_CLIENT_start_pb_video(string dev_guid, int video_channel, long start_ts, IntPtr handle);
+        public static extern int SDK_NSK_CLIENT_start_pb_video(string dev_guid, int video_channel, int start_ts, IntPtr handle);
 
         /// <summary>
         /// 关闭视频录像回放接口

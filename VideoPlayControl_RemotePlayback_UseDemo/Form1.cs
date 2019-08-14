@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using VideoCurrencyModule.RemotePlayback;
+using VideoPlayControl_RemotePlayback;
 
 namespace VideoPlayControl_RemotePlayback_UseDemo
 {
@@ -19,28 +20,33 @@ namespace VideoPlayControl_RemotePlayback_UseDemo
         private void Button1_Click(object sender, EventArgs e)
         {
 
-            List<RemotePlaybackFileInfo> FileInfo = new List<RemotePlaybackFileInfo>();
-            FileInfo.Add(new RemotePlaybackFileInfo
-            {
-                StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-12)),
-                EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-11)),
-            });
-            FileInfo.Add(new RemotePlaybackFileInfo
-            {
-                StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-11)),
-                EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-10)),
-            });
-            FileInfo.Add(new RemotePlaybackFileInfo
-            {
-                StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-10)),
-                EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-4)),
-            });
+            //List<RemotePlaybackFileInfo> FileInfo = new List<RemotePlaybackFileInfo>();
+            //FileInfo.Add(new RemotePlaybackFileInfo
+            //{
+            //    StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-12)),
+            //    EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-11)),
+            //});
+            //FileInfo.Add(new RemotePlaybackFileInfo
+            //{
+            //    StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-11)),
+            //    EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-10)),
+            //});
+            //FileInfo.Add(new RemotePlaybackFileInfo
+            //{
+            //    StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-10)),
+            //    EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-4)),
+            //});
 
-            FileInfo.Add(new RemotePlaybackFileInfo
-            {
-                StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-4)),
-                EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-1)),
-            });
+            //FileInfo.Add(new RemotePlaybackFileInfo
+            //{
+            //    StartTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-4)),
+            //    EndTimeStamp = VideoCurrencyModule.PubMethod.DateTimeToUnixTimestamp(DateTime.Now.AddHours(-1)),
+            //});
+
+            DateTime timStart = DateTime.Now.AddDays(-1);
+            DateTime timEnd = DateTime.Now.AddDays(1);
+            string strPath = @"G:\Working\Currency\VideoPlayControl\VideoPlayControlTests\bin\Debug\Test\FILE_MAP_09";
+            List<RemotePlaybackFileInfo> Temp_lst = PubMehtod.GetRemotePlaybackFileInfo_SKN(strPath, timStart, timEnd);
             VideoChannelRemotePlaybackInfo channelInfo = new VideoChannelRemotePlaybackInfo
             {
                 ChnnelInfo = new PublicClassCurrency.CameraInfo
@@ -48,12 +54,13 @@ namespace VideoPlayControl_RemotePlayback_UseDemo
                     Channel = 1,
                     CameraName = "通道1"
                 },
-                StartTime = DateTime.Now.AddHours(-12),
-                EndTime = DateTime.Now,
-                PlaybackFiles = FileInfo,
+                StartTime = timStart,
+                EndTime = timEnd,
+                PlaybackFiles = Temp_lst,
             };
             remoteBackplayInfoControl1.SetRemotePlaybackInfo(channelInfo);
             remoteBackplayControl1.SetRemotePlaybackInfo(channelInfo);
+            //remoteBackplayControl1.SetCurrentPositionDateTime(DateTime.Now.AddHours(-3));
             channelRemoteBackplayInfo1.SetRemotePlaybackInfo(channelInfo);
         }
         bool bolFlag1 = false;

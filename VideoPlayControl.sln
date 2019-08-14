@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoPlayControl_RemotePlay
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKVideoRemotePlayer", "SKVideoRemotePlayer\SKVideoRemotePlayer.csproj", "{6BBA392F-1A55-4E13-BDA4-252571F48E61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKVideoRemotePlayerTests", "SKVideoRemotePlayerTests\SKVideoRemotePlayerTests.csproj", "{55BC5E8A-9607-4EB0-B6EA-2FA4F6F7BC1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,14 @@ Global
 		{6BBA392F-1A55-4E13-BDA4-252571F48E61}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6BBA392F-1A55-4E13-BDA4-252571F48E61}.Release|x86.ActiveCfg = Release|Any CPU
 		{6BBA392F-1A55-4E13-BDA4-252571F48E61}.Release|x86.Build.0 = Release|Any CPU
+		{55BC5E8A-9607-4EB0-B6EA-2FA4F6F7BC1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55BC5E8A-9607-4EB0-B6EA-2FA4F6F7BC1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55BC5E8A-9607-4EB0-B6EA-2FA4F6F7BC1A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{55BC5E8A-9607-4EB0-B6EA-2FA4F6F7BC1A}.Debug|x86.Build.0 = Debug|Any CPU
+		{55BC5E8A-9607-4EB0-B6EA-2FA4F6F7BC1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55BC5E8A-9607-4EB0-B6EA-2FA4F6F7BC1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55BC5E8A-9607-4EB0-B6EA-2FA4F6F7BC1A}.Release|x86.ActiveCfg = Release|Any CPU
+		{55BC5E8A-9607-4EB0-B6EA-2FA4F6F7BC1A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

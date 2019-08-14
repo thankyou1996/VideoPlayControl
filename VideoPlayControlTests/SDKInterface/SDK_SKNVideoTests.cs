@@ -24,11 +24,11 @@ namespace VideoPlayControl.SDKInterface.Tests
         {
             CommonMethod.Common.Delay_Millisecond(3000);
             //string strPath = Environment.CurrentDirectory + "\\TEST\\VHS_ch16_61-5737338A0736-3232_REVIDEO" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".h264";
-            string strPath = "\\TEST\\VHS_ch16_61-5737338A0736-3232_REVIDEO" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".h264";
+            string strPath = "\\TEST\\VHS_ch09_61-5737338A0736-3232_REVIDEO" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".h264";
             //string strPath = "\\TEST\\Working\\TEST1\\VHS_ch16_61-5737338A0736-3232_REVIDEO" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".h264";
 
             int intResult = SDK_SKNVideo.SDK_NSK_CLIENT_get_file("63-343854040533-3339", false, "REVIDEO_CHNN_9", strPath);
-            CommonMethod.Common.Delay_Millisecond(20000);
+            CommonMethod.Common.Delay_Millisecond(10000);
             Assert.Fail();
         }
         /// <summary>
@@ -54,9 +54,9 @@ namespace VideoPlayControl.SDKInterface.Tests
         {
             CommonMethod.Common.Delay_Millisecond(5000);
             //string strPath = Environment.CurrentDirectory + "\\TEST\\VHS_ch16_61-5737338A0736-3232_REVIDEO.h264";
-            string strPath = "\\TEST\\VHS_ch09_63-343854040533-3339_1565166299.h264";
-            int intResult = SDK_SKNVideo.SDK_NSK_CLIENT_get_file("63-343854040533-3339", false, "/hdd/normal/VHS_ch09_63-343854040533-3339_1565166299.h264", strPath);
-            CommonMethod.Common.Delay_Millisecond(3000);
+            string strPath = "\\TEST\\VHS_ch09_63-343854040533-3339_1565223492.h264";
+            int intResult = SDK_SKNVideo.SDK_NSK_CLIENT_get_file("63-343854040533-3339", false, "/hdd/normal/VHS_ch09_63-343854040533-3339_1565223492.h264", strPath);
+            CommonMethod.Common.Delay_Millisecond(30000);
             Assert.Fail();
         }
     }
