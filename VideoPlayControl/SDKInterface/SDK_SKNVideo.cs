@@ -20,6 +20,15 @@ namespace VideoPlayControl.SDKInterface
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDK_NSK_SERVER_init(int sdk_port, string sdk_xml_cfg_full_path, string default_save_file_dir);
 
+        /// <summary>
+        /// 根据GUID判断设备是否在线
+        /// </summary>
+        /// <param name="device_guid"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_SERVER_get_devcie_online(string device_guid);
+
+
         #endregion
         /**初始化客户端SDK
           * ***********************************************************************
