@@ -25,14 +25,14 @@ namespace SKVideoRemotePlayer
                 {
                     sbInfo.Append(s);
                     sbInfo.Append(" ");
-                }
+                };
                 sbInfo.Length = sbInfo.Length - 1;
-                para = Newtonsoft.Json.JsonConvert.DeserializeObject<ProgPara>(sbInfo.ToString());
+                string strJsonData = CommonMethod.StringEncrypt.Base64Decode(sbInfo.ToString());
+                para = Newtonsoft.Json.JsonConvert.DeserializeObject<ProgPara>(strJsonData);
                 foreach (CameraInfo cInfo in para.VideoInfo.Cameras.Values)
                 {
                     cInfo.VideoInfo = para.VideoInfo;
                 }
-
             }
             else
 

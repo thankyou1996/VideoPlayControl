@@ -116,7 +116,6 @@ namespace SKVideoRemotePlayer
                 CameraInfo cInfo = cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo;
                 WriteEvent("开始获取通道" + cInfo.Channel + "录像文件映射");
                 PubMethod.DownloadFileMap(cInfo);
-                CommonMethod.Common.Delay_Millisecond(3000);
                 WriteEvent("通道" + cInfo.Channel + "录像文件映射获取文件");
                 string Temp_strPath = ProgPara.CurrentProgPara.DefaultSaveDir + SDK_SKNVideo.GetLocalFileMapPath(cInfo);
                 List<RemotePlaybackFileInfo> Temp_lst = VideoPlayControl_RemotePlayback.PubMethod.GetRemotePlaybackFileInfo_SKN(Temp_strPath, ProgPara.CurrentProgPara.PlaybackTimeStart, ProgPara.CurrentProgPara.PlaybackTimeEnd);
