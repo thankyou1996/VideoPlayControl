@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using VideoCurrencyModule.RemotePlayback;
+using VideoPlayControl.VideoEnvironment;
 using VideoPlayControl_RemotePlayback;
 
 namespace SKVideoRemotePlayer
@@ -19,7 +20,7 @@ namespace SKVideoRemotePlayer
         public FrmRecordQuery(ProgPara para)
         {
             InitializeComponent();
-            VideoPlayControl.SDKState.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
+            VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
         }
 
 
@@ -51,7 +52,6 @@ namespace SKVideoRemotePlayer
         {
             int intChannel = Convert.ToInt32(cmbChannel.SelectedValue);            
             CameraInfo cInfo = ProgPara.CurrentProgPara.VideoInfo.Cameras[intChannel];
-            //List<RemotePlaybackFileInfo> result = Getttt(dateTimePicker1.Value, dateTimePicker2.Value);
             List<RemotePlaybackFileInfo> result = VideoPlayControl_RemotePlayback.PubMethod.GetRemotePlaybackFileInfo_SKN(PubMethod.GetFileMapPath(cInfo),dateTimePicker1.Value, dateTimePicker2.Value);
             DataTable dt = new DataTable();
               dt.Columns.Add("HostName");

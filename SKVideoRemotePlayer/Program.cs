@@ -45,13 +45,27 @@ namespace SKVideoRemotePlayer
                     PlaybackTimeStart = DateTime.Now.AddDays(-1),
                     PlaybackTimeEnd = DateTime.Now.AddDays(1),
                     PlaybackTime = DateTime.Now.AddHours(-1),
-                    Channel = 9,
+                    Channel = 1,
                     VideoInfo = TestDataSource.SKNVideoDatSource.GetSKData1(),
                     DefaultSaveDir = Environment.CurrentDirectory,
                     XmlCgfFullPath = Environment.CurrentDirectory
                 };
             }
             Application.Run(new FrmMain(para));
+            //ProgPara.CurrentProgPara = new ProgPara
+            //{
+            //    ServerAddress = "192.168.2.19",
+            //    ServerPort = 48624,
+            //    UserName = "xhcs11",
+            //    PlaybackTimeStart = DateTime.Now.AddDays(-1),
+            //    PlaybackTimeEnd = DateTime.Now.AddDays(1),
+            //    PlaybackTime = DateTime.Now.AddHours(-1),
+            //    Channel = 9,
+            //    VideoInfo = TestDataSource.SKNVideoDatSource.GetSKData1(),
+            //    DefaultSaveDir = Environment.CurrentDirectory,
+            //    XmlCgfFullPath = Environment.CurrentDirectory
+            //};
+            //Application.Run(new FrmRecordQuery(ProgPara.CurrentProgPara));
         }
     }
 }

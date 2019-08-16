@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 using PublicClassCurrency;
+using System.IO;
 
 namespace VideoPlayControl.SDKInterface
 {
@@ -282,6 +283,13 @@ namespace VideoPlayControl.SDKInterface
         public static string GetFileMapName(CameraInfo cInfo)
         {
             return "FILE_MAP_" + Convert.ToString(cInfo.Channel).PadLeft(2, '0');
+        }
+
+        public static int GetChannelByFileMapPath(string strPath) 
+        {
+            string Temp_strFileName = Path.GetFileNameWithoutExtension(strPath);
+            string Temp_strChannel = Temp_strFileName.Substring(Temp_strFileName.LastIndexOf("_") + 1);
+            return Convert.ToInt32(Temp_strChannel);
         }
         #endregion
     }

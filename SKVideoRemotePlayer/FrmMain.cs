@@ -30,7 +30,33 @@ namespace SKVideoRemotePlayer
 
             VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
             WriteEvent("SDK初始化成功");
+            VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
             SetVideoInfo(para.VideoInfo);
+        }
+
+        private void VideoEnvironment_SKN_DownLoadDoneEvent(object sender, object value)
+        {
+            this.BeginInvoke(new EventHandler(delegate
+            {
+                int intChannel = SDK_SKNVideo.GetChannelByFileMapPath(Convert.ToString(value));
+                CameraInfo cInfo = ProgPara.CurrentProgPara.VideoInfo.Cameras[intChannel];
+                WriteEvent("通道" + cInfo.Channel + "录像文件映射获取文件");
+                string Temp_strPath = ProgPara.CurrentProgPara.DefaultSaveDir + SDK_SKNVideo.GetLocalFileMapPath(cInfo);
+                List<RemotePlaybackFileInfo> Temp_lst = VideoPlayControl_RemotePlayback.PubMethod.GetRemotePlaybackFileInfo_SKN(Temp_strPath, ProgPara.CurrentProgPara.PlaybackTimeStart, ProgPara.CurrentProgPara.PlaybackTimeEnd);
+                foreach (Control c in pnlChannel.Controls)
+                {
+                    ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
+                    if (cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo != cInfo)
+                    {
+                        continue;
+                    }
+                    cbInfo.CurrentRemotePlaybackInfo.PlaybackFiles = Temp_lst.FindAll(item => item.WriteOK).ToList();
+                    //刷新录像信息
+                    remoteBackplayControl1.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
+                    cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
+                    WriteEvent("通道" + cInfo.Channel + "刷新录像文件信息");
+                }
+            }));
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -116,14 +142,6 @@ namespace SKVideoRemotePlayer
                 CameraInfo cInfo = cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo;
                 WriteEvent("开始获取通道" + cInfo.Channel + "录像文件映射");
                 PubMethod.DownloadFileMap(cInfo);
-                WriteEvent("通道" + cInfo.Channel + "录像文件映射获取文件");
-                string Temp_strPath = ProgPara.CurrentProgPara.DefaultSaveDir + SDK_SKNVideo.GetLocalFileMapPath(cInfo);
-                List<RemotePlaybackFileInfo> Temp_lst = VideoPlayControl_RemotePlayback.PubMethod.GetRemotePlaybackFileInfo_SKN(Temp_strPath, ProgPara.CurrentProgPara.PlaybackTimeStart, ProgPara.CurrentProgPara.PlaybackTimeEnd);
-                cbInfo.CurrentRemotePlaybackInfo.PlaybackFiles = Temp_lst.FindAll(item=>item.WriteOK).ToList();
-                //刷新录像信息
-                remoteBackplayControl1.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
-                cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
-                WriteEvent("通道" + cInfo.Channel + "刷新录像文件信息");
             }
         }
 
@@ -170,8 +188,8 @@ namespace SKVideoRemotePlayer
 
         private void BtnQueryRecord_Click(object sender, EventArgs e)
         {
-            FrmRecordQuery frmRecordQuery = new FrmRecordQuery();
-            frmRecordQuery.Show();
+            //FrmRecordQuery frmRecordQuery = new FrmRecordQuery();
+            //frmRecordQuery.Show();
         }
 
         private void FrmMain_Shown(object sender, EventArgs e)

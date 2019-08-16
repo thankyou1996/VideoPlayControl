@@ -21,7 +21,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "sk123456";
             v.NetworkState = 0;
-            for (int i = 9; i <= 16; i++)
+            for (int i = 1; i <= 16; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i);

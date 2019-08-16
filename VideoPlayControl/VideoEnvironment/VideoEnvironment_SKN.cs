@@ -30,7 +30,6 @@ namespace VideoPlayControl.VideoEnvironment
             SDK_SKNVideo.SDK_NSK_CLIENT_init(server_addr, server_port, client_guid, sdk_xml_cfg_full_path, default_save_dir);
             callbackvalue = new SDK_SKNVideo.CallBack(callback);
             SDK_SKNVideo.SDK_NSK_ALL_regeist_msg_callback(callbackvalue);
-            //SDK_SKNVideo.SDK_NSK_ALL_open_console();
             SKVNVideoSDKState = Enum_SDKState.SDK_Init;
             return SKVNVideoSDKState;
         }
@@ -49,23 +48,52 @@ namespace VideoPlayControl.VideoEnvironment
 
         public static void callback(int msg_id, string msg_info, int arg1, int arg2, IntPtr data1, int data1_len, IntPtr data2, int data2_len)
         {
-            Console.WriteLine("callback " + msg_id + "  " + msg_info);
-            string strGuid = Marshal.PtrToStringAnsi(data1);
             switch (msg_info)
             {
                 case "Download progress.":
+                    string str = "";
                     break;
 
                 case "Download done.":
-
+                    string strFilePath = Marshal.PtrToStringAnsi(data1);
+                    callback_downloaddone(strFilePath);
                     break;
 
                 case "Device event":
-                    string streventdata= Marshal.PtrToStringAnsi(data2);
+                    //string strGuid = Marshal.PtrToStringAnsi(data1);
+                    //string streventdata= Marshal.PtrToStringAnsi(data2);
                     break;
 
             }
         }
+
+        #region 回调相关信息
+
+
+        /// <summary>
+        /// 文件下载完成路径
+        /// </summary>
+        /// <param name="strFilePath">文件相对路径</param>
+        public static void callback_downloaddone(string strFilePath)
+        {
+            DownLoadDone(strFilePath);
+        }
+
+        public delegate void DownLoadDoneDelegate(object sender, object value);
+
+
+        public static event DownLoadDoneDelegate DownLoadDoneEvent;
+
+        private static void DownLoadDone(object value)
+        {
+            if (DownLoadDoneEvent != null)
+            {
+                DownLoadDoneEvent(null, value);
+            }
+        }
+
+
+        #endregion
 
     }
 }
