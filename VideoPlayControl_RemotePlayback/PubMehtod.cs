@@ -10,10 +10,23 @@ namespace VideoPlayControl_RemotePlayback
     public class PubMethod
     {
 
-
-        public static List<RemotePlaybackFileInfo> GetRemotePlaybackFileInfo_SKN(string strPath,DateTime timStart,DateTime timEnd)
+        public static List<RemotePlaybackFileInfo> GetRemotePlaybackFileInfo_SKN(string strPath, DateTime timStart, DateTime timEnd)
         {
-            return GetRemotePlaybackFileInfo_SKN(strPath);
+            List<RemotePlaybackFileInfo> result = new List<RemotePlaybackFileInfo>();
+            List<RemotePlaybackFileInfo> Temp_result = VideoPlayControl_RemotePlayback.PubMethod.GetRemotePlaybackFileInfo_SKN(strPath);
+            foreach (var RemotePlaybackFileInfo in Temp_result)
+            {
+                if (RemotePlaybackFileInfo.EndTime <= timEnd && RemotePlaybackFileInfo.StartTime >= timStart)
+                {
+                    result.Add(RemotePlaybackFileInfo);
+                }
+                else
+                {
+                    //
+                }
+
+            }
+            return result;
         }
 
         /// <summary>
@@ -24,18 +37,25 @@ namespace VideoPlayControl_RemotePlayback
         public static List<RemotePlaybackFileInfo> GetRemotePlaybackFileInfo_SKN(string strPath)
         {
             List<RemotePlaybackFileInfo> result = new List<RemotePlaybackFileInfo>();
-            FileStream fs = new FileStream(strPath, FileMode.Open, FileAccess.Read);
-            StreamReader m_streamReader = new StreamReader(fs);
-            m_streamReader.BaseStream.Seek(0, SeekOrigin.Begin);
-            string strLine = m_streamReader.ReadLine();
-            while (strLine != null)
+            if ((!File.Exists(strPath)))
             {
-                RemotePlaybackFileInfo ra = PubMethod.GetRemotePlaybackFileInfo(strLine);
-                result.Add(ra);
-                strLine = m_streamReader.ReadLine();
+                //
             }
-            m_streamReader.Close();
-            fs.Close();
+            else
+            {
+                FileStream fs = new FileStream(strPath, FileMode.Open, FileAccess.Read);
+                StreamReader m_streamReader = new StreamReader(fs);
+                m_streamReader.BaseStream.Seek(0, SeekOrigin.Begin);
+                string strLine = m_streamReader.ReadLine();
+                while (strLine != null)
+                {
+                    RemotePlaybackFileInfo ra = PubMethod.GetRemotePlaybackFileInfo(strLine);
+                    result.Add(ra);
+                    strLine = m_streamReader.ReadLine();
+                }
+                m_streamReader.Close();
+                fs.Close();
+            }
             return result;
         }
 
@@ -61,4 +81,5 @@ namespace VideoPlayControl_RemotePlayback
         }
 
     }
+
 }

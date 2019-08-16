@@ -34,13 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTalkRecord = new System.Windows.Forms.DataGridView();
-            this.pnlOperat = new System.Windows.Forms.Panel();
-            this.btnQuery = new System.Windows.Forms.Button();
-            this.cmbChannel = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvTalkRecord_HostName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTalkRecord_StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTalkRecord_EndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +41,13 @@
             this.dgvTalkRecord_Timelength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTalkRecord_Writeok = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTalkRecord_download = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlOperat = new System.Windows.Forms.Panel();
+            this.btnQuery = new System.Windows.Forms.Button();
+            this.cmbChannel = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTalkRecord)).BeginInit();
             this.pnlOperat.SuspendLayout();
             this.SuspendLayout();
@@ -80,91 +80,6 @@
             this.dgvTalkRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTalkRecord.Size = new System.Drawing.Size(857, 404);
             this.dgvTalkRecord.TabIndex = 27;
-            // 
-            // pnlOperat
-            // 
-            this.pnlOperat.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlOperat.Controls.Add(this.btnQuery);
-            this.pnlOperat.Controls.Add(this.cmbChannel);
-            this.pnlOperat.Controls.Add(this.dateTimePicker2);
-            this.pnlOperat.Controls.Add(this.dateTimePicker1);
-            this.pnlOperat.Controls.Add(this.label2);
-            this.pnlOperat.Controls.Add(this.label1);
-            this.pnlOperat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlOperat.Location = new System.Drawing.Point(0, 0);
-            this.pnlOperat.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlOperat.Name = "pnlOperat";
-            this.pnlOperat.Size = new System.Drawing.Size(857, 121);
-            this.pnlOperat.TabIndex = 28;
-            // 
-            // btnQuery
-            // 
-            this.btnQuery.Location = new System.Drawing.Point(370, 60);
-            this.btnQuery.Margin = new System.Windows.Forms.Padding(4);
-            this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(100, 31);
-            this.btnQuery.TabIndex = 3;
-            this.btnQuery.Text = "查询";
-            this.btnQuery.UseVisualStyleBackColor = true;
-            this.btnQuery.Click += new System.EventHandler(this.BtnQuery_Click);
-            // 
-            // cmbChannel
-            // 
-            this.cmbChannel.FormattingEnabled = true;
-            this.cmbChannel.Location = new System.Drawing.Point(370, 24);
-            this.cmbChannel.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbChannel.Name = "cmbChannel";
-            this.cmbChannel.Size = new System.Drawing.Size(179, 24);
-            this.cmbChannel.TabIndex = 2;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-            this.dateTimePicker2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(95, 62);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(255, 26);
-            this.dateTimePicker2.TabIndex = 1;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-            this.dateTimePicker1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(95, 22);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(255, 26);
-            this.dateTimePicker1.TabIndex = 1;
-            this.dateTimePicker1.Value = new System.DateTime(2019, 8, 1, 17, 35, 0, 0);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(15, 67);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "结束时间";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(15, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "起始时间";
             // 
             // dgvTalkRecord_HostName
             // 
@@ -238,6 +153,92 @@
             this.dgvTalkRecord_download.Name = "dgvTalkRecord_download";
             this.dgvTalkRecord_download.ReadOnly = true;
             this.dgvTalkRecord_download.Width = 97;
+            // 
+            // pnlOperat
+            // 
+            this.pnlOperat.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlOperat.Controls.Add(this.btnQuery);
+            this.pnlOperat.Controls.Add(this.cmbChannel);
+            this.pnlOperat.Controls.Add(this.dateTimePicker2);
+            this.pnlOperat.Controls.Add(this.dateTimePicker1);
+            this.pnlOperat.Controls.Add(this.label2);
+            this.pnlOperat.Controls.Add(this.label1);
+            this.pnlOperat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlOperat.Location = new System.Drawing.Point(0, 0);
+            this.pnlOperat.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlOperat.Name = "pnlOperat";
+            this.pnlOperat.Size = new System.Drawing.Size(857, 121);
+            this.pnlOperat.TabIndex = 28;
+            // 
+            // btnQuery
+            // 
+            this.btnQuery.Location = new System.Drawing.Point(370, 60);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(4);
+            this.btnQuery.Name = "btnQuery";
+            this.btnQuery.Size = new System.Drawing.Size(100, 31);
+            this.btnQuery.TabIndex = 3;
+            this.btnQuery.Text = "查询";
+            this.btnQuery.UseVisualStyleBackColor = true;
+            this.btnQuery.Click += new System.EventHandler(this.BtnQuery_Click);
+            // 
+            // cmbChannel
+            // 
+            this.cmbChannel.FormattingEnabled = true;
+            this.cmbChannel.Location = new System.Drawing.Point(370, 24);
+            this.cmbChannel.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbChannel.Name = "cmbChannel";
+            this.cmbChannel.Size = new System.Drawing.Size(179, 24);
+            this.cmbChannel.TabIndex = 2;
+            this.cmbChannel.SelectedIndexChanged += new System.EventHandler(this.CmbChannel_SelectedIndexChanged);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(95, 62);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(255, 26);
+            this.dateTimePicker2.TabIndex = 1;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(95, 22);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(255, 26);
+            this.dateTimePicker1.TabIndex = 1;
+            this.dateTimePicker1.Value = new System.DateTime(2019, 8, 1, 17, 35, 0, 0);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(15, 67);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "结束时间";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(15, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "起始时间";
             // 
             // FrmRecordQuery
             // 

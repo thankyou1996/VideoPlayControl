@@ -11,6 +11,7 @@ using System.Threading;
 using System.Windows.Forms;
 using VideoCurrencyModule.RemotePlayback;
 using VideoPlayControl.SDKInterface;
+using VideoPlayControl.VideoEnvironment;
 using VideoPlayControl_RemotePlayback;
 
 namespace SKVideoRemotePlayer
@@ -26,12 +27,11 @@ namespace SKVideoRemotePlayer
         {
             InitializeComponent();
             ProgPara.CurrentProgPara = para;
-            
-            VideoPlayControl.SDKState.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
+
+            VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
             WriteEvent("SDK初始化成功");
             SetVideoInfo(para.VideoInfo);
         }
-
 
         private void FrmMain_Load(object sender, EventArgs e)
         {

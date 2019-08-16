@@ -16,6 +16,18 @@ namespace VideoPlayControl.SDKInterface
 
         #region 接口定义
 
+        #region 通用接口
+
+        public delegate void CallBack(int msg_id, string msg_info, int arg1, int arg2, IntPtr data1, int data1_len, IntPtr data2, int data2_len);
+
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_ALL_regeist_msg_callback(CallBack callback);
+
+
+
+        #endregion
+
+
         #region 服务器端接口
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDK_NSK_SERVER_init(int sdk_port, string sdk_xml_cfg_full_path, string default_save_file_dir);
@@ -26,7 +38,7 @@ namespace VideoPlayControl.SDKInterface
         /// <param name="device_guid"></param>
         /// <returns></returns>
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SDK_NSK_SERVER_get_devcie_online(string device_guid);
+        public static extern int SDK_NSK_SERVER_get_device_online(string device_guid);
 
 
         #endregion
