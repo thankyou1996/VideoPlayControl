@@ -188,8 +188,8 @@ namespace SKVideoRemotePlayer
 
         private void BtnQueryRecord_Click(object sender, EventArgs e)
         {
-            //FrmRecordQuery frmRecordQuery = new FrmRecordQuery();
-            //frmRecordQuery.Show();
+            FrmRecordQuery frmRecordQuery = new FrmRecordQuery();
+            frmRecordQuery.Show();
         }
 
         private void FrmMain_Shown(object sender, EventArgs e)

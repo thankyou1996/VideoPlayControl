@@ -291,6 +291,19 @@ namespace VideoPlayControl.SDKInterface
             string Temp_strChannel = Temp_strFileName.Substring(Temp_strFileName.LastIndexOf("_") + 1);
             return Convert.ToInt32(Temp_strChannel);
         }
+
+
+        public static string GetFilePata_VideoRecord_Remote(VideoInfo vInfo,string strFileName)
+        {
+            string strResult = "/hdd/normal/" + strFileName;
+            return strResult;
+        }
+
+        public static string GetFilePata_VideoRecord_Local(VideoInfo vInfo, string strFileName)
+        {
+            string strResult = "/" + vInfo.DVSAddress + "/" + strFileName;
+            return strResult;
+        }
         #endregion
     }
 }

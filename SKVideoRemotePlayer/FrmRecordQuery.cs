@@ -17,10 +17,16 @@ namespace SKVideoRemotePlayer
 {
     public partial class FrmRecordQuery : Form
     {
+        public FrmRecordQuery()
+        {
+            InitializeComponent();
+            //VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
+        }
+
         public FrmRecordQuery(ProgPara para)
         {
             InitializeComponent();
-            VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
+            //VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
         }
 
 

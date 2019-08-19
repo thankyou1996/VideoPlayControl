@@ -23,7 +23,6 @@ namespace SKVideoRemotePlayer
             string Temp_strPath = ProgPara.CurrentProgPara.DefaultSaveDir + Path.GetDirectoryName(strPath2);
             CommonMethod.Common.CreateFolder(Temp_strPath);
             SDK_SKNVideo.SDK_NSK_CLIENT_get_file(vInfo.DVSAddress, false, strPath1, strPath2);
-            CommonMethod.Common.Delay_Millisecond(1500);
         }
 
         public static string GetFileMapPath(CameraInfo cInfo)
@@ -32,6 +31,19 @@ namespace SKVideoRemotePlayer
             sbResult.Append(ProgPara.CurrentProgPara.DefaultSaveDir);
             sbResult.Append(SDK_SKNVideo.GetLocalFileMapPath(cInfo));
             return sbResult.ToString();
+        }
+        /// <summary>
+        /// 下载文件映射
+        /// </summary>
+        /// <param name="cInfo"></param>
+        public static void DownloadFile(VideoInfo vInfo, string strPath)
+        {
+            //下载录像映射文件
+            string strPath1 = SDK_SKNVideo.GetFilePata_VideoRecord_Remote(vInfo, strPath);
+            string strPath2 = SDK_SKNVideo.GetFilePata_VideoRecord_Local(vInfo,strPath);
+            string Temp_strPath = ProgPara.CurrentProgPara.DefaultSaveDir + Path.GetDirectoryName(strPath2);
+            CommonMethod.Common.CreateFolder(Temp_strPath);
+            SDK_SKNVideo.SDK_NSK_CLIENT_get_file(vInfo.DVSAddress, false, strPath1, strPath2);
         }
     }
 }

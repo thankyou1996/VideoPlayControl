@@ -175,6 +175,7 @@
             this.ClientSize = new System.Drawing.Size(991, 585);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlLeft);
+            this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "视频远程回放";

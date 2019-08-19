@@ -51,7 +51,8 @@ namespace VideoPlayControl.VideoEnvironment
             switch (msg_info)
             {
                 case "Download progress.":
-                    string str = "";
+                    string strFilePath1 = Marshal.PtrToStringAnsi(data1);
+                    callback_downloadprocess(new DownLoadProcessValue { FilePath = strFilePath1, Percent = arg1 });
                     break;
 
                 case "Download done.":
@@ -69,6 +70,7 @@ namespace VideoPlayControl.VideoEnvironment
 
         #region 回调相关信息
 
+        #region 文件下载完成回调
 
         /// <summary>
         /// 文件下载完成路径
@@ -91,6 +93,55 @@ namespace VideoPlayControl.VideoEnvironment
                 DownLoadDoneEvent(null, value);
             }
         }
+        #endregion
+
+        #region 下载进度回调
+
+
+        public struct DownLoadProcessValue
+        {
+            /// <summary>
+            /// 文件名
+            /// </summary>
+            public string FilePath
+            {
+                get;
+                set;
+            }
+
+            /// <summary>
+            /// 百分比
+            /// </summary>
+            public int Percent
+            {
+                get;
+                set;
+            }
+        }
+
+
+        /// <summary>
+        /// 文件下载完成路径
+        /// </summary>
+        /// <param name="strFilePath">文件相对路径</param>
+        public static void callback_downloadprocess(DownLoadProcessValue value)
+        {
+            DownLoadProcess(value);
+        }
+
+        public delegate void DownLoadProcessDelegate(object sender, DownLoadProcessValue value);
+
+
+        public static event DownLoadProcessDelegate DownLoadProcessEvent;
+
+        private static void DownLoadProcess(DownLoadProcessValue value)
+        {
+            if (DownLoadProcessEvent != null)
+            {
+                DownLoadProcessEvent(null, value);
+            }
+        }
+        #endregion
 
 
         #endregion
