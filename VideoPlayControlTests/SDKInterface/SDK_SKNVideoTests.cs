@@ -61,5 +61,16 @@ namespace VideoPlayControl.SDKInterface.Tests
             CommonMethod.Common.Delay_Millisecond(10000);
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void SDK_NSK_CLIENT_dev_delay_alarmTest()
+        {
+            CommonMethod.Common.Delay_Millisecond(5000);
+
+            int intResult = SDK_SKNVideo.SDK_NSK_CLIENT_dev_delay_alarm("63-00F628C55D02-1812", 4, 5);
+
+            CommonMethod.Common.Delay_Millisecond(10000);
+            Assert.Fail();
+        }
     }
 }

@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using VideoPlayControl.SDKInterface;
+using VideoPlayControl.VideoEnvironment;
 
 namespace VideoPlayControl_UseDemo.ServerTest
 {
@@ -25,8 +26,11 @@ namespace VideoPlayControl_UseDemo.ServerTest
 
         public void Init()
         {
-            int i8604H = VideoPlayControl.SDKInterface.SDK_SKNVideo.SDK_NSK_SERVER_init(48624, null, "");
-            SDK_SKNVideo.SDK_NSK_ALL_regeist_msg_callback(new SDK_SKNVideo.CallBack(callback));
+            //int i8604H = VideoPlayControl.SDKInterface.SDK_SKNVideo.SDK_NSK_SERVER_init(48624, null, "");
+            //SDK_SKNVideo.SDK_NSK_ALL_regeist_msg_callback(new SDK_SKNVideo.CallBack(callback));
+
+            VideoEnvironment_SKN.SKNVideoSDK_Init("127.0.0.1", 48624, "Admin", Environment.CurrentDirectory, Environment.CurrentDirectory);
+
         }
 
         public void callback(int msg_id, string msg_info, int arg1, int arg2, IntPtr data1, int data1_len, IntPtr data2, int data2_len)
@@ -57,6 +61,11 @@ namespace VideoPlayControl_UseDemo.ServerTest
             string strGUID = txtguid.Text;
             int intResult= VideoPlayControl.SDKInterface.SDK_SKNVideo.SDK_NSK_SERVER_get_device_online(strGUID);
             Console.WriteLine(DateTime.Now.ToString("HH:mm:ss") + "  " + strGUID + "  Online :" + intResult);
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            SDK_SKNVideo.SDK_NSK_CLIENT_dev_delay_alarm("63-00F628C55D02-1812", 5, 60);
         }
     }
 }

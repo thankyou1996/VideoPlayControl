@@ -17,5 +17,11 @@ namespace VideoPlayControl.SDKInterface.Tests
             int intChannel = SDK_SKNVideo.GetChannelByFileMapPath(strPath);
             Assert.AreEqual(intChannel, 1);
         }
+
+        [TestMethod()]
+        public void SDK_NSK_CLIENT_dev_delay_alarmTest()
+        {
+            Assert.Fail();
+        }
     }
 }

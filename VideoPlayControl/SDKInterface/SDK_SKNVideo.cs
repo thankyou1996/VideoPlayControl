@@ -225,6 +225,27 @@ namespace VideoPlayControl.SDKInterface
         */
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDK_NSK_CLIENT_is_online();
+
+
+        /**
+          * ***********************************************************************
+          * @brief  手动触发警号并延迟关闭
+          *         
+          * @param  dev_guid:   设备GUID
+          * @param  chnn:		警号通道（1~5)
+          * @param  dev_guid:   警号时长(0~5分钟)
+          *
+          * @retval int: 详见返回列表
+          *
+          * @confirm    : 
+          * @attention  : none
+          * ***********************************************************************
+          */
+
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_CLIENT_dev_delay_alarm(string dev_guid, int chnn, int timout);
+
+
         #region 远程录像回放相关
         /// <summary>
         /// 打开视频录像回放接口
