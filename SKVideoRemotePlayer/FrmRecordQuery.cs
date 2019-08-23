@@ -54,8 +54,6 @@ namespace SKVideoRemotePlayer
        
         private void VideoEnvironment_SKN_DownLoadProcessEvent(object sender, VideoEnvironment_SKN.DownLoadProcessValue value)
         {
-            //\63-00F628C56202-1CF3\VHS_ch09_63-00F628C56202-1CF3_1565952831.h264
-            //VHS_ch09_63-00F628C56202-1CF3_1565952831.h264
             if (value.FilePath.EndsWith(name))
             {
                 Console.WriteLine(value.Percent);
@@ -237,6 +235,12 @@ namespace SKVideoRemotePlayer
                 }
                 
             }
+        }
+
+        private void FrmRecordQuery_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            VideoEnvironment_SKN.DownLoadDoneEvent -= VideoEnvironment_SKN_DownLoadDoneEvent;
+            VideoEnvironment_SKN.DownLoadProcessEvent -= VideoEnvironment_SKN_DownLoadProcessEvent;
         }
     }   
 }
