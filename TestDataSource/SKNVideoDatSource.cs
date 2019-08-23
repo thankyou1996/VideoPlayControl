@@ -11,7 +11,7 @@ namespace TestDataSource
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.SKNVideo;
-            v.DVSAddress = "63-00F628C55D02-1812";
+            v.DVSAddress = "63-00F628C55D02-1814";
             //v.DVSAddress = "63-00F628C42E02-11B8";
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
@@ -22,7 +22,7 @@ namespace TestDataSource
             v.UserName = "admin";
             v.Password = "sk123456";
             v.NetworkState = 0;
-            for (int i = 1; i <= 16; i++)
+            for (int i = 9; i <= 16; i++)
             {
                 CameraInfo c = new CameraInfo();
                 c.CameraName = "摄像头" + (i);

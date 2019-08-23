@@ -30,8 +30,23 @@ namespace VideoPlayControl.VideoTalk
             }
         }
 
-        public TalkSetting CurrentTalkSetting { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public object Tag { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        private TalkSetting currentTalkSetting = new TalkSetting();
+
+        /// <summary>
+        /// 时刻设备对讲设置
+        /// </summary>
+        public TalkSetting CurrentTalkSetting
+        {
+            get { return currentTalkSetting; }
+            set { currentTalkSetting = value; }
+        }
+
+        public object Tag
+        {
+            get;
+            set;
+        }
 
         public event TalkStausChangedDelegate TalkStausChangedEvent;
 

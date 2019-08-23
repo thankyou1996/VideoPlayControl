@@ -30,7 +30,7 @@ namespace SKVideoRemotePlayer
 
             VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
             WriteEvent("SDK初始化成功");
-            VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
+            //VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
             SetVideoInfo(para.VideoInfo);
         }
 
@@ -38,6 +38,7 @@ namespace SKVideoRemotePlayer
         {
             this.BeginInvoke(new EventHandler(delegate
             {
+                CommonMethod.Common.Delay_Millisecond(5000);
                 int intChannel = SDK_SKNVideo.GetChannelByFileMapPath(Convert.ToString(value));
                 CameraInfo cInfo = ProgPara.CurrentProgPara.VideoInfo.Cameras[intChannel];
                 WriteEvent("通道" + cInfo.Channel + "录像文件映射获取文件");
@@ -54,9 +55,11 @@ namespace SKVideoRemotePlayer
                     //刷新录像信息
                     remoteBackplayControl1.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
                     cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
+                    CommonMethod.Common.Delay_Millisecond(1500);
                     WriteEvent("通道" + cInfo.Channel + "刷新录像文件信息");
                 }
             }));
+            VideoEnvironment_SKN.DownLoadDoneEvent -= VideoEnvironment_SKN_DownLoadDoneEvent;
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -114,7 +117,7 @@ namespace SKVideoRemotePlayer
             SetVideoInfo_Control(value);
         }
 
-        public void SetVideoInfo_Control(VideoInfo vInfo) 
+        public void SetVideoInfo_Control(VideoInfo vInfo)
         {
             List<RemotePlaybackFileInfo> lstBackplayInfo = new List<RemotePlaybackFileInfo>();
             pnlChannel.Controls.Clear();
@@ -139,6 +142,7 @@ namespace SKVideoRemotePlayer
             ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)sender;
             if (cbInfo.Checked)
             {
+                VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
                 CameraInfo cInfo = cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo;
                 WriteEvent("开始获取通道" + cInfo.Channel + "录像文件映射");
                 PubMethod.DownloadFileMap(cInfo);
@@ -165,7 +169,7 @@ namespace SKVideoRemotePlayer
 
 
 
-        
+
 
 
         public void RefreshPlaybackInfo()

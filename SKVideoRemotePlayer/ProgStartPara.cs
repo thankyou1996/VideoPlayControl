@@ -18,6 +18,16 @@ namespace SKVideoRemotePlayer
             set;
         }
 
+
+        public static string VideoDefaultSaveDir
+        {
+            get
+            {
+                //E:\SK3000Cu_Sub\SKVideoRemotePlayer\bin\Debug\63-00F628C56202-1CF3
+                return (CurrentProgPara.DefaultSaveDir + "\\" + CurrentProgPara.VideoInfo.DVSAddress);
+            }
+        }
+
         /// <summary>
         /// 服务器地址
         /// </summary>

@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTalkRecord = new System.Windows.Forms.DataGridView();
             this.dgvTalkRecord_HostName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTalkRecord_StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +49,8 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTalkRecord)).BeginInit();
             this.pnlOperat.SuspendLayout();
             this.SuspendLayout();
@@ -70,16 +73,19 @@
             this.dgvTalkRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTalkRecord.Location = new System.Drawing.Point(0, 121);
             this.dgvTalkRecord.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvTalkRecord.MultiSelect = false;
             this.dgvTalkRecord.Name = "dgvTalkRecord";
             this.dgvTalkRecord.ReadOnly = true;
             this.dgvTalkRecord.RowHeadersVisible = false;
             this.dgvTalkRecord.RowHeadersWidth = 50;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvTalkRecord.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dgvTalkRecord.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvTalkRecord.RowTemplate.Height = 35;
             this.dgvTalkRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTalkRecord.Size = new System.Drawing.Size(857, 404);
+            this.dgvTalkRecord.Size = new System.Drawing.Size(1071, 367);
             this.dgvTalkRecord.TabIndex = 27;
+            this.dgvTalkRecord.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTalkRecord_CellDoubleClick);
+            this.dgvTalkRecord.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DgvTalkRecord_CellPainting_1);
             // 
             // dgvTalkRecord_HostName
             // 
@@ -94,9 +100,9 @@
             // 
             this.dgvTalkRecord_StartTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvTalkRecord_StartTime.DataPropertyName = "StartTime";
-            dataGridViewCellStyle1.Format = "F";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgvTalkRecord_StartTime.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Format = "F";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dgvTalkRecord_StartTime.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvTalkRecord_StartTime.HeaderText = "起始时间";
             this.dgvTalkRecord_StartTime.Name = "dgvTalkRecord_StartTime";
             this.dgvTalkRecord_StartTime.ReadOnly = true;
@@ -106,9 +112,9 @@
             // 
             this.dgvTalkRecord_EndTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvTalkRecord_EndTime.DataPropertyName = "EndTime";
-            dataGridViewCellStyle2.Format = "F";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dgvTalkRecord_EndTime.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Format = "F";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dgvTalkRecord_EndTime.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvTalkRecord_EndTime.HeaderText = "结束时间";
             this.dgvTalkRecord_EndTime.Name = "dgvTalkRecord_EndTime";
             this.dgvTalkRecord_EndTime.ReadOnly = true;
@@ -118,8 +124,8 @@
             // 
             this.dgvTalkRecord_FileLength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvTalkRecord_FileLength.DataPropertyName = "FileLength";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dgvTalkRecord_FileLength.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.NullValue = null;
+            this.dgvTalkRecord_FileLength.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvTalkRecord_FileLength.HeaderText = "文件大小";
             this.dgvTalkRecord_FileLength.Name = "dgvTalkRecord_FileLength";
             this.dgvTalkRecord_FileLength.ReadOnly = true;
@@ -129,8 +135,8 @@
             // 
             this.dgvTalkRecord_Timelength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvTalkRecord_Timelength.DataPropertyName = "Timelength";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dgvTalkRecord_Timelength.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.NullValue = null;
+            this.dgvTalkRecord_Timelength.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvTalkRecord_Timelength.HeaderText = "时间长度";
             this.dgvTalkRecord_Timelength.Name = "dgvTalkRecord_Timelength";
             this.dgvTalkRecord_Timelength.ReadOnly = true;
@@ -167,7 +173,7 @@
             this.pnlOperat.Location = new System.Drawing.Point(0, 0);
             this.pnlOperat.Margin = new System.Windows.Forms.Padding(4);
             this.pnlOperat.Name = "pnlOperat";
-            this.pnlOperat.Size = new System.Drawing.Size(857, 121);
+            this.pnlOperat.Size = new System.Drawing.Size(1071, 121);
             this.pnlOperat.TabIndex = 28;
             // 
             // btnQuery
@@ -189,7 +195,6 @@
             this.cmbChannel.Name = "cmbChannel";
             this.cmbChannel.Size = new System.Drawing.Size(179, 24);
             this.cmbChannel.TabIndex = 2;
-            this.cmbChannel.SelectedIndexChanged += new System.EventHandler(this.CmbChannel_SelectedIndexChanged);
             // 
             // dateTimePicker2
             // 
@@ -240,17 +245,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "起始时间";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBar1.Location = new System.Drawing.Point(0, 488);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(1071, 37);
+            this.progressBar1.TabIndex = 4;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ShowAlways = true;
+            // 
             // FrmRecordQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.ClientSize = new System.Drawing.Size(857, 525);
+            this.ClientSize = new System.Drawing.Size(1071, 525);
             this.Controls.Add(this.dgvTalkRecord);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pnlOperat);
             this.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmRecordQuery";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "录像文件查询下载";
             this.Load += new System.EventHandler(this.FrmRecordQuery_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTalkRecord)).EndInit();
@@ -277,5 +296,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTalkRecord_Timelength;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTalkRecord_Writeok;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTalkRecord_download;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

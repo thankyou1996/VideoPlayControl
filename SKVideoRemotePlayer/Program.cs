@@ -45,7 +45,7 @@ namespace SKVideoRemotePlayer
                     PlaybackTimeStart = DateTime.Now.AddDays(-1),
                     PlaybackTimeEnd = DateTime.Now.AddDays(1),
                     PlaybackTime = DateTime.Now.AddHours(-1),
-                    Channel = 1,
+                    Channel = 9,
                     VideoInfo = TestDataSource.SKNVideoDatSource.GetSKData1(),
                     DefaultSaveDir = Environment.CurrentDirectory,
                     XmlCgfFullPath = Environment.CurrentDirectory

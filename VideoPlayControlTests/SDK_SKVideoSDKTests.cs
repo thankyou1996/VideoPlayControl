@@ -284,8 +284,8 @@ namespace VideoPlayControl.Tests
             }
             string Temp_strValue = "http://192.168.2.19:8008/SK_VideoRecord/0001/20190703200256/";
 
-            SDK_SKVideoSDK.p_sdkc_get_revideo_data("71-00F51F012D0C-2830", 0, Temp_strValue);
-            Common.Delay_Millisecond(200);
+            SDK_SKVideoSDK.p_sdkc_get_revideo_data("61-543032620F30-3430", 0, Temp_strValue);
+            Common.Delay_Millisecond(20000);
             Assert.IsTrue(intCount < 10);
         }
 

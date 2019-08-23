@@ -85,6 +85,7 @@ namespace VideoPlayControl_RemotePlayback
             {
                 currentRemotePlaybackInfo = value;
                 proportionInfo.SetRemotePlaybackInfo_Scale(this.Width / 6);
+                SetCurrentPositionDateTime(GetFlagDateTime());
             }
         }
 
