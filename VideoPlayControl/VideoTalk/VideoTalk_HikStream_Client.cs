@@ -12,7 +12,18 @@ namespace VideoPlayControl.VideoTalk
         public VideoInfo CurrentVideoInfo { get ; set ; }
         public VideoTalkChannelInfo CurrentTalkChannel { get ; set ; }
         public Enum_TalkStatus CurrentTalkStatus { get ; set ; }
-        public TalkSetting CurrentTalkSetting { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        private TalkSetting currentTalkSetting = new TalkSetting();
+
+        /// <summary>
+        /// 时刻设备对讲设置
+        /// </summary>
+        public TalkSetting CurrentTalkSetting
+        {
+            get { return currentTalkSetting; }
+            set { currentTalkSetting = value; }
+        }
+
         public object Tag { get ; set ; }
 
         public event TalkStausChangedDelegate TalkStausChangedEvent;

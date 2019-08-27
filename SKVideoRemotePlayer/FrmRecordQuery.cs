@@ -15,6 +15,7 @@ namespace SKVideoRemotePlayer
     public partial class FrmRecordQuery : Form
     {
         string name = "";
+        string path = "";
         int type = 1;
 
         public FrmRecordQuery()
@@ -27,6 +28,7 @@ namespace SKVideoRemotePlayer
         public FrmRecordQuery(ProgPara para)
         {
             InitializeComponent();
+            ProgPara.CurrentProgPara = para;
             VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
             VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
             VideoEnvironment_SKN.DownLoadProcessEvent += VideoEnvironment_SKN_DownLoadProcessEvent;
@@ -39,27 +41,41 @@ namespace SKVideoRemotePlayer
             }
             else if (type == 2)
             {
-                for (int i = 0; i < dgvTalkRecord.Rows.Count; i++)
+                for (int j = 0; j < dgvTalkRecord.Rows.Count; j++)
                 {
-                    if (Convert.ToString(dgvTalkRecord.Rows[i].Cells[6].Value) == "下载中")
+                    name = Convert.ToString(dgvTalkRecord.Rows[j].Cells[0].Value);
+                    if (path.EndsWith(name))
                     {
-                        this.BeginInvoke(new EventHandler(delegate { this.progressBar1.Value =100;  }));
-                        CommonMethod.Common.Delay_Millisecond(100);
-                        dgvTalkRecord.Rows[i].Cells[6].Value = "已下载";
+                        for (int i = 0; i < dgvTalkRecord.Rows.Count; i++)
+                        {
+                            if (Convert.ToString(dgvTalkRecord.Rows[i].Cells[0].Value) == name)
+                            {
+                                dgvTalkRecord.Rows[i].Cells[6].Value = "已下载";
+                            }
+                        }
                     }
                 }
-
             }                 
         }
        
         private void VideoEnvironment_SKN_DownLoadProcessEvent(object sender, VideoEnvironment_SKN.DownLoadProcessValue value)
         {
-            if (value.FilePath.EndsWith(name))
+            for (int j = 0; j < dgvTalkRecord.Rows.Count; j++)
             {
-                Console.WriteLine(value.Percent);
-                this.BeginInvoke(new EventHandler(delegate {
-                    this.progressBar1.Value =value.Percent;
-                }));
+                name = Convert.ToString(dgvTalkRecord.Rows[j].Cells[0].Value);
+                if (value.FilePath.EndsWith(name))
+                {
+                    Console.WriteLine(value.Percent);
+                    for (int i = 0; i < dgvTalkRecord.Rows.Count; i++)
+                    {
+                        if (Convert.ToString(dgvTalkRecord.Rows[i].Cells[0].Value) == name)
+                        {
+                            dgvTalkRecord.Rows[i].Cells[6].Value = value.Percent + "%";
+                            path = value.FilePath;
+                            type = 2;
+                        }
+                    }
+                }
             }
         }
 
@@ -191,26 +207,11 @@ namespace SKVideoRemotePlayer
                     System.Diagnostics.Process.Start(psi);
                 }
             }
-            else 
+            else
             {
-                type = 3;
-            }
-                for (int i = 0; i < dgvTalkRecord.Rows.Count; i++)
-                {
-                    if (Convert.ToString(dgvTalkRecord.Rows[i].Cells[6].Value) == "下载中")
-                    {
-                    MessageBox.Show("当前已有文件下载中", "提示");
-                    type = 2;
-                    }               
-                }
-                if (type==3)
-                {
                 name = dgvTalkRecord.Rows[rowindex].Cells[0].Value.ToString();
                 SKVideoRemotePlayer.PubMethod.DownloadFile(ProgPara.CurrentProgPara.VideoInfo, name);
-                dgvTalkRecord.Rows[rowindex].Cells[6].Value = "下载中";
-                this.progressBar1.Value = 0;
-                type = 2;
-                }           
+            }        
         }
 
         private void DgvTalkRecord_CellPainting_1(object sender, DataGridViewCellPaintingEventArgs e)
@@ -226,10 +227,10 @@ namespace SKVideoRemotePlayer
                         {
                             if (Convert.ToString(dgvTalkRecord.Rows[k].Cells[6].Value) == "未下载")
                                 dgvTalkRecord[j, k].ToolTipText = "双击下载文件";
-                            else if (Convert.ToString(dgvTalkRecord.Rows[k].Cells[6].Value) == "下载中")
-                                dgvTalkRecord[j, k].ToolTipText = "文件下载中";
                             else if (Convert.ToString(dgvTalkRecord.Rows[k].Cells[6].Value) == "已下载")
                                 dgvTalkRecord[j, k].ToolTipText = "双击打开文件";
+                            else
+                                dgvTalkRecord[j, k].ToolTipText = "文件下载中";
                         }
                     }
                 }

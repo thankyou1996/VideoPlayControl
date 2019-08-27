@@ -11,7 +11,18 @@ namespace VideoPlayControl.VideoTalk
     {
         public VideoInfo CurrentVideoInfo { get; set; }
         public VideoTalkChannelInfo CurrentTalkChannel { get; set; }
-        public TalkSetting CurrentTalkSetting { get; set; }
+
+        private TalkSetting currentTalkSetting = new TalkSetting();
+
+        /// <summary>
+        /// 时刻设备对讲设置
+        /// </summary>
+        public TalkSetting CurrentTalkSetting
+        {
+            get { return currentTalkSetting; }
+            set { currentTalkSetting = value; }
+        }
+
         public object Tag { get; set; }
         public Enum_TalkStatus CurrentTalkStatus { get; set; }
 

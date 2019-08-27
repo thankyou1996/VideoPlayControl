@@ -49,7 +49,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTalkRecord)).BeginInit();
             this.pnlOperat.SuspendLayout();
@@ -82,7 +81,7 @@
             this.dgvTalkRecord.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvTalkRecord.RowTemplate.Height = 35;
             this.dgvTalkRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTalkRecord.Size = new System.Drawing.Size(1071, 367);
+            this.dgvTalkRecord.Size = new System.Drawing.Size(1071, 404);
             this.dgvTalkRecord.TabIndex = 27;
             this.dgvTalkRecord.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTalkRecord_CellDoubleClick);
             this.dgvTalkRecord.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DgvTalkRecord_CellPainting_1);
@@ -245,14 +244,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "起始时间";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar1.Location = new System.Drawing.Point(0, 488);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1071, 37);
-            this.progressBar1.TabIndex = 4;
-            // 
             // toolTip1
             // 
             this.toolTip1.ShowAlways = true;
@@ -264,7 +255,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.ClientSize = new System.Drawing.Size(1071, 525);
             this.Controls.Add(this.dgvTalkRecord);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pnlOperat);
             this.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -297,7 +287,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTalkRecord_Timelength;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTalkRecord_Writeok;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTalkRecord_download;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ToolTip toolTip1;
     }
 }
