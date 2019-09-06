@@ -198,6 +198,21 @@ namespace SKVideoRemotePlayer
 
         private void FrmMain_Shown(object sender, EventArgs e)
         {
+            int intCount = 0;
+            while (SDK_SKNVideo.SDK_NSK_CLIENT_is_online() == 0 && intCount < 10)
+            {
+                CommonMethod.Common.Delay_Millisecond(1000);
+                intCount++;
+            }
+            if (intCount < 10)
+            {
+                WriteEvent("登陆服务器成功");
+            }
+            else
+            {
+                WriteEvent("登陆服务器失败");
+            }
+            
             foreach (Control c in pnlChannel.Controls)
             {
                 ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;

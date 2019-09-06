@@ -115,7 +115,7 @@ namespace VideoPlayControl
         #region 回调信息
         public delegate void CallBack(UInt32 msg_id, UInt32 arg1, UInt32 arg2, IntPtr data1, UInt32 data1_len, IntPtr data2, UInt32 data2_len);
 
-        public delegate void p_dl_video_data_callback (string dguid, string cguid,int channel, IntPtr nalu_data,int nalu_len, IntPtr nalu_idx,uint time_stamp);
+        public delegate void p_dl_video_data_callback (string dguid, string cguid,int channel, IntPtr nalu_data,int nalu_len, IntPtr nalu_idx,uint time_stamp,uint isVideo);
         /// <summary>
         /// 信息回调
         /// </summary>

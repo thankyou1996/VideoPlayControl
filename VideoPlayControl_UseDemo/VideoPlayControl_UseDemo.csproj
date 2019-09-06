@@ -59,7 +59,7 @@
   <ItemGroup>
     <Reference Include="CommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\VideoPlayControl\dll_Libary\CommonMethod.dll</HintPath>
+      <HintPath>..\dll_Libary\CommonMethod.dll</HintPath>
     </Reference>
     <Reference Include="Interop.AxisMediaParserLib">
       <HintPath>..\VideoPlayControl\Axis\Interop.AxisMediaParserLib.dll</HintPath>

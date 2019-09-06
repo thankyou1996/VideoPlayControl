@@ -30,9 +30,9 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new Frm_VideoPlayGroupControls_PTZAndTalk());
             //Application.Run(new FrmMain());
             //Application.Run(new FrmSKNVideo_RemoterTest());
-            Application.Run(new FrmSKNServerTest());
+            //Application.Run(new FrmSKNServerTest());
             //Application.Run(new Frm_MulitPicturte());
-            //Application.Run(new FrmSKVideoSDKTest());
+            Application.Run(new FrmSKVideoSDKTest());
             //Application.Run(new FrmTest());
             //Application.Run(new Form1());
             //Application.Run(new Frm_Temp_TestVideoPlay());

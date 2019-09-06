@@ -109,6 +109,12 @@
             <param name="tn"></param>
             <returns></returns>
         </member>
+        <member name="M:CommonMethod.Common.GetInternetIP">
+            <summary>
+            获取公网IP
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:CommonMethod.CommonObject">
             <summary>
             公用对象
@@ -241,6 +247,14 @@
             数据压缩解码
             </summary>
             <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HttpGet_RawData(System.String,System.String)">
+            <summary>
+            HpptGet 原始数据
+            </summary>
+            <param name="Url"></param>
+            <param name="postDataStr"></param>
             <returns></returns>
         </member>
         <member name="M:CommonMethod.Common_Web.HttpGet(System.String,System.String,System.String,System.String)">
@@ -413,10 +427,32 @@
             <param name="intConvertNumber"></param>
             <returns></returns>
         </member>
+        <member name="M:CommonMethod.ConvertClass.GetBooleanValue(System.Object,System.Boolean)">
+            <summary>
+            获取Boolean值
+            </summary>
+            <param name="objValue"></param>
+            <param name="bolDefaultValue"></param>
+            <returns></returns>
+        </member>
         <member name="M:CommonMethod.ConvertClass.BitOperation_BitwiseNOT(System.UInt32)">
             <summary>
             位运算_按位取反
             </summary>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.UnixTimestampToDateTime(System.Int64)">
+            <summary>
+            时间戳转DateTime
+            </summary>
+            <param name="lTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.DateTimeToUnixTimestamp(System.DateTime)">
+            <summary>
+            DateTime 转时间戳
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
         </member>
         <member name="M:CommonMethod.ConvertClass.GetWeekofDateTimeValue(System.DayOfWeek)">
              <summary>
@@ -440,6 +476,13 @@
             <param name="tim"></param>
             <returns></returns>
         </member>
+        <member name="M:CommonMethod.ConvertClass.GetDateTimeToDayEnd(System.DateTime)">
+            <summary>
+            获取当前时间当天的结束时间
+            </summary>
+            <param name="tim"></param>
+            <returns></returns>
+        </member>
         <member name="M:CommonMethod.ConvertClass.GetWeekNumInMonth(System.DateTime)">
             <summary>
             获取当前周数（当前月）
@@ -452,6 +495,13 @@
             获取当前周数（当前年）
             </summary>
             <param name="daytime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.DataRowsToDataTable(System.Data.DataRow[])">
+            <summary>
+            数据行转数据表
+            </summary>
+            <param name="drs"></param>
             <returns></returns>
         </member>
         <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Insert``1(``0,System.String,System.String)">
@@ -474,6 +524,17 @@
             <param name="strsInsertField"></param>
             <returns></returns>
         </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Insert_FilterField``1(``0,System.String,System.String,System.String[])">
+            <summary>
+            获取数据库语句_插入_字段过滤
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strTableName"></param>
+            <param name="strKeyField"></param>
+            <param name="strPara"></param>
+            <returns></returns>
+        </member>
         <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Update``1(``0,System.String,System.String[])">
             <summary>
             获取数据库语句_更新
@@ -489,6 +550,17 @@
             </summary>
             <typeparam name="T"></typeparam>
             <param name="t"></param>
+            <param name="strsKeyField"></param>
+            <param name="strsUpdateField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Update_FilterField``1(``0,System.String,System.String[],System.String[])">
+            <summary>
+            获取数据库语句_更新_过滤字段
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strTableName"></param>
             <param name="strsKeyField"></param>
             <param name="strsUpdateField"></param>
             <returns></returns>
@@ -818,7 +890,7 @@
             GPS经纬度转换
             </summary>
         </member>
-        <!-- 对于成员“M:CommonMethod.GPSCoordinateConvert.WGSToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)”忽略有格式错误的 XML 注释 -->
+        <!-- Badly formed XML comment ignored for member "M:CommonMethod.GPSCoordinateConvert.WGSToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)" -->
         <member name="M:CommonMethod.GPSCoordinateConvert.WGSToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
             <summary>
             WGS-84 转换 BD-09
@@ -999,7 +1071,7 @@
             显示信息
             </summary>
         </member>
-        <!-- 对于成员“F:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.displayIconIndex”忽略有格式错误的 XML 注释 -->
+        <!-- Badly formed XML comment ignored for member "F:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.displayIconIndex" -->
         <member name="P:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.DisplayIconIndex">
             <summary>
             图标显示信息
@@ -1126,7 +1198,7 @@
             <param name="strDomainName"></param>
             <returns></returns>
         </member>
-        <!-- 对于成员“M:CommonMethod.Verification.CheckIsFormat(System.String,System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- Badly formed XML comment ignored for member "M:CommonMethod.Verification.CheckIsFormat(System.String,System.String)" -->
         <member name="M:CommonMethod.Verification.isNumber(System.String)">
             <summary>
             是否为数字(仅正数)
@@ -1198,6 +1270,16 @@
             <param name="strKey">字段值</param>
             <returns></returns>
         </member>
+        <member name="M:CommonMethod.XmlUse.DeleteNodeInfo``1(``0,System.String,System.String)">
+            <summary>
+            删除节点信息
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strFilePath"></param>
+            <param name="strParentName"></param>
+            <returns></returns>
+        </member>
         <member name="M:CommonMethod.XmlUse.GetObjectInfo``1(System.Xml.XmlNode)">
             <summary>
             XMLNode获取对象
@@ -1206,6 +1288,48 @@
             <param name="node"></param>
             <returns></returns>
         </member>
-        <!-- 对于成员“M:CommonMethod.XmlUse.GetObjectListInfo``1(System.Xml.XmlNodeList)”忽略有格式错误的 XML 注释 -->
+        <!-- Badly formed XML comment ignored for member "M:CommonMethod.XmlUse.GetObjectListInfo``1(System.Xml.XmlNodeList)" -->
+        <member name="M:CommonMethod.ZipHelper.GetDatasetByString(System.String)">
+            <summary>
+            解压
+            </summary>
+            <param name="Value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ZipHelper.GetStringByDataset(System.String)">
+            <summary>
+            根据DATASET压缩字符串
+            </summary>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ZipHelper.GZipCompressString(System.String)">
+            <summary>
+            将传入字符串以GZip算法压缩后，返回Base64编码字符
+            </summary>
+            <param name="rawString">需要压缩的字符串</param>
+            <returns>压缩后的Base64编码的字符串</returns>
+        </member>
+        <member name="M:CommonMethod.ZipHelper.Compress(System.Byte[])">
+            <summary>
+            GZip压缩
+            </summary>
+            <param name="rawData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ZipHelper.GZipDecompressString(System.String)">
+            <summary>
+            将传入的二进制字符串资料以GZip算法解压缩
+            </summary>
+            <param name="zippedString">经GZip压缩后的二进制字符串</param>
+            <returns>原始未压缩字符串</returns>
+        </member>
+        <member name="M:CommonMethod.ZipHelper.Decompress(System.Byte[])">
+            <summary>
+            ZIP解压
+            </summary>
+            <param name="zippedData"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

@@ -46,7 +46,7 @@ namespace VideoPlayControl.Tests
             }
             long start_time = ConvertClass.DateTimeToUnixTimestamp(DateTime.Now.AddDays(-1));
             long stop_time = ConvertClass.DateTimeToUnixTimestamp(DateTime.Now);
-            SDK_SKVideoSDK.p_sdkc_get_record_time_map("61-57354AA60831-3136", (byte)8, (int)start_time, (int)stop_time);
+            SDK_SKVideoSDK.p_sdkc_get_record_time_map("72-00F51F0150E8-35B7", (byte)0, (int)start_time, (int)stop_time);
             Common.Delay_Second(5);
             Assert.Fail();
         }
