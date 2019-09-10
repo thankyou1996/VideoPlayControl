@@ -104,7 +104,7 @@ namespace VideoPlayControl_UseDemo
                 Console.WriteLine("Download End");
                 DateTime tim = DateTime.Now;
 
-                string Temp_strVideo = Path + "\\" + Temp_strName + ".h264";
+                string Temp_strVideo = Path + "\\测试\\" + Temp_strName + ".h264";
                 System.IO.Stream so = new System.IO.FileStream(Temp_strVideo, System.IO.FileMode.Create);
                 byte[] b = lVideo.ToArray();
                 so.Write(b, 0, b.Count());
@@ -113,7 +113,7 @@ namespace VideoPlayControl_UseDemo
 
 
 
-                string Temp_strAudio = Path + "\\" + Temp_strName + ".G711";
+                string Temp_strAudio = Path + "\\测试\\" + Temp_strName + ".G711";
                 System.IO.Stream sAudio = new System.IO.FileStream(Temp_strAudio, System.IO.FileMode.Create);
                 byte[] bAudio = lAudio.ToArray();
                 sAudio.Write(bAudio, 0, bAudio.Count());

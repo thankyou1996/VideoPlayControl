@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VideoPlayControl.VideoEnvironment;
+using CommonMethod;
 
 namespace VideoPlayControl.SDKInterface.Tests
 {
@@ -70,6 +71,16 @@ namespace VideoPlayControl.SDKInterface.Tests
             int intResult = SDK_SKNVideo.SDK_NSK_CLIENT_dev_delay_alarm("63-00F628C55D02-1812", 4, 5);
 
             CommonMethod.Common.Delay_Millisecond(10000);
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void SDK_NSK_CLIENT_dev_modify_osdTest()
+        {
+            string strGuid = "63-00F628C58502-1528";
+            string Temp_strValue = StringEncrypt.Base64Encode("123");
+            SDK_SKNVideo.SDK_NSK_CLIENT_dev_modify_osd(strGuid, 10, Temp_strValue);
+            CommonMethod.Common.Delay_Millisecond(5000);
             Assert.Fail();
         }
     }

@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using VideoPlayControl;
+using VideoPlayControl.SDKInterface;
 using VideoPlayControl.VideoBasicClass;
 using VideoPlayControl.VideoEnvironment;
 using VideoPlayControl.VideoPlay;
@@ -83,8 +84,7 @@ namespace VideoPlayControl_UseDemo
             //VideoPlayControl.ProgParameter.strEzviz_AppSecret = "518335cd3421f16a4b4e88164225c432";
             //SDKState.SDKStateChangeEvent += SDKStateChange;
             //SDKState.CloundSee_SDKInit();
-            SDKState.Ezviz_SDKInit();
-            //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
+            //SDKState.Ezviz_SDKInit();
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
@@ -96,6 +96,8 @@ namespace VideoPlayControl_UseDemo
             //SDKState.ZLVideoSDK_Init();
             //VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
             //VideoEnvironment_HikStream.Init("192.168.2.19");
+            VideoEnvironment_SKN.SKNVideoSDK_Init("127.0.0.1", 48624, "SuperAdmin", Environment.CurrentDirectory, Environment.CurrentDirectory);
+            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             Init();
             //btnBlueSkyTestData_Click(sender, e);
 
@@ -1499,15 +1501,20 @@ namespace VideoPlayControl_UseDemo
 
         private void button7_Click(object sender, EventArgs e)
         {
-
-            string Temp_strValue = StringEncrypt.Base64Encode("本地通道1");
             //SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F010E10-2B25", 9, Temp_strValue);
             //CommonMethod.Common.Delay_Millisecond(5000);
             int iii = Convert.ToInt32(textBox2.Text);
-            Temp_strValue = StringEncrypt.Base64Encode(textBox1.Text);
+            string Temp_strValue = StringEncrypt.Base64Encode(textBox1.Text);
+            //string content = textBox1.Text;
+            //Temp_strValue = Convert.ToBase64String(Encoding.Unicode.GetBytes(content));
+            //int intResult = SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F010E10-2B25", 8, Temp_strValue);
+            //intResult = SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F010E10-2B25", 9, Temp_strValue);
 
-            int intResult = SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F010E10-2B25", 8, Temp_strValue);
-            intResult = SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F010E10-2B25", 9, Temp_strValue);
+
+            int intResult = SDK_SKNVideo.SDK_NSK_CLIENT_dev_modify_osd("63-00F628C58502-1528", iii, Temp_strValue);
+
+            //intResult = SDK_SKNVideo.SDK_NSK_CLIENT_dev_modify_osd("63-00F628C58502-1528", 9, Temp_strValue);
+            //int intResult = SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F0150E8-35B7", iii, Temp_strValue);
         }
     }
 }

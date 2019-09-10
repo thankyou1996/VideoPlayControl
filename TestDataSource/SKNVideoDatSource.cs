@@ -13,7 +13,7 @@ namespace TestDataSource
             v.VideoType = Enum_VideoType.SKNVideo;
             //v.DVSAddress = "63-00F628C55D02-1814";
             //v.DVSAddress = "63-00F628C42E02-11B8";
-            v.DVSAddress = "63-343854040533-3339";
+            v.DVSAddress = "63-00F628C58502-1528";
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
             v.DVSName = "海康DVR测试";

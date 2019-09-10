@@ -431,7 +431,6 @@
             // 
             // PageOther
             // 
-            this.PageOther.Controls.Add(this.button7);
             this.PageOther.Controls.Add(this.button5);
             this.PageOther.Controls.Add(this.btnStartVideo);
             this.PageOther.Controls.Add(this.button4);
@@ -451,7 +450,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(9, 72);
+            this.button7.Location = new System.Drawing.Point(2, 386);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 21;
@@ -936,6 +935,7 @@
             // 
             // pageVideoInfo
             // 
+            this.pageVideoInfo.Controls.Add(this.button7);
             this.pageVideoInfo.Controls.Add(this.videoTalkControlManyChannel1);
             this.pageVideoInfo.Controls.Add(this.textBox2);
             this.pageVideoInfo.Controls.Add(this.textBox1);
@@ -978,22 +978,22 @@
             this.videoTalkControlManyChannel1.CurrentTalkSetting = talkSetting1;
             this.videoTalkControlManyChannel1.CurrentTalkStatus = VideoPlayControl.VideoBasicClass.Enum_TalkStatus.Null;
             this.videoTalkControlManyChannel1.CurrentVideoInfo = null;
-            this.videoTalkControlManyChannel1.Location = new System.Drawing.Point(7, 410);
+            this.videoTalkControlManyChannel1.Location = new System.Drawing.Point(3, 418);
             this.videoTalkControlManyChannel1.Name = "videoTalkControlManyChannel1";
             this.videoTalkControlManyChannel1.Size = new System.Drawing.Size(85, 93);
             this.videoTalkControlManyChannel1.TabIndex = 40;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(7, 383);
+            this.textBox2.Location = new System.Drawing.Point(7, 359);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
+            this.textBox2.Size = new System.Drawing.Size(26, 21);
             this.textBox2.TabIndex = 39;
             this.textBox2.Text = "8";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 331);
+            this.textBox1.Location = new System.Drawing.Point(42, 359);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 39;
@@ -1001,7 +1001,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(7, 359);
+            this.button6.Location = new System.Drawing.Point(6, 331);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(53, 18);
             this.button6.TabIndex = 38;

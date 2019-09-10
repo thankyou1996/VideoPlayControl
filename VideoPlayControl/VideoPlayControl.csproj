@@ -169,6 +169,7 @@
     <Compile Include="VideoInfoSet\VideoInfoSetRelevant.cs" />
     <Compile Include="VideoInfoSet\VideoInfoSet_Default.cs" />
     <Compile Include="VideoInfoSet\VideoInfoSet_Shike.cs" />
+    <Compile Include="VideoInfoSet\VideoInfoSet_SKN.cs" />
     <Compile Include="VideoPlayGroupControl_MultiPicture1.cs">
       <SubType>UserControl</SubType>
     </Compile>

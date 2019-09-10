@@ -22,7 +22,7 @@ namespace VideoPlayControl.Tests
         public SDK_SKVideoSDKTests()
         {
             //SDK_SKVideoSDK.p_sdkc_init_client("User", "121.33.227.226", 47624, 47724, 47824, @"d:\");
-            SDK_SKVideoSDK.p_sdkc_init_client("User", "192.168.2.19", 47624, 47724, 47824, @"d:\");
+            SDK_SKVideoSDK.p_sdkc_init_client("admin", "192.168.2.19", 47624, 47724, 47824, @"d:\");
             int intValue = 0;
             //while (!(SDK_SKVideoSDK.p_sdkc_get_online() == 1) && (intValue < 100))
             //{

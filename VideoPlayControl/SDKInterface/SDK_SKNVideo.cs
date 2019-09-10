@@ -246,6 +246,17 @@ namespace VideoPlayControl.SDKInterface
         public static extern int SDK_NSK_CLIENT_dev_delay_alarm(string dev_guid, int chnn, int timout);
 
 
+        /// <summary>
+        /// 设置OSD
+        /// </summary>
+        /// <param name="dev_guid"></param>
+        /// <param name="chnn"></param>
+        /// <param name="base64_osd"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_CLIENT_dev_modify_osd(string dev_guid, int chnn, string base64_osd);
+
+
         #region 远程录像回放相关
         /// <summary>
         /// 打开视频录像回放接口
