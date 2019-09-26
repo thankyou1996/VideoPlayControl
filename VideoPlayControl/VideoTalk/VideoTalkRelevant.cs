@@ -40,6 +40,7 @@ namespace VideoPlayControl.VideoTalk
                     iv = new VideoTalk_SKNVideo();
                     break;
                 case Enum_VideoType.HikDVR:
+                    iv = new VideoTalk_Hik();
                     break;
                 case Enum_VideoType.HikDVRStream:
                     iv = new VideoTalk_HikStream_Client();

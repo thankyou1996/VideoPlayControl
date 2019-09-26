@@ -446,6 +446,7 @@ namespace VideoPlayControl.VideoPlay
             bool bolResult = false;
             //统一通过  HikColoseCoundEvent 置为音频关闭状态
             HikCloseSound(this, null);
+            SoundState = Enum_VideoPlaySoundState.SoundColse;
             bolResult = true;
             return bolResult;
         }

@@ -40,7 +40,7 @@
             this.btnInterception.Name = "btnInterception";
             this.btnInterception.Size = new System.Drawing.Size(72, 24);
             this.btnInterception.TabIndex = 8;
-            this.btnInterception.Text = "侦听";
+            this.btnInterception.Text = "开始侦听";
             this.btnInterception.UseVisualStyleBackColor = true;
             this.btnInterception.Click += new System.EventHandler(this.btnInterception_Click);
             // 
@@ -51,7 +51,7 @@
             this.btnSperak.Name = "btnSperak";
             this.btnSperak.Size = new System.Drawing.Size(72, 24);
             this.btnSperak.TabIndex = 7;
-            this.btnSperak.Text = "喊话";
+            this.btnSperak.Text = "开始喊话";
             this.btnSperak.UseVisualStyleBackColor = true;
             this.btnSperak.Click += new System.EventHandler(this.btnSperak_Click);
             // 
@@ -62,7 +62,7 @@
             this.btnTalkback.Name = "btnTalkback";
             this.btnTalkback.Size = new System.Drawing.Size(72, 24);
             this.btnTalkback.TabIndex = 6;
-            this.btnTalkback.Text = "对讲";
+            this.btnTalkback.Text = "开始对讲";
             this.btnTalkback.UseVisualStyleBackColor = true;
             this.btnTalkback.Click += new System.EventHandler(this.btnTalkback_Click);
             // 

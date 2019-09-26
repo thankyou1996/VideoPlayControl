@@ -337,7 +337,6 @@ namespace VideoPlayControl.VideoPlay
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.ConnFailed });
             }
             return bolResult;
-            
         }
 
         /// <summary>

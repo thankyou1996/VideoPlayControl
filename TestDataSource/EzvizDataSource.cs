@@ -537,5 +537,30 @@ namespace TestDataSource
             }
             return v;
         }
+        public static VideoInfo GetData19()
+        {
+            VideoInfo v = new VideoInfo();
+            v.VideoType = Enum_VideoType.Ezviz;
+            v.DVSAddress = "C17306487";
+            v.DVSChannelNum = 8;
+            v.DVSConnectPort = 8000;
+            v.DVSName = "海康DVR测试";
+            v.DVSNumber = "000601";
+            v.DVSType = "SK8605HA";
+            v.HostID = "0005";
+            v.UserName = "";
+            v.Password = "WYIQCB";
+            v.NetworkState = 0;
+            for (int i = 1; i <= 8; i++)
+            {
+                CameraInfo c = new CameraInfo();
+                c.CameraName = "摄像头" + (i);
+                c.Channel = i;
+                c.DVSType = "SK8605HA";
+                c.DVSNumber = "000501";
+                v.Cameras[c.Channel] = c;
+            }
+            return v;
+        }
     }
 }

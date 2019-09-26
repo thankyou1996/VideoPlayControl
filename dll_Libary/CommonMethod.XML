@@ -1,0 +1,1335 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommonMethod</name>
+    </assembly>
+    <members>
+        <member name="T:CommonMethod.CloneExtends">
+            <summary>
+            拷贝拓展
+            </summary>
+        </member>
+        <member name="M:CommonMethod.CloneExtends.DeepCloneObject``1(``0)">
+            <summary>
+            深度拷贝
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.CloneExtends.DeepCloneList``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            深度拷贝
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="tList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonMethod.Common">
+            <summary>
+            通用方法
+            </summary>
+        </member>
+        <member name="M:CommonMethod.Common.Delay_Second(System.Int32)">
+            <summary>
+            延时操作秒_秒 161014
+            </summary>
+            <param name="delayTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common.Delay_Millisecond(System.Int32)">
+            <summary>
+            延时操作_毫秒
+            </summary>
+            <param name="Millisecond"></param>
+        </member>
+        <member name="M:CommonMethod.Common.SetWatermark(System.Windows.Forms.TextBox,System.String)">
+            <summary>
+            为TextBox设置水印文字 
+            </summary>
+            <param name="textBox">TextBox</param>
+            <param name="watermark">水印文字</param>
+        </member>
+        <member name="M:CommonMethod.Common.CmdTelnet(System.Net.IPAddress,System.Int32,System.Int32)">
+            <summary>
+            Telnet命令
+            </summary>
+            <param name="ip"></param>
+            <param name="intPort"></param>
+            <param name="intMillisecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common.CmdPing(System.Net.IPAddress,System.Int32)">
+            <summary>
+            Ping命令
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common.GetDictionaryFirstKey(System.Collections.IDictionary)">
+            <summary>
+            获取Dictionary对象 首个对象Key
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common.CopyDir(System.String,System.String)">
+            <summary>
+            复制文件夹 文件
+            目录中的文件以及文件夹复制到指定目录中（不包含根目录）
+            </summary>
+            <param name="srcPath">原文件夹</param>
+            <param name="aimPath">目的路径</param>
+        </member>
+        <member name="M:CommonMethod.Common.DeleteDir(System.String)">
+            <summary>
+            删除文件夹文件(不删除根目录)
+            </summary>
+            <param name="srcPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common.DeepCopy``1(``0)">
+            <summary>
+            深度拷贝
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common.CreateFolder(System.String)">
+            <summary>
+            创建文件地址
+            </summary>
+            <param name="strFolderPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common.GetSelectNodes(System.Windows.Forms.TreeNode)">
+            <summary>
+            获取所有下级子节点
+            </summary>
+            <param name="tn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common.GetInternetIP">
+            <summary>
+            获取公网IP
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CommonMethod.CommonObject">
+            <summary>
+            公用对象
+            </summary>
+        </member>
+        <member name="T:CommonMethod.CommonObject.ComboBoxItem">
+            <summary>
+            170120 ComboBox Item
+            value 表示键 display表示显示的值
+            </summary>
+        </member>
+        <member name="M:CommonMethod.CommonObject.ComboBoxItem.#ctor(System.Object,System.String)">
+            <summary>
+            ComboBox控件Item
+            </summary>
+            <param name="value"></param>
+            <param name="display"></param>
+        </member>
+        <member name="F:CommonMethod.CommonObject.ComboBoxItem.itemValue">
+            <summary>
+            Item 键
+            </summary>
+        </member>
+        <member name="P:CommonMethod.CommonObject.ComboBoxItem.ItemValue">
+            <summary>
+            Item 键
+            </summary>
+        </member>
+        <member name="F:CommonMethod.CommonObject.ComboBoxItem.itemDisplay">
+            <summary>
+            Item 值
+            </summary>
+        </member>
+        <member name="P:CommonMethod.CommonObject.ComboBoxItem.ItemDisplay">
+            <summary>
+            Item 值
+            </summary>
+        </member>
+        <member name="M:CommonMethod.CommonObject.ComboBoxItem.ToString">
+            <summary>
+            重写 ToString() 方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CommonMethod.CommonObject.Area">
+            <summary>
+            显示对象
+            </summary>
+        </member>
+        <member name="F:CommonMethod.CommonObject.Area.m_Area_Value">
+            <summary>
+            Area 键
+            </summary>
+        </member>
+        <member name="P:CommonMethod.CommonObject.Area.Area_Value">
+            <summary>
+            Area 键
+            </summary>
+        </member>
+        <member name="F:CommonMethod.CommonObject.Area.m_Area_Display">
+            <summary>
+            Area 值
+            </summary>
+        </member>
+        <member name="P:CommonMethod.CommonObject.Area.Area_Display">
+            <summary>
+            Area 值
+            </summary>
+        </member>
+        <member name="P:CommonMethod.CommonObject.Area.Area_Order">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CommonMethod.CommonObject.AreaLists">
+            <summary>
+            列表
+            </summary>
+        </member>
+        <member name="P:CommonMethod.CommonObject.AreaLists.MaxItems">
+            <summary>
+            最大数
+            </summary>
+        </member>
+        <member name="T:CommonMethod.Common_Form">
+            <summary>
+            公用方法_窗体
+            </summary>
+        </member>
+        <member name="M:CommonMethod.Common_Form.txtInputValidity_Number(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            文本框只允许输入数字
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:CommonMethod.Common_Web">
+            <summary>
+            公用方法_Web
+            </summary>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HttpPost(System.String,System.String)">
+            <summary>
+            HttpPost请求 已测试验证
+            </summary>
+            <param name="Url"></param>
+            <param name="postDataStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HttpPost(System.String,System.String,System.String,System.String)">
+            <summary>
+            HttpPost请求 尚未测试验证
+            </summary>
+            <param name="strUrl"></param>
+            <param name="strPostData"></param>
+            <param name="strSteamWriteEncoding"></param>
+            <param name="strStreamReadEncoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HttpGet(System.String,System.String)">
+            <summary>
+            HttpGet请求
+            </summary>
+            <param name="Url"></param>
+            <param name="postDataStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.GetResponseBody(System.Net.HttpWebResponse)">
+            <summary>
+            数据压缩解码
+            </summary>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HttpGet_RawData(System.String,System.String)">
+            <summary>
+            HpptGet 原始数据
+            </summary>
+            <param name="Url"></param>
+            <param name="postDataStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HttpGet(System.String,System.String,System.String,System.String)">
+            <summary>
+            HttpGet请求
+            </summary>
+            <param name="strUrl"></param>
+            <param name="strGetDataStr"></param>
+            <param name="strSteamWriteEncoding"></param>
+            <param name="strStreamReadEncoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.ConvertToUrlPara``1(``0)">
+            <summary>
+            转换为Url参数
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.GetNetDataTime">
+            <summary>
+            获取网络时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HFSHttpUploadFile(System.String,System.String[],System.Collections.Specialized.NameValueCollection,System.Text.Encoding)">
+            <summary>
+            HFSHttpUploadFile
+            </summary>
+            <param name="url"></param>
+            <param name="files"></param>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HFSHttpTest(System.String,System.String[],System.Collections.Specialized.NameValueCollection,System.Text.Encoding)">
+            <summary>
+            HFSHttpUploadFile
+            </summary>
+            <param name="url"></param>
+            <param name="files"></param>
+            <param name="data"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HFSHttpGetFile(System.String,System.String)">
+            <summary>
+            HFS获取文件/下载文件
+            </summary>
+            <param name="strUrl"></param>
+            <param name="strLocalSavePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HFSHttpGetFile(System.Collections.Generic.List{CommonMethod.HFSDownLoadFileInfo})">
+            <summary>
+            HFS获取文件/下载文件
+            </summary>
+            <param name="lstDownLoaFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HFSHttpGetFile(CommonMethod.HFSDownLoadFileInfo)">
+            <summary>
+            HFS获取文件/下载文件
+            </summary>
+            <param name="DownLoadFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Common_Web.HFSHttpGetFileNameList(System.String)">
+            <summary>
+            获取URL的文件列表
+            </summary>
+            <param name="url"></param>
+            <param name="savePath"></param>
+        </member>
+        <member name="P:CommonMethod.HFSDownLoadFileInfo.SaveName">
+            <summary>
+            保存名称
+            </summary>
+        </member>
+        <member name="P:CommonMethod.HFSDownLoadFileInfo.DownName">
+            <summary>
+            下载名称
+            </summary>
+        </member>
+        <member name="T:CommonMethod.ConvertClass">
+            <summary>
+            转换
+            </summary>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.Decimal_ChartoByte(System.String)">
+            <summary>
+            16进制转为Byte
+            </summary>
+            <param name="chrInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.BCDToHex(System.String,System.Int32)">
+            <summary>
+            BCD码转换16进制(压缩BCD)
+            </summary>
+            <param name="strTemp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.HexToBCD(System.Byte[])">
+            <summary>
+            16进制转换BCD（解压BCD）
+            </summary>
+            <param name="AData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.AsciiToChar(System.Int32)">
+            <summary>
+            Asscii码转Char (单个字符)
+            </summary>
+            <param name="asciiCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.StringToAscii(System.String)">
+            <summary>
+            String 转 Asscii码
+            </summary>
+            <param name="strOperatString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.CharToAscii(System.String)">
+            <summary>
+            Char转Asscii码
+            </summary>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.UnicodeToString(System.String)">
+            <summary>
+             Unicode码转String
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.StringToUnicode(System.String)">
+            <summary>
+            String转Unicode码
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.Special_NumberToChinaStrNum(System.Int32)">
+            <summary>
+            特殊转换_数字转换为中文描述
+            </summary>
+            <param name="intConvertNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.Special_BytesToStrHex(System.Byte[],System.String)">
+            <summary>
+            特殊转换_字节数组转换为16进制字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.Special_StringToBytes(System.String)">
+            <summary>
+            特殊转换_字符串转换为Byte数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.Special_NumberToWeekday(System.Int32)">
+            <summary>
+            特殊转换_数字转换为中文描述
+            </summary>
+            <param name="intConvertNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.GetBooleanValue(System.Object,System.Boolean)">
+            <summary>
+            获取Boolean值
+            </summary>
+            <param name="objValue"></param>
+            <param name="bolDefaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.BitOperation_BitwiseNOT(System.UInt32)">
+            <summary>
+            位运算_按位取反
+            </summary>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.UnixTimestampToDateTime(System.Int64)">
+            <summary>
+            时间戳转DateTime
+            </summary>
+            <param name="lTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.DateTimeToUnixTimestamp(System.DateTime)">
+            <summary>
+            DateTime 转时间戳
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.GetWeekofDateTimeValue(System.DayOfWeek)">
+             <summary>
+            获取周Value  
+            （周一 1）（周二 2）（周三3）（周四 4） （周五 5）（周六6）（周日 7） 
+             </summary>
+             <param name="dayWeek"></param>
+             <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.GetMonthDateTime(System.DateTime)">
+            <summary>
+            获取当前时间月份  时间
+            </summary>
+            <param name="tim"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.GetDataTimeToDay(System.DateTime)">
+            <summary>
+            获取当前时间当天的起始时间
+            </summary>
+            <param name="tim"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.GetDateTimeToDayEnd(System.DateTime)">
+            <summary>
+            获取当前时间当天的结束时间
+            </summary>
+            <param name="tim"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.GetWeekNumInMonth(System.DateTime)">
+            <summary>
+            获取当前周数（当前月）
+            </summary>
+            <param name="daytime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.GetWeekOfYear(System.DateTime)">
+            <summary>
+            获取当前周数（当前年）
+            </summary>
+            <param name="daytime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ConvertClass.DataRowsToDataTable(System.Data.DataRow[])">
+            <summary>
+            数据行转数据表
+            </summary>
+            <param name="drs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Insert``1(``0,System.String,System.String)">
+            <summary>
+            获取数据库语句_插入
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strKeyField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Insert``1(``0,System.String,System.String,System.String[])">
+            <summary>
+            获取数据库语句_插入
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strTableName"></param>
+            <param name="strKeyField"></param>
+            <param name="strsInsertField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Insert_FilterField``1(``0,System.String,System.String,System.String[])">
+            <summary>
+            获取数据库语句_插入_字段过滤
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strTableName"></param>
+            <param name="strKeyField"></param>
+            <param name="strPara"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Update``1(``0,System.String,System.String[])">
+            <summary>
+            获取数据库语句_更新
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strsKeyField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Update``1(``0,System.String,System.String[],System.String[])">
+            <summary>
+            获取数据库语句_更新
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strsKeyField"></param>
+            <param name="strsUpdateField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Update_FilterField``1(``0,System.String,System.String[],System.String[])">
+            <summary>
+            获取数据库语句_更新_过滤字段
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strTableName"></param>
+            <param name="strsKeyField"></param>
+            <param name="strsUpdateField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Query``1(``0,System.String,System.String[])">
+            <summary>
+            获取数据库语句_查询
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strsKeyField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.DBRelevant.GetDBOperatStr_Delete``1(``0,System.String,System.String[])">
+            <summary>
+            获取数据库语句_删除
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strsKeyField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FileOperat.GetSKFileInfo(System.String)">
+            <summary>
+            获取文件信息
+            </summary>
+            <param name="strFilePath">文件地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FileOperat.GetSKFileInfo(System.IO.FileInfo,System.String)">
+            <summary>
+            获取文件信息
+            </summary>
+            <param name="fileinfo">文件信息</param>
+            <param name="RelativePath">相对路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FileOperat.GetSKFileInfo(System.Xml.XmlElement)">
+            <summary>
+            获取文件信息
+            </summary>
+            <param name="element">节点属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FileOperat.GetSKFileInfo(System.Xml.XmlNode)">
+            <summary>
+            获取文件信息
+            </summary>
+            <param name="node">节点信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FileOperat.GetSKFileInfoList(System.String)">
+            <summary>
+            获取文件信息列表
+            </summary>
+            <param name="strFolderName">文件夹名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FileOperat.GetSKFileInfoList(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            获取文件信息列表
+            </summary>
+            <param name="strFolderName">文件夹名称</param>
+            <param name="IgnoreFileList">要忽略的文件列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FileOperat.GetSKFileInfoList(System.IO.FileInfo[],System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            获取文件信息列表
+            </summary>
+            <param name="fileinfos">系统文件列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FileOperat.ReadFile(System.String,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            读取文件夹路径内所有子文件
+            </summary>
+            <param name="strFilePath">文件夹路径</param>
+            <param name="RelativePath">相对路径</param>
+            <returns>所有子文件信息</returns>
+        </member>
+        <member name="M:CommonMethod.FileOperat.CreateSKFileInfoXML(System.String,System.String,System.Collections.Generic.List{CommonMethod.SKFileInfo})">
+            <summary>
+            保存为XML文件
+            </summary>
+            <param name="XMLFilePath">保存文件的路径</param>
+            <param name="sKFileInfos">文件列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FileOperat.ContrastSKFileInfo(System.Collections.Generic.List{CommonMethod.SKFileInfo},System.Collections.Generic.List{CommonMethod.SKFileInfo},System.Collections.Generic.List{CommonMethod.SKFileInfo}@,System.Collections.Generic.List{CommonMethod.SKFileInfo}@)">
+            <summary>
+            对比
+            </summary>
+            <param name="NEWList">新的XML</param>
+            <param name="OldList">本地XML</param>
+            <param name="AddOrUpList">需要添加或更新的文件列表</param>
+            <param name="DelList">需要本地删除的XML列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FileOperat.ContrastSKFileInfo(System.Collections.Generic.List{CommonMethod.SKFileInfo},System.Collections.Generic.List{CommonMethod.SKFileInfo},System.String,System.String[])">
+            <summary>
+            对比
+            </summary>
+            <param name="NEWList">新的XML</param>
+            <param name="OldList">本地XML</param>
+            <param name="Keys">Key</param>
+            <param name="Contrasts">对比项</param>
+            <returns>添加或更新的列表</returns>
+        </member>
+        <member name="T:CommonMethod.SKFileInfo">
+            <summary>
+            文件信息类
+            </summary>
+        </member>
+        <member name="P:CommonMethod.SKFileInfo.name">
+            <summary>
+            文件名称_带后缀
+            </summary>
+        </member>
+        <member name="P:CommonMethod.SKFileInfo.fileversion">
+            <summary>
+            文件版本
+            </summary>
+        </member>
+        <member name="P:CommonMethod.SKFileInfo.productversion">
+            <summary>
+            产品版本
+            </summary>
+        </member>
+        <member name="P:CommonMethod.SKFileInfo.path">
+            <summary>
+            文件地址_相对路径
+            </summary>
+        </member>
+        <member name="P:CommonMethod.SKFileInfo.createtime">
+            <summary>
+            创建时间_yyyy-MM-dd HH:mm:ss
+            </summary>
+        </member>
+        <member name="P:CommonMethod.SKFileInfo.modifytime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:CommonMethod.SKFileInfo.description">
+            <summary>
+            文件说明
+            </summary>
+        </member>
+        <member name="P:CommonMethod.SKFileInfo.size">
+            <summary>
+            文件大小_b
+            </summary>
+        </member>
+        <member name="P:CommonMethod.SKFileInfo.type">
+            <summary>
+            文件类型_统一1，预留
+            </summary>
+        </member>
+        <member name="P:CommonMethod.SKFileInfo.remark">
+            <summary>
+            标注说明_为空，预留
+            </summary>
+        </member>
+        <member name="F:CommonMethod.FTPHelper.FtpServerIP">
+            <summary>
+            Ftp服务器ip
+            </summary>
+        </member>
+        <member name="F:CommonMethod.FTPHelper.FtpUserID">
+            <summary>
+            Ftp 指定用户名
+            </summary>
+        </member>
+        <member name="F:CommonMethod.FTPHelper.FtpPassword">
+            <summary>
+            Ftp 指定用户密码
+            </summary>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.FtpDownload(System.String,System.String,System.Boolean,System.Action{CommonMethod.FTPHelper.UpdataProgressValue})">
+            <summary>
+            从FTP服务器下载文件，指定本地路径和本地文件名
+            </summary>
+            <param name="remoteFileName">远程文件名</param>
+            <param name="localFileName">保存本地的文件名（包含路径）</param>
+            <param name="ifCredential">是否启用身份验证（false：表示允许用户匿名下载）</param>
+            <param name="updateProgress">报告进度的处理(第一个参数：总大小，第二个参数：当前进度)</param>
+            <returns>是否下载成功</returns>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.FtpBrokenDownload(System.String,System.String,System.Boolean,System.Int64,System.Action{CommonMethod.FTPHelper.UpdataProgressValue})">
+            <summary>
+            从FTP服务器下载文件，指定本地路径和本地文件名（支持断点下载）
+            </summary>
+            <param name="remoteFileName">远程文件名</param>
+            <param name="localFileName">保存本地的文件名（包含路径）</param>
+            <param name="ifCredential">是否启用身份验证（false：表示允许用户匿名下载）</param>
+            <param name="size">已下载文件流大小</param>
+            <param name="updateProgress">报告进度的处理(第一个参数：总大小，第二个参数：当前进度)</param>
+            <returns>是否下载成功</returns>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.FtpDownload(System.String,System.String,System.Boolean,System.Boolean,System.Action{CommonMethod.FTPHelper.UpdataProgressValue})">
+            <summary>
+            从FTP服务器下载文件，指定本地路径和本地文件名
+            </summary>
+            <param name="remoteFileName">远程文件名</param>
+            <param name="localFileName">保存本地的文件名（包含路径）</param>
+            <param name="ifCredential">是否启用身份验证（false：表示允许用户匿名下载）</param>
+            <param name="updateProgress">报告进度的处理(第一个参数：总大小，第二个参数：当前进度)</param>
+            <param name="brokenOpen">是否断点下载：true 会在localFileName 找是否存在已经下载的文件，并计算文件流大小</param>
+            <returns>是否下载成功</returns>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.FtpUploadFile(System.String,System.Action{CommonMethod.FTPHelper.UpdataProgressValue})">
+            <summary>
+            上传文件到FTP服务器
+            </summary>
+            <param name="localFullPath">本地带有完整路径的文件名</param>
+            <param name="updateProgress">报告进度的处理(第一个参数：总大小，第二个参数：当前进度)</param>
+            <returns>是否下载成功</returns>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.FtpUploadBroken(System.String,System.String,System.Action{CommonMethod.FTPHelper.UpdataProgressValue})">
+            <summary>
+            上传文件到FTP服务器(断点续传)
+            </summary>
+            <param name="localFullPath">本地文件全路径名称：C:\Users\JianKunKing\Desktop\IronPython脚本测试工具</param>
+            <param name="remoteFilepath">远程文件所在文件夹路径</param>
+            <param name="updateProgress">报告进度的处理(第一个参数：总大小，第二个参数：当前进度)</param>
+            <returns></returns>       
+        </member>
+        <member name="M:CommonMethod.FTPHelper.RemoveSpaces(System.String)">
+            <summary>
+            去除空格
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.GetFileSize(System.String,System.String)">
+            <summary>
+            获取已上传文件大小
+            </summary>
+            <param name="filename">文件名称</param>
+            <param name="path">服务器文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.GetFilesDetailList">
+            <summary>
+            获取当前目录下明细(包含文件和文件夹)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.GetFileList(System.String)">
+            <summary>
+            获取当前目录下文件列表(仅文件)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.GetDirectoryList">
+            <summary>
+            获取当前目录下所有的文件夹列表(仅文件夹)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.Delete(System.String)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.RemoveDirectory(System.String)">
+            <summary>
+            删除文件夹
+            </summary>
+            <param name="folderName"></param>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.GetFileSize(System.String)">
+            <summary>
+            获取指定文件大小
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.DirectoryExist(System.String)">
+            <summary>
+            判断当前目录下指定的子目录是否存在
+            </summary>
+            <param name="RemoteDirectoryName">指定的目录名</param>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.FileExist(System.String)">
+            <summary>
+            判断当前目录下指定的文件是否存在
+            </summary>
+            <param name="RemoteFileName">远程文件名</param>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.MakeDir(System.String)">
+            <summary>
+            创建文件夹
+            </summary>
+            <param name="dirName"></param>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.ReName(System.String,System.String)">
+            <summary>
+            改名
+            </summary>
+            <param name="currentFilename"></param>
+            <param name="newFilename"></param>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.MovieFile(System.String,System.String)">
+            <summary>
+            移动文件
+            </summary>
+            <param name="currentFilename"></param>
+            <param name="newFilename"></param>
+        </member>
+        <member name="M:CommonMethod.FTPHelper.GotoDirectory(System.String,System.Boolean)">
+            <summary>
+            切换当前目录
+            </summary>
+            <param name="DirectoryName"></param>
+            <param name="IsRoot">true 绝对路径   false 相对路径</param>
+        </member>
+        <member name="T:CommonMethod.GetSystemInfo">
+            <summary>
+            获取系统信息
+            </summary>
+        </member>
+        <member name="T:CommonMethod.GPSCoordinateConvert">
+            <summary>
+            GPS经纬度转换
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:CommonMethod.GPSCoordinateConvert.WGSToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)" -->
+        <member name="M:CommonMethod.GPSCoordinateConvert.WGSToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            WGS-84 转换 BD-09
+            </summary>
+            <param name="wgsLon"></param>
+            <param name="wgsLat"></param>
+            <param name="lng"></param>
+            <param name="lat"></param>
+        </member>
+        <member name="M:CommonMethod.GPSCoordinateConvert.GCJToBD_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            GCJ-02 转换 BD-09
+            </summary>
+            <param name="gcjLon"></param>
+            <param name="gcjLat"></param>
+            <param name="lng"></param>
+            <param name="lat"></param>
+        </member>
+        <member name="M:CommonMethod.GPSCoordinateConvert.GCJToWGS_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+             GCJ-02 转换 WGS-84
+            </summary>
+            <param name="gcjLon"></param>
+            <param name="gcjLat"></param>
+            <param name="wgsLon"></param>
+            <param name="wgsLat"></param>
+        </member>
+        <member name="M:CommonMethod.GPSCoordinateConvert.BDToGCJ_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+              BD-09 转换 GCJ-02
+            </summary>
+            <param name="bdLon"></param>
+            <param name="bdLat"></param>
+            <param name="gcjLon"></param>
+            <param name="gcjLat"></param>
+        </member>
+        <member name="M:CommonMethod.GPSCoordinateConvert.BDToWGS_encrypt(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            BD-09 转换 WGS-84
+            </summary>
+            <param name="bdLon"></param>
+            <param name="bdLat"></param>
+            <param name="wgsLon"></param>
+            <param name="wgsLat"></param>
+        </member>
+        <member name="M:CommonMethod.GPSCoordinateConvert.GPS_Distance(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            计算两点之间的距离单位米
+            </summary>
+            <param name="lonA"></param>
+            <param name="latA"></param>
+            <param name="lonB"></param>
+            <param name="latB"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonMethod.LogWrite">
+            <summary>
+            日志记录
+            </summary>
+        </member>
+        <member name="F:CommonMethod.LogWrite.strExlogFilePath">
+            <summary>
+            异常日志路径
+            </summary>
+        </member>
+        <member name="F:CommonMethod.LogWrite.strLogFilePath">
+            <summary>
+            日志记录文件
+            </summary>
+        </member>
+        <member name="M:CommonMethod.LogWrite.WritExceptionLog(System.String,System.Exception)">
+            <summary>
+            异常记录(输出至文本)
+            </summary>
+            <param name="Tag"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:CommonMethod.LogWrite.WriteEventLog(System.String,System.String)">
+            <summary>
+            信息记录(输出至文本)
+            </summary>
+            <param name="logInfo"></param>
+            <param name="logFileName"></param>
+        </member>
+        <member name="M:CommonMethod.LogWrite.ProgramDebug(System.String,System.Exception,System.Boolean)">
+            <summary>
+            程序异常排查
+            </summary>
+            <param name="Tag"></param>
+            <param name="ex"></param>
+            <param name="bolDeBug"></param>
+        </member>
+        <member name="M:CommonMethod.LogWrite.WritExceptionLog(System.String,System.Exception,System.String)">
+            <summary>
+            异常记录(输出至文本)
+            </summary>
+            <param name="Tag"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:CommonMethod.LogWrite.WriteEventLog(System.String,System.String,System.String)">
+            <summary>
+            信息记录(输出至文本)
+            </summary>
+            <param name="logInfo"></param>
+            <param name="logFileName"></param>
+        </member>
+        <member name="M:CommonMethod.ModelConvertHelper`1.ConvertToModel(System.Data.DataTable)">
+            <summary>
+            模型转换_Table
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ModelConvertHelper`1.ConvertToModel(System.Data.DataRow)">
+            <summary>
+            模型类型转换_DataRow
+            </summary>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonMethod.OnlieMapObject">
+            <summary>
+            在线地图对象
+            </summary>
+        </member>
+        <member name="T:CommonMethod.OnlieMapObject.OnlineMapAddressInfo">
+            <summary>
+            地址信息
+            </summary>
+        </member>
+        <member name="F:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.lon">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.Lon">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="F:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.lat">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="P:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.Lat">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="F:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.level">
+            <summary>
+            地图显示等级 默认0 代表使用当前地图等级
+            </summary>
+        </member>
+        <member name="P:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.Level">
+            <summary>
+            地图显示等级
+            </summary>
+        </member>
+        <member name="F:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.valueInfo">
+            <summary>
+            键值 数据的主键
+            </summary>
+        </member>
+        <member name="P:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.ValueInfo">
+            <summary>
+            键值 数据的主键
+            </summary>
+        </member>
+        <member name="F:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.dislpayInfo">
+            <summary>
+            显示信息
+            </summary>
+        </member>
+        <member name="P:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.DislpayInfo">
+            <summary>
+            显示信息
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.displayIconIndex" -->
+        <member name="P:CommonMethod.OnlieMapObject.OnlineMapAddressInfo.DisplayIconIndex">
+            <summary>
+            图标显示信息
+            0,绿色标杆（默认） 1,蓝色小车 2,蓝色标点
+            11.绿色基本指示点 12.蓝色基本指示点 13.红色基本指示点 
+            14.橙色基本指示点 15.紫色基本指示点 16.粉色基本指示点
+            21.绿色标杆 22.蓝色标杆 23.红色标杆 
+            24.橙色标杆 25.紫色标杆 26.粉色标杆
+            </summary>
+        </member>
+        <member name="T:CommonMethod.ProgramIPC">
+            <summary>
+            程序间通讯
+            </summary>
+        </member>
+        <member name="F:CommonMethod.ProgramIPC.intTargetHandler">
+            <summary>
+            目标窗口句柄
+            </summary>
+        </member>
+        <member name="P:CommonMethod.ProgramIPC.TargetHandler">
+            <summary>
+            目标窗口句柄
+            </summary>
+        </member>
+        <member name="M:CommonMethod.PropertyInfoConvertHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object)">
+            <summary>
+            根据属性信息获取对应的值类型
+            </summary>
+            <param name="pi"></param>
+            <param name="inValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonMethod.ScreenPosionCalculation">
+            <summary>
+            窗体位置计算及设置
+            </summary>
+        </member>
+        <member name="M:CommonMethod.ScreenPosionCalculation.ObtainScreenIndex(System.Drawing.Point)">
+            <summary>
+            获取点所在的屏幕索引号 不存在则返回-1
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ScreenPosionCalculation.GetFormCenterPosition(System.Drawing.Point,System.Drawing.Size)">
+            <summary>
+            获取窗体中心点
+            </summary>
+            <param name="pointFormTopRightCorner"></param>
+            <param name="sizeForm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ScreenPosionCalculation.CenterDisplayPosition(System.Int32,System.Int32,System.Int32,System.Drawing.Point@)">
+            <summary>
+            窗体居中在屏幕中居中显示的位置
+            </summary>
+            <param name="intScreenIndex">屏幕索引号</param>
+            <param name="intWindowWidth">窗体宽度</param>
+            <param name="intWindowsHeight">窗体高度</param>
+            <param name="result">显示位置</param>
+            <returns>1.数据正常 2.屏幕索引号不存在 3.窗体宽度高度 大于屏幕宽度高度</returns>
+        </member>
+        <member name="M:CommonMethod.ScreenPosionCalculation.SetFormDisplayPosition_ByScreenIndex(System.Int32,System.Windows.Forms.Form)">
+            <summary>
+            设置窗口显示位置
+            </summary>
+            <param name="intScreenIndex">显示屏索引</param>
+            <param name="fm">目标窗体</param>
+            <returns>1.设置成功 2.屏幕索引号不存在 3.窗体宽度高度 大于屏幕宽度高度</returns>
+        </member>
+        <member name="M:CommonMethod.ScreenPosionCalculation.GetMosuerInPercentage(System.Drawing.Point,System.Drawing.Size,System.Int32@,System.Int32@)">
+            <summary>
+            获取鼠标所在位置百分比 -1 表示异常 1 表示正常
+            </summary>
+            <param name="pointMousePos"></param>
+            <param name="sizeParentControl"></param>
+            <param name="dblPercentageWidth"></param>
+            <param name="dblPercentageHeight"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonMethod.StringEncrypt">
+            <summary>
+            字符加密解密
+            </summary>
+        </member>
+        <member name="M:CommonMethod.StringEncrypt.Base64Encode(System.String)">
+            <summary>
+            将字符串转换成base64格式,使用UTF8字符集
+            </summary>
+            <param name="content">加密内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.StringEncrypt.Base64Decode(System.String)">
+            <summary>
+            将base64格式，转换utf8
+            </summary>
+            <param name="content">解密内容</param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonMethod.Verification">
+            <summary>
+            验证判断
+            </summary>
+        </member>
+        <member name="M:CommonMethod.Verification.isIP(System.String)">
+            <summary>
+            判断是否为合法的IP地址
+            </summary>
+            <param name="strIP"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Verification.isPort(System.String)">
+            <summary>
+            判断验证是否为合法端口
+            </summary>
+            <param name="strPort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Verification.IsDomainName(System.String)">
+            <summary>
+            是否为域名
+            </summary>
+            <param name="strDomainName"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:CommonMethod.Verification.CheckIsFormat(System.String,System.String)" -->
+        <member name="M:CommonMethod.Verification.isNumber(System.String)">
+            <summary>
+            是否为数字(仅正数)
+            </summary>
+            <param name="strNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Verification.isTimeNum_Hour(System.String)">
+            <summary>
+            是否为时间数字_时
+            </summary>
+            <param name="strNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Verification.isTimeNum_Minute(System.String)">
+            <summary>
+            是否为时间数字_分
+            </summary>
+            <param name="strNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.Verification.isTimeNum_Second(System.String)">
+            <summary>
+            是否为时间数字_秒
+            </summary>
+            <param name="strNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.XmlUse.AddNodeInfo(System.String,System.String,System.String,System.String[],System.String[])">
+            <summary>
+            添加节点
+            </summary>
+            <param name="strFilePath"></param>
+            <param name="strParentName"></param>
+            <param name="strNodeName"></param>
+            <param name="strsField"></param>
+            <param name="strsValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.XmlUse.GetNodeInfo(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取节点信息
+            </summary>
+            <param name="strFilePath"></param>
+            <param name="strParentName"></param>
+            <param name="strNodeName"></param>
+            <param name="strField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.XmlUse.AddNodeInfo``1(``0,System.String,System.String)">
+            <summary>
+            添加节点信息
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strFilePath">文件地址</param>
+            <param name="strParentName">父节点名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.XmlUse.UpdateNodeInfo``1(``0,System.String,System.String,System.String,System.String)">
+            <summary>
+            更新节点信息
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strParentName">父节点名称</param>
+            <param name="strFilePath">Xml文件地址</param>
+            <param name="strField">字段名称</param>
+            <param name="strKey">字段值</param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.XmlUse.DeleteNodeInfo``1(``0,System.String,System.String)">
+            <summary>
+            删除节点信息
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="strFilePath"></param>
+            <param name="strParentName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.XmlUse.GetObjectInfo``1(System.Xml.XmlNode)">
+            <summary>
+            XMLNode获取对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:CommonMethod.XmlUse.GetObjectListInfo``1(System.Xml.XmlNodeList)" -->
+        <member name="M:CommonMethod.ZipHelper.GetDatasetByString(System.String)">
+            <summary>
+            解压
+            </summary>
+            <param name="Value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ZipHelper.GetStringByDataset(System.String)">
+            <summary>
+            根据DATASET压缩字符串
+            </summary>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ZipHelper.GZipCompressString(System.String)">
+            <summary>
+            将传入字符串以GZip算法压缩后，返回Base64编码字符
+            </summary>
+            <param name="rawString">需要压缩的字符串</param>
+            <returns>压缩后的Base64编码的字符串</returns>
+        </member>
+        <member name="M:CommonMethod.ZipHelper.Compress(System.Byte[])">
+            <summary>
+            GZip压缩
+            </summary>
+            <param name="rawData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonMethod.ZipHelper.GZipDecompressString(System.String)">
+            <summary>
+            将传入的二进制字符串资料以GZip算法解压缩
+            </summary>
+            <param name="zippedString">经GZip压缩后的二进制字符串</param>
+            <returns>原始未压缩字符串</returns>
+        </member>
+        <member name="M:CommonMethod.ZipHelper.Decompress(System.Byte[])">
+            <summary>
+            ZIP解压
+            </summary>
+            <param name="zippedData"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

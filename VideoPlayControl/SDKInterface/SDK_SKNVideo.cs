@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
+using PublicClassCurrency;
+using System.IO;
 
 namespace VideoPlayControl.SDKInterface
 {
@@ -15,9 +17,30 @@ namespace VideoPlayControl.SDKInterface
 
         #region 接口定义
 
+        #region 通用接口
+
+        public delegate void CallBack(int msg_id, string msg_info, int arg1, int arg2, IntPtr data1, int data1_len, IntPtr data2, int data2_len);
+
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_ALL_regeist_msg_callback(CallBack callback);
+
+
+
+        #endregion
+
+
         #region 服务器端接口
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDK_NSK_SERVER_init(int sdk_port, string sdk_xml_cfg_full_path, string default_save_file_dir);
+
+        /// <summary>
+        /// 根据GUID判断设备是否在线
+        /// </summary>
+        /// <param name="device_guid"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_SERVER_get_device_online(string device_guid);
+
 
         #endregion
         /**初始化客户端SDK
@@ -202,13 +225,45 @@ namespace VideoPlayControl.SDKInterface
         */
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDK_NSK_CLIENT_is_online();
+
+
+        /**
+          * ***********************************************************************
+          * @brief  手动触发警号并延迟关闭
+          *         
+          * @param  dev_guid:   设备GUID
+          * @param  chnn:		警号通道（1~5)
+          * @param  dev_guid:   警号时长(0~5分钟)
+          *
+          * @retval int: 详见返回列表
+          *
+          * @confirm    : 
+          * @attention  : none
+          * ***********************************************************************
+          */
+
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_CLIENT_dev_delay_alarm(string dev_guid, int chnn, int timout);
+
+
+        /// <summary>
+        /// 设置OSD
+        /// </summary>
+        /// <param name="dev_guid"></param>
+        /// <param name="chnn"></param>
+        /// <param name="base64_osd"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_CLIENT_dev_modify_osd(string dev_guid, int chnn, string base64_osd);
+
+
         #region 远程录像回放相关
         /// <summary>
         /// 打开视频录像回放接口
         /// </summary>
         /// <returns></returns>
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SDK_NSK_CLIENT_start_pb_video(string dev_guid, int video_channel, long start_ts, IntPtr handle);
+        public static extern int SDK_NSK_CLIENT_start_pb_video(string dev_guid, int video_channel, int start_ts, IntPtr handle);
 
         /// <summary>
         /// 关闭视频录像回放接口
@@ -218,7 +273,69 @@ namespace VideoPlayControl.SDKInterface
         [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDK_NSK_CLIENT_stop_pb_video(IntPtr handle);
 
-        #endregion 
+        #endregion
+        #endregion
+
+        #region 自定义接口
+
+        /// <summary>
+        /// 获取本地存储录像映射文件相对路径
+        /// </summary>
+        /// <param name="cInfo"></param>
+        /// <returns></returns>
+        public static string GetLocalFileMapPath(CameraInfo cInfo)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("/" + cInfo.VideoInfo.DVSAddress + "/");
+            sb.Append(GetFileMapName(cInfo));
+            return sb.ToString();
+        }
+
+
+        /// <summary>
+        /// 获取设备录像映射文件相对路径（设备上路径）
+        /// </summary>
+        /// <param name="cInfo"></param>
+        /// <returns></returns>
+        public static string GetFileMapPath(CameraInfo cInfo)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("/hdd/map_md5/");
+            sb.Append(GetFileMapName(cInfo));
+            return sb.ToString();
+        }
+
+
+
+        /// <summary>
+        /// 获取设备录像文件文件名（设备上文件名称）
+        /// </summary>
+        /// <param name="cInfo"></param>
+        /// <returns></returns>
+        public static string GetFileMapName(CameraInfo cInfo)
+        {
+            return "FILE_MAP_" + Convert.ToString(cInfo.Channel).PadLeft(2, '0');
+        }
+
+        public static int GetChannelByFileMapPath(string strPath) 
+        {
+            string Temp_strFileName = Path.GetFileNameWithoutExtension(strPath);
+            string Temp_strChannel = Temp_strFileName.Substring(Temp_strFileName.LastIndexOf("_") + 1);
+            return Convert.ToInt32(Temp_strChannel);
+        }
+
+
+        public static string GetFilePata_VideoRecord_Remote(VideoInfo vInfo,string strFileName)
+        {
+            string strResult = "/hdd/normal/" + strFileName;
+            return strResult;
+        }
+
+        public static string GetFilePata_VideoRecord_Local(VideoInfo vInfo, string strFileName)
+        {
+            string strResult = "/" + vInfo.DVSAddress + "/" + strFileName;
+            return strResult;
+        }
         #endregion
     }
 }

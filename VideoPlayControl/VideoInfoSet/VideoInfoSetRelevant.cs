@@ -42,6 +42,9 @@ namespace VideoPlayControl.VideoInfoSet
                 case Enum_VideoType.SKVideo:
                     videoInfoSet = new VideoInfoSet_Shike();
                     break;
+                case Enum_VideoType.SKNVideo:
+                    videoInfoSet = new VideoInfoSet_SKN();
+                    break;
             }
             return videoInfoSet;
         }

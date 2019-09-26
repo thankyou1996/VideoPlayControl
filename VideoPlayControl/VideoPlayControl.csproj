@@ -87,9 +87,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\CommonMethod\CommonMethod\PublicClassCurrency\bin\Release\PublicClassCurrency.dll</HintPath>
     </Reference>
-    <Reference Include="SKVideoRecordConvert">
-      <HintPath>dll_Libary\SKVideoRecordConvert.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -166,11 +163,13 @@
     <Compile Include="VideoEnvironment\IVideoEnvironment.cs" />
     <Compile Include="VideoEnvironment\VideoEnvironment_HikStream.cs" />
     <Compile Include="VideoEnvironment\VIdeoEnvironment_Shike.cs" />
+    <Compile Include="VideoEnvironment\VideoEnvironment_SKN.cs" />
     <Compile Include="VideoEnvironment\VideoEnvironment_TL.cs" />
     <Compile Include="VideoInfoSet\IVideoInfoSet.cs" />
     <Compile Include="VideoInfoSet\VideoInfoSetRelevant.cs" />
     <Compile Include="VideoInfoSet\VideoInfoSet_Default.cs" />
     <Compile Include="VideoInfoSet\VideoInfoSet_Shike.cs" />
+    <Compile Include="VideoInfoSet\VideoInfoSet_SKN.cs" />
     <Compile Include="VideoPlayGroupControl_MultiPicture1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -274,6 +273,8 @@
     </Compile>
     <Compile Include="VideoTalk\IVideoTalk.cs" />
     <Compile Include="VideoTalk\VideoTalkRelevant.cs" />
+    <Compile Include="VideoTalk\VideoTalk_Default.cs" />
+    <Compile Include="VideoTalk\VideoTalk_Hik.cs" />
     <Compile Include="VideoTalk\VideoTalk_HikStream.cs" />
     <Compile Include="VideoTalk\VideoTalk_HikStream_Client.cs" />
     <Compile Include="VideoTalk\VideoTalk_Shike.cs" />

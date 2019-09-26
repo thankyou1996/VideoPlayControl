@@ -112,7 +112,8 @@ namespace VideoPlayControl.VideoTalk
             }
             StartTalking(null);
             SDK_SKVideoSDK.st_multi_talk talkChannel = new SDK_SKVideoSDK.st_multi_talk();
-            talkChannel = SDK_SKVideoSDK.SetMultiTalkChannel(CurrentTalkChannel.VideoTalkChannel, talkChannel);
+            int Temp_intChannel = CurrentTalkChannel.VideoTalkChannel - 1;
+            talkChannel = SDK_SKVideoSDK.SetMultiTalkChannel(Temp_intChannel, talkChannel);
             if ( CurrentTalkSetting.TalkRecordEnable)
             {
                 CurrentTalkSetting.TalkRecordRealSavePath_Local= GetTalkRecordPath_Local(CurrentTalkSetting.TalkRecordPath_Local, CurrentTalkSetting.TalkRecordName_Local);

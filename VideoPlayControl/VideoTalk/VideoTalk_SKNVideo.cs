@@ -30,8 +30,23 @@ namespace VideoPlayControl.VideoTalk
             }
         }
 
-        public TalkSetting CurrentTalkSetting { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public object Tag { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        private TalkSetting currentTalkSetting = new TalkSetting();
+
+        /// <summary>
+        /// 时刻设备对讲设置
+        /// </summary>
+        public TalkSetting CurrentTalkSetting
+        {
+            get { return currentTalkSetting; }
+            set { currentTalkSetting = value; }
+        }
+
+        public object Tag
+        {
+            get;
+            set;
+        }
 
         public event TalkStausChangedDelegate TalkStausChangedEvent;
 
@@ -78,8 +93,9 @@ namespace VideoPlayControl.VideoTalk
                 StopTalk();
             }
             StartTalking(null);
-           int intResult= SDK_SKNVideo.SDK_NSK_CLIENT_start_talk(CurrentVideoInfo.DVSAddress, GetTalkValuebyTalkChannel(CurrentTalkChannel.VideoTalkChannel), GetSKTalkModel(talkModel), "\\TEST\\test.g711", "\\TEST\\test.g711");
-             CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
+            int intChannel = CurrentTalkChannel.VideoTalkChannel - 1;
+            int intResult = SDK_SKNVideo.SDK_NSK_CLIENT_start_talk(CurrentVideoInfo.DVSAddress, GetTalkValuebyTalkChannel(intChannel), GetSKTalkModel(talkModel), "\\TEST\\test.g711", "\\TEST\\test.g711");
+            CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
             return bolResult;
         }
 

@@ -22,7 +22,7 @@ namespace VideoPlayControl.Tests
         public SDK_SKVideoSDKTests()
         {
             //SDK_SKVideoSDK.p_sdkc_init_client("User", "121.33.227.226", 47624, 47724, 47824, @"d:\");
-            SDK_SKVideoSDK.p_sdkc_init_client("User", "192.168.2.19", 47624, 47724, 47824, @"d:\");
+            SDK_SKVideoSDK.p_sdkc_init_client("admin", "192.168.2.19", 47624, 47724, 47824, @"d:\");
             int intValue = 0;
             //while (!(SDK_SKVideoSDK.p_sdkc_get_online() == 1) && (intValue < 100))
             //{
@@ -46,7 +46,7 @@ namespace VideoPlayControl.Tests
             }
             long start_time = ConvertClass.DateTimeToUnixTimestamp(DateTime.Now.AddDays(-1));
             long stop_time = ConvertClass.DateTimeToUnixTimestamp(DateTime.Now);
-            SDK_SKVideoSDK.p_sdkc_get_record_time_map("61-57354AA60831-3136", (byte)8, (int)start_time, (int)stop_time);
+            SDK_SKVideoSDK.p_sdkc_get_record_time_map("72-00F51F0150E8-35B7", (byte)0, (int)start_time, (int)stop_time);
             Common.Delay_Second(5);
             Assert.Fail();
         }
@@ -284,8 +284,8 @@ namespace VideoPlayControl.Tests
             }
             string Temp_strValue = "http://192.168.2.19:8008/SK_VideoRecord/0001/20190703200256/";
 
-            SDK_SKVideoSDK.p_sdkc_get_revideo_data("71-00F51F012D0C-2830", 0, Temp_strValue);
-            Common.Delay_Millisecond(200);
+            SDK_SKVideoSDK.p_sdkc_get_revideo_data("61-543032620F30-3430", 0, Temp_strValue);
+            Common.Delay_Millisecond(20000);
             Assert.IsTrue(intCount < 10);
         }
 
