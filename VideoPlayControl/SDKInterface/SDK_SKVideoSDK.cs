@@ -106,11 +106,58 @@ namespace VideoPlayControl
             public int channel_15;
             public int channel_16;
         }
-        
+
         #endregion
 
         #region 接口定义
- 
+
+        #region 服务器接口
+
+        #region 回调
+        public delegate void msg_callback(UInt32 msg_id, UInt32 arg1, UInt32 arg2, IntPtr data1, UInt32 data1_len, IntPtr data2, UInt32 data2_len);
+
+        /// <summary>
+        /// 设置回调信息
+        /// </summary>
+        /// <param name="p_8604msg_callback"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.StdCall)]
+        public static extern int p_vsdk_reg_msg_callback(msg_callback p_8604msg_callback);
+
+
+
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.StdCall)]
+        public static extern void p_vsdk_open(string strIP, int cport, int vport, int aport, string strPath, out byte ret_val);
+
+
+
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.StdCall)]
+        public static extern void p_sdks_add_client(string client_guid);
+
+
+
+
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.StdCall)]
+        public static extern int p_vsdk_set_default_html_path(string http_path);
+        #endregion
+
+        /// <summary>
+        /// 设置端口
+        /// </summary>
+        /// <param name="avport"></param>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.StdCall)]
+        public static extern void p_vsdk_set_av_port(int avport);
+
+        /// <summary>
+        /// 获取设备定位
+        /// </summary>
+        /// <param name="guid"></param>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public extern static void p_vsdk_get_gps_info(string guid);
+
+
+        #endregion
+
 
         #region 回调信息
         public delegate void CallBack(UInt32 msg_id, UInt32 arg1, UInt32 arg2, IntPtr data1, UInt32 data1_len, IntPtr data2, UInt32 data2_len);
