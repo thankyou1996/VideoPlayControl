@@ -26,7 +26,7 @@ namespace TestDataSource
             for (int i = 9; i <= 16; i++)
             {
                 CameraInfo c = new CameraInfo();
-                c.CameraName = "摄像头" + (i);
+                c.CameraName = "摄像头sss" + (i);
                 c.Channel = i;
                 //c.DVSAddress = "E322213C04245";
                 c.DVSType = v.DVSType;

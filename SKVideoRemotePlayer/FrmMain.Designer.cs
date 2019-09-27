@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlMain_Player = new System.Windows.Forms.Panel();
             this.picPlayer = new System.Windows.Forms.PictureBox();
@@ -40,6 +41,7 @@
             this.lvEvent = new System.Windows.Forms.ListView();
             this.EventTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EventContent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlMain.SuspendLayout();
             this.pnlMain_Player.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -205,6 +207,7 @@
         private System.Windows.Forms.ColumnHeader EventTime;
         private System.Windows.Forms.ColumnHeader EventContent;
         private System.Windows.Forms.PictureBox picPlayer;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

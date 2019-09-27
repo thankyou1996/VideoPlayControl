@@ -14,8 +14,6 @@ namespace SKVideoRemotePlayer
 {
     public partial class FrmRecordQuery : Form
     {
-        string name = "";
-        string path = "";
         int type = 1;
 
         public FrmRecordQuery()
@@ -41,20 +39,14 @@ namespace SKVideoRemotePlayer
             }
             else if (type == 2)
             {
-                for (int j = 0; j < dgvTalkRecord.Rows.Count; j++)
-                {
-                    name = Convert.ToString(dgvTalkRecord.Rows[j].Cells[0].Value);
-                    if (path.EndsWith(name))
+                string s = Convert.ToString(value);
+                for (int i = 0; i < dgvTalkRecord.Rows.Count; i++)
+                { 
+                    if (s.EndsWith(Convert.ToString(dgvTalkRecord.Rows[i].Cells[0].Value)))
                     {
-                        for (int i = 0; i < dgvTalkRecord.Rows.Count; i++)
-                        {
-                            if (Convert.ToString(dgvTalkRecord.Rows[i].Cells[0].Value) == name)
-                            {
-                                dgvTalkRecord.Rows[i].Cells[6].Value = "已下载";
-                            }
-                        }
+                        dgvTalkRecord.Rows[i].Cells[6].Value = "已下载";
                     }
-                }
+                }               
             }                 
         }
        
@@ -62,6 +54,7 @@ namespace SKVideoRemotePlayer
         {
             for (int j = 0; j < dgvTalkRecord.Rows.Count; j++)
             {
+                string name = "";
                 name = Convert.ToString(dgvTalkRecord.Rows[j].Cells[0].Value);
                 if (value.FilePath.EndsWith(name))
                 {
@@ -71,8 +64,6 @@ namespace SKVideoRemotePlayer
                         if (Convert.ToString(dgvTalkRecord.Rows[i].Cells[0].Value) == name)
                         {
                             dgvTalkRecord.Rows[i].Cells[6].Value = value.Percent + "%";
-                            path = value.FilePath;
-                            type = 2;
                         }
                     }
                 }
@@ -161,7 +152,7 @@ namespace SKVideoRemotePlayer
             {
                 DataRow dr = dt.NewRow();
                 dr["Value"] = cInfo.Channel;
-                dr["Dsiplay"] = "通道" + cInfo.Channel;
+                dr["Dsiplay"] = cInfo.CameraName;
                 dt.Rows.Add(dr);                
             }            
             cmbChannel.ValueMember = "Value";
@@ -198,6 +189,7 @@ namespace SKVideoRemotePlayer
             if (Convert.ToString(dgvTalkRecord.Rows[rowindex].Cells[6].Value) == "已下载")
             {
                 string x = Convert.ToString(dgvTalkRecord.Rows[rowindex].Cells[0].Value);
+                string name = "";
                 name = dgvTalkRecord.Rows[rowindex].Cells[0].Value.ToString();
                 if (x.EndsWith(name))
                 {
@@ -209,8 +201,10 @@ namespace SKVideoRemotePlayer
             }
             else
             {
+                string name = "";
                 name = dgvTalkRecord.Rows[rowindex].Cells[0].Value.ToString();
                 SKVideoRemotePlayer.PubMethod.DownloadFile(ProgPara.CurrentProgPara.VideoInfo, name);
+                type = 2;
             }        
         }
 

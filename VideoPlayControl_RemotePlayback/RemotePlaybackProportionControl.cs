@@ -208,5 +208,17 @@ namespace VideoPlayControl_RemotePlayback
             SetRemotePlaybackInfo(currentRemotePlaybackInfo);
             this.OnPaint(e);
         }
+
+        /// <summary>
+        /// 设置ToolTip内容
+        /// </summary>
+        /// <param name="tip"></param>
+        /// <param name="strTip"></param>
+        public void SetToolTip( ToolTip tip,string strTip)
+        {
+            tip.SetToolTip(this, strTip);
+            tip.SetToolTip(pictureBox1, strTip);
+        }
+        
     }
 }

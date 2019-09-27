@@ -49,6 +49,7 @@ namespace VideoPlayControl_RemotePlayback
             double Temp_dbl = (double)Temp_value2 / Temp_value1;
             int Temp_int = Convert.ToInt32(proportionInfo.Width * Temp_dbl);
             proportionInfo.Location = new Point { X = pnlFlag.Location.X - Temp_int, Y=proportionInfo.Location.Y };
+            toolTip1.SetToolTip(pnlFlag, value.ToString("MM-dd HH:mm:ss"));
             toolTip1.Show(value.ToString("MM-dd HH:mm:ss"), pnlFlag, 3000);
             SetRemotePlaybackInfo(CurrentRemotePlaybackInfo);
             if (PositionDateTimeChangedEvent != null)
@@ -76,7 +77,10 @@ namespace VideoPlayControl_RemotePlayback
                 SetRemotePlaybackInfo(value);
             }
         }
-
+        /// <summary>
+        /// 设置远程回放文件信息
+        /// </summary>
+        /// <param name="value"></param>
         public void SetRemotePlaybackInfo(VideoChannelRemotePlaybackInfo value)
         {
 
@@ -203,6 +207,7 @@ namespace VideoPlayControl_RemotePlayback
             int Temp_value = pnlFlag.Location.X - proportionInfo.Location.X;
             long lResult = proportionInfo.Get(Temp_value);
             DateTime tim = VideoCurrencyModule.PubMethod.UnixMillisecondsTimestampToDateTime(lResult);
+            Console.WriteLine(tim.ToString());
             return tim;
         }
 

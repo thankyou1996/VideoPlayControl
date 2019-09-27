@@ -43,7 +43,7 @@ namespace VideoPlayControl_RemotePlayback
             currentRemotePlaybackInfo = value;
             if (value != null)
             {
-                chkChannel.Text = "通道" + value.ChnnelInfo.Channel;
+                chkChannel.Text = value.ChnnelInfo.CameraName;
                 proportionInfo.SetRemotePlaybackInfo(value);
             }
         }
@@ -73,5 +73,19 @@ namespace VideoPlayControl_RemotePlayback
             }
 
         }
+
+
+        /// <summary>
+        /// 设置ToolTip内容
+        /// </summary>
+        /// <param name="tip"></param>
+        /// <param name="strTip"></param>
+        public void SetToolTip(ToolTip tip, string strTip)
+        {
+            tip.SetToolTip(this, strTip);
+            tip.SetToolTip(chkChannel, strTip);
+            proportionInfo.SetToolTip(tip, strTip);
+        }
+
     }
 }

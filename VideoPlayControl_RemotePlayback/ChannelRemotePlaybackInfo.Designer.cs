@@ -52,7 +52,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(60, 20);
+            this.panel1.Size = new System.Drawing.Size(94, 20);
             this.panel1.TabIndex = 3;
             // 
             // proportionInfo
@@ -60,20 +60,20 @@
             this.proportionInfo.BackColor = System.Drawing.Color.Transparent;
             this.proportionInfo.CurrentRemotePlaybackInfo = null;
             this.proportionInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.proportionInfo.Location = new System.Drawing.Point(60, 0);
+            this.proportionInfo.Location = new System.Drawing.Point(94, 0);
             this.proportionInfo.MainColor = System.Drawing.Color.White;
             this.proportionInfo.Name = "proportionInfo";
             this.proportionInfo.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.proportionInfo.Size = new System.Drawing.Size(696, 20);
+            this.proportionInfo.Size = new System.Drawing.Size(662, 20);
             this.proportionInfo.TabIndex = 1;
             // 
-            // ChannelRemoteBackplayInfo
+            // ChannelRemotePlaybackInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.proportionInfo);
             this.Controls.Add(this.panel1);
-            this.Name = "ChannelRemoteBackplayInfo";
+            this.Name = "ChannelRemotePlaybackInfo";
             this.Size = new System.Drawing.Size(756, 20);
             this.Load += new System.EventHandler(this.ChannelRemoteBackplayInfo_Load);
             this.panel1.ResumeLayout(false);
