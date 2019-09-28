@@ -95,7 +95,7 @@ namespace SKVideoRemotePlayer
             CameraInfo cInfo = control.CurrentRemotePlaybackInfo.ChnnelInfo;
             long lFlag = CommonMethod.ConvertClass.DateTimeToUnixTimestamp(control.CurrentPositionDateTime);
 
-            WriteEvent(control.CurrentPositionDateTime.ToString("MM-dd HH:mm:ss"));
+            WriteEvent("开始回放:" + control.CurrentPositionDateTime.ToString("HH时mm分ss秒") + " 视频");
             SDK_SKNVideo.SDK_NSK_CLIENT_start_pb_video(currentVideoInfo.DVSAddress, (cInfo.Channel - 1), Convert.ToInt32(lFlag), picPlayer.Handle);
         }
 

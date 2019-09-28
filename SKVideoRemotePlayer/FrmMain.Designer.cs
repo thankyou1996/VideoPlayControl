@@ -57,7 +57,7 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(738, 585);
+            this.pnlMain.Size = new System.Drawing.Size(739, 585);
             this.pnlMain.TabIndex = 0;
             // 
             // pnlMain_Player
@@ -66,7 +66,7 @@
             this.pnlMain_Player.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain_Player.Location = new System.Drawing.Point(0, 0);
             this.pnlMain_Player.Name = "pnlMain_Player";
-            this.pnlMain_Player.Size = new System.Drawing.Size(738, 359);
+            this.pnlMain_Player.Size = new System.Drawing.Size(739, 359);
             this.pnlMain_Player.TabIndex = 0;
             // 
             // picPlayer
@@ -75,7 +75,7 @@
             this.picPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picPlayer.Location = new System.Drawing.Point(0, 0);
             this.picPlayer.Name = "picPlayer";
-            this.picPlayer.Size = new System.Drawing.Size(738, 359);
+            this.picPlayer.Size = new System.Drawing.Size(739, 359);
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
@@ -87,7 +87,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 359);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(738, 226);
+            this.panel1.Size = new System.Drawing.Size(739, 226);
             this.panel1.TabIndex = 1;
             // 
             // pnlChannel
@@ -101,7 +101,7 @@
             this.pnlChannel.Margin = new System.Windows.Forms.Padding(20, 3, 3, 10);
             this.pnlChannel.Name = "pnlChannel";
             this.pnlChannel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.pnlChannel.Size = new System.Drawing.Size(738, 109);
+            this.pnlChannel.Size = new System.Drawing.Size(739, 109);
             this.pnlChannel.TabIndex = 2;
             // 
             // pnlOperat
@@ -112,7 +112,7 @@
             this.pnlOperat.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlOperat.Location = new System.Drawing.Point(0, 84);
             this.pnlOperat.Name = "pnlOperat";
-            this.pnlOperat.Size = new System.Drawing.Size(738, 33);
+            this.pnlOperat.Size = new System.Drawing.Size(739, 33);
             this.pnlOperat.TabIndex = 1;
             // 
             // btnQueryRecord
@@ -134,16 +134,16 @@
             this.remoteBackplayControl1.Location = new System.Drawing.Point(0, 0);
             this.remoteBackplayControl1.Name = "remoteBackplayControl1";
             this.remoteBackplayControl1.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.remoteBackplayControl1.Size = new System.Drawing.Size(738, 84);
+            this.remoteBackplayControl1.Size = new System.Drawing.Size(739, 84);
             this.remoteBackplayControl1.TabIndex = 0;
             // 
             // pnlLeft
             // 
             this.pnlLeft.Controls.Add(this.lvEvent);
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlLeft.Location = new System.Drawing.Point(738, 0);
+            this.pnlLeft.Location = new System.Drawing.Point(739, 0);
             this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(253, 585);
+            this.pnlLeft.Size = new System.Drawing.Size(277, 585);
             this.pnlLeft.TabIndex = 1;
             // 
             // lvEvent
@@ -155,7 +155,7 @@
             this.lvEvent.HideSelection = false;
             this.lvEvent.Location = new System.Drawing.Point(0, 0);
             this.lvEvent.Name = "lvEvent";
-            this.lvEvent.Size = new System.Drawing.Size(253, 585);
+            this.lvEvent.Size = new System.Drawing.Size(277, 585);
             this.lvEvent.TabIndex = 0;
             this.lvEvent.UseCompatibleStateImageBehavior = false;
             this.lvEvent.View = System.Windows.Forms.View.Details;
@@ -163,18 +163,18 @@
             // EventTime
             // 
             this.EventTime.Text = "时间";
-            this.EventTime.Width = 90;
+            this.EventTime.Width = 78;
             // 
             // EventContent
             // 
             this.EventContent.Text = "事件";
-            this.EventContent.Width = 150;
+            this.EventContent.Width = 400;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 585);
+            this.ClientSize = new System.Drawing.Size(1016, 585);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlLeft);
             this.MaximizeBox = false;
