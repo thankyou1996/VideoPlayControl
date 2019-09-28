@@ -14,7 +14,8 @@ namespace VideoPlayControl
         public static VideoRecordInfo GetVideoRecordInfo_ByFileName(string strFileName)
         {
             VideoRecordInfo v = new VideoRecordInfo();
-            if (strFileName.EndsWith("bfr10.H264"))
+            string Temp_strOperat = strFileName.Substring(strFileName.LastIndexOf("\\") + 1);
+            if (strFileName.EndsWith("bfr10.H264")||Temp_strOperat.Length==43)
             {
                 v = GetVideoRecordBRFInfo_ByFileName(strFileName);
                 return v;
@@ -30,7 +31,6 @@ namespace VideoPlayControl
                 //安讯士: 000601_00_20170126204501_06.bin
                 //解析： DNVNum_Channel_起始时间（yyyyMMddHHmmss）_视频设备类型（06安讯士）.bin(后缀)
 
-                string Temp_strOperat = strFileName.Substring(strFileName.LastIndexOf("\\") + 1);
                 int Temp_intIndex = Temp_strOperat.LastIndexOf(".");
                 int Temp_intIndex1 = Temp_strOperat.LastIndexOf("_");
                 string Temp_strVideoType = Temp_strOperat.Substring(Temp_intIndex1 + 1, Temp_intIndex - Temp_intIndex1 - 1);
@@ -78,24 +78,25 @@ namespace VideoPlayControl
             VideoRecordInfo v = new VideoRecordInfo();
             v.RecordPath = strFileName;
             v.VideoRecordType = Enum_VIdeoRecordType.SKNVideoRecord;
+            if (strFileName.EndsWith(".G711"))
+            {
+                v.VideoRecordFileType = Enum_VideoRecordFileType.Audio;
+            }
+            else if (strFileName.EndsWith(".H264"))
+            {
+                v.VideoRecordFileType = Enum_VideoRecordFileType.VideoAndAudio;
+            }
+            else
+            {
+                v.VideoRecordFileType = Enum_VideoRecordFileType.Unrecognized;
+            }
             try
             {
                 string Temp_strOperat = strFileName.Substring(strFileName.LastIndexOf("\\") + 1);
+                Temp_strOperat = Temp_strOperat.Substring(0, Temp_strOperat.LastIndexOf("."));
                 string[] Temp_strsValueInfo = Temp_strOperat.Split('_');
                 v.Channel = Convert.ToInt32(Temp_strsValueInfo[2]);
                 v.StartTime = DateTime.ParseExact(Temp_strsValueInfo[1], "yyyyMMddHHmmss", System.Globalization.CultureInfo.CurrentCulture);
-                if (strFileName.EndsWith(".G711"))
-                {
-                    v.VideoRecordFileType = Enum_VideoRecordFileType.Audio;
-                }
-                else if (strFileName.EndsWith(".H264"))
-                {
-                    v.VideoRecordFileType = Enum_VideoRecordFileType.VideoAndAudio;
-                }
-                else
-                {
-                    v.VideoRecordFileType = Enum_VideoRecordFileType.Unrecognized;
-                }
             }
             catch
             {
