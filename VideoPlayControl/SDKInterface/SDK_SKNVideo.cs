@@ -337,5 +337,60 @@ namespace VideoPlayControl.SDKInterface
             return strResult;
         }
         #endregion
+        #region 事件定义
+        //#define SDK_EVENT_CALL_KEY_PRESS			0x01 // 呼叫按钮被按下				平时无参数, 接多面板时参数为面板ID(1到16)
+        //#define SDK_EVENT_BAT_LOW					0x02 // 电池欠压					无参数
+        //#define SDK_EVENT_BAT_HIGH					0x03 // 电池过压					无参数
+        //#define SDK_EVENT_AC_COME					0x04 // 市电来电					无参数
+        //#define SDK_EVENT_AC_LOSE					0x05 // 市电掉电					无参数
+        //#define SDK_EVENT_PWR_ON					0x06 // 本机启动					无参数
+        //#define SDK_EVENT_CALL_START				0x07 // 呼叫开始					无参数
+        //#define SDK_EVENT_CALL_END					0x08 // 呼叫结束					无参数
+        //#define SDK_EVENT_CALL_FAIL					0x09 // 呼叫失败					无参数
+        //#define SDK_EVENT_DURE_CORE_ERR				0x0a // 防区模块故障				无参数
+        //#define SDK_EVENT_3G_LOST					0x0b // 3G信号丢失					无参数
+        //#define SDK_EVENT_CALL_GO_ON				0x0c // 呼叫继续					无参数
+        //#define SDK_EVENT_FC_ALARM					0x0d // 面板被拆					无参数
+        //#define SDK_EVENT_FC_RECOVER				0x0e // 面板被拆恢复				无参数
+        //#define SDK_EVENT_HEART_BEAT				0x0f // 心跳包						无参数
+        //#define SDK_EVENT_LOST_LINK_ALARM			0x10 //								无参数
+        //#define SDK_EVENT_LOST_LINK_RECOVER			0x11 //								无参数
+        //#define SDK_EVENT_VIDEO_LOST				0x12 // 视频丢失					通道号(1-4, 9-16)
+        //#define SDK_EVENT_VIDEO_RECOVER				0x13 // 视频恢复					通道号(1-4, 9-16)
+        //#define SDK_EVNET_FAST_SNAP_FINE			0x14 // 抓图成功					抓图文件名
+        //#define SDK_EVENT_FAST_SNAP_TIMEOUT			0x15 // 抓图失败					无参数
+        //#define SDK_EVNET_FAST_SNAP_DONE			0x16 // 							无参数
+        //#define SDK_EVENT_TALK_KEY_PRESS			0x17 // 呼叫按钮被按下				无参数
+        //#define SDK_EVENT_FQ_KEY_PRESS              0x18 // 							无参数
+        //#define SDK_EVENT_READ_FINGER_TEMPLATE		0x19 // 指纹模板上传				指纹模板数据, 末尾两字节为指纹编号
+        //#define SDK_EVENT_REMOTE_UPGRADE			0x20 //	远程升级日志				字符串, 远程升级结果
+        //#define SDK_EVENT_DEVICE_VERISON			0x21 // 获取设备版本				字符串
+        //#define SDK_EVENT_GET_RECORD_MAP            0x22 // 获取录像映射表				字符串
+        //#define SDK_EVENT_REMOTE_UPGRADE_OK			0x23 // 升级成功					字符串 设备版本
+        //#define SDK_EVENT_POWER_UP_OK				0x24 // 上电成功					字符串 设备guid
+        //#define SDK_EVENT_STD_ERR                   0x25 // 标准错误					字符串
+        //#define SDK_EVENT_FINGER_PRESS				0x26 // 指纹按压					无效: 00000000, 有效: 字符串, 指纹id和图片id
+        //#define SDK_EVENT_FINGER_REBOOT				0x27 // 门禁模块重启				无参数
+        //#define SDK_EVENT_ECL_MAIN_EVENT            0x28 // 门锁事件					一个字节
+        //#define SDK_EVENT_CARD_SWAP_EVENT			0x29 // 刷卡						字符串: 卡id和图片id
+        //#define SDK_EVENT_NET_SWITCH_CHANGE			0x2a // 网络切换					字符串日志
+        //#define SDK_EVNET_NET_LAN_FAULT				0x2b // 有线故障					无参数
+        //#define SDK_EVNET_NET_LAN_RECOVER			0x2c // 有线恢复					无参数
+        //#define SDK_EVENT_CARD_LIST_UPDATE			0x2d // 门卡更新日志				字符串
+        //#define SDK_EVENT_DOOR_STATES				0x2e // 门状态						1个字节
+        //#define SDK_EVENT_DOUBLE_FINGER_PRESS		0x2f // 第二人指纹按下				无参数
+
+        //#define SDK_EVENT_MOTION_DECT				0x40 // 移动侦测					结构体
+        //#define SDK_EVENT_HDD_ERR					0x41 // 硬盘故障					无参数
+        //#define SDK_EVENT_HDD_REC					0x42 // 硬盘恢复					无参数
+
+        //#define SDK_EVENT_REVIDEO_POST_DONE			0x43 // 预录像上传成功				预录像文件名
+        //#define SDK_EVENT_FQ_ALARM                  0x44 // 防区报警					5字节
+        //#define SDK_EVENT_ATD		                0x45 // 电话号码					字符串
+        //#define SDK_EVENT_ILLEGAL_OPEN_DOOR			0x97 // 非法开门					无参数
+        //#define SDK_EVENT_DOOR_OPEN_TIMOUT			0x98 // 门开超时					无参数
+        //#define SDK_EVENT_TALK_KEY_RELEASE			0x99 // 呼叫按钮松开				无参数
+        #endregion
+
     }
 }

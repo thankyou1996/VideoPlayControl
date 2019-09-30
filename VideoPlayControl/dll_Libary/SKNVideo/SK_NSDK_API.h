@@ -9,6 +9,64 @@
 #define MAX_DEVICE_INFO_SUM		65535
 #define CD_GUID_LEN				30
 
+/**********************************************************/
+//						事件定义
+/**********************************************************/
+#define SDK_EVENT_CALL_KEY_PRESS			0x01 // 呼叫按钮被按下
+#define SDK_EVENT_BAT_LOW					0x02 // 电池欠压
+#define SDK_EVENT_BAT_HIGH					0x03 // 电池过压
+#define SDK_EVENT_AC_COME					0x04 // 市电来电
+#define SDK_EVENT_AC_LOSE					0x05 // 市电掉电
+#define SDK_EVENT_PWR_ON					0x06 // 本机启动
+#define SDK_EVENT_CALL_START				0x07 // 呼叫开始
+#define SDK_EVENT_CALL_END					0x08 // 呼叫结束
+#define SDK_EVENT_CALL_FAIL					0x09 // 呼叫失败
+#define SDK_EVENT_DURE_CORE_ERR				0x0a // 防区模块故障
+#define SDK_EVENT_3G_LOST					0x0b // 3G信号丢失
+#define SDK_EVENT_CALL_GO_ON				0x0c // 呼叫继续
+#define SDK_EVENT_FC_ALARM					0x0d // 面板被拆
+#define SDK_EVENT_FC_RECOVER				0x0e // 面板被拆恢复
+#define SDK_EVENT_HEART_BEAT				0x0f // 心跳包
+#define SDK_EVENT_LOST_LINK_ALARM			0x10
+#define SDK_EVENT_LOST_LINK_RECOVER			0x11
+#define SDK_EVENT_VIDEO_LOST				0x12 // 视频丢失
+#define SDK_EVENT_VIDEO_RECOVER				0x13 // 视频丢失
+#define SDK_EVNET_FAST_SNAP_FINE			0x14 // 抓图成功
+#define SDK_EVENT_FAST_SNAP_TIMEOUT			0x15 // 抓图失败
+#define SDK_EVNET_FAST_SNAP_DONE			0x16 // 
+#define SDK_EVENT_TALK_KEY_PRESS			0x17 // 呼叫按钮被按下
+#define SDK_EVENT_FQ_KEY_PRESS              0x18
+#define SDK_EVENT_READ_FINGER_TEMPLATE		0x19 // 指纹模板上传
+#define SDK_EVENT_PASSTHROUGH				0x1b // 透传事件给服务器和客户端
+#define SDK_EVENT_REMOTE_UPGRADE			0x20
+#define SDK_EVENT_DEVICE_VERISON			0x21
+#define SDK_EVENT_GET_RECORD_MAP            0x22 // 获取录像映射表
+#define SDK_EVENT_REMOTE_UPGRADE_OK			0x23
+#define SDK_EVENT_POWER_UP_OK				0x24
+#define SDK_EVENT_STD_ERR                   0x25 // 标准错误
+#define SDK_EVENT_FINGER_PRESS				0x26
+#define SDK_EVENT_FINGER_REBOOT				0x27
+#define SDK_EVENT_ECL_MAIN_EVENT            0x28 // 门锁事件
+#define SDK_EVENT_CARD_SWAP_EVENT			0x29
+#define SDK_EVENT_NET_SWITCH_CHANGE			0x2a
+#define SDK_EVNET_NET_LAN_FAULT				0x2b
+#define SDK_EVNET_NET_LAN_RECOVER			0x2c
+#define SDK_EVENT_CARD_LIST_UPDATE			0x2d
+#define SDK_EVENT_DOOR_STATES				0x2e
+#define SDK_EVENT_DOUBLE_FINGER_PRESS		0x2f
+
+#define SDK_EVENT_MOTION_DECT				0x40
+#define SDK_EVENT_HDD_ERR					0x41
+#define SDK_EVENT_HDD_REC					0x42
+
+#define SDK_EVENT_REVIDEO_POST_DONE			0x43
+#define SDK_EVENT_FQ_ALARM                  0x44
+#define SDK_EVENT_ATD		                0x45
+#define SDK_EVENT_ILLEGAL_OPEN_DOOR			0x97
+#define SDK_EVENT_DOOR_OPEN_TIMOUT			0x98
+#define SDK_EVENT_TALK_KEY_RELEASE			0x99
+
+
 /* 精简版设备信息 */
 typedef struct
 {
@@ -134,8 +192,33 @@ int SDK_NSK_SERVER_deinit(void);
   * ***********************************************************************
   */
 DLLIMPORT
-int SDK_NSK_SERVER_get_devcie_online(char *device_guid);
+int SDK_NSK_SERVER_get_device_online(char *device_guid);
 
+/**
+  * ***********************************************************************
+  * @brief	获取连接到服务器的所有设备状态
+  *			
+  * @param  device_guid:        设备数组
+  *
+  * @confirm	: 
+  * @attention	: 
+  * ***********************************************************************
+  */
+DLLIMPORT
+void p_vsdk_get_device_info_all(client_info_all* info_array);
+
+/**
+  * ***********************************************************************
+  * @brief	设置码流超时(实时视频,回放视频,对讲)
+  *			
+  * @param  device_guid:        设备数组
+  *
+  * @confirm	: 
+  * @attention	: 
+  * ***********************************************************************
+  */
+DLLIMPORT
+int SDK_NSK_SERVER_set_stream_timeout(int timeout);
 
 /*******************************************************************************
 **                    ____ _     ___ _____ _   _ _____
@@ -179,6 +262,22 @@ int SDK_NSK_CLIENT_init(char       *server_addr,
   */
 DLLIMPORT
 int SDK_NSK_CLIENT_deinit(void);
+
+/**
+  * ***********************************************************************
+  * @brief  设置是否使用硬件解码与硬件渲染, 重新打开视频生效
+  *         
+  * @param  decoder_accel:        硬件解码, 0关闭 1开启
+  * @param  render_accel:         硬件渲染, 0关闭 1开启
+  *         
+  * @retval int: 详见返回列表
+  *
+  * @attention  : none
+  * ***********************************************************************
+  */
+DLLIMPORT
+int SDK_NSK_CLIENT_set_hardware_accel(int decoder_accel,
+									int render_accel);
 
 /**
   * ***********************************************************************
@@ -255,8 +354,8 @@ int SDK_NSK_CLIENT_stop_pb_video(HWND handle);
   *         
   * @param  dev_guid:       设备GUID
   * @param  save_server:    是否文件也在服务器保存
-  * @param  file_path:      位于设备源文件路径，相对地址
-  * @param  store_path:     在客户端的的存储路径，相对地址
+  * @param  file_path:      文件路径
+  * @param  store_path:     在设备上的路径，含文件名
   *
   * @retval int: 详见返回列表
   *
@@ -288,6 +387,21 @@ int SDK_NSK_CLIENT_get_file(const char *dev_guid,
                             int         save_server, 
                             const char *dev_path, 
                             const char *save_path);
+
+/**
+  * ***********************************************************************
+  * @brief  传送指定文件到设备上
+  *         
+  * @param  dev_guid:       设备GUID
+  * @param  file_path:      升级包路径
+  *
+  * @retval int: 详见返回列表
+  *
+  * @attention  : none
+  * ***********************************************************************
+  */
+DLLIMPORT
+int SDK_NSK_CLIENT_device_upgrade(const char* dev_guid, const char* file_path);
 
 /**
   * ***********************************************************************
@@ -350,7 +464,55 @@ int SDK_NSK_CLIENT_close_all_talk(void);
   * ***********************************************************************
   */
 DLLIMPORT
-int SDK_NSK_CLIENT_reboot_device(const char *dev_guid);
+int SDK_NSK_CLIENT_dev_reboot(const char *dev_guid);
+
+/**
+  * ***********************************************************************
+  * @brief  获取设备版本
+  *         
+  * @param  dev_guid:   设备GUID
+  *
+  * @retval int: 详见返回列表
+  *
+  * @confirm    : 
+  * @attention  : 由回调函数返回
+  * ***********************************************************************
+  */
+DLLIMPORT
+int SDK_NSK_CLIENT_dev_get_version(const char *dev_guid);
+
+/**
+  * ***********************************************************************
+  * @brief  远程修改osd
+  *         
+  * @param  dev_guid:   设备GUID
+  *
+  * @retval int: 详见返回列表
+  *
+  * @confirm    : 
+  * @attention  : none
+  * ***********************************************************************
+  */
+DLLIMPORT
+int SDK_NSK_CLIENT_dev_modify_osd(const char* dev_guid, int chnn, const char* base64_osd);
+
+/**
+  * ***********************************************************************
+  * @brief  手动触发警号并延迟关闭
+  *         
+  * @param  dev_guid:   设备GUID
+  * @param  chnn:		警号通道（1~5)
+  * @param  dev_guid:   警号时长(0~5分钟)
+  *
+  * @retval int: 详见返回列表
+  *
+  * @confirm    : 
+  * @attention  : none
+  * ***********************************************************************
+  */
+
+DLLIMPORT
+int SDK_NSK_CLIENT_dev_delay_alarm(const char* dev_guid, int chnn, int timout);
 
 /**
   * ***********************************************************************
