@@ -96,15 +96,33 @@ namespace VideoPlayControl.VideoPlay
             set
             {
                 picPlayMain = value;
-                intptrPlayMain = picPlayMain.Handle;
             }
         }
-        public IntPtr intptrPlayMain
+        delegate IntPtr GetPicPlayMainHandleDelegate(PictureBox pic);
+        public IntPtr GetPicPlayMainHandle(PictureBox pic)
         {
-            get;
-            private set;
+            if (pic.InvokeRequired)
+            {
+                GetPicPlayMainHandleDelegate delegate1 = new GetPicPlayMainHandleDelegate(GetPicPlayMainHandle);
+                return (IntPtr)pic.Invoke(delegate1, new object[] { pic });
+            }
+            else
+            {
+                return pic.Handle;
+            }
         }
 
+        public IntPtr intptrPlayMain
+        {
+            get
+            {
+                if (PicPlayMain.IsHandleCreated)
+                {
+                    return GetPicPlayMainHandle(PicPlayMain);
+                }
+                return IntPtr.Zero;
+            }
+        }
         int m_hPlayPort = 0;
         SDKInterface.SDK_TLi.DeviceInfo d;
         private Enum_VideoPlayState videoPlayState = Enum_VideoPlayState.VideoInfoNull;
