@@ -75,7 +75,7 @@
     </Reference>
     <Reference Include="PublicClassCurrency, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\VideoPlayControl\dll_Libary\PublicClassCurrency.dll</HintPath>
+      <HintPath>..\dll_Libary\PublicClassCurrency.dll</HintPath>
     </Reference>
     <Reference Include="SKVideoRecordConvert">
       <HintPath>..\VideoPlayControl\dll_Libary\SKVideoRecordConvert.dll</HintPath>
@@ -233,6 +233,12 @@
     <Compile Include="ServerTest\FrmSKServerTest.Designer.cs">
       <DependentUpon>FrmSKServerTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="TalkTest\FrmTalkTest_SK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TalkTest\FrmTalkTest_SK.Designer.cs">
+      <DependentUpon>FrmTalkTest_SK.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServerTest\FrmSKServerTest.resx">
       <DependentUpon>FrmSKServerTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TalkTest\FrmTalkTest_SK.resx">
+      <DependentUpon>FrmTalkTest_SK.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

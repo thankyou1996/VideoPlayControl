@@ -99,6 +99,7 @@
     <Compile Include="TestDataSourceTest.cs" />
     <Compile Include="VideoPlayWindowTests.cs" />
     <Compile Include="VideoRecordInfoConvertTests.cs" />
+    <Compile Include="VideoTalk\VideoTalk_ShikeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

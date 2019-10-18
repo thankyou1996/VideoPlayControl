@@ -435,6 +435,11 @@
             获取码流信息使能
             </summary>
         </member>
+        <member name="P:PublicClassCurrency.VideoInfo.IPAddress">
+            <summary>
+            IP设备地址
+            </summary>
+        </member>
         <member name="P:PublicClassCurrency.VideoInfo.VideoType">
             <summary>
             视频设备类型
@@ -660,11 +665,6 @@
         <member name="P:PublicClassCurrency.VideoInfo.IntercomEnable">
             <summary>
             对讲使能
-            </summary>
-        </member>
-        <member name="F:PublicClassCurrency.VideoInfo.bolOnlyIntercom">
-            <summary>
-            仅作为对讲设备
             </summary>
         </member>
         <member name="P:PublicClassCurrency.VideoInfo.OnlyIntercom">
@@ -1023,7 +1023,17 @@
             获取码流信息使能
             </summary>
         </member>
+        <member name="P:PublicClassCurrency.Video.IVideoInfo.IPAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
         <member name="P:PublicClassCurrency.Video.VIdeoInfo_SK8519V.GetStreamInfoEnable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VIdeoInfo_SK8519V.IPAddress">
             <summary>
             
             </summary>
@@ -1114,6 +1124,81 @@
             连接参数类型 
             1：IP
             2: 唯一码
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Video.VideoTypeInfo.bolSupport458Data">
+            <summary>
+            支持485透传功能
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.Support458Data">
+            <summary>
+            支持485透传功能
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Video.VideoTypeInfo.bolSupportParsingIP">
+            <summary>
+            支持解析IP
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.SupportParsingIP">
+            <summary>
+            支持解析IP
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Video.VideoTypeInfo.bolSupportParsing811">
+            <summary>
+            支持811解析
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.SupportParsing811">
+            <summary>
+            支持811解析
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Video.VideoTypeInfo.bolSupportDirectSet">
+            <summary>
+            支持直连设置
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.SupportDirectSet">
+            <summary>
+            支持直连设置
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Video.VideoTypeInfo.bolSupportPTZProtoclSet">
+            <summary>
+            支持云台协议设置
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.SupportPTZProtoclSet">
+            <summary>
+            支持云台协议设置
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Video.VideoTypeInfo.bolNeedEnterControlPort">
+            <summary>
+            需要输入控制端口
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.NeedEnterControlPort">
+            <summary>
+            需要输入控制端口
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Video.VideoTypeInfo.bolNeedEnterStreamPort">
+            <summary>
+            需要输入数据端口
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.NeedEnterStreamPort">
+            <summary>
+            需要输入数据端口
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.Video.VideoTypeInfo.IPAddressEntryEnable">
+            <summary>
+            IP地址输入使能（仅记录，不产生效果）
             </summary>
         </member>
     </members>

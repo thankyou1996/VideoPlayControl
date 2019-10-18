@@ -37,6 +37,7 @@ namespace VideoPlayControl_UseDemo.ServerTest
             {
                 case 44:
                     string strRContent = Marshal.PtrToStringAnsi(data2);
+                    textBox2.Text = textBox2.Text + strRContent+Environment.NewLine;
                     break;
             }
         }

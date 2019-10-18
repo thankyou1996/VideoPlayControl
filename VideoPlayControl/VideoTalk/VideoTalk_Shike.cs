@@ -116,10 +116,28 @@ namespace VideoPlayControl.VideoTalk
             talkChannel = SDK_SKVideoSDK.SetMultiTalkChannel(Temp_intChannel, talkChannel);
             if ( CurrentTalkSetting.TalkRecordEnable)
             {
-                CurrentTalkSetting.TalkRecordRealSavePath_Local= GetTalkRecordPath_Local(CurrentTalkSetting.TalkRecordPath_Local, CurrentTalkSetting.TalkRecordName_Local);
-                string Temp_strValue = Path.GetDirectoryName(CurrentTalkSetting.TalkRecordRealSavePath_Local);
-                CommonMethod.Common.CreateFolder(Temp_strValue);
+                if (CurrentTalkChannel.VideoInfo.OnlyIntercom)
+                {
+                    //仅作为对讲设备，打开通道1视频，视频录像中将会保存视频
+                    string Temp_strTalkRecordPath = GetTalkRecordPath_Server(CurrentTalkSetting.TalkRecordPath_Server, CurrentTalkSetting.TalkRecordName_Server);
+                    SDK_SKVideoSDK.p_sdkc_start_rt_video_ex(
+                    CurrentVideoInfo.DVSAddress,
+                    0,
+                    IntPtr.Zero,
+                    1,
+                    30,
+                    5,
+                    0,
+                    Temp_strTalkRecordPath);
+                }
+                else
+                {
+                    CurrentTalkSetting.TalkRecordRealSavePath_Local = GetTalkRecordPath_Local(CurrentTalkSetting.TalkRecordPath_Local, CurrentTalkSetting.TalkRecordName_Local);
+                    string Temp_strValue = Path.GetDirectoryName(CurrentTalkSetting.TalkRecordRealSavePath_Local);
+                    CommonMethod.Common.CreateFolder(Temp_strValue);
+                }
             }
+            
             SDK_SKVideoSDK.p_sdkc_start_multi_talk(CurrentVideoInfo.DVSAddress, ref talkChannel, GetSKTalkModel(talkModel), 1, 15, 10, CurrentTalkSetting.TalkRecordRealSavePath_Local);
             CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
             return bolResult;
@@ -144,6 +162,45 @@ namespace VideoPlayControl.VideoTalk
             }
             return strResult;
         }
+
+
+
+        public string GetTalkRecordPath_Server(string strSavePath, string strSaveName)
+        {
+            if (!strSaveName.ToLower().EndsWith(".h264"))
+            {
+                if (string.IsNullOrEmpty(strSaveName))
+                {
+                    Enum_VideoType Temp_videoType = CurrentVideoInfo.VideoType;
+                    if (ProgParameter.TransitionEnable && Temp_videoType == Enum_VideoType.Unrecognized)
+                    {
+                        Temp_videoType = Transition.Transition_VideoTypeConvert.GetVideoType(CurrentVideoInfo);
+                    }
+                    strSaveName = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, 1, Temp_videoType);
+                }
+                else
+                {
+                    strSaveName = strSaveName + ".H264";
+                }
+            }
+            if (strSavePath.Length > 2 && !strSaveName.EndsWith("\\"))
+            {
+                strSavePath = strSavePath + "\\";
+            }
+            string strResult = strSavePath + strSaveName;
+            if (!string.IsNullOrEmpty(ProgParameter.strSKVideo_RecordDirectory))
+            {
+                strResult = strResult.Replace(ProgParameter.strSKVideo_RecordDirectory, "");
+            }
+            if (!(strResult.StartsWith("\\") || strResult.StartsWith("/")))
+            {
+                strResult = "\\" + strResult;
+            }
+            return strResult;
+        }
+
+
+
         /// <summary>
         /// 时刻对讲设备_结束对讲
         /// </summary>
@@ -153,6 +210,7 @@ namespace VideoPlayControl.VideoTalk
             bool bolResult = false;
             if (CurrentVideoInfo != null && CurrentTalkStatus != Enum_TalkStatus.Null)
             {
+                SDK_SKVideoSDK.p_sdkc_stop_rt_video(CurrentVideoInfo.DVSAddress, 0, IntPtr.Zero);
                 SDK_SKVideoSDK.p_sdkc_stop_talk(CurrentVideoInfo.DVSAddress);
                 StopTalked(null);
                 CurrentTalkStatus = Enum_TalkStatus.Null;

@@ -126,7 +126,7 @@ namespace VideoPlayControl_UseDemo
             videoInfo.Password = "12345";
             videoInfo.PreviewPwd = "";
             //videoInfo.IntercomEnable = true;
-            videoInfo.OnlyIntercom = false;
+            //videoInfo.OnlyIntercom = false;
             videoInfo.Cameras = new Dictionary<int, CameraInfo>();
             videoInfo.DVSChannelNum = 16;
             camerasInfo = new CameraInfo();

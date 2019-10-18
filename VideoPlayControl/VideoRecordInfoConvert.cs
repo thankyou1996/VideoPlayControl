@@ -105,6 +105,12 @@ namespace VideoPlayControl
             return v;
         }
 
+        /// <summary>
+        /// 获取视频录像名称
+        /// </summary>
+        /// <param name="vInfo"></param>
+        /// <param name="cInfo"></param>
+        /// <returns></returns>
         public static string GetVideoRecordName(VideoInfo vInfo, CameraInfo cInfo)
         {
             Enum_VideoType Temp_videoType = vInfo.VideoType;
@@ -115,6 +121,13 @@ namespace VideoPlayControl
             return GetVideoRecordName(vInfo.DVSNumber, cInfo.Channel, Temp_videoType);
         }
 
+        /// <summary>
+        /// 获取视频录像名称
+        /// </summary>
+        /// <param name="strVideoNum"></param>
+        /// <param name="intChannel"></param>
+        /// <param name="videoType"></param>
+        /// <returns></returns>
         public static string GetVideoRecordName(string strVideoNum, int intChannel, Enum_VideoType videoType)
         {
             return GetVideoRecordName(strVideoNum, intChannel, DateTime.Now, videoType);

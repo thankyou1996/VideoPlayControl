@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using VideoPlayControl_UseDemo.ServerTest;
+using VideoPlayControl_UseDemo.TalkTest;
 
 namespace VideoPlayControl_UseDemo
 {
@@ -30,8 +31,10 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new Frm_VideoPlayGroupControls_PTZAndTalk());
             //Application.Run(new FrmMain());
             //Application.Run(new FrmSKServerTest());
+            Application.Run(new FrmTalkTest_SK());
+            
             //Application.Run(new FrmSKNVideo_RemoterTest());
-            Application.Run(new FrmSKNServerTest());
+            //Application.Run(new FrmSKNServerTest());
             //Application.Run(new Frm_MulitPicturte());
             //Application.Run(new FrmSKVideoSDKTest());
             //Application.Run(new FrmTest());
