@@ -14393,8 +14393,7 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern int NET_DVR_PlayBackByTime(int lUserID, int lChannel, ref NET_DVR_TIME lpStartTime, ref NET_DVR_TIME lpStopTime, System.IntPtr hWnd);
 
-        [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
-        public static extern int NET_DVR_PlayBackByTime_V40(int lUserID, ref NET_DVR_VOD_PARA pVodPara);
+        
 
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_PlayBackControl(int lPlayHandle, uint dwControlCode, uint dwInValue, ref uint LPOutValue);

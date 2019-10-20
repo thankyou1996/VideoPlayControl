@@ -107,6 +107,7 @@
     <Compile Include="PubDelegate.cs" />
     <Compile Include="PubMethod.cs" />
     <Compile Include="SDKInterface\SDK_DaHua.cs" />
+    <Compile Include="SDKInterface\SDK_Hik.cs" />
     <Compile Include="SDKInterface\SDK_HikStream.cs" />
     <Compile Include="SDKInterface\SDK_IMOSSDK.cs" />
     <Compile Include="SDKInterface\SDK_BlueSDK.cs" />
@@ -146,8 +147,9 @@
     <Compile Include="VideoBasicClass\TalkSetting.cs" />
     <Compile Include="VideoBasicClass\VideoPlayEventValue.cs" />
     <Compile Include="VideoBasicClass\VideoRecordSet.cs" />
-    <Compile Include="VideoBasicClass\VideoRemoteFileInfo.cs" />
-    <Compile Include="VideoBasicClass\VideoRemotePlaySearchPara.cs" />
+    <Compile Include="VideoRemoteBackplay\BasicClass\VideoRemoteFileInfo.cs" />
+    <Compile Include="VideoRemoteBackplay\BasicClass\VideoRemotePlayByTimePara.cs" />
+    <Compile Include="VideoRemoteBackplay\BasicClass\VideoRemotePlaySearchPara.cs" />
     <Compile Include="VideoBasicClass\VideoSnapSet.cs" />
     <Compile Include="VideoChannelList.cs">
       <SubType>UserControl</SubType>
@@ -255,7 +257,18 @@
     <Compile Include="VideoRecordList.Designer.cs">
       <DependentUpon>VideoRecordList.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoRemoteBackplay\Delegate.cs" />
+    <Compile Include="VideoRemoteBackplay\Enum\VideoRemoteBackplayStatus.cs" />
     <Compile Include="VideoRemoteBackplay\IVIdeoRemoteBackplay.cs" />
+    <Compile Include="VideoRemoteBackplay\PubMethod.cs" />
+    <Compile Include="VideoRemoteBackplay\VideoRemoteBackplayWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoRemoteBackplay\VideoRemoteBackplayWindow.Designer.cs">
+      <DependentUpon>VideoRemoteBackplayWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VideoRemoteBackplay\VideoRemoteBackplay_Default.cs" />
+    <Compile Include="VideoRemoteBackplay\VideoRemoteBackplay_Hik.cs" />
     <Compile Include="VideoRemoteBackplay\VideoRemoteBackplay_SK.cs" />
     <Compile Include="VideoRemoteBackplay\VideoRemoteBackplay_TLi.cs" />
     <Compile Include="VideoTalkControl.cs">
@@ -321,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VideoRecordList.resx">
       <DependentUpon>VideoRecordList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoRemoteBackplay\VideoRemoteBackplayWindow.resx">
+      <DependentUpon>VideoRemoteBackplayWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VideoTalkControl.resx">
       <DependentUpon>VideoTalkControl.cs</DependentUpon>

@@ -53,7 +53,6 @@ namespace VideoPlayControl.VideoPlay
                 {
                     #region 数据源数据赋值（避免出现数据源与赋值数据不一致情况）
                     SDK_XMSDK.dicXMVideoList[Temp_strKey].DVSNumber = value.DVSNumber;
-                    SDK_XMSDK.dicXMVideoList[Temp_strKey].OnlyIntercom = value.OnlyIntercom;
                     //SDK_XMSDK.dicXMVideoList[Temp_strKey].IntercomEnable = value.IntercomEnable;
                     SDK_XMSDK.dicXMVideoList[Temp_strKey].AutoIntercom = value.AutoIntercom;
                     SDK_XMSDK.dicXMVideoList[Temp_strKey].VideoPlayTime_Minute = value.VideoPlayTime_Minute;
