@@ -258,5 +258,18 @@ namespace VideoPlayControl
                 intTimeOutVideoRecotdCloseSecond = value;
             }
         }
+
+        public Enum_VideoStream playStream = Enum_VideoStream.SubStream;
+
+
+        /// <summary>
+        /// 播放的码流
+        /// 默认子码流
+        /// </summary>
+        public Enum_VideoStream PlayStream
+        {
+            get { return playStream; }
+            set { playStream = value; }
+        }
     }
 }

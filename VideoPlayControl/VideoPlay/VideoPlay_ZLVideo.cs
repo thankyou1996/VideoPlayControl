@@ -182,7 +182,18 @@ namespace VideoPlayControl.VideoPlay
             if (m_nDeviceID > 0)
             {
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.LoginSuccess });
-                m_nPlayHandle = SDK_ZLNetSDK.ZLNET_RealPlayEx(m_nDeviceID, CurrentCameraInfo.Channel - 1, intptrPlayMain);
+                if (CurrentVideoPlaySet.PlayStream == Enum_VideoStream.MainStream)
+                {
+                    m_nPlayHandle = SDK_ZLNetSDK.ZLNET_RealPlayEx(m_nDeviceID, CurrentCameraInfo.Channel - 1, intptrPlayMain, SDK_ZLNetSDK.ZLNET_REALPLAYTYPE.ZLNET_RType_Realplay);
+                    videoStream = Enum_VideoStream.MainStream;
+                }
+                else
+                {
+                    //子码流
+                    m_nPlayHandle = SDK_ZLNetSDK.ZLNET_RealPlayEx(m_nDeviceID, CurrentCameraInfo.Channel - 1, intptrPlayMain, SDK_ZLNetSDK.ZLNET_REALPLAYTYPE.ZLNET_RType_Realplay_1);
+                    videoStream = Enum_VideoStream.SubStream;
+                }
+
                 if (CurrentVideoPlaySet.VideoMonitorEnable)
                 {
                     OpenSound();

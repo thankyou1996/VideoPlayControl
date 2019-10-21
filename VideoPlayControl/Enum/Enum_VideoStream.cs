@@ -15,7 +15,7 @@ namespace VideoPlayControl.Enum
         /// </summary>
         MainStream=1,
         /// <summary>
-        /// 子码流
+        /// 子码流通道1   
         /// </summary>
         SubStream=2,
     }

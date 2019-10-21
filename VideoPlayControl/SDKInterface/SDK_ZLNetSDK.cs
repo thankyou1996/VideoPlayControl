@@ -13162,7 +13162,7 @@ namespace VideoPlayControl.SDKInterface
         // 开始实时监视--扩展
         [DllImport(ProgConstants.c_strZLVideoFilePath, EntryPoint = "ZLNET_RealPlayEx",
         CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern int ZLNET_RealPlayEx(int lLoginID, int nChannelID, IntPtr hWnd, ZLNET_REALPLAYTYPE rType = ZLNET_REALPLAYTYPE.ZLNET_RType_Realplay);
+        public static extern int ZLNET_RealPlayEx(int lLoginID, int nChannelID, IntPtr hWnd, ZLNET_REALPLAYTYPE rType );
 
         // 多画面实时预览
         [DllImport(ProgConstants.c_strZLVideoFilePath, EntryPoint = "ZLNET_MultiPlay",

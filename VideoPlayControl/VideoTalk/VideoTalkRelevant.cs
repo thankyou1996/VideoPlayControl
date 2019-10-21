@@ -10,7 +10,7 @@ namespace VideoPlayControl.VideoTalk
     {
         public static IVideoTalk GetVideoTalkValue(VideoInfo vInfo)
         {
-            IVideoTalk iv = null;
+            IVideoTalk iv = new VideoTalk_Default();
 
             Enum_VideoType Temp_videoType = Transition.Transition_VideoTypeConvert.GetVideoType(vInfo);
             switch (Temp_videoType)

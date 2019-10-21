@@ -33,32 +33,32 @@ namespace VideoPlayControl.VideoTalk
 
         public bool SetVideoTalkInfo(VideoInfo videoInfo, VideoTalkChannelInfo talkChannel)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool StartTalking(object StartTalkingValue)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool StartTlak(Enum_TalkModel talkModel)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool StopTalk()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool StopTalked(object StopTalkedValue)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool TalkStausChanged(object TalkStausChangedValue)
         {
-            throw new NotImplementedException();
+            return false;
         }
     }
 }

@@ -90,7 +90,7 @@ namespace VideoPlayControl_UseDemo
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
-            //SDKState.ZLVideoSDK_Init();
+            SDKState.ZLVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.ZLVideoSDK_Init();
@@ -628,7 +628,7 @@ namespace VideoPlayControl_UseDemo
                 txtCurrentDVSPwd.Text = dicVideoInfos[strVideoID].Password;
                 txtCurrentChannelNum.Text = dicVideoInfos[strVideoID].DVSChannelNum.ToString();
                 videoChannelList.Init_SetVideoInfo(dicVideoInfos[strVideoID]);
-                videoTalkControlManyChannel1.SetVideoInfo(dicVideoInfos);
+                //videoTalkControlManyChannel1.SetVideoInfo(dicVideoInfos);
             }
         }
         public void ReSetVideoInfo()

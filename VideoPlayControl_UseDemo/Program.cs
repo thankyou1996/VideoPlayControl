@@ -23,7 +23,7 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new FrmTest());
             //Application.Run(new Frn_VideoPlayGroupControl_Basic());
             //Application.Run(new FrmVideoInfoList());
-            //Application.Run(new FrmMain());
+            Application.Run(new FrmMain());
             //Application.Run(new Frm_MulitPicturte());
             //Application.Run(new FrmTalkControlTest());
             //Application.Run(new FrmEzviz());
@@ -33,7 +33,7 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new FrmMain());
             //Application.Run(new FrmSKServerTest());
             //Application.Run(new FrmTalkTest_SK());
-            Application.Run(new Frm_RemoteBackplay());
+            //Application.Run(new Frm_RemoteBackplay());
 
             //Application.Run(new FrmSKNVideo_RemoterTest());
             //Application.Run(new FrmSKNServerTest());

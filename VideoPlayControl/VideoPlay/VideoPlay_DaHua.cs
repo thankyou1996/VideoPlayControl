@@ -186,7 +186,17 @@ namespace VideoPlayControl.VideoPlay
             if (intLoginID != 0)
             {
                 VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.LoginSuccess });
-                intPlayID = SDK_DaHua.CLIENT_RealPlay(intLoginID, CurrentCameraInfo.Channel - 1, intptrPlayMain);
+                if (CurrentVideoPlaySet.PlayStream == Enum_VideoStream.MainStream)
+                {
+                    intPlayID = SDK_DaHua.CLIENT_RealPlayEx(intLoginID, CurrentCameraInfo.Channel - 1, intptrPlayMain, SDK_DaHua.REALPLAY_TYPE.DH_RType_RealPlay);
+                    videoStream = Enum_VideoStream.MainStream;
+                }
+                else
+                {
+                    intPlayID = SDK_DaHua.CLIENT_RealPlayEx(intLoginID, CurrentCameraInfo.Channel - 1, intptrPlayMain, SDK_DaHua.REALPLAY_TYPE.DH_RType_RealPlay_1);
+                    videoStream = Enum_VideoStream.SubStream;
+                }
+                
                 if (intPlayID != 0)
                 {
                     if (CurrentVideoPlaySet.VideoMonitorEnable)

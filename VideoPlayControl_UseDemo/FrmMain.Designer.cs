@@ -53,7 +53,6 @@
             this.btnSKTestData1 = new System.Windows.Forms.Button();
             this.btnSKTestData = new System.Windows.Forms.Button();
             this.PageOther = new System.Windows.Forms.TabPage();
-            this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnStartVideo = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -90,6 +89,7 @@
             this.txtChannel = new System.Windows.Forms.TextBox();
             this.pnlBottom_Left = new System.Windows.Forms.Panel();
             this.videoWindowTest = new VideoPlayControl.VideoPlayWindow();
+            this.button7 = new System.Windows.Forms.Button();
             this.chkMonitorEnable = new System.Windows.Forms.CheckBox();
             this.chkVideoRecordEnable = new System.Windows.Forms.CheckBox();
             this.cmbPreset = new System.Windows.Forms.ComboBox();
@@ -447,16 +447,6 @@
             this.PageOther.TabIndex = 1;
             this.PageOther.Text = "其他";
             this.PageOther.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(2, 386);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 21;
-            this.button7.Text = "设置OSD";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button5
             // 
@@ -836,6 +826,16 @@
             this.videoWindowTest.VideoplayWindowHeight = 10;
             this.videoWindowTest.VideoplayWindowWidth = 10;
             this.videoWindowTest.VideoStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(2, 386);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 21;
+            this.button7.Text = "设置OSD";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // chkMonitorEnable
             // 
@@ -1540,7 +1540,7 @@
             this.Controls.Add(this.pnlRight);
             this.Controls.Add(this.ssrTip);
             this.Name = "FrmMain";
-            this.Text = "主窗体";
+            this.Text = "ing ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.Move += new System.EventHandler(this.FrmMain_Move);
