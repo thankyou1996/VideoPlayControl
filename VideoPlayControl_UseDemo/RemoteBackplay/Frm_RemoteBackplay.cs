@@ -28,7 +28,7 @@ namespace VideoPlayControl_UseDemo.RemoteBackplay
 
         public void Init()
         {
-            dtpStart.Value = DateTime.Now.AddHours(-1);
+            dtpStart.Value = DateTime.Now.AddSeconds(-30);
             dtpEnd.Value = DateTime.Now;
         }
 
