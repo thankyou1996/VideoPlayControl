@@ -52,6 +52,10 @@ namespace VideoPlayControl.VideoRemoteBackplay
             set
             {
                 picPlayMain = value;
+                if (picPlayMain != null && picPlayMain.IsHandleCreated)
+                {
+                    IntPtrPlayMain = picPlayMain.Handle;
+                }
             }
         }
 
@@ -60,15 +64,8 @@ namespace VideoPlayControl.VideoRemoteBackplay
         /// </summary>
         public IntPtr IntPtrPlayMain
         {
-            get
-            {
-
-                if (PicPlayMain != null && PicPlayMain.IsHandleCreated)
-                {
-                    return PubMethod.GetPicPlayMainHandle(PicPlayMain);
-                }
-                return IntPtr.Zero;
-            }
+            get;
+            private set;
         }
 
         private VideoRemoteBackplayStatus backplayStatus = VideoRemoteBackplayStatus.StandBy;

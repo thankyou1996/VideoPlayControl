@@ -21,21 +21,32 @@ namespace VideoPlayControl.VideoRemoteBackplay
             set;
         }
         public CameraInfo CurrentCameraInfo { get; set; }
-        public PictureBox PicPlayMain { get; set; }
+
+        private PictureBox picPlayMain = null;
+        public PictureBox PicPlayMain
+        {
+            get
+            {
+                return picPlayMain;
+            }
+
+            set
+            {
+                picPlayMain = value;
+                if (picPlayMain != null && picPlayMain.IsHandleCreated)
+                {
+                    IntPtrPlayMain = picPlayMain.Handle;
+                }
+            }
+        }
 
         /// <summary>
         /// 播放句柄
         /// </summary>
         public IntPtr IntPtrPlayMain
         {
-            get
-            {
-                if (PicPlayMain != null && PicPlayMain.IsHandleCreated)
-                {
-                    return PubMethod.GetPicPlayMainHandle(PicPlayMain);
-                }
-                return IntPtr.Zero;
-            }
+            get;
+            private set;
         }
 
         private VideoRemoteBackplayStatus backplayStatus = VideoRemoteBackplayStatus.StandBy;
