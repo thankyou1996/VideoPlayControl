@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<!--socket conf for multicast resist lost packet-->
-<!--adation is used for media stream adaption, the value is 0 or 1-->
-<imosxp>
-  <pktnum id="interval">30</pktnum>
-	<times id="retrans">6</times>
-		<adaption id="status">1</adaption>
-</imosxp>
