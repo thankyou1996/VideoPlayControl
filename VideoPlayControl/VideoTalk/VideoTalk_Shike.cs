@@ -116,7 +116,7 @@ namespace VideoPlayControl.VideoTalk
             talkChannel = SDK_SKVideoSDK.SetMultiTalkChannel(Temp_intChannel, talkChannel);
             if ( CurrentTalkSetting.TalkRecordEnable)
             {
-                if (CurrentTalkChannel.VideoInfo.OnlyIntercom)
+                if (ProgParameter.SKVideoTalkRecordFlag && CurrentTalkChannel.VideoInfo.OnlyIntercom)
                 {
                     //仅作为对讲设备，打开通道1视频，视频录像中将会保存视频
                     string Temp_strTalkRecordPath = GetTalkRecordPath_Server(CurrentTalkSetting.TalkRecordPath_Server, CurrentTalkSetting.TalkRecordName_Server);
@@ -137,7 +137,6 @@ namespace VideoPlayControl.VideoTalk
                     CommonMethod.Common.CreateFolder(Temp_strValue);
                 }
             }
-            
             SDK_SKVideoSDK.p_sdkc_start_multi_talk(CurrentVideoInfo.DVSAddress, ref talkChannel, GetSKTalkModel(talkModel), 1, 15, 10, CurrentTalkSetting.TalkRecordRealSavePath_Local);
             CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
             return bolResult;

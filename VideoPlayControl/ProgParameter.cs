@@ -94,6 +94,21 @@ namespace VideoPlayControl
         /// </summary>
         public static string strSKVideo_RecordDirectory = "";
 
+
+        /// <summary>
+        /// 时刻对讲记录生成方式
+        /// true表示新方式生成    即录音是如果无录像通道则主动调用生成视频方法生成录像（录音文件会在文件中生成）
+        /// false表示旧方式生成   即录音文件独立生成（对讲接口中的方法）
+        /// </summary>
+        public static bool SKVideoTalkRecordFlag = true;
+
+        /// <summary>
+        /// 时刻视频浏览使用方式
+        /// true表示使用新方法进行预览       即使用 p_sdkc_start_rt_video_ex 方法进行预览
+        /// false 表示使用旧方法进行预览     即使用p_sdkc_start_rt_video 方法进行预览
+        /// </summary>
+        public static bool SKVideoPlayFlag = true;
+        
         #endregion
 
         #region 华迈视频相关参数

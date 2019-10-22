@@ -168,16 +168,24 @@ namespace VideoPlayControl.VideoPlay
                 VideoRecordStatus = true;
             }
             int Temp_intStreamValue = GetVideoStreamValue(VideoStream);
-            SDK_SKVideoSDK.p_sdkc_start_rt_video_ex(
-                CurrentVideoInfo.DVSAddress,
-                CurrentCameraInfo.Channel - 1,
-                intptrPlayMain, 
-                intVideoRecordEnable, 
-                30, 
-                5, 
-                Temp_intStreamValue, 
-                strRecordPath);
-
+            if (ProgParameter.SKVideoPlayFlag)
+            {
+                //新方法预览
+                SDK_SKVideoSDK.p_sdkc_start_rt_video_ex(
+                    CurrentVideoInfo.DVSAddress,
+                    CurrentCameraInfo.Channel - 1,
+                    intptrPlayMain,
+                    intVideoRecordEnable,
+                    30,
+                    5,
+                    Temp_intStreamValue,
+                    strRecordPath);
+            }
+            else
+            {
+                //旧方法预览
+                SDK_SKVideoSDK.p_sdkc_start_rt_video(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, intptrPlayMain, intVideoRecordEnable, 15, 5, strRecordPath);
+            }
             if (CurrentVideoPlaySet.PerVideoRecord)
             {
                 SDK_SKVideoSDK.p_sdkc_get_revideo_data(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, CurrentVideoPlaySet.PreVideoRecordFilePath);
