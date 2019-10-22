@@ -1048,9 +1048,10 @@ namespace VideoPlayControl.SDKInterface
         public const int MAX_MASK_REGION_NUM = 4;//最多四个屏蔽区域
         public const int MAX_SEGMENT_NUM = 6;//摄像机标定最大样本线数目
         public const int MIN_SEGMENT_NUM = 3;//摄像机标定最小样本线数目        
-        /**********************设备类型 end***********************/
+                                             /**********************设备类型 end***********************/
         #endregion
 
+        public const int MAX_DOMAIN_NAME = 64;  /* 最大域名长度 */
         #region 通用
 
         #region 结构体定义
@@ -1134,6 +1135,157 @@ namespace VideoPlayControl.SDKInterface
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 9, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes2;		//保留
         }
+
+
+        #region IP设备设置信息参数
+        /// <summary>
+        /// IP设备资源及IP通道资源配置结构体。
+        ///  V40扩展IP接入配置结构
+        /// </summary>
+        [StructLayoutAttribute(LayoutKind.Sequential)]
+        public struct NET_DVR_IPPARACFG_V40
+        {
+            public uint dwSize;/* 结构大小 */
+            public uint dwGroupNum;
+            public uint dwAChanNum;
+            public uint dwDChanNum;
+            public uint dwStartDChan;
+
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = MAX_CHANNUM_V30, ArraySubType = UnmanagedType.I1)]
+            public byte[] byAnalogChanEnable; /* 模拟通道是否启用，从低到高表示1-32通道，0表示无效 1有效 */
+
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = MAX_IP_DEVICE_V40, ArraySubType = UnmanagedType.Struct)]
+            public NET_DVR_IPDEVINFO_V31[] struIPDevInfo; /* IP设备 */
+
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = MAX_CHANNUM_V30, ArraySubType = UnmanagedType.Struct)]
+            public NET_DVR_STREAM_MODE[] struStreamMode;/* IP通道 */
+
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 20, ArraySubType = UnmanagedType.I1)]
+            public byte[] byRes2; /* 模拟通道是否启用，从低到高表示1-32通道，0表示无效 1有效 */
+        }
+
+
+        /// <summary>
+        /// IP设备信息结构体
+        /// ipc接入设备信息扩展，支持ip设备的域名添加
+        /// </summary>
+        [StructLayoutAttribute(LayoutKind.Sequential)]
+        public struct NET_DVR_IPDEVINFO_V31
+        {
+            public byte byEnable;//该IP设备是否有效
+            public byte byProType;
+            public byte byEnableQuickAdd;
+            public byte byRes1;//保留字段，置0
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = NAME_LEN, ArraySubType = UnmanagedType.I1)]
+            public byte[] sUserName;//用户名
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = PASSWD_LEN, ArraySubType = UnmanagedType.I1)]
+            public byte[] sPassword;//密码
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = MAX_DOMAIN_NAME, ArraySubType = UnmanagedType.I1)]
+            public byte[] byDomain;//设备域名
+            public NET_DVR_IPADDR struIP;//IP地址
+            public ushort wDVRPort;// 端口号
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 34, ArraySubType = UnmanagedType.I1)]
+            public byte[] byRes2;//保留字段，置0
+
+            public void Init()
+            {
+                sUserName = new byte[NAME_LEN];
+                sPassword = new byte[PASSWD_LEN];
+                byDomain = new byte[MAX_DOMAIN_NAME];
+                byRes2 = new byte[34];
+            }
+        }
+
+        /// <summary>
+        /// IP地址结构体
+        /// </summary>
+        [StructLayoutAttribute(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+        public struct NET_DVR_IPADDR
+        {
+
+            /// char[16]
+            [MarshalAsAttribute(UnmanagedType.ByValTStr, SizeConst = 16)]
+            public string sIpV4;
+
+            /// BYTE[128]
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 128, ArraySubType = UnmanagedType.I1)]
+            public byte[] byRes;
+
+            public void Init()
+            {
+                byRes = new byte[128];
+            }
+        }
+
+        /// <summary>
+        /// 取流方式配置结构体
+        /// </summary>
+        [StructLayoutAttribute(LayoutKind.Sequential)]
+        public struct NET_DVR_STREAM_MODE
+        {
+            public byte byGetStreamType;/*取流方式：0- 直接从设备取流；1- 从流媒体取流；2- 通过IPServer获得IP地址后取流；
+                                          * 3- 通过IPServer找到设备，再通过流媒体取设备的流； 4- 通过流媒体由URL去取流；
+                                          * 5- 通过hiDDNS域名连接设备然后从设备取流 */
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 3, ArraySubType = UnmanagedType.I1)]
+            public byte[] byRes;
+            public NET_DVR_GET_STREAM_UNION uGetStream;
+            public void Init()
+            {
+                byGetStreamType = 0;
+                byRes = new byte[3];
+                //uGetStream.Init();
+            }
+        }
+
+        /// <summary>
+        /// IP通道信息结构体
+        /// </summary>
+        [StructLayoutAttribute(LayoutKind.Sequential)]
+        public struct NET_DVR_IPCHANINFO
+        {
+            public byte byEnable;/* 该通道是否在线 */
+            public byte byIPID;/* IP设备ID 取值1- MAX_IP_DEVICE */
+            public byte byChannel;/* 通道号 */
+            public byte byIPIDHigh; // IP设备ID的高8位
+            public byte byTransProtocol;//传输协议类型0-TCP/auto(具体有设备决定)，1-UDP 2-多播 3-仅TCP 4-auto
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 31, ArraySubType = UnmanagedType.I1)]
+            public byte[] byRes;//保留,置0
+            public void Init()
+            {
+                byRes = new byte[31];
+            }
+        }
+
+        /// <summary>
+        /// 取流方式联合体
+        /// </summary>
+        [StructLayout(LayoutKind.Explicit)]
+        public struct NET_DVR_GET_STREAM_UNION
+        {
+            [FieldOffset(0)]
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 492, ArraySubType = UnmanagedType.I1)]
+            public byte[] byUnion;
+        }
+
+        /// <summary>
+        /// IP通道信息（扩展）结构体
+        /// </summary>
+        [StructLayoutAttribute(LayoutKind.Sequential)]
+        public struct NET_DVR_IPCHANINFO_V40
+        {
+            public byte byEnable;				/* 该通道是否在线 */
+            public byte byRes1;
+            public ushort wIPID;                  //IP设备ID
+            public uint dwChannel;				//通道号
+            public byte byTransProtocol;		//传输协议类型0-TCP，1-UDP
+            public byte byTransMode;			//传输码流模式 0－主码流 1－子码流
+            public byte byFactoryType;			/*前端设备厂家类型,通过接口获取*/
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 241, ArraySubType = UnmanagedType.I1)]
+            public byte[] byRes;
+        }
+
+        #endregion
+
         #endregion
 
         /// <summary>
@@ -1156,6 +1308,20 @@ namespace VideoPlayControl.SDKInterface
         /// <returns></returns>
         [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
         public static extern bool NET_DVR_Logout_V30(Int32 lUserID);
+
+
+        /// <summary>
+        /// 获取设备的配置信息
+        /// </summary>
+        /// <param name="lUserID"></param>
+        /// <param name="dwCommand"></param>
+        /// <param name="lChannel"></param>
+        /// <param name="lpOutBuffer"></param>
+        /// <param name="dwOutBufferSize"></param>
+        /// <param name="lpBytesReturned"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strHikVideoSDKFilePath)]
+        public static extern bool NET_DVR_GetDVRConfig(int lUserID, uint dwCommand, int lChannel, IntPtr lpOutBuffer, uint dwOutBufferSize, ref uint lpBytesReturned);
 
 
         /// <summary>
@@ -1418,7 +1584,47 @@ namespace VideoPlayControl.SDKInterface
             Stime.dwSecond = uint.Parse(tim.Second.ToString());
             return Stime;
         }
+
+
+        /// <summary>
+        /// 获取通道信息
+        /// </summary>
+        /// <param name="m_lUserID"></param>
+        /// <param name="DeviceInfo"></param>
+        /// <returns></returns>
+        public static int[] GetChannel(int m_lUserID, SDK_Hik.NET_DVR_DEVICEINFO_V30 DeviceInfo)
+        {
+            int[] result = new int[256];
+            //默认值
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = i + 1;
+            }
+            //模拟通道赋值
+            for (int i = 0; i < DeviceInfo.byChanNum; i++)
+            {
+                result[i] = i + (int)DeviceInfo.byStartChan;
+            }
+            SDK_Hik.NET_DVR_IPPARACFG_V40 m_struIpParaCfgV40 = new SDK_Hik.NET_DVR_IPPARACFG_V40();
+            uint dwSize = (uint)Marshal.SizeOf(m_struIpParaCfgV40);
+            IntPtr ptrIpParaCfgV40 = Marshal.AllocHGlobal((Int32)dwSize);
+            uint dwReturn = 0;
+            if (SDK_Hik.NET_DVR_GetDVRConfig(m_lUserID, SDK_Hik.NET_DVR_GET_IPPARACFG_V40, 0, ptrIpParaCfgV40, dwSize, ref dwReturn))
+            {
+                m_struIpParaCfgV40 = (SDK_Hik.NET_DVR_IPPARACFG_V40)Marshal.PtrToStructure(ptrIpParaCfgV40, typeof(SDK_Hik.NET_DVR_IPPARACFG_V40));
+                for (int i = 0; i < m_struIpParaCfgV40.dwDChanNum; i++)
+                {
+                    result[i + DeviceInfo.byChanNum] = i + (int)m_struIpParaCfgV40.dwStartDChan;
+                }
+            }
+            return result;
+        }
         #endregion
+
+
+
+
+
 
     }
 }

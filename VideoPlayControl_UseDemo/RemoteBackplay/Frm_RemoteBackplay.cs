@@ -39,9 +39,16 @@ namespace VideoPlayControl_UseDemo.RemoteBackplay
 
         private void BtnRemotePlayTime_Click(object sender, EventArgs e)
         {
+            int intChannel = Convert.ToInt32(txtChannel.Text);
+            if (!vInfo.Cameras.ContainsKey(intChannel))
+            {
+                MessageBox.Show("通道不存在");
+                return;
+            }
+            CameraInfo cInfo = vInfo.Cameras[intChannel];
             VideoRemotePlayByTimePara para = new VideoRemotePlayByTimePara
             {
-                CameraInfo = vInfo.Cameras.First().Value,
+                CameraInfo = cInfo,
                 StartPlayTime = dtpStart.Value,
                 EndPlayTime = dtpEnd.Value
             };

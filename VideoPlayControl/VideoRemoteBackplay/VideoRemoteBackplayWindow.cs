@@ -19,6 +19,15 @@ namespace VideoPlayControl.VideoRemoteBackplay
         public VideoRemoteBackplayWindow()
         {
             InitializeComponent();
+            this.Disposed += VideoRemoteBackplayWindow_Disposed;
+        }
+
+        private void VideoRemoteBackplayWindow_Disposed(object sender, EventArgs e)
+        {
+            if (iVideoRemoteBackplay != null)
+            {
+                iVideoRemoteBackplay.StopRemoteBackplayByTime();
+            }
         }
 
         public VideoRemoteBackplayStatus BackplayStatus { get => iVideoRemoteBackplay.BackplayStatus; set => iVideoRemoteBackplay.BackplayStatus = value; }

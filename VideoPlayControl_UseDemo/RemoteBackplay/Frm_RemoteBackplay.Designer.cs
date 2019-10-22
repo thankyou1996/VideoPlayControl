@@ -36,6 +36,8 @@
             this.btnHikData = new System.Windows.Forms.Button();
             this.btnRemotePlayTime_Stop = new System.Windows.Forms.Button();
             this.videoRemoteBackplayWindow1 = new VideoPlayControl.VideoRemoteBackplay.VideoRemoteBackplayWindow();
+            this.txtChannel = new System.Windows.Forms.TextBox();
+            this.lblChannel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnRemotePlayTime_Start
@@ -114,11 +116,30 @@
             this.videoRemoteBackplayWindow1.Size = new System.Drawing.Size(409, 244);
             this.videoRemoteBackplayWindow1.TabIndex = 4;
             // 
+            // txtChannel
+            // 
+            this.txtChannel.Location = new System.Drawing.Point(82, 308);
+            this.txtChannel.Name = "txtChannel";
+            this.txtChannel.Size = new System.Drawing.Size(52, 21);
+            this.txtChannel.TabIndex = 6;
+            this.txtChannel.Text = "1";
+            // 
+            // lblChannel
+            // 
+            this.lblChannel.AutoSize = true;
+            this.lblChannel.Location = new System.Drawing.Point(23, 311);
+            this.lblChannel.Name = "lblChannel";
+            this.lblChannel.Size = new System.Drawing.Size(29, 12);
+            this.lblChannel.TabIndex = 7;
+            this.lblChannel.Text = "通道";
+            // 
             // Frm_RemoteBackplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 450);
+            this.Controls.Add(this.lblChannel);
+            this.Controls.Add(this.txtChannel);
             this.Controls.Add(this.btnHikData);
             this.Controls.Add(this.videoRemoteBackplayWindow1);
             this.Controls.Add(this.label2);
@@ -144,5 +165,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnHikData;
         private System.Windows.Forms.Button btnRemotePlayTime_Stop;
+        private System.Windows.Forms.TextBox txtChannel;
+        private System.Windows.Forms.Label lblChannel;
     }
 }

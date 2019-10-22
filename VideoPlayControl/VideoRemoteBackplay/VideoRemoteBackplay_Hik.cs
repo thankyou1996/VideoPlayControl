@@ -134,6 +134,10 @@ namespace VideoPlayControl.VideoRemoteBackplay
             return null;
         }
 
+
+
+        
+
         /// <summary>
         /// 远程
         /// </summary>
@@ -161,12 +165,16 @@ namespace VideoPlayControl.VideoRemoteBackplay
             {
                 return false;
             }
+            int[] iChannelNum = SDK_Hik.GetChannel(m_lUserID, DeviceInfo);
+            Console.WriteLine(DateTime.Now.ToString("HH:mm:ss") + "登陆成功");
             SDK_Hik.NET_DVR_TIME Stime = SDK_Hik.ConvertToNetTime(para.StartPlayTime);
             SDK_Hik.NET_DVR_TIME Etime = SDK_Hik.ConvertToNetTime(para.EndPlayTime);
             int intChannel = Convert.ToInt32(cInfo.Channel);
             SDK_Hik.NET_DVR_VOD_PARA struVodPara = new SDK_Hik.NET_DVR_VOD_PARA();
             struVodPara.dwSize = (uint)Marshal.SizeOf(struVodPara);
-            struVodPara.struIDInfo.dwChannel = (uint)intChannel; //通道号 Channel number  
+            struVodPara.struIDInfo.dwChannel = Convert.ToUInt32(iChannelNum[CurrentCameraInfo.Channel - 1]); //通道号 Channel number  
+
+
             struVodPara.hWnd = IntPtrPlayMain;//回放窗口句柄
             //设置回放的开始时间 Set the starting time to search video files
             struVodPara.struBeginTime = Stime;
@@ -179,11 +187,13 @@ namespace VideoPlayControl.VideoRemoteBackplay
             }
             if (!SDK_Hik.NET_DVR_PlayBackControl(m_lPlayHandle, SDK_Hik.PlayBackControlCode.NET_DVR_PLAYSTART, 0, ref lpOutValue))
             {
-                MessageBox.Show("文件播放失败！");
+
+                return false;
             }
             SDK_Hik.NET_DVR_PlayBackControl(m_lPlayHandle, SDK_Hik.PlayBackControlCode.NET_DVR_PLAYSTARTAUDIO, 0, ref lpOutValue);
             SDK_Hik.NET_DVR_PlayBackControl(m_lPlayHandle, SDK_Hik.PlayBackControlCode.NET_DVR_PLAYAUDIOVOLUME, 0XFFFF, ref lpOutValue);
             SDK_Hik.NET_DVR_PlayBackControl(m_lPlayHandle, SDK_Hik.PlayBackControlCode.NET_DVR_GETTOTALTIME, 0, ref totalTime);
+            BackplayStatus = VideoRemoteBackplayStatus.RemoteBackplayByTimeStarted;
             return true;
         }
 
