@@ -23,12 +23,13 @@ namespace VideoPlayControl_UseDemo.RemoteBackplay
         private void Frm_RemoteBackplay_Load(object sender, EventArgs e)
         {
             SDKState.HikDVRSDK_Init();
+            SDKState.ZLVideoSDK_Init();
             Init();
         }
 
         public void Init()
         {
-            dtpStart.Value = DateTime.Now.AddSeconds(-30);
+            dtpStart.Value = DateTime.Now.AddMinutes(-10);
             dtpEnd.Value = DateTime.Now;
         }
 
@@ -36,7 +37,10 @@ namespace VideoPlayControl_UseDemo.RemoteBackplay
         {
             vInfo = TestDataSource.HikDataSource.GetHikData3();
         }
-
+        private void BtnZLData_Click(object sender, EventArgs e)
+        {
+            vInfo = TestDataSource.ZLDataSource.GetZLDVSData1();
+        }
         private void BtnRemotePlayTime_Click(object sender, EventArgs e)
         {
             int intChannel = Convert.ToInt32(txtChannel.Text);
@@ -59,5 +63,7 @@ namespace VideoPlayControl_UseDemo.RemoteBackplay
         {
             videoRemoteBackplayWindow1.StopRemoteBackplayByTime();
         }
+
+        
     }
 }

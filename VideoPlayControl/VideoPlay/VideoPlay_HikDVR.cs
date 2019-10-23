@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using PublicClassCurrency;
 using VideoPlayControl.Enum;
 using VideoPlayControl.VideoBasicClass;
@@ -165,8 +166,11 @@ namespace VideoPlayControl.VideoPlay
             bool bolResult = false;
             NET_DVR_DEVICEINFO_V30 dev = new NET_DVR_DEVICEINFO_V30();
             _intDVRHwd = NET_DVR_Login_V30(CurrentVideoInfo.DVSAddress, CurrentVideoInfo.DVSConnectPort, CurrentVideoInfo.UserName, CurrentVideoInfo.Password, ref dev);
+            
             if (_intDVRHwd >= 0)
             {
+                DebugRelevant.DebugLog(this, "Hik:设备登陆成功：" + CurrentVideoInfo.DVSAddress);
+                DebugRelevant.DebugLog(this, "Hik:设备信息：" + JsonConvert.SerializeObject(dev));
                 dwAChanTotalNum = (uint)dev.byChanNum;
                 if (dev.byIPChanNum > 0)
                 {
@@ -178,6 +182,11 @@ namespace VideoPlayControl.VideoPlay
                     {
                         iChannelNum[iip] = iip + (int)dev.byStartChan;
                     }
+                }
+
+                for (int i = 0; i < iChannelNum.Length; i++)
+                {
+                    DebugRelevant.DebugLog(this, "Hik:设备通道信息：" + "Index[" + i + "]"+ iChannelNum[i]);
                 }
 
                 NET_DVR_PREVIEWINFO lpPreviewInfo = new NET_DVR_PREVIEWINFO();
@@ -214,7 +223,8 @@ namespace VideoPlayControl.VideoPlay
                 //Thread.Sleep(50);
 
 
-                
+
+                DebugRelevant.DebugLog(this, "Hik:真实播放通道号：" + lpPreviewInfo.lChannel);
                 IntPtr pUser = new IntPtr();
                 REALDATACALLBACK RealData = new REALDATACALLBACK(RealDataCallBack);//预览实时流回调函数
 

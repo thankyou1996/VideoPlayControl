@@ -1386,7 +1386,7 @@ namespace VideoPlayControl_UseDemo
         private void btnZLTestData_Click(object sender, EventArgs e)
         {
 
-            VideoInfo videoInfo = TestDataSource.TestDataSource.GetZLDVSData1();
+            VideoInfo videoInfo = TestDataSource.ZLDataSource.GetZLDVSData1();
             dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;

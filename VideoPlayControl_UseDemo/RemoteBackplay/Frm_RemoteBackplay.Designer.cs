@@ -38,6 +38,7 @@
             this.videoRemoteBackplayWindow1 = new VideoPlayControl.VideoRemoteBackplay.VideoRemoteBackplayWindow();
             this.txtChannel = new System.Windows.Forms.TextBox();
             this.lblChannel = new System.Windows.Forms.Label();
+            this.btnZLData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRemotePlayTime_Start
@@ -133,11 +134,22 @@
             this.lblChannel.TabIndex = 7;
             this.lblChannel.Text = "通道";
             // 
+            // btnZLData
+            // 
+            this.btnZLData.Location = new System.Drawing.Point(109, 262);
+            this.btnZLData.Name = "btnZLData";
+            this.btnZLData.Size = new System.Drawing.Size(75, 23);
+            this.btnZLData.TabIndex = 8;
+            this.btnZLData.Text = "智诺数据";
+            this.btnZLData.UseVisualStyleBackColor = true;
+            this.btnZLData.Click += new System.EventHandler(this.BtnZLData_Click);
+            // 
             // Frm_RemoteBackplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 450);
+            this.Controls.Add(this.btnZLData);
             this.Controls.Add(this.lblChannel);
             this.Controls.Add(this.txtChannel);
             this.Controls.Add(this.btnHikData);
@@ -167,5 +179,6 @@
         private System.Windows.Forms.Button btnRemotePlayTime_Stop;
         private System.Windows.Forms.TextBox txtChannel;
         private System.Windows.Forms.Label lblChannel;
+        private System.Windows.Forms.Button btnZLData;
     }
 }

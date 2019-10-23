@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DebugRelevant.cs" />
     <Compile Include="Enum\Enum_SDKState.cs" />
     <Compile Include="Enum\Enum_SDKEventType.cs" />
     <Compile Include="Enum\Enum_SDKStateEventType.cs" />

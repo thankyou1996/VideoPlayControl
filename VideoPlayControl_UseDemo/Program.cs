@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using VideoPlayControl_UseDemo.RemoteBackplay;
 using VideoPlayControl_UseDemo.ServerTest;
 using VideoPlayControl_UseDemo.TalkTest;
+using VideoPlayControl_UseDemo.VideoPlay;
 
 namespace VideoPlayControl_UseDemo
 {
@@ -34,6 +35,7 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new FrmSKServerTest());
             //Application.Run(new FrmTalkTest_SK());
             Application.Run(new Frm_RemoteBackplay());
+            //Application.Run(new Frm_VideoPlay_Hik());
 
             //Application.Run(new FrmSKNVideo_RemoterTest());
             //Application.Run(new FrmSKNServerTest());

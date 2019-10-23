@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using VideoPlayControl.SDKInterface;
@@ -98,8 +99,14 @@ namespace VideoPlayControl.VideoRemoteBackplay
             return false;
         }
         private int m_nDeviceID = 0;
+        private int lPlayHandle = 0;
         public bool StartRemoteBackplayByTime(VideoRemotePlayByTimePara para)
         {
+            if (lPlayHandle > 0)
+            {
+                //处于播放状态，需要删除
+                StopRemoteBackplayByTime();
+            }
             VideoInfo vInfo = para.CameraInfo.VideoInfo;
             CurrentVideoInfo = vInfo;
             CameraInfo cInfo = para.CameraInfo;
@@ -121,26 +128,40 @@ namespace VideoPlayControl.VideoRemoteBackplay
                 tmStart= SDK_ZLNetSDK.ConvertToNetTime(para.StartPlayTime),
                 tmEnd= SDK_ZLNetSDK.ConvertToNetTime(para.EndPlayTime),
                 hWnd=IntPtrPlayMain,
-                //nStreamType=
+                nStreamType =0,
+                nMediaFlag= 0,
             };
-
-
-            //if (SDK_ZLNetSDK.ZLNET_PlayBackByTimeV3(m_nDeviceID,) == 0)
+            SDK_ZLNetSDK.fZLDownLoadPosCallBack downLoadPosCallBack = new SDK_ZLNetSDK.fZLDownLoadPosCallBack(DownLoadPosCallBack);
+            SDK_ZLNetSDK.fZLDataCallBack dataCallback = new SDK_ZLNetSDK.fZLDataCallBack(DataCallback);
+            IntPtr iPosUser = Marshal.StringToHGlobalAnsi("iPosUser");
+            IntPtr iData = Marshal.StringToHGlobalAnsi("iData");
+            lPlayHandle = SDK_ZLNetSDK.ZLNET_PlayBackByTimeV3(m_nDeviceID, ref sdkpara, downLoadPosCallBack, iPosUser, dataCallback, iData);
+            if (lPlayHandle == 0)
             {
-                return false; ;
+                return false; 
             }
             //回放控制
-
-
             return false;
+        }
+
+
+        public void DownLoadPosCallBack(int lPlayHandle, UInt32 dwTotalSize, UInt32 dwDownLoadSize, IntPtr dwUser)
+        {
+
+        }
+        public int DataCallback(int lPlayHandle, UInt32 dwDataType, IntPtr pBuffer, UInt32 dwBufSize, IntPtr dwUser)
+        {
+            return 1;
         }
 
         public bool StopRemoteBackplayByTime()
         {
             //停止回放
-            //ZLNET_StopPlayBack
+            SDK_ZLNetSDK.ZLNET_StopPlayBack(lPlayHandle);
+
             //登出设备
-            //ZLNET_Logout
+            SDK_ZLNetSDK.ZLNET_Logout(m_nDeviceID);
+            PicPlayMain.Refresh();
             return false;
         }
     }
