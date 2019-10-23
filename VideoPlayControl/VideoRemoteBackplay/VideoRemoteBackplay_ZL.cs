@@ -100,6 +100,8 @@ namespace VideoPlayControl.VideoRemoteBackplay
         }
         private int m_nDeviceID = 0;
         private int lPlayHandle = 0;
+        SDK_ZLNetSDK.fZLDownLoadPosCallBack downLoadPosCallBack;
+        SDK_ZLNetSDK.fZLDataCallBack dataCallback;
         public bool StartRemoteBackplayByTime(VideoRemotePlayByTimePara para)
         {
             if (lPlayHandle > 0)
@@ -131,8 +133,8 @@ namespace VideoPlayControl.VideoRemoteBackplay
                 nStreamType =0,
                 nMediaFlag= 0,
             };
-            SDK_ZLNetSDK.fZLDownLoadPosCallBack downLoadPosCallBack = new SDK_ZLNetSDK.fZLDownLoadPosCallBack(DownLoadPosCallBack);
-            SDK_ZLNetSDK.fZLDataCallBack dataCallback = new SDK_ZLNetSDK.fZLDataCallBack(DataCallback);
+            downLoadPosCallBack = new SDK_ZLNetSDK.fZLDownLoadPosCallBack(DownLoadPosCallBack);
+            dataCallback = new SDK_ZLNetSDK.fZLDataCallBack(DataCallback);
             IntPtr iPosUser = Marshal.StringToHGlobalAnsi("iPosUser");
             IntPtr iData = Marshal.StringToHGlobalAnsi("iData");
             lPlayHandle = SDK_ZLNetSDK.ZLNET_PlayBackByTimeV3(m_nDeviceID, ref sdkpara, downLoadPosCallBack, iPosUser, dataCallback, iData);
@@ -158,9 +160,10 @@ namespace VideoPlayControl.VideoRemoteBackplay
         {
             //停止回放
             SDK_ZLNetSDK.ZLNET_StopPlayBack(lPlayHandle);
-
+            lPlayHandle = 0;
             //登出设备
             SDK_ZLNetSDK.ZLNET_Logout(m_nDeviceID);
+            m_nDeviceID = 0;
             PicPlayMain.Refresh();
             return false;
         }

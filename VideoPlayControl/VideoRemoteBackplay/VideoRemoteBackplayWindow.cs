@@ -97,6 +97,10 @@ namespace VideoPlayControl.VideoRemoteBackplay
                     iVideoRemoteBackplay = new VideoRemoteBackplay_Default();
                     break;
             }
+            if (videoRemoteBackplayStatusChangedEvent != null)
+            {
+                iVideoRemoteBackplay.VideoRemoteBackplayStatusChangedEvent += videoRemoteBackplayStatusChangedEvent;
+            }
         }
 
         public bool StopRemoteBackplayByTime()
