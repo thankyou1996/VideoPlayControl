@@ -15799,5 +15799,28 @@ namespace VideoPlayControl.SDKInterface
 
 
         #endregion
+
+
+
+        #region 自定义接口
+
+        /// <summary>
+        /// 转换为智诺时间格式
+        /// </summary>
+        /// <param name="tim"></param>
+        /// <returns></returns>
+        public static ZLNET_TIME ConvertToNetTime(DateTime tim)
+        {
+            ZLNET_TIME Stime = new ZLNET_TIME();
+            Stime.dwYear = Convert.ToUInt32(tim.Year);
+            Stime.dwMonth = Convert.ToUInt32(tim.Month);
+            Stime.dwDay = Convert.ToUInt32(tim.Day);
+            Stime.dwHour = Convert.ToUInt32(tim.Hour);
+            Stime.dwMinute = Convert.ToUInt32(tim.Minute);
+            Stime.dwSecond = Convert.ToUInt32(tim.Second);
+            return Stime;
+        }
+
+        #endregion
     }
 }

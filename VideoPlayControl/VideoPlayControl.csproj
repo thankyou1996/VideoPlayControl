@@ -269,6 +269,7 @@
     <Compile Include="VideoRemoteBackplay\VideoRemoteBackplay_Hik.cs" />
     <Compile Include="VideoRemoteBackplay\VideoRemoteBackplay_SK.cs" />
     <Compile Include="VideoRemoteBackplay\VideoRemoteBackplay_TLi.cs" />
+    <Compile Include="VideoRemoteBackplay\VideoRemoteBackplay_ZL.cs" />
     <Compile Include="VideoTalkControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
