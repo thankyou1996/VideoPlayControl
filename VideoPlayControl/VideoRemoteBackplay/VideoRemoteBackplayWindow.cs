@@ -79,6 +79,10 @@ namespace VideoPlayControl.VideoRemoteBackplay
 
         private void InitVideoRemoteBackplay(VideoInfo vInfo)
         {
+            if (iVideoRemoteBackplay != null)
+            {
+                iVideoRemoteBackplay.StopRemoteBackplayByTime();
+            }
             switch (vInfo.VideoType)
             {
                 case Enum_VideoType.SKVideo:

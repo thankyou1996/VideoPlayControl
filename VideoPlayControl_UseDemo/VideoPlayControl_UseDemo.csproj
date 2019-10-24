@@ -227,6 +227,12 @@
     <Compile Include="RemoteBackplay\Frm_RemoteBackplay.Designer.cs">
       <DependentUpon>Frm_RemoteBackplay.cs</DependentUpon>
     </Compile>
+    <Compile Include="RemoteBackplay\Frm_RemoteBackplay_ZL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoteBackplay\Frm_RemoteBackplay_ZL.Designer.cs">
+      <DependentUpon>Frm_RemoteBackplay_ZL.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServerTest\FrmSKNServerTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +335,9 @@
     </Compile>
     <EmbeddedResource Include="RemoteBackplay\Frm_RemoteBackplay.resx">
       <DependentUpon>Frm_RemoteBackplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoteBackplay\Frm_RemoteBackplay_ZL.resx">
+      <DependentUpon>Frm_RemoteBackplay_ZL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServerTest\FrmSKNServerTest.resx">
       <DependentUpon>FrmSKNServerTest.cs</DependentUpon>

@@ -13076,6 +13076,10 @@ namespace VideoPlayControl.SDKInterface
 
         //接口
         #region << Interface >>
+
+        //[DllImport(ProgConstants.c_strZLVideoFilePath, EntryPoint = "ZLNET_GetLastError",
+        //    CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        //public static extern int ZLNET_GetLastError();
         // 初始化
         [DllImport(ProgConstants.c_strZLVideoFilePath, EntryPoint = "ZLNET_Init",
         CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]

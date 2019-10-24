@@ -104,22 +104,48 @@ namespace VideoPlayControl.VideoRemoteBackplay
         SDK_ZLNetSDK.fZLDataCallBack dataCallback;
         public bool StartRemoteBackplayByTime(VideoRemotePlayByTimePara para)
         {
-            if (lPlayHandle > 0)
+
+
+            if (lPlayHandle > 0 )
             {
-                //处于播放状态，需要删除
-                StopRemoteBackplayByTime();
+                SDK_ZLNetSDK.ZLNET_StopPlayBack(lPlayHandle);
+                lPlayHandle = 0;
+                PicPlayMain.Refresh();
             }
+
             VideoInfo vInfo = para.CameraInfo.VideoInfo;
-            CurrentVideoInfo = vInfo;
             CameraInfo cInfo = para.CameraInfo;
-            CurrentCameraInfo = cInfo;
-            //登陆设备
-            int err = 0;
-            SDK_ZLNetSDK.ZLNET_DEVICEINFO zlDevice = new SDK_ZLNetSDK.ZLNET_DEVICEINFO();
-            m_nDeviceID = SDK_ZLNetSDK.ZLNET_LoginEx(CurrentVideoInfo.DVSAddress, Convert.ToUInt16(CurrentVideoInfo.DVSConnectPort), CurrentVideoInfo.UserName, CurrentVideoInfo.Password, 0, (IntPtr)0, ref zlDevice, ref err);
-            if (m_nDeviceID == 0)
+            if (CurrentVideoInfo != null
+                && CurrentVideoInfo.VideoServerIP == para.CameraInfo.VideoInfo.VideoServerIP
+                && CurrentVideoInfo.DVSConnectPort == para.CameraInfo.VideoInfo.DVSConnectPort
+                && m_nDeviceID > 0)
             {
-                return false;
+                //表示与前一次预览是同一台视频 并且登陆成功 不在重复进行登陆操作
+                CurrentVideoInfo = vInfo;
+                CurrentCameraInfo = cInfo;
+                DebugRelevant.DebugLog(this, "相同设备，并且登陆成功，不重复登陆");
+            }
+            else
+            {
+                if (m_nDeviceID > 0)
+                {
+                    SDK_ZLNetSDK.ZLNET_Logout(m_nDeviceID);
+                    DebugRelevant.DebugLog(this, "ZLNET_Logout");
+                    m_nDeviceID = 0;
+                }
+                CurrentVideoInfo = vInfo;
+                CurrentCameraInfo = cInfo;
+                //登陆设备
+                int err = 0;
+                SDK_ZLNetSDK.ZLNET_DEVICEINFO zlDevice = new SDK_ZLNetSDK.ZLNET_DEVICEINFO();
+                m_nDeviceID = SDK_ZLNetSDK.ZLNET_LoginEx(CurrentVideoInfo.DVSAddress, Convert.ToUInt16(CurrentVideoInfo.DVSConnectPort), CurrentVideoInfo.UserName, CurrentVideoInfo.Password, 0, (IntPtr)0, ref zlDevice, ref err);
+                if (m_nDeviceID == 0)
+                {
+                    DebugRelevant.DebugLog(this, "ZLNET_LoginEx Excepion,error:" + err);
+                    return false;
+                }
+
+                DebugRelevant.DebugLog(this, "ZLNET_LoginEx Sueecss");
             }
 
             //调用按照时间回放接口
@@ -130,7 +156,7 @@ namespace VideoPlayControl.VideoRemoteBackplay
                 tmStart= SDK_ZLNetSDK.ConvertToNetTime(para.StartPlayTime),
                 tmEnd= SDK_ZLNetSDK.ConvertToNetTime(para.EndPlayTime),
                 hWnd=IntPtrPlayMain,
-                nStreamType =0,
+                nStreamType =2,
                 nMediaFlag= 0,
             };
             downLoadPosCallBack = new SDK_ZLNetSDK.fZLDownLoadPosCallBack(DownLoadPosCallBack);
@@ -140,8 +166,16 @@ namespace VideoPlayControl.VideoRemoteBackplay
             lPlayHandle = SDK_ZLNetSDK.ZLNET_PlayBackByTimeV3(m_nDeviceID, ref sdkpara, downLoadPosCallBack, iPosUser, dataCallback, iData);
             if (lPlayHandle == 0)
             {
+                SDK_ZLNetSDK.ZLNET_Logout(m_nDeviceID);
+                m_nDeviceID = 0;
+                UInt32 erroe = SDK_ZLNetSDK.ZLNET_GetLastError();
+                DebugRelevant.DebugLog(this, "ZLNET_PlayBackByTimeV3 Exception,error:" + erroe);
                 return false; 
             }
+
+            DebugRelevant.DebugLog(this, "ZLNET_PlayBackByTimeV3 Success");
+
+            BackplayStatus = VideoRemoteBackplayStatus.RemoteBackplayByTimeStarted;
             //回放控制
             return false;
         }
@@ -160,11 +194,14 @@ namespace VideoPlayControl.VideoRemoteBackplay
         {
             //停止回放
             SDK_ZLNetSDK.ZLNET_StopPlayBack(lPlayHandle);
+            DebugRelevant.DebugLog(this, "ZLNET_StopPlayBack");
             lPlayHandle = 0;
             //登出设备
             SDK_ZLNetSDK.ZLNET_Logout(m_nDeviceID);
+            DebugRelevant.DebugLog(this, "ZLNET_Logout");
             m_nDeviceID = 0;
             PicPlayMain.Refresh();
+            BackplayStatus = VideoRemoteBackplayStatus.StandBy;
             return false;
         }
     }

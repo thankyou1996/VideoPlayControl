@@ -180,6 +180,7 @@ namespace VideoPlayControl.VideoRemoteBackplay
             struVodPara.struBeginTime = Stime;
             //设置回放的结束时间 Set the stopping time to search video files
             struVodPara.struEndTime = Etime;
+            struVodPara.byStreamType = 1;
             m_lPlayHandle = SDK_Hik.NET_DVR_PlayBackByTime_V40(m_lUserID, ref struVodPara);
             if (m_lPlayHandle == -1)
             {
@@ -205,7 +206,9 @@ namespace VideoPlayControl.VideoRemoteBackplay
         public bool StopRemoteBackplayByTime()
         {
             SDK_Hik.NET_DVR_StopPlayBack(m_lPlayHandle);
+            m_lPlayHandle = -1;
             SDK_Hik.NET_DVR_Logout_V30(m_lUserID);
+            m_lUserID = -1;
             PicPlayMain.Refresh();
             return false;
         }
