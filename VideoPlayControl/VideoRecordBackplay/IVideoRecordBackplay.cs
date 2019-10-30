@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using VideoPlayControl.VideoRecord;
 
 namespace VideoPlayControl.VideoRecordBackplay
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using PublicClassCurrency;
+using VideoPlayControl.VideoRecord;
 
 namespace VideoPlayControl.VideoRecordBackplay
 {

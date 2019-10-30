@@ -5,6 +5,7 @@ using System.Threading;
 using PublicClassCurrency;
 using VideoPlayControl.SDKInterface;
 using VideoPlayControl.SDKInterface;
+using VideoPlayControl.VideoRecord;
 using static VideoPlayControl.SDKInterface.SDK_TLi;
 
 namespace VideoPlayControl.VideoRecordBackplay

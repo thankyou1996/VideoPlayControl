@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using VideoPlayControl.VideoRecordBackplay;
 using PublicClassCurrency;
+using VideoPlayControl.VideoRecord;
 
 namespace VideoPlayControl
 {
@@ -28,18 +29,18 @@ namespace VideoPlayControl
         
         public bool SetVideoRecordInfo(VideoRecordInfo v)
         {
-            switch (v.VideoRecordType)
+            switch (v.VideoType)
             {
-                case Enum_VIdeoRecordType.XMaiVideo:
+                case Enum_VideoType.XMaiVideo:
                     videoPlay = new VideoRecordBackplay_XMAI();
                     break;
-                case Enum_VIdeoRecordType.BlueSky:
+                case Enum_VideoType.BlueSky:
                     videoPlay = new VideoRecordBackplay_BlueSky(this.Handle);
                     break;
-                case Enum_VIdeoRecordType.Axis:
+                case Enum_VideoType.Axis:
 
                     break;
-                case Enum_VIdeoRecordType.TLiVideoRecord:
+                case Enum_VideoType.TLiVideo:
                     videoPlay = new VideoRecordBackplay_TLi();
                     break;
             }
