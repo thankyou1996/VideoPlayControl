@@ -435,7 +435,7 @@ namespace VideoPlayControl.VideoPlay
                 //后缀错误，使用默认文件生成
                 //默认路径格式 [当前工作路径/XMVideoRecFile/DVSAddress/时间(yyyyMMddHHmmss)_通道号(01)]
 
-                strRecFilePath += "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                strRecFilePath += "\\" + VideoRecord.VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
             }
             _nRet = SDK_BlueSDK.dvxRealStartSaveAs(RealHandle, strRecFilePath, 2, 1); //avi - 6 brs - 1
             if ((int)dvxSdkType.ReturnError.DVX_OK != _nRet)

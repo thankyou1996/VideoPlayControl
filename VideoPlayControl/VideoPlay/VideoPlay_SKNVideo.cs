@@ -182,7 +182,7 @@ namespace VideoPlayControl.VideoPlay
             {
                 if (string.IsNullOrEmpty(strSaveName))
                 {
-                    strSaveName = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                    strSaveName = VideoRecord.VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
                 }
                 else
                 {
@@ -211,7 +211,7 @@ namespace VideoPlayControl.VideoPlay
         {
             if (string.IsNullOrEmpty(strSaveName) || strSaveName.ToLower().EndsWith(".h264"))
             {
-                strSaveName = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                strSaveName = VideoRecord.VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
             }
             string strResult = strSavePath + "\\" + strSaveName;
             return strResult;

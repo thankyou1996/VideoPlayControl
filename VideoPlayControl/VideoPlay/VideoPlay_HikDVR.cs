@@ -348,7 +348,7 @@ namespace VideoPlayControl.VideoPlay
             {
                 //后缀错误，使用默认文件生成
                 //默认路径格式 [当前工作路径/HikVideoRecFile/DVSAddress/DNSNum_Channnel_起始时间（yyyyMMddHHmmss）_主机类型区分.后缀]
-                strRecFilePath += "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                strRecFilePath += "\\" + VideoRecord.VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
             }
             if (NET_DVR_SaveRealData(intRet, strRecFilePath))
             {

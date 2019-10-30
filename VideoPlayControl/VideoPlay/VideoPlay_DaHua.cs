@@ -238,7 +238,7 @@ namespace VideoPlayControl.VideoPlay
             string strResult = strSavePath + strSaveName;
             if (!strResult.EndsWith(".dav"))
             {
-                strResult = strSavePath + "\\" + VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                strResult = strSavePath + "\\" + VideoRecord.VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
             }
             return strResult;
         }

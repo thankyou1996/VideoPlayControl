@@ -294,7 +294,7 @@ namespace VideoPlayControl.VideoPlay
             string temp_strValue = CurrentVideoPlaySet.VideoRecordFileName;
             if (CurrentVideoPlaySet.VideoRecordEnable&&string.IsNullOrEmpty(CurrentVideoPlaySet.VideoRecordFileName))
             {
-                temp_strValue = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
+                temp_strValue = VideoRecord.VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, CurrentCameraInfo.Channel, CurrentVideoInfo.VideoType);
             }
             byte[] tmp = System.Text.Encoding.Default.GetBytes(temp_strValue);
 
