@@ -35,8 +35,9 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new FrmSKServerTest());
             //Application.Run(new FrmTalkTest_SK());
             //Application.Run(new Frm_RemoteBackplay());
-            Application.Run(new Frm_RemoteBackplay_ZL());
-            
+            //Application.Run(new Frm_RemoteBackplay_ZL());
+
+
             //Application.Run(new Frm_VideoPlay_Hik());
 
             //Application.Run(new FrmSKNVideo_RemoterTest());
@@ -48,6 +49,10 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new Frm_Temp_TestVideoPlay());
             //Application.Run(new Frm_Temp_TestAxis());
             //Application.Run(new FrmVideoRecordBackplayWindow());
+
+
+            Application.Run(new Frm_VideoPlay_HikStream());
+
         }
     }
 }

@@ -28,12 +28,12 @@ namespace VideoPlayControl_UseDemo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            PublicClassCurrency.VideoRecordInfo v = new PublicClassCurrency.VideoRecordInfo();
-            v.DVSNumber = "000601";
-            v.VideoRecordType = PublicClassCurrency.Enum_VIdeoRecordType.TLiVideoRecord;
-            v.VideoRecordFileType = PublicClassCurrency.Enum_VideoRecordFileType.VideoAndAudio;
-            v.RecordPath = @"G:\VIdeoRecordTest\000101_02_20190321164059_15.ifv";
-            videoBackplayWindow1.Init_SetVideoRecord(v);
+            //PublicClassCurrency.VideoRecordInfo v = new PublicClassCurrency.VideoRecordInfo();
+            //v.DVSNumber = "000601";
+            //v.VideoRecordType = PublicClassCurrency.Enum_VIdeoRecordType.TLiVideoRecord;
+            //v.VideoRecordFileType = PublicClassCurrency.Enum_VideoRecordFileType.VideoAndAudio;
+            //v.RecordPath = @"G:\VIdeoRecordTest\000101_02_20190321164059_15.ifv";
+            //videoBackplayWindow1.Init_SetVideoRecord(v);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -43,12 +43,12 @@ namespace VideoPlayControl_UseDemo
 
         private void Frm_VideoPlaybackWindow_Load(object sender, EventArgs e)
         {
-            PublicClassCurrency.VideoRecordInfo v = new PublicClassCurrency.VideoRecordInfo();
-            v.DVSNumber = "000601";
-            v.VideoRecordType = PublicClassCurrency.Enum_VIdeoRecordType.TLiVideoRecord;
-            v.VideoRecordFileType = PublicClassCurrency.Enum_VideoRecordFileType.VideoAndAudio;
-            v.RecordPath = @"G:\VIdeoRecordTest\000101_02_20190321164059_15.ifv";
-            videoBackplayWindow1.Init_SetVideoRecord(v);
+            //PublicClassCurrency.VideoRecordInfo v = new PublicClassCurrency.VideoRecordInfo();
+            //v.DVSNumber = "000601";
+            //v.VideoRecordType = PublicClassCurrency.Enum_VIdeoRecordType.TLiVideoRecord;
+            //v.VideoRecordFileType = PublicClassCurrency.Enum_VideoRecordFileType.VideoAndAudio;
+            //v.RecordPath = @"G:\VIdeoRecordTest\000101_02_20190321164059_15.ifv";
+            //videoBackplayWindow1.Init_SetVideoRecord(v);
         }
     }
 }
