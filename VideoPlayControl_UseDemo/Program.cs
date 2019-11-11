@@ -49,9 +49,13 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new Frm_Temp_TestVideoPlay());
             //Application.Run(new Frm_Temp_TestAxis());
             //Application.Run(new FrmVideoRecordBackplayWindow());
+            
 
 
-            Application.Run(new Frm_VideoPlay_HikStream());
+            Application.Run(new Frm_RemoteBackplay_SKN());
+
+
+            //Application.Run(new Frm_VideoPlay_HikStream());
 
         }
     }

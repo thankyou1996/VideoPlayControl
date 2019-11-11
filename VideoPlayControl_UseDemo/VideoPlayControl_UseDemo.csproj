@@ -227,6 +227,12 @@
     <Compile Include="RemoteBackplay\Frm_RemoteBackplay.Designer.cs">
       <DependentUpon>Frm_RemoteBackplay.cs</DependentUpon>
     </Compile>
+    <Compile Include="RemoteBackplay\Frm_RemoteBackplay_SKN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoteBackplay\Frm_RemoteBackplay_SKN.Designer.cs">
+      <DependentUpon>Frm_RemoteBackplay_SKN.cs</DependentUpon>
+    </Compile>
     <Compile Include="RemoteBackplay\Frm_RemoteBackplay_ZL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,12 @@
     </Compile>
     <Compile Include="VideoPlay\Frm_VideoPlay_HikStream.Designer.cs">
       <DependentUpon>Frm_VideoPlay_HikStream.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VideoPlay\Frm_VideoPlay_SKN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VideoPlay\Frm_VideoPlay_SKN.Designer.cs">
+      <DependentUpon>Frm_VideoPlay_SKN.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -342,6 +354,9 @@
     <EmbeddedResource Include="RemoteBackplay\Frm_RemoteBackplay.resx">
       <DependentUpon>Frm_RemoteBackplay.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RemoteBackplay\Frm_RemoteBackplay_SKN.resx">
+      <DependentUpon>Frm_RemoteBackplay_SKN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RemoteBackplay\Frm_RemoteBackplay_ZL.resx">
       <DependentUpon>Frm_RemoteBackplay_ZL.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VideoPlay\Frm_VideoPlay_HikStream.resx">
       <DependentUpon>Frm_VideoPlay_HikStream.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoPlay\Frm_VideoPlay_SKN.resx">
+      <DependentUpon>Frm_VideoPlay_SKN.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
