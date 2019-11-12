@@ -125,9 +125,9 @@ namespace SKVideoRemotePlayer
                 dt.Rows.Add(dr);
             }
             dgvTalkRecord.DataSource = dt;
-            for (int i = 0; i < dgvTalkRecord.Rows.Count; i++)
+            for (int i = 0; i<dgvTalkRecord.Rows.Count; i++)
             {
-                for (int j = 0; j < dgvTalkRecord.Columns.Count; j++)
+                for (int j = 0; j<dgvTalkRecord.Columns.Count; j++)
                 {
                     dgvTalkRecord[j, i].ToolTipText = "双击下载文件";
                 }
@@ -199,12 +199,20 @@ namespace SKVideoRemotePlayer
                     System.Diagnostics.Process.Start(psi);
                 }
             }
-            else
+            else 
             {
-                string name = "";
-                name = dgvTalkRecord.Rows[rowindex].Cells[0].Value.ToString();
-                SKVideoRemotePlayer.PubMethod.DownloadFile(ProgPara.CurrentProgPara.VideoInfo, name);
-                type = 2;
+                if (Convert.ToString(dgvTalkRecord.Rows[rowindex].Cells[5].Value) == "写入完全")
+                {
+                    string name = "";
+                    name = dgvTalkRecord.Rows[rowindex].Cells[0].Value.ToString();
+                    SKVideoRemotePlayer.PubMethod.DownloadFile(ProgPara.CurrentProgPara.VideoInfo, name);
+                    type = 2;
+                }
+                else
+                {
+                    MessageBox.Show("文件未写入完全，请勿双击", "提示");
+                }
+
             }        
         }
 
@@ -219,8 +227,10 @@ namespace SKVideoRemotePlayer
                     {
                         for (int j = 0; j < dgvTalkRecord.Columns.Count; j++)
                         {
-                            if (Convert.ToString(dgvTalkRecord.Rows[k].Cells[6].Value) == "未下载")
+                            if (Convert.ToString(dgvTalkRecord.Rows[k].Cells[5].Value) == "写入完全"&& Convert.ToString(dgvTalkRecord.Rows[k].Cells[6].Value) == "未下载")
                                 dgvTalkRecord[j, k].ToolTipText = "双击下载文件";
+                            else if (Convert.ToString(dgvTalkRecord.Rows[k].Cells[5].Value) == "未写入完全" && Convert.ToString(dgvTalkRecord.Rows[k].Cells[6].Value) == "未下载")
+                                dgvTalkRecord[j, k].ToolTipText = "文件未写入完全，请勿双击";
                             else if (Convert.ToString(dgvTalkRecord.Rows[k].Cells[6].Value) == "已下载")
                                 dgvTalkRecord[j, k].ToolTipText = "双击打开文件";
                             else
@@ -228,7 +238,23 @@ namespace SKVideoRemotePlayer
                         }
                     }
                 }
-                
+                if (Convert.ToString(dgvTalkRecord.Rows[i].Cells[6].Value) == "未下载")
+                {
+                    for (int k = 0; k < dgvTalkRecord.Rows.Count; k++)
+                    {
+                        for (int j = 0; j < dgvTalkRecord.Columns.Count; j++)
+                        {
+                            if (Convert.ToString(dgvTalkRecord.Rows[k].Cells[5].Value) == "写入完全" && Convert.ToString(dgvTalkRecord.Rows[k].Cells[6].Value) == "未下载")
+                                dgvTalkRecord[j, k].ToolTipText = "双击下载文件";
+                            else if (Convert.ToString(dgvTalkRecord.Rows[k].Cells[5].Value) == "未写入完全" && Convert.ToString(dgvTalkRecord.Rows[k].Cells[6].Value) == "未下载")
+                                dgvTalkRecord[j, k].ToolTipText = "文件未写入完全，请勿双击";
+                            else if (Convert.ToString(dgvTalkRecord.Rows[k].Cells[6].Value) == "已下载")
+                                dgvTalkRecord[j, k].ToolTipText = "双击打开文件";
+                            else
+                                dgvTalkRecord[j, k].ToolTipText = "文件下载中";
+                        }
+                    }
+                }
             }
         }
 
