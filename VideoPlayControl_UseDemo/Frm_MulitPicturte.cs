@@ -189,7 +189,7 @@ namespace VideoPlayControl_UseDemo
         private void btnMulitPlay_Click(object sender, EventArgs e)
         {
             VideoInfo v1 = TestDataSource.TestDataSource.GetSKDVSData1();
-            VideoInfo v2 = TestDataSource.TestDataSource.GetZLDVSData1();
+            VideoInfo v2 = TestDataSource.ZLDataSource.GetZLDVSData1();
             VideoInfo v3 = TestDataSource.TestDataSource.GetYSDVSData();
             List<VideoInfo> lstV = new List<VideoInfo>();
 

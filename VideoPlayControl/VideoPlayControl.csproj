@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DebugRelevant.cs" />
     <Compile Include="Enum\Enum_SDKState.cs" />
     <Compile Include="Enum\Enum_SDKEventType.cs" />
     <Compile Include="Enum\Enum_SDKStateEventType.cs" />
@@ -145,6 +146,9 @@
     <Compile Include="VideoBasicClass\TalkSetting.cs" />
     <Compile Include="VideoBasicClass\VideoPlayEventValue.cs" />
     <Compile Include="VideoBasicClass\VideoRecordSet.cs" />
+    <Compile Include="VideoRecord\Enum.cs" />
+    <Compile Include="VideoRecord\VideoRecordInfo.cs" />
+    <Compile Include="VideoRecord\VideoRecordInfoConvert.cs" />
     <Compile Include="VideoRemoteBackplay\BasicClass\VideoRemoteFileInfo.cs" />
     <Compile Include="VideoRemoteBackplay\BasicClass\VideoRemotePlayByTimePara.cs" />
     <Compile Include="VideoRemoteBackplay\BasicClass\VideoRemotePlaySearchPara.cs" />
@@ -248,7 +252,6 @@
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_IMOS.cs" />
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_TLi.cs" />
     <Compile Include="VideoRecordBackplay\VideoRecordBackplay_XMAI.cs" />
-    <Compile Include="VideoRecordInfoConvert.cs" />
     <Compile Include="VideoRecordList.cs">
       <SubType>UserControl</SubType>
     </Compile>

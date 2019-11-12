@@ -426,10 +426,25 @@ namespace VideoPlayControl
             switch (videoType)
             {
                 case Enum_VideoType.HikDVR:
-                    iv = new VideoPlay_HikDVR(vInfo, cInfo);
+                    if (vInfo.VideoConnectType == 3)    //流媒体模式
+                    {
+                        iv = new VideoPlay_HikStream(vInfo, cInfo);
+                    }
+                    else
+                    {
+                        iv = new VideoPlay_HikDVR(vInfo, cInfo);
+                    }
                     break;
                 case Enum_VideoType.HikDVRStream:
-                    iv = new VideoPlay_HikStream(vInfo, cInfo);
+
+                    if (vInfo.VideoConnectType == 2)    //直连模式
+                    {
+                        iv = new VideoPlay_HikDVR(vInfo, cInfo);
+                    }
+                    else
+                    {
+                        iv = new VideoPlay_HikStream(vInfo, cInfo);
+                    }
                     break;
                 case Enum_VideoType.BlueSky:
                     iv = new VideoPlay_BuleSky(this.Handle, vInfo, cInfo);

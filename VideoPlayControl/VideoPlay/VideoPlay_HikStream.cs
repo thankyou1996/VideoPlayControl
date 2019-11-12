@@ -155,11 +155,16 @@ namespace VideoPlayControl.VideoPlay
             pdatarec = new pDataRec(MyDataRecCallBack);
             pmsgback = new pMsgBack(MyMsgRecCallBack);
             int intRet = HIKS_CreatePlayer(0, PicPlayMain.Handle, pdatarec, pmsgback, 0);
+            if (intRet == -1)
+            {
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException });
+            }
             Temp_intHsession = intRet;
             intRet = HIKS_OpenURL(Temp_intHsession, strUrl, 0);
             if (intRet == -1)
             {
                 HIKS_Destroy(Temp_intHsession);
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlayException });
                 return false;
             }
             intRet = HIKS_Play(Temp_intHsession);

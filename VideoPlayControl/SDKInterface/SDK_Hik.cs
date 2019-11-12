@@ -1358,6 +1358,9 @@ namespace VideoPlayControl.SDKInterface
 
             public byte byVolumeNum;
 
+            /// <summary>
+            /// 码流类型：0- 主码流，1- 子码流，2- 码流三 
+            /// </summary>
             public byte byStreamType;
 
             public byte dwFileIndex;

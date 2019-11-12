@@ -79,6 +79,10 @@ namespace VideoPlayControl.VideoRemoteBackplay
 
         private void InitVideoRemoteBackplay(VideoInfo vInfo)
         {
+            if (iVideoRemoteBackplay != null)
+            {
+                iVideoRemoteBackplay.StopRemoteBackplayByTime();
+            }
             switch (vInfo.VideoType)
             {
                 case Enum_VideoType.SKVideo:
@@ -90,9 +94,16 @@ namespace VideoPlayControl.VideoRemoteBackplay
                 case Enum_VideoType.TLiVideo:
                     iVideoRemoteBackplay = new VideoRemoteBackplay_TLi();
                     break;
+                case Enum_VideoType.ZLVideo:
+                    iVideoRemoteBackplay = new VideoRemoteBackplay_ZL();
+                    break;
                 default:
                     iVideoRemoteBackplay = new VideoRemoteBackplay_Default();
                     break;
+            }
+            if (videoRemoteBackplayStatusChangedEvent != null)
+            {
+                iVideoRemoteBackplay.VideoRemoteBackplayStatusChangedEvent += videoRemoteBackplayStatusChangedEvent;
             }
         }
 

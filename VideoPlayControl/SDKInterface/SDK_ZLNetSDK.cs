@@ -13,6 +13,42 @@ namespace VideoPlayControl.SDKInterface
 
         }
 
+        #region 枚举
+
+        /// <summary>
+        /// 码流回调订阅参数
+        /// </summary>
+        public enum ZLNET_MEDIA_TYPE_FLAG
+        {
+            /// <summary>
+            /// 私有混合流（需用智诺解码库解码）
+            /// </summary>
+            ZLNET_MEDIA_NORMAL = 0x0001,
+
+            /// <summary>
+            /// 原始视频（如H264、H265，具体由设备本身决定）
+            /// </summary>
+            ZLNET_MEDIA_VIDEO_ORIGINAL = 0x0002,
+
+            /// <summary>
+            /// 视频YUV 【不支持Linux系统、Mac系统】
+            /// </summary>
+            ZLNET_MEDIA_VIDEO_YUV420 = 0x0004,
+
+            /// <summary>
+            /// 音频PCM  【不支持Linux系统、Mac系统】
+            /// </summary>
+            ZLNET_MEDIA_AUDIO_PCM = 0x0008,
+
+            /// <summary>
+            /// 原始音频(如G711、AAC，具体由设备本身决定)
+            /// </summary>
+            ZLNET_MEDIA_AUDIO_ORIGINAL = 0x0010,
+        }
+
+        #endregion
+
+
         ///////////////////////////////////////////////////
         //结构体定义
         #region << data struct definition >>
@@ -1685,15 +1721,6 @@ namespace VideoPlayControl.SDKInterface
             // 由于支持该功能的设备最多支持一个通道16项, 所以传入的值会被内部做取余处理, 范围为[0,15]
         };
 
-        //码流回调订阅参数
-        public enum ZLNET_MEDIA_TYPE_FLAG
-        {
-            ZLNET_MEDIA_NORMAL = 0x0001,		                //私有混合流,带私有头（需用我司解码库解码)
-            ZLNET_MEDIA_VIDEO_ORIGINAL = 0x0002,            //原始视频,不带私有头（如H264、H265，具体由设备本身决定）
-            ZLNET_MEDIA_VIDEO_YUV420 = 0x0004,              //视频YUV
-            ZLNET_MEDIA_AUDIO_PCM = 0x0008,		            //音频PCM
-            ZLNET_MEDIA_AUDIO_ORIGINAL = 0x0010,		    //原始音频,不带私有头(如G711、AAC，具体由设备本身决定)
-        }
 
         // 按文件回放高级参数，对应接口ZLNET_PlayBackByRecordFileV3
         [StructLayoutAttribute(LayoutKind.Sequential)]
@@ -12913,7 +12940,13 @@ namespace VideoPlayControl.SDKInterface
         // 语音对讲的音频数据回调
         public delegate void pfZLAudioDataCallBack(int lTalkHandle, IntPtr pDataBuf, UInt32 dwBufSize, Byte byAudioFlag, IntPtr dwUser);
 
-        // 回放/下载进度回调
+        /// <summary>
+        ///  回放/下载进度回调
+        /// </summary>
+        /// <param name="lPlayHandle"></param>
+        /// <param name="dwTotalSize"></param>
+        /// <param name="dwDownLoadSize"></param>
+        /// <param name="dwUser"></param>
         public delegate void fZLDownLoadPosCallBack(int lPlayHandle, UInt32 dwTotalSize, UInt32 dwDownLoadSize, IntPtr dwUser);
 
         // 按时间回放进度回调函数原形
@@ -12935,7 +12968,15 @@ namespace VideoPlayControl.SDKInterface
         // 屏幕叠加回调函数原形
         public delegate void fZLDrawCallBack(int lLoginID, int lPlayHandle, IntPtr hDC, IntPtr dwUser);
 
-        // 回放数据回调函数原形，因为历史原因，请务必return 1, pBuffer视不同的dwDataType对应不同的参数，详见开发手册
+        /// <summary>
+        /// 回放数据回调函数原形，因为历史原因，请务必return 1, pBuffer视不同的dwDataType对应不同的参数，详见开发手册
+        /// </summary>
+        /// <param name="lPlayHandle"></param>
+        /// <param name="dwDataType"></param>
+        /// <param name="pBuffer"></param>
+        /// <param name="dwBufSize"></param>
+        /// <param name="dwUser"></param>
+        /// <returns></returns>
         public delegate int fZLDataCallBack(int lPlayHandle, UInt32 dwDataType, IntPtr pBuffer, UInt32 dwBufSize, IntPtr dwUser);
 
         // 消息回调函数原形
@@ -13035,6 +13076,10 @@ namespace VideoPlayControl.SDKInterface
 
         //接口
         #region << Interface >>
+
+        //[DllImport(ProgConstants.c_strZLVideoFilePath, EntryPoint = "ZLNET_GetLastError",
+        //    CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        //public static extern int ZLNET_GetLastError();
         // 初始化
         [DllImport(ProgConstants.c_strZLVideoFilePath, EntryPoint = "ZLNET_Init",
         CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]

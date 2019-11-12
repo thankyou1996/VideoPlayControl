@@ -175,7 +175,7 @@ namespace VideoPlayControl.VideoTalk
                     {
                         Temp_videoType = Transition.Transition_VideoTypeConvert.GetVideoType(CurrentVideoInfo);
                     }
-                    strSaveName = VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, 1, Temp_videoType);
+                    strSaveName = VideoRecord.VideoRecordInfoConvert.GetVideoRecordName(CurrentVideoInfo.DVSNumber, 1, Temp_videoType);
                 }
                 else
                 {

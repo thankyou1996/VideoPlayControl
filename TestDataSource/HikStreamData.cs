@@ -11,7 +11,7 @@ namespace TestDataSource
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.HikDVRStream;
-            v.DVSAddress = "192.168.2.162";
+            v.DVSAddress = "192.168.2.186";
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
             v.DVSName = "海康DVR测试";

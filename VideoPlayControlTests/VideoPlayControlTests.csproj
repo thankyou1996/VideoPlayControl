@@ -98,6 +98,7 @@
     <Compile Include="SDK_XMSDKTests.cs" />
     <Compile Include="TestDataSourceTest.cs" />
     <Compile Include="VideoPlayWindowTests.cs" />
+    <Compile Include="VideoPlay\VideoPlay_HikStreamTests.cs" />
     <Compile Include="VideoRecordInfoConvertTests.cs" />
     <Compile Include="VideoTalk\VideoTalk_ShikeTests.cs" />
   </ItemGroup>

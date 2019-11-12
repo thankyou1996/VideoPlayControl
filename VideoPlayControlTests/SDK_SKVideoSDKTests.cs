@@ -21,8 +21,8 @@ namespace VideoPlayControl.Tests
         List<RemoteVideoRecordInfo> lRemoteVideoRecord;
         public SDK_SKVideoSDKTests()
         {
-            //SDK_SKVideoSDK.p_sdkc_init_client("User", "121.33.227.226", 47624, 47724, 47824, @"d:\");
-            SDK_SKVideoSDK.p_sdkc_init_client("admin", "192.168.2.19", 47624, 47724, 47824, @"d:\");
+            SDK_SKVideoSDK.p_sdkc_init_client("Use1111r", "121.41.87.203", 47624, 47724, 47824, @"d:\");
+            //SDK_SKVideoSDK.p_sdkc_init_client("admin", "192.168.2.19", 47624, 47724, 47824, @"d:\");
             int intValue = 0;
             //while (!(SDK_SKVideoSDK.p_sdkc_get_online() == 1) && (intValue < 100))
             //{
@@ -46,8 +46,8 @@ namespace VideoPlayControl.Tests
             }
             long start_time = ConvertClass.DateTimeToUnixTimestamp(DateTime.Now.AddDays(-1));
             long stop_time = ConvertClass.DateTimeToUnixTimestamp(DateTime.Now);
-            SDK_SKVideoSDK.p_sdkc_get_record_time_map("72-00F51F0150E8-35B7", (byte)0, (int)start_time, (int)stop_time);
-            Common.Delay_Second(5);
+            SDK_SKVideoSDK.p_sdkc_get_record_time_map("72-00F51F01580D-46E5", (byte)0, (int)start_time, (int)stop_time);
+            Common.Delay_Second(10);
             Assert.Fail();
         }
 

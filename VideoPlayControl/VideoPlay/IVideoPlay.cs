@@ -127,6 +127,7 @@ namespace VideoPlayControl.VideoPlay
         /// 录像状态改变事件
         /// </summary>
         event VideoRecordStatusChangedDelegate VideoRecordStausChangedEvent;
+
         #endregion
 
 

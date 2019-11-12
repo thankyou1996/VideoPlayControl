@@ -12,6 +12,7 @@ using VideoPlayControl.VideoPlayback;
 using AxisMediaViewerLib;
 using AxisMediaParserLib;
 using System.Threading.Tasks;
+using VideoPlayControl.VideoRecord;
 
 namespace VideoPlayControl
 {
@@ -121,7 +122,7 @@ namespace VideoPlayControl
 
         public bool Init_SetVideoRecord(VideoRecordInfo v)
         {
-            if (v.VideoRecordType == Enum_VIdeoRecordType.Unrecognized)
+            if (v.VideoType == Enum_VideoType.Unrecognized)
             {
                 return false;
             }
@@ -494,12 +495,12 @@ namespace VideoPlayControl
         /// <returns></returns>
         public bool PlayVideoRecord()
         {
-            switch (CurrentVideoRecordInfo.VideoRecordType )
+            switch (CurrentVideoRecordInfo.VideoType )
             {
-                case Enum_VIdeoRecordType.Axis:
+                case Enum_VideoType.Axis:
                     Axis_PlayVideoRecord();
                     break;
-                case Enum_VIdeoRecordType.XMaiVideo:
+                case Enum_VideoType.XMaiVideo:
                     XMVideo_PlayVideoRecord();
                     break;
 
@@ -515,12 +516,12 @@ namespace VideoPlayControl
         {
             if (CurrentVideoRecordInfo != null)
             {
-                switch (CurrentVideoRecordInfo.VideoRecordType)
+                switch (CurrentVideoRecordInfo.VideoType)
                 {
-                    case Enum_VIdeoRecordType.Axis:
+                    case Enum_VideoType.Axis:
                         Axis_StopVideoRecoerd();
                         break;
-                    case Enum_VIdeoRecordType.XMaiVideo:
+                    case Enum_VideoType.XMaiVideo:
                         XMVideo_StopVideoRecord();
                         break;
                 }
@@ -534,12 +535,12 @@ namespace VideoPlayControl
         /// <returns></returns>
         public bool PauseVideoRecord()
         {
-            switch (CurrentVideoRecordInfo.VideoRecordType)
+            switch (CurrentVideoRecordInfo.VideoType)
             {
-                case Enum_VIdeoRecordType.Axis:
+                case Enum_VideoType.Axis:
                     return Axis_PauseVideoRecord();
                     break;
-                case Enum_VIdeoRecordType.XMaiVideo:
+                case Enum_VideoType.XMaiVideo:
                     
                     break;
             }
