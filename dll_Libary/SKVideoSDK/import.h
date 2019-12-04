@@ -503,6 +503,9 @@ DLLIMPORT
 void p_vsdk_reg_dl_video_data_callback(void *func);
 
 DLLIMPORT
+void p_vsdk_reg_rt_video_data_callback(void *func);
+
+DLLIMPORT
 void p_vsdk_temp_disable_rt_pb_audio(int disable);
 
 DLLIMPORT
@@ -525,3 +528,5 @@ int p_sdkc_set_dev_cam_osd(char *guid,
 							int  channel, 
 							char* osd_utf8_base64);
 
+DLLIMPORT
+int p_sdkc_sip_invite(char* guid);

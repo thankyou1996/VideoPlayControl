@@ -374,6 +374,15 @@ namespace VideoPlayControl
         [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int p_sdkc_set_dev_cam_osd(string guid, int channel, string osd_utf8_base64);
 
+
+
+        /// <summary>
+        /// 发起Sip对讲
+        /// </summary>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int p_sdkc_sip_invite(string guid);
+
         #region 录像下载
 
         /// <summary>
