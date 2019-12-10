@@ -88,16 +88,16 @@ namespace VideoPlayControl_UseDemo
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
-            //SDKState.HikDVRSDK_Init();
+            SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
-            SDKState.ZLVideoSDK_Init();
+            //SDKState.ZLVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.ZLVideoSDK_Init();
             //VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
             //VideoEnvironment_HikStream.Init("192.168.2.19");
-            VideoEnvironment_SKN.SKNVideoSDK_Init("127.0.0.1", 48624, "SuperAdmin", Environment.CurrentDirectory, Environment.CurrentDirectory);
-            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
+            //VideoEnvironment_SKN.SKNVideoSDK_Init("127.0.0.1", 48624, "SuperAdmin", Environment.CurrentDirectory, Environment.CurrentDirectory);
+            //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             Init();
             //btnBlueSkyTestData_Click(sender, e);
 
@@ -107,7 +107,6 @@ namespace VideoPlayControl_UseDemo
 
         public void Init()
         {
-
             Init_ControlInit();
             PlayWindowSet(1);
             CommonMethod.LogWrite.strLogFilePath = Application.StartupPath + "\\UserData\\OperAtLog";
@@ -851,7 +850,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnHikTestData1_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.HikDataSource.GetHikData_Talk();
+            VideoInfo v = TestDataSource.HikDataSource.GetHikData3();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
@@ -1515,6 +1514,33 @@ namespace VideoPlayControl_UseDemo
 
             //intResult = SDK_SKNVideo.SDK_NSK_CLIENT_dev_modify_osd("63-00F628C58502-1528", 9, Temp_strValue);
             //int intResult = SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F0150E8-35B7", iii, Temp_strValue);
+        }
+
+        private void btnMain_Click(object sender, EventArgs e)
+        {
+            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
+            if (intVideoIndex == 0)
+            {
+                videoWindowTest.VideoStream = VideoPlayControl.Enum.Enum_VideoStream.MainStream;
+            }
+            else
+            {
+                lstVideoPlayWindow[intVideoIndex - 1].VideoStream = VideoPlayControl.Enum.Enum_VideoStream.MainStream;
+            }
+        }
+
+        private void btnSub_Click(object sender, EventArgs e)
+        {
+
+            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
+            if (intVideoIndex == 0)
+            {
+                videoWindowTest.VideoStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
+            }
+            else
+            {
+                lstVideoPlayWindow[intVideoIndex - 1].VideoStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
+            }
         }
     }
 }

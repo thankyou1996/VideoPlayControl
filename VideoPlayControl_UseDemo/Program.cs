@@ -52,7 +52,7 @@ namespace VideoPlayControl_UseDemo
             
 
 
-            Application.Run(new Frm_RemoteBackplay_SKN());
+            Application.Run(new FrmMain());
 
 
             //Application.Run(new Frm_VideoPlay_HikStream());
