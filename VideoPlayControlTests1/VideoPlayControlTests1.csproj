@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SDKInterface\SDK_SKNVideoTests.cs" />
+    <Compile Include="SDKInterface\SDK_SKVideoSDKTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VideoPlayControl\VideoPlayControl.csproj">
