@@ -1,0 +1,14 @@
+<Setting>
+    <UIConfig>
+        <SnapPath value="C:/Program Files (x86)/DHPlayer/Picture/" Default="G:/上班汇总/Working/维护项目/SK3000_Client/SK3000CU/Trunk/接警客户端/bin/Release/DHA/Picture/" />
+        <VideoPath value="C:/Program Files (x86)/DHPlayer/Video/" Default="G:/上班汇总/Working/维护项目/SK3000_Client/SK3000CU/Trunk/接警客户端/bin/Release/DHA/Video/" />
+        <Proportion value="0" Default="0" Min="0" Max="0" Scale="0" />
+        <ShowTrace value="0" Default="0" Min="0" Max="1" />
+        <Language value="1" Default="0" Min="0" Max="0" Scale="0" />
+        <VerticalSyn value="0" Default="0" Min="0" Max="1" />
+        <SnapFormat value="0" Default="0" Min="0" Max="0" Scale="0" />
+        <VideoFormat value="0" Default="0" Min="0" Max="0" Scale="0" />
+        <OldPath value="C:/Users/thankyou_1996/Desktop/;" Default="" />
+        <strRecordFormat value=".dav;.avi;.ps;.ts" Default=".dav;.avi;.ps;.ts" />
+    </UIConfig>
+</Setting>
