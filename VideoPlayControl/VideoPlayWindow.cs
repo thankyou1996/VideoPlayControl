@@ -479,6 +479,12 @@ namespace VideoPlayControl
                 case Enum_VideoType.TLiVideo:
                     iv = new VideoPlay_TLi(vInfo, cInfo);
                     break;
+                case Enum_VideoType.ZHSR:
+                    iv = new VideoPlay_ZHSR(cInfo);
+                    break;
+                case Enum_VideoType.TDWY:
+                    iv = new VideoPlay_TDWY(cInfo);
+                    break;
                 default:
                     iv = null;
                     break;

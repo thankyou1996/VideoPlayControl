@@ -78,6 +78,7 @@
     <Compile Include="HikStreamData.cs" />
     <Compile Include="SKDataSource.cs" />
     <Compile Include="SKNVideoDatSource.cs" />
+    <Compile Include="TDWYDataSource.cs" />
     <Compile Include="TestDataSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TLDataSource.cs" />

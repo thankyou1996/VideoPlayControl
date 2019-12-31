@@ -49,9 +49,9 @@ namespace VideoPlayControl_UseDemo
             //Application.Run(new Frm_Temp_TestVideoPlay());
             //Application.Run(new Frm_Temp_TestAxis());
             //Application.Run(new FrmVideoRecordBackplayWindow());
-            
 
 
+            //Application.Run(new Frm_VideoPlay_TDWY());
             Application.Run(new FrmMain());
 
 

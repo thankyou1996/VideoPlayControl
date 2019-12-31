@@ -88,7 +88,7 @@ namespace VideoPlayControl_UseDemo
             //SDKState.HuaMai_Init();
             //SDKState.XMSDK_Init();
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
-            SDKState.HikDVRSDK_Init();
+            //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
             //SDKState.ZLVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
@@ -97,6 +97,7 @@ namespace VideoPlayControl_UseDemo
             //VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
             //VideoEnvironment_HikStream.Init("192.168.2.19");
             //VideoEnvironment_SKN.SKNVideoSDK_Init("127.0.0.1", 48624, "SuperAdmin", Environment.CurrentDirectory, Environment.CurrentDirectory);
+            VideoEnvironment_TDWY.Init();
             //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             Init();
             //btnBlueSkyTestData_Click(sender, e);
@@ -1406,6 +1407,16 @@ namespace VideoPlayControl_UseDemo
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
         }
+
+
+        private void btnTDWY_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = TestDataSource.TDWYDataSource.GetData1();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+
         private void btnMulitPlay_Click(object sender, EventArgs e)
         {
             FrmMulitPlayTest1 frm = new FrmMulitPlayTest1();
@@ -1542,5 +1553,6 @@ namespace VideoPlayControl_UseDemo
                 lstVideoPlayWindow[intVideoIndex - 1].VideoStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
             }
         }
+
     }
 }

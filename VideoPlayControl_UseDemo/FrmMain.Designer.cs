@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             VideoPlayControl.VideoPlaySetting videoPlaySetting1 = new VideoPlayControl.VideoPlaySetting();
-            VideoPlayControl.VideoBasicClass.TalkSetting talkSetting5 = new VideoPlayControl.VideoBasicClass.TalkSetting();
+            VideoPlayControl.VideoBasicClass.TalkSetting talkSetting3 = new VideoPlayControl.VideoBasicClass.TalkSetting();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.grpVideoInfo = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -110,6 +110,8 @@
             this.pnlVideoInfo_Right = new System.Windows.Forms.Panel();
             this.videoChannelList = new VideoPlayControl.VideoChannelList();
             this.pnlVideoInfo_Right_Top = new System.Windows.Forms.Panel();
+            this.btnMain = new System.Windows.Forms.Button();
+            this.btnSub = new System.Windows.Forms.Button();
             this.cmbPlayWindows = new System.Windows.Forms.ComboBox();
             this.chkPresetEanble = new System.Windows.Forms.CheckBox();
             this.chkProVideoRecord = new System.Windows.Forms.CheckBox();
@@ -157,8 +159,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timCurrentChannelLoop = new System.Windows.Forms.Timer(this.components);
-            this.btnSub = new System.Windows.Forms.Button();
-            this.btnMain = new System.Windows.Forms.Button();
+            this.btnTDWY = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.grpVideoInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -238,6 +239,7 @@
             // 
             // pageTestData1
             // 
+            this.pageTestData1.Controls.Add(this.btnTDWY);
             this.pageTestData1.Controls.Add(this.btnHikStream);
             this.pageTestData1.Controls.Add(this.btnTLi);
             this.pageTestData1.Controls.Add(this.btnCloundSee);
@@ -972,13 +974,13 @@
             // videoTalkControlManyChannel1
             // 
             this.videoTalkControlManyChannel1.CurrentTalkChannel = null;
-            talkSetting5.TalkRecordEnable = false;
-            talkSetting5.TalkRecordName_Local = "";
-            talkSetting5.TalkRecordName_Server = "";
-            talkSetting5.TalkRecordPath_Local = "";
-            talkSetting5.TalkRecordPath_Server = "";
-            talkSetting5.TalkRecordRealSavePath_Local = "";
-            this.videoTalkControlManyChannel1.CurrentTalkSetting = talkSetting5;
+            talkSetting3.TalkRecordEnable = false;
+            talkSetting3.TalkRecordName_Local = "";
+            talkSetting3.TalkRecordName_Server = "";
+            talkSetting3.TalkRecordPath_Local = "";
+            talkSetting3.TalkRecordPath_Server = "";
+            talkSetting3.TalkRecordRealSavePath_Local = "";
+            this.videoTalkControlManyChannel1.CurrentTalkSetting = talkSetting3;
             this.videoTalkControlManyChannel1.CurrentTalkStatus = VideoPlayControl.VideoBasicClass.Enum_TalkStatus.Null;
             this.videoTalkControlManyChannel1.CurrentVideoInfo = null;
             this.videoTalkControlManyChannel1.Location = new System.Drawing.Point(3, 418);
@@ -1084,6 +1086,26 @@
             this.pnlVideoInfo_Right_Top.Name = "pnlVideoInfo_Right_Top";
             this.pnlVideoInfo_Right_Top.Size = new System.Drawing.Size(119, 117);
             this.pnlVideoInfo_Right_Top.TabIndex = 11;
+            // 
+            // btnMain
+            // 
+            this.btnMain.Location = new System.Drawing.Point(3, 90);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Size = new System.Drawing.Size(30, 23);
+            this.btnMain.TabIndex = 41;
+            this.btnMain.Text = "主";
+            this.btnMain.UseVisualStyleBackColor = true;
+            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
+            // 
+            // btnSub
+            // 
+            this.btnSub.Location = new System.Drawing.Point(39, 90);
+            this.btnSub.Name = "btnSub";
+            this.btnSub.Size = new System.Drawing.Size(30, 23);
+            this.btnSub.TabIndex = 41;
+            this.btnSub.Text = "子码流";
+            this.btnSub.UseVisualStyleBackColor = true;
+            this.btnSub.Click += new System.EventHandler(this.btnSub_Click);
             // 
             // cmbPlayWindows
             // 
@@ -1535,25 +1557,15 @@
             this.timCurrentChannelLoop.Interval = 3000;
             this.timCurrentChannelLoop.Tick += new System.EventHandler(this.timCurrentChannelLoop_Tick);
             // 
-            // btnSub
+            // btnTDWY
             // 
-            this.btnSub.Location = new System.Drawing.Point(39, 90);
-            this.btnSub.Name = "btnSub";
-            this.btnSub.Size = new System.Drawing.Size(30, 23);
-            this.btnSub.TabIndex = 41;
-            this.btnSub.Text = "子码流";
-            this.btnSub.UseVisualStyleBackColor = true;
-            this.btnSub.Click += new System.EventHandler(this.btnSub_Click);
-            // 
-            // btnMain
-            // 
-            this.btnMain.Location = new System.Drawing.Point(3, 90);
-            this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(30, 23);
-            this.btnMain.TabIndex = 41;
-            this.btnMain.Text = "主";
-            this.btnMain.UseVisualStyleBackColor = true;
-            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
+            this.btnTDWY.Location = new System.Drawing.Point(170, 31);
+            this.btnTDWY.Name = "btnTDWY";
+            this.btnTDWY.Size = new System.Drawing.Size(67, 23);
+            this.btnTDWY.TabIndex = 16;
+            this.btnTDWY.Text = "天地伟业";
+            this.btnTDWY.UseVisualStyleBackColor = true;
+            this.btnTDWY.Click += new System.EventHandler(this.btnTDWY_Click);
             // 
             // FrmMain
             // 
@@ -1735,6 +1747,7 @@
         private VideoPlayControl.VideoTalkControlManyChannel videoTalkControlManyChannel1;
         private System.Windows.Forms.Button btnMain;
         private System.Windows.Forms.Button btnSub;
+        private System.Windows.Forms.Button btnTDWY;
     }
 }
 
