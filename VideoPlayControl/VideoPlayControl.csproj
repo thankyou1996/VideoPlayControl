@@ -120,6 +120,7 @@
     <Compile Include="SDKInterface\SDK_SKNVideo.cs" />
     <Compile Include="SDKInterface\SDK_TDWYSDK.cs" />
     <Compile Include="SDKInterface\SDK_TLi.cs" />
+    <Compile Include="SDKInterface\SDK_ZHSRSDK.cs" />
     <Compile Include="SDKInterface\SDK_ZLNetSDK.cs" />
     <Compile Include="SDKState.cs" />
     <Compile Include="SDKInterface\SDK_EzvizSDK.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="VideoBasicClass\VideoPlayEventValue.cs" />
     <Compile Include="VideoBasicClass\VideoRecordSet.cs" />
     <Compile Include="VideoEnvironment\VideoEnvironment_TDWY.cs" />
+    <Compile Include="VideoEnvironment\VideoEnvironment_ZHSR.cs" />
     <Compile Include="VideoPlay\IVideoPlay_Basic.cs" />
     <Compile Include="VideoPlay\VideoPlay_TDWY.cs" />
     <Compile Include="VideoPlay\VideoPlay_ZHSR.cs" />
@@ -291,6 +293,7 @@
       <DependentUpon>VideoTalkControlManyChannel.cs</DependentUpon>
     </Compile>
     <Compile Include="VideoTalk\IVideoTalk.cs" />
+    <Compile Include="VideoTalk\IVideoTalk_Basic.cs" />
     <Compile Include="VideoTalk\VideoTalkRelevant.cs" />
     <Compile Include="VideoTalk\VideoTalk_Default.cs" />
     <Compile Include="VideoTalk\VideoTalk_Hik.cs" />
@@ -299,6 +302,7 @@
     <Compile Include="VideoTalk\VideoTalk_Shike.cs" />
     <Compile Include="VideoTalk\VideoTalk_SKNVideo.cs" />
     <Compile Include="VideoTalk\VideoTalk_TLi.cs" />
+    <Compile Include="VideoTalk\VideoTalk_ZHSR.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

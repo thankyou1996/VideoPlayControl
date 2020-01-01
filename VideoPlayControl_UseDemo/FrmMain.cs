@@ -97,7 +97,8 @@ namespace VideoPlayControl_UseDemo
             //VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
             //VideoEnvironment_HikStream.Init("192.168.2.19");
             //VideoEnvironment_SKN.SKNVideoSDK_Init("127.0.0.1", 48624, "SuperAdmin", Environment.CurrentDirectory, Environment.CurrentDirectory);
-            VideoEnvironment_TDWY.Init();
+            //VideoEnvironment_TDWY.Init();
+            VideoEnvironment_ZHSR.Init("192.168.2.19",1220,"admin","admin123456");
             //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             Init();
             //btnBlueSkyTestData_Click(sender, e);
@@ -621,6 +622,7 @@ namespace VideoPlayControl_UseDemo
         {
             if (dicVideoInfos.ContainsKey(strVideoID))
             {
+                VideoInfo vInfo = dicVideoInfos[strVideoID];
                 txtCurrentDVSType.Text = dicVideoInfos[strVideoID].VideoType.ToString();
                 txtCurrentDVSAddress.Text = dicVideoInfos[strVideoID].DVSAddress;
                 txtCurrentDVSPort.Text = dicVideoInfos[strVideoID].DVSConnectPort.ToString();
@@ -628,7 +630,7 @@ namespace VideoPlayControl_UseDemo
                 txtCurrentDVSPwd.Text = dicVideoInfos[strVideoID].Password;
                 txtCurrentChannelNum.Text = dicVideoInfos[strVideoID].DVSChannelNum.ToString();
                 videoChannelList.Init_SetVideoInfo(dicVideoInfos[strVideoID]);
-                //videoTalkControlManyChannel1.SetVideoInfo(dicVideoInfos);
+                videoTalkControlManyChannel1.SetVideoInfo(dicVideoInfos);
             }
         }
         public void ReSetVideoInfo()
@@ -1417,6 +1419,15 @@ namespace VideoPlayControl_UseDemo
             cmbVideoList.SelectedIndex = 0;
         }
 
+
+        private void btnZHSR_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = TestDataSource.ZHSRSource.GetData1();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+
         private void btnMulitPlay_Click(object sender, EventArgs e)
         {
             FrmMulitPlayTest1 frm = new FrmMulitPlayTest1();
@@ -1553,6 +1564,5 @@ namespace VideoPlayControl_UseDemo
                 lstVideoPlayWindow[intVideoIndex - 1].VideoStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
             }
         }
-
     }
 }
