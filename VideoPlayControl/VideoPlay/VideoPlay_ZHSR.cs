@@ -32,13 +32,13 @@ namespace VideoPlayControl.VideoPlay
             VideoEnvironment_ZHSR.ZHSR_Main_Callback_Event += VideoEnvironment_ZHSR_ZHSR_Main_Callback_Event;
             int intChannel = CurrentCameraInfo.Channel - 1;
             int iRet = SDK_ZHSRSDK.win_sta_start_monitor(VideoEnvironment_ZHSR.Session, CurrentVideoInfo.DVSAddress, intChannel, 0, 3, 1, (int)intptrPlayMain);
+
+            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.RequestConn });
             if (iRet < 0)
             {
-                //Monitor_Guid
-                // 失败
+                VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.ConnFailed });
                 return false;
             }
-
             return true;
 
         }
@@ -55,6 +55,7 @@ namespace VideoPlayControl.VideoPlay
                 else
                 {
                     Monitor_Guid = data["tsk_guid"]; //正在监视，赋值为会话号
+                    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
                 }
             }
             
@@ -64,6 +65,7 @@ namespace VideoPlayControl.VideoPlay
         {
             VideoEnvironment_ZHSR.ZHSR_Main_Callback_Event -= VideoEnvironment_ZHSR_ZHSR_Main_Callback_Event;
             SDK_ZHSRSDK.win_sta_stop_task(VideoEnvironment_ZHSR.Session, Monitor_Guid);
+            VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoClose });
             CommonMethod.Common.Delay_Millisecond(300);
             PicPlayMain.Refresh();
             return true;

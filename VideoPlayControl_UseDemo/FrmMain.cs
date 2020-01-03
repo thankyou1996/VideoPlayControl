@@ -112,6 +112,22 @@ namespace VideoPlayControl_UseDemo
             Init_ControlInit();
             PlayWindowSet(1);
             CommonMethod.LogWrite.strLogFilePath = Application.StartupPath + "\\UserData\\OperAtLog";
+            videoTalkControlManyChannel1.StopTalkedEvent += VideoTalkControlManyChannel1_StopTalkedEvent;
+        }
+
+        private bool VideoTalkControlManyChannel1_StopTalkedEvent(object sender, object StopTalkValue)
+        {
+            IVideoTalk vt = (IVideoTalk)sender;
+            if (vt.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR)
+            {
+                if (videoWindowTest.CurrentVideoInfo.DVSAddress == vt.CurrentVideoInfo.DVSAddress)
+                {
+                    videoWindowTest.VideoPlay();
+                }
+            }
+            return true;
+
+            //throw new NotImplementedException();
         }
 
         public void Init_ControlInit()

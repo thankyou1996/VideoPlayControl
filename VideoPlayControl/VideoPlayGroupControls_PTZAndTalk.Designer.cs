@@ -79,6 +79,7 @@
             videoPlaySetting1.ConnType = VideoPlayControl.Enum.Enum_VideoConnType.Auto;
             videoPlaySetting1.FirstInForcePreSetPosi = false;
             videoPlaySetting1.PerVideoRecord = false;
+            videoPlaySetting1.PlayStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
             videoPlaySetting1.PreSetPosi = -1;
             videoPlaySetting1.PreVideoRecordFilePath = "";
             videoPlaySetting1.PTZSpeed = 4;
@@ -207,12 +208,14 @@
             // videoChannelList
             // 
             this.videoChannelList.AutoSetChannelButtonSize = false;
+            this.videoChannelList.CameraDisableVisable = true;
             this.videoChannelList.ChannelButtonColumn = 2;
             this.videoChannelList.ChannelButtonHeight = 30;
             this.videoChannelList.ChannelButtonWidth = 60;
             this.videoChannelList.ClrBackColor = System.Drawing.SystemColors.ControlDark;
             this.videoChannelList.ClrChannelButtonDefaultColor = System.Drawing.SystemColors.Control;
             this.videoChannelList.ClrChannelButtonSelectedColor = System.Drawing.Color.Red;
+            this.videoChannelList.DisplayChanneName = true;
             this.videoChannelList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoChannelList.Location = new System.Drawing.Point(0, 0);
             this.videoChannelList.Name = "videoChannelList";

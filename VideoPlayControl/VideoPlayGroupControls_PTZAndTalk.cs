@@ -17,6 +17,11 @@ namespace VideoPlayControl
 {
     public partial class VideoPlayGroupControls_PTZAndTalk : UserControl
     {
+
+        /// <summary>
+        /// 控件处于关闭中状态
+        /// </summary>
+        bool bolFormCloseFlag = false;
         public TalkSetting CurrentTalkSetting
         {
             get { return videoTalkControlManyChannel1.CurrentTalkSetting; }
@@ -95,6 +100,22 @@ namespace VideoPlayControl
             videoPlayWindow.VideoPlayCallbackEvent += VideoPlayEventCallBackEvent;
             videoPTZControl.PTZControlEvent += VideoPTZControl;
             videoTalkControlManyChannel1.StartTalkingEvent += VideoTalkControlManyChannel1_StartTalkingEvent;
+            videoTalkControlManyChannel1.StopTalkedEvent += VideoTalkControlManyChannel1_StopTalkedEvent;
+        }
+
+        private bool VideoTalkControlManyChannel1_StopTalkedEvent(object sender, object StopTalkValue)
+        {
+            IVideoTalk vt = (IVideoTalk)sender;
+            if (!bolFormCloseFlag
+                && vt.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR
+                && videoPlayWindow.CurrentVideoInfo != null
+                && videoPlayWindow.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR
+                && videoPlayWindow.CurrentVideoInfo.DVSAddress == vt.CurrentVideoInfo.DVSAddress)
+            {
+                //珠海三润关闭对讲会导致视频关闭，需要重新打开
+                videoPlayWindow.VideoPlay();
+            }
+            return false;
         }
 
         /// <summary>
@@ -626,7 +647,7 @@ namespace VideoPlayControl
         /// </summary>
         public void ControlClose()
         {
-            //videoPlayWindow.VideoPlayWindows_Close();
+            
             videoTalkControlManyChannel1.ControlColse();
         }
 
