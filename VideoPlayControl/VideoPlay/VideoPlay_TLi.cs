@@ -235,6 +235,21 @@ namespace VideoPlayControl.VideoPlay
             return bolResult;
         }
 
+
+
+
+        /// <summary>
+        /// 播放视频
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VideoPlay(VideoPlaySetting vps)
+        {
+            CurrentVideoPlaySet = vps;
+            VideoPlay();
+            return true;
+        }
+
+
         public void get_encframe(IntPtr ip, uint dwContextEnc)
         {
             VideoPlayState = Enum_VideoPlayState.InPlayState;

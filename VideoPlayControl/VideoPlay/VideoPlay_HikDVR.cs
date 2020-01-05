@@ -263,6 +263,17 @@ namespace VideoPlayControl.VideoPlay
             return bolResult;
         }
 
+        /// <summary>
+        /// 播放视频
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VideoPlay(VideoPlaySetting vps)
+        {
+            CurrentVideoPlaySet = vps;
+            VideoPlay();
+            return true;
+        }
+
         private int[] iChannelNum = new int[96];
         private uint dwAChanTotalNum = 0;
         private Int32 iip = 0;

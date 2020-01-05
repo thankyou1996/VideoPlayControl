@@ -39,11 +39,89 @@ namespace VIdeoPlayControl_UseDemo3
         public const int AUT_ADMIN = 3;
 
 
+        private static MAIN_NOTIFY_V4 MainNotify_V4 = null;
         public Form1()
         {
             InitializeComponent();
-            NVSSDK.NetClient_Startup_V4(0, 0, 0);
-            NVSSDK.NetClient_SetMSGHandleEx(NetSDKMsg.WM_MAIN_MESSAGE, this.Handle, NetSDKMsg.MSG_PARACHG, NetSDKMsg.MSG_ALARM);
+            NVSSDK.NetClient_Startup_V4(6004, 0, 0);
+            //NVSSDK.NetClient_SetMSGHandleEx(NetSDKMsg.WM_MAIN_MESSAGE, this.Handle, NetSDKMsg.MSG_PARACHG, NetSDKMsg.MSG_ALARM);
+
+            MainNotify_V4 = MyMAIN_NOTIFY_V4;
+            NetClient_SetNotifyFunction_V4(MainNotify_V4, null, null, null, null);
+        }
+
+        /// <summary>
+        /// 主回调
+        /// </summary>
+        /// <param name="_ulLogonID"></param>
+        /// <param name="_iWparam"></param>
+        /// <param name="_iLParam"></param>
+        /// <param name="_iUser"></param>
+        private void MyMAIN_NOTIFY_V4(Int32 _ulLogonID, Int32 _iWparam, IntPtr _iLParam, IntPtr _iUser)
+        {
+            int iMsg = _iWparam & 0xffff;
+            //表示属于当前信息登录信息
+            switch (iMsg)
+            {
+                //登陆状态消息 
+                //param1 登陆IP
+                //param2 登陆ID
+                //param3 登陆状态
+                case NetSDKMsg.WCM_LOGON_NOTIFY:
+                    Int32 iStatus = _iLParam.ToInt32();
+                    if (iStatus == NetSDKMsg.LOGON_SUCCESS)
+                    {
+                        Console.WriteLine("登录成功");
+                        //VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.LoginSuccess });
+                        //初始化通道列表                         
+                        //Int32 iChanNum = 0;
+                        //SDK_TDWY.NetClient_GetChannelNum(_iLogonID, ref iChanNum);
+
+                        m_iLogonId = _ulLogonID;
+                        CLIENTINFO channel = new CLIENTINFO
+                        {
+                            m_iServerID = m_iLogonId,
+                            m_iTimeout = 20,
+                            m_iNetMode = 1,
+                            m_iChannelNo = 0,
+                            m_iStreamNO = 1,
+                            m_cNetFile = new char[255],
+                            m_cRemoteIP = new char[16],
+                        };
+                        //Array.Copy(CurrentVideoInfo.DVSAddress.ToArray(), channel.m_cRemoteIP, CurrentVideoInfo.DVSAddress.Length);
+                        //开始接收一路视频数据	
+                        UInt32 uiConID = 0;
+                        int iRet = NetClient_StartRecv(ref uiConID, ref channel, null);
+
+                        if (iRet < 0)
+                        {
+                            //操作失败
+
+                        }
+                        m_iConnectId = Convert.ToInt32(uiConID);
+                    }
+                    else
+                    {
+                        //触发相关时间进行提示
+                        //VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.DevLoginException });
+                        Console.WriteLine("登录失败，Status:" + iStatus);
+                    }
+                    break;
+                case NetSDKMsg.WCM_VIDEO_HEAD_EX:
+                    RECT rect = new RECT();
+                    this.BeginInvoke(new EventHandler(delegate
+                    {
+                        NetClient_StartPlay(m_iConnectId, panelVideoShow.Handle, rect, 0);
+                    }));
+                    //VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
+                    break;
+                //case NetSDKMsg.WCM_ERR_DIGITCHANNEL_NOT_ENABLED:
+                    //VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.RequestVideoTimeout });
+                    //break;
+                default:
+                    Console.WriteLine("TDWY- MyMAIN_NOTIFY_V4: " + iMsg);
+                    break;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -111,6 +189,7 @@ namespace VIdeoPlayControl_UseDemo3
         {
             //wParam的低16位是消息的类型；
             int iMsgType = wParam.ToInt32() & 0xFFFF;
+            Console.WriteLine(DateTime.Now.ToString("HH:mm:ss") + "_" + iMsgType);
             switch (iMsgType)
             {
                 case NetSDKMsg.WCM_LOGON_NOTIFY:
@@ -236,6 +315,41 @@ namespace VIdeoPlayControl_UseDemo3
         {
 
             ConnectVideo(STREAM_2ND);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LogonActiveServer tInfo = new LogonActiveServer();
+            tInfo.iSize = Marshal.SizeOf(tInfo);
+            tInfo.cUserName = new char[16];
+            Array.Copy(textUser.Text.ToCharArray(), tInfo.cUserName, textUser.Text.Length);
+            tInfo.cUserPwd = new char[16];
+            Array.Copy(textPwd.Text.ToCharArray(), tInfo.cUserPwd, textPwd.Text.Length);
+            tInfo.cProductID = new char[32];
+
+            Array.Copy("ID0000801941341231130644".ToCharArray(), tInfo.cProductID, "ID0000801941341231130644".Length);
+            //IntPtr intptr = Marshal.AllocCoTaskMem(tInfo.iSize);
+            //Marshal.StructureToPtr(tInfo, intptr, true);//false容易造成内存泄漏
+
+            //LogonPara tInfo = new LogonPara();
+            //tInfo.iSize = Marshal.SizeOf(tInfo);
+            //tInfo.iNvsPort = Int32.Parse(textPort.Text);
+            //tInfo.cNvsIP = new char[32];
+            //Array.Copy(textIP.Text.ToCharArray(), tInfo.cNvsIP, textIP.Text.Length);
+            //tInfo.cUserName = new char[16];
+            //Array.Copy(textUser.Text.ToCharArray(), tInfo.cUserName, textUser.Text.Length);
+            //tInfo.cUserPwd = new char[16];
+            //Array.Copy(textPwd.Text.ToCharArray(), tInfo.cUserPwd, textPwd.Text.Length);
+
+            IntPtr intptr = Marshal.AllocCoTaskMem(tInfo.iSize);
+            Marshal.StructureToPtr(tInfo, intptr, true);//false容易造成内存泄漏
+            Int32 iLogonId = NVSSDK.NetClient_Logon_V4(1, intptr, tInfo.iSize);
+            Marshal.FreeHGlobal(intptr);//释放分配的非托管内存。
+            if (iLogonId < 0)
+            {
+                MessageBox.Show("logon failed!");
+                return;
+            }
         }
     }
 }

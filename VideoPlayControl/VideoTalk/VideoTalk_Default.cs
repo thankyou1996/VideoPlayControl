@@ -60,5 +60,16 @@ namespace VideoPlayControl.VideoTalk
         {
             return false;
         }
+
+        /// <summary>
+        /// 开始对讲
+        /// </summary>
+        /// <param name="ts"></param>
+        /// <returns></returns>
+        public virtual bool StartTalk(TalkSetting ts)
+        {
+            CurrentTalkSetting = ts;
+            return StartTlak(ts.TalkMode);
+        }
     }
 }

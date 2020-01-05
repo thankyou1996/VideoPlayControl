@@ -210,6 +210,17 @@ namespace VideoPlayControl.VideoPlay
             return true;
         }
 
+        /// <summary>
+        /// 播放视频
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VideoPlay(VideoPlaySetting vps)
+        {
+            CurrentVideoPlaySet = vps;
+            VideoPlay();
+            return true;
+        }
+
         public bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
         {
             return false;

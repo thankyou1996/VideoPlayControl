@@ -10,6 +10,9 @@ namespace VideoPlayControl.VideoTalk
 {
     public class IVideoTalk_Basic:IVideoTalk
     {
+        /// <summary>
+        /// 当前视频设备信息
+        /// </summary>
         public VideoInfo CurrentVideoInfo
         {
             get
@@ -21,6 +24,9 @@ namespace VideoPlayControl.VideoTalk
             
             }
         }
+        /// <summary>
+        /// 当前通道信息
+        /// </summary>
         public VideoTalkChannelInfo CurrentTalkChannel { get; set; }
 
         private TalkSetting currentTalkSetting = new TalkSetting();
@@ -82,6 +88,23 @@ namespace VideoPlayControl.VideoTalk
             return false;
         }
 
+        /// <summary>
+        /// 开始对讲
+        /// </summary>
+        /// <param name="ts"></param>
+        /// <returns></returns>
+        public virtual bool StartTalk(TalkSetting ts)
+        {
+            CurrentTalkSetting = ts;
+            return StartTlak(ts.TalkMode);
+        }
+
+
+        /// <summary>
+        ///开始对讲
+        /// </summary>
+        /// <param name="talkModel"></param>
+        /// <returns></returns>
         public virtual bool StartTlak(Enum_TalkModel talkModel)
         {
             return false;

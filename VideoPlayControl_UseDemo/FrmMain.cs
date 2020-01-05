@@ -112,7 +112,24 @@ namespace VideoPlayControl_UseDemo
             Init_ControlInit();
             PlayWindowSet(1);
             CommonMethod.LogWrite.strLogFilePath = Application.StartupPath + "\\UserData\\OperAtLog";
+            videoTalkControlManyChannel1.StartTalkingEvent += VideoTalkControlManyChannel1_StartTalkingEvent;
             videoTalkControlManyChannel1.StopTalkedEvent += VideoTalkControlManyChannel1_StopTalkedEvent;
+            videoTalkControlManyChannel1.CurrentTalkSetting.ExecuteTalk = false;
+        }
+
+        private bool VideoTalkControlManyChannel1_StartTalkingEvent(object sender, object StartTalkingValue)
+        {
+            IVideoTalk vt = (IVideoTalk)sender;
+            if (vt.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR)
+            {
+                if (videoWindowTest.CurrentVideoInfo != null
+                    && videoWindowTest.CurrentVideoInfo.DVSAddress == vt.CurrentVideoInfo.DVSAddress)
+                {
+                    videoWindowTest.CurrentVideoPlaySet.VideoTalkEnable = true;
+                    videoWindowTest.VideoPlay(videoWindowTest.CurrentVideoPlaySet);
+                }
+            }
+            return true;
         }
 
         private bool VideoTalkControlManyChannel1_StopTalkedEvent(object sender, object StopTalkValue)
@@ -120,8 +137,10 @@ namespace VideoPlayControl_UseDemo
             IVideoTalk vt = (IVideoTalk)sender;
             if (vt.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR)
             {
-                if (videoWindowTest.CurrentVideoInfo.DVSAddress == vt.CurrentVideoInfo.DVSAddress)
+                if (videoWindowTest.CurrentVideoInfo != null
+                    && videoWindowTest.CurrentVideoInfo.DVSAddress == vt.CurrentVideoInfo.DVSAddress)
                 {
+                    videoWindowTest.CurrentVideoPlaySet.VideoTalkEnable = false;
                     videoWindowTest.VideoPlay();
                 }
             }

@@ -216,6 +216,20 @@ namespace VideoPlayControl.VideoPlay
             return bolResult;
         }
 
+
+
+        /// <summary>
+        /// 播放视频
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VideoPlay(VideoPlaySetting vps)
+        {
+            CurrentVideoPlaySet = vps;
+            VideoPlay();
+            return true;
+        }
+
+
         public string GetLocalSavePath(string strSavePath, string strSaveName)
         {
             string strResult = strSavePath + strSaveName;

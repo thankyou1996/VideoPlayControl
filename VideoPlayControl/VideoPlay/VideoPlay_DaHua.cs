@@ -229,6 +229,17 @@ namespace VideoPlayControl.VideoPlay
         }
 
         /// <summary>
+        /// 播放视频
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VideoPlay(VideoPlaySetting vps)
+        {
+            CurrentVideoPlaySet = vps;
+            VideoPlay();
+            return true;
+        }
+
+        /// <summary>
         /// 获取本地录像文件存储地址
         /// </summary>
         /// <param name="strSavePath"></param>

@@ -139,6 +139,14 @@ namespace VideoPlayControl.VideoPlay
         /// <returns></returns>
         bool VideoPlay();
 
+
+        /// <summary>
+        /// 视频播放_视频设置
+        /// </summary>
+        /// <param name="vps"></param>
+        /// <returns></returns>
+        bool VideoPlay(VideoPlaySetting vps);
+
         /// <summary>
         /// 视频播放异步
         /// </summary>

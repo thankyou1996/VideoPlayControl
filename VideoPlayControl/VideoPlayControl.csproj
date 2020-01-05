@@ -294,6 +294,7 @@
     </Compile>
     <Compile Include="VideoTalk\IVideoTalk.cs" />
     <Compile Include="VideoTalk\IVideoTalk_Basic.cs" />
+    <Compile Include="VideoTalk\StartTalkingValue.cs" />
     <Compile Include="VideoTalk\VideoTalkRelevant.cs" />
     <Compile Include="VideoTalk\VideoTalk_Default.cs" />
     <Compile Include="VideoTalk\VideoTalk_Hik.cs" />

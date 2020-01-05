@@ -20,6 +20,13 @@ namespace VideoPlayControl.VideoPlay
     {
 
         public string Monitor_Guid = "";
+
+
+        /// <summary>
+        /// 呼叫会话号
+        /// </summary>
+        public string Tsk_Guid { get; set; } = "";
+
         public VideoPlay_ZHSR(CameraInfo cInfo)
         {
             this.CurrentCameraInfo = cInfo;
@@ -31,8 +38,21 @@ namespace VideoPlayControl.VideoPlay
             VideoEnvironment_ZHSR.ZHSR_Main_Callback_Event -= VideoEnvironment_ZHSR_ZHSR_Main_Callback_Event;
             VideoEnvironment_ZHSR.ZHSR_Main_Callback_Event += VideoEnvironment_ZHSR_ZHSR_Main_Callback_Event;
             int intChannel = CurrentCameraInfo.Channel - 1;
-            int iRet = SDK_ZHSRSDK.win_sta_start_monitor(VideoEnvironment_ZHSR.Session, CurrentVideoInfo.DVSAddress, intChannel, 0, 3, 1, (int)intptrPlayMain);
-
+            int md_tp = 1;
+            int iRet = -1;
+            if (CurrentVideoPlaySet.VideoTalkEnable)
+            {
+                md_tp = 3;
+                iRet = SDK_ZHSRSDK.win_sta_usr_call_req(VideoEnvironment_ZHSR.Session, CurrentVideoInfo.DVSAddress, intChannel, 0, md_tp, 1, (int)intptrPlayMain);
+            }
+            else if (CurrentVideoPlaySet.VideoMonitorEnable)
+            {
+                iRet = SDK_ZHSRSDK.win_sta_start_monitor(VideoEnvironment_ZHSR.Session, CurrentVideoInfo.DVSAddress, intChannel, 0, 3, 1, (int)intptrPlayMain);
+            }
+            else
+            {
+                iRet = SDK_ZHSRSDK.win_sta_start_monitor(VideoEnvironment_ZHSR.Session, CurrentVideoInfo.DVSAddress, intChannel, 0, 1, 1, (int)intptrPlayMain);
+            }
             VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.RequestConn });
             if (iRet < 0)
             {
@@ -45,20 +65,23 @@ namespace VideoPlayControl.VideoPlay
 
         private void VideoEnvironment_ZHSR_ZHSR_Main_Callback_Event(string messageID, Dictionary<string, string> data)
         {
-            if (messageID == Main_Callback_Type.monitor_tsk_status)
+            string status = "";
+            switch (messageID)
             {
-                string status = data["status"];
-                if (status == "0") //会话状态0为 未监视，其他为 正在监视
-                {
-                    Monitor_Guid = "";
-                }
-                else
-                {
-                    Monitor_Guid = data["tsk_guid"]; //正在监视，赋值为会话号
-                    VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
-                }
+                case Main_Callback_Type.monitor_tsk_status:
+                case Main_Callback_Type.tk_tsk_status:  //对讲
+                    status = data["status"];
+                    if (status == "0") //会话状态0为 未监视，其他为 正在监视
+                    {
+                        Monitor_Guid = "";
+                    }
+                    else
+                    {
+                        Monitor_Guid = data["tsk_guid"]; //正在监视，赋值为会话号
+                        VideoPlayCallback(new VideoPlayCallbackValue { evType = Enum_VideoPlayEventType.VideoPlay });
+                    }   
+                    break;
             }
-            
         }
 
         public override bool VideoClose()

@@ -46,12 +46,38 @@ namespace VideoPlayControl.VideoTalk
         }
 
         /// <summary>
+        /// 开始对讲
+        /// </summary>
+        /// <param name="ts"></param>
+        /// <returns></returns>
+        public override bool StartTalk(TalkSetting ts)
+        {
+            CurrentTalkSetting = ts;
+            if (ts.ExecuteTalk)
+            {
+                StartTlak(ts.TalkMode);
+            }
+            else
+            {
+
+                StartTalking(null);
+                //直接讲状态置为对讲中
+                CurrentTalkStatus = (Enum_TalkStatus)(int)ts.TalkMode;
+            }
+            return true;
+        }
+
+        /// <summary>
         /// 结束对讲
         /// </summary>
         /// <returns></returns>
         public override bool StopTalk()
         {
-            SDK_ZHSRSDK.win_sta_stop_task(VideoEnvironment_ZHSR.Session, Tsk_Guid);
+            if (CurrentTalkSetting.ExecuteTalk)
+            {
+                VideoEnvironment_ZHSR.ZHSR_Main_Callback_Event -= VideoEnvironment_ZHSR_ZHSR_Main_Callback_Event;
+                SDK_ZHSRSDK.win_sta_stop_task(VideoEnvironment_ZHSR.Session, Tsk_Guid);
+            }
             StopTalked(null);
             CurrentTalkStatus = Enum_TalkStatus.Null;
             return false;

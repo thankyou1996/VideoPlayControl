@@ -683,6 +683,33 @@ namespace VideoPlayControl
             return false;
         }
 
+
+        /// <summary>
+        /// 视频播放
+        /// </summary>
+        public bool VideoPlay(VideoPlaySetting vps)
+        {
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState || VideoPlayState == Enum_VideoPlayState.Connecting)
+            {
+                //处于播放状态，释放
+                VideoClose();
+            }
+            intConnCount++;
+            switch (CurrentVideoInfo.VideoType)
+            {
+                case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
+                    IPCWA_VideoPlay();
+                    break;
+                default:
+                    if (iv != null)
+                    {
+                        iv.VideoPlay(vps);
+                    }
+                    break;
+            }
+            return false;
+        }
+
         /// <summary>
         /// 设置预置点
         /// </summary>

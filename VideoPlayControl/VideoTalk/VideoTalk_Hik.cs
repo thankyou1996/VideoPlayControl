@@ -89,6 +89,16 @@ namespace VideoPlayControl.VideoTalk
             CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
             return bolResult;
         }
+        /// <summary>
+        /// 开始对讲
+        /// </summary>
+        /// <param name="ts"></param>
+        /// <returns></returns>
+        public virtual bool StartTalk(TalkSetting ts)
+        {
+            CurrentTalkSetting = ts;
+            return StartTlak(ts.TalkMode);
+        }
         private void MyRealDataCallBack(int lVoiceComHandle, [MarshalAs(UnmanagedType.LPArray)]  byte[] pRecvDataBuffer, uint dwBufSize, byte byAudioFlag, uint dwUser)
         {
             Console.WriteLine("MyRealDataCallBack：" + dwBufSize);

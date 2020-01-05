@@ -179,6 +179,22 @@ namespace VIdeoPlayControl_UseDemo3
             public Char[] cAccontPasswd;    //The password that connects to the contents server
         };
 
+
+        /// <summary>
+        /// 主动模式登录参数（不带目录服务器）
+        /// </summary>
+        [StructLayout(LayoutKind.Sequential)]
+        public struct LogonActiveServer
+        {
+            public int iSize;           //Structure size
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+            public Char[] cUserName;           //The ip address of the upper-level proxy to which the video is connected,not more than 32 characters, including '\0'
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+            public Char[] cUserPwd;           //IP address，not more than 32 characters, including '\0'
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+            public Char[] cProductID;     //Nvs name. Used for domain name resolution
+        };
+
         //视频连接参数
         [StructLayout(LayoutKind.Sequential)]
         public struct CLIENTINFO

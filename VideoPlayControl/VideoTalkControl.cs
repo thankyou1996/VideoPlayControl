@@ -126,7 +126,9 @@ namespace VideoPlayControl
             }
             if (videoTalk.CurrentVideoInfo == null || videoTalk.CurrentVideoInfo.VideoType != videoInfo.VideoType)
             {
+                TalkSetting ts = CommonMethod.Common.DeepCopy(CurrentTalkSetting);
                 videoTalk = VideoTalkRelevant.GetVideoTalkValue(videoInfo);
+                videoTalk.CurrentTalkSetting = ts;
                 videoTalk.TalkStausChangedEvent += VideoTalk_TalkStausChangedEvent;
                 videoTalk.StartTalkingEvent += startTalkingEvent;
                 videoTalk.StartTalkedEvent += startTalkedEvent;
@@ -207,7 +209,8 @@ namespace VideoPlayControl
         {
             if (CurrentTalkStatus == Enum_TalkStatus.Null)
             {
-                StartTlak(Enum_TalkModel.Talkback);
+                CurrentTalkSetting.TalkMode = Enum_TalkModel.Talkback;
+                StartTalk(CurrentTalkSetting);
             }
             else
             {
@@ -219,7 +222,8 @@ namespace VideoPlayControl
         {
             if (CurrentTalkStatus == Enum_TalkStatus.Null)
             {
-                StartTlak(Enum_TalkModel.Interception);
+                CurrentTalkSetting.TalkMode = Enum_TalkModel.Interception;
+                StartTalk(CurrentTalkSetting);
             }
             else
             {
@@ -231,7 +235,8 @@ namespace VideoPlayControl
         {
             if (CurrentTalkStatus == Enum_TalkStatus.Null)
             {
-                StartTlak(Enum_TalkModel.Sperak);
+                CurrentTalkSetting.TalkMode = Enum_TalkModel.Sperak;
+                StartTalk(CurrentTalkSetting);
             }
             else
             {
@@ -242,6 +247,11 @@ namespace VideoPlayControl
         public bool StopTalked(object StopTalkedValue)
         {
             throw new NotImplementedException();
+        }
+
+        public bool StartTalk(TalkSetting ts)
+        {
+            return videoTalk.StartTalk(ts);
         }
     }
 }

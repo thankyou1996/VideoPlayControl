@@ -164,6 +164,16 @@ namespace VideoPlayControl.VideoPlay
             Axis_VideoPlay();
             return bolResult;
         }
+        /// <summary>
+        /// 播放视频
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VideoPlay(VideoPlaySetting vps)
+        {
+            CurrentVideoPlaySet = vps;
+            VideoPlay();
+            return true;
+        }
         public void VideoSizeChange(int intLeft, int intRight, int intTop, int intBottom)
         {
             viewer.SetVideoPosition(intLeft, intTop, intRight, intBottom);

@@ -73,6 +73,13 @@ namespace VideoPlayControl.VideoTalk
 
         bool StartTlak(Enum_TalkModel talkModel);
 
+        /// <summary>
+        /// 开始对讲
+        /// </summary>
+        /// <param name="ts"></param>
+        /// <returns></returns>
+        bool StartTalk(TalkSetting ts);
+
         bool StopTalk();
     }
 }

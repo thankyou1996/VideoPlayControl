@@ -44,6 +44,7 @@
             this.btnConn2nd = new System.Windows.Forms.Button();
             this.btnDisconn = new System.Windows.Forms.Button();
             this.btnConn1st = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panelVideoShow
@@ -199,11 +200,22 @@
             this.btnConn1st.UseVisualStyleBackColor = true;
             this.btnConn1st.Click += new System.EventHandler(this.btnConn1st_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(469, 53);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(163, 23);
+            this.button1.TabIndex = 62;
+            this.button1.Text = "主动模式_不带目录服务器";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(866, 511);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cboChanList);
             this.Controls.Add(this.btnConn3rd);
@@ -246,6 +258,7 @@
         private System.Windows.Forms.Button btnConn2nd;
         private System.Windows.Forms.Button btnDisconn;
         private System.Windows.Forms.Button btnConn1st;
+        private System.Windows.Forms.Button button1;
     }
 }
 
