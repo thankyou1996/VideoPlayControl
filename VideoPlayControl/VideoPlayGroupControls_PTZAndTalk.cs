@@ -103,6 +103,7 @@ namespace VideoPlayControl
             videoTalkControlManyChannel1.StopTalkedEvent += VideoTalkControlManyChannel1_StopTalkedEvent;
         }
 
+
         private bool VideoTalkControlManyChannel1_StopTalkedEvent(object sender, object StopTalkValue)
         {
             IVideoTalk vt = (IVideoTalk)sender;
@@ -113,6 +114,7 @@ namespace VideoPlayControl
                 && videoPlayWindow.CurrentVideoInfo.DVSAddress == vt.CurrentVideoInfo.DVSAddress)
             {
                 //珠海三润关闭对讲会导致视频关闭，需要重新打开
+                videoPlayWindow.CurrentVideoPlaySet.VideoTalkEnable = false;
                 videoPlayWindow.VideoPlay();
             }
             return false;
@@ -130,6 +132,17 @@ namespace VideoPlayControl
             IVideoTalk ivt = (IVideoTalk)sender;
             //对讲前主动关闭声音音频输出，避免程序出现枭叫声
             videoPlayWindow.CloseSound();
+            if (videoPlayWindow.CurrentVideoInfo != null
+                && videoPlayWindow.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR
+                && ivt.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR
+                && videoPlayWindow.CurrentCameraInfo.Channel == ivt.CurrentTalkChannel.VideoTalkChannel
+                )
+            {
+                //珠海三润设备特殊处理 
+                ivt.CurrentTalkSetting.ExecuteTalk = false;
+                videoPlayWindow.CurrentVideoPlaySet.VideoTalkEnable = true;
+                videoPlayWindow.VideoPlay(videoPlayWindow.CurrentVideoPlaySet);
+            }
             return bolResult;
         }
 

@@ -29,10 +29,13 @@ namespace VideoPlayControl.VideoTalk
                 StopTalk();
             }
             StartTalking(null);
-            VideoEnvironment_ZHSR.ZHSR_Main_Callback_Event -= VideoEnvironment_ZHSR_ZHSR_Main_Callback_Event;
-            VideoEnvironment_ZHSR.ZHSR_Main_Callback_Event += VideoEnvironment_ZHSR_ZHSR_Main_Callback_Event;
-            int intTalkChannel = CurrentTalkChannel.VideoTalkChannel - 1;
-            SDK_ZHSRSDK.win_sta_usr_call_req(VideoEnvironment.VideoEnvironment_ZHSR.Session, CurrentVideoInfo.DVSAddress, intTalkChannel, 0, 2, 1, 0);
+            if (CurrentTalkSetting.ExecuteTalk)
+            {
+                VideoEnvironment_ZHSR.ZHSR_Main_Callback_Event -= VideoEnvironment_ZHSR_ZHSR_Main_Callback_Event;
+                VideoEnvironment_ZHSR.ZHSR_Main_Callback_Event += VideoEnvironment_ZHSR_ZHSR_Main_Callback_Event;
+                int intTalkChannel = CurrentTalkChannel.VideoTalkChannel - 1;
+                SDK_ZHSRSDK.win_sta_usr_call_req(VideoEnvironment.VideoEnvironment_ZHSR.Session, CurrentVideoInfo.DVSAddress, intTalkChannel, 0, 2, 1, 0);
+            }
             CurrentTalkStatus = (Enum_TalkStatus)(int)talkModel;
             return false;
         }
@@ -43,28 +46,6 @@ namespace VideoPlayControl.VideoTalk
             {
                 Tsk_Guid = data["tsk_guid"];
             }
-        }
-
-        /// <summary>
-        /// 开始对讲
-        /// </summary>
-        /// <param name="ts"></param>
-        /// <returns></returns>
-        public override bool StartTalk(TalkSetting ts)
-        {
-            CurrentTalkSetting = ts;
-            if (ts.ExecuteTalk)
-            {
-                StartTlak(ts.TalkMode);
-            }
-            else
-            {
-
-                StartTalking(null);
-                //直接讲状态置为对讲中
-                CurrentTalkStatus = (Enum_TalkStatus)(int)ts.TalkMode;
-            }
-            return true;
         }
 
         /// <summary>
