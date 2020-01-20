@@ -28,6 +28,10 @@ namespace VIdeoPlayControl_UseDemo3
         public static extern Int32 NetClient_Startup_V4(Int32 _iServerPort, Int32 _iClientPort, Int32 _iWnd);
 
         [DllImport(SDKFilePath)]
+        public static extern Int32 NetClient_SetPort(Int32 iServerPort, Int32 _iClientPort);
+
+        
+        [DllImport(SDKFilePath)]
         public static extern Int32 NetClient_SetNotifyFunction_V4(
                                             MAIN_NOTIFY_V4 _MainNotify,
                                             ALARM_NOTIFY_V4 _AlarmNotify,
@@ -133,6 +137,17 @@ namespace VIdeoPlayControl_UseDemo3
 
         [DllImport(SDKFilePath)]
         public static extern Int32 NetClient_GetDevConfig(Int32 _iLogonID, Int32 _iCommand, Int32 _iChannel, IntPtr _lpOutBuffer, int _iOutBufferSize, ref int _lpBytesReturned);
+
+        /// <summary>
+        /// 设置主动模式参数
+        /// </summary>
+        /// <param name="_iLogonType"></param>
+        /// <param name="_pvPara"></param>
+        /// <param name="_iInBufferSize"></param>
+        /// <returns></returns>
+        [DllImport(SDKFilePath)]
+        public static extern Int32 NetClient_SetDsmConfig(Int32 _iLogonType, IntPtr _pvPara, Int32 _iInBufferSize);
+
 
 
         //主回调
@@ -588,6 +603,37 @@ namespace VIdeoPlayControl_UseDemo3
             public const int FOCUS_NEAR_STOP = 38;
             public const int IRIS_OPEN_STOP = 40;
             public const int IRIS_CLOSE_STOP = 42;
+        }
+
+
+
+        /// <summary>
+        /// 本地公网信息
+        /// </summary>
+        [StructLayout(LayoutKind.Sequential)]
+        public struct ActiveNetWanInfo
+        {
+            public int iSize;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+            public char[] cWanIP;
+            public int iWanPort;
+        }
+
+        /// <summary>
+        /// 目录服务器设置信息
+        /// </summary>
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct ActiveDirectoryInfo
+        {
+            public int iSize;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+            public char[] cDsmIP;
+            public int iDsmPort;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+            public char[] cAccontName;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+            public char[] cAccontPwd;
         }
 
     }

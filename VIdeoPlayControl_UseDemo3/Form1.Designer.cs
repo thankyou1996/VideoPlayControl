@@ -45,6 +45,18 @@
             this.btnDisconn = new System.Windows.Forms.Button();
             this.btnConn1st = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.grpDirectoryServer = new System.Windows.Forms.GroupBox();
+            this.txtDSAddress = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDSPort = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDSUserName = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtDSPassword = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnDSLogin = new System.Windows.Forms.Button();
+            this.grpDirectoryServer.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelVideoShow
@@ -210,11 +222,119 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(92, 169);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(195, 23);
+            this.button2.TabIndex = 63;
+            this.button2.Text = "主动模式_带目录服务器";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // grpDirectoryServer
+            // 
+            this.grpDirectoryServer.Controls.Add(this.btnDSLogin);
+            this.grpDirectoryServer.Controls.Add(this.button2);
+            this.grpDirectoryServer.Controls.Add(this.label9);
+            this.grpDirectoryServer.Controls.Add(this.txtDSPassword);
+            this.grpDirectoryServer.Controls.Add(this.label8);
+            this.grpDirectoryServer.Controls.Add(this.txtDSUserName);
+            this.grpDirectoryServer.Controls.Add(this.label7);
+            this.grpDirectoryServer.Controls.Add(this.txtDSPort);
+            this.grpDirectoryServer.Controls.Add(this.label6);
+            this.grpDirectoryServer.Controls.Add(this.txtDSAddress);
+            this.grpDirectoryServer.Location = new System.Drawing.Point(446, 123);
+            this.grpDirectoryServer.Name = "grpDirectoryServer";
+            this.grpDirectoryServer.Size = new System.Drawing.Size(328, 297);
+            this.grpDirectoryServer.TabIndex = 64;
+            this.grpDirectoryServer.TabStop = false;
+            this.grpDirectoryServer.Text = "目录服务器信息";
+            // 
+            // txtDSAddress
+            // 
+            this.txtDSAddress.Location = new System.Drawing.Point(92, 24);
+            this.txtDSAddress.Name = "txtDSAddress";
+            this.txtDSAddress.Size = new System.Drawing.Size(172, 21);
+            this.txtDSAddress.TabIndex = 0;
+            this.txtDSAddress.Text = "127.0.0.1";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(21, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "服务器地址";
+            // 
+            // txtDSPort
+            // 
+            this.txtDSPort.Location = new System.Drawing.Point(92, 52);
+            this.txtDSPort.Name = "txtDSPort";
+            this.txtDSPort.Size = new System.Drawing.Size(172, 21);
+            this.txtDSPort.TabIndex = 0;
+            this.txtDSPort.Text = "6004";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "服务器端口";
+            // 
+            // txtDSUserName
+            // 
+            this.txtDSUserName.Location = new System.Drawing.Point(92, 80);
+            this.txtDSUserName.Name = "txtDSUserName";
+            this.txtDSUserName.Size = new System.Drawing.Size(172, 21);
+            this.txtDSUserName.TabIndex = 0;
+            this.txtDSUserName.Text = "QQ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 83);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 12);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "用户名";
+            // 
+            // txtDSPassword
+            // 
+            this.txtDSPassword.Location = new System.Drawing.Point(92, 113);
+            this.txtDSPassword.Name = "txtDSPassword";
+            this.txtDSPassword.Size = new System.Drawing.Size(172, 21);
+            this.txtDSPassword.TabIndex = 0;
+            this.txtDSPassword.Text = "QQQQ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 116);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "密码";
+            // 
+            // btnDSLogin
+            // 
+            this.btnDSLogin.Location = new System.Drawing.Point(92, 140);
+            this.btnDSLogin.Name = "btnDSLogin";
+            this.btnDSLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnDSLogin.TabIndex = 2;
+            this.btnDSLogin.Text = "登录";
+            this.btnDSLogin.UseVisualStyleBackColor = true;
+            this.btnDSLogin.Click += new System.EventHandler(this.btnDSLogin_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(866, 511);
+            this.Controls.Add(this.grpDirectoryServer);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cboChanList);
@@ -235,6 +355,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.grpDirectoryServer.ResumeLayout(false);
+            this.grpDirectoryServer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,6 +381,17 @@
         private System.Windows.Forms.Button btnDisconn;
         private System.Windows.Forms.Button btnConn1st;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox grpDirectoryServer;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtDSAddress;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtDSPassword;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtDSUserName;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtDSPort;
+        private System.Windows.Forms.Button btnDSLogin;
     }
 }
 

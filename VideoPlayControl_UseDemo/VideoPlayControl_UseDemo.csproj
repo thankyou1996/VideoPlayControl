@@ -89,6 +89,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlTest\Frm_VideoPlayWindowPTZ_Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlTest\Frm_VideoPlayWindowPTZ_Test.Designer.cs">
+      <DependentUpon>Frm_VideoPlayWindowPTZ_Test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     <Compile Include="VideoPlay\Frm_VideoPlay_TDWY.Designer.cs">
       <DependentUpon>Frm_VideoPlay_TDWY.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ControlTest\Frm_VideoPlayWindowPTZ_Test.resx">
+      <DependentUpon>Frm_VideoPlayWindowPTZ_Test.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

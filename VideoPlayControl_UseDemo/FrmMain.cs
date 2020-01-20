@@ -98,7 +98,7 @@ namespace VideoPlayControl_UseDemo
             //VideoEnvironment_HikStream.Init("192.168.2.19");
             //VideoEnvironment_SKN.SKNVideoSDK_Init("127.0.0.1", 48624, "SuperAdmin", Environment.CurrentDirectory, Environment.CurrentDirectory);
             //VideoEnvironment_TDWY.Init();
-            VideoEnvironment_ZHSR.Init("192.168.2.19",1220,"admin","admin123456");
+            VideoEnvironment_ZHSR.Init("192.168.2.19",1220,"admin","admin");
             //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             Init();
             //btnBlueSkyTestData_Click(sender, e);

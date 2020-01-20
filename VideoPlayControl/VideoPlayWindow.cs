@@ -336,27 +336,27 @@ namespace VideoPlayControl
 
         #region  视频设备基本信息赋值
 
-        public void Init_VideoInfo(VideoInfo videoInfo)
+        public virtual void Init_VideoInfo(VideoInfo videoInfo)
         {
 
             Init_VideoInfo(videoInfo, videoInfo.Cameras.First().Value);
         }
 
-        public void Init_VideoInfo(VideoInfo videoInfo, int intChannel)
+        public virtual void Init_VideoInfo(VideoInfo videoInfo, int intChannel)
         {
             Init_VideoInfo(videoInfo, videoInfo.Cameras[intChannel]);
         }
-        public void Init_VideoInfo(VideoInfo vInfo, CameraInfo cInfo)
+        public virtual void Init_VideoInfo(VideoInfo vInfo, CameraInfo cInfo)
         {
             Init_VideoInfo(vInfo, cInfo, currentVideoPlaySet);
         }
 
-        public void Init_VideoInfo(VideoInfo vInfo, VideoPlaySetting videoPlaySet)
+        public virtual void Init_VideoInfo(VideoInfo vInfo, VideoPlaySetting videoPlaySet)
         {
             Init_VideoInfo(vInfo, vInfo.Cameras.First().Value, videoPlaySet);
         }
 
-        public void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
+        public virtual void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
         {
             if (VideoPlayState == Enum_VideoPlayState.InPlayState 
                 || VideoPlayState==Enum_VideoPlayState.Connecting)

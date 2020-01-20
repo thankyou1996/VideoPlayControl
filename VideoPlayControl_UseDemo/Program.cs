@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using VideoPlayControl_UseDemo.ControlTest;
 using VideoPlayControl_UseDemo.RemoteBackplay;
 using VideoPlayControl_UseDemo.ServerTest;
 using VideoPlayControl_UseDemo.TalkTest;
@@ -52,7 +53,8 @@ namespace VideoPlayControl_UseDemo
 
 
             //Application.Run(new Frm_VideoPlay_TDWY());
-            Application.Run(new FrmMain());
+            //Application.Run(new FrmMain());
+            Application.Run(new Frm_VideoPlayWindowPTZ_Test());
 
 
             //Application.Run(new Frm_VideoPlay_HikStream());

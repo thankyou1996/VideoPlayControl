@@ -105,10 +105,28 @@ namespace VideoPlayControl.VideoEnvironment
                             ZHSR_Main_Callback(type, data);
                         }
                         break;
+                    case Main_Callback_Type.usr_status_batch:
+                        //XmlNode node = rootElem.ChildNodes[0];
+                        //foreach (XmlNode item in node.ChildNodes)
+                        //{
+                        //    string strResult = item.Attributes["status"].Value; //state
+                        //    string Temp_strUGID = item.Attributes["usr_guid"].Value;
+                        //    if (strResult == "1")
+                        //    {
+                        //        Console.WriteLine(Temp_strUGID + "——在线");
+                        //    }
+                        //    else
+                        //    {
+
+                        //        Console.WriteLine(Temp_strUGID + "——离线");
+                        //    }
+                        //}
+                        break;
                 }
             }
-            string strInfo = string.Format("client:{0},usr:{1},type:{2},key:{3},value:{4},value2:{5}", sess_client, usr_data, type, key, value, value2);
-            Console.WriteLine(strInfo);
+            //string strInfo = string.Format("client:{0},usr:{1},type:{2},key:{3},value:{4},value2:{5}", sess_client, usr_data, type, key, value, value2);
+            //Console.WriteLine(strInfo);
+            //Console.WriteLine(Environment.NewLine);
         }
 
 

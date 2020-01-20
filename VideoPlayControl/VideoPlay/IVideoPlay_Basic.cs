@@ -19,7 +19,29 @@ namespace VideoPlayControl.VideoPlay
                 //统一通过 CameraInfo 获取
             }
         }
-        public Enum_VideoStream VideoStream { get; set; }
+
+        /// <summary>
+        /// 当前码流类型
+        /// </summary>
+        private Enum_VideoStream videoStream = Enum_VideoStream.SubStream;
+        public virtual Enum_VideoStream VideoStream 
+        {
+            get 
+            {
+                return videoStream;
+            }
+            set
+            {
+                SetVideoStream(value);
+            }
+        }
+
+
+        public virtual void SetVideoStream(Enum_VideoStream vs)
+        {
+            videoStream = vs;
+        }
+
         public CameraInfo CurrentCameraInfo { get; set; }
         public VideoPlaySetting CurrentVideoPlaySet { get; set; }
 
@@ -134,7 +156,7 @@ namespace VideoPlayControl.VideoPlay
         public bool VideoRecordStatus
         {
             get { return bolVideoRecordStatus; }
-            private set
+            set
             {
                 if (bolVideoRecordStatus != value)
                 {
@@ -214,6 +236,18 @@ namespace VideoPlayControl.VideoPlay
         #endregion
 
         public event VideoStreamChangedDelegate VideoStreamChangedEvent;
+
+        /// <summary>
+        /// 码流改变
+        /// </summary>
+        /// <param name="VideoStreamChangedValue"></param>
+        public virtual void VideoStreamChanged(object VideoStreamChangedValue)
+        {
+            if (VideoStreamChangedEvent != null)
+            {
+                VideoStreamChangedEvent(this, VideoStreamChangedValue);
+            }
+        }
         public event VideoPlayCallbackDelegate VideoPlayCallbackEvent;
         public event VideoPlayStateChangedDelegate VideoPlayStateChangedEvent;
         public event SoundStateChangedDelegate SoundStateChangedEvent;

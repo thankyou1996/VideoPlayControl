@@ -43,11 +43,11 @@ namespace VIdeoPlayControl_UseDemo3
         public Form1()
         {
             InitializeComponent();
-            NVSSDK.NetClient_Startup_V4(6004, 0, 0);
-            //NVSSDK.NetClient_SetMSGHandleEx(NetSDKMsg.WM_MAIN_MESSAGE, this.Handle, NetSDKMsg.MSG_PARACHG, NetSDKMsg.MSG_ALARM);
-
+            NVSSDK.NetClient_Startup_V4(0, 0, 0);
             MainNotify_V4 = MyMAIN_NOTIFY_V4;
             NetClient_SetNotifyFunction_V4(MainNotify_V4, null, null, null, null);
+            //NVSSDK.NetClient_SetMSGHandleEx(NetSDKMsg.WM_MAIN_MESSAGE, this.Handle, NetSDKMsg.MSG_PARACHG, NetSDKMsg.MSG_ALARM);
+            int iRet = NVSSDK.NetClient_SetPort(5004, 0);
         }
 
         /// <summary>
@@ -350,6 +350,74 @@ namespace VIdeoPlayControl_UseDemo3
                 MessageBox.Show("logon failed!");
                 return;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            LogonActiveServer tInfo = new LogonActiveServer();
+            tInfo.iSize = Marshal.SizeOf(tInfo);
+            tInfo.cUserName = new char[16];
+            Array.Copy(textUser.Text.ToCharArray(), tInfo.cUserName, textUser.Text.Length);
+            tInfo.cUserPwd = new char[16];
+            Array.Copy(textPwd.Text.ToCharArray(), tInfo.cUserPwd, textPwd.Text.Length);
+            tInfo.cProductID = new char[32];
+
+            Array.Copy("ID0000801941341231130644".ToCharArray(), tInfo.cProductID, "ID0000801941341231130644".Length);
+            //IntPtr intptr = Marshal.AllocCoTaskMem(tInfo.iSize);
+            //Marshal.StructureToPtr(tInfo, intptr, true);//false容易造成内存泄漏
+
+            //LogonPara tInfo = new LogonPara();
+            //tInfo.iSize = Marshal.SizeOf(tInfo);
+            //tInfo.iNvsPort = Int32.Parse(textPort.Text);
+            //tInfo.cNvsIP = new char[32];
+            //Array.Copy(textIP.Text.ToCharArray(), tInfo.cNvsIP, textIP.Text.Length);
+            //tInfo.cUserName = new char[16];
+            //Array.Copy(textUser.Text.ToCharArray(), tInfo.cUserName, textUser.Text.Length);
+            //tInfo.cUserPwd = new char[16];
+            //Array.Copy(textPwd.Text.ToCharArray(), tInfo.cUserPwd, textPwd.Text.Length);
+
+            IntPtr intptr = Marshal.AllocCoTaskMem(tInfo.iSize);
+            Marshal.StructureToPtr(tInfo, intptr, true);//false容易造成内存泄漏
+            Int32 iLogonId = NVSSDK.NetClient_Logon_V4(4, intptr, tInfo.iSize);
+            Marshal.FreeHGlobal(intptr);//释放分配的非托管内存。
+            if (iLogonId < 0)
+            {
+                MessageBox.Show("logon failed!");
+                return;
+            }
+        }
+
+        private void btnDSLogin_Click(object sender, EventArgs e)
+        {
+            ActiveNetWanInfo wanInfo = new ActiveNetWanInfo();
+            wanInfo.iSize= Marshal.SizeOf(wanInfo);
+            wanInfo.cWanIP = new char[32];
+            Array.Copy("192.168.2.18".ToCharArray(), wanInfo.cWanIP, "192.168.2.18".Length);
+            wanInfo.iWanPort = 5555;
+            IntPtr intptr1= Marshal.AllocCoTaskMem(wanInfo.iSize);
+            Marshal.StructureToPtr(wanInfo, intptr1, true);//false容易造成内存泄漏
+            int iRet = NVSSDK.NetClient_SetDsmConfig(0, intptr1, wanInfo.iSize);
+
+            string strIP = txtDSAddress.Text;
+            string strPort = txtDSPort.Text;
+            string strUser = txtDSUserName.Text;
+            string strPwd = txtDSPassword.Text;
+
+            ActiveDirectoryInfo dsInfo = new ActiveDirectoryInfo();
+            dsInfo.iSize = Marshal.SizeOf(dsInfo);
+            dsInfo.cDsmIP = new char[32];
+            Array.Copy(strIP.ToCharArray(), dsInfo.cDsmIP, strIP.Length);
+            dsInfo.iDsmPort = Int32.Parse(strPort);
+            dsInfo.cAccontName = new char[16];
+            Array.Copy(strUser.ToCharArray(), dsInfo.cAccontName, strUser.Length);
+            dsInfo.cAccontPwd = new char[16];
+            Array.Copy(strPwd.ToCharArray(), dsInfo.cAccontPwd, strPwd.Length);
+            IntPtr intptr = Marshal.AllocCoTaskMem(dsInfo.iSize);
+            Marshal.StructureToPtr(dsInfo, intptr, true);//false容易造成内存泄漏
+
+            iRet = NVSSDK.NetClient_SetDsmConfig(1, intptr, dsInfo.iSize);
+
         }
     }
 }

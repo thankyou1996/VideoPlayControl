@@ -35,6 +35,11 @@ namespace VideoPlayControl.SDKInterface
             /// 对讲状态回调
             /// </summary>
             public const string tk_tsk_status = "tk_tsk_status";
+
+            /// <summary>
+            /// 用户状态改变
+            /// </summary>
+            public const string usr_status_batch = "usr_status_batch";
         }
 
         #endregion
