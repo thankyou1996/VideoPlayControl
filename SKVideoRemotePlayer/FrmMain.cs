@@ -192,8 +192,8 @@ namespace SKVideoRemotePlayer
             item.Text = System.DateTime.Now.ToString("HH:mm:ss");
             item.SubItems.Add(strContent);
             this.lvEvent.Items.Insert(0, item);
-        }
-
+        } 
+ 
         private void BtnQueryRecord_Click(object sender, EventArgs e)
         {
             FrmRecordQuery frmRecordQuery = new FrmRecordQuery();
