@@ -21,7 +21,7 @@ namespace VideoPlayControl.Tests
         List<RemoteVideoRecordInfo> lRemoteVideoRecord;
         public SDK_SKVideoSDKTests()
         {
-            SDK_SKVideoSDK.p_sdkc_init_client("Use1111r", "121.41.87.203", 47624, 47724, 47824, @"d:\");
+            SDK_SKVideoSDK.p_sdkc_init_client("Use1111r", "192.168.2.19", 47624, 47724, 47824, @"d:\");
             //SDK_SKVideoSDK.p_sdkc_init_client("admin", "192.168.2.19", 47624, 47724, 47824, @"d:\");
             int intValue = 0;
             //while (!(SDK_SKVideoSDK.p_sdkc_get_online() == 1) && (intValue < 100))
@@ -292,6 +292,21 @@ namespace VideoPlayControl.Tests
         [TestMethod()]
         public void p_sdkc_get_revideo_dataTest1()
         {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void p_sdkc_dev_passthroughTest()
+        {
+            int intCount = 0;
+            while (SDK_SKVideoSDK.p_sdkc_get_online() == 0 && intCount < 20)
+            {
+                Common.Delay_Second(1);
+                intCount++;
+            }
+            string s = "VSDK_PS_CMD__DELAY_ALARM__" + 1 + "_" + 20;
+            SDK_SKVideoSDK.p_sdkc_dev_passthrough("71-00F51F0150DC-72C9", "VSDK_PS_CMD__DELAY_ALARM__3_10");
+            Common.Delay_Second(3);
             Assert.Fail();
         }
     }

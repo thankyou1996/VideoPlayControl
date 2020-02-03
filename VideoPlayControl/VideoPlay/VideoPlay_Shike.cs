@@ -196,6 +196,18 @@ namespace VideoPlayControl.VideoPlay
         }
 
 
+        /// <summary>
+        /// 播放视频
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VideoPlay(VideoPlaySetting vps)
+        {
+            CurrentVideoPlaySet = vps;
+            VideoPlay();
+            return true;
+        }
+
+
         private string GetServerSavePath(string strSavePath, string strSaveName)
         {
             if (!strSaveName.ToLower().EndsWith(".h264"))

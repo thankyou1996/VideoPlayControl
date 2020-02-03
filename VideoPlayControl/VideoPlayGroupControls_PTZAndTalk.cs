@@ -17,6 +17,11 @@ namespace VideoPlayControl
 {
     public partial class VideoPlayGroupControls_PTZAndTalk : UserControl
     {
+
+        /// <summary>
+        /// 控件处于关闭中状态
+        /// </summary>
+        bool bolFormCloseFlag = false;
         public TalkSetting CurrentTalkSetting
         {
             get { return videoTalkControlManyChannel1.CurrentTalkSetting; }
@@ -95,6 +100,24 @@ namespace VideoPlayControl
             videoPlayWindow.VideoPlayCallbackEvent += VideoPlayEventCallBackEvent;
             videoPTZControl.PTZControlEvent += VideoPTZControl;
             videoTalkControlManyChannel1.StartTalkingEvent += VideoTalkControlManyChannel1_StartTalkingEvent;
+            videoTalkControlManyChannel1.StopTalkedEvent += VideoTalkControlManyChannel1_StopTalkedEvent;
+        }
+
+
+        private bool VideoTalkControlManyChannel1_StopTalkedEvent(object sender, object StopTalkValue)
+        {
+            IVideoTalk vt = (IVideoTalk)sender;
+            if (!bolFormCloseFlag
+                && vt.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR
+                && videoPlayWindow.CurrentVideoInfo != null
+                && videoPlayWindow.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR
+                && videoPlayWindow.CurrentVideoInfo.DVSAddress == vt.CurrentVideoInfo.DVSAddress)
+            {
+                //珠海三润关闭对讲会导致视频关闭，需要重新打开
+                videoPlayWindow.CurrentVideoPlaySet.VideoTalkEnable = false;
+                videoPlayWindow.VideoPlay();
+            }
+            return false;
         }
 
         /// <summary>
@@ -109,6 +132,17 @@ namespace VideoPlayControl
             IVideoTalk ivt = (IVideoTalk)sender;
             //对讲前主动关闭声音音频输出，避免程序出现枭叫声
             videoPlayWindow.CloseSound();
+            if (videoPlayWindow.CurrentVideoInfo != null
+                && videoPlayWindow.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR
+                && ivt.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR
+                && videoPlayWindow.CurrentCameraInfo.Channel == ivt.CurrentTalkChannel.VideoTalkChannel
+                )
+            {
+                //珠海三润设备特殊处理 
+                ivt.CurrentTalkSetting.ExecuteTalk = false;
+                videoPlayWindow.CurrentVideoPlaySet.VideoTalkEnable = true;
+                videoPlayWindow.VideoPlay(videoPlayWindow.CurrentVideoPlaySet);
+            }
             return bolResult;
         }
 
@@ -626,7 +660,7 @@ namespace VideoPlayControl
         /// </summary>
         public void ControlClose()
         {
-            //videoPlayWindow.VideoPlayWindows_Close();
+            
             videoTalkControlManyChannel1.ControlColse();
         }
 

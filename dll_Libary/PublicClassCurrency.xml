@@ -815,6 +815,16 @@
             通立视频设备
             </summary>
         </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.ZHSR">
+            <summary>
+            珠海三润
+            </summary>
+        </member>
+        <member name="F:PublicClassCurrency.Enum_VideoType.TDWY">
+            <summary>
+            天地伟业
+            </summary>
+        </member>
         <member name="F:PublicClassCurrency.Enum_VideoType.DaHuaVideo">
             <summary>
             大华设备
@@ -849,6 +859,11 @@
             <summary>
             视频对讲通道标签信息 
             SK8616:表示门禁标签信息
+            </summary>
+        </member>
+        <member name="P:PublicClassCurrency.VideoTalkChannelInfo.LinakgePara">
+            <summary>
+            关联参数
             </summary>
         </member>
         <member name="P:PublicClassCurrency.VideoTalkChannelInfo.TalkbackEnable">

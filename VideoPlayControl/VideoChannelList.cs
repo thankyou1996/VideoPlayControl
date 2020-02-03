@@ -176,6 +176,18 @@ namespace VideoPlayControl
             set { bolDisplayChanneName = value; }
         }
 
+        /// <summary>
+        /// 禁用通道是否显示
+        /// </summary>
+        bool bolCameraDisableVisable = true;
+        [Description("是否显示通道名称,默认显示"), Category("自定义属性")]
+        public bool CameraDisableVisable
+        {
+            get { return bolCameraDisableVisable; }
+            set { bolCameraDisableVisable = value; }
+        }
+
+
 
         /// <summary>
         /// 视频通道列表名称
@@ -199,7 +211,6 @@ namespace VideoPlayControl
         {
             CurrentVideoInfo = videoInfo;
             SetVideoInfoCameraInfo();
-
         }
 
         #region 初始化
@@ -262,6 +273,12 @@ namespace VideoPlayControl
             {
                 foreach (KeyValuePair<int, CameraInfo> kv in CurrentVideoInfo.Cameras)
                 {
+                    CameraInfo cInfo = kv.Value;
+                    if (!CameraDisableVisable && !cInfo.Enable)
+                    {
+                        //通道禁用切设置不显示
+                        continue;
+                    }
                     //1(x:2 y:27)  2(x:66 y=27)
                     //3(x:2,y:63)  4(x:66 y=63)
                     Button btn = new Button();

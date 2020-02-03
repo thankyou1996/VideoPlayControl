@@ -147,6 +147,16 @@ namespace VideoPlayControl.VideoTalk
             return bolResult;
         }
 
+        /// <summary>
+        /// 开始对讲
+        /// </summary>
+        /// <param name="ts"></param>
+        /// <returns></returns>
+        public virtual bool StartTalk(TalkSetting ts)
+        {
+            CurrentTalkSetting = ts;
+            return StartTlak(ts.TalkMode);
+        }
         private bool VideoEnvironment_TL_TL_StartTalkingEvent(object sender, object StartTalkBeginValue)
         {
             StopTalk();

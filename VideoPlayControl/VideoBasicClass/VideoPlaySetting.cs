@@ -135,6 +135,17 @@ namespace VideoPlayControl
         }
 
 
+        /// <summary>
+        /// 视频对讲使能
+        /// 部分设备对讲与视频使用同一个接口（同时观看视频和音频需要从一个地方调用）
+        /// 珠海三润
+        /// </summary>
+        public bool VideoTalkEnable
+        {
+            get;
+            set;
+        } = false;
+
 
         /// <summary>
         /// 预置点设置 -1 代表不设置预置点

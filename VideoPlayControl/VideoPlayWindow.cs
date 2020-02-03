@@ -336,27 +336,27 @@ namespace VideoPlayControl
 
         #region  视频设备基本信息赋值
 
-        public void Init_VideoInfo(VideoInfo videoInfo)
+        public virtual void Init_VideoInfo(VideoInfo videoInfo)
         {
 
             Init_VideoInfo(videoInfo, videoInfo.Cameras.First().Value);
         }
 
-        public void Init_VideoInfo(VideoInfo videoInfo, int intChannel)
+        public virtual void Init_VideoInfo(VideoInfo videoInfo, int intChannel)
         {
             Init_VideoInfo(videoInfo, videoInfo.Cameras[intChannel]);
         }
-        public void Init_VideoInfo(VideoInfo vInfo, CameraInfo cInfo)
+        public virtual void Init_VideoInfo(VideoInfo vInfo, CameraInfo cInfo)
         {
             Init_VideoInfo(vInfo, cInfo, currentVideoPlaySet);
         }
 
-        public void Init_VideoInfo(VideoInfo vInfo, VideoPlaySetting videoPlaySet)
+        public virtual void Init_VideoInfo(VideoInfo vInfo, VideoPlaySetting videoPlaySet)
         {
             Init_VideoInfo(vInfo, vInfo.Cameras.First().Value, videoPlaySet);
         }
 
-        public void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
+        public virtual void Init_VideoInfo(VideoInfo videoInfo, CameraInfo cameraInfo, VideoPlaySetting videoPlaySet)
         {
             if (VideoPlayState == Enum_VideoPlayState.InPlayState 
                 || VideoPlayState==Enum_VideoPlayState.Connecting)
@@ -478,6 +478,12 @@ namespace VideoPlayControl
                     break;
                 case Enum_VideoType.TLiVideo:
                     iv = new VideoPlay_TLi(vInfo, cInfo);
+                    break;
+                case Enum_VideoType.ZHSR:
+                    iv = new VideoPlay_ZHSR(cInfo);
+                    break;
+                case Enum_VideoType.TDWY:
+                    iv = new VideoPlay_TDWY(cInfo);
                     break;
                 default:
                     iv = null;
@@ -671,6 +677,33 @@ namespace VideoPlayControl
                     if (iv != null)
                     {
                         iv.VideoPlay();
+                    }
+                    break;
+            }
+            return false;
+        }
+
+
+        /// <summary>
+        /// 视频播放
+        /// </summary>
+        public bool VideoPlay(VideoPlaySetting vps)
+        {
+            if (VideoPlayState == Enum_VideoPlayState.InPlayState || VideoPlayState == Enum_VideoPlayState.Connecting)
+            {
+                //处于播放状态，释放
+                VideoClose();
+            }
+            intConnCount++;
+            switch (CurrentVideoInfo.VideoType)
+            {
+                case Enum_VideoType.IPCWA:      //普顺达设备（SK835）
+                    IPCWA_VideoPlay();
+                    break;
+                default:
+                    if (iv != null)
+                    {
+                        iv.VideoPlay(vps);
                     }
                     break;
             }

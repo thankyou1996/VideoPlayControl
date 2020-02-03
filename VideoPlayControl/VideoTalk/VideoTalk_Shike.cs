@@ -143,6 +143,16 @@ namespace VideoPlayControl.VideoTalk
         }
 
         /// <summary>
+        /// 开始对讲
+        /// </summary>
+        /// <param name="ts"></param>
+        /// <returns></returns>
+        public virtual bool StartTalk(TalkSetting ts)
+        {
+            CurrentTalkSetting = ts;
+            return StartTlak(ts.TalkMode);
+        }
+        /// <summary>
         /// 获取对讲记录保存地址%
         /// </summary>
         /// <param name="strPath"></param>

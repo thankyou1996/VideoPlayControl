@@ -1357,6 +1357,21 @@ int p_vsdk_set_usb_4g_auto_ctrl(int en);
 
 /**
   * ***********************************************************************
+  * @brief  自动选择usb 4g客户端打电话对讲
+  *			
+  *	@param  dev_guid:	设备GUID
+  *	@param  num:		要对讲的手机电话号码
+  *
+  * @retval int:		返回为TRUE, FALSE
+  *
+  * @attention	:		默认超时时间为4分钟
+  * ***********************************************************************
+  */
+DLLIMPORT
+int p_vsdk_usb_4g_auto_dial_talk(char* dev_guid, char *num);
+
+/**
+  * ***********************************************************************
   * @brief  上传指定时间范围的报警录像
   *			
   *	@param  start_time:	开始时间戳
@@ -1436,6 +1451,3 @@ int p_vsdk_clear_dev_to_dev_talk(char *dev_guid);
 DLLIMPORT
 int p_vsdk_get_person_finger_status(char* dev_guid, int person_id);
 
-
-DLLIMPORT
-int p_vsdk_test(char* dev_guid, char *num);

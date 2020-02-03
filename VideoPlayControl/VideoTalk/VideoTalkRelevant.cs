@@ -52,6 +52,9 @@ namespace VideoPlayControl.VideoTalk
                     break;
                 case Enum_VideoType.ZLVideo:
                     break;
+                case Enum_VideoType.ZHSR:
+                    iv = new VideoTalk_ZHSR();
+                    break;
                 default:
 
                     break;

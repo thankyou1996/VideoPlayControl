@@ -90,14 +90,16 @@ namespace VideoPlayControl_UseDemo
             //SDK_XMSDK.LoginAbnormalResetEnviron = true;
             //SDKState.HikDVRSDK_Init();
             //SDKState.BlueSkySDK_Init();
-            SDKState.ZLVideoSDK_Init();
+            //SDKState.ZLVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.DHVideoSDK_Init();
             //SDKState.ZLVideoSDK_Init();
             //VideoEnvironment_TL.TLVideoEnvironment_Init("127.0.0.1", 10000, "cs", "cs");
             //VideoEnvironment_HikStream.Init("192.168.2.19");
-            VideoEnvironment_SKN.SKNVideoSDK_Init("127.0.0.1", 48624, "SuperAdmin", Environment.CurrentDirectory, Environment.CurrentDirectory);
-            SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
+            //VideoEnvironment_SKN.SKNVideoSDK_Init("127.0.0.1", 48624, "SuperAdmin", Environment.CurrentDirectory, Environment.CurrentDirectory);
+            //VideoEnvironment_TDWY.Init();
+            VideoEnvironment_ZHSR.Init("192.168.2.19",1220,"admin","admin");
+            //SDKState.SKVideoSDKInit("hdc1", "192.168.2.19", 47624, 47724, 47824, 47924, txtVideoRecord.Text);
             Init();
             //btnBlueSkyTestData_Click(sender, e);
 
@@ -107,10 +109,44 @@ namespace VideoPlayControl_UseDemo
 
         public void Init()
         {
-
             Init_ControlInit();
             PlayWindowSet(1);
             CommonMethod.LogWrite.strLogFilePath = Application.StartupPath + "\\UserData\\OperAtLog";
+            videoTalkControlManyChannel1.StartTalkingEvent += VideoTalkControlManyChannel1_StartTalkingEvent;
+            videoTalkControlManyChannel1.StopTalkedEvent += VideoTalkControlManyChannel1_StopTalkedEvent;
+            videoTalkControlManyChannel1.CurrentTalkSetting.ExecuteTalk = false;
+        }
+
+        private bool VideoTalkControlManyChannel1_StartTalkingEvent(object sender, object StartTalkingValue)
+        {
+            IVideoTalk vt = (IVideoTalk)sender;
+            if (vt.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR)
+            {
+                if (videoWindowTest.CurrentVideoInfo != null
+                    && videoWindowTest.CurrentVideoInfo.DVSAddress == vt.CurrentVideoInfo.DVSAddress)
+                {
+                    videoWindowTest.CurrentVideoPlaySet.VideoTalkEnable = true;
+                    videoWindowTest.VideoPlay(videoWindowTest.CurrentVideoPlaySet);
+                }
+            }
+            return true;
+        }
+
+        private bool VideoTalkControlManyChannel1_StopTalkedEvent(object sender, object StopTalkValue)
+        {
+            IVideoTalk vt = (IVideoTalk)sender;
+            if (vt.CurrentVideoInfo.VideoType == Enum_VideoType.ZHSR)
+            {
+                if (videoWindowTest.CurrentVideoInfo != null
+                    && videoWindowTest.CurrentVideoInfo.DVSAddress == vt.CurrentVideoInfo.DVSAddress)
+                {
+                    videoWindowTest.CurrentVideoPlaySet.VideoTalkEnable = false;
+                    videoWindowTest.VideoPlay();
+                }
+            }
+            return true;
+
+            //throw new NotImplementedException();
         }
 
         public void Init_ControlInit()
@@ -621,6 +657,7 @@ namespace VideoPlayControl_UseDemo
         {
             if (dicVideoInfos.ContainsKey(strVideoID))
             {
+                VideoInfo vInfo = dicVideoInfos[strVideoID];
                 txtCurrentDVSType.Text = dicVideoInfos[strVideoID].VideoType.ToString();
                 txtCurrentDVSAddress.Text = dicVideoInfos[strVideoID].DVSAddress;
                 txtCurrentDVSPort.Text = dicVideoInfos[strVideoID].DVSConnectPort.ToString();
@@ -628,7 +665,7 @@ namespace VideoPlayControl_UseDemo
                 txtCurrentDVSPwd.Text = dicVideoInfos[strVideoID].Password;
                 txtCurrentChannelNum.Text = dicVideoInfos[strVideoID].DVSChannelNum.ToString();
                 videoChannelList.Init_SetVideoInfo(dicVideoInfos[strVideoID]);
-                //videoTalkControlManyChannel1.SetVideoInfo(dicVideoInfos);
+                videoTalkControlManyChannel1.SetVideoInfo(dicVideoInfos);
             }
         }
         public void ReSetVideoInfo()
@@ -851,7 +888,7 @@ namespace VideoPlayControl_UseDemo
 
         private void btnHikTestData1_Click(object sender, EventArgs e)
         {
-            VideoInfo v = TestDataSource.HikDataSource.GetHikData_Talk();
+            VideoInfo v = TestDataSource.HikDataSource.GetHikData3();
             dicVideoInfos[v.DVSNumber] = v;
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
@@ -1407,6 +1444,25 @@ namespace VideoPlayControl_UseDemo
             VideoListRefresh();
             cmbVideoList.SelectedIndex = 0;
         }
+
+
+        private void btnTDWY_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = TestDataSource.TDWYDataSource.GetData1();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+
+
+        private void btnZHSR_Click(object sender, EventArgs e)
+        {
+            VideoInfo videoInfo = TestDataSource.ZHSRSource.GetData1();
+            dicVideoInfos[videoInfo.DVSNumber] = videoInfo;
+            VideoListRefresh();
+            cmbVideoList.SelectedIndex = 0;
+        }
+
         private void btnMulitPlay_Click(object sender, EventArgs e)
         {
             FrmMulitPlayTest1 frm = new FrmMulitPlayTest1();
@@ -1515,6 +1571,33 @@ namespace VideoPlayControl_UseDemo
 
             //intResult = SDK_SKNVideo.SDK_NSK_CLIENT_dev_modify_osd("63-00F628C58502-1528", 9, Temp_strValue);
             //int intResult = SDK_SKVideoSDK.p_sdkc_set_dev_cam_osd("72-00F51F0150E8-35B7", iii, Temp_strValue);
+        }
+
+        private void btnMain_Click(object sender, EventArgs e)
+        {
+            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
+            if (intVideoIndex == 0)
+            {
+                videoWindowTest.VideoStream = VideoPlayControl.Enum.Enum_VideoStream.MainStream;
+            }
+            else
+            {
+                lstVideoPlayWindow[intVideoIndex - 1].VideoStream = VideoPlayControl.Enum.Enum_VideoStream.MainStream;
+            }
+        }
+
+        private void btnSub_Click(object sender, EventArgs e)
+        {
+
+            int intVideoIndex = Convert.ToInt32(cmbPlayWindows.SelectedValue);
+            if (intVideoIndex == 0)
+            {
+                videoWindowTest.VideoStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
+            }
+            else
+            {
+                lstVideoPlayWindow[intVideoIndex - 1].VideoStream = VideoPlayControl.Enum.Enum_VideoStream.SubStream;
+            }
         }
     }
 }

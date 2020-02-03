@@ -290,6 +290,16 @@ namespace VideoPlayControl.VideoPlay
 
         }
 
+        /// <summary>
+        /// 播放视频
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VideoPlay(VideoPlaySetting vps)
+        {
+            CurrentVideoPlaySet = vps;
+            VideoPlay();
+            return true;
+        }
 
         public void VideoSizeChange(int intPosX, int intPosY, int intWidth, int intHeight)
         {

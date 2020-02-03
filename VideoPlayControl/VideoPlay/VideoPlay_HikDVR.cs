@@ -78,6 +78,7 @@ namespace VideoPlayControl.VideoPlay
             if (vs != videoStream)
             {
                 videoStream = vs;
+                CurrentVideoPlaySet.PlayStream = vs;
                 if (VideoPlayState == Enum_VideoPlayState.InPlayState)
                 {
                     //处于播放中 关闭视频后切换码流后播放
@@ -260,6 +261,17 @@ namespace VideoPlayControl.VideoPlay
 
             
             return bolResult;
+        }
+
+        /// <summary>
+        /// 播放视频
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VideoPlay(VideoPlaySetting vps)
+        {
+            CurrentVideoPlaySet = vps;
+            VideoPlay();
+            return true;
         }
 
         private int[] iChannelNum = new int[96];

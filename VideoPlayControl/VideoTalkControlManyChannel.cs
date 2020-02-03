@@ -160,5 +160,10 @@ namespace VideoPlayControl
         {
             return ((IVideoTalk)videoTalkControl1).StopTalk();
         }
+
+        public bool StartTalk(TalkSetting ts)
+        {
+            return ((IVideoTalk)videoTalkControl1).StartTalk(ts);
+        }
     }
 }

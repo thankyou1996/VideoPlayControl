@@ -145,6 +145,17 @@ namespace VideoPlayControl.VideoPlay
             return true;
         }
 
+        /// <summary>
+        /// 播放视频
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VideoPlay(VideoPlaySetting vps)
+        {
+            CurrentVideoPlaySet = vps;
+            VideoPlay();
+            return true;
+        }
+
         public bool VideoPlayCallback(VideoPlayCallbackValue value)
         {
             bool bolResult = false;

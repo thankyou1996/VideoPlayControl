@@ -77,9 +77,8 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>dll_Libyary\IPCWA\Interop.RASPLAYEROCXLib.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>dll_Libyary\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PublicClassCurrency, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -93,6 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Controls\VideoPlayWindow_PTZ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\VideoPlayWindow_PTZ.Designer.cs">
+      <DependentUpon>VideoPlayWindow_PTZ.cs</DependentUpon>
+    </Compile>
     <Compile Include="DebugRelevant.cs" />
     <Compile Include="Enum\Enum_SDKState.cs" />
     <Compile Include="Enum\Enum_SDKEventType.cs" />
@@ -119,7 +124,9 @@
     </Compile>
     <Compile Include="SDKInterface\SDK_KD.cs" />
     <Compile Include="SDKInterface\SDK_SKNVideo.cs" />
+    <Compile Include="SDKInterface\SDK_TDWYSDK.cs" />
     <Compile Include="SDKInterface\SDK_TLi.cs" />
+    <Compile Include="SDKInterface\SDK_ZHSRSDK.cs" />
     <Compile Include="SDKInterface\SDK_ZLNetSDK.cs" />
     <Compile Include="SDKState.cs" />
     <Compile Include="SDKInterface\SDK_EzvizSDK.cs" />
@@ -146,9 +153,20 @@
     <Compile Include="VideoBasicClass\TalkSetting.cs" />
     <Compile Include="VideoBasicClass\VideoPlayEventValue.cs" />
     <Compile Include="VideoBasicClass\VideoRecordSet.cs" />
+    <Compile Include="VideoEnvironment\VideoEnvironment_TDWY.cs" />
+    <Compile Include="VideoEnvironment\VideoEnvironment_ZHSR.cs" />
+    <Compile Include="VideoPlay\IVideoPlay_Basic.cs" />
+    <Compile Include="VideoPlay\VideoPlay_TDWY.cs" />
+    <Compile Include="VideoPlay\VideoPlay_ZHSR.cs" />
     <Compile Include="VideoRecord\Enum.cs" />
     <Compile Include="VideoRecord\VideoRecordInfo.cs" />
     <Compile Include="VideoRecord\VideoRecordInfoConvert.cs" />
+    <Compile Include="VideoRecord\VideoRecordList_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoRecord\VideoRecordList_1.Designer.cs">
+      <DependentUpon>VideoRecordList_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="VideoRemoteBackplay\BasicClass\VideoRemoteFileInfo.cs" />
     <Compile Include="VideoRemoteBackplay\BasicClass\VideoRemotePlayByTimePara.cs" />
     <Compile Include="VideoRemoteBackplay\BasicClass\VideoRemotePlaySearchPara.cs" />
@@ -287,6 +305,8 @@
       <DependentUpon>VideoTalkControlManyChannel.cs</DependentUpon>
     </Compile>
     <Compile Include="VideoTalk\IVideoTalk.cs" />
+    <Compile Include="VideoTalk\IVideoTalk_Basic.cs" />
+    <Compile Include="VideoTalk\StartTalkingValue.cs" />
     <Compile Include="VideoTalk\VideoTalkRelevant.cs" />
     <Compile Include="VideoTalk\VideoTalk_Default.cs" />
     <Compile Include="VideoTalk\VideoTalk_Hik.cs" />
@@ -295,8 +315,12 @@
     <Compile Include="VideoTalk\VideoTalk_Shike.cs" />
     <Compile Include="VideoTalk\VideoTalk_SKNVideo.cs" />
     <Compile Include="VideoTalk\VideoTalk_TLi.cs" />
+    <Compile Include="VideoTalk\VideoTalk_ZHSR.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\VideoPlayWindow_PTZ.resx">
+      <DependentUpon>VideoPlayWindow_PTZ.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -383,7 +407,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
