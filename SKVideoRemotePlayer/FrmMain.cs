@@ -28,6 +28,7 @@ namespace SKVideoRemotePlayer
             InitializeComponent();
             ProgPara.CurrentProgPara = para;
 
+            dateTimePicker1.Value = DateTime.Now.AddDays(-1);
             VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
             WriteEvent("SDK初始化成功");
             //VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
@@ -164,17 +165,12 @@ namespace SKVideoRemotePlayer
             {
                 ChnnelInfo = cInfo,
                 PlaybackFiles = new List<RemotePlaybackFileInfo>(),
-                StartTime = ProgPara.CurrentProgPara.PlaybackTimeStart,
+                //StartTime = ProgPara.CurrentProgPara.PlaybackTimeStart,
+                StartTime = PlaybackTimeStart,
                 EndTime = ProgPara.CurrentProgPara.PlaybackTimeEnd,
             };
             return result;
         }
-
-
-
-
-
-
 
         public void RefreshPlaybackInfo()
         {
@@ -226,6 +222,19 @@ namespace SKVideoRemotePlayer
                 }
             }
             remoteBackplayControl1.SetCurrentPositionDateTime(ProgPara.CurrentProgPara.PlaybackTime);
+        }
+
+        public DateTime PlaybackTimeStart
+        {
+            get;
+            set;
+        }
+
+        private void BtnTimestart_Click(object sender, EventArgs e)
+        {
+            PlaybackTimeStart = dateTimePicker1.Value;
+            //SDK_SKNVideo.SDK_NSK_CLIENT_stop_pb_video(picPlayer.Handle);
+            //SDK_SKNVideo.SDK_NSK_CLIENT_start_pb_video(currentVideoInfo.DVSAddress, (cInfo.Channel - 1), Convert.ToInt32(lFlag), picPlayer.Handle);
         }
     }
 }

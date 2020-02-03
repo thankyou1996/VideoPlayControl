@@ -42,6 +42,8 @@
             this.EventTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EventContent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnTimestart = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlMain_Player.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -108,6 +110,8 @@
             // 
             this.pnlOperat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.pnlOperat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlOperat.Controls.Add(this.btnTimestart);
+            this.pnlOperat.Controls.Add(this.dateTimePicker1);
             this.pnlOperat.Controls.Add(this.btnQueryRecord);
             this.pnlOperat.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlOperat.Location = new System.Drawing.Point(0, 84);
@@ -170,6 +174,28 @@
             this.EventContent.Text = "事件";
             this.EventContent.Width = 400;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(320, 6);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(201, 26);
+            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.Value = new System.DateTime(2020, 2, 1, 0, 0, 0, 0);
+            // 
+            // btnTimestart
+            // 
+            this.btnTimestart.Location = new System.Drawing.Point(528, 7);
+            this.btnTimestart.Name = "btnTimestart";
+            this.btnTimestart.Size = new System.Drawing.Size(99, 23);
+            this.btnTimestart.TabIndex = 3;
+            this.btnTimestart.Text = "按时间点播放";
+            this.btnTimestart.UseVisualStyleBackColor = true;
+            this.btnTimestart.Click += new System.EventHandler(this.BtnTimestart_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -208,6 +234,8 @@
         private System.Windows.Forms.ColumnHeader EventContent;
         private System.Windows.Forms.PictureBox picPlayer;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnTimestart;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
