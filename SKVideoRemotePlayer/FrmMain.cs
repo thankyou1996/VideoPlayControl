@@ -23,10 +23,14 @@ namespace SKVideoRemotePlayer
         {
             InitializeComponent();
         }
+
+        public ProgPara Para;
         public FrmMain(ProgPara para)
         {
             InitializeComponent();
             ProgPara.CurrentProgPara = para;
+
+            Para =para;
 
             dateTimePicker1.Value = DateTime.Now.AddDays(-1);
             PlaybackTime = dateTimePicker1.Value;
@@ -168,7 +172,7 @@ namespace SKVideoRemotePlayer
                 ChnnelInfo = cInfo,
                 PlaybackFiles = new List<RemotePlaybackFileInfo>(),
                 //StartTime = ProgPara.CurrentProgPara.PlaybackTimeStart,
-                //StartTime = ProgPara.CurrentProgPara.PlaybackTimeEnd,
+                //EndTime = ProgPara.CurrentProgPara.PlaybackTimeEnd,
                 StartTime = PlaybackTime.AddHours(-12),
                 EndTime = PlaybackTime.AddHours(12),
             };
@@ -237,6 +241,13 @@ namespace SKVideoRemotePlayer
         private void BtnTimestart_Click(object sender, EventArgs e)
         {
             PlaybackTime = dateTimePicker1.Value;
+            ProgPara.CurrentProgPara = Para;
+            VideoEnvironment_SKN.SKNVideoSDK_Init(Para.ServerAddress, Para.ServerPort, Para.UserName, Para.XmlCgfFullPath, Para.DefaultSaveDir);
+            SetVideoInfo(Para.VideoInfo);
+            remoteBackplayControl1.PositionDateTimeChangedEvent += RemoteBackplayControl1_PositionDateTimeChangedEvent;
+            pnlChannel.MouseWheel += PnlChannel_MouseWheel;
+            scroll_value = this.pnlChannel.VerticalScroll.Value;
+
             remoteBackplayControl1.SetCurrentPositionDateTime(PlaybackTime);
             //SDK_SKNVideo.SDK_NSK_CLIENT_stop_pb_video(picPlayer.Handle);
             //SDK_SKNVideo.SDK_NSK_CLIENT_start_pb_video(currentVideoInfo.DVSAddress, (cInfo.Channel - 1), Convert.ToInt32(lFlag), picPlayer.Handle);
