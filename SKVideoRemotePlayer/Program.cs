@@ -39,14 +39,14 @@ namespace SKVideoRemotePlayer
             {
                 para = new ProgPara
                 {
-                    ServerAddress = "192.168.2.41",
+                    ServerAddress = "111.122.211.46",
                     ServerPort = 48624,
                     UserName = "xhcs1test",
                     PlaybackTimeStart = DateTime.Now.AddDays(-1),
                     PlaybackTimeEnd = DateTime.Now.AddDays(1),
                     PlaybackTime = DateTime.Now.AddHours(-1),
                     Channel = 9,
-                    VideoInfo = TestDataSource.SKNVideoDatSource.GetSKData1(),
+                    VideoInfo = TestDataSource.SKNVideoDatSource.GetSKData2(),
                     DefaultSaveDir = Environment.CurrentDirectory,
                     XmlCgfFullPath = Environment.CurrentDirectory
                 };
