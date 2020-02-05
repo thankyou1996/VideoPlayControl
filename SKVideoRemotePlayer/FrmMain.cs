@@ -238,12 +238,7 @@ namespace SKVideoRemotePlayer
         {
             PlaybackTime = dateTimePicker1.Value;
             ProgPara.CurrentProgPara = Para;
-            VideoEnvironment_SKN.SKNVideoSDK_Init(Para.ServerAddress, Para.ServerPort, Para.UserName, Para.XmlCgfFullPath, Para.DefaultSaveDir);
             SetVideoInfo(Para.VideoInfo);
-
-            remoteBackplayControl1.PositionDateTimeChangedEvent += RemoteBackplayControl1_PositionDateTimeChangedEvent;
-            pnlChannel.MouseWheel += PnlChannel_MouseWheel;
-            scroll_value = this.pnlChannel.VerticalScroll.Value;
 
             foreach (Control c in pnlChannel.Controls)
             {
@@ -253,29 +248,6 @@ namespace SKVideoRemotePlayer
                     cbInfo.Checked = true;
                 }
             }
-
-            //this.BeginInvoke(new EventHandler(delegate
-            //{
-            //    CommonMethod.Common.Delay_Millisecond(5000);
-            //    CameraInfo cInfo = ProgPara.CurrentProgPara.VideoInfo.Cameras[IntChannel];
-            //    WriteEvent("[" + cInfo.CameraName + "]录像文件映射获取文件");
-            //    string Temp_strPath = ProgPara.CurrentProgPara.DefaultSaveDir + SDK_SKNVideo.GetLocalFileMapPath(cInfo);
-            //    List<RemotePlaybackFileInfo> Temp_lst = VideoPlayControl_RemotePlayback.PubMethod.GetRemotePlaybackFileInfo_SKN(Temp_strPath, ProgPara.CurrentProgPara.PlaybackTimeStart, ProgPara.CurrentProgPara.PlaybackTimeEnd);
-            //    foreach (Control c in pnlChannel.Controls)
-            //    {
-            //        ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
-            //        if (cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo != cInfo)
-            //        {
-            //            continue;
-            //        }
-            //        cbInfo.CurrentRemotePlaybackInfo.PlaybackFiles = Temp_lst.FindAll(item => item.WriteOK).ToList();
-            //        //刷新录像信息
-            //        remoteBackplayControl1.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
-            //        cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
-            //        CommonMethod.Common.Delay_Millisecond(1500);
-            //        WriteEvent("[" + cInfo.CameraName + "]刷新录像文件信息");
-            //    }
-            //}));
 
             //remoteBackplayControl1.SetCurrentPositionDateTime(PlaybackTime);
 
