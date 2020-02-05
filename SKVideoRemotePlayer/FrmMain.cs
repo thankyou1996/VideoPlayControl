@@ -38,14 +38,12 @@ namespace SKVideoRemotePlayer
             //SetVideoInfo(para.VideoInfo);
         }
 
-        int IntChannel;
         private void VideoEnvironment_SKN_DownLoadDoneEvent(object sender, object value)
         {
             this.BeginInvoke(new EventHandler(delegate
             {
                 CommonMethod.Common.Delay_Millisecond(5000);
                 int intChannel = SDK_SKNVideo.GetChannelByFileMapPath(Convert.ToString(value));
-                IntChannel = intChannel;
                 CameraInfo cInfo = ProgPara.CurrentProgPara.VideoInfo.Cameras[intChannel];
                 WriteEvent( "["+cInfo.CameraName + "]录像文件映射获取文件");
                 string Temp_strPath = ProgPara.CurrentProgPara.DefaultSaveDir + SDK_SKNVideo.GetLocalFileMapPath(cInfo);
@@ -128,7 +126,7 @@ namespace SKVideoRemotePlayer
         public void SetVideoInfo_Control(VideoInfo vInfo)
         {
             List<RemotePlaybackFileInfo> lstBackplayInfo = new List<RemotePlaybackFileInfo>();
-            pnlChannel.Controls.Clear();
+            //pnlChannel.Controls.Clear();
             int intCount = 0;
             foreach (CameraInfo cInfo in vInfo.Cameras.Values)
             {
@@ -236,19 +234,10 @@ namespace SKVideoRemotePlayer
 
         private void BtnTimestart_Click(object sender, EventArgs e)
         {
+            pnlChannel.Controls.Clear();
             PlaybackTime = dateTimePicker1.Value;
             ProgPara.CurrentProgPara = Para;
-            SetVideoInfo(Para.VideoInfo);
-
-            foreach (Control c in pnlChannel.Controls)
-            {
-                ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
-                if (cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo.Channel == ProgPara.CurrentProgPara.Channel)
-                {
-                    cbInfo.Checked = true;
-                }
-            }
-
+            SetVideoInfo(Para.VideoInfo);            
             //remoteBackplayControl1.SetCurrentPositionDateTime(PlaybackTime);
 
             //SDK_SKNVideo.SDK_NSK_CLIENT_stop_pb_video(picPlayer.Handle);
