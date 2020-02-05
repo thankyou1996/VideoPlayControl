@@ -29,24 +29,23 @@ namespace SKVideoRemotePlayer
         {
             InitializeComponent();
             ProgPara.CurrentProgPara = para;
-
             Para =para;
-
             dateTimePicker1.Value = DateTime.Now.AddDays(-1);
-            PlaybackTime = dateTimePicker1.Value;
-
+            //PlaybackTime = dateTimePicker1.Value;
             VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
             WriteEvent("SDK初始化成功");
             //VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
-            SetVideoInfo(para.VideoInfo);
+            //SetVideoInfo(para.VideoInfo);
         }
 
+        int IntChannel;
         private void VideoEnvironment_SKN_DownLoadDoneEvent(object sender, object value)
         {
             this.BeginInvoke(new EventHandler(delegate
             {
                 CommonMethod.Common.Delay_Millisecond(5000);
                 int intChannel = SDK_SKNVideo.GetChannelByFileMapPath(Convert.ToString(value));
+                IntChannel = intChannel;
                 CameraInfo cInfo = ProgPara.CurrentProgPara.VideoInfo.Cameras[intChannel];
                 WriteEvent( "["+cInfo.CameraName + "]录像文件映射获取文件");
                 string Temp_strPath = ProgPara.CurrentProgPara.DefaultSaveDir + SDK_SKNVideo.GetLocalFileMapPath(cInfo);
@@ -143,8 +142,7 @@ namespace SKVideoRemotePlayer
                 cbInfo.SetRemotePlaybackInfo(GetVideoChannelRemoteBackplayInfo(cInfo, lstBackplayInfo));
                 intCount++;
                 cbInfo.CheckedChanged += CbInfo_CheckedChanged;
-                cbInfo.SetToolTip(toolTip1, cInfo.CameraName);
-                
+                cbInfo.SetToolTip(toolTip1, cInfo.CameraName);                
             }
         }
 
@@ -176,7 +174,6 @@ namespace SKVideoRemotePlayer
                 StartTime = PlaybackTime.AddHours(-12),
                 EndTime = PlaybackTime.AddHours(12),
             };
-            //string aa = Convert.ToString(PlaybackTime);
             return result;
         }
 
@@ -187,7 +184,6 @@ namespace SKVideoRemotePlayer
                 ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
                 cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
             }
-
         }
 
         public void WriteEvent(string strContent)
@@ -244,11 +240,45 @@ namespace SKVideoRemotePlayer
             ProgPara.CurrentProgPara = Para;
             VideoEnvironment_SKN.SKNVideoSDK_Init(Para.ServerAddress, Para.ServerPort, Para.UserName, Para.XmlCgfFullPath, Para.DefaultSaveDir);
             SetVideoInfo(Para.VideoInfo);
+
             remoteBackplayControl1.PositionDateTimeChangedEvent += RemoteBackplayControl1_PositionDateTimeChangedEvent;
             pnlChannel.MouseWheel += PnlChannel_MouseWheel;
             scroll_value = this.pnlChannel.VerticalScroll.Value;
 
-            remoteBackplayControl1.SetCurrentPositionDateTime(PlaybackTime);
+            foreach (Control c in pnlChannel.Controls)
+            {
+                ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
+                if (cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo.Channel == ProgPara.CurrentProgPara.Channel)
+                {
+                    cbInfo.Checked = true;
+                }
+            }
+
+            //this.BeginInvoke(new EventHandler(delegate
+            //{
+            //    CommonMethod.Common.Delay_Millisecond(5000);
+            //    CameraInfo cInfo = ProgPara.CurrentProgPara.VideoInfo.Cameras[IntChannel];
+            //    WriteEvent("[" + cInfo.CameraName + "]录像文件映射获取文件");
+            //    string Temp_strPath = ProgPara.CurrentProgPara.DefaultSaveDir + SDK_SKNVideo.GetLocalFileMapPath(cInfo);
+            //    List<RemotePlaybackFileInfo> Temp_lst = VideoPlayControl_RemotePlayback.PubMethod.GetRemotePlaybackFileInfo_SKN(Temp_strPath, ProgPara.CurrentProgPara.PlaybackTimeStart, ProgPara.CurrentProgPara.PlaybackTimeEnd);
+            //    foreach (Control c in pnlChannel.Controls)
+            //    {
+            //        ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
+            //        if (cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo != cInfo)
+            //        {
+            //            continue;
+            //        }
+            //        cbInfo.CurrentRemotePlaybackInfo.PlaybackFiles = Temp_lst.FindAll(item => item.WriteOK).ToList();
+            //        //刷新录像信息
+            //        remoteBackplayControl1.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
+            //        cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
+            //        CommonMethod.Common.Delay_Millisecond(1500);
+            //        WriteEvent("[" + cInfo.CameraName + "]刷新录像文件信息");
+            //    }
+            //}));
+
+            //remoteBackplayControl1.SetCurrentPositionDateTime(PlaybackTime);
+
             //SDK_SKNVideo.SDK_NSK_CLIENT_stop_pb_video(picPlayer.Handle);
             //SDK_SKNVideo.SDK_NSK_CLIENT_start_pb_video(currentVideoInfo.DVSAddress, (cInfo.Channel - 1), Convert.ToInt32(lFlag), picPlayer.Handle);
         }
