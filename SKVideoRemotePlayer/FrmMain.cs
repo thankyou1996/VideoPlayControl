@@ -28,7 +28,7 @@ namespace SKVideoRemotePlayer
         {
             InitializeComponent();
             ProgPara.CurrentProgPara = para;
-            dateTimePicker1.Value = DateTime.Now.AddDays(-1);
+            dateTimePicker1.Value = DateTime.Now;
             VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
             WriteEvent("SDK初始化成功");
             //VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
