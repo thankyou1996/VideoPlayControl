@@ -22,6 +22,7 @@ namespace VideoPlayControl.VideoTalk
                 case Enum_VideoType.IPCWA:
                     break;
                 case Enum_VideoType.Ezviz:
+                    iv = new VideoTalk_Ezviz();
                     break;
                 case Enum_VideoType.SKVideo:
                     iv = new VideoTalk_Shike();
