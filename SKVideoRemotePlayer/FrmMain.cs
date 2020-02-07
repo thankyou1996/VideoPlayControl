@@ -24,14 +24,11 @@ namespace SKVideoRemotePlayer
             InitializeComponent();
         }
 
-        public ProgPara Para;
         public FrmMain(ProgPara para)
         {
             InitializeComponent();
             ProgPara.CurrentProgPara = para;
-            Para =para;
             dateTimePicker1.Value = DateTime.Now.AddDays(-1);
-            PlaybackTime = dateTimePicker1.Value;
             VideoEnvironment_SKN.SKNVideoSDK_Init(para.ServerAddress, para.ServerPort, para.UserName, para.XmlCgfFullPath, para.DefaultSaveDir);
             WriteEvent("SDK初始化成功");
             //VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
@@ -167,10 +164,8 @@ namespace SKVideoRemotePlayer
             {
                 ChnnelInfo = cInfo,
                 PlaybackFiles = new List<RemotePlaybackFileInfo>(),
-                //StartTime = ProgPara.CurrentProgPara.PlaybackTimeStart,
-                //EndTime = ProgPara.CurrentProgPara.PlaybackTimeEnd,
-                StartTime = PlaybackTime.AddHours(-12),
-                EndTime = PlaybackTime.AddHours(12),
+                StartTime = ProgPara.CurrentProgPara.PlaybackTimeStart,
+                EndTime = ProgPara.CurrentProgPara.PlaybackTimeEnd,
             };
             return result;
         }
@@ -226,45 +221,18 @@ namespace SKVideoRemotePlayer
             remoteBackplayControl1.SetCurrentPositionDateTime(ProgPara.CurrentProgPara.PlaybackTime);
         }
 
-        public DateTime PlaybackTime
-        {
-            get;
-            set;
-        }
 
         private void BtnTimestart_Click(object sender, EventArgs e)
         {    
-            PlaybackTime = dateTimePicker1.Value;
-            ProgPara.CurrentProgPara = Para;
-
-            VideoEnvironment_SKN.SKNVideoSDK_Release();
-            VideoEnvironment_SKN.SKNVideoSDK_Init(Para.ServerAddress, Para.ServerPort, Para.UserName, Para.XmlCgfFullPath, Para.DefaultSaveDir);
-            WriteEvent("SDK初始化成功");
-            SetVideoInfo(Para.VideoInfo);
-            
-            int intCount = 0;
-            while (SDK_SKNVideo.SDK_NSK_CLIENT_is_online() == 0 && intCount < 10)
-            {
-                CommonMethod.Common.Delay_Millisecond(1000);
-                intCount++;
-            }
-            if (intCount < 10)
-            {
-                WriteEvent("登陆服务器成功");
-            }
-            else
-            {
-                WriteEvent("登陆服务器失败");
-            }
-            foreach (Control c in pnlChannel.Controls)
-            {
-                ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
-                if (cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo.Channel == ProgPara.CurrentProgPara.Channel)
-                {
-                    cbInfo.Checked = true;
-                }
-            }
-            //remoteBackplayControl1.SetCurrentPositionDateTime(PlaybackTime);
+            DateTime tim  = dateTimePicker1.Value;
+            ProgPara.CurrentProgPara.PlaybackTimeStart = tim.AddHours(-12);
+            ProgPara.CurrentProgPara.PlaybackTimeEnd = tim.AddHours(12);
+            ProgPara.CurrentProgPara.PlaybackTime = tim;
+            SetVideoInfo(ProgPara.CurrentProgPara.VideoInfo);
+            CameraInfo cInfo = remoteBackplayControl1.CurrentRemotePlaybackInfo.ChnnelInfo;
+            VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
+            WriteEvent("开始获取[" + cInfo.CameraName + "]录像文件映射");
+            PubMethod.DownloadFileMap(cInfo);
         }
     }
 }
