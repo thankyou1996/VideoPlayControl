@@ -36,6 +36,7 @@
             // 
             // videoPTZControl1
             // 
+            this.videoPTZControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
             this.videoPTZControl1.Location = new System.Drawing.Point(168, 84);
             this.videoPTZControl1.Margin = new System.Windows.Forms.Padding(0);
@@ -46,7 +47,7 @@
             // 
             // picPTZCOntrol
             // 
-            this.picPTZCOntrol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.picPTZCOntrol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.picPTZCOntrol.BackColor = System.Drawing.SystemColors.Control;
             this.picPTZCOntrol.Image = ((System.Drawing.Image)(resources.GetObject("picPTZCOntrol.Image")));
             this.picPTZCOntrol.Location = new System.Drawing.Point(220, 160);
@@ -56,7 +57,6 @@
             this.picPTZCOntrol.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPTZCOntrol.TabIndex = 22;
             this.picPTZCOntrol.TabStop = false;
-            this.picPTZCOntrol.Visible = false;
             this.picPTZCOntrol.Click += new System.EventHandler(this.picPTZCOntrol_Click);
             // 
             // VideoPlayWindow_PTZ

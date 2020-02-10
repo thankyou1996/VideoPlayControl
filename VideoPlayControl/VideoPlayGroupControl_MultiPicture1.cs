@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using PublicClassCurrency;
 using CommonMethod;
+using VideoPlayControl.Controls;
 
 namespace VideoPlayControl
 {
@@ -289,7 +290,7 @@ namespace VideoPlayControl
                     {
                         for (int col = 0; col < Temp_intRow; col++)
                         {
-                            VideoPlayWindow videoPlayWindow = new VideoPlayWindow();
+                            VideoPlayWindow_PTZ videoPlayWindow = new VideoPlayWindow_PTZ();
                             videoPlayWindow.Name = "Video_" + i;
                             videoPlayWindow.Size = new Size(100, 100);
                             videoPlayWindow.Dock = DockStyle.Fill;

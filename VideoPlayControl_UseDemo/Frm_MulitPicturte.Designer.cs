@@ -38,6 +38,7 @@
             this.btnSKData = new System.Windows.Forms.Button();
             this.btnHuaMaiData = new System.Windows.Forms.Button();
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.videoPlayGroupControl_MultiPicture12 = new VideoPlayControl.VideoPlayGroupControl_MultiPicture1();
             this.btnMulitPlay = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.videoPlayGroupControl_MultiPicture11 = new VideoPlayControl.VideoPlayGroupControl_MultiPicture1();
-            this.videoPlayGroupControl_MultiPicture12 = new VideoPlayControl.VideoPlayGroupControl_MultiPicture1();
             this.pnlTop.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -144,6 +144,14 @@
             this.pnlTop.Size = new System.Drawing.Size(779, 138);
             this.pnlTop.TabIndex = 5;
             // 
+            // videoPlayGroupControl_MultiPicture12
+            // 
+            this.videoPlayGroupControl_MultiPicture12.Location = new System.Drawing.Point(243, 33);
+            this.videoPlayGroupControl_MultiPicture12.Name = "videoPlayGroupControl_MultiPicture12";
+            this.videoPlayGroupControl_MultiPicture12.Size = new System.Drawing.Size(247, 136);
+            this.videoPlayGroupControl_MultiPicture12.TabIndex = 9;
+            this.videoPlayGroupControl_MultiPicture12.WindowNum = 1;
+            // 
             // btnMulitPlay
             // 
             this.btnMulitPlay.Location = new System.Drawing.Point(12, 36);
@@ -222,17 +230,10 @@
             this.videoPlayGroupControl_MultiPicture11.Name = "videoPlayGroupControl_MultiPicture11";
             this.videoPlayGroupControl_MultiPicture11.Size = new System.Drawing.Size(779, 455);
             this.videoPlayGroupControl_MultiPicture11.TabIndex = 0;
-            this.videoPlayGroupControl_MultiPicture11.WindowNum = 4;
+            this.videoPlayGroupControl_MultiPicture11.WindowNum = 9;
             this.videoPlayGroupControl_MultiPicture11.Load += new System.EventHandler(this.videoPlayGroupControl_MultiPicture11_Load);
             this.videoPlayGroupControl_MultiPicture11.MouseClick += new System.Windows.Forms.MouseEventHandler(this.videoPlayGroupControl_MultiPicture11_MouseClick);
             this.videoPlayGroupControl_MultiPicture11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.videoPlayGroupControl_MultiPicture11_MouseDown);
-            // 
-            // videoPlayGroupControl_MultiPicture12
-            // 
-            this.videoPlayGroupControl_MultiPicture12.Location = new System.Drawing.Point(243, 33);
-            this.videoPlayGroupControl_MultiPicture12.Name = "videoPlayGroupControl_MultiPicture12";
-            this.videoPlayGroupControl_MultiPicture12.Size = new System.Drawing.Size(247, 136);
-            this.videoPlayGroupControl_MultiPicture12.TabIndex = 9;
             // 
             // Frm_MulitPicturte
             // 

@@ -54,8 +54,9 @@ namespace VideoPlayControl_UseDemo
 
             //Application.Run(new Frm_VideoPlay_TDWY());
             //Application.Run(new FrmMain());
-            Application.Run(new Frm_VideoPlayWindowPTZ_Test());
-
+            //Application.Run(new Frm_VideoPlayWindowPTZ_Test());
+            Application.Run(new Frm_MulitPicturte());
+            
 
             //Application.Run(new Frm_VideoPlay_HikStream());
 

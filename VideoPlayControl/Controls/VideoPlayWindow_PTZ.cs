@@ -21,6 +21,12 @@ namespace VideoPlayControl.Controls
         {
             videoPTZControl1.PTZControlEvent += VideoPTZControl1_PTZControlEvent;
             this.Click += VideoPlayWindow_PTZ_Click;
+            this.PicMain.Click += PicMain_Click;
+        }
+
+        private void PicMain_Click(object sender, EventArgs e)
+        {
+            SetPTZControl(false);
         }
 
         private void VideoPlayWindow_PTZ_Click(object sender, EventArgs e)
@@ -33,6 +39,10 @@ namespace VideoPlayControl.Controls
             VideoPTZControl(PTZControlCmd, bolStart);
         }
 
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="vInfo"></param>
         public override void Init_VideoInfo(VideoInfo vInfo) 
         {
             base.Init_VideoInfo(vInfo);
