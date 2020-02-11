@@ -94,10 +94,12 @@ namespace SKVideoRemotePlayer
             SDK_SKNVideo.SDK_NSK_CLIENT_stop_pb_video(picPlayer.Handle);
             RemotePlaybackControl control = (RemotePlaybackControl)sender;
             CameraInfo cInfo = control.CurrentRemotePlaybackInfo.ChnnelInfo;
+           
             long lFlag = CommonMethod.ConvertClass.DateTimeToUnixTimestamp(control.CurrentPositionDateTime);
 
             WriteEvent("开始回放:" + control.CurrentPositionDateTime.ToString("HH时mm分ss秒") + " 视频");
             SDK_SKNVideo.SDK_NSK_CLIENT_start_pb_video(currentVideoInfo.DVSAddress, (cInfo.Channel - 1), Convert.ToInt32(lFlag), picPlayer.Handle);
+            
         }
 
         public VideoInfo currentVideoInfo = null;
@@ -221,9 +223,8 @@ namespace SKVideoRemotePlayer
             remoteBackplayControl1.SetCurrentPositionDateTime(ProgPara.CurrentProgPara.PlaybackTime);
         }
 
-
         private void BtnTimestart_Click(object sender, EventArgs e)
-        {    
+        {
             DateTime tim  = dateTimePicker1.Value;
             ProgPara.CurrentProgPara.PlaybackTimeStart = tim.AddHours(-12);
             ProgPara.CurrentProgPara.PlaybackTimeEnd = tim.AddHours(12);
@@ -233,6 +234,9 @@ namespace SKVideoRemotePlayer
             VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
             WriteEvent("开始获取[" + cInfo.CameraName + "]录像文件映射");
             PubMethod.DownloadFileMap(cInfo);
+
+            CommonMethod.Common.Delay_Millisecond(10000);
+            remoteBackplayControl1.SetCurrentPositionDateTime(tim);
         }
     }
 }
