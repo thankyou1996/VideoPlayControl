@@ -53,9 +53,18 @@ namespace SKVideoRemotePlayer
                         continue;
                     }
                     cbInfo.CurrentRemotePlaybackInfo.PlaybackFiles = Temp_lst.FindAll(item => item.WriteOK).ToList();
-                    //刷新录像信息
-                    remoteBackplayControl1.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
-                    cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
+                    if (Type == 1)
+                    {
+                        //刷新录像信息   
+                        Type = 0;
+                        remoteBackplayControl1.SetRemotePlaybackInfo1(cbInfo.CurrentRemotePlaybackInfo,Tim);
+                        cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
+                    }
+                    else
+                    {                                       
+                        remoteBackplayControl1.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
+                        cbInfo.SetRemotePlaybackInfo(cbInfo.CurrentRemotePlaybackInfo);
+                    }
                     CommonMethod.Common.Delay_Millisecond(1500);
                     WriteEvent("[" + cInfo.CameraName + "]刷新录像文件信息");
                 }
@@ -238,7 +247,6 @@ namespace SKVideoRemotePlayer
 
         private int type;       
         private DateTime tim;
-        //private bool boltim = false;
         private void BtnTimestart_Click(object sender, EventArgs e)
         {
             Type = 1;
@@ -251,6 +259,16 @@ namespace SKVideoRemotePlayer
             VideoEnvironment_SKN.DownLoadDoneEvent += VideoEnvironment_SKN_DownLoadDoneEvent;
             WriteEvent("开始获取[" + cInfo.CameraName + "]录像文件映射");
             PubMethod.DownloadFileMap(cInfo);
+            foreach (Control c in pnlChannel.Controls)
+            {
+                ChannelRemotePlaybackInfo cbInfo = (ChannelRemotePlaybackInfo)c;
+                if (cbInfo.CurrentRemotePlaybackInfo.ChnnelInfo.Channel == ProgPara.CurrentProgPara.Channel)
+                {
+                    cbInfo.Checked = true;
+                }
+            }
+            //CommonMethod.Common.Delay_Millisecond(5000);
+            //remoteBackplayControl1.SetCurrentPositionDateTime(Tim);
         }
     }
 }
