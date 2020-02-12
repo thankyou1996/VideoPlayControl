@@ -16,9 +16,7 @@ namespace VideoPlayControl_RemotePlayback
         public RemotePlaybackControl()
         {
             InitializeComponent();
-        }
-
-        
+        }        
 
         private DateTime currentPositionDateTime;
 
@@ -61,12 +59,7 @@ namespace VideoPlayControl_RemotePlayback
         public delegate void PositionDateTimeChangedDelegate (object sender ,object PositionDateTimeChangedDelegateValue);
 
         public event PositionDateTimeChangedDelegate PositionDateTimeChangedEvent;
-
-
-
-
-
-
+                          
         private VideoChannelRemotePlaybackInfo currentRemotePlaybackInfo;
 
         public VideoChannelRemotePlaybackInfo CurrentRemotePlaybackInfo
@@ -83,13 +76,23 @@ namespace VideoPlayControl_RemotePlayback
         /// <param name="value"></param>
         public void SetRemotePlaybackInfo(VideoChannelRemotePlaybackInfo value)
         {
-
             proportionInfo.SetRemotePlaybackInfo(value);
             if (currentRemotePlaybackInfo != value)
             {
                 currentRemotePlaybackInfo = value;
                 proportionInfo.SetRemotePlaybackInfo_Scale(this.Width / 6);
                 SetCurrentPositionDateTime(GetFlagDateTime());
+            }
+        }
+
+        public void SetRemotePlaybackInfo1(VideoChannelRemotePlaybackInfo value,DateTime Tim)
+        {
+            proportionInfo.SetRemotePlaybackInfo(value);
+            if (currentRemotePlaybackInfo != value)
+            {
+                currentRemotePlaybackInfo = value;
+                proportionInfo.SetRemotePlaybackInfo_Scale(this.Width / 6);
+                SetCurrentPositionDateTime(Tim);
             }
         }
 
@@ -102,6 +105,7 @@ namespace VideoPlayControl_RemotePlayback
                 return (intInitialWidth * 10);
             }
         }
+
         private void RemoteBackplayControl_Load(object sender, EventArgs e)
         {
             proportionInfo.Width = this.Width;
@@ -201,7 +205,6 @@ namespace VideoPlayControl_RemotePlayback
             SetCurrentPositionDateTime(GetFlagDateTime());
         }
 
-
         public DateTime GetFlagDateTime()
         {
             int Temp_value = pnlFlag.Location.X - proportionInfo.Location.X;
@@ -210,6 +213,5 @@ namespace VideoPlayControl_RemotePlayback
             Console.WriteLine(tim.ToString());
             return tim;
         }
-
     }
 }
