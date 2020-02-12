@@ -17,9 +17,18 @@ namespace VideoPlayControl.Controls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 控件面板使能
+        /// </summary>
+        public bool OtherControlEnable
+        {
+            get;
+            private set;
+        } = false;
+
         private void VideoPlayWindow_PTZ_Load(object sender, EventArgs e)
         {
-            videoPTZControl1.PTZControlEvent += VideoPTZControl1_PTZControlEvent;
+            ptzControl_Basic1.PTZControlEvent += VideoPTZControl1_PTZControlEvent;
             this.Click += VideoPlayWindow_PTZ_Click;
             this.PicMain.Click += PicMain_Click;
         }
@@ -55,21 +64,19 @@ namespace VideoPlayControl.Controls
         /// <param name="bolValue">true 打开云台控制  false 关闭云台控制</param>
         public void SetPTZControl(bool bolValue)
         {
-            if (CurrentVideoInfo != null && CurrentVideoInfo.PTZControlEnable)
-            {
-                picPTZCOntrol.Visible = !bolValue;
-                videoPTZControl1.Visible = bolValue;
-            }
-            else
-            {
-                picPTZCOntrol.Visible = false;
-                videoPTZControl1.Visible = false;
-            }
+            OtherControlEnable = bolValue;
+            pnlOtherControl.Visible = bolValue;
         }
 
         private void picPTZCOntrol_Click(object sender, EventArgs e)
         {
             SetPTZControl(true);
+        }
+
+        private void picPTZCOntrol_Click_1(object sender, EventArgs e)
+        {
+            SetPTZControl(!OtherControlEnable);
+
         }
     }
 }

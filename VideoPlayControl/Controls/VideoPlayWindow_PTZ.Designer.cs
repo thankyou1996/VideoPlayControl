@@ -29,54 +29,66 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayWindow_PTZ));
-            this.videoPTZControl1 = new VideoPlayControl.VideoPTZControl();
             this.picPTZCOntrol = new System.Windows.Forms.PictureBox();
+            this.pnlOtherControl = new System.Windows.Forms.Panel();
+            this.ptzControl_Basic1 = new VideoPlayControl.Controls.PTZ.PTZControl_Basic();
             ((System.ComponentModel.ISupportInitialize)(this.picPTZCOntrol)).BeginInit();
+            this.pnlOtherControl.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // videoPTZControl1
-            // 
-            this.videoPTZControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.videoPTZControl1.BackColor = System.Drawing.Color.Transparent;
-            this.videoPTZControl1.Location = new System.Drawing.Point(168, 84);
-            this.videoPTZControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.videoPTZControl1.Name = "videoPTZControl1";
-            this.videoPTZControl1.Size = new System.Drawing.Size(72, 96);
-            this.videoPTZControl1.TabIndex = 21;
-            this.videoPTZControl1.Visible = false;
             // 
             // picPTZCOntrol
             // 
             this.picPTZCOntrol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picPTZCOntrol.BackColor = System.Drawing.SystemColors.Control;
+            this.picPTZCOntrol.BackColor = System.Drawing.Color.WhiteSmoke;
             this.picPTZCOntrol.Image = ((System.Drawing.Image)(resources.GetObject("picPTZCOntrol.Image")));
-            this.picPTZCOntrol.Location = new System.Drawing.Point(220, 160);
-            this.picPTZCOntrol.Margin = new System.Windows.Forms.Padding(0);
+            this.picPTZCOntrol.Location = new System.Drawing.Point(224, 164);
             this.picPTZCOntrol.Name = "picPTZCOntrol";
-            this.picPTZCOntrol.Size = new System.Drawing.Size(20, 20);
-            this.picPTZCOntrol.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picPTZCOntrol.TabIndex = 22;
+            this.picPTZCOntrol.Size = new System.Drawing.Size(16, 16);
+            this.picPTZCOntrol.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picPTZCOntrol.TabIndex = 99;
             this.picPTZCOntrol.TabStop = false;
-            this.picPTZCOntrol.Click += new System.EventHandler(this.picPTZCOntrol_Click);
+            this.picPTZCOntrol.Click += new System.EventHandler(this.picPTZCOntrol_Click_1);
+            // 
+            // pnlOtherControl
+            // 
+            this.pnlOtherControl.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlOtherControl.Controls.Add(this.ptzControl_Basic1);
+            this.pnlOtherControl.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlOtherControl.Location = new System.Drawing.Point(156, 0);
+            this.pnlOtherControl.Name = "pnlOtherControl";
+            this.pnlOtherControl.Size = new System.Drawing.Size(84, 180);
+            this.pnlOtherControl.TabIndex = 100;
+            this.pnlOtherControl.Visible = false;
+            // 
+            // ptzControl_Basic1
+            // 
+            this.ptzControl_Basic1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptzControl_Basic1.Location = new System.Drawing.Point(-1, 57);
+            this.ptzControl_Basic1.Name = "ptzControl_Basic1";
+            this.ptzControl_Basic1.Size = new System.Drawing.Size(88, 104);
+            this.ptzControl_Basic1.TabIndex = 0;
             // 
             // VideoPlayWindow_PTZ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.picPTZCOntrol);
-            this.Controls.Add(this.videoPTZControl1);
+            this.Controls.Add(this.pnlOtherControl);
             this.Name = "VideoPlayWindow_PTZ";
             this.Load += new System.EventHandler(this.VideoPlayWindow_PTZ_Load);
-            this.Controls.SetChildIndex(this.videoPTZControl1, 0);
+            this.Controls.SetChildIndex(this.pnlOtherControl, 0);
             this.Controls.SetChildIndex(this.picPTZCOntrol, 0);
             ((System.ComponentModel.ISupportInitialize)(this.picPTZCOntrol)).EndInit();
+            this.pnlOtherControl.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private VideoPTZControl videoPTZControl1;
         private System.Windows.Forms.PictureBox picPTZCOntrol;
+        private System.Windows.Forms.Panel pnlOtherControl;
+        private PTZ.PTZControl_Basic ptzControl_Basic1;
     }
 }

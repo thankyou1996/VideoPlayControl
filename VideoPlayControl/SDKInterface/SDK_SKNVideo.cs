@@ -274,6 +274,33 @@ namespace VideoPlayControl.SDKInterface
         public static extern int SDK_NSK_CLIENT_stop_pb_video(IntPtr handle);
 
         #endregion
+
+        #region 云台控制
+
+        /// <summary>
+        /// 远程连续云台控制
+        /// </summary>
+        /// <param name="dev_guid"></param>
+        /// <param name="chnn"></param>
+        /// <param name="x_speed"></param>
+        /// <param name="y_speed"></param>
+        /// <param name="z_speed"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_CLIENT_dev_ovf_ptz_continue_move(string dev_guid, int chnn, int x_speed, int y_speed, int z_speed);
+
+
+        /// <summary>
+        /// 远程停止云台控制
+        /// </summary>
+        /// <param name="dev_guid"></param>
+        /// <param name="chnn"></param>
+        /// <returns></returns>
+        [DllImport(ProgConstants.c_strSKNVideoSDKFilePath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDK_NSK_CLIENT_dev_ovf_ptz_stop(string  dev_guid,int chnn);
+
+        #endregion
+
         #endregion
 
         #region 自定义接口

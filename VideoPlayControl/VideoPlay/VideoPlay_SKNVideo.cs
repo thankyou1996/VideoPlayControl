@@ -144,9 +144,64 @@ namespace VideoPlayControl.VideoPlay
             return strResult;
         }
 
+        /// <summary>
+        /// 云台控制
+        /// </summary>
+        /// <param name="PTZControl"></param>
+        /// <param name="bolStart"></param>
+        /// <returns></returns>
         public override bool VideoPTZControl(Enum_VideoPTZControl PTZControl, bool bolStart)
         {
-            return false;
+            if (bolStart)
+            {
+                int Temp_iXSpeed = 0;
+                int Temp_iYSpeed = 0;
+                int Temp_iZSpeed = 0;
+                switch (PTZControl)
+                {
+                    case Enum_VideoPTZControl.PTZControl_Up:
+                        Temp_iYSpeed = CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                    case Enum_VideoPTZControl.PTZControl_Down:
+                        Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                    case Enum_VideoPTZControl.PTZControl_Left:
+                        Temp_iXSpeed = -CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                    case Enum_VideoPTZControl.PTZControl_Right:
+                        Temp_iXSpeed = CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                    case Enum_VideoPTZControl.PTZControl_LeftUp:
+                        Temp_iXSpeed = -CurrentVideoPlaySet.PTZSpeed;
+                        Temp_iYSpeed = CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                    case Enum_VideoPTZControl.PTZControl_LeftDown:
+                        Temp_iXSpeed = -CurrentVideoPlaySet.PTZSpeed;
+                        Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                    case Enum_VideoPTZControl.PTZControl_RightUp:
+                        Temp_iXSpeed = CurrentVideoPlaySet.PTZSpeed;
+                        Temp_iYSpeed = CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                    case Enum_VideoPTZControl.PTZControl_RightDown:
+                        Temp_iXSpeed = CurrentVideoPlaySet.PTZSpeed;
+                        Temp_iYSpeed = -CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                    case Enum_VideoPTZControl.PTZControl_Zoom_Out:
+                        Temp_iZSpeed = -CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                    case Enum_VideoPTZControl.PTZControl_Zoom_In:
+                        Temp_iZSpeed = CurrentVideoPlaySet.PTZSpeed;
+                        break;
+                }
+                SDK_SKNVideo.SDK_NSK_CLIENT_dev_ovf_ptz_continue_move(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1, Temp_iXSpeed, Temp_iYSpeed, Temp_iZSpeed);
+            }
+            else
+            {
+                SDK_SKNVideo.SDK_NSK_CLIENT_dev_ovf_ptz_stop(CurrentVideoInfo.DVSAddress, CurrentCameraInfo.Channel - 1);
+            }
+
+            return true;
         }
 
 

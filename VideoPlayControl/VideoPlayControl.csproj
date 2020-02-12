@@ -92,6 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Controls\PTZ\PTZControl_Basic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PTZ\PTZControl_Basic.Designer.cs">
+      <DependentUpon>PTZControl_Basic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\VideoPlayWindow_PTZ.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -319,6 +325,9 @@
     <Compile Include="VideoTalk\VideoTalk_ZHSR.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\PTZ\PTZControl_Basic.resx">
+      <DependentUpon>PTZControl_Basic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\VideoPlayWindow_PTZ.resx">
       <DependentUpon>VideoPlayWindow_PTZ.cs</DependentUpon>
     </EmbeddedResource>
