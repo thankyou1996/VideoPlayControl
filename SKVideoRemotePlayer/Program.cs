@@ -39,9 +39,9 @@ namespace SKVideoRemotePlayer
             {
                 para = new ProgPara
                 {
-                    ServerAddress = "111.122.211.46",
+                    ServerAddress = "192.168.5.200",
                     ServerPort = 48624,
-                    UserName = "xhcs1test",
+                    UserName = "Admin",
                     PlaybackTimeStart = DateTime.Now.AddDays(-1),
                     PlaybackTimeEnd = DateTime.Now.AddDays(1),
                     PlaybackTime = DateTime.Now.AddHours(-1),

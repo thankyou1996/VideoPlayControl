@@ -13,7 +13,8 @@ namespace TestDataSource
             v.VideoType = Enum_VideoType.SKNVideo;
             //v.DVSAddress = "63-00F628C55D02-1814";
             //v.DVSAddress = "63-00F628C42E02-11B8";
-            v.DVSAddress = "63-00F628C58502-1528";
+            //v.DVSAddress = "63-00F628C58502-1528";
+            v.DVSAddress = "63-00F628C52102-1866";
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
             v.DVSName = "海康DVR测试";
@@ -55,7 +56,7 @@ namespace TestDataSource
         {
             VideoInfo v = new VideoInfo();
             v.VideoType = Enum_VideoType.SKNVideo;
-            v.DVSAddress = "64-343885700333-3339";
+            v.DVSAddress = "63-00F628C45E03-74D4";
             v.DVSChannelNum = 8;
             v.DVSConnectPort = 8000;
             v.DVSName = "海康DVR测试";

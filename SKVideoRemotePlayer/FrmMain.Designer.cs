@@ -35,6 +35,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlChannel = new System.Windows.Forms.Panel();
             this.pnlOperat = new System.Windows.Forms.Panel();
+            this.btnTimestart = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnQueryRecord = new System.Windows.Forms.Button();
             this.remoteBackplayControl1 = new VideoPlayControl_RemotePlayback.RemotePlaybackControl();
             this.pnlLeft = new System.Windows.Forms.Panel();
@@ -42,8 +44,6 @@
             this.EventTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EventContent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btnTimestart = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlMain_Player.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -119,6 +119,28 @@
             this.pnlOperat.Size = new System.Drawing.Size(739, 33);
             this.pnlOperat.TabIndex = 1;
             // 
+            // btnTimestart
+            // 
+            this.btnTimestart.Location = new System.Drawing.Point(528, 7);
+            this.btnTimestart.Name = "btnTimestart";
+            this.btnTimestart.Size = new System.Drawing.Size(99, 23);
+            this.btnTimestart.TabIndex = 3;
+            this.btnTimestart.Text = "按时间点播放";
+            this.btnTimestart.UseVisualStyleBackColor = true;
+            this.btnTimestart.Click += new System.EventHandler(this.BtnTimestart_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(320, 6);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(201, 26);
+            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.Value = new System.DateTime(2020, 2, 1, 0, 0, 0, 0);
+            // 
             // btnQueryRecord
             // 
             this.btnQueryRecord.Location = new System.Drawing.Point(633, 6);
@@ -173,28 +195,6 @@
             // 
             this.EventContent.Text = "事件";
             this.EventContent.Width = 400;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-            this.dateTimePicker1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(320, 6);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(201, 26);
-            this.dateTimePicker1.TabIndex = 2;
-            this.dateTimePicker1.Value = new System.DateTime(2020, 2, 1, 0, 0, 0, 0);
-            // 
-            // btnTimestart
-            // 
-            this.btnTimestart.Location = new System.Drawing.Point(528, 7);
-            this.btnTimestart.Name = "btnTimestart";
-            this.btnTimestart.Size = new System.Drawing.Size(99, 23);
-            this.btnTimestart.TabIndex = 3;
-            this.btnTimestart.Text = "按时间点播放";
-            this.btnTimestart.UseVisualStyleBackColor = true;
-            this.btnTimestart.Click += new System.EventHandler(this.BtnTimestart_Click);
             // 
             // FrmMain
             // 
